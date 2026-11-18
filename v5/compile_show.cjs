@@ -1,0 +1,10 @@
+const FRAPPE = process.env.FRAPPE || require("path").resolve(__dirname, "../../../frappe");
+const fs = require("fs");
+const sfc = require(FRAPPE + "/node_modules/vue/compiler-sfc/index.js");
+const filename = "Sidebar.vue";
+const src = fs.readFileSync(filename, "utf8");
+const { descriptor, errors } = sfc.parse(src, { filename });
+console.log("errors:", errors.length, "| blocks:", { script: !!descriptor.script, scriptSetup: !!descriptor.scriptSetup, template: !!descriptor.template, styles: descriptor.styles.length });
+const t = sfc.compileTemplate({ source: descriptor.template.content, filename, id: "sidebar" });
+console.log("template errors:", t.errors.length, "| source lines:", src.split("\n").length, "| render lines:", t.code.split("\n").length);
+console.log("-----RENDER-----\n" + t.code);
