@@ -1,0 +1,24 @@
+diff --git a/frappe/hooks.py b/frappe/hooks.py
+index 9c0c1124f2..60e7adc7f4 100644
+--- a/frappe/hooks.py
++++ b/frappe/hooks.py
+@@ -44,6 +44,7 @@ app_include_js = [
+ 	"desk.bundle.js",
+ 	"list.bundle.js",
+ 	"form.bundle.js",
++	"vue_first8.bundle.js",
+ 	"controls.bundle.js",
+ 	"report.bundle.js",
+ 	"telemetry.bundle.js",
+diff --git a/frappe/public/js/frappe/form/controls/control.js b/frappe/public/js/frappe/form/controls/control.js
+index b26436ab3d..3bedc0a6aa 100644
+--- a/frappe/public/js/frappe/form/controls/control.js
++++ b/frappe/public/js/frappe/form/controls/control.js
+@@ -1,6 +1,4 @@
+-import "./base_control";
+-import "./base_input";
+-import "./data";
++// vue-first test branch: Control, ControlInput and ControlData come from the vue_first bundle loaded before this one
+ import "./int";
+ import "./float";
+ import "./percent";

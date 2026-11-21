@@ -1,0 +1,20 @@
+  PASS  4000 controllers in one host: .empty() destroys all
+  PASS  4000 controllers in one host: .empty() is linear (ms)
+  PASS  a root moved by legacy code: removing it still destroys the controller
+  PASS  a fragment of placeholders, host emptied: not redrawn, destroyed
+  PASS  destroy() destroys controllers drawn inside the view
+  PASS  .contents().detach() of a placeholder view keeps it alive
+  PASS  view renders before the components inside it (no render of a dropped child)
+  PASS  an error in one view's re-render doesn't leave the next view stale
+  PASS  an error in the first render makes new throw
+  PASS  flush() called from inside the template doesn't recurse
+  PASS  a local class instance and a local alias of a vue function stay this.x
+  PASS  GC: dropped, DOM removed natively, host still on the page -> collected
+  PASS  string route 'List/ToDo' resolves like set_route
+  PASS  string route 'Form/User/x' resolves like set_route
+  PASS  '?status=Open' is relative to the current page
+  PASS  non-desk absolute paths stay
+  PASS  Button inside a @click.stop row still navigates, once
+
+17/17 passed
+console errors and Vue warnings: none

@@ -1,0 +1,30 @@
+controls: v8
+┌─────────────────┬─────────┬────────┬─────────────────┬────────────────────┬──────────────────┬────────────────┐
+│ (index)         │ open_ms │ fields │ vue_controllers │ vue_drawn_wrappers │ vue_drawn_inputs │ refresh_all_ms │
+├─────────────────┼─────────┼────────┼─────────────────┼────────────────────┼──────────────────┼────────────────┤
+│ User            │ 249     │ 106    │ 82              │ 0                  │ 0                │ 43.6           │
+│ Role            │ 175     │ 21     │ 14              │ 0                  │ 0                │ 1.4            │
+│ System Settings │ 346     │ 118    │ 88              │ 0                  │ 0                │ 12.7           │
+└─────────────────┴─────────┴────────┴─────────────────┴────────────────────┴──────────────────┴────────────────┘
+  PASS  Select field drew its options
+  PASS  frm.set_value reaches a Select
+  PASS  a change on the input reaches the model
+  PASS  a new ToDo saves
+  PASS  typing into a Data field sets the model (debounced input)
+  PASS  $input.val() survives a re-render of the control
+  PASS  ...and a changed bound value is still written
+  PASS  a class added by a script survives refresh
+  PASS  frm.toggle_display hides and shows
+  PASS  frm.set_df_property(label) redraws the label
+  PASS  frm.toggle_reqd marks the field
+  PASS  fields_dict wrapper is still .frappe-control[data-fieldname]
+  PASS  Check has a real checkbox
+  PASS  Switch has a real checkbox
+  PASS  Check default reaches get_values
+  PASS  unticking a Check reaches the value and depends_on
+  PASS  Dialog fields: set_value / get_values
+  PASS  Dialog is visible with its fields
+  PASS  Dialog hides
+
+19/19 passed
+console errors and Vue warnings: none

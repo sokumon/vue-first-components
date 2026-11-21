@@ -1,0 +1,52 @@
+
+A. probe_browser checks
+  PASS  app exists, one root
+  PASS  legacy sidebar still there
+  PASS  legacy page still there
+  PASS  class emitted by the build
+  PASS  methods on prototype at load
+  PASS  drawn synchronously
+  PASS  wrapper field
+  PASS  method + setup ref + computed + flush
+  PASS  returned real button
+  PASS  caller class survives
+  PASS  jQuery trigger reaches handler
+  PASS  jQuery fill survives
+  PASS  real click, prototype patch, async update
+  PASS  app subclass with super
+  PASS  destroy removes the views
+
+B. frappe-ui in a class
+  PASS  Button renders as frappe-ui
+  PASS  real click on Button reaches template handler
+  PASS  caller class on Button survives a re-render
+  PASS  jQuery .trigger reaches frappe-ui's own listener
+  PASS  Dropdown opens on real click
+  PASS  menu portals out of the class's host
+  PASS  focus moves into the menu
+  PASS  arrow keys move focus between items
+  PASS  Enter selects into a <script setup> ref
+  PASS  focus returns to the trigger after select
+  PASS  Escape closes and restores focus
+  PASS  re-render while open keeps menu and focus
+  PASS  outside click closes
+
+C. flush, transitions, focus
+  PASS  enter: element exists right after flush (sync)
+  PASS  enter: element exists after one microtask
+  PASS  enter: transition classes applied
+  PASS  focus into the entered element
+  PASS  enter classes removed after transitionend
+  PASS  re-render keeps focus on the input
+  PASS  leave: element still there, leaving
+  PASS  leave: removed after transitionend
+  PASS  rapid toggles settle to one element
+  PASS  focused plain input survives flush
+  PASS  destroy removes the frappe-ui view
+
+D. desk
+  PASS  form opens with v5 loaded
+  PASS  list route after form
+
+41/41 passed
+console errors and Vue warnings: none

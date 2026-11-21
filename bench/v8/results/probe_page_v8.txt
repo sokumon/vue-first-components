@@ -1,0 +1,26 @@
+ok   P1 new Page({"title":"Probe"}) is drawn when new returns, with page.js's DOM and jQuery fields
+ok   P1 new Page({"title":"Probe","single_column":true}) is drawn when new returns, with page.js's DOM and jQuery fields
+ok   P1 new Page({"title":"Probe","sidebar_position":"Right"}) is drawn when new returns, with page.js's DOM and jQuery fields
+ok   P2 set_title / set_indicator / clear_indicator: same DOM as page.js after each of 8 steps, same returned elements
+ok   P3 primary / secondary actions: same DOM as page.js after each of 10 steps, same returned elements
+ok   P3 clicks reach the current handler only, cleared buttons do nothing
+ok   P4 inner buttons and groups: same DOM as page.js after each of 15 steps, same returned elements
+ok   P4 a held $btn / group item keeps .addClass and stays the same element across later re-renders; clicks run
+ok   P5 menu items: same DOM as page.js after each of 13 steps, same returned elements
+ok   P5 the Menu dropdown's rows equal page.js's
+ok   P6 actions menu, add_button, custom groups, icons, inner message: same DOM as page.js after each of 17 steps, same returned elements
+ok   P7 add_field draws v8 controls into the template's toolbar form, in call order with labels/checks/breaks; get_form_values; clear_fields destroys them and the caller's content
+ok   P8 jQuery .remove()/.empty() of drawn items leave the state too; later updates do not throw and draw again
+ok   P8b indicator content cleared with jQuery: set_indicator with a new label draws it
+ok   P9 a forced re-render (and a show_menu that changes nothing) writes no DOM
+ok   P10 list page /desk/todo is a v8 page, drawn, no console errors
+ok   P10 form page /desk/todo/new is a v8 page, drawn, no console errors
+ok   P10 form page /desk/user/Administrator is a v8 page, drawn, no console errors
+ok   P10 report page /desk/todo/view/report is a v8 page, drawn, no console errors
+ok   P10 workspace page /desk/website is a v8 page, drawn, no console errors
+ok   P10 query report page /desk/query-report/Permitted Documents For User is a v8 page, drawn, no console errors
+ok   P10 form Menu dropdown opens with the store's rows
+P11 timing (median of 7, ms): {"v8":{"create_ms":1.435,"refresh_cycle_ms":4.12,"same_again_ms":0.16},"legacy":{"create_ms":1.1,"refresh_cycle_ms":2.75,"same_again_ms":0.13}}
+ok   no console errors or Vue warnings over the run
+
+23 passed, 0 failed

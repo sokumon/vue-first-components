@@ -1,0 +1,12 @@
+{
+  "name": "fui-lib",
+  "private": true,
+  "type": "module",
+  "devDependencies": {
+    "@vitejs/plugin-vue": "5",
+    "frappe-ui": "1.2.0",
+    "vite": "6",
+    "vue": "3.5.43",
+    "vue-router": "4"
+  }
+}

@@ -1,0 +1,17 @@
+  PASS  150 views fed by their own watchers all update, and keep updating
+  PASS  an unrelated view's queued error doesn't make this new throw
+  PASS  (v8) a setup onMounted error goes to the app errorHandler; what the hooks drew is owned and destroyed with the view
+  PASS  a view's own watcher still runs before its render
+  PASS  a destroy() override that removes its DOM with jQuery ends
+  PASS  ...and so does emptying its host
+  PASS  8000 top-level rows: .empty() is linear and destroys the view
+  PASS  a Teleport-only view goes with its host (.remove() and .empty())
+  PASS  a local object with a render key stays this.x
+  PASS  created in a Vue onMounted, host emptied right away: destroyed
+  PASS  a shell named in the route is kept
+  PASS  another site keeps its full URL
+  PASS  a file link is never 'active'
+  PASS  query plus hash: the query stays before the hash
+
+14/14 passed
+console errors and Vue warnings: none

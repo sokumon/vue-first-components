@@ -1,0 +1,11 @@
+  PASS  a watcher made in onMounted still runs before the view's render
+  PASS  .html(undefined) leaves a placeholder view alone, as jQuery does
+  PASS  a destroy() override that removes its DOM runs once
+  PASS  (v8) an error from a watcher its onMounted set off reaches the app errorHandler
+  PASS  destroy() still removes its view when a nested destroy throws
+  PASS  push('#tab') on the page showing switches the hash
+  PASS  a late hash isn't written onto the page the user went to
+  PASS  a Button with query and hash keeps both, the query first
+
+8/8 passed
+console errors and Vue warnings: none

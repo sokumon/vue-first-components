@@ -47,11 +47,12 @@ svg .lane{font-weight:600;font-size:13px}
 <body>
 <main>
 <h1>Vue-first frappe.ui</h1>
-<p class="lede">Each <code>frappe.ui.*</code> class comes out of a <code>.vue</code> file. The class holds state and the public API, its template draws it, and everything renders inside one <code>createApp</code>. Existing callers, prototype patches and jQuery writes keep working.</p>
+<p class="lede">Each <code>frappe.ui.*</code> class comes out of a <code>.vue</code> file. The class holds state and the public API, its template draws it, and each instance renders as its own small Vue root, sharing one app context. Existing callers, prototype patches and jQuery writes keep working.</p>
 <div class="status">
 <span class="pill"><b>Status:</b> design study, nothing in the repo</span>
-<span class="pill"><b class="ok">Spike 5:</b> 53 of 53 checks, jsdom only</span>
-<span class="pill"><b class="warn">Not yet run:</b> a browser, real frappe-ui</span>
+<span class="pill"><b class="ok">Spike 5:</b> 57 of 57 checks in jsdom</span>
+<span class="pill"><b class="ok">Real desk:</b> 122 of 122 checks in Chromium, with real frappe-ui</span>
+<span class="pill"><b class="ok">Issue #1:</b> all 10 flaws fixed</span>
 </div>
 
 <h2>The picture</h2>
@@ -63,11 +64,11 @@ svg .lane{font-weight:600;font-size:13px}
 <marker id="m2" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L8 4L0 8z" class="ahd"/></marker>
 </defs>
 <text x="20" y="28" class="lane">Controllers (emitted classes)</text>
-<text x="290" y="28" class="lane">One Vue tree</text>
+<text x="290" y="28" class="lane">One small Vue root each</text>
 <text x="600" y="28" class="lane">Where the DOM lands</text>
 
 <rect x="290" y="50" width="210" height="40" rx="7" class="b-vue"/><text x="306" y="75">App.vue, <tspan class="mono">createApp</tspan></text>
-<rect x="290" y="115" width="220" height="345" rx="9" class="b-vue"/><text x="306" y="140">ViewOutlet.vue</text>
+<rect x="290" y="115" width="220" height="345" rx="9" class="b-vue"/><text x="306" y="140">render(view, mount_point)</text>
 <path d="M395 90V115" class="a" marker-end="url(#m1)"/>
 
 <g><rect x="20" y="198" width="210" height="44" rx="7" class="b-cls"/><text x="34" y="225" class="mono">frappe.ui.Sidebar</text></g>
@@ -107,7 +108,7 @@ svg .lane{font-weight:600;font-size:13px}
 <path d="M495 290C570 290 570 141 640 141" class="t" marker-end="url(#m2)"/>
 <path d="M495 360C550 360 550 280 600 280" class="t" marker-end="url(#m2)"/>
 <path d="M495 430H600" class="t" marker-end="url(#m2)"/>
-<text x="600" y="472" class="small">Dashed arrows are Teleports. Dashed boxes are planned, not run.</text>
+<text x="600" y="472" class="small">Dashed arrows: each view's top-level nodes go into its host. Dashed boxes are planned, not run.</text>
 </svg>
 </div>
 
@@ -159,18 +160,20 @@ const doubled = computed(() =&gt; count.value * 2);
 <h2>What <code>new frappe.ui.Sidebar()</code> does</h2>
 <pre><code>new frappe.ui.Sidebar()
   shallowReactive(this)                 <span class="c">this.x = y now re-renders</span>
-  run &lt;script setup&gt;, then created()    <span class="c">no Vue component yet</span>
-  frappe.ui.views.add(self)
-  flush()
-    outlet.job()                        <span class="c">forces the outlet's update now</span>
-      view component is created, Teleport mounts into host
+  render(view, mount_point)             <span class="c">one synchronous call, its own small root</span>
+    view setup: &lt;script setup&gt;, created(), renders()   <span class="c">hooks and refs belong to the view</span>
+    first render; top-level nodes go into host          <span class="c">host read now, after created()</span>
+    onMounted hooks, template refs
+  any error above: tear down, rethrow   <span class="c">Vue would only log it</span>
   mounted()
 return self                             <span class="c">$wrapper and fields are ready here</span></code></pre>
+<p>Nothing global holds the controller. Its view re-renders from a queue of its own, which Vue runs ahead of every component in the tick, so a page with thousands of controllers costs the same per controller as one with ten.</p>
 
 <h2>How legacy callers keep working</h2>
 <div class="wrap"><table>
 <tr><th>Legacy expects</th><th>Vue does</th><th>What handles it</th></tr>
-<tr><td>The DOM is updated on the next line</td><td>Updates in a microtask</td><td><code>flush()</code> runs before a method hands out a node or fires an event</td></tr>
+<tr><td>The DOM is updated on the next line</td><td>Updates in a microtask</td><td><code>flush()</code> runs watchers, the view's and its children's renders, and post-flush work, until nothing changes</td></tr>
+<tr><td>Code drops controllers and removes their DOM with jQuery</td><td>Needs an explicit unmount</td><td>jQuery's <code>cleanData</code> destroys a view whose top-level node it removes; <code>destroy()</code> takes nested controllers with it</td></tr>
 <tr><td>Prototype patches and <code>class extends</code></td><td>Binds methods per instance</td><td>The emitted class is a real class</td></tr>
 <tr><td>Any <code>this.x = y</code> is state</td><td>Only declared keys are reactive</td><td>The whole instance is <code>shallowReactive</code></td></tr>
 <tr><td><code>$wrapper</code>, <code>$input</code>, <code>page.main</code></td><td>Uses template refs</td><td>Fields read the view's real DOM, and callers can assign their own</td></tr>
@@ -178,7 +181,7 @@ return self                             <span class="c">$wrapper and fields are 
 <tr><td><code>.html()</code> over any node</td><td>Throws on the next insert</td><td>Desk renderer: a node remembers its Vue parent</td></tr>
 <tr><td><code>.trigger()</code> and <code>.off("click")</code></td><td>Uses native listeners jQuery can't reach</td><td>Desk renderer: Vue's listeners are bound through jQuery</td></tr>
 </table></div>
-<p>The desk renderer is <code>createRenderer</code> over Vue's own exported <code>nodeOps</code> and <code>patchProp</code>, about 50 lines. Together with <code>define.js</code>, that's roughly 200 lines of our own code.</p>
+<p>The desk renderer is <code>createRenderer</code> over Vue's own exported <code>nodeOps</code> and <code>patchProp</code>, about 90 lines. With <code>define.js</code>, <code>vue_internals.js</code> (every Vue internal in one file, checked at startup) and <code>desk_router.js</code>, that's roughly 870 lines of our own code, comments included.</p>
 
 <h3>What happens to each method when it's ported</h3>
 <ul>
@@ -189,7 +192,7 @@ return self                             <span class="c">$wrapper and fields are 
 </ul>
 
 <h2>Where each frappe.ui class fits</h2>
-<p class="muted">This table is a paper mapping. Only Page, Sidebar and sidebar items have run.</p>
+<p class="muted">Sidebar and sidebar items, frappe-ui popups, and the form controls have run. The rest is a paper mapping.</p>
 <div class="wrap"><table>
 <tr><th>Shape</th><th>Host</th><th>Classes</th></tr>
 <tr><td>Fixed chrome</td><td><code>document.body</code></td><td>Sidebar, SidebarHeader, Dock, MobileNav, SidePanel, Notifications, toolbar.Toolbar</td></tr>
@@ -203,37 +206,51 @@ return self                             <span class="c">$wrapper and fields are 
 <h2>Proven and not proven</h2>
 <div class="grid2">
 <div>
-<h3 class="ok">Ran and passed, in jsdom</h3>
+<h3 class="ok">Ran and passed</h3>
 <ul>
-<li>Sidebar's public API, with opendesk's <code>add_item</code>, move and patch flow.</li>
-<li>Prototype patches, <code>class extends</code>, <code>super</code>, expandos.</li>
-<li>Compiling the way desk's real plugin compiles.</li>
-<li>jQuery triggers, <code>.off()</code>, moved nodes, added classes.</li>
-<li>Page, in the earlier spike 2, before classes were emitted.</li>
+<li>Sidebar's public API, with opendesk's <code>add_item</code>, move and patch flow (jsdom).</li>
+<li>Prototype patches, <code>class extends</code>, <code>super</code>, expandos (jsdom and Chromium).</li>
+<li>A real desk in Chromium: real frappe-ui <code>Button</code> and <code>Dropdown</code> inside an emitted class, focus, keys, portals, transitions, desk routing.</li>
+<li>Controller lifetime under forced GC, in Chromium.</li>
+<li><b>Forms:</b> <code>Control</code>, <code>ControlInput</code> and <code>ControlData</code> ported, with every other control still extending them. Frappe's own 156 Playwright specs for controls, forms, grids and dialogs give the same 135 passes as the original controls, and form load times are unchanged.</li>
+<li>Four adversarial review rounds: 58 more defects, each reproduced, fixed and covered by a check.</li>
 </ul>
 </div>
 <div>
 <h3 class="bad">Not run, and could change the design</h3>
 <ul>
-<li>A real browser.</li>
-<li><b>Real frappe-ui components</b> under the renderer. <code>define</code> doesn't pass <code>components</code> to views yet.</li>
 <li>Bootstrap's modal JS on a Vue-drawn <code>$wrapper</code>.</li>
-<li>Controls, Grid and Dialog: no port attempted.</li>
+<li>Grid and Dialog themselves: they run on v5 controls, but their own markup is still jQuery.</li>
+<li>Web forms: they load the controls without the desk's v5 runtime.</li>
+<li>The build step: <code>esbuild-plugin-vue3</code> can't compile frappe-ui (it is prebuilt with Vite here), and doesn't emit <code>frappe.ui.define</code> or <code>__imports</code> yet.</li>
 </ul>
 </div>
 </div>
 
+<h3>Issue #1, fixed</h3>
+<div class="wrap"><table>
+<tr><th>Was</th><th>Now</th><th>Evidence</th></tr>
+<tr><td><b>Outlet cost.</b> One outlet re-rendered every controller on every add.</td><td>Each controller is its own root; views re-render from their own queue</td><td class="ok">n = 1000: create 1008 → 57 ms, destroy 843 → 9 ms (plain Teleports: 38 / 7 ms)</td></tr>
+<tr><td><b>Reactive reads, jQuery in <code>host</code>.</b></td><td>Internals read <code>toRaw</code>; <code>host</code> resolved once</td><td class="ok">Reactive <code>get</code> 23% → ~2% of profile; no jQuery calls during re-render</td></tr>
+<tr><td><b>Controller lifetime.</b></td><td>Nothing global holds a controller; jQuery removal destroys it</td><td class="ok">Dropped controllers collected after forced GC, including DOM removed natively</td></tr>
+<tr><td><b>Post-flush lag.</b> Transitions, <code>onUpdated</code>, refs, watchers a tick late.</td><td><code>flush()</code> settles watchers, child renders and post work</td><td class="ok">Probe checks pass synchronously</td></tr>
+<tr><td><b>Hooks in the class's setup.</b></td><td>Setup runs inside the view</td><td class="ok"><code>onMounted</code>, <code>useTemplateRef</code>, <code>ref="x"</code> work</td></tr>
+<tr><td><b>Setup isn't private.</b></td><td>Imports stay off <code>this</code></td><td class="ok">From the build's <code>__imports</code>; a narrow guess without it</td></tr>
+<tr><td><b>Router warning, merged listeners.</b></td><td><code>desk_router.js</code>, <code>call_handlers</code></td><td class="ok">No warnings; routes navigate once</td></tr>
+<tr><td><b>Vue internals.</b></td><td>All in <code>vue_internals.js</code>, checked by <code>verify()</code> at startup</td><td class="warn">Still internals: <code>job</code>, <code>effect</code>, <code>subTree</code>, hook arrays</td></tr>
+</table></div>
+
 <h3>Known problems</h3>
 <div class="wrap"><table>
-<tr><th>Problem</th><th>Evidence</th><th>State</th></tr>
-<tr><td><b>Outlet cost.</b> Each new controller re-renders the outlet and searches its children.</td><td>100 / 300 / 1000 controllers took 17 / 100 / 895ms in jsdom</td><td class="bad">Open, with batching untested</td></tr>
-<tr><td><b>Controller lifetime.</b> The outlet holds every controller, and <code>frappe.ui.button()</code> nodes are often just dropped.</td><td>200 of 200 stayed alive after forced GC</td><td class="bad">Open, <code>$.cleanData</code> hook untested here</td></tr>
-<tr><td><b>Vue internals.</b> <code>flush()</code> uses <code>instance.job</code> and <code>subTree</code>.</td><td>Not public API</td><td class="warn">A version-pinned test would catch breakage</td></tr>
-<tr><td><b>Post-flush lag.</b> <code>v-show</code>, <code>onUpdated</code> and template refs land a tick after <code>flush()</code>.</td><td>Spike 3 failures</td><td class="warn">Use <code>:style</code>. <code>.avatar-name-email</code> still needs fixing.</td></tr>
-<tr><td><b>Hooks in the class's setup.</b> <code>onMounted</code> never ran and <code>useTemplateRef</code> stayed null.</td><td>Spike 5</td><td class="warn">Use the <code>mounted</code> option for now</td></tr>
-<tr><td><b>Setup isn't private.</b> Its bindings and imports are readable as <code>this.x</code>.</td><td>Spike 5</td><td class="warn">Filtering imports isn't built</td></tr>
-<tr><td><b>Emit isn't in the build.</b> The plugin generates its module as a fixed string.</td><td>Read <code>esbuild-plugin-vue3</code></td><td class="warn">Needs a patch or a wrapper</td></tr>
-<tr><td><b>Not emitted yet:</b> <code>watch</code>, <code>beforeUnmount</code>, cached <code>computed</code>.</td><td>Not in <code>define.js</code></td><td class="warn">To do</td></tr>
+<tr><th>Problem</th><th>State</th></tr>
+<tr><td>A view with watchers of its own stays on Vue's scheduler (so its watchers run before its render), and doesn't get the batch speed-up.</td><td class="warn">Correct, slower in bulk</td></tr>
+<tr><td>Frappe's own pages rewrite the URL after routing: a form swaps the hash for its active tab, a list view puts its filters after the hash.</td><td class="warn">Frappe behaviour</td></tr>
+<tr><td>A view that re-renders while its root is <code>.detach()</code>ed puts a replaced root back into its original host. Same as before issue #1.</td><td class="warn">Open</td></tr>
+<tr><td>A view kept alive by global reactive state, whose DOM was removed without jQuery, isn't collected until destroyed.</td><td class="warn">Same as any Vue component</td></tr>
+<tr><td><code>flush()</code> inside another view's <code>onMounted</code> lands its post work when that flush ends, not when <code>flush()</code> returns.</td><td class="warn">Documented</td></tr>
+<tr><td>A <code>push()</code> to the page already showing does nothing, so a link click navigates exactly once.</td><td class="warn">By design</td></tr>
+<tr><td>Form controls: <code>refresh()</code> with nothing changed is 1.6× faster and <code>set_input()</code> 1.4× faster than the originals; creating a Data control is ~1.3× slower and a refresh that changes every field ~1.9× slower (Vue's mount and patch floor). Form load times are the same.</td><td class="warn">Measured</td></tr>
+<tr><td><b>Not emitted yet:</b> <code>watch</code>, <code>beforeUnmount</code>, cached <code>computed</code> options.</td><td class="warn">To do</td></tr>
 </table></div>
 
 <h2>Ruled out</h2>
@@ -248,15 +265,15 @@ return self                             <span class="c">$wrapper and fields are 
 </table></div>
 
 <h2>Next test</h2>
-<p>On erpnext.site in a browser, on a branch off <code>desk-v2</code>:</p>
 <ol class="steps">
-<li>Pass <code>components</code> through <code>define</code>, then mount a real frappe-ui <code>Button</code> and <code>Dropdown</code> inside an emitted class.</li>
-<li>Measure a form's worth of controllers, about 300, through the outlet.</li>
-<li>Check that <code>flush()</code> holds up with real transitions and focus.</li>
+<li>Teach the desk's Vue build plugin to emit <code>frappe.ui.define(_sfc_main)</code> and <code>__imports</code>, and to compile frappe-ui.</li>
+<li>Port more of the control itself into the template (label, description, read-only display), and Grid rows.</li>
+<li>Bootstrap modals on a Vue-drawn <code>$wrapper</code>.</li>
 </ol>
-<p>If any of these fails badly, the class layer should shrink to a thin facade over ordinary components.</p>
+<h3>Build time</h3>
+<p>The v5 bundle doesn't change desk build time: <code>node esbuild --production --apps frappe</code> takes 5.2–5.4 s with or without it (median of 5), and it builds alone in ~0.18 s. <code>bench build --app frappe</code> takes ~32 s warm and ~43–47 s with island caches cleared; the studio and flow Vite builds are most of that. The bundle is 375 KB minified: Vue 218 KB (each desk Vue bundle carries its own copy today), frappe-ui's Button and Dropdown 135 KB, the v5 runtime 15 KB.</p>
 
-<p class="muted" style="margin-top:32px">Code: <code>apps/.scratch/vue-first-components/v5/</code>. Run <code>spike5_real.cjs</code> from that folder with Node 22.</p>
+<p class="muted" style="margin-top:32px">Code: <code>v5/</code>. Run <code>spike5_real.cjs</code> from that folder with Node 22. The real-desk harness is in <code>bench/</code>.</p>
 </main>
 </body>
 </html>

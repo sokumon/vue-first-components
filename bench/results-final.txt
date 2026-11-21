@@ -1,0 +1,24 @@
+desk esbuild (all frappe bundles, with v5): 5.196213942 rc=0
+desk esbuild (all frappe bundles, with v5): 5.523280676 rc=0
+desk esbuild (all frappe bundles, with v5): 5.153735149 rc=0
+desk esbuild (all frappe bundles, with v5): 5.327407601 rc=0
+desk esbuild (all frappe bundles, with v5): 5.355137421 rc=0
+v5 bundle only (--files frappe/vue_first.bundle.js): .849692807 rc=0
+v5 bundle only (--files frappe/vue_first.bundle.js): .816730999 rc=0
+v5 bundle only (--files frappe/vue_first.bundle.js): .902188708 rc=0
+v5 bundle only (--files frappe/vue_first.bundle.js): .852967301 rc=0
+v5 bundle only (--files frappe/vue_first.bundle.js): .831105836 rc=0
+desk.bundle only: .866121469 rc=0
+desk.bundle only: .935663446 rc=0
+desk.bundle only: .948073648 rc=0
+desk.bundle only: .934409873 rc=0
+desk.bundle only: .890859869 rc=0
+desk esbuild (all frappe bundles, WITHOUT v5): 5.391547692 rc=0
+desk esbuild (all frappe bundles, WITHOUT v5): 5.424696344 rc=0
+desk esbuild (all frappe bundles, WITHOUT v5): 5.408698939 rc=0
+desk esbuild (all frappe bundles, WITHOUT v5): 5.369431587 rc=0
+desk esbuild (all frappe bundles, WITHOUT v5): 5.498471478 rc=0
+bench build --app frappe (warm, islands cached): 32.115259513 rc=0
+bench build --app frappe (cold islands): 43.076580358 rc=0
+bench build (all apps, warm): 32.065502228 rc=0
+frappe

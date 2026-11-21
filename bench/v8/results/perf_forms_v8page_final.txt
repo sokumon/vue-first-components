@@ -1,0 +1,6 @@
+== forms run 1
+v8 {"open User (ms)":166,"open System Settings (ms)":90,"make 500 Data controls (ms)":211,"make 500 Int controls (ms)":213,"make 500 Select controls (ms)":351,"set_input on 500 Data controls (ms)":39.8,"refresh() on 500 Data controls (ms)":7.6,"refresh() on 500 after toggling reqd (ms)":49.1}
+== forms run 2
+v8 {"open User (ms)":163,"open System Settings (ms)":104,"make 500 Data controls (ms)":209,"make 500 Int controls (ms)":224,"make 500 Select controls (ms)":367,"set_input on 500 Data controls (ms)":41.2,"refresh() on 500 Data controls (ms)":7.5,"refresh() on 500 after toggling reqd (ms)":50.1}
+== forms run 3
+v8 {"open User (ms)":168,"open System Settings (ms)":103,"make 500 Data controls (ms)":207,"make 500 Int controls (ms)":210,"make 500 Select controls (ms)":356,"set_input on 500 Data controls (ms)":38.9,"refresh() on 500 Data controls (ms)":7.7,"refresh() on 500 after toggling reqd (ms)":49.4}

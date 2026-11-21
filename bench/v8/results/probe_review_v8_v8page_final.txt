@@ -1,0 +1,21 @@
+  PASS  replaceWith on a view root works and destroys it
+  PASS  @click that evaluates to false doesn't preventDefault or stop bubbling
+  PASS  a view showing only a comment, host emptied: not redrawn, destroyed
+  PASS  root swapped by a child component: jQuery .empty() destroys it
+  PASS  an error in created() makes new throw
+  PASS  created in a Vue onMounted (v8): mounted() inside new; setup onMounted and refs at Vue's post flush, after it
+  PASS  destroy() in created(): nothing drawn, no mounted()
+  PASS  a jQuery-only selector works as parent
+  PASS  renders(): v5-only API, not part of v8 (documented); the class still constructs
+  PASS  a view's watcher and the render it causes (v8: at the tick, not inside flush())
+  PASS  state set in a setup onMounted is drawn (v8: by the next tick)
+  PASS  a component import isn't this.x, local state is
+  PASS  array route: absolute href
+  PASS  array route with options: query, not [object Object]
+  PASS  object route keeps query and hash
+  PASS  named route is refused, not sent home
+  PASS  currentRoute carries the query
+  PASS  array-route Button opens the form, navigating once
+
+18/18 passed
+console errors and Vue warnings: none

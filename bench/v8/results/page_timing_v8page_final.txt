@@ -1,0 +1,3 @@
+{"v8":{"create_ms":1.9,"refresh_cycle_ms":3.96,"same_again_ms":0.1},"legacy":{"create_ms":0.94,"refresh_cycle_ms":2.81,"same_again_ms":0.15}}
+{"v8":{"create_ms":1.68,"refresh_cycle_ms":3.88,"same_again_ms":0.09},"legacy":{"create_ms":0.955,"refresh_cycle_ms":2.63,"same_again_ms":0.13}}
+{"v8":{"create_ms":1.805,"refresh_cycle_ms":3.44,"same_again_ms":0.08},"legacy":{"create_ms":0.89,"refresh_cycle_ms":2.52,"same_again_ms":0.12}}

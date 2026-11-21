@@ -1,0 +1,28 @@
+GC alive of 200 each: {"local-jquery":0,"local-native":0,"local-attached":200,"local-destroyed":0,"global-jquery":0,"global-native":200,"global-destroyed":0}
+  PASS  #8 internals canary: the runtime's Vue internals verified at load
+  PASS  #9 onMounted in setup ran (v8: by the next tick), with the template ref set
+  PASS  #9 useTemplateRef is the element
+  PASS  #9 ref="x" on a setup ref() fills it
+  PASS  #9/#4 flush() drew the update; onUpdated ran (v8: by the next tick)
+  PASS  #10 vue imports are not this.x
+  PASS  #10 other imports are not this.x
+  PASS  #10 local state, functions and let are this.x
+  PASS  #10 setup fields aren't enumerable
+  PASS  controller made in mounted() draws into the parent's DOM
+  PASS  #5 Button route renders an <a href>
+  PASS  #3 no jQuery call during re-render and flush
+  PASS  #2 the public object is still reactive for undeclared keys
+  PASS  #7 jQuery .remove() destroys the controller
+  PASS  #7 ...and a controller drawn inside it
+  PASS  #7 a destroyed controller ignores flush()
+  PASS  #7 .detach() keeps it alive and updating
+  PASS  #7 .html('') on the host destroys it
+  PASS  #7 GC: dropped, DOM removed by jQuery -> collected
+  PASS  #7 GC: dropped, global store, DOM removed by jQuery -> collected
+  PASS  #7 GC: destroy() -> collected
+  PASS  #7 GC: dropped, DOM removed natively, no global state -> collected
+  PASS  #7 GC: dropped but still on the page -> kept
+  PASS  #5 clicking it routes the desk without a reload
+
+24/24 passed
+console errors and Vue warnings: none

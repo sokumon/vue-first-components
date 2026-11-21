@@ -1,0 +1,60 @@
+== v8 ==
+{
+ "inner_50": 33.3,
+ "inner_100": 48.8,
+ "inner_200": 107.8,
+ "inner_400": 277.2,
+ "groups_10x10": 30.9,
+ "groups_20x10": 61.6,
+ "groups_40x10": 159.9,
+ "one_add_with_8_groups": 17.2
+}
+== legacy ==
+{
+ "inner_50": 11.7,
+ "inner_100": 22.6,
+ "inner_200": 43.8,
+ "inner_400": 95.4,
+ "groups_10x10": 23.9,
+ "groups_20x10": 44.6,
+ "groups_40x10": 98,
+ "one_add_with_8_groups": 9.6
+}
+== v8 ==
+{
+ "menu_300": 51.8,
+ "inner_100": 42,
+ "groups_20x10": 67.3,
+ "noop_show_menu_x1000": 1.1,
+ "noop_set_indicator_x1000": 4.3,
+ "set_title_x200": 24.3,
+ "refresh_cycle_x50": 205.3,
+ "parts_after": 54
+}
+== legacy ==
+{
+ "menu_300": 38.1,
+ "inner_100": 22,
+ "groups_20x10": 48.7,
+ "noop_show_menu_x1000": 1.1,
+ "noop_set_indicator_x1000": 17.4,
+ "set_title_x200": 27.5,
+ "refresh_cycle_x50": 123.3,
+ "parts_after": 0
+}
+== v8 ==
+{
+ "std_300": 45.6,
+ "user_300": 50.5,
+ "mixed_300": 42.1,
+ "std_30": 5,
+ "mixed_30": 4.5
+}
+== legacy ==
+{
+ "std_300": 34.6,
+ "user_300": 40.1,
+ "mixed_300": 35,
+ "std_30": 3.1,
+ "mixed_30": 3.6
+}

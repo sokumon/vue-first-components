@@ -1,0 +1,562 @@
+
+Running 288 tests using 1 worker
+
+  ✓    1 playwright/tests/app_landing.spec.js:47:6 › Where an app's icon leads › follows the first entry of the user's dock (6.7s)
+  ✓    2 playwright/tests/app_landing.spec.js:54:6 › Where an app's icon leads › passes over an entry the user hid (3.6s)
+  ✓    3 playwright/tests/app_landing.spec.js:61:6 › Where an app's icon leads › passes over an entry that opens nothing for this user (2.2s)
+  ✓    4 playwright/tests/app_landing.spec.js:71:6 › Where an app's icon leads › passes over a URL entry (2.3s)
+  ✓    5 playwright/tests/app_landing.spec.js:81:6 › Where an app's icon leads › passes over a sidebar whose first item leaves the desk (2.1s)
+  ✓    6 playwright/tests/app_landing.spec.js:100:6 › Where an app's icon leads › falls back to the declared route when no entry opens a desk page (2.3s)
+  ✓    7 playwright/tests/app_landing.spec.js:110:6 › Where an app's icon leads › treats an app declaring an /app route as a desk app (2.3s)
+  ✓    8 playwright/tests/app_landing.spec.js:120:6 › Where an app's icon leads › keeps an app outside the desk on its own route (2.3s)
+  ✓    9 playwright/tests/app_landing.spec.js:137:6 › Clicking a dock entry › opens a web address in a new tab and leaves the desk where it was (2.8s)
+  ✓   10 playwright/tests/app_landing.spec.js:160:6 › The header's Apps menu on a touch screen › opens an app outside the desk on its own route (3.0s)
+  ✓   11 playwright/tests/assignment_rule.spec.js:4:6 › Assignment Rule › Custom grid buttons work (2.1s)
+  ✓   12 playwright/tests/awesome_bar.spec.js:60:6 › Awesome Bar › opens awesome bar on click (691ms)
+  ✓   13 playwright/tests/awesome_bar.spec.js:64:6 › Awesome Bar › navigates to doctype list (1.2s)
+  ✓   14 playwright/tests/awesome_bar.spec.js:75:6 › Awesome Bar › navigates to another doctype, filter not bleeding (1.1s)
+  ✓   15 playwright/tests/awesome_bar.spec.js:83:6 › Awesome Bar › navigates to new form (1.4s)
+  ✓   16 playwright/tests/awesome_bar.spec.js:90:6 › Awesome Bar › calculates math expressions (1.8s)
+  ✓   17 playwright/tests/awesome_bar.spec.js:97:6 › Awesome Bar › support number formats in math expressions (3.0s)
+  ✓   18 playwright/tests/awesome_bar.spec.js:124:6 › Awesome Bar page results › leaves system pages out of page results (1.9s)
+  ✓   19 playwright/tests/awesome_bar.spec.js:136:6 › Awesome Bar page results › leaves visited system pages out of recent results (2.7s)
+  ✓   20 playwright/tests/breadcrumbs.spec.js:35:6 › Breadcrumbs › names a list once (1.9s)
+  ✓   21 playwright/tests/breadcrumbs.spec.js:41:6 › Breadcrumbs › leads a document back to its list (2.1s)
+  ✓   22 playwright/tests/breadcrumbs.spec.js:52:6 › Breadcrumbs › does not repeat the document name over its doctype (2.6s)
+  ✓   23 playwright/tests/breadcrumbs.spec.js:58:6 › Breadcrumbs › names a doctype that has a page of its own (2.3s)
+  ✓   24 playwright/tests/breadcrumbs.spec.js:69:6 › Breadcrumbs › keeps the document reachable from the print view (2.2s)
+  ✓   25 playwright/tests/breadcrumbs.spec.js:81:6 › Breadcrumbs › names a tree by its tree title (1.7s)
+  ✓   26 playwright/tests/breadcrumbs.spec.js:87:6 › Breadcrumbs › names a workspace without linking it to itself (1.7s)
+  ✓   27 playwright/tests/breadcrumbs.spec.js:94:6 › Breadcrumbs › still draws through the retired API (1.9s)
+  ✓   28 playwright/tests/breadcrumbs.spec.js:173:6 › Breadcrumbs › cannot reach a page that is not on screen through the retired API (1.8s)
+  ✓   29 playwright/tests/breadcrumbs.spec.js:202:6 › Breadcrumbs › draws no trail for a form inside a dialog (2.8s)
+  ✓   30 playwright/tests/breadcrumbs.spec.js:232:6 › Breadcrumbs › ignores a page that is not on screen (1.8s)
+  ✓   31 playwright/tests/chart.spec.js:90:6 › Desk charts › draws in the frappe.chart island (3.2s)
+  ✓   32 playwright/tests/chart.spec.js:97:6 › Desk charts › draws with frappe-charts under Use Classic Charts (4.8s)
+  ✓   33 playwright/tests/chart.spec.js:104:6 › Desk charts › the old chart APIs warn once, frappe.ui.chart never (2.4s)
+  ✓   34 playwright/tests/custom_buttons.spec.js:77:7 › Custom group button behaviour on desk › Custom button works with name 'Metallica' (5.1s)
+  ✓   35 playwright/tests/custom_buttons.spec.js:77:7 › Custom group button behaviour on desk › Custom button works with name 'Pink Floyd' (3.4s)
+  ✓   36 playwright/tests/custom_buttons.spec.js:77:7 › Custom group button behaviour on desk › Custom button works with name 'Porcupine Tree (the GOAT)' (3.4s)
+  ✓   37 playwright/tests/custom_buttons.spec.js:77:7 › Custom group button behaviour on desk › Custom button works with name 'AC / DC' (3.4s)
+  ✓   38 playwright/tests/custom_buttons.spec.js:77:7 › Custom group button behaviour on desk › Custom button works with name 'Electronic Dance "music"' (3.4s)
+  ✓   39 playwright/tests/custom_buttons.spec.js:77:7 › Custom group button behaviour on desk › Custom button works with name 'l'imperatrice' (3.4s)
+  ✓   40 playwright/tests/custom_buttons.spec.js:86:6 › Custom group button behaviour on desk › Clears the busy state when the callback returns a frappe.call (1.9s)
+  ✓   41 playwright/tests/custom_buttons.spec.js:92:6 › Custom group button behaviour on desk › Clears the busy state when the frappe.call fails (1.9s)
+  ✓   42 playwright/tests/customize_form.spec.js:19:6 › Customize Form › Changing to naming rule should update autoname (4.2s)
+  ✓   43 playwright/tests/customize_form.spec.js:48:6 › Customize Form › saves a changed color on an existing document state (7.2s)
+  ✓   44 playwright/tests/dashboard_chart_legend.spec.js:65:6 › Dashboard Chart Legend › keeps long legend labels truncated when a circular chart is re-rendered (3.5s)
+  ✓   45 playwright/tests/dashboard_chart.spec.js:4:6 › Dashboard Chart › Check filter populate for child table doctype (7.1s)
+  ✓   46 playwright/tests/dashboard_chart.spec.js:68:6 › Dashboard Chart heatmap › draws the year as twelve months (3.2s)
+  ✓   47 playwright/tests/dashboard_chart.spec.js:111:6 › Dashboard Chart custom options › custom options leave other objects untouched (3.7s)
+  ✓   48 playwright/tests/dashboard_links.spec.js:45:6 › Dashboard links › Adding a new contact, checking for the counter on the dashboard and deleting the created contact (7.0s)
+  ✓   49 playwright/tests/dashboard_links.spec.js:92:6 › Dashboard links › Report link in dashboard (2.5s)
+  ✓   50 playwright/tests/dashboard_links.spec.js:114:6 › Dashboard links › check if child table is populated with linked field on creation from dashboard link (3.5s)
+  ✓   51 playwright/tests/dashboard_links.spec.js:131:6 › Dashboard links › check if child table is left empty when the link field is on the parent (3.8s)
+  ✘   52 playwright/tests/dashboard.spec.js:91:6 › Dashboard view › should load (31.1s)
+  ✘   53 playwright/tests/dashboard.spec.js:133:6 › Dashboard view › a dashboard the reader can see nothing on says so (32.2s)
+  ✘   54 playwright/tests/dashboard.spec.js:175:6 › Dashboard view › a dashboard the reader cannot open clears the one drawn before (32.2s)
+  ✘   55 playwright/tests/dashboard.spec.js:202:6 › Dashboard view island › an island that reports no title keeps the dashboard's name in the breadcrumb (32.2s)
+  ✘   56 playwright/tests/dashboard.spec.js:214:6 › Dashboard view island › an island's action labels print as text in the page menu (32.2s)
+  ✘   57 playwright/tests/dashboard.spec.js:228:6 › Dashboard view island › a number card an app claims draws its island (32.3s)
+  ✘   58 playwright/tests/dashboard.spec.js:234:6 › Dashboard view island › a number card island's action runs from the card menu (32.2s)
+  ✓   59 playwright/tests/desktop_layout.spec.js:33:6 › Saved desktop layout › opens what the server says an icon opens (2.0s)
+  ✓   60 playwright/tests/desktop_layout.spec.js:42:6 › Saved desktop layout › finds an icon saved under a name it did not keep (1.8s)
+  ✓   61 playwright/tests/desktop_layout.spec.js:49:6 › Saved desktop layout › does not draw an icon the server left out, and keeps it in the layout (1.8s)
+  ✓   62 playwright/tests/desktop_layout.spec.js:60:6 › Saved desktop layout › draws an icon the user just created, before the server knows of it (1.8s)
+  ✓   63 playwright/tests/desktop_layout.spec.js:84:6 › Saved desktop layout › routes a workspace the user just created by the module the server gave it (1.9s)
+  ✓   64 playwright/tests/desktop_layout.spec.js:98:6 › Saved desktop layout › always draws a folder (1.8s)
+  ✓   65 playwright/tests/doctype_layout.spec.js:54:6 › DocType Layout › DocType Layout form: Sync Fields populates rows and Form Builder renders (3.4s)
+  ✓   66 playwright/tests/doctype_layout.spec.js:80:6 › DocType Layout › Form Builder re-renders when switching layout records without a reload (3.0s)
+  ✓   67 playwright/tests/doctype_layout.spec.js:110:6 › DocType Layout › Condition auto-switches the layout after a matching value is saved (2.7s)
+  ✓   68 playwright/tests/filter_group.spec.js:4:6 › Filter Group › preserves numeric filter values with a comma decimal separator (1.9s)
+  ✓   69 playwright/tests/filter_group.spec.js:41:6 › Filter Group › applies a combobox MultiSelect pick in a filter row (2.2s)
+  ✓   70 playwright/tests/form_set_controller.spec.js:59:6 › Form Set Controller › binds the controller class while the form loads (1.8s)
+  ✓   71 playwright/tests/form_set_controller.spec.js:70:6 › Form Set Controller › keeps a subclass that a form script already bound (1.9s)
+  ✓   72 playwright/tests/form_tab_break.spec.js:11:6 › Form Tab Break › Should switch tab and open correct tabs on validation error (5.2s)
+  ✓   73 playwright/tests/form_tab_break.spec.js:36:6 › Form Tab Break › Should stay on the active tab after the first save (4.0s)
+  ✓   74 playwright/tests/form_web_link.spec.js:23:6 › Form Web Link › renders a published website page when the form sidebar is disabled (1.9s)
+  ✓   75 playwright/tests/form.spec.js:21:6 › Form › create a new form (3.0s)
+  ✓   76 playwright/tests/form.spec.js:46:6 › Form › navigates between documents with child table list filters applied (4.5s)
+  ✓   77 playwright/tests/form.spec.js:62:6 › Form › validates behaviour of Data options validations in child table (2.6s)
+  ✓   78 playwright/tests/form.spec.js:89:6 › Form › Jump to field in collapsed section (3.0s)
+  ✓   79 playwright/tests/form.spec.js:100:6 › Form › update docfield property using set_df_property in child table (2.0s)
+  ✓   80 playwright/tests/form.spec.js:135:6 › Form › downloads a file without the leave prompt and keeps the warning (1.9s)
+  ✓   81 playwright/tests/kanban_filter.spec.js:35:6 › Kanban filter › keeps a quick filter as a panel row, also while its field is the swimlane (2.9s)
+  ✓   82 playwright/tests/kanban_v2.spec.js:41:6 › Kanban v2 Board › renders the new Kanban board instead of the classic one (1.7s)
+  ✓   83 playwright/tests/kanban_v2.spec.js:52:6 › Kanban v2 Board › creates a ToDo from the primary action (3.6s)
+  ✓   84 playwright/tests/kanban_v2.spec.js:74:6 › Kanban v2 Board › opens a pre-filled create dialog when adding a card to a column (2.7s)
+  ✓   85 playwright/tests/kanban_v2.spec.js:89:6 › Kanban v2 Board › moves a card to another column and saves it (2.2s)
+  ✓   86 playwright/tests/kanban_v2.spec.js:112:6 › Kanban v2 Board › leaves the doctype room when the board closes (1.9s)
+  ✓   87 playwright/tests/kanban_v2.spec.js:122:6 › Kanban v2 Board › falls back to the classic Kanban board when the setting is disabled (2.1s)
+  ✓   88 playwright/tests/kanban.spec.js:104:6 › Kanban Board › Create ToDo Kanban (2.1s)
+  ✓   89 playwright/tests/kanban.spec.js:131:6 › Kanban Board › Open a board from the view switcher on list view (2.8s)
+  ✓   90 playwright/tests/kanban.spec.js:143:6 › Kanban Board › Create ToDo from kanban (3.0s)
+  ✓   91 playwright/tests/kanban.spec.js:158:6 › Kanban Board › Add and Remove fields (4.3s)
+  ✓   92 playwright/tests/kanban.spec.js:202:6 › Kanban Board › Shows fieldtype icons when labels are hidden (2.2s)
+  ✓   93 playwright/tests/kanban.spec.js:218:6 › Kanban Board › Prefetches additional cards while scrolling a large Kanban column (2.3s)
+  ✓   94 playwright/tests/kanban.spec.js:227:6 › Kanban Board › Saves drag-and-drop order after loading additional column pages (2.6s)
+  -   95 playwright/tests/kanban.spec.js:255:7 › Kanban Board › Checks if Kanban Board edits are blocked for non-System Manager and non-owner of the Board
+  ✓   96 playwright/tests/list_filter.spec.js:26:7 › List filter › panel › applies a filter as soon as it is complete (3.3s)
+  ✓   97 playwright/tests/list_filter.spec.js:41:7 › List filter › panel › opens an empty row on its field picker, with every field listed (3.2s)
+  ✓   98 playwright/tests/list_filter.spec.js:76:7 › List filter › panel › keeps a row's field when its picker is cleared with Backspace (2.5s)
+  ✓   99 playwright/tests/list_filter.spec.js:98:7 › List filter › panel › finds a child table's fields by the table's name (3.4s)
+  ✓  100 playwright/tests/list_filter.spec.js:108:7 › List filter › panel › focuses the panel, not a saved filter, and keeps focus in it (3.4s)
+  ✓  101 playwright/tests/list_filter.spec.js:146:7 › List filter › panel › keeps an edit to a toolbar filter's row when the panel closes (2.9s)
+  ✓  102 playwright/tests/list_filter.spec.js:165:7 › List filter › panel › leaves the wildcards typed in a like box as they are (2.8s)
+  ✓  103 playwright/tests/list_filter.spec.js:185:7 › List filter › panel › a Check field filters only once Yes or No is chosen (2.5s)
+  ✓  104 playwright/tests/list_filter.spec.js:206:8 › List filter › Link in, with the combobox › in: search text that is no record is not a value (3.8s)
+  ✓  105 playwright/tests/list_filter.spec.js:206:8 › List filter › Link in, with the combobox › not in: search text that is no record is not a value (4.1s)
+  ✓  106 playwright/tests/list_filter.spec.js:266:6 › List filter › an "in" pick on a Select field applies while its list is open (5.8s)
+  ✓  107 playwright/tests/list_filter.spec.js:307:7 › List filter › sheet on a phone › lists filters as rows and applies them on Apply (3.7s)
+  ✓  108 playwright/tests/list_filter.spec.js:332:7 › List filter › sheet on a phone › picks a date and time in a calendar step, set on Done (3.5s)
+  ✓  109 playwright/tests/list_filter.spec.js:355:7 › List filter › sheet on a phone › clears every filter on Apply, and keeps them when closed without it (3.4s)
+  ✓  110 playwright/tests/list_filter.spec.js:379:7 › List filter › sheet on a phone › shows option labels, forgets an abandoned filter and discards edits without Apply (3.8s)
+  ✓  111 playwright/tests/list_paging.spec.js:16:6 › List Paging › test load more with count selection buttons (9.1s)
+  ✓  112 playwright/tests/list_saved_layouts.spec.js:44:6 › List View — Saved Layouts › restores last selected layout on a clean URL when no URL filters exist (4.4s)
+  ✓  113 playwright/tests/list_saved_layouts.spec.js:68:6 › List View — Saved Layouts › does not auto-apply empty-filter layout from URL signature alone (2.9s)
+  ✓  114 playwright/tests/list_saved_layouts.spec.js:85:6 › List View — Saved Layouts › auto-applies a layout when the URL matches its route signature (2.9s)
+  ✓  115 playwright/tests/list_saved_layouts.spec.js:102:6 › List View — Saved Layouts › applies a saved layout from the menu and can switch back to default (4.8s)
+  ✓  116 playwright/tests/list_saved_layouts.spec.js:124:6 › List View — Saved Layouts › opens manage layouts dialog with the saved layout listed (4.2s)
+  ✓  117 playwright/tests/list_saved_layouts.spec.js:145:6 › List View — Saved Layouts › switches to list view with a layout applied, from another view (4.0s)
+  ✓  118 playwright/tests/list_saved_layouts.spec.js:167:6 › List View — Saved Layouts › fetches non-in_list_view fields used as saved layout columns (5.3s)
+  ✓  119 playwright/tests/list_view_column_width.spec.js:69:6 › List View — Column Widths › saves and applies column width set in List View Settings dialog (4.5s)
+  ✓  120 playwright/tests/list_view_column_width.spec.js:93:6 › List View — Column Widths › drag-to-resize changes the column width and persists it (3.1s)
+  ✓  121 playwright/tests/list_view_column_width.spec.js:109:6 › List View — Column Widths › enforces minimum column width of 50 px when dragging (2.4s)
+  ✓  122 playwright/tests/list_view_column_width.spec.js:114:6 › List View — Column Widths › enforces maximum column width of 400 px when dragging (2.6s)
+  ✓  123 playwright/tests/list_view_column_width.spec.js:177:6 › List View — Column resize handle without System Manager › hides the handle on the default layout (2.5s)
+  ✓  124 playwright/tests/list_view_column_width.spec.js:181:6 › List View — Column resize handle without System Manager › hides the handle on a layout the user cannot edit (3.5s)
+  ✓  125 playwright/tests/list_view_column_width.spec.js:186:6 › List View — Column resize handle without System Manager › shows the handle on the user's own layout (3.5s)
+  ✓  126 playwright/tests/list_view_column_width.spec.js:193:6 › List View — Column resize handle for System Manager › shows the handle on the default layout (2.2s)
+  ✓  127 playwright/tests/list_view_settings.spec.js:33:6 › List View Settings › Default settings (3.8s)
+  ✓  128 playwright/tests/list_view_settings.spec.js:37:6 › List View Settings › disable count and sidebar stats then verify (7.0s)
+  ✘  129 playwright/tests/list_view.spec.js:15:6 › List View › Keep checkbox checked after Refresh (0ms)
+  -  130 playwright/tests/list_view.spec.js:25:6 › List View › keeps a Check '= No' standard filter applied
+  -  131 playwright/tests/list_view.spec.js:46:6 › List View › enables "Actions" button
+  -  132 playwright/tests/list_view.spec.js:100:6 › List View › Adds a button to each list view row
+  -  133 playwright/tests/list_view.spec.js:120:6 › List View › translates field labels in the bulk edit dialog
+  -  134 playwright/tests/list_view.spec.js:162:6 › List View › keeps the selection after a bulk edit
+  -  135 playwright/tests/list_view.spec.js:201:6 › List View › clears the selection when a bulk action is queued
+  -  136 playwright/tests/list_view.spec.js:227:6 › List View › clears a partial selection from the header checkbox
+  -  137 playwright/tests/list_view.spec.js:252:6 › List View › keeps selected rows checked after a list rerender
+  -  138 playwright/tests/list_view.spec.js:275:6 › List View › preserves select-all across virtualized window rerenders
+  -  139 playwright/tests/list_view.spec.js:305:6 › List View › keeps mobile virtual rows rendered during fast downward scroll
+  -  140 playwright/tests/list_view.spec.js:338:6 › List View › flips sort order icon and title
+  -  141 playwright/tests/list_view.spec.js:357:6 › List View › sorts from a sheet on phones
+  -  142 playwright/tests/list_view.spec.js:391:7 › List View › on a touch phone › opens a row's actions on a long press
+  ✓  143 playwright/tests/list_view.spec.js:449:6 › List View bulk submit › refreshes the list when a repeated submit fails (5.0s)
+  ✓  144 playwright/tests/mobile_nav.spec.js:48:6 › Phone tab bar › a single doctype has the tab bar, not a back button (1.9s)
+  ✓  145 playwright/tests/mobile_nav.spec.js:54:6 › Phone tab bar › a document form has a back button instead of the tab bar (1.9s)
+  ✓  146 playwright/tests/mobile_nav.spec.js:61:6 › Phone tab bar › a list loads the next page as it scrolls (2.1s)
+  ✓  147 playwright/tests/mobile_nav.spec.js:74:6 › Phone tab bar › a filter change during a scroll load shows only the filtered rows (4.8s)
+  ✓  148 playwright/tests/mobile_nav.spec.js:108:6 › Phone tab bar › picking a row in the navigation sheet routes without a reload (2.4s)
+  ✘  149 playwright/tests/mobile_nav.spec.js:131:6 › Phone tab bar › the Desktop page header keeps only the logo and title (35.8s)
+  -  150 playwright/tests/mobile_nav.spec.js:141:6 › Phone tab bar › profile settings show when the language name lookup fails
+  -  151 playwright/tests/mobile_nav.spec.js:157:6 › Phone tab bar › profile loads the name again on return, so a save keeps a change made elsewhere
+  -  152 playwright/tests/mobile_nav.spec.js:209:6 › Phone tab bar › an island page shows a skeleton until its bundle has mounted
+  -  153 playwright/tests/mobile_nav.spec.js:227:6 › Phone tab bar › the phone pages send a wide screen to their desktop home
+  ✓  154 playwright/tests/msgprint.spec.js:9:6 › Msgprint › keeps an open message when the response carries only toasts (2.3s)
+  ✓  155 playwright/tests/msgprint.spec.js:25:6 › Msgprint › clears an open message before showing a server message (2.2s)
+  ✓  156 playwright/tests/msgprint.spec.js:41:6 › Msgprint › keeps the primary action of an earlier message in the same response (2.2s)
+  ✓  157 playwright/tests/navigation.spec.js:6:6 › Navigation › Navigate to route with hash in document name (2.9s)
+  ✓  158 playwright/tests/navigation.spec.js:25:6 › Navigation › Navigate to previous page after login (4.6s)
+  ✓  159 playwright/tests/number_card.spec.js:4:6 › Number Card › Check filter populate for child table doctype (5.7s)
+  ✓  160 playwright/tests/number_card.spec.js:133:6 › Number Card widget › draws frappe-ui's NumberCard, printing the number as the classic card does (7.4s)
+  ✓  161 playwright/tests/number_card.spec.js:152:6 › Number Card widget › a Duration card reads as its field prints it, seconds hidden, in both modes (7.4s)
+  ✓  162 playwright/tests/number_card.spec.js:165:6 › Number Card widget › a Document Type card shows its count and its change since last month (2.0s)
+  ✓  163 playwright/tests/page_island.spec.js:78:6 › Frappe UI page › mounts the island the page names, inside the page content (1.9s)
+  ✓  164 playwright/tests/page_island.spec.js:86:6 › Frappe UI page › takes the page title from what the island reports (1.9s)
+  ✓  165 playwright/tests/page_island.spec.js:91:6 › Frappe UI page › fills the page menu from the actions the island reports (1.9s)
+  ✓  166 playwright/tests/page_island.spec.js:99:6 › Frappe UI page › hands the island the route below the page (1.9s)
+  ✓  167 playwright/tests/page_island.spec.js:104:6 › Frappe UI page › updates the island in place when the route below the page moves (2.0s)
+  ✓  168 playwright/tests/page_island.spec.js:114:6 › Frappe UI page › says the page is unbuilt when its bundle is missing (1.8s)
+  ✓  169 playwright/tests/print_view.spec.js:17:6 › Print View without System Manager › picking a format refreshes the preview (4.5s)
+  ✘  170 playwright/tests/query_report.spec.js:57:6 › Query Report › add custom column in report (22.0s)
+  ✓  171 playwright/tests/query_report.spec.js:84:6 › Query Report › requires document type and field before adding a custom column (3.5s)
+  ✓  172 playwright/tests/query_report.spec.js:101:6 › Query Report › saves resized column widths (6.4s)
+  ✘  173 playwright/tests/query_report.spec.js:163:6 › Query Report › restores the filters of a prepared report run (32.6s)
+  ✓  174 playwright/tests/query_report.spec.js:204:6 › Query Report › test multi level query report (7.5s)
+  ✓  175 playwright/tests/query_report.spec.js:212:6 › Query Report › exports rows in the order shown after sorting and filtering (4.1s)
+  ✓  176 playwright/tests/query_report.spec.js:296:7 › Query Report › Custom Report › shows filters once after the reference report script ran (1.9s)
+  ✓  177 playwright/tests/query_report.spec.js:311:7 › Query Report › Custom Report › gets filters from the reference report script (1.6s)
+  ✓  178 playwright/tests/report_print_format.spec.js:73:6 › Report Print Formats › opens the print view from the report menu (2.3s)
+  ✓  179 playwright/tests/report_print_format.spec.js:81:6 › Report Print Formats › renders a jinja format on the server (1.8s)
+  ✓  180 playwright/tests/report_print_format.spec.js:89:6 › Report Print Formats › renders a js format in the browser (1.9s)
+  ✓  181 playwright/tests/report_print_format.spec.js:98:6 › Report Print Formats › downloads a jinja format pdf rendered on the server (2.0s)
+  ✓  182 playwright/tests/report_print_format.spec.js:108:6 › Report Print Formats › downloads the rows in the order on screen (2.4s)
+  ✓  183 playwright/tests/report_view_link_title.spec.js:52:6 › Report View Link Titles › takes titles from the report response, leaving a blank Link column empty (1.7s)
+  ✓  184 playwright/tests/report_view_link_title.spec.js:76:6 › Report View Link Titles › resolves the title of each link against its own doctype (1.6s)
+  ✓  185 playwright/tests/report_view.spec.js:49:6 › Report View › drops a saved chart that has no Y axis (2.5s)
+  ✓  186 playwright/tests/report_view.spec.js:69:6 › Report View › Field with enabled allow_on_submit should be editable. (2.1s)
+  ✓  187 playwright/tests/report_view.spec.js:124:6 › Report View selection › keeps the same document selected after a bulk edit (3.2s)
+  ✓  188 playwright/tests/report_view.spec.js:200:6 › Report View selection with child table column › keeps only the checked child row selected after a refresh (3.5s)
+  ✓  189 playwright/tests/report_view.spec.js:248:6 › Report View without report permission › hides the report view and redirects its route to the list view (2.5s)
+  ✓  190 playwright/tests/report_view.spec.js:262:6 › Report View without report permission › opens the list view when the doctype defaults to the report view (2.0s)
+  ✓  191 playwright/tests/report_view.spec.js:308:6 › Report View group by button › shows the group by field label as text (2.0s)
+  ✓  192 playwright/tests/report_view.spec.js:321:6 › Report View group by button › keeps the group by popover open when a field is picked with the mouse (2.6s)
+  ✓  193 playwright/tests/report_view.spec.js:345:6 › Report View group by button › keeps keyboard focus in the group by popover (6.0s)
+  ✓  194 playwright/tests/report_view.spec.js:413:6 › Report View group by button › opens a saved view grouped by a field that cannot be queried (4.0s)
+  ✓  195 playwright/tests/report_view.spec.js:449:6 › Report View group by button › keeps decimals in minimum and maximum totals (3.9s)
+  ✓  196 playwright/tests/report_view.spec.js:526:6 › Report View child table group by › checks the virtual flag on the child table (4.2s)
+  ✓  197 playwright/tests/routing.spec.js:19:6 › SPA Routing › should apply filter on list view from route (4.7s)
+  ✓  198 playwright/tests/shell_routing.spec.js:44:6 › Desk URL shell segment › reads a shell off a route only when what follows names something (1.9s)
+  ✓  199 playwright/tests/shell_routing.spec.js:89:6 › Desk URL shell segment › never strips a leading `private` as a shell prefix (1.7s)
+  ✓  200 playwright/tests/shell_routing.spec.js:115:6 › Desk URL shell segment › opens a private page in the Private shell, and keeps it in a module that lists it (4.1s)
+  ✓  201 playwright/tests/shell_routing.spec.js:153:6 › Desk URL shell segment › keeps a private page made in a module in that module's shell (4.3s)
+  ✓  202 playwright/tests/shell_routing.spec.js:181:6 › Desk URL shell segment › opens the Private shell on the first item of its sidebar, page or not (3.6s)
+  ✓  203 playwright/tests/shell_routing.spec.js:230:6 › Desk URL shell segment › opens a landing that leaves the desk in a tab, and draws the pane (2.8s)
+  ✓  204 playwright/tests/shell_routing.spec.js:268:6 › Desk URL shell segment › reads anything else after `private` as a route inside the Private shell (2.7s)
+  ✓  205 playwright/tests/shell_routing.spec.js:284:6 › Desk URL shell segment › honours a shell only when it can show what the route names (1.8s)
+  ✓  206 playwright/tests/shell_routing.spec.js:300:6 › Desk URL shell segment › takes a shell the user cannot see off the URL, and writes in one they can (3.4s)
+  ✓  207 playwright/tests/shell_routing.spec.js:323:6 › Desk URL shell segment › shows the shell the URL names (1.8s)
+  ✓  208 playwright/tests/shell_routing.spec.js:328:6 › Desk URL shell segment › keeps a shell that does not list the entity but belongs to its app (1.6s)
+  ✓  209 playwright/tests/shell_routing.spec.js:335:6 › Desk URL shell segment › writes the shell into a URL that arrived without one (1.6s)
+  ✓  210 playwright/tests/shell_routing.spec.js:340:6 › Desk URL shell segment › leaves the query string and the fragment alone while doing it (1.6s)
+  ✓  211 playwright/tests/shell_routing.spec.js:346:6 › Desk URL shell segment › keeps the shell you are standing in as you navigate (1.9s)
+  ✓  212 playwright/tests/shell_routing.spec.js:359:6 › Desk URL shell segment › moves into the shell a link names, from a page with no shell (1.7s)
+  ✓  213 playwright/tests/shell_routing.spec.js:376:6 › Desk URL shell segment › leaves the shell you are standing in when the awesomebar opens something it does not list (2.1s)
+  ✓  214 playwright/tests/shell_routing.spec.js:389:6 › Desk URL shell segment › chooses the shell again when the awesomebar opens what is already on screen (2.1s)
+  ✓  215 playwright/tests/shell_routing.spec.js:402:6 › Desk URL shell segment › does not rewrite history when you go back (2.2s)
+  ✓  216 playwright/tests/shell_routing.spec.js:411:6 › Desk URL shell segment › goes back past a new document once it is saved (2.8s)
+  ✓  217 playwright/tests/shell_routing.spec.js:444:6 › Desk URL shell segment › opens a system page in no shell (1.5s)
+  ✓  218 playwright/tests/shell_routing.spec.js:450:6 › Desk URL shell segment › takes a shell off the front of a system page, and nothing else (1.5s)
+  ✓  219 playwright/tests/shell_routing.spec.js:458:6 › Desk URL shell segment › leaves the sidebar where it was across a system page (1.9s)
+  ✓  220 playwright/tests/shell_routing.spec.js:476:6 › Desk URL shell segment › moves between system pages without ever naming a shell (1.7s)
+  ✓  221 playwright/tests/shell_routing.spec.js:492:6 › Desk URL shell segment › opens a shared page in the shell the URL names (1.7s)
+  ✓  222 playwright/tests/shell_routing.spec.js:499:6 › Desk URL shell segment › keeps a shared page in the shell on screen, even on a jump (1.8s)
+  ✓  223 playwright/tests/shell_routing.spec.js:511:6 › Desk URL shell segment › keeps a shared page in the Private shell on a jump (1.7s)
+  ✓  224 playwright/tests/shell_routing.spec.js:523:6 › Desk URL shell segment › opens a shared page in its own module's shell when nothing names one (1.7s)
+  ✓  225 playwright/tests/shell_routing.spec.js:538:6 › Desk URL shell segment › opens a report through a shell (1.5s)
+  ✓  226 playwright/tests/shell_routing.spec.js:548:6 › Desk URL shell segment › leaves a workspace alone when it is named after its own shell (1.6s)
+  ✓  227 playwright/tests/shell_routing.spec.js:554:6 › Desk URL shell segment › names the shell when the workspace is not named after it (1.9s)
+  ✓  228 playwright/tests/shell_routing.spec.js:571:6 › Desk URL shell segment › highlights the sidebar item you are looking at (1.6s)
+  ✓  229 playwright/tests/shell_routing.spec.js:577:6 › Desk URL shell segment › reads back a standard route it wrote a shell into (2.3s)
+  ✓  230 playwright/tests/shell_routing.spec.js:587:6 › Desk URL shell segment › does not re-route when handed the path already on screen (1.8s)
+  ✓  231 playwright/tests/shell_routing.spec.js:609:6 › Desk URL shell segment › builds sidebar links that already name their shell (1.8s)
+  ✓  232 playwright/tests/shell_routing.spec.js:631:6 › Desk URL shell segment › opens a report link with its filters (1.8s)
+  ✓  233 playwright/tests/shell_routing.spec.js:657:6 › Desk URL shell segment › takes a stale shell off a workspace URL (2.2s)
+  ✓  234 playwright/tests/shell_routing.spec.js:691:6 › Desk URL shell segment › clears the highlight when nothing in the sidebar claims the route (1.8s)
+  ✓  235 playwright/tests/shell_routing.spec.js:704:6 › Desk URL shell segment › matches a sidebar item only against the kind the route names (1.8s)
+  -  236 playwright/tests/shell_routing.spec.js:731:7 › Desk URL shell segment › opens the dock from the keyboard and hands focus back when it closes
+  ✓  237 playwright/tests/shell_routing.spec.js:773:6 › Desk URL shell segment › keeps a collapsed sidebar collapsed when a dock tile is clicked (2.3s)
+  ✓  238 playwright/tests/sidebar_panel.spec.js:19:6 › Sidebar Panel › mounts the panel beside the sidebar, not inside it (558ms)
+  ✓  239 playwright/tests/sidebar_panel.spec.js:25:6 › Sidebar Panel › opens and closes on toggle (593ms)
+  ✓  240 playwright/tests/sidebar_panel.spec.js:35:6 › Sidebar Panel › closes on Escape (540ms)
+  ✓  241 playwright/tests/sidebar_panel.spec.js:44:6 › Sidebar Panel › closes when clicked outside (587ms)
+  ✓  242 playwright/tests/sidebar_panel.spec.js:55:6 › Sidebar Panel › stays open when clicked inside (571ms)
+  ✓  243 playwright/tests/sidebar_panel.spec.js:63:6 › Sidebar Panel › closes from the panel's own close button (582ms)
+  ✓  244 playwright/tests/sidebar_panel.spec.js:71:6 › Sidebar Panel › keeps aria-expanded on the trigger in step (535ms)
+  ✓  245 playwright/tests/sidebar_panel.spec.js:81:6 › Sidebar Panel › only lets one panel be open (571ms)
+  ✓  246 playwright/tests/sidebar_panel.spec.js:95:6 › Sidebar Panel › closes on navigation (645ms)
+  ✓  247 playwright/tests/sidebar_panel.spec.js:108:6 › Sidebar Panel › moves search and the bell onto the dock in a docked app (600ms)
+  ✓  248 playwright/tests/sidebar_panel.spec.js:120:6 › Sidebar Panel › shows unread notifications as a dot on the dock bell (515ms)
+  ✓  249 playwright/tests/sidebar_panel.spec.js:135:6 › Sidebar Panel › opens the background tasks panel from the sidebar (580ms)
+  ✓  250 playwright/tests/sidebar_panel.spec.js:145:6 › Sidebar Panel › opens from the dock bell (590ms)
+  ✓  251 playwright/tests/sidebar_resolution.spec.js:191:6 › Sidebar resolution › decides whether a shell may show a route (1.8s)
+  ✓  252 playwright/tests/sidebar_resolution.spec.js:201:6 › Sidebar resolution › picks the shell a URL should name (1.8s)
+  ✓  253 playwright/tests/sidebar_resolution.spec.js:221:6 › Sidebar resolution › lands on the home shell the server worked out, else the first shell (1.8s)
+  ✓  254 playwright/tests/sidebar_sections.spec.js:14:6 › Sidebar sections › opens the group holding the page after switching from a shell with a group of the same name (1.8s)
+  ✓  255 playwright/tests/sidebar.spec.js:66:6 › Sidebar › Verify attachment visibility config (3.0s)
+  ✓  256 playwright/tests/sidebar.spec.js:79:6 › Sidebar › Verify attachment accessibility UX (6.3s)
+  ✓  257 playwright/tests/tree_view.spec.js:15:6 › Tree View › keeps expanded nodes when navigating back to the tree (2.0s)
+  ✓  258 playwright/tests/tree_view.spec.js:31:6 › Tree View › shows Expand All / Collapse All only when the tree's state warrants it (3.9s)
+  ✓  259 playwright/tests/tree_view.spec.js:84:6 › Tree View › sorts nodes by name and remembers the choice (3.3s)
+  ✓  260 playwright/tests/tree_view.spec.js:124:6 › Tree View › restores the scroll position when navigating back to the tree (2.0s)
+  ✓  261 playwright/tests/user.spec.js:10:6 › User › Add Roles opens the roles of a user created outside the form (3.3s)
+  ✓  262 playwright/tests/view_routing.spec.js:33:6 › View › Route to ToDo List View (1.9s)
+  ✓  263 playwright/tests/view_routing.spec.js:39:6 › View › Route to ToDo Report View (1.8s)
+  ✓  264 playwright/tests/view_routing.spec.js:45:6 › View › Route to ToDo Dashboard View (1.7s)
+  ✓  265 playwright/tests/view_routing.spec.js:51:6 › View › Route to ToDo Gantt View (1.9s)
+  ✓  266 playwright/tests/view_routing.spec.js:57:6 › View › Route to ToDo Kanban View (2.0s)
+  ✓  267 playwright/tests/view_routing.spec.js:64:6 › View › Route to ToDo Calendar View (1.7s)
+  ✓  268 playwright/tests/view_routing.spec.js:70:6 › View › Route to Custom Tree View (2.2s)
+  ✓  269 playwright/tests/view_routing.spec.js:77:6 › View › Route to Custom Image View (2.2s)
+  ✓  270 playwright/tests/view_routing.spec.js:84:6 › View › Route to Communication Inbox View (2.4s)
+  ✓  271 playwright/tests/view_routing.spec.js:91:6 › View › Route to File View (2.1s)
+  ✓  272 playwright/tests/view_routing.spec.js:107:6 › View › Re-route to default view (2.1s)
+  ✓  273 playwright/tests/view_routing.spec.js:114:6 › View › Route to default view from app/{doctype} (2.1s)
+  ✓  274 playwright/tests/view_routing.spec.js:121:6 › View › Route to default view from app/{doctype}/view (2.2s)
+  ✓  275 playwright/tests/view_routing.spec.js:128:6 › View › Force Route to default view from app/{doctype} (2.3s)
+  ✓  276 playwright/tests/view_routing.spec.js:135:6 › View › Force Route to default view from app/{doctype}/view (2.2s)
+  ✓  277 playwright/tests/view_routing.spec.js:142:6 › View › Force Route to default view from app/{doctype}/view/list (2.2s)
+  ✓  278 playwright/tests/view_routing.spec.js:153:6 › View › Validate Route History for Default View (2.8s)
+  ✓  279 playwright/tests/view_routing.spec.js:162:6 › View › Route to Form (2.1s)
+  ✓  280 playwright/tests/view_routing.spec.js:167:6 › View › Route to Website Workspace (1.5s)
+  -  281 playwright/tests/workspace_blocks.spec.js:11:7 › Workspace Blocks › Create Test Page
+  -  282 playwright/tests/workspace_blocks.spec.js:36:7 › Workspace Blocks › Quick List Block
+  -  283 playwright/tests/workspace_blocks.spec.js:147:7 › Workspace Blocks › Number Card Block
+  -  284 playwright/tests/workspace.spec.js:11:7 › Workspace 2.0 › Navigate to page from sidebar
+  -  285 playwright/tests/workspace.spec.js:19:7 › Workspace 2.0 › Create Private Page
+  -  286 playwright/tests/workspace.spec.js:45:7 › Workspace 2.0 › Add New Block
+  -  287 playwright/tests/workspace.spec.js:65:7 › Workspace 2.0 › Delete A Block
+  -  288 playwright/tests/workspace.spec.js:78:7 › Workspace 2.0 › Shrink and Expand A Block
+
+
+  1) playwright/tests/dashboard.spec.js:91:6 › Dashboard view › should load ────────────────────────
+
+    TimeoutError: page.goto: Timeout 30000ms exceeded.
+    Call log:
+    [2m  - navigating to "http://v5.localhost:8000/desk", waiting until "load"[22m
+
+
+      93 | 		const dashboard = "TODO-TEST-DASHBOARD";
+      94 |
+    > 95 | 		await page.goto("/desk");
+         | 		           ^
+      96 | 		await desk.ready();
+      97 |
+      98 | 		await api.insert_doc(
+        at /home/claude/fb/frappe-bench/apps/frappe/playwright/tests/dashboard.spec.js:95:14
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/dashboard-Dashboard-view-should-load/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/dashboard-Dashboard-view-should-load/error-context.md
+
+  2) playwright/tests/dashboard.spec.js:133:6 › Dashboard view › a dashboard the reader can see nothing on says so 
+
+    TimeoutError: page.goto: Timeout 30000ms exceeded.
+    Call log:
+    [2m  - navigating to "http://v5.localhost:8000/desk", waiting until "load"[22m
+
+
+      133 | 	test("a dashboard the reader can see nothing on says so", async ({ page, desk, api }) => {
+      134 | 		const dashboard = "TODO-TEST-DASHBOARD";
+    > 135 | 		await page.goto("/desk");
+          | 		           ^
+      136 | 		await desk.ready();
+      137 | 		await api.insert_doc(
+      138 | 			"Dashboard Chart",
+        at /home/claude/fb/frappe-bench/apps/frappe/playwright/tests/dashboard.spec.js:135:14
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/dashboard-Dashboard-view-a-e48f9--can-see-nothing-on-says-so/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/dashboard-Dashboard-view-a-e48f9--can-see-nothing-on-says-so/error-context.md
+
+  3) playwright/tests/dashboard.spec.js:175:6 › Dashboard view › a dashboard the reader cannot open clears the one drawn before 
+
+    TimeoutError: page.goto: Timeout 30000ms exceeded.
+    Call log:
+    [2m  - navigating to "http://v5.localhost:8000/desk", waiting until "load"[22m
+
+
+      180 | 		const dashboard = "TODO-CLEAR-DASHBOARD";
+      181 |
+    > 182 | 		await page.goto("/desk");
+          | 		           ^
+      183 | 		await desk.ready();
+      184 | 		await api.insert_doc(
+      185 | 			"Dashboard",
+        at /home/claude/fb/frappe-bench/apps/frappe/playwright/tests/dashboard.spec.js:182:14
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/dashboard-Dashboard-view-a-013d2-clears-the-one-drawn-before/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/dashboard-Dashboard-view-a-013d2-clears-the-one-drawn-before/error-context.md
+
+  4) playwright/tests/dashboard.spec.js:202:6 › Dashboard view island › an island that reports no title keeps the dashboard's name in the breadcrumb 
+
+    TimeoutError: page.goto: Timeout 30000ms exceeded.
+    Call log:
+    [2m  - navigating to "http://v5.localhost:8000/desk", waiting until "load"[22m
+
+
+      41 | async function open_claimed_dashboard(page, desk, api, props) {
+      42 | 	const dashboard = "TODO-ISLAND-DASHBOARD";
+    > 43 | 	await page.goto("/desk");
+         | 	           ^
+      44 | 	await desk.ready();
+      45 | 	await api.insert_doc(
+      46 | 		"Dashboard",
+        at open_claimed_dashboard (/home/claude/fb/frappe-bench/apps/frappe/playwright/tests/dashboard.spec.js:43:13)
+        at /home/claude/fb/frappe-bench/apps/frappe/playwright/tests/dashboard.spec.js:207:27
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/dashboard-Dashboard-view-i-3b986-rd-s-name-in-the-breadcrumb/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/dashboard-Dashboard-view-i-3b986-rd-s-name-in-the-breadcrumb/error-context.md
+
+  5) playwright/tests/dashboard.spec.js:214:6 › Dashboard view island › an island's action labels print as text in the page menu 
+
+    TimeoutError: page.goto: Timeout 30000ms exceeded.
+    Call log:
+    [2m  - navigating to "http://v5.localhost:8000/desk", waiting until "load"[22m
+
+
+      41 | async function open_claimed_dashboard(page, desk, api, props) {
+      42 | 	const dashboard = "TODO-ISLAND-DASHBOARD";
+    > 43 | 	await page.goto("/desk");
+         | 	           ^
+      44 | 	await desk.ready();
+      45 | 	await api.insert_doc(
+      46 | 		"Dashboard",
+        at open_claimed_dashboard (/home/claude/fb/frappe-bench/apps/frappe/playwright/tests/dashboard.spec.js:43:13)
+        at /home/claude/fb/frappe-bench/apps/frappe/playwright/tests/dashboard.spec.js:220:9
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/dashboard-Dashboard-view-i-76c0f-nt-as-text-in-the-page-menu/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/dashboard-Dashboard-view-i-76c0f-nt-as-text-in-the-page-menu/error-context.md
+
+  6) playwright/tests/dashboard.spec.js:228:6 › Dashboard view island › a number card an app claims draws its island 
+
+    TimeoutError: page.goto: Timeout 30000ms exceeded.
+    Call log:
+    [2m  - navigating to "http://v5.localhost:8000/desk", waiting until "load"[22m
+
+
+      59 | 	const card = "TODO-ISLAND-CARD";
+      60 | 	const dashboard = "TODO-ISLAND-CARD-DASHBOARD";
+    > 61 | 	await page.goto("/desk");
+         | 	           ^
+      62 | 	await desk.ready();
+      63 | 	await api.insert_doc(
+      64 | 		"Number Card",
+        at open_claimed_card (/home/claude/fb/frappe-bench/apps/frappe/playwright/tests/dashboard.spec.js:61:13)
+        at /home/claude/fb/frappe-bench/apps/frappe/playwright/tests/dashboard.spec.js:229:24
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/dashboard-Dashboard-view-i-10089-app-claims-draws-its-island/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/dashboard-Dashboard-view-i-10089-app-claims-draws-its-island/error-context.md
+
+  7) playwright/tests/dashboard.spec.js:234:6 › Dashboard view island › a number card island's action runs from the card menu 
+
+    TimeoutError: page.goto: Timeout 30000ms exceeded.
+    Call log:
+    [2m  - navigating to "http://v5.localhost:8000/desk", waiting until "load"[22m
+
+
+      59 | 	const card = "TODO-ISLAND-CARD";
+      60 | 	const dashboard = "TODO-ISLAND-CARD-DASHBOARD";
+    > 61 | 	await page.goto("/desk");
+         | 	           ^
+      62 | 	await desk.ready();
+      63 | 	await api.insert_doc(
+      64 | 		"Number Card",
+        at open_claimed_card (/home/claude/fb/frappe-bench/apps/frappe/playwright/tests/dashboard.spec.js:61:13)
+        at /home/claude/fb/frappe-bench/apps/frappe/playwright/tests/dashboard.spec.js:235:24
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/dashboard-Dashboard-view-i-aa837-ion-runs-from-the-card-menu/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/dashboard-Dashboard-view-i-aa837-ion-runs-from-the-card-menu/error-context.md
+
+  8) playwright/tests/list_view.spec.js:15:6 › List View › Keep checkbox checked after Refresh ─────
+
+    Error: frappe.tests.ui_test_helpers.setup_workflow: {"exception":"ModuleNotFoundError: No module named 'responses'","exc_type":"ModuleNotFoundError","exc":"[\"Traceback (most recent call last):\\n  File \\\"apps/frappe/frappe/app.py\\\", line 135, in application\\n    response = frappe.api.handle(request)\\n  File \\\"apps/frappe/frappe/api/__init__.py\\\", line 64, in handle\\n    data = endpoint(**arguments)\\n  File \\\"apps/frappe/frappe/api/v1.py\\\", line 44, in handle_rpc_call\\n    return frappe.handler.handle()\\n           ~~~~~~~~~~~~~~~~~~~~~^^\\n  File \\\"apps/frappe/frappe/handler.py\\\", line 58, in handle\\n    data = execute_cmd(cmd)\\n  File \\\"apps/frappe/frappe/handler.py\\\", line 88, in execute_cmd\\n    return frappe.call(method, **frappe.form_dict)\\n           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"apps/frappe/frappe/__init__.py\\\", line 1156, in call\\n    return fn(*args, **newargs)\\n  File \\\"apps/frappe/frappe/utils/typing_validations.py\\\", line 57, in wrapper\\n    return func(*args, **kwargs)\\n  File \\\"apps/frappe/frappe/tests/utils/__init__.py\\\", line 34, in wrapper\\n    return fn(*args, **kwargs)\\n  File \\\"apps/frappe/frappe/tests/ui_test_helpers.py\\\", line 132, in setup_workflow\\n    from frappe.workflow.doctype.workflow.test_workflow import create_todo_workflow\\n  File \\\"apps/frappe/frappe/workflow/doctype/workflow/test_workflow.py\\\", line 6, in <module>\\n    import responses\\nModuleNotFoundError: No module named 'responses'\\n\"]"}
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m200[39m
+    Received: [31m500[39m
+
+       at ../support/api.js:29
+
+      27 | 			headers: await this.headers(),
+      28 | 		});
+    > 29 | 		expect(res.status(), `${method}: ${await res.text()}`).toBe(200);
+         | 		                                                       ^
+      30 | 		return await res.json();
+      31 | 	}
+      32 |
+        at Api.call (/home/claude/fb/frappe-bench/apps/frappe/playwright/support/api.js:29:58)
+        at /home/claude/fb/frappe-bench/apps/frappe/playwright/tests/list_view.spec.js:8:3
+
+  9) playwright/tests/mobile_nav.spec.js:131:6 › Phone tab bar › the Desktop page header keeps only the logo and title 
+
+    TimeoutError: page.goto: Timeout 30000ms exceeded.
+    Call log:
+    [2m  - navigating to "http://v5.localhost:8000/desk", waiting until "load"[22m
+
+
+       8 | async function open_on_phone(page, desk, path) {
+       9 | 	await page.setViewportSize(PHONE);
+    > 10 | 	await page.goto(path);
+         | 	           ^
+      11 | 	await desk.ready();
+      12 | 	await page.waitForFunction(() => document.body.classList.contains("has-mobile-nav"));
+      13 | }
+        at open_on_phone (/home/claude/fb/frappe-bench/apps/frappe/playwright/tests/mobile_nav.spec.js:10:13)
+        at /home/claude/fb/frappe-bench/apps/frappe/playwright/tests/mobile_nav.spec.js:132:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/mobile_nav-Phone-tab-bar-t-edd50-eps-only-the-logo-and-title/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  10) playwright/tests/query_report.spec.js:57:6 › Query Report › add custom column in report ──────
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeAttached[2m([22m[2m)[22m failed
+
+    Locator: locator('.datatable')
+    Expected: attached
+    Timeout: 20000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeAttached" with timeout 20000ms[22m
+    [2m  - waiting for locator('.datatable')[22m
+
+
+      68 | 		await input_role.blur();
+      69 |
+    > 70 | 		await expect(page.locator(".datatable")).toBeAttached();
+         | 		                                         ^
+      71 | 		await click_report_menu_item(page, "Add Column");
+      72 | 		await expect(desk.get_open_dialog().locator(".modal-title")).toContainText("Add Column");
+      73 | 		await desk
+        at /home/claude/fb/frappe-bench/apps/frappe/playwright/tests/query_report.spec.js:70:44
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/query_report-Query-Report-add-custom-column-in-report/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/query_report-Query-Report-add-custom-column-in-report/error-context.md
+
+  11) playwright/tests/query_report.spec.js:163:6 › Query Report › restores the filters of a prepared report run 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"[7mComplet[27med"[39m
+    Received: [31m"[7mQueu[27med"[39m
+
+    Call Log:
+    - Timeout 30000ms exceeded while waiting on the predicate
+
+      181 | 			{ report_name: "Test Prepared ToDo Report", filters: { status: ["Open"] } }
+      182 | 		);
+    > 183 | 		await expect
+          | 		^
+      184 | 			.poll(async () => (await api.get_doc("Prepared Report", message.name)).data.status, {
+      185 | 				timeout: 30000,
+      186 | 			})
+        at /home/claude/fb/frappe-bench/apps/frappe/playwright/tests/query_report.spec.js:183:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/query_report-Query-Report--72f07-rs-of-a-prepared-report-run/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/query_report-Query-Report--72f07-rs-of-a-prepared-report-run/error-context.md
+
+  11 failed
+    playwright/tests/dashboard.spec.js:91:6 › Dashboard view › should load ─────────────────────────
+    playwright/tests/dashboard.spec.js:133:6 › Dashboard view › a dashboard the reader can see nothing on says so 
+    playwright/tests/dashboard.spec.js:175:6 › Dashboard view › a dashboard the reader cannot open clears the one drawn before 
+    playwright/tests/dashboard.spec.js:202:6 › Dashboard view island › an island that reports no title keeps the dashboard's name in the breadcrumb 
+    playwright/tests/dashboard.spec.js:214:6 › Dashboard view island › an island's action labels print as text in the page menu 
+    playwright/tests/dashboard.spec.js:228:6 › Dashboard view island › a number card an app claims draws its island 
+    playwright/tests/dashboard.spec.js:234:6 › Dashboard view island › a number card island's action runs from the card menu 
+    playwright/tests/list_view.spec.js:15:6 › List View › Keep checkbox checked after Refresh ──────
+    playwright/tests/mobile_nav.spec.js:131:6 › Phone tab bar › the Desktop page header keeps only the logo and title 
+    playwright/tests/query_report.spec.js:57:6 › Query Report › add custom column in report ────────
+    playwright/tests/query_report.spec.js:163:6 › Query Report › restores the filters of a prepared report run 
+  10 skipped
+  17 did not run
+  250 passed (18.9m)

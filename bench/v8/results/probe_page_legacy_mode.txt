@@ -1,0 +1,11 @@
+ok   P10 list page /desk/todo is a page.js page, drawn, no console errors
+ok   P10 form page /desk/todo/new is a page.js page, drawn, no console errors
+ok   P10 form page /desk/user/Administrator is a page.js page, drawn, no console errors
+ok   P10 report page /desk/todo/view/report is a page.js page, drawn, no console errors
+ok   P10 workspace page /desk/website is a page.js page, drawn, no console errors
+FAIL P10 query report page /desk/query-report/Permitted Documents For User is a page.js page, drawn, no console errors  {"route":"/desk/query-report/Permitted Documents For User","what":"query report","v8":false,"title":"Permitted Documents For User","primary":null,"menu_items":10,"head":true,"errors":["pageerror: Filter missing"]}
+ok   P10 form Menu dropdown opens with the store's rows
+P11 timing (median of 7, ms): {"legacy":{"create_ms":0.935,"refresh_cycle_ms":2.72,"same_again_ms":0.13}}
+FAIL no console errors or Vue warnings over the run  ["pageerror: Filter missing"]
+
+6 passed, 2 failed

@@ -1,0 +1,1 @@
+v8 {"open User (ms)":204,"open System Settings (ms)":102,"make 500 Data controls (ms)":190,"make 500 Int controls (ms)":218,"make 500 Select controls (ms)":347,"set_input on 500 Data controls (ms)":40.1,"refresh() on 500 Data controls (ms)":7.5,"refresh() on 500 after toggling reqd (ms)":47.1}

@@ -1,0 +1,15 @@
+ok   F1 Form Builder: typing in a Code property and in Description, then Update, saves the Property Setter with no errors
+ok   F1 a form control through reactive()/ref(): refresh, refresh_field, set_input work
+ok   F2 children a parent's render draws are mounted at Vue's tick (no flush()), each with its input
+ok   F2 refresh() from a descendant's onMounted draws the input at once, and $input is it
+ok   F3 a Dialog prepared in a component's onMounted keeps its fields after the component goes
+ok   F4 app-registered Select/Textarea/Input do not replace the controls' native elements
+ok   F5 a failing mounted() rethrows from flush() and the later sibling is still made
+ok   F6 set all rows then the tick: linear (4x the rows within 8x the time)
+ok   F7 refresh() removes an outside hide-control and re-enables an outside-disabled input
+ok   F8 under a boundary returning false, `new` still throws the render error
+ok   F9 a controller detached once and put back is swept with its container; one still detached is spared
+ok   F10 a filter row's control survives a sweep while the filter panel is closed, and is there on reopen
+ok   no console errors, page errors or Vue warnings
+
+13 passed, 0 failed

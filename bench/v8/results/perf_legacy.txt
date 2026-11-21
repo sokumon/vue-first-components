@@ -1,0 +1,55 @@
+== forms run 1
+legacy {"open User (ms)":167,"open System Settings (ms)":102,"make 500 Data controls (ms)":131,"make 500 Int controls (ms)":140,"make 500 Select controls (ms)":373,"set_input on 500 Data controls (ms)":11.5,"refresh() on 500 Data controls (ms)":21.8,"refresh() on 500 after toggling reqd (ms)":27.8}
+== forms run 2
+legacy {"open User (ms)":155,"open System Settings (ms)":105,"make 500 Data controls (ms)":134,"make 500 Int controls (ms)":143,"make 500 Select controls (ms)":382,"set_input on 500 Data controls (ms)":12.4,"refresh() on 500 Data controls (ms)":22.7,"refresh() on 500 after toggling reqd (ms)":29.3}
+== forms run 3
+legacy {"open User (ms)":158,"open System Settings (ms)":101,"make 500 Data controls (ms)":126,"make 500 Int controls (ms)":136,"make 500 Select controls (ms)":365,"set_input on 500 Data controls (ms)":12,"refresh() on 500 Data controls (ms)":22.7,"refresh() on 500 after toggling reqd (ms)":28.5}
+== rows run 1
+┌────────────────────────┬──────┬────────┬────────┬───────┬─────────┐
+│ (index)                │ ok   │ create │ update │ batch │ destroy │
+├────────────────────────┼──────┼────────┼────────┼───────┼─────────┤
+│ v5 n=100               │ true │ 7.1    │ 0.018  │ 2.6   │ 1.4     │
+│ v5 n=300               │ true │ 14.3   │ 0.01   │ 5.2   │ 2.5     │
+│ v5 n=1000              │ true │ 50.1   │ 0.01   │ 23.1  │ 11.1    │
+│ plain_teleports n=100  │ true │ 6      │        │       │ 0.9     │
+│ plain_teleports n=300  │ true │ 14.6   │        │       │ 2       │
+│ plain_teleports n=1000 │ true │ 41.1   │        │       │ 8.8     │
+│ plain_vfor n=100       │ true │ 2.4    │        │       │ 0.2     │
+│ plain_vfor n=300       │ true │ 8.3    │        │       │ 0.7     │
+│ plain_vfor n=1000      │ true │ 16.7   │        │       │ 1.4     │
+└────────────────────────┴──────┴────────┴────────┴───────┴─────────┘
+
+self time, 2x v5(1000), total 613ms sampled
+== rows run 2
+┌────────────────────────┬──────┬────────┬────────┬───────┬─────────┐
+│ (index)                │ ok   │ create │ update │ batch │ destroy │
+├────────────────────────┼──────┼────────┼────────┼───────┼─────────┤
+│ v5 n=100               │ true │ 6.8    │ 0.016  │ 2.5   │ 1.6     │
+│ v5 n=300               │ true │ 15.5   │ 0.014  │ 5.6   │ 2.6     │
+│ v5 n=1000              │ true │ 58.1   │ 0.012  │ 21.3  │ 10.4    │
+│ plain_teleports n=100  │ true │ 6.4    │        │       │ 0.9     │
+│ plain_teleports n=300  │ true │ 15.5   │        │       │ 2.7     │
+│ plain_teleports n=1000 │ true │ 44.2   │        │       │ 8.6     │
+│ plain_vfor n=100       │ true │ 4.6    │        │       │ 0.4     │
+│ plain_vfor n=300       │ true │ 7.1    │        │       │ 0.6     │
+│ plain_vfor n=1000      │ true │ 25.1   │        │       │ 2.1     │
+└────────────────────────┴──────┴────────┴────────┴───────┴─────────┘
+
+self time, 2x v5(1000), total 647ms sampled
+== rows run 3
+┌────────────────────────┬──────┬────────┬────────┬───────┬─────────┐
+│ (index)                │ ok   │ create │ update │ batch │ destroy │
+├────────────────────────┼──────┼────────┼────────┼───────┼─────────┤
+│ v5 n=100               │ true │ 6.9    │ 0.02   │ 2.4   │ 1.4     │
+│ v5 n=300               │ true │ 15.5   │ 0.014  │ 5.8   │ 2.7     │
+│ v5 n=1000              │ true │ 52.5   │ 0.012  │ 24    │ 12.8    │
+│ plain_teleports n=100  │ true │ 8.6    │        │       │ 1.2     │
+│ plain_teleports n=300  │ true │ 10.6   │        │       │ 2.1     │
+│ plain_teleports n=1000 │ true │ 46.2   │        │       │ 8.3     │
+│ plain_vfor n=100       │ true │ 2.3    │        │       │ 0.3     │
+│ plain_vfor n=300       │ true │ 7.4    │        │       │ 0.6     │
+│ plain_vfor n=1000      │ true │ 23.2   │        │       │ 2.1     │
+└────────────────────────┴──────┴────────┴────────┴───────┴─────────┘
+
+self time, 2x v5(1000), total 575ms sampled
+done

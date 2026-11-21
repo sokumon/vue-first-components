@@ -25,14 +25,16 @@ require.extensions[".vue"] = (module, filename) => {
 		return module._compile(to_cjs(content).replace("export default", "module.exports ="), filename);
 	}
 	const compiled = descriptor.scriptSetup ? sfc.compileScript(descriptor, { id, inlineTemplate: false }) : null;
-	const script = to_cjs(compiled ? compiled.content : descriptor.script.content)
+	const script = to_cjs(compiled ? compiled.content : descriptor.script?.content ?? "export default {}")
 		.replace(/export default/, "const _sfc_main =");
 	const template = descriptor.template
 		? to_cjs(sfc.compileTemplate({ source: descriptor.template.content, filename, id, compilerOptions: { bindingMetadata: compiled?.bindings } }).code)
 			.replace("export function render", "function render") + "\n_sfc_main.render = render;\n"
 		: "";
 	// the one line the build adds: a .vue named frappe.ui.* also becomes that class
-	const emit = 'if (_sfc_main.name?.startsWith("frappe.ui.")) frappe.ui.define(_sfc_main);\n';
+	// and lists the <script setup>'s imports, so define() keeps them off `this`
+	const imports = compiled?.imports ? Object.keys(compiled.imports).filter((k) => compiled.imports[k].isFromSetup) : [];
+	const emit = `_sfc_main.__imports = ${JSON.stringify(imports)};\nif (_sfc_main.name?.startsWith("frappe.ui.")) frappe.ui.define(_sfc_main);\n`;
 	module._compile(`${script}\n${template}${emit}module.exports = _sfc_main;`, filename);
 };
 const Vue = require("vue");
@@ -156,6 +158,7 @@ const labels = ($el) => $el.find(".sidebar-item-label").map((_, s) => s.textCont
 	check("toggle_width opens it, tooltips go", sidebar.wrapper.hasClass("expanded") && !sidebar.get_item("Home").wrapper.find(".item-anchor").attr("title"));
 
 	// opendesk's back row: empty, add_item a Button, then move the new row to the top
+	const old_rows = [...sidebar.items, ...sidebar.items.flatMap((i) => i.items || [])];
 	sidebar.empty();
 	const $container = sidebar.$items_container;
 	["Selling", "Buying"].forEach((label) => sidebar.add_item($container, { type: "Button", standard: true, label, onClick() {} }));
@@ -165,7 +168,7 @@ const labels = ($el) => $el.find(".sidebar-item-label").map((_, s) => s.textCont
 		labels($container) === "Stock,Selling,Buying");
 	sidebar.make_sidebar();
 	check("make_sidebar after empty() and .html('') redraws the module", labels(sidebar.$items_container) === "Home,Stock Transactions,Item,Stock Entry,No route");
-	check("only live rows are in the outlet", frappe.ui.views.size === 1 + 2 + sidebar.items.length + 2);
+	check("rows removed by empty() are destroyed, the new ones live", old_rows.every((r) => r.$destroyed) && sidebar.items.every((r) => !r.$destroyed));
 
 	sidebar.toggle(true);
 	check("toggle(true) hides it", sidebar.wrapper.css("display") === "none");
@@ -258,7 +261,10 @@ const labels = ($el) => $el.find(".sidebar-item-label").map((_, s) => s.textCont
 	const hook = new frappe.ui.HookSetup({ parent: $("<div>").appendTo("body")[0] });
 	await Vue.nextTick();
 	console.warn = warn;
-	console.log("HOOKS onMounted calls:", JSON.stringify(hook.$setup_state.calls), "| box ref:", hook.$setup_state.box?.className ?? null, "| warnings:", warnings.map((w) => w.slice(0, 70)));
+	check("HOOKS: onMounted in the class's <script setup> runs once", JSON.stringify(hook.calls) === '["mounted"]');
+	check("HOOKS: useTemplateRef is the element", hook.box?.className === "hook-box");
+	check("HOOKS: no warnings", warnings.length === 0);
+	check("PRIVATE: imports aren't this.x", hook.onMounted === undefined && hook.useTemplateRef === undefined);
 
 	console.log(`\n${pass} passed, ${fail} failed`);
 	process.exit(fail ? 1 : 0);
