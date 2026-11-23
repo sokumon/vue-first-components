@@ -2,20 +2,20 @@
 
 Design spikes for drawing Frappe's legacy `frappe.ui.*` classes with Vue, while their public API stays the same: names, constructor signatures, prototype methods, and the jQuery fields (`$wrapper`, `page.main`, `$items_container`, ...) that client scripts and apps rely on.
 
-Each folder is one iteration. Open `index.html` for the full write-up, and `LEARNINGS.md` for what the spikes taught us. `compat/` holds the compatibility contract the ports are tested against.
+Each folder is one iteration, and each has a `README.md` in the same format ([EXPLORATION-TEMPLATE.md](EXPLORATION-TEMPLATE.md)): status, question, answer, checks, what it proved, why it didn't work (where the repo records why), what it cost, what carried forward. Open `index.html` for the full write-up, and `LEARNINGS.md` for what the spikes taught us. `compat/` holds the compatibility contract the ports are tested against.
 
-| Folder | Idea | Outcome |
-| --- | --- | --- |
-| `spike.cjs` | Class is the controller, `static view` SFC, constructor returns `shallowReactive(this)`, one `createApp` | 24/24 |
-| `v2/` | No mount in the class: controllers join `frappe.ui.views`, a `ViewOutlet` in the App teleports each view into its host | 21/21, then 23/23 without regions |
-| `v3/` | `frappe.ui.Sidebar` and `sidebar_item.Type*` with their real API; a desk renderer that survives jQuery `.html()` and routes listeners through jQuery so `.trigger()` reaches them | 31/31 |
-| `v4/` | The `.vue` file *is* the class: an Options API component with `name: "frappe.ui.Sidebar"` is compiled into a real class (`define.js`) | 42/42 |
-| `v5/` | v4 plus `<script setup>` next to the public `<script>`; its bindings read as `this.x`. Since issue #1: each controller is its own small Vue root, no shared outlet | **Chosen design**. 57/57 in jsdom; 122/122 in a real desk (see `bench/`) |
-| `v6/` | Functional components / detached `draw()` for leaves | Rejected: no gain; found the outlet's cost |
-| `v7/` | No outlet: each controller teleports from its own detached root | Rejected; kept as the measured baseline |
-| `v8/` | One `createApp` tree: `new` mounts its view as a real child through the renderer's `patch()`; template-first controls (`make_*()` switches parts on, `set_*()` sets state); complete ports of base_control/base_input/data | 107/107 in jsdom; real desk: 154/154 probe checks (including 13 regression checks for the break-report fixes), frappe's suite 135 passed with no new failures. `frappe.ui.Page` ported (`v8/ui/Page.vue`): a 48-spec page set fails exactly as legacy does, 33/33 probe checks (see `v8/README.md`, `v8/SPEC.md`, `bench/v8/`) |
-| `browser/` | Probe for a real desk in a browser | |
-| `bench/` | The real-desk harness: probe classes, frappe-ui prebuild, Playwright probes, perf and build-time scripts | |
+| Exploration | Status | Idea | Outcome |
+| --- | --- | --- | --- |
+| [v1](v1/README.md) (`spike.cjs`) | Superseded by v2 | Class is the controller, `static view` SFC, constructor returns `shallowReactive(this)`, one `createApp` | 24/24 |
+| [v2](v2/README.md) | Superseded by v3 | No mount in the class: controllers join `frappe.ui.views`, a `ViewOutlet` in the App teleports each view into its host | 21/21, then 23/23 without regions |
+| [v3](v3/README.md) | Superseded by v4 | `frappe.ui.Sidebar` and `sidebar_item.Type*` with their real API; a desk renderer that survives jQuery `.html()` and routes listeners through jQuery so `.trigger()` reaches them | 31/31 |
+| [v4](v4/README.md) | Superseded by v5 | The `.vue` file *is* the class: an Options API component with `name: "frappe.ui.Sidebar"` is compiled into a real class (`define.js`) | 42/42 |
+| [v5](v5/README.md) | Chosen | v4 plus `<script setup>` next to the public `<script>`; its bindings read as `this.x`. Since issue #1: each controller is its own small Vue root, no shared outlet | **Chosen design**. 57/57 in jsdom; 122/122 in a real desk (see `bench/`) |
+| [v6](v6/README.md) | Rejected | Functional components / detached `draw()` for leaves | Rejected: no gain; found the outlet's cost |
+| [v7](v7/README.md) | Rejected (baseline) | No outlet: each controller teleports from its own detached root | Rejected; kept as the measured baseline |
+| [v8](v8/README.md) | Ported | One `createApp` tree: `new` mounts its view as a real child through the renderer's `patch()`; template-first controls (`make_*()` switches parts on, `set_*()` sets state); complete ports of base_control/base_input/data | 107/107 in jsdom; real desk: 154/154 probe checks (including 13 regression checks for the break-report fixes), frappe's suite 135 passed with no new failures. `frappe.ui.Page` ported (`v8/ui/Page.vue`): a 48-spec page set fails exactly as legacy does, 33/33 probe checks (see `v8/README.md`, `v8/SPEC.md`, `bench/v8/`) |
+| `browser/` | Tool | Probe for a real desk in a browser | |
+| [`bench/`](bench/README.md) | Tool | The real-desk harness: probe classes, frappe-ui prebuild, Playwright probes, perf and build-time scripts | |
 
 ## Running
 
