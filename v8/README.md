@@ -1,4 +1,98 @@
-# v8: one createApp tree, template-first controls
+# v8: one createApp tree, template-first controls and a frappe.ui.Page port
+
+| | |
+| --- | --- |
+| **Status** | Ported |
+| **Builds on** | v5 |
+| **Question** | Can every legacy controller's view be a real child of one `createApp` tree, with all markup in `.vue` templates, while `new X(opts)` still has its DOM on the next line and frappe's own tests still pass? |
+| **Answer** | Yes: `new` mounts the view synchronously through the renderer's own `patch()`; the base_control/base_input/data ports and the `frappe.ui.Page` port pass frappe's suites with no new failures, at the cost of slower creation and, for Page, many jQuery compensations. |
+| **Checks** | `107/107` in jsdom (dev and prod Vue); real desk: 154/154 probe checks (including 13 regression checks for the break-report fixes), frappe's Playwright suite 135 passed with no new failures; Page port: 33/33 Page probe checks, the 48-spec page set fails exactly as legacy does |
+
+## Idea
+
+- **One app.** `frappe.ui.app = frappe.ui.create_app(App)` is the only `createApp`. v5 gave each controller its own small Vue root; in v8 every view is a real child in one tree, so provide/inject, `errorCaptured` and `app.config.errorHandler` work across legacy classes.
+- **`new` mounts its view synchronously** through the renderer's own `patch()` (reached from KeepAlive's `ctx.renderer`), with the owner's instance as `parentComponent`. No outlet list; the DOM is ready on the next line, even inside a Vue flush.
+- **Template-first.** All markup is in the `<template>`. `make_*()` switches a part on (`draw_* = true`), `set_*()` sets state, and `v-part:name` hands the drawn element back as the legacy jQuery field. jQuery DOM building stays only in fallback branches for unported subclasses (Check, Switch, Link, ...).
+- **Complete ports** of `base_control.js`, `base_input.js` and `data.js` (`controls/`), then of `frappe.ui.Page` (page.js + page.html, `ui/Page.vue`).
+- The design was chosen from three candidates by three judges ([SPEC.md](SPEC.md) §0) and is specified in [SPEC.md](SPEC.md).
+
+## What's here
+
+| File | What it is |
+| --- | --- |
+| [define.js](define.js) | The runtime: `create_app`, `verify()`, `define()`, `Component`, `new`/`draw`, views, `flush()`, the apart scheduler, `sweep()`, jQuery hooks |
+| [renderer.js](renderer.js) | Vue's DOM renderer made to share nodes with jQuery (from v5, without `mount_point`) |
+| [desk_router.js](desk_router.js) | v5's router shim for frappe-ui's `routerKey`/`routeLocationKey` |
+| [controls/](controls/) | `Control.vue`, `ControlInput.vue`, `ControlData.vue`: template-first ports of `base_control.js`, `base_input.js`, `data.js` |
+| [ui/](ui/) | `Page.vue` (port of `frappe.ui.Page`) with `EsButton.vue`, `Icon.vue`, `PageMenuStore.vue`, `PageRegion.vue`, `PageToolbar.vue`, `PageToolbarEntry.vue`, `anchors.js` |
+| [legacy/](legacy/) | Unported subclasses used by the spike (`check.js` is frappe's file, verbatim; `link_like.js`) |
+| [demo/](demo/) | Demo `.vue` classes and components the spike draws (Section, ProbeChild, SlotHost, Failing, Nest, RowKid, RenderNew, Picker, Kid, ...) |
+| [harness.cjs](harness.cjs) | jsdom, Vue, compiler-sfc, jQuery and esbuild loaded from a Frappe checkout; compiles `.vue` files the way the desk build does |
+| [spike8.cjs](spike8.cjs) | The jsdom checks (groups A to J, G for GC, H3b) |
+| [SPEC.md](SPEC.md) | The design spec (§ numbers in the notes below refer to it) |
+| [../bench/v8/](../bench/v8/) | The real-desk harness for v8: bundle entry, `mode.sh legacy\|v5\|v8\|v8page`, Playwright probes, `results/` |
+
+## How to run
+
+The jsdom spike resolves its own files relative to `v8/`, so it runs from the repository root. `harness.cjs` takes the Frappe checkout from `FRAPPE`, which defaults to `~/fb/frappe-bench/apps/frappe` (not `../../frappe`); it needs `flow/node_modules/jsdom` and `node_modules/{vue,jquery,esbuild}` there.
+
+```sh
+FRAPPE=/path/to/apps/frappe node --expose-gc v8/spike8.cjs
+FRAPPE=/path/to/apps/frappe NODE_ENV=production node --expose-gc v8/spike8.cjs
+```
+
+A passing run prints one `ok` line per check and ends with:
+
+```
+107 passed, 0 failed
+```
+
+Rerun on 2026-11-22 with Node 22 against `~/fb/frappe-bench/apps/frappe`: 107 passed, 0 failed on both the dev and the production Vue build (recorded run: [`bench/v8/results/spike8_final.txt`](../bench/v8/results/spike8_final.txt)).
+
+The real-desk runs need the bench at `~/fb` and are described in [`bench/v8/README.md`](../bench/v8/README.md): `mode.sh v8` (or `v8page` for the Page port), the probes in `bench/v8/pw/`, `perf_all.sh <mode>`, and `~/fb/pwt/run_specs.sh <label> $(cat ~/fb/pwt/page_specs.txt)` for the page spec set.
+
+## What it proved
+
+- **One tree with synchronous `new`.** A control built in a plain component's `onMounted` or in a watcher has its `$wrapper` and `$input` on the next line (jsdom spike, 107/107).
+- **The control ports pass frappe's own suite.** 156 tests: 135 passed, 14 failed, 7 did not run, the same 14 failures as the baseline ([`frappe-ui-tests-v8-final.txt`](../bench/v8/results/frappe-ui-tests-v8-final.txt)).
+- **Real desk, no console errors or Vue warnings:** probe 41/41, probe_fixes 24/24, probe_review 18/18, probe_review2 17/17, probe_review3 14/14, probe_review4 8/8, probe_forms 19/19, probe_fixes8 13/13, in v8 mode ([Results](#results)) and again in v8page mode on the final build (`bench/v8/results/probe_*_v8page_final.txt`).
+- **Every break-report defect is fixed and pinned.** F1 to F10 each have a check in spike group J and in `probe_fixes8_v8.cjs` that fails on the first v8 build (see [Fixes after the break reports](#fixes-after-the-break-reports)).
+- **The Page port matches page.js.** Page probe 33/33, comparing DOM with `frappe.ui.LegacyPage` after every step ([`probe_page_v8_final.txt`](../bench/v8/results/probe_page_v8_final.txt)); 1,100 random call sequences match page.js's DOM; the 48-spec page set gives 249 passed, 12 failed, 11 of them the failures page.js also has and the 12th passing 3 of 3 reruns alone ([`page_final.txt`](../bench/v8/results/page_final.txt), `shell_routing_v8page_*.txt`). The control/form/grid/dialog set still gives 135 passed with the same 14 failures ([`page_final_controls.txt`](../bench/v8/results/page_final_controls.txt)).
+- **No-op calls write no DOM and are faster than legacy.** `refresh()` on 500 Data fields with nothing changed: 9.5 ms vs 25.2 legacy; `set_indicator()` ×1000 with the same label: 4.3 ms vs 17.4 for page.js.
+- **Set-all then flush-all stays linear.** 8000 rows: 724 ms on the first build, 148 ms after F6.
+
+## What it cost / what broke
+
+- **Slower creation and `set_input`** (Chromium, medians of 3, ms; [`perf_*_final.txt`](../bench/v8/results/)): make 500 Data controls 193 vs 125 legacy; make 500 Int 191 vs 141; `set_input` on 500 Data 38.4 vs 12.0 (one render and patch per control, because the display area is template state).
+- **Page creation and refresh cost more** ([`page_timing_v8page_final.txt`](../bench/v8/results/page_timing_v8page_final.txt)): create 1.68–1.90 ms vs 0.89–0.96; a form refresh's page calls 3.44–3.96 vs 2.52–2.81 (three runs); 400 inner buttons 277 vs 95 ([`page_build_perf_final.txt`](../bench/v8/results/page_build_perf_final.txt)).
+- **jQuery and Vue writing into the same element broke the Page port** until compensated: `$btn.text(...)` in System Console removed Vue's anchors and left the page's render broken for good (PF1). The fixes (anchor restoring in `anchors.js`, `$.cleanData` syncing, writing DOM facts back, release of moved elements) made `Page.vue` 2,249 lines against 1,395 for `page.js` + `page.html` ([LEARNINGS.md](../LEARNINGS.md)).
+- **The first build broke real desk flows:** Form Builder saves (F1, Proxy invariant on `$fui`), `flush()` inside lifecycle hooks (F2), Dialog fields lost on unmount (F3), app-registered `Select`/`Textarea`/`Input` replacing native inputs (F4), sweep destroying the list filter popover's controls (F10), and more; all fixed.
+- **More Vue internals than v5's list:** `effect.flags` `RUNNING`, `scope.effects`, `instance.bum`/`um`, `callWithErrorHandling`, all checked by `verify()` and pinned to Vue 3.5.x.
+- **Remaining differences:** `.text()` of containers loses whitespace between elements, menu rows and buttons carry `<!--v-if-->` comments, and after `$(parent).empty()` the Page draws nothing where page.js kept working on detached DOM (see [Page open issues](#page-open-issues)).
+
+## Carried forward
+
+There is no later exploration folder. [LEARNINGS.md](../LEARNINGS.md) ("Next") records what comes after v8: keep the one-tree runtime, template-first parts and differential testing against legacy; bring the Page port back to the rule in [compat/CONTRACT.md](../compat/CONTRACT.md) (one small component per item inside handed-out containers, jQuery owns the DOM inside a handed-out element), and drop each compensation whose removal breaks no test.
+
+## Open questions
+
+- `set_input` costs about 3× legacy and control creation about 1.5×.
+- Sweep misses a template child component with its own store watcher, and would destroy a view with watchers that is removed natively and put back later.
+- A control built into a detached host keeps its first Vue parent after it is moved.
+- Untried: the devtools tree (spec O1), `app.unmount()` with views mounted by `new` (O2), Teleport anchors left in Check's host (O7); `<template extends>` is still missing from the desk's esbuild Vue plugin (O8).
+- Page: `add_field` controls get the app root as their Vue parent, not the Page; a caller removing a single anchor node itself can still break the next patch.
+- Not yet run: the differential tests on ERPNext flows, and Frappe UI components inside the templates (blocked by one shared Vue across bundles and the desk build compiling frappe-ui) ([LEARNINGS.md](../LEARNINGS.md), "Next").
+
+## See also
+
+- [SPEC.md](SPEC.md): the design spec, including the Vue internals list (§13) and its own open issues (§16).
+- [bench/v8/README.md](../bench/v8/README.md) and [bench/v8/results/](../bench/v8/results/): the real-desk harness and raw output.
+- [LEARNINGS.md](../LEARNINGS.md): what v5 to v8 taught, and the next steps.
+- [compat/CONTRACT.md](../compat/CONTRACT.md), [compat/JQUERY-SURFACES.md](../compat/JQUERY-SURFACES.md) and the `compat/sweep-*.md` files: the Page and Form API contract the ports are tested against.
+- [v5/](../v5/README.md): the design v8 builds on; [v7/](../v7/README.md): the measured baseline; the root [README.md](../README.md) table.
+- [index.html](../index.html): the full write-up of the v5 design.
+
+## Design notes
 
 v8 draws Frappe's legacy `frappe.ui.*` classes with Vue and keeps their public API. It differs from v5 in three ways:
 
