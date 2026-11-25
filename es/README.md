@@ -1,24 +1,90 @@
-# es/: frappe-ui components as `<es-*>` tags in jQuery Desk
+# es: frappe-ui components as `<es-*>` tags in jQuery Desk
 
-23–25 Nov 2026. All work is local: nothing is committed to the bench and nothing is pushed.
+| | |
+| --- | --- |
+| **Status** | Chosen |
+| **Builds on** | v8 |
+| **Question** | Can frappe-ui and @framework/ui components, used unchanged, become `<es-*>` tags that Desk's jQuery creates and drives, and is that a good way to give Desk's existing controls frappe-ui's look? |
+| **Answer** | Yes, on one Vue shared by every bundle and a small shared runtime. For Link and Select, `es-*` tags (variant B) match legacy with no Desk code copied, and after the speed fixes a form's first open is +34–63 ms over legacy. petite-vue cannot run the components. |
+| **Checks** | Real desk: Link/Select specs 48 passed / 4 failed as legacy (the 4 are Gender tests with no site data); frappe's suite 134 passed / 15 failed (one new: grid "parks the Link dropdown"); differential harness 82 steps, 0 behaviour/api/structure/error differences; UI checks 10/10. Combobox patch: Cypress 127/127, vitest 11/11 |
 
-## The question
+## Idea
 
-Can every frappe-ui and @framework/ui component be turned into a tag like `<es-button>` that Desk's jQuery code creates and drives? Components must be used **unchanged**: no hand ports, only generic shared fixes. Bundle size was the original worry, and petite-vue was a nice-to-have.
+- **Tags driven by jQuery.** A shared runtime ([runtime/src/runtime.js](runtime/src/runtime.js)) gives every `<es-*>` element a Teleport inside one Vue app. jQuery sets strings and booleans with `.attr()` and objects with `.prop()`, and reads events from `e.originalEvent.detail`.
+- **One Vue across all bundles** ([one-vue/](one-vue/)): an esbuild plugin points every `vue` import at `frappe.Vue`, so the tags and every other Vue bundle share one copy.
+- **Link and Select built three ways** against legacy ([link-select/](link-select/)): A is a `.vue` port on v8's single app, B keeps the legacy class and swaps only `make_input` for `<es-combobox>` / `<es-select>`.
+- **Then speed:** lazy mounting, a CSS fix and on-demand Select options for B, and a look inside frappe-ui's Combobox ([combobox-speed/](combobox-speed/)).
+- **Differs from v8:** v8 ports the classes into `.vue` files; `es` keeps the legacy classes and puts frappe-ui components inside them.
 
-## Answers in short
+## What's here
 
-| Question | Answer |
-|---|---|
-| Do the components run on petite-vue? | **No.** petite-vue has no components, slots, render functions, provide/inject or Teleport. Of 319 components, 14 render identically. Making it work would mean re-implementing Vue. |
-| Can they become custom elements that jQuery drives? | **Yes**, with a shared runtime (`runtime/`): 155 tags register, and most work or work with caveats. |
-| Does every bundle carry its own Vue? | It did: 9 of 54 bundles. **One Vue across all bundles works** (`one-vue` branch): the 7 Vue bundles drop from 699 to 417 KB gz. |
-| Vue components or `es-*` tags for Desk's existing controls? | **`es-*` tags.** Both match legacy behaviour, but the tags keep Desk's control code unchanged. |
-| Are they fast enough? | **Nearly.** After the fixes, a form's first open is +34 to +63 ms over legacy, re-opens are level, and dialogs are faster than legacy. |
-| Why still slower? | Each Combobox is 20 Vue component instances, 17 of them reka-ui's. Vue charges for each instance. |
-| Can frappe-ui's Combobox get faster? | **Somewhat.** A patch gives −15% on mount and −49% to −82% on updates. The bigger levers are in reka-ui. |
+All of it was curated from a working folder `wc/` that is not in the repository (3.5 GB with node_modules, builds and CPU profiles). Scripts keep their `wc/...` and `~/fb` paths.
 
-## 1. petite-vue
+| File | What it is | Was |
+| --- | --- | --- |
+| [spike/](spike/) | The first custom-element spike: `define-es.js` (one app per element) and `entry.js` registering every capitalised frappe-ui export | `wc/src` |
+| [petite/](petite/) | The petite-vue differential run (`analyze.mjs`, `harness.js`, `run.mjs`, `classify.mjs`), the generic shims and their results | `wc/petite-all` |
+| [per-element/](per-element/) | Sweeps of per-element custom elements with petite-vue as page glue, the generic fixes and the adversarial review | `wc/sweep` |
+| [runtime/](runtime/) | The jQuery-driven shared runtime (`src/runtime.js`), its contract (`CONTRACT.md`), smoke test and the `sweep-*` fix patches | `wc/jq` |
+| [one-vue/](one-vue/) | `one-vue.diff` (one Vue across all bundles) and its checks: smoke, targeted, lazy uploader, sizes | `wc/one-vue` |
+| [link-select/](link-select/) | Link and Select built three ways: `contract/` (what app code uses), `harness/` (differential flows and diff), `A-vue-components/`, `B-es-tags/` (final sources), `judge/`, `results/`, `speed/` and `speed2/` (speed fixes, measurements, independent verification) | `wc/three-ways` |
+| [combobox-speed/](combobox-speed/) | The frappe-ui Combobox benchmark (`bench/`), baseline (`baseline/`, including `instance-tree.txt`), the patch, behaviour checks and verification | `wc/combobox-speed` |
+
+## How to run
+
+The scripts were run from `wc/` with `wc/node_modules` installed and the bench at `~/fb` ([bench/README.md](../bench/README.md)); copy a folder back under `wc/` to rerun it.
+
+```sh
+. ~/fb/env.sh; export NODE_PATH=~/fb/pw/node_modules
+wc/three-ways/bench-legacy.sh                       # bench: legacy controls + one-vue, full build
+wc/three-ways/B-es-tags/session.sh bash -c 'wc/three-ways/B-es-tags/inner-specs.sh mylabel'
+cd wc/three-ways/harness && node run.cjs mylabel && node diff.cjs ../results/harness-legacy.json ../results/harness-mylabel.json
+wc/three-ways/speed/restore.sh                      # bench back to v8page, runs the v8 probes
+cd wc/combobox-speed/bench && ./run-all.sh ../baseline/raw 7   # Combobox benchmark, no bench needed
+```
+
+A passing harness diff prints a table with `behaviour 0`, `api 0`, `structure 0` and `errors 0`. `restore.sh` ends with `tracked diff == backup`, `status == backup`, `mode: v8page`, `41/41 passed` and `33 passed, 0 failed`.
+
+## What it proved
+
+- **One Vue across bundles works:** the 7 Vue bundles go from 698.8 to 416.5 KB gz, Desk's first load from 1614 to 1500 KB; frappe's suite 134 / 15 / 7, the extra failure caused by the spike's `control.js` (§3).
+- **B matches legacy:** Link/Select specs 48/4 as legacy, harness 0 differences in behaviour, API, markup or errors, ERPNext Sales Invoice and Stock Entry flows included ([link-select/results/](link-select/results/)).
+- **B can be fast:** independent re-measure, first open Sales Order 418 ms vs 384 legacy, Delivery Note 418 vs 366; re-opens level; a 40 Link + 10 Select dialog 50–55 ms vs 58–62 legacy ([link-select/speed2/](link-select/speed2/)).
+- **The cost is the component, not the wrapper:** 100 Comboboxes paint in 248 ms through `createApp` alone and 238 ms through `es-*` (§6).
+- **frappe-ui's Combobox can be cheaper:** −15% mount, −49% query and −82% options updates on closed fields, behaviour checks equal with the trigger fix ([combobox-speed/verify/out/](combobox-speed/verify/out/)).
+
+## Why it didn't work
+
+- **petite-vue as the runtime:** it has no components, slots, render functions, provide/inject or Teleport; 263 of 319 components threw and only 14 rendered as on Vue ([petite/](petite/)). Real Vue replaced it.
+- **petite-vue as page glue around per-element tags:** it injected attribute `{{}}` into Vue's output, cost 3.3× mount and 2.3× memory ([per-element/review/](per-element/review/)). jQuery as the driver replaced it.
+- **Variant A for existing controls:** it works, but `ControlLink.vue` is about 860 lines generated from `link.js` and a hand port of `select.js`, and it changes every control's base classes. B keeps Desk's code; the judge chose B (§4).
+
+## What it cost / what broke
+
+- **Per on-screen control:** about 2.7 ms and 115 KB (Link) or 85 KB (Select) against about 0.4 ms and 2 KB legacy; a closed Combobox is 20 Vue instances, 17 from reka-ui (§6).
+- **B's first CSS** slowed style recalculation for the whole Desk page by 50–75 ms per form open, legacy controls included, until fixed.
+- **Lazy mounting:** stand-ins show for 1–3 frames when a tab or section opens; unmounted controls are never released from an internal list.
+- **Not ported in B:** web forms, TableMultiSelect, LinkCombobox; `.awesomplete > ul` selectors no longer find the list (§9).
+- **The Combobox patch** broke a Fragment `#trigger` slot until the fix in [combobox-speed/verify/slotOutlet-fragment-fix.patch](combobox-speed/verify/slotOutlet-fragment-fix.patch).
+
+## Carried forward
+
+Kept: one Vue across bundles; `es-*` tags with the legacy class for existing controls; lazy mounting; the differential harness and app-code contract ([link-select/contract/CONTRACT.md](link-select/contract/CONTRACT.md)). Dropped: petite-vue, one app per element, variant A for existing controls (v8 stays the pattern for new Vue-first screens).
+
+## Open questions
+
+- Mount on intent for visible fields (a stand-in styled like frappe-ui's input until hover or focus): not built.
+- reka-ui R1 on top of the Combobox patch: measured only on scratch copies.
+- `defineCustomElement` from `frappe.Vue` plus glue, like `<frappe-mobile-nav>`, instead of the shared runtime: not built.
+- Never checked: `remember_last_selected_value`, `fetch_if_empty`, `page.add_field`, report filters, POS, bom_creator, dark mode, RTL, mobile.
+
+## See also
+
+[LEARNINGS.md](../LEARNINGS.md) (frappe-ui as `<es-*>` tags), [v8](../v8/README.md), [compat/CONTRACT.md](../compat/CONTRACT.md), [bench/](../bench/README.md).
+
+## Details
+
+### 1. petite-vue
 
 petite-vue 0.4.1 only provides `createApp`, `reactive` and `nextTick`, and its last release was May 2022.
 - **Differential run:** 319 components against real Vue. 263 threw errors, 41 rendered differently and 14 were identical (about 5 of frappe-ui's 200 and about 7 of framework-ui's 119).
@@ -27,7 +93,7 @@ petite-vue 0.4.1 only provides `createApp`, `reactive` and `nextTick`, and its l
 
 **Verdict:** petite-vue is not a runtime for these components.
 
-## 2. Custom elements driven by jQuery (`runtime/`)
+### 2. Custom elements driven by jQuery (`runtime/`)
 
 A shared es-runtime (`runtime/src/runtime.js`) runs one Vue app for all `<es-*>` elements, with one Teleport per element.
 - **jQuery contract:** `.attr()` for strings and booleans, `.prop()` for objects, and events read from `e.originalEvent.detail`.
@@ -45,7 +111,7 @@ A shared es-runtime (`runtime/src/runtime.js`) runs one Vue app for all `<es-*>`
 
 **Size:** all 155 tags come to about 1 MB gz, so each bundle should include only the tags it needs.
 
-## 3. One Vue across all bundles (`one-vue/`)
+### 3. One Vue across all bundles (`one-vue/`)
 
 - **How it works:**
   - `vue.bundle.js` sets `frappe.Vue`;
@@ -69,7 +135,7 @@ A shared es-runtime (`runtime/src/runtime.js`) runs one Vue app for all `<es-*>`
 
 **This is the clearest win of the exploration, whichever UI direction is chosen.**
 
-## 4. Three ways to build Desk's Link and Select (`link-select/`)
+### 4. Three ways to build Desk's Link and Select (`link-select/`)
 
 Built on the bench against legacy, with one Vue, and frappe-ui unchanged.
 - **A: Vue components.** The Control class stays the API, and a `.vue` file in the v8 app tree draws frappe-ui's Combobox and Select.
@@ -89,7 +155,7 @@ The 4 legacy failures are the Gender tests, which fail because the site has no G
 
 The judge recommended **B for existing controls** and **A (v8) for new Vue-first screens**. Both control types cost 15–20× legacy memory; that comes from frappe-ui, not from either approach.
 
-## 5. Making B fast (`link-select/speed/`, `link-select/speed2/`)
+### 5. Making B fast (`link-select/speed/`, `link-select/speed2/`)
 
 **Corrections found first:**
 - **Broken test forms:** a new Sales Invoice (and Purchase Invoice) doesn't render on this bench. ERPNext uses an arrow function in a `depends_on`, and this Frappe checkout's evaluator rejects it. The earlier "+92%" was measured on that broken form.
@@ -124,7 +190,7 @@ The judge recommended **B for existing controls** and **A (v8) for new Vue-first
 - Full suite: unchanged.
 - Break tests (hidden tabs, collapsed sections, `set_value` while hidden, dialogs, grid with Tab, keyboard only): no differences.
 
-## 6. Why it is still slower: anatomy of one closed Combobox
+### 6. Why it is still slower: anatomy of one closed Combobox
 
 ```
 Combobox (frappe-ui) > LabelingWrapper (frappe-ui) > ComboboxRoot > PopperRoot > ListboxRoot > Primitive
@@ -148,7 +214,7 @@ Vue costs about 0.1 ms per simple component; it gets heavy here because one fiel
 
 **Remaining gap:** about 2.7 ms and about 115 KB per on-screen Link, which is +34 to +63 ms on a form's first open.
 
-## 7. Can frappe-ui's Combobox get faster? (`combobox-speed/`)
+### 7. Can frappe-ui's Combobox get faster? (`combobox-speed/`)
 
 A patch on a local frappe-ui branch, `combobox-perf` (uncommitted; `Combobox.vue` plus a new `shared/slotOutlet.ts`):
 - mounts the popover on first open;
@@ -178,7 +244,7 @@ A patch on a local frappe-ui branch, `combobox-perf` (uncommitted; `Combobox.vue
 - **R3:** build the exposed-props proxy lazily.
 - **R4:** make `Primitive` render children through `renderSlot`.
 
-## 8. Recommendations
+### 8. Recommendations
 
 1. **Ship one Vue across bundles.** It is independent of everything else; fix its minor issues first.
 2. **Existing Desk controls: `es-*` tags, driven by jQuery** (variant B with the speed fixes).
@@ -187,7 +253,7 @@ A patch on a local frappe-ui branch, `combobox-perf` (uncommitted; `Combobox.vue
 5. **Consider B2: no separate runtime,** in the style of `<frappe-mobile-nav>`: `defineCustomElement` from `frappe.Vue` plus about 50 lines of glue (attach or mount before reading `$input`, and handle Link's custom HTML rows). Same speed, about 820 fewer lines; it gives up the "any component works as a tag" generality.
 6. **New Vue-first Desk screens:** the v8 single-app pattern (variant A's style).
 
-## 9. Known issues and gaps
+### 9. Known issues and gaps
 
 - **Lazy mounting:**
   - newly shown fields display the stand-in for 1–3 frames after a tab switch or section expand;
@@ -200,22 +266,9 @@ A patch on a local frappe-ui branch, `combobox-perf` (uncommitted; `Combobox.vue
 - **Changed for app code:** `.awesomplete > ul` selectors (data_import, shop_floor, grid row parking) no longer find the list, and styling `awesomplete.ul` (bom_creator) has no effect.
 - **Bench hazards:** the erp site sometimes serves stale asset hashes after `clear-cache`. A server restarted while the bench lock is held keeps the lock (start it with `9>&-`).
 
-## 10. State and layout
+### 10. State
 
-**State of things:**
 - **Bench:** restored to `v5-desk-probe` at 7cc7280, in v8page mode. The v8 probes pass (41/41, 33/33).
-- **`frappe/` clone:** branch `one-vue`, local only. `one-vue/one-vue.diff` is the same change as a diff.
-- **`frappe-ui/` clone:** branch `combobox-perf` with uncommitted changes, still missing the trigger fix. `combobox-speed/frappe-ui-combobox-perf.patch` is the same change as a patch.
-- **Nothing is pushed.**
-
-**What is in this folder:** sources, scripts, patches and the small result files. It was curated from the working folder `wc/`, which is not in the repo (3.5 GB with node_modules, builds and CPU profiles). Scripts still use their original `wc/...` and `~/fb` paths.
-
-| Folder | What it holds | Was |
-| --- | --- | --- |
-| `spike/` | The first custom-element spike: `define-es.js` (one app per element) and `entry.js` registering every capitalised frappe-ui export | `wc/src` |
-| `petite/` | The petite-vue differential run (`analyze.mjs`, `harness.js`, `run.mjs`, `classify.mjs`), the generic shims and their results | `wc/petite-all` |
-| `per-element/` | Sweeps of per-element custom elements with petite-vue as page glue, the generic fixes and the adversarial review | `wc/sweep` |
-| `runtime/` | The jQuery-driven shared runtime (`src/runtime.js`), its contract (`CONTRACT.md`), smoke test and the `sweep-*` fix patches | `wc/jq` |
-| `one-vue/` | `one-vue.diff` (one Vue across all bundles) and its checks: smoke, targeted, lazy uploader, sizes | `wc/one-vue` |
-| `link-select/` | Link and Select built three ways: `contract/` (what app code uses), `harness/` (differential flows and diff), `A-vue-components/`, `B-es-tags/` (final sources), `judge/`, `results/`, `speed/` and `speed2/` (speed fixes, measurements, independent verification) | `wc/three-ways` |
-| `combobox-speed/` | The frappe-ui Combobox benchmark (`bench/`), baseline (`baseline/`, including `instance-tree.txt`), the patch, behaviour checks and verification | `wc/combobox-speed` |
+- **`frappe/` clone:** branch `one-vue`, local only. [one-vue/one-vue.diff](one-vue/one-vue.diff) is the same change as a diff.
+- **`frappe-ui/` clone:** branch `combobox-perf` with uncommitted changes, still missing the trigger fix. [combobox-speed/frappe-ui-combobox-perf.patch](combobox-speed/frappe-ui-combobox-perf.patch) is the same change as a patch.
+- **Nothing is pushed** to Frappe or frappe-ui.
