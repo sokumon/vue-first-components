@@ -1,0 +1,21 @@
+{
+ "label": "S2-base",
+ "open new ToDo, painted (ms)": 111.8,
+ "open new Workflow, painted (ms)": 96.4,
+ "make 100 Link, painted (ms)": 388.5,
+ "make 100 Select, painted (ms)": 560.7,
+ "set_input 100 Select, painted (ms)": 239.2,
+ "dialog 40 Link + 10 Select, painted (ms)": 131.4,
+ "heap per Link, attached (KB)": 126.3,
+ "DOM nodes per Link": 120.4,
+ "listeners per Link": 33,
+ "heap kept after remove 200 Link (KB)": 19866,
+ "heap per Select, attached (KB)": 184.5,
+ "DOM nodes per Select": 196,
+ "listeners per Select": 40,
+ "heap kept after remove 200 Select (KB)": 31714,
+ "open new Sales Invoice, painted (ms)": 351.8,
+ "open new Stock Entry, painted (ms)": 180.2,
+ "heap growth per new Sales Invoice (KB)": 694,
+ "JS heap after (MB)": 24.3
+}

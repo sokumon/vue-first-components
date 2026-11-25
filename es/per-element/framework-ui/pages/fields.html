@@ -1,0 +1,78 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="/build/fw-sweep.css">
+<script defer src="/build/es-components.js"></script>
+<script defer src="/petite-vue.iife.js"></script>
+</head><body class="p-6">
+<div id="app" v-scope="{
+  doc: { data: 'Ada', notes: 'line1', pw: '', phone: '', hours: 1.5, qty: 3, amt: 10, done: 0, status: 'Open', fruit: '', user: null,
+         ref_dt: 'User', ref_name: null, due: '2026-11-20', at: '2026-11-20 10:30:00', tm: '09:15:00', dur: 3600, stars: 0.4, color: '#ff0000',
+         img: 'http://fw.test/build/none.png', att: null, json: '{&quot;a&quot;: 1}', loc: '{&quot;type&quot;:&quot;FeatureCollection&quot;,&quot;features&quot;:[{&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{},&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[77.59,12.97]}}]}', tags: [], rows: [] },
+  changes: [],
+  F: {
+    data: { fieldname: 'data', fieldtype: 'Data', label: 'Data field', description: 'Plain text' },
+    notes: { fieldname: 'notes', fieldtype: 'Small Text', label: 'Notes' },
+    pw: { fieldname: 'pw', fieldtype: 'Password', label: 'Secret' },
+    phone: { fieldname: 'phone', fieldtype: 'Phone', label: 'Phone' },
+    hours: { fieldname: 'hours', fieldtype: 'Float', label: 'Hours', precision: 2 },
+    qty: { fieldname: 'qty', fieldtype: 'Int', label: 'Qty' },
+    amt: { fieldname: 'amt', fieldtype: 'Currency', label: 'Amount', options: 'USD' },
+    done: { fieldname: 'done', fieldtype: 'Check', label: 'Done' },
+    status: { fieldname: 'status', fieldtype: 'Select', label: 'Status', options: 'Open\nClosed\nCancelled' },
+    fruit: { fieldname: 'fruit', fieldtype: 'Autocomplete', label: 'Fruit', options: 'Apple\nBanana\nCherry' },
+    user: { fieldname: 'user', fieldtype: 'Link', label: 'User', options: 'User' },
+    ref_name: { fieldname: 'ref_name', fieldtype: 'Dynamic Link', label: 'Reference', options: 'ref_dt' },
+    due: { fieldname: 'due', fieldtype: 'Date', label: 'Due' },
+    at: { fieldname: 'at', fieldtype: 'Datetime', label: 'At' },
+    tm: { fieldname: 'tm', fieldtype: 'Time', label: 'Time' },
+    dur: { fieldname: 'dur', fieldtype: 'Duration', label: 'Duration' },
+    stars: { fieldname: 'stars', fieldtype: 'Rating', label: 'Stars', options: '5' },
+    color: { fieldname: 'color', fieldtype: 'Color', label: 'Colour' },
+    heading: { fieldname: 'heading', fieldtype: 'Heading', label: 'Section heading' },
+    html: { fieldname: 'html', fieldtype: 'HTML', options: '<p id=&quot;html-p&quot;>Hello <b>bold</b></p><img src=x onerror=&quot;window.__xss=1&quot;>' },
+    btn: { fieldname: 'btn', fieldtype: 'Button', label: 'Press me' },
+    img: { fieldname: 'img', fieldtype: 'Image', label: 'Picture' },
+    att: { fieldname: 'att', fieldtype: 'Attach', label: 'Attachment' },
+    json: { fieldname: 'json', fieldtype: 'JSON', label: 'Payload' },
+    loc: { fieldname: 'loc', fieldtype: 'Geolocation', label: 'Location' },
+    tags: { fieldname: 'tags', fieldtype: 'Table MultiSelect', label: 'Tags', options: 'ToDo Tag', childFields: [{ fieldname: 'tag', fieldtype: 'Link', options: 'User', label: 'Tag' }] },
+    rows: { fieldname: 'rows', fieldtype: 'Table', label: 'Rows', options: 'ToDo Row', childFields: [{ fieldname: 'item', fieldtype: 'Data', label: 'Item', in_list_view: 1 }] },
+  },
+  set(k, v) { this.doc[k] = v },
+  chg(k, v) { this.changes.push(k + '=' + JSON.stringify(v)) },
+}" class="grid grid-cols-3 gap-4">
+  <pre id="state" class="col-span-3 text-xs">{{ JSON.stringify(doc) }}</pre>
+  <pre id="changes" class="col-span-3 text-xs">{{ changes.join(';') }}</pre>
+
+  <es-fw-text-field id="f-data" :field="F.data" :model-value="doc.data" @update:model-value="set('data', $event.detail[0])" @change="chg('data', $event.detail[0])"></es-fw-text-field>
+  <es-fw-textarea-field id="f-notes" :field="F.notes" :model-value="doc.notes" @update:model-value="set('notes', $event.detail[0])"></es-fw-textarea-field>
+  <es-fw-password-field id="f-pw" :field="F.pw" :model-value="doc.pw" @update:model-value="set('pw', $event.detail[0])"></es-fw-password-field>
+  <es-fw-phone-field id="f-phone" :field="F.phone" :model-value="doc.phone" @update:model-value="set('phone', $event.detail[0])"></es-fw-phone-field>
+  <es-fw-number-field id="f-hours" :field="F.hours" :model-value="doc.hours" @update:model-value="set('hours', $event.detail[0])" @change="chg('hours', $event.detail[0])"></es-fw-number-field>
+  <es-fw-number-field id="f-qty" :field="F.qty" :model-value="doc.qty" @update:model-value="set('qty', $event.detail[0])"></es-fw-number-field>
+  <es-fw-number-field id="f-amt" :field="F.amt" :model-value="doc.amt" @update:model-value="set('amt', $event.detail[0])"></es-fw-number-field>
+  <es-fw-check-field id="f-done" :field="F.done" :model-value="doc.done" @update:model-value="set('done', $event.detail[0])" @change="chg('done', $event.detail[0])"></es-fw-check-field>
+  <es-fw-select-field id="f-status" :field="F.status" :model-value="doc.status" @update:model-value="set('status', $event.detail[0])"></es-fw-select-field>
+  <es-fw-autocomplete-field id="f-fruit" :field="F.fruit" :model-value="doc.fruit" @update:model-value="set('fruit', $event.detail[0])"></es-fw-autocomplete-field>
+  <es-fw-link-field id="f-user" :field="F.user" :model-value="doc.user" @update:model-value="set('user', $event.detail[0])" @change="chg('user', $event.detail[0])"></es-fw-link-field>
+  <es-fw-dynamic-link-field id="f-dyn" :field="F.ref_name" :row="doc" :model-value="doc.ref_name" @update:model-value="set('ref_name', $event.detail[0])"></es-fw-dynamic-link-field>
+  <es-fw-dynamic-link-field id="f-dyn-norow" :field="F.ref_name" :model-value="doc.ref_name"></es-fw-dynamic-link-field>
+  <es-fw-date-field id="f-due" :field="F.due" :model-value="doc.due" @update:model-value="set('due', $event.detail[0])"></es-fw-date-field>
+  <es-fw-datetime-field id="f-at" :field="F.at" :model-value="doc.at" @update:model-value="set('at', $event.detail[0])"></es-fw-datetime-field>
+  <es-fw-time-field id="f-tm" :field="F.tm" :model-value="doc.tm" @update:model-value="set('tm', $event.detail[0])"></es-fw-time-field>
+  <es-fw-duration-field id="f-dur" :field="F.dur" :model-value="doc.dur" @update:model-value="set('dur', $event.detail[0])"></es-fw-duration-field>
+  <es-fw-rating-field id="f-stars" :field="F.stars" :model-value="doc.stars" @update:model-value="set('stars', $event.detail[0])"></es-fw-rating-field>
+  <es-fw-color-field id="f-color" :field="F.color" :model-value="doc.color" @update:model-value="set('color', $event.detail[0])" @change="chg('color', $event.detail[0])"></es-fw-color-field>
+  <es-fw-heading-field id="f-heading" :field="F.heading"></es-fw-heading-field>
+  <es-fw-html-field id="f-html" :field="F.html"></es-fw-html-field>
+  <es-fw-button-field id="f-btn" :field="F.btn" @click="chg('btn', 1)"></es-fw-button-field>
+  <es-fw-image-field id="f-img" :field="F.img" :model-value="doc.img"></es-fw-image-field>
+  <es-fw-attach-field id="f-att" :field="F.att" :model-value="doc.att" @update:model-value="set('att', $event.detail[0])"></es-fw-attach-field>
+  <es-fw-code-editor-field id="f-json" :field="F.json" :model-value="doc.json" @update:model-value="set('json', $event.detail[0])" @change="chg('json', $event.detail[0])"></es-fw-code-editor-field>
+  <es-fw-geolocation-field id="f-loc" class="col-span-3" :field="F.loc" :model-value="doc.loc" @update:model-value="set('loc', $event.detail[0])"></es-fw-geolocation-field>
+  <es-fw-table-multi-select-field id="f-tags" :field="F.tags" :model-value="doc.tags" @update:model-value="set('tags', $event.detail[0])"></es-fw-table-multi-select-field>
+  <es-fw-table-field id="f-rows" class="col-span-3" :field="F.rows" :model-value="doc.rows" @update:model-value="set('rows', $event.detail[0])"></es-fw-table-field>
+</div>
+<script>// app-level provide for TableField outside FormLayout (it injects ResolveFieldKey without a default)
+window.EsConfigureApp = (app) => app.provide(window.__fw.ResolveFieldKey, window.__fw.getFieldComponent);
+window.EsBindSlot = (el, p) => { const s = PetiteVue.reactive(p), app = PetiteVue.createApp(s).mount(el); return { update: (n) => Object.assign(s, n), unmount: () => app.unmount() } }; addEventListener('DOMContentLoaded', () => PetiteVue.createApp().mount('#app'))</script>
+</body></html>

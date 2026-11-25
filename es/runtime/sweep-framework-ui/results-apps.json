@@ -1,0 +1,254 @@
+{
+ "page": "apps.html",
+ "fails": 0,
+ "n": 43,
+ "results": [
+  {
+   "tag": "es-fw-invite-user",
+   "k": "load() fn prop called once on mount",
+   "ok": true,
+   "extra": "1"
+  },
+  {
+   "tag": "es-fw-invite-user",
+   "k": "Send invites disabled until email + role",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-invite-user",
+   "k": "typing in MultiEmailInput -> debounced searchUsers fn prop",
+   "ok": true,
+   "extra": "gra"
+  },
+  {
+   "tag": "es-fw-invite-user",
+   "k": "email chip added",
+   "ok": true,
+   "extra": "Invite by email * (required) N new.person@example.com Roles * (required) Select roles Send invites"
+  },
+  {
+   "tag": "es-fw-invite-user",
+   "k": "role picked, submit enabled",
+   "ok": true,
+   "extra": "Invite by email * (required) N new.person@example.com Roles * (required) System Manager Send invites"
+  },
+  {
+   "tag": "es-fw-invite-user",
+   "k": "submit -> invite(emails, roles) fn prop + invited event",
+   "ok": true,
+   "extra": "[\"new.person@example.com\",[\"System Manager\"]] [\"new.person@example.com\"]"
+  },
+  {
+   "tag": "es-fw-invite-user",
+   "k": "form resets after invite",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-invite-user",
+   "k": "show-result-toasts=false via .attr(x, false): no toast shown",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-notification-panel",
+   "k": "sets first tab on mount (update:activeTab)",
+   "ok": true,
+   "extra": "\"all\""
+  },
+  {
+   "tag": "es-fw-notification-panel",
+   "k": "tab count from \"unread\" count prop",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-notification-panel",
+   "k": "tab switch -> filter fn (inside an object prop) hides read rows",
+   "ok": true,
+   "extra": "unread :: Notifications All Unread (1) Unread A Ada mentioned you 2 days ago Load more"
+  },
+  {
+   "tag": "es-fw-notification-panel",
+   "k": "row click -> mark-as-read (kebab event)",
+   "ok": true,
+   "extra": "[\"N1\"]"
+  },
+  {
+   "tag": "es-fw-notification-panel",
+   "k": "mark-all-as-read + close events",
+   "ok": true,
+   "extra": "[1,1]"
+  },
+  {
+   "tag": "es-fw-notification-panel",
+   "k": "scoped #item <template> per notification",
+   "ok": true,
+   "extra": "[\"Ada mentioned you\",\"Task assigned\"]"
+  },
+  {
+   "tag": "es-fw-notification-panel",
+   "k": "slot-prop function markAsRead() (wired from es-slot) emits mark-as-read",
+   "ok": true,
+   "extra": "[\"N1\",\"tpl:N1\"]"
+  },
+  {
+   "tag": "es-fw-notification-item",
+   "k": ".on(click) gets only the component event",
+   "ok": true,
+   "extra": "[\"custom:N1\"]"
+  },
+  {
+   "tag": "es-fw-notification-item",
+   "k": "keyboard Enter -> click event (once)",
+   "ok": true,
+   "extra": "[\"custom:N1\",\"custom:N1\"]"
+  },
+  {
+   "tag": "es-fw-link",
+   "k": "focus opens (update:open) + loads options",
+   "ok": true,
+   "extra": "true opts=3"
+  },
+  {
+   "tag": "es-fw-link",
+   "k": "creatable attr shows Create \"<query>\" item",
+   "ok": true,
+   "extra": "Create zed"
+  },
+  {
+   "tag": "es-fw-link",
+   "k": "Create -> create event with query",
+   "ok": true,
+   "extra": "\"zed\""
+  },
+  {
+   "tag": "es-fw-link",
+   "k": "keyboard pick (first option highlighted) -> v-model",
+   "ok": true,
+   "extra": "\"ada@example.com\""
+  },
+  {
+   "tag": "es-fw-link",
+   "k": "exposed reload() reachable on element",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-automation-canvas",
+   "k": "draws nodes + toolbar slot inside panel",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-automation-canvas",
+   "k": "draws the edge",
+   "ok": true,
+   "extra": "1"
+  },
+  {
+   "tag": "es-fw-automation-canvas",
+   "k": "node click -> select event, selectedId round-trip, slot (jQuery-updated) reacts",
+   "ok": true,
+   "extra": "[\"select:n2\"] Tool n2"
+  },
+  {
+   "tag": "es-fw-automation-canvas",
+   "k": "Add block picker -> add-node event",
+   "ok": true,
+   "extra": "[\"select:n2\",\"add:assign\"]"
+  },
+  {
+   "tag": "es-fw-automation-canvas",
+   "k": "node drag -> move event",
+   "ok": true,
+   "extra": "[\"select:n2\",\"add:assign\",\"move:n2\"]"
+  },
+  {
+   "tag": "es-fw-automation-canvas",
+   "k": "exposed fitView reachable on element",
+   "ok": true
+  },
+  {
+   "tag": "page",
+   "k": "no page errors in core scenarios",
+   "ok": true,
+   "extra": ""
+  },
+  {
+   "tag": "es-fw-invite-user",
+   "k": ".detach().appendTo() does not re-run load()",
+   "ok": true,
+   "extra": "1"
+  },
+  {
+   "tag": "es-fw-invite-user",
+   "k": ".empty() remounts (load() runs again, form fresh)",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-notification-panel",
+   "k": ".prop(notifications, newArray): new row + template stamped for it",
+   "ok": true,
+   "extra": "[\"Fresh one\",\"Ada mentioned you\",\"Task assigned\"]"
+  },
+  {
+   "tag": "es-fw-notification-panel",
+   "k": "stamped row from the update wired too (es-slot detail.update=false for new stamps)",
+   "ok": true,
+   "extra": "[\"N1\",\"tpl:N1\",\"tpl:N3\"]"
+  },
+  {
+   "tag": "es-fw-notification-panel",
+   "k": "after detach/append, the stamped rows keep their jQuery handlers",
+   "ok": true,
+   "extra": "[\"N1\",\"tpl:N1\",\"tpl:N3\",\"tpl:N1\"]"
+  },
+  {
+   "tag": "es-fw-notification-item",
+   "k": ".clone() + .prop + .on(click): clone emits once with its own notification",
+   "ok": true,
+   "extra": "[\"custom:N1\",\"custom:N1\",\"clone:N2\"]"
+  },
+  {
+   "tag": "es-fw-link",
+   "k": ".prop(modelValue) shows the value",
+   "ok": true,
+   "extra": "Grace Hopper"
+  },
+  {
+   "tag": "es-fw-link",
+   "k": "after move: opens + lists options (filtered by the current value)",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-link",
+   "k": ".prop(open, true) opens from the page",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-link",
+   "k": ".remove() while open: listbox gone",
+   "ok": true,
+   "extra": ""
+  },
+  {
+   "tag": "es-fw-automation-canvas",
+   "k": ".prop(nodes, more) draws the new node",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-automation-canvas",
+   "k": ".detach().appendTo() keeps the canvas (nodes + edge)",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-automation-canvas",
+   "k": "el.fitView() after move no errors",
+   "ok": true,
+   "extra": ""
+  },
+  {
+   "tag": "es-fw-automation-canvas",
+   "k": ".remove() no errors",
+   "ok": true,
+   "extra": ""
+  }
+ ],
+ "errs": []
+}

@@ -1,0 +1,47 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="/dist/es-ui.css">
+<script src="/jquery.js"></script>
+<script src="/dist/es-ui.iife.js"></script>
+</head><body class="p-6">
+<div id="app" class="space-y-4 max-w-md"></div>
+<script>
+// jQuery port of wc/sweep/inputs/pages/misc.html
+$(function () {
+  const S = window.S = { uploaded: null, failed: '', up2: null, up3: null, txt: 'hello', sel: 'b', chk: false, area: 'x', who: 'Ada', progress: [] }
+  const on = ($el, ev, key) => $el.on(ev, (e) => { if (e.target !== e.currentTarget) return; S[key] = e.originalEvent.detail })
+  const $app = $('#app')
+  const EP = 'http://jq.test/api/method/upload_file'
+  on(on($('<es-file-uploader id="fu">').attr('upload-endpoint', EP).attr('file-types', '[".txt", ".png"]'), 'success', 'uploaded'), 'failure', 'failed').appendTo($app)
+  on($('<es-file-uploader id="fu-val">').attr('upload-endpoint', EP).prop('validateFile', () => (f) => (f.size > 10 ? 'Too big: ' + f.name : null)), 'failure', 'failed')
+    .on('failure', (e) => { S.failed = String(e.originalEvent.detail) }).appendTo($app)
+  // custom default slot with a live child: host opens the hidden input itself (as per-element sweep)
+  on($('<es-file-uploader id="fu-slot"><button id="fu-slot-btn">Attach for <b class="who">Ada</b></button></es-file-uploader>').attr('upload-endpoint', EP), 'success', 'up2').appendTo($app)
+  $('#fu-slot-btn').on('click', function () { $(this).closest('es-file-uploader').find('input[type=file]')[0].click() })
+  // scoped default slot via <template>: openFileSelector + progress from the slot props
+  on($(`<es-file-uploader id="fu-tpl"><template><div><button class="pick">Pick</button> <span class="st" data-es-text="uploading"></span> <span class="pct" data-es-text="progress"></span></div></template></es-file-uploader>`)
+    .attr('upload-endpoint', EP), 'success', 'up3')
+    .on('es-slot', (e) => { const d = e.originalEvent.detail; S.progress.push(d.scope.progress); $(d.nodes).find('.pick').off('click').on('click', () => d.scope.openFileSelector()) })
+    .appendTo($app)
+
+  // FormControl inside a Desk-like section template
+  const $sec = $(`<div class="form-section"><div class="section-body">
+      <es-form-control id="fc-text" label="Text" description="fc desc"><span slot="prefix" id="fc-prefix">P</span></es-form-control>
+      <es-form-control id="fc-sel" type="select" label="Select"></es-form-control>
+      <es-form-control id="fc-chk" type="checkbox" label="Check"></es-form-control>
+      <es-form-control id="fc-area" type="textarea" label="Area"></es-form-control>
+      <es-form-control id="fc-num" type="number" label="Num" placeholder="nr"></es-form-control>
+    </div></div>`)
+  // modelValue/options are not FormControl props (they fall through to the inner control).
+  // .prop('modelValue') would only set a plain JS property; the fall-through bag is esAttrs.
+  on($sec.find('#fc-text').prop('esAttrs', { modelValue: S.txt }), 'update:modelValue', 'txt')
+  on($sec.find('#fc-sel').prop('esAttrs', { options: [{ label: 'A', value: 'a' }, { label: 'B', value: 'b' }], modelValue: S.sel }), 'update:modelValue', 'sel')
+  on($sec.find('#fc-chk').prop('esAttrs', { modelValue: false }), 'update:modelValue', 'chk')
+  on($sec.find('#fc-area').prop('esAttrs', { modelValue: S.area }), 'update:modelValue', 'area')
+  // set before insertion: FormControl's forwardedAttrs computed iterates useAttrs() with for..in,
+  // which Vue does not track, so an attr that first appears after mount is never forwarded (same in plain Vue)
+  $sec.appendTo($app)
+  $('<es-form-control id="fc-late" label="Late">').appendTo($app).prop('esAttrs', { modelValue: 'late' })
+  window.READY = true
+})
+</script>
+</body></html>

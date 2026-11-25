@@ -1,0 +1,13 @@
+PASS closed dialog renders nothing
+PASS host open=true opens dialog (teleported) :: Upload from device Embed a link or drop files to upload
+PASS restrictions object prop enforced client-side (size + type) :: 1 file All private a.txt 2 B "big.txt" was skipped — exceeds 1000 B. "x.png" was skipped — file type not allowed. Add more Upload from device Embed a link or drop files to upload Cancel Upload
+PASS Upload -> default transport POST /api/method/upload_file :: upload_file
+PASS committed event with file_url, uploading true/false events :: {"n":1,"open":false,"committed":["/files/a.txt"],"files":[],"uploading":[true,false]}
+PASS dialog closed after commit (update:open) :: [false]
+PASS AttachmentsList empty state
+PASS AttachmentsList uses transport fn prop + v-model :: [{"file_url":"/files/custom-b.md","file_name":"b.md","is_private":true}] tx=1
+PASS AttachmentsList renders the file row
+PASS UploadTray shows the tray-mode batch (b.md) :: "Uploading 0/1\nUploading files\nb.md\n100%"
+PASS AttachmentsList remove -> v-model [] :: []
+console errors/warnings: 0
+ALL PASS

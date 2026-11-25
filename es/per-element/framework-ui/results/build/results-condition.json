@@ -1,0 +1,63 @@
+{
+ "results": [
+  {
+   "k": "label + description props",
+   "ok": true
+  },
+  {
+   "k": "#empty slot rendered inside the empty button, bound",
+   "ok": true
+  },
+  {
+   "k": "empty click -> v-model gets a blank condition",
+   "ok": true,
+   "extra": "{\"conjunction\":\"and\",\"conditions\":[{\"fieldname\":\"\",\"operator\":\"equals\",\"value\":\"\"}]}"
+  },
+  {
+   "k": "field picker lists meta fields (doctype prop)",
+   "ok": true,
+   "extra": "Name|Created By|Last Updated By|Tags|Like|Assigned To|Created On|Last Updated On|Status|Priority|Due Date|Allocated To|Description|Hours|Done"
+  },
+  {
+   "k": "pick field -> condition.fieldname",
+   "ok": true,
+   "extra": "{\"fieldname\":\"priority\",\"operator\":\"equals\",\"value\":\"Low\"}"
+  },
+  {
+   "k": "value -> v-model + update:expression (as displayed)",
+   "ok": false,
+   "extra": "{\"fieldname\":\"priority\",\"operator\":\"equals\",\"value\":\"High\"} expr=priority == \"Low\""
+  },
+  {
+   "k": "value -> update:expression (after another petite flush)",
+   "ok": true,
+   "extra": "expr=priority == \"High\""
+  },
+  {
+   "k": "Add Condition dropdown (teleported menu) offers condition + group",
+   "ok": true,
+   "extra": "Add Condition|Add Condition Group"
+  },
+  {
+   "k": "Add Condition appends",
+   "ok": true,
+   "extra": "2"
+  },
+  {
+   "k": "conjunction switch -> or",
+   "ok": true,
+   "extra": "or"
+  },
+  {
+   "k": "actions menu Remove",
+   "ok": true,
+   "extra": "1"
+  },
+  {
+   "k": "readonly builder draws fields prop + value, no add button",
+   "ok": true,
+   "extra": "Where Status Equals Open Field Operator Value Status"
+  }
+ ],
+ "errs": []
+}

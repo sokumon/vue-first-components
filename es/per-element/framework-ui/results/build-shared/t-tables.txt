@@ -1,0 +1,29 @@
+PASS List renders header + 3 rows :: ID Status Hours T-1 Open 2 T-2 Closed 5 T-3 Open 1
+PASS List row checkbox -> v-model:selection :: ["T-2"]
+PASS BulkBar appears with count :: 1 selected / Archive
+PASS BulkBar action fn prop gets selection :: ["T-2"]
+PASS List keyboard Space toggles row :: ["T-2","T-3"]
+PASS BulkBar clear -> selection [] :: []
+PASS List select all :: ["T-1","T-2","T-3"]
+PASS List header click -> v-model:sort :: [{"fieldname":"status","direction":"asc"}]
+PASS List column-resize event (kebab emit name) :: [{"fieldname":"name","width":"641px"}]
+FAIL List #cell slot rendered in every cell (9) :: light-DOM cell slot nodes found in 1 cell(s); rows text: ID Status Hours CELL
+PASS scoped #cell <template> stamped per cell with slot props :: ["name=T-1","status=Open","hours=2","name=T-2","status=Closed","hours=5","name=T-3","status=Open","hours=1"]
+PASS List #empty slot bound
+PASS List rowLink (RouterLink) renders the row (needs an installed router) :: ID Status Hours T-1 Open 2
+PASS rowLink row is a link to the route :: /todo/T-1
+PASS Footer counts
+PASS Footer page size -> v-model:pageSize :: 100
+PASS Footer load-more (kebab event) :: 1
+PASS GroupByTable rows + aggregates + totals :: Status Count Sum of Hours Open 2 3 Closed 1 5 Total 3 8
+PASS GroupByTable header sort -> update:groupBy :: [{"fieldname":"count:","direction":"asc"}]
+PASS Grid renders label, reqd marker, rows :: Items # Item * Qty 1 Apple 1 2 Pear 2 Add Row
+PASS Grid Add Row uses newRow fn prop, emits add+change, v-model :: [{"item":"Apple","qty":1},{"item":"Pear","qty":2},{"item":"New","qty":0,"__row_id":"row-1"}] add,change
+PASS Grid cellError fn marks invalid cell :: 1
+PASS Grid select + Delete -> remove event, v-model :: ["Pear","New"] add,change,remove:1,change
+PASS Grid scoped #cell editor stamped per cell :: 4
+PASS Grid editor keeps focus while typing (slot scope updated in place) :: INPUT Banana
+PASS Grid editor update() -> v-model, commit() -> commit event :: ["Banana","New"] add,change,remove:1,change,commit:item
+PASS Grid ArrowDown moves to the editor below :: 2:gcell w-full px-2
+console errors/warnings: 0
+1 FAILED

@@ -1,0 +1,78 @@
+PASS es-desktop-shell | rail | sidebar | content side by side, full height :: {"rail":{"x":0,"y":0,"w":50,"h":900},"sb":{"x":50,"y":0,"w":240,"h":900},"ct":{"x":290,"y":0,"w":990,"h":900}}
+PASS es-desktop-shell | rail and sidebar slots inside the shell
+PASS es-page-header | teleported into DesktopShell header target (first child of content)
+PASS es-page-header-title | title prop (.prop) renders inside header :: Page inbox / New
+PASS es-page-header | default slot: nested es-button inside header
+PASS es-page-header | action button click reaches the jQuery handler :: new
+PASS es-desktop-shell | default slot sits in the scroll region; header stays pinned :: {"scrolled":{"tag":"DIV","top":600,"inShell":true},"h0":{"x":290,"y":0,"w":990,"h":48},"h1":{"x":290,"y":0,"w":990,"h":48}}
+PASS es-sidebar-item | :active from .prop (inbox active, drafts inactive)
+PASS es-sidebar-item | suffix attr rendered in suffix zone
+PASS es-sidebar-item | slot="prefix" inside the button prefix box
+PASS es-sidebar-item | default slot label inside button :: Drafts (3)
+PASS es-sidebar-item | slot="suffix" (nested es-badge) inside suffix zone
+PASS es-sidebar-item | click -> jQuery state -> .prop(active) flips + header title :: drafts / Page drafts
+PASS es-sidebar-item | onClick function prop (.prop) called with MouseEvent :: click
+PASS es-sidebar-item | href renders <a href>
+PASS es-sidebar-item | aria-label from slot text :: Drafts (3)
+PASS es-sidebar-label | slot text rendered :: Projects
+PASS es-sidebar-section | label + items visible
+PASS es-sidebar-section | collapse button -> update:collapsed on host, body hidden :: {"cur":"drafts","collapsed":false,"sec":true,"card":true,"n":3,"log":["new"]}
+PASS es-sidebar-section | element keeps collapsed=true (like an <input>)
+PASS es-sidebar-section | expands again
+PASS es-sidebar-section | nested item click -> state
+PASS es-sidebar-section | .prop("collapsed", true) from jQuery collapses
+PASS es-sidebar-section | .prop("collapsed", false) expands
+PASS es-sidebar-header | title/subtitle rendered (title prop via attribute, no native tooltip) :: A / Acme / ada@acme.io
+PASS es-sidebar-header | menu opens (Dropdown with .prop menuItems)
+PASS es-sidebar-header | menu positioned near its trigger :: {"mr":{"x":54,"y":48,"w":232,"h":69},"br":{"x":54,"y":4,"w":232,"h":40}}
+PASS es-sidebar-header | menu item onClick fires, menu closes :: logout
+PASS es-sidebar-card | title/description props :: Trial ends soon /  / 5 days left /  / Upgrade now
+PASS es-sidebar-card | action object (.prop with onClick fn) :: 1
+PASS es-sidebar-card | named slots title/description in their zones
+PASS es-sidebar-card | actions slot (nested es-button) in actions zone
+PASS es-sidebar-card | slot content written by jQuery stays live (card title, item label) :: Slot title 4 / Drafts (4)
+PASS es-sidebar-card | dismiss event -> jQuery .remove() of the wrapper (unmounts) :: new,dismiss
+PASS es-sidebar-rail-item | active indicator on Home
+PASS es-sidebar-rail-item | aria-label folds badge count (.prop badge number) :: Notifications, 4 unread
+PASS es-sidebar-rail-item | badge pill teleported + positioned next to its item :: {"dx":20,"dy":-8,"vis":true}
+PASS es-sidebar-rail-item | dot badge from attribute badge="2"
+PASS es-sidebar-rail-item | custom default slot inside <a href>
+PASS es-sidebar-rail-item | tooltip on hover shows label :: Notifications / Notifications|Notifications
+PASS es-sidebar-rail-item | click emit reaches .on("click") exactly once :: new,dismiss,rail-home,rail-bell
+PASS es-sidebar-rail | renders items in a column
+PASS es-sidebar-collapse-toggle | label Collapse while expanded :: Collapse
+PASS es-sidebar | toggle -> Sidebar update:collapsed on host :: {"cur":"inbox","collapsed":true,"sec":false,"card":false,"n":4,"log":["new","dismiss","rail-home","rail-bell"]}
+PASS es-sidebar | collapsed width (3rem) + data-state :: {"x":50,"y":0,"w":48,"h":900}
+PASS es-sidebar-item | sees collapsed via inject (label hidden) :: 0
+PASS es-sidebar-collapse-toggle | label switches to Expand (inject)
+PASS es-sidebar-item | collapsed: tooltip shows label :: Team A / Team A|Team A
+PASS es-sidebar-collapse-toggle | toggle again expands :: {"cur":"inbox","collapsed":false,"sec":false,"card":false,"n":4,"log":["new","dismiss","rail-home","rail-bell"]}
+PASS es-sidebar | .prop("collapsed", true) from jQuery collapses
+PASS es-sidebar | aria-label attribute passes to the sidebar root
+PASS es-sidebar-item | append a template with an item into a section: rendered inside the section body
+PASS es-sidebar-item | delegated .on("click", "es-sidebar-item") on the template fires
+PASS es-sidebar-item | appended item sees sidebar collapsed via inject (same tree) :: 0
+PASS es-sidebar-item | .html() on host -> new default slot, href kept :: Docs v2
+PASS es-sidebar-item | .text() on host -> slot text :: Docs v3
+PASS es-sidebar-item | .empty() on host -> label prop again :: Docs
+PASS es-sidebar-item | .clone() copies attributes + slot content (label + nested es-badge), renders once :: {"btn":true,"label":"Drafts (4)","badge":true,"n":1}
+PASS es-sidebar-item | clone does not carry .prop(active) (as native elements) :: inactive
+PASS es-sidebar-item | .detach() + insertAfter (reorder) in same task: still rendered, state kept
+PASS es-sidebar-item | moved item still clickable
+PASS es-sidebar-item | .remove() unmounts it (one fewer sidebar-item)
+PASS es-sidebar-section | .empty() on section: items gone, label stays :: Teams
+PASS es-sidebar-section | append after .empty(): new item renders inside
+PASS es-page-header-title | .text() on host: default slot overrides title prop, still in header :: Custom title / New
+PASS es-page-header | .remove(): header gone from the shell target
+PASS es-page-header | new header from an HTML string appended to the shell: teleported into the header target :: Second page / Go
+   !! pageerror: Cannot read properties of null (reading 'nextSibling') @     at nextSibling (http://jq.test/dist/es-ui.iife.js:23:833) |     at xe (http://jq.test/dist/es-ui.iife.js:19:35183) |     at le (http://jq.test/dist/es-ui.iife.js:19:34830)
+FAIL es-page-header | detach + re-append to the same host in the same task keeps the header (same DOM, no error) :: ["pageerror: Cannot read properties of null (reading 'nextSibling')"]
+PASS es-desktop-shell | whole shell .detach() + .appendTo() in same task: still laid out, section state kept
+   !! pageerror: Cannot read properties of null (reading 'nextSibling') @     at nextSibling (http://jq.test/dist/es-ui.iife.js:23:833) |     at xe (http://jq.test/dist/es-ui.iife.js:19:35183) |     at le (http://jq.test/dist/es-ui.iife.js:19:34830)
+FAIL es-desktop-shell | no page errors from detach/re-append or .empty() :: ["pageerror: Cannot read properties of null (reading 'nextSibling')"]
+PASS es-desktop-shell | $("#app").empty(): everything unmounts, no stray portal/tooltip content :: 
+PASS es-desktop-shell | ES.stats() back to 0 top-level elements :: {"groups":1,"buckets":1,"top":0}
+console errors/warnings: 2
+  pageerror: Cannot read properties of null (reading 'nextSibling')
+  pageerror: Cannot read properties of null (reading 'nextSibling')
+2 FAILED of 72

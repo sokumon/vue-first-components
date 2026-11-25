@@ -1,0 +1,466 @@
+{
+ "page": "overlays.html",
+ "fails": 0,
+ "n": 87,
+ "results": [
+  {
+   "tag": "es-dialog",
+   "k": "closed: no [role=dialog], slot nodes hidden",
+   "ok": true
+  },
+  {
+   "tag": "es-dialog",
+   "k": "opens from .prop(\"open\", true)",
+   "ok": true
+  },
+  {
+   "tag": "es-dialog",
+   "k": "slot=\"title\" inside dialog header",
+   "ok": true,
+   "extra": "Custom title for Ada"
+  },
+  {
+   "tag": "es-dialog",
+   "k": "default slot replaces message prop",
+   "ok": true,
+   "extra": "Custom title for Ada\nBody for Ada \nCancel\nSave"
+  },
+  {
+   "tag": "es-dialog",
+   "k": "icon prop renders lucide badge",
+   "ok": true
+  },
+  {
+   "tag": "es-dialog",
+   "k": "actions prop (.prop array of objects) renders buttons",
+   "ok": true,
+   "extra": "Cancel|Save"
+  },
+  {
+   "tag": "es-dialog",
+   "k": "input in teleported slot: delegated jQuery handler sees it, live title updates",
+   "ok": true,
+   "extra": "Grace"
+  },
+  {
+   "tag": "es-dialog",
+   "k": "action onClick({close}) fn: saved+1, closes, update:open/close/after-leave on host",
+   "ok": true,
+   "extra": "{\"name\":\"Grace\",\"d\":false,\"dm\":false,\"d3\":false,\"saved\":1,\"sheet\":false,\"sheet2\":false,\"pop\":false,\"popCtl\":false,\"hc\":false,\"log\":[\"d-close\",\"d-after\"]}"
+  },
+  {
+   "tag": "es-dialog",
+   "k": "element keeps open=false after update:open (like an <input>)",
+   "ok": true
+  },
+  {
+   "tag": "es-dialog",
+   "k": "Escape closes",
+   "ok": true
+  },
+  {
+   "tag": "es-dialog",
+   "k": "close button present by default",
+   "ok": true
+  },
+  {
+   "tag": "es-dialog",
+   "k": "close button closes",
+   "ok": true
+  },
+  {
+   "tag": "es-dialog",
+   "k": "outside click closes",
+   "ok": true
+  },
+  {
+   "tag": "es-dialog",
+   "k": "slot nodes back in hidden <es-slots> after close, $(\"#d-body\") still finds them",
+   "ok": true
+  },
+  {
+   "tag": "es-dialog",
+   "k": "body pointer-events/overflow restored after close",
+   "ok": true
+  },
+  {
+   "tag": "es-dialog",
+   "k": "Tab keeps focus inside the dialog (focus trap)",
+   "ok": true
+  },
+  {
+   "tag": "es-dialog",
+   "k": "focus returns to the opener after Escape",
+   "ok": true,
+   "extra": "<button id=\"open-d\" class=\"border px-2\">open d</button>"
+  },
+  {
+   "tag": "es-dialog",
+   "k": "modelValue dialog opens",
+   "ok": true
+  },
+  {
+   "tag": "es-dialog",
+   "k": "message prop renders",
+   "ok": true
+  },
+  {
+   "tag": "es-dialog",
+   "k": "slot=\"actions\" replaces footer, nested es-button inside",
+   "ok": true
+  },
+  {
+   "tag": "es-dialog",
+   "k": "show-close-button=\"false\" hides close button",
+   "ok": true
+  },
+  {
+   "tag": "es-dialog",
+   "k": "dismissible=\"false\": Escape does not close",
+   "ok": true
+  },
+  {
+   "tag": "es-dialog",
+   "k": "dismissible=\"false\": outside click does not close",
+   "ok": true
+  },
+  {
+   "tag": "es-dialog",
+   "k": "jQuery click on nested es-button in actions slot closes via .prop(\"modelValue\", false)",
+   "ok": true
+  },
+  {
+   "tag": "es-dialog",
+   "k": "bare: slot without header/actions chrome",
+   "ok": true
+  },
+  {
+   "tag": "es-dialog",
+   "k": "bare closes from slot button (delegated handler)",
+   "ok": true
+  },
+  {
+   "tag": "es-bottom-sheet",
+   "k": "opens with title",
+   "ok": true
+  },
+  {
+   "tag": "es-bottom-sheet",
+   "k": "slot (jQuery-built list) inside sheet, live text",
+   "ok": true,
+   "extra": "Row 1 for Grace\nRow 2 for Grace\nRow 3 for Grace"
+  },
+  {
+   "tag": "es-bottom-sheet",
+   "k": "sits at the bottom of the viewport",
+   "ok": true,
+   "extra": "{\"x\":304,\"y\":731,\"w\":672,\"h\":169}"
+  },
+  {
+   "tag": "es-bottom-sheet",
+   "k": "Escape -> update:open false + after-leave",
+   "ok": true
+  },
+  {
+   "tag": "es-bottom-sheet",
+   "k": "closes from slot button",
+   "ok": true
+  },
+  {
+   "tag": "es-bottom-sheet",
+   "k": "swipe-down on grab handle dismisses",
+   "ok": true,
+   "extra": "{\"hb\":{\"x\":304,\"y\":731,\"w\":672,\"h\":73},\"s\":false}"
+  },
+  {
+   "tag": "es-bottom-sheet",
+   "k": "dismissible=\"false\" ignores Escape",
+   "ok": true
+  },
+  {
+   "tag": "es-bottom-sheet",
+   "k": "sheet2 closes",
+   "ok": true
+  },
+  {
+   "tag": "es-popover",
+   "k": "trigger es-button in slot=\"trigger\" renders",
+   "ok": true,
+   "extra": "{\"x\":324,\"y\":298,\"w\":96,\"h\":28}"
+  },
+  {
+   "tag": "es-popover",
+   "k": "opens on trigger click: update:open + open event",
+   "ok": true
+  },
+  {
+   "tag": "es-popover",
+   "k": "content positioned under its trigger",
+   "ok": true,
+   "extra": "{\"trig\":{\"x\":324,\"y\":298,\"w\":96,\"h\":28},\"pr\":{\"x\":324,\"y\":335,\"w\":252,\"h\":48}}"
+  },
+  {
+   "tag": "es-popover",
+   "k": "arrow rendered",
+   "ok": true
+  },
+  {
+   "tag": "es-popover",
+   "k": "aria-expanded on the real trigger button",
+   "ok": true
+  },
+  {
+   "tag": "es-popover",
+   "k": "jQuery handler in popover slot runs",
+   "ok": true
+  },
+  {
+   "tag": "es-popover",
+   "k": "Escape closes + close event",
+   "ok": true
+  },
+  {
+   "tag": "es-popover",
+   "k": "opens from keyboard (Enter on trigger)",
+   "ok": true
+  },
+  {
+   "tag": "es-popover",
+   "k": "focus returns to the trigger button after Escape",
+   "ok": true
+  },
+  {
+   "tag": "es-popover",
+   "k": "exposed close() on the element",
+   "ok": true,
+   "extra": "open,close,contentEl"
+  },
+  {
+   "tag": "es-popover",
+   "k": "el.close() closes it",
+   "ok": true
+  },
+  {
+   "tag": "es-popover",
+   "k": "controlled bare popover opens",
+   "ok": true
+  },
+  {
+   "tag": "es-popover",
+   "k": "bare: no PopoverPanel shell",
+   "ok": true
+  },
+  {
+   "tag": "es-popover",
+   "k": "dismissible=\"false\" ignores outside click",
+   "ok": true
+  },
+  {
+   "tag": "es-popover",
+   "k": "controlled popover closes from .prop(\"open\", false)",
+   "ok": true
+  },
+  {
+   "tag": "es-popover",
+   "k": "opens from .prop(\"open\", true)",
+   "ok": true
+  },
+  {
+   "tag": "es-hover-card",
+   "k": "opens on hover",
+   "ok": true
+  },
+  {
+   "tag": "es-hover-card",
+   "k": "positioned under trigger",
+   "ok": true,
+   "extra": "{\"ht\":{\"x\":324,\"y\":386,\"w\":46,\"h\":19},\"hr\":{\"x\":324,\"y\":409,\"w\":186,\"h\":48}}"
+  },
+  {
+   "tag": "es-hover-card",
+   "k": "closes on leave",
+   "ok": true
+  },
+  {
+   "tag": "es-hover-card",
+   "k": "opens on keyboard focus",
+   "ok": true
+  },
+  {
+   "tag": "es-hover-card",
+   "k": "closes on blur",
+   "ok": true
+  },
+  {
+   "tag": "es-dialog",
+   "k": ".html() on closed host: new content shows when opened",
+   "ok": true,
+   "extra": "Replaced by .html() x"
+  },
+  {
+   "tag": "es-dialog",
+   "k": ".html() content: handler bound after .html() closes",
+   "ok": true
+  },
+  {
+   "tag": "es-dialog",
+   "k": ".html() while open: one dialog, new content inside (state reset but open prop kept)",
+   "ok": true,
+   "extra": "{\"n\":1,\"txt\":\"Second\",\"inDlg\":true}"
+  },
+  {
+   "tag": "es-dialog",
+   "k": ".html() while open then Escape: closes, body free",
+   "ok": true
+  },
+  {
+   "tag": "es-dialog",
+   "k": ".empty(): dialog still opens (no slot content)",
+   "ok": true
+  },
+  {
+   "tag": "es-dialog",
+   "k": ".detach().appendTo() while open (same task): dialog stays open, input value kept",
+   "ok": true
+  },
+  {
+   "tag": "es-dialog",
+   "k": "moved dialog still closes on Escape + update:open",
+   "ok": true
+  },
+  {
+   "tag": "es-dialog",
+   "k": ".detach() left out: open dialog leaves the page after a frame, body freed",
+   "ok": true,
+   "extra": "{\"n\":0,\"body\":true}"
+  },
+  {
+   "tag": "es-dialog",
+   "k": "re-appended after unmount: mounts fresh with slot content (open prop still true -> open)",
+   "ok": true,
+   "extra": "{\"dlg\":true,\"body\":true}"
+  },
+  {
+   "tag": "es-dialog",
+   "k": ".remove() while open: dialog gone at once, no portal leak, body pointer-events restored",
+   "ok": true,
+   "extra": "{\"body\":true,\"left\":0}"
+  },
+  {
+   "tag": "es-dialog",
+   "k": "page still interactive after .remove() of open modal",
+   "ok": true
+  },
+  {
+   "tag": "es-dialog",
+   "k": ".clone(): clone opens with its own title, cloned actions slot (es-button) rendered",
+   "ok": true,
+   "extra": "Cloned dialog\n\nMessage prop text\n\nOK closes"
+  },
+  {
+   "tag": "es-dialog",
+   "k": ".clone(): jQuery handlers are not cloned (as native) -> OK button inert",
+   "ok": true
+  },
+  {
+   "tag": "es-dialog",
+   "k": ".clone() closes through .prop",
+   "ok": true
+  },
+  {
+   "tag": "es-dialog",
+   "k": "dialog from a larger HTML template opens with nested es-text-input",
+   "ok": true
+  },
+  {
+   "tag": "es-dialog",
+   "k": "nested es-text-input is a Vue child of the dialog (one tree)",
+   "ok": true
+  },
+  {
+   "tag": "es-dialog",
+   "k": "nested es-dropdown inside open dialog opens over it",
+   "ok": true
+  },
+  {
+   "tag": "es-dialog",
+   "k": "nested dropdown item fires, dialog stays open",
+   "ok": true,
+   "extra": "d-close,d-after,d-close,d-after,d-close,d-after,d-close,d-after,d-close,d-after,dm-ok,sheet-after,sheet-after,sheet-after,pop-open,pop-close,pop-open,pop-close,pop-open,pop-close,d-close,d-after,d-close,d-after,dm-ok,inner-b"
+  },
+  {
+   "tag": "es-dialog",
+   "k": "save button in actions slot reads nested input via jQuery and closes",
+   "ok": true,
+   "extra": "d-close,d-after,d-close,d-after,d-close,d-after,d-close,d-after,d-close,d-after,dm-ok,sheet-after,sheet-after,sheet-after,pop-open,pop-close,pop-open,pop-close,pop-open,pop-close,d-close,d-after,d-close,d-after,dm-ok,inner-b,desk-save:abc"
+  },
+  {
+   "tag": "es-bottom-sheet",
+   "k": "jQuery .append() into slot node and .prepend() into host show up",
+   "ok": true
+  },
+  {
+   "tag": "es-bottom-sheet",
+   "k": ".detach().appendTo() while open keeps it open",
+   "ok": true
+  },
+  {
+   "tag": "es-bottom-sheet",
+   "k": ".remove() while open: sheet gone, body free",
+   "ok": true
+  },
+  {
+   "tag": "es-popover",
+   "k": "layout shift (jQuery .insertBefore above the open trigger): content follows",
+   "ok": true,
+   "extra": "{\"tr0\":{\"x\":324,\"y\":298,\"w\":96,\"h\":28},\"tr1\":{\"x\":324,\"y\":434,\"w\":96,\"h\":28},\"pr1\":{\"x\":324,\"y\":471,\"w\":241,\"h\":48}}"
+  },
+  {
+   "tag": "es-popover",
+   "k": ".detach().appendTo() while open: stays open, content follows the moved trigger",
+   "ok": true,
+   "extra": "{\"tr2\":{\"x\":24,\"y\":739,\"w\":96,\"h\":28},\"pr2\":{\"x\":24,\"y\":776,\"w\":241,\"h\":48}}"
+  },
+  {
+   "tag": "es-popover",
+   "k": ".html() with new slot=\"trigger\" + body: works as a popover",
+   "ok": true
+  },
+  {
+   "tag": "es-popover",
+   "k": ".clone(): clone opens its own popover (dup ids aside)",
+   "ok": true
+  },
+  {
+   "tag": "es-popover",
+   "k": ".remove() of open clone: content gone",
+   "ok": true
+  },
+  {
+   "tag": "es-popover",
+   "k": "nested es-dropdown inside an open popover opens",
+   "ok": true
+  },
+  {
+   "tag": "es-popover",
+   "k": "nested dropdown item fires",
+   "ok": true
+  },
+  {
+   "tag": "es-popover",
+   "k": ".remove() while open: content gone at once",
+   "ok": true
+  },
+  {
+   "tag": "es-hover-card",
+   "k": ".clone(): clone hovers open its own card",
+   "ok": true
+  },
+  {
+   "tag": "es-hover-card",
+   "k": ".remove() while open: card gone",
+   "ok": true
+  }
+ ],
+ "errs": []
+}

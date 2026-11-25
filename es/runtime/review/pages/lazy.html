@@ -1,0 +1,21 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="/dist/es-ui.css">
+<script src="/jquery.js"></script>
+</head><body class="p-4">
+<!-- markup is in the page BEFORE the bundle loads (Desk: frappe.require / load_asset after the page is drawn) -->
+<div id="stage">
+  <es-tabs id="t" model-value="a"><es-tab-list><es-tab-trigger value="a" label="A"></es-tab-trigger><es-tab-trigger value="b" label="B"></es-tab-trigger></es-tab-list>
+    <es-tab-panel value="a">Panel A</es-tab-panel><es-tab-panel value="b">Panel B</es-tab-panel></es-tabs>
+  <es-radio-group id="rg" model-value="x"><es-radio value="x" label="X"></es-radio><es-radio value="y" label="Y"></es-radio></es-radio-group>
+  <es-mobile-nav id="mn"><es-mobile-nav-item label="Home" to="/a"></es-mobile-nav-item></es-mobile-nav>
+  <es-tooltip-provider id="tp"><es-tooltip text="tip"><span id="tt">hover</span></es-tooltip></es-tooltip-provider>
+</div>
+<script>
+window.NOES = 1
+window.addEventListener('load', () => setTimeout(() => {
+  const s = document.createElement('script'); s.src = '/dist/es-ui.iife.js'
+  s.onload = () => { window.LOADED = performance.now() }
+  document.head.appendChild(s)
+}, 200))
+</script>
+</body></html>

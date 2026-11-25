@@ -1,0 +1,35 @@
+PASS es-frappe-ui-provider | renders its slot
+PASS es-frappe-ui-provider | slot is not hidden in es-slots
+PASS ES.toast | toast.success shows title + description :: ["Saved #1 / desc 1","Saved #1 / desc 1"]
+FAIL es-frappe-ui-provider | toast rendered once (one Toaster on the page, though the provider and the ES root each render a ToastProvider) :: {"toasts":2,"toasters":2,"before":2}
+PASS ES.toast | <b> from sanitised HTML
+PASS ES.toast | toast sits bottom-right :: {"x":896,"y":814,"w":360,"h":62}
+  undo page.click: Timeout 4000ms exceeded.
+Call log:
+  - waiting for locator('[data-sonner-toast
+FAIL ES.toast | action onClick fires :: 
+PASS ES.dialog | dialog.confirm() renders exactly once (provider Dialogs + ES root Dialogs) :: 1
+PASS ES.dialog | onConfirm fires and dialog closes :: confirmed
+PASS es-keyboard-shortcuts-dialog | useKeyboardShortcut registered from the page (ES.addRoot render fn) handles Mod+S :: 1
+PASS es-keyboard-shortcuts-dialog | opens with title (attribute -> prop) :: Shortcuts here / File / Save doc / Ctrl / S / Open doc / Ctrl / O / Nav / Go home / Ctrl / K / Show shortcuts / Shift / ?
+PASS es-keyboard-shortcuts-dialog | lists the registered groups/shortcuts :: Shortcuts here | File | Save doc | Ctrl | S | Open doc | Ctrl | O | Nav | Go home | Ctrl | K | Show shortcuts | Shift | ?
+PASS es-keyboard-shortcuts-dialog | search shown above threshold (search-threshold="3" -> number)
+PASS es-keyboard-shortcuts-dialog | search filters to "Open doc" :: Shortcuts here | File | Open doc | Ctrl | O
+PASS es-keyboard-shortcuts-dialog | Escape -> update:open false on host
+PASS es-scroll-area | host class h-40 constrains the viewport :: {"sa":{"x":25,"y":283,"w":240,"h":160},"vp":{"x":26,"y":284,"w":238,"h":158}}
+PASS es-scroll-area | slot rows inside viewport
+PASS es-scroll-area | scrolls on wheel :: 300
+PASS es-scroll-area | host CSS convention (host > [data-slot=scroll-area] {height:100%}) also works :: {"vp2":{"x":26,"y":108,"w":238,"h":156},"s2":300}
+PASS es-scroll-area | custom vertical scrollbar shown
+PASS es-scroll-area | viewport-class attribute applied
+PASS es-scroll-area | exposed viewportElement readable on element
+PASS es-scroll-area | appending inside slot content (jQuery owns it): new row in viewport
+PASS es-scroll-area | .append() on host: joins default slot inside the viewport, scroll kept
+PASS es-scroll-area | .html() on host: new rows in a working viewport
+PASS es-scroll-area | .detach() + .prepend() in same task keeps the mounted viewport (scrollTop resets: native browser behaviour on removal) :: []
+PASS es-scroll-area | .clone(): one viewport, 41 rows + direct child, no stale scrollbar copies :: [1,41]
+PASS es-keyboard-shortcuts-dialog | removed + recreated from an HTML string: opens, lists shortcuts
+PASS es-keyboard-shortcuts-dialog | ancestor .remove() while open: dialog gone, body unlocked
+PASS es-frappe-ui-provider | provider removed: ES.toast still works (root ToastProvider) :: []
+console errors/warnings: 0
+2 FAILED of 30

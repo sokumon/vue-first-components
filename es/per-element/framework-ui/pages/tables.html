@@ -1,0 +1,57 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="/build/fw-sweep.css">
+<script defer src="/build/es-components.js"></script>
+<script defer src="/petite-vue.iife.js"></script>
+</head><body class="p-6">
+<div id="app" v-scope="{
+  cols: [{ fieldname: 'name', label: 'ID' }, { fieldname: 'status', label: 'Status' }, { fieldname: 'hours', label: 'Hours', align: 'right' }],
+  rows: [{ name: 'T-1', status: 'Open', hours: 2 }, { name: 'T-2', status: 'Closed', hours: 5 }, { name: 'T-3', status: 'Open', hours: 1 }],
+  selection: [], sort: [], pageSize: 20, loadMore: 0, resized: [], bulk: [],
+  actions: [{ label: 'Archive', onClick(sel) { window.__bulk = sel.slice() } }],
+  grows: [{ item: 'Apple', qty: 1 }, { item: 'Pear', qty: 2 }], gcols: [{ fieldname: 'item', label: 'Item', reqd: true }, { fieldname: 'qty', label: 'Qty', fieldtype: 'Int', align: 'right' }],
+  gev: [],
+  newRow() { return { item: 'New', qty: 0 } },
+  cellError(row, col) { return col.fieldname === 'qty' && row.qty === 0 ? 'Qty required' : undefined },
+  gb: { fields: ['status'], aggregates: [{ function: 'count' }, { function: 'sum', fieldname: 'hours' }], showTotals: true },
+  gbrows: [{ status: 'Open', _aggregate_0: 2, _aggregate_1: 3 }, { status: 'Closed', _aggregate_0: 1, _aggregate_1: 5 }],
+  totals: { _aggregate_0: 3, _aggregate_1: 8 },
+}">
+  <pre id="state" class="text-xs">{{ JSON.stringify({ selection, sort, pageSize, loadMore, resized, grows, gev, gb }) }}</pre>
+  <div class="relative flex h-72 flex-col border">
+    <es-fw-list id="c-list" class="flex min-h-0 flex-1 flex-col" :columns="cols" :rows="rows" :selection="selection" @update:selection="selection = $event.detail[0]"
+      :sort="sort" @update:sort="sort = $event.detail[0]" @column-resize="resized.push($event.detail[0])"></es-fw-list>
+    <es-fw-list-bulk-bar id="c-bulk" :actions="actions" :selection="selection" @update:selection="selection = $event.detail[0]"></es-fw-list-bulk-bar>
+    <es-fw-list-footer id="c-footer" :row-count="rows.length" :total-count="10" :has-counts="true" :page-size="pageSize"
+      @update:page-size="pageSize = $event.detail[0]" @load-more="loadMore++"></es-fw-list-footer>
+  </div>
+  <div class="flex h-40 flex-col border mt-2">
+    <es-fw-list id="c-list-cell" class="flex min-h-0 flex-1 flex-col" :columns="cols" :rows="rows">
+      <span slot="cell" class="cellslot">CELL</span>
+      <div slot="empty">nothing here</div>
+    </es-fw-list>
+  </div>
+  <div class="flex h-24 flex-col border mt-2">
+    <es-fw-list id="c-list-empty" class="flex min-h-0 flex-1 flex-col" :columns="cols" :rows="[]">
+      <div slot="empty" id="empty-slot">Nothing for {{ cols.length }} columns</div>
+    </es-fw-list>
+  </div>
+  <div class="flex h-24 flex-col border mt-2">
+    <es-fw-list id="c-list-link" class="flex min-h-0 flex-1 flex-col" :columns="cols" :rows="rows.slice(0,1)" :row-link="(r) => '/todo/' + r.name"></es-fw-list>
+  </div>
+  <div class="flex h-48 flex-col border mt-2">
+    <es-fw-group-by-table id="c-gbt" doctype="ToDo" :group-by="gb" :rows="gbrows" :totals="totals" @update:group-by="gb = $event.detail[0]"></es-fw-group-by-table>
+  </div>
+  <div class="flex h-40 flex-col border mt-2">
+    <es-fw-list id="c-list-tpl" class="flex min-h-0 flex-1 flex-col" :columns="cols" :rows="rows">
+      <template slot="cell"><span class="tplcell">{{ column.fieldname }}={{ value }}</span></template>
+    </es-fw-list>
+  </div>
+  <es-fw-grid id="c-grid-tpl" class="mt-2 block" label="Editable" :columns="gcols" :model-value="grows" @update:model-value="grows = $event.detail[0]" @commit="gev.push('commit:' + $event.detail[0].column.fieldname)">
+    <template slot="cell"><input class="gcell w-full px-2" :value="value" @input="update($event.target.value)" @change="commit($event.target.value)"></template>
+  </es-fw-grid>
+  <es-fw-grid id="c-grid" class="mt-2 block" label="Items" :columns="gcols" :model-value="grows" @update:model-value="grows = $event.detail[0]"
+     :new-row="newRow" :cell-error="cellError" @add="gev.push('add')" @remove="gev.push('remove:' + $event.detail[0].rows.length)" @change="gev.push('change')"></es-fw-grid>
+</div>
+<script>window.EsConfigureApp = (app) => { const VR = window.__fw.VueRouter; window.__router ||= VR.createRouter({ history: VR.createMemoryHistory(), routes: [{ path: '/:p(.*)*', component: { render: () => null } }] }); app.use(window.__router) };
+window.EsBindSlot = (el, p) => { const s = PetiteVue.reactive(p), app = PetiteVue.createApp(s).mount(el); return { update: (n) => Object.assign(s, n), unmount: () => app.unmount() } }; addEventListener('DOMContentLoaded', () => PetiteVue.createApp().mount('#app'))</script>
+</body></html>

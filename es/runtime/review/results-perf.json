@@ -1,0 +1,125 @@
+{
+ "base.html": {
+  "es-button x200": {
+   "sync": 86,
+   "painted": 112,
+   "rendered": 200,
+   "clear": 28,
+   "kbPerEl": 15.8
+  },
+  "es-button x1000": {
+   "sync": 248,
+   "painted": 292,
+   "rendered": 1000,
+   "clear": 64,
+   "kbPerEl": 10.6
+  },
+  "es-checkbox x1000": {
+   "sync": 410,
+   "painted": 484,
+   "rendered": 1000,
+   "clear": 94,
+   "kbPerEl": 18.4
+  },
+  "es-text-input x1000": {
+   "sync": 389,
+   "painted": 463,
+   "rendered": 1000,
+   "clear": 117,
+   "kbPerEl": 19.6
+  },
+  "ids": {
+   "n": 50,
+   "dup": 0,
+   "sample": [
+    "frappe-ui-es-4000",
+    "frappe-ui-es-4000-label",
+    "frappe-ui-es-4001"
+   ]
+  },
+  "apps": 1,
+  "errs": 0
+ },
+ "pe-wc-dist.html": {
+  "es-button x200": {
+   "sync": 79,
+   "painted": 93,
+   "rendered": 200,
+   "clear": 7,
+   "kbPerEl": 21.6
+  },
+  "es-button x1000": {
+   "sync": 277,
+   "painted": 315,
+   "rendered": 1000,
+   "clear": 29,
+   "kbPerEl": 17.5
+  },
+  "es-checkbox x1000": {
+   "sync": 414,
+   "painted": 477,
+   "rendered": 1000,
+   "clear": 73,
+   "kbPerEl": 25.3
+  },
+  "es-text-input x1000": {
+   "sync": 434,
+   "painted": 504,
+   "rendered": 1000,
+   "clear": 57,
+   "kbPerEl": 27.6
+  },
+  "ids": {
+   "n": 50,
+   "dup": 48,
+   "sample": [
+    "frappe-ui-v-0",
+    "frappe-ui-v-0-label",
+    "frappe-ui-v-0"
+   ]
+  },
+  "apps": 25,
+  "errs": 0
+ },
+ "pe-wc-pe-fix.html": {
+  "es-button x200": {
+   "sync": 96,
+   "painted": 109,
+   "rendered": 200,
+   "clear": 11,
+   "kbPerEl": 22.1
+  },
+  "es-button x1000": {
+   "sync": 298,
+   "painted": 337,
+   "rendered": 1000,
+   "clear": 29,
+   "kbPerEl": 17.8
+  },
+  "es-checkbox x1000": {
+   "sync": 523,
+   "painted": 600,
+   "rendered": 1000,
+   "clear": 81,
+   "kbPerEl": 25.5
+  },
+  "es-text-input x1000": {
+   "sync": 478,
+   "painted": 556,
+   "rendered": 1000,
+   "clear": 76,
+   "kbPerEl": 27.8
+  },
+  "ids": {
+   "n": 50,
+   "dup": 48,
+   "sample": [
+    "frappe-ui-v-0",
+    "frappe-ui-v-0-label",
+    "frappe-ui-v-0"
+   ]
+  },
+  "apps": 25,
+  "errs": 0
+ }
+}

@@ -1,0 +1,230 @@
+{
+ "es-button": {
+  "create in template string renders synchronously": "ok",
+  "detach+appendTo same task keeps instance": "ok",
+  "detach, re-append after a frame: remounts fresh, props kept": "ok",
+  "clone renders independently, slot copied, original intact, no duplicate ids": "ok",
+  ".html(x) on host: remounts with x as slot content": "ok",
+  ".empty() on host: still renders, no slot content": "ok",
+  ".text() on host: still renders": "ok",
+  ".remove() unmounts at once; ancestor .empty() unmounts all": "ok"
+ },
+ "es-button(slot)": {
+  "create in template string renders synchronously": "ok",
+  "slot child rendered": "ok",
+  "detach+appendTo same task keeps instance": "ok",
+  "detach, re-append after a frame: remounts fresh, props kept": "ok",
+  "clone renders independently, slot copied, original intact, no duplicate ids": "ok",
+  ".html(x) on host: remounts with x as slot content": "ok",
+  ".empty() on host: still renders, no slot content": "ok",
+  ".text() on host: still renders": "ok",
+  ".remove() unmounts at once; ancestor .empty() unmounts all": "ok"
+ },
+ "es-badge": {
+  "create in template string renders synchronously": "ok",
+  "detach+appendTo same task keeps instance": "ok",
+  "detach, re-append after a frame: remounts fresh, props kept": "ok",
+  "clone renders independently, slot copied, original intact, no duplicate ids": "ok",
+  ".html(x) on host: remounts with x as slot content": "ok",
+  ".empty() on host: still renders, no slot content": "ok",
+  ".text() on host: still renders": "ok",
+  ".remove() unmounts at once; ancestor .empty() unmounts all": "ok"
+ },
+ "es-avatar": {
+  "create in template string renders synchronously": "ok",
+  "detach+appendTo same task keeps instance": "ok",
+  "detach, re-append after a frame: remounts fresh, props kept": "ok",
+  "clone renders independently, slot copied, original intact, no duplicate ids": "ok",
+  ".html(x) on host: remounts with x as slot content": "ok",
+  ".empty() on host: still renders, no slot content": "ok",
+  ".text() on host: still renders": "ok",
+  ".remove() unmounts at once; ancestor .empty() unmounts all": "ok"
+ },
+ "es-checkbox": {
+  "create in template string renders synchronously": "ok",
+  "slot child rendered": "ok",
+  "detach+appendTo same task keeps instance": "ok",
+  "detach, re-append after a frame: remounts fresh, props kept": "ok",
+  "clone renders independently, slot copied, original intact, no duplicate ids": "ok",
+  ".html(x) on host: remounts with x as slot content": "ok",
+  ".empty() on host: still renders, no slot content": "ok",
+  ".text() on host: still renders": "ok",
+  ".remove() unmounts at once; ancestor .empty() unmounts all": "ok"
+ },
+ "es-switch": {
+  "create in template string renders synchronously": "ok",
+  "slot child rendered": "ok",
+  "detach+appendTo same task keeps instance": "ok",
+  "detach, re-append after a frame: remounts fresh, props kept": "ok",
+  "clone renders independently, slot copied, original intact, no duplicate ids": "ok",
+  ".html(x) on host: remounts with x as slot content": "ok",
+  ".empty() on host: still renders, no slot content": "ok",
+  ".text() on host: still renders": "ok",
+  ".remove() unmounts at once; ancestor .empty() unmounts all": "ok"
+ },
+ "es-text-input": {
+  "create in template string renders synchronously": "ok",
+  "slot child rendered": "ok",
+  "detach+appendTo same task keeps instance": "ok",
+  "detach, re-append after a frame: remounts fresh, props kept": "ok",
+  "clone renders independently, slot copied, original intact, no duplicate ids": "ok",
+  ".html(x) on host: remounts with x as slot content": "ok",
+  ".empty() on host: still renders, no slot content": "ok",
+  ".text() on host: still renders": "ok",
+  ".remove() unmounts at once; ancestor .empty() unmounts all": "ok"
+ },
+ "es-textarea": {
+  "create in template string renders synchronously": "ok",
+  "slot child rendered": "ok",
+  "detach+appendTo same task keeps instance": "ok",
+  "detach, re-append after a frame: remounts fresh, props kept": "ok",
+  "clone renders independently, slot copied, original intact, no duplicate ids": "ok",
+  ".html(x) on host: remounts with x as slot content": "ok",
+  ".empty() on host: still renders, no slot content": "ok",
+  ".text() on host: still renders": "ok",
+  ".remove() unmounts at once; ancestor .empty() unmounts all": "ok"
+ },
+ "es-password": {
+  "create in template string renders synchronously": "ok",
+  "slot child rendered": "ok",
+  "detach+appendTo same task keeps instance": "ok",
+  "detach, re-append after a frame: remounts fresh, props kept": "ok",
+  "clone renders independently, slot copied, original intact, no duplicate ids": "ok",
+  ".html(x) on host: remounts with x as slot content": "ok",
+  ".empty() on host: still renders, no slot content": "ok",
+  ".text() on host: still renders": "ok",
+  ".remove() unmounts at once; ancestor .empty() unmounts all": "ok"
+ },
+ "es-radio-group": {
+  "create in template string renders synchronously": "ok",
+  "slot child rendered": "ok",
+  "detach+appendTo same task keeps instance": "ok",
+  "detach, re-append after a frame: remounts fresh, props kept": "ok",
+  "clone renders independently, slot copied, original intact, no duplicate ids": "FAIL {\"rendered\":true,\"other\":true,\"cmark\":3,\"omark\":true,\"dup\":4,\"stale\":true}",
+  ".html(x) on host: remounts with x as slot content": "ok",
+  ".empty() on host: still renders, no slot content": "ok",
+  ".text() on host: still renders": "ok",
+  ".remove() unmounts at once; ancestor .empty() unmounts all": "ok"
+ },
+ "es-rating": {
+  "create in template string renders synchronously": "ok",
+  "detach+appendTo same task keeps instance": "ok",
+  "detach, re-append after a frame: remounts fresh, props kept": "ok",
+  "clone renders independently, slot copied, original intact, no duplicate ids": "FAIL {\"rendered\":true,\"other\":true,\"cmark\":0,\"omark\":true,\"dup\":1,\"stale\":true}",
+  "exception (later ops skipped)": "FAIL page.evaluate: TypeError: Cannot read properties of null (reading 'nextSibling') |     at nextSibling (http://jq.test/dist/es-ui.iife.js:23:833) |     at xe (ht"
+ },
+ "es-slider": {
+  "create in template string renders synchronously": "ok",
+  "detach+appendTo same task keeps instance": "ok",
+  "detach, re-append after a frame: remounts fresh, props kept": "ok",
+  "clone renders independently, slot copied, original intact, no duplicate ids": "FAIL {\"rendered\":true,\"other\":true,\"cmark\":0,\"omark\":true,\"dup\":1,\"stale\":true}",
+  "exception (later ops skipped)": "FAIL page.evaluate: TypeError: Cannot read properties of null (reading 'nextSibling') |     at nextSibling (http://jq.test/dist/es-ui.iife.js:23:833) |     at xe (ht"
+ },
+ "es-duration": {
+  "create in template string renders synchronously": "ok",
+  "detach+appendTo same task keeps instance": "ok",
+  "detach, re-append after a frame: remounts fresh, props kept": "ok",
+  "clone renders independently, slot copied, original intact, no duplicate ids": "FAIL {\"rendered\":true,\"other\":true,\"cmark\":0,\"omark\":true,\"dup\":2,\"stale\":true}",
+  ".html(x) on host: remounts with x as slot content": "ok",
+  ".empty() on host: still renders, no slot content": "ok",
+  ".text() on host: still renders": "ok",
+  ".remove() unmounts at once; ancestor .empty() unmounts all": "ok"
+ },
+ "es-select": {
+  "create in template string renders synchronously": "ok",
+  "detach+appendTo same task keeps instance": "ok",
+  "detach, re-append after a frame: remounts fresh, props kept": "ok",
+  "clone renders independently, slot copied, original intact, no duplicate ids": "ok",
+  "exception (later ops skipped)": "FAIL page.evaluate: TypeError: Cannot read properties of null (reading 'nextSibling') |     at nextSibling (http://jq.test/dist/es-ui.iife.js:23:833) |     at xe (ht"
+ },
+ "es-combobox": {
+  "create in template string renders synchronously": "ok",
+  "detach+appendTo same task keeps instance": "ok",
+  "detach, re-append after a frame: remounts fresh, props kept": "ok",
+  "clone renders independently, slot copied, original intact, no duplicate ids": "ok",
+  "exception (later ops skipped)": "FAIL page.evaluate: TypeError: Cannot read properties of null (reading 'nextSibling') |     at nextSibling (http://jq.test/dist/es-ui.iife.js:23:833) |     at xe (ht"
+ },
+ "es-multi-select": {
+  "create in template string renders synchronously": "ok",
+  "detach+appendTo same task keeps instance": "ok",
+  "detach, re-append after a frame: remounts fresh, props kept": "ok",
+  "clone renders independently, slot copied, original intact, no duplicate ids": "ok",
+  "exception (later ops skipped)": "FAIL page.evaluate: TypeError: Cannot read properties of null (reading 'nextSibling') |     at nextSibling (http://jq.test/dist/es-ui.iife.js:23:833) |     at xe (ht"
+ },
+ "es-date-picker": {
+  "create in template string renders synchronously": "ok",
+  "slot child rendered": "ok",
+  "detach+appendTo same task keeps instance": "ok",
+  "detach, re-append after a frame: remounts fresh, props kept": "ok",
+  "clone renders independently, slot copied, original intact, no duplicate ids": "ok",
+  "exception (later ops skipped)": "FAIL page.evaluate: TypeError: Cannot read properties of null (reading 'nextSibling') |     at nextSibling (http://jq.test/dist/es-ui.iife.js:23:833) |     at xe (ht"
+ },
+ "es-date-range-picker": {
+  "create in template string renders synchronously": "ok",
+  "detach+appendTo same task keeps instance": "ok",
+  "detach, re-append after a frame: remounts fresh, props kept": "ok",
+  "clone renders independently, slot copied, original intact, no duplicate ids": "FAIL {\"rendered\":true,\"other\":true,\"cmark\":0,\"omark\":true,\"dup\":1,\"stale\":true}",
+  "exception (later ops skipped)": "FAIL page.evaluate: TypeError: Cannot read properties of null (reading 'nextSibling') |     at nextSibling (http://jq.test/dist/es-ui.iife.js:23:833) |     at xe (ht"
+ },
+ "es-date-time-picker": {
+  "create in template string renders synchronously": "ok",
+  "detach+appendTo same task keeps instance": "ok",
+  "detach, re-append after a frame: remounts fresh, props kept": "ok",
+  "clone renders independently, slot copied, original intact, no duplicate ids": "FAIL {\"rendered\":true,\"other\":true,\"cmark\":0,\"omark\":true,\"dup\":1,\"stale\":true}",
+  "exception (later ops skipped)": "FAIL page.evaluate: TypeError: Cannot read properties of null (reading 'nextSibling') |     at nextSibling (http://jq.test/dist/es-ui.iife.js:23:833) |     at xe (ht"
+ },
+ "es-time-picker": {
+  "create in template string renders synchronously": "ok",
+  "slot child rendered": "ok",
+  "detach+appendTo same task keeps instance": "ok",
+  "detach, re-append after a frame: remounts fresh, props kept": "ok",
+  "clone renders independently, slot copied, original intact, no duplicate ids": "ok",
+  "exception (later ops skipped)": "FAIL page.evaluate: TypeError: Cannot read properties of null (reading 'nextSibling') |     at nextSibling (http://jq.test/dist/es-ui.iife.js:23:833) |     at xe (ht"
+ },
+ "es-file-uploader": {
+  "create in template string renders synchronously": "ok",
+  "slot child rendered": "ok",
+  "detach+appendTo same task keeps instance": "ok",
+  "detach, re-append after a frame: remounts fresh, props kept": "ok",
+  "clone renders independently, slot copied, original intact, no duplicate ids": "ok",
+  ".html(x) on host: remounts with x as slot content": "ok",
+  ".empty() on host: still renders, no slot content": "ok",
+  ".text() on host: still renders": "ok",
+  ".remove() unmounts at once; ancestor .empty() unmounts all": "ok"
+ },
+ "es-form-control": {
+  "create in template string renders synchronously": "ok",
+  "slot child rendered": "ok",
+  "detach+appendTo same task keeps instance": "ok",
+  "detach, re-append after a frame: remounts fresh, props kept": "ok",
+  "clone renders independently, slot copied, original intact, no duplicate ids": "ok",
+  ".html(x) on host: remounts with x as slot content": "ok",
+  ".empty() on host: still renders, no slot content": "ok",
+  ".text() on host: still renders": "ok",
+  ".remove() unmounts at once; ancestor .empty() unmounts all": "ok"
+ },
+ "es-fw-check-field": {
+  "create in template string renders synchronously": "ok",
+  "detach+appendTo same task keeps instance": "ok",
+  "detach, re-append after a frame: remounts fresh, props kept": "ok",
+  "clone renders independently, slot copied, original intact, no duplicate ids": "FAIL {\"rendered\":true,\"other\":true,\"cmark\":0,\"omark\":true,\"dup\":2,\"stale\":true}",
+  ".html(x) on host: remounts with x as slot content": "ok",
+  ".empty() on host: still renders, no slot content": "ok",
+  ".text() on host: still renders": "ok",
+  ".remove() unmounts at once; ancestor .empty() unmounts all": "ok"
+ },
+ "es-dropdown": {
+  "create in template string renders synchronously": "ok",
+  "detach+appendTo same task keeps instance": "ok",
+  "detach, re-append after a frame: remounts fresh, props kept": "ok",
+  "clone renders independently, slot copied, original intact, no duplicate ids": "FAIL {\"rendered\":true,\"other\":true,\"cmark\":0,\"omark\":true,\"dup\":1,\"stale\":true}",
+  "exception (later ops skipped)": "FAIL page.evaluate: TypeError: Cannot read properties of null (reading 'nextSibling') |     at nextSibling (http://jq.test/dist/es-ui.iife.js:23:833) |     at xe (ht"
+ },
+ "es-dialog": {
+  "create in template string renders synchronously": "ok",
+  "detach+appendTo same task keeps instance": "ok",
+  "detach, re-append after a frame: remounts fresh, props kept": "ok",
+  "clone renders independently, slot copied, original intact, no duplicate ids": "ok",
+  "exception (later ops skipped)": "FAIL page.evaluate: TypeError: Cannot read properties of null (reading 'nextSibling') |     at nextSibling (http://jq.test/dist/es-ui.iife.js:23:833) |     at xe (ht"
+ }
+}

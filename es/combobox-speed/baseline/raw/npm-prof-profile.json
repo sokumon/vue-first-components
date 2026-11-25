@@ -1,0 +1,52 @@
+{
+ "meta": {
+  "tag": "npm-prof",
+  "suite": "profile",
+  "runs": 5,
+  "date": "2026-11-25T07:47:45.860Z",
+  "seconds": 2.876,
+  "ua": "/home/claude/.cache/ms-playwright/chromium-1194/chrome-linux/chrome"
+ },
+ "data": [
+  {
+   "file": "npm-prof-mount100-run0.cpuprofile",
+   "timing": {
+    "sync": 188.40000009536743,
+    "tick": 257.90000009536743,
+    "painted": 282.59999990463257
+   }
+  },
+  {
+   "file": "npm-prof-mount100-run1.cpuprofile",
+   "timing": {
+    "sync": 224,
+    "tick": 294.40000009536743,
+    "painted": 315.09999990463257
+   }
+  },
+  {
+   "file": "npm-prof-mount100-run2.cpuprofile",
+   "timing": {
+    "sync": 228.5,
+    "tick": 302.2999997138977,
+    "painted": 324.09999990463257
+   }
+  },
+  {
+   "file": "npm-prof-mount100-run3.cpuprofile",
+   "timing": {
+    "sync": 207.19999980926514,
+    "tick": 281,
+    "painted": 303.7999997138977
+   }
+  },
+  {
+   "file": "npm-prof-mount100-run4.cpuprofile",
+   "timing": {
+    "sync": 217.60000038146973,
+    "tick": 291.5,
+    "painted": 314.30000019073486
+   }
+  }
+ ]
+}

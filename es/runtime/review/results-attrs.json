@@ -1,0 +1,19 @@
+{
+ "name": "attrs",
+ "fails": 1,
+ "n": 1,
+ "results": [
+  {
+   "k": "data-* / class on a host match once (Desk: $(`[data-fieldname=...]`), delegated handlers)",
+   "ok": false,
+   "info": {
+    "byData": 2,
+    "byClass": 2,
+    "dataFires": 2,
+    "classFires": 2,
+    "closest": "button"
+   }
+  }
+ ],
+ "errs": []
+}

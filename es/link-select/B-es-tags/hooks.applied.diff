@@ -1,0 +1,20 @@
+diff --git a/frappe/hooks.py b/frappe/hooks.py
+index 9c0c1124f2..b4c93f260a 100644
+--- a/frappe/hooks.py
++++ b/frappe/hooks.py
+@@ -45,12 +45,15 @@ app_include_js = [
+ 	"list.bundle.js",
+ 	"form.bundle.js",
+ 	"controls.bundle.js",
++	"es_link.bundle.js",
+ 	"report.bundle.js",
+ 	"telemetry.bundle.js",
++	"vue_first.bundle.js",
+ ]
+ 
+ app_include_css = [
+ 	"desk.bundle.css",
++	"es_link.bundle.css",
+ 	"report.bundle.css",
+ ]
+ app_include_icons = [

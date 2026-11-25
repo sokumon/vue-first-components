@@ -1,0 +1,31 @@
+PASS meta fetched via getdoctype (ToDo once + Nope once) :: ToDo,Nope
+PASS shell default table slot from meta
+PASS shell named slot toolbar placed in toolbar region
+PASS shell footer slot bound + placed
+PASS shell custom #table slot replaces default
+PASS shell missing doctype -> error text
+PASS SortBy offers meta fields :: Status|Priority|Due Date|Allocated To|Description|Hours|Done|Name|Created On|Last Modified|Modified By|Owner
+PASS SortBy add -> v-model :: [{"fieldname":"priority","direction":"asc"}]
+PASS SortBy trigger reflects sort :: Priority
+PASS footer slot reacts (1 sorts) :: 0 filters · 1 sorts
+PASS Filter offers meta fields :: Name|Created By|Last Updated By|Tags|Like|Assigned To|Created On|Last Updated On|Status|Priority|Due Date|Allocated To|Description|Hours|Done
+PASS Filter add -> v-model :: [{"field":{"label":"Status","value":"status","fieldname":"status","fieldtype":"Select","options":"Open\nClosed\nCancelled"},"fieldname":"status","operator":"equals","value":"Open"}]
+PASS Filter popover opens with a Where row :: Where Status Equals Open Add Filter Clear All Filters
+PASS Filter value -> v-model :: [{"field":{"label":"Status","value":"status","fieldname":"status","fieldtype":"Select","options":"Open\nClosed\nCancelled"},"fieldname":"status","operator":"equals","value":"Closed"}]
+PASS Filter count badge :: Filter / 1
+PASS QuickFilter shares filters (Status quick input shows Closed) :: ≈ / Closed / Priority / Show less
+PASS QuickFilter input -> filters v-model :: [{"field":{"label":"Status","value":"status","fieldname":"status","fieldtype":"Select","options":"Open\nClosed\nCancelled"},"fieldname":"status","operator":"equals","value":"Closed"},{"field":{"label":"Name","value":"name","fieldname":"name
+PASS Filter clear all :: []
+PASS GroupBy popover opens :: Group By Add Group By Aggregate Count Add Aggregate Show totals Clear Grouping Apply
+PASS GroupBy apply -> v-model :: {"fields":["docstatus"],"aggregates":[{"function":"count"}]}
+PASS ColumnSettings popover lists columns :: Status,Priority
+PASS ColumnSettings rename (click, type, Enter) :: ["State","Priority"]
+PASS ColumnSettings drag reorder (sortablejs) :: ["priority","status"]
+PASS ColumnSettings add column :: ["priority","status","date"]
+PASS ColumnSettings remove column :: ["status","date"]
+PASS ColumnSettings reset emits :: 1
+PASS Escape closed popover
+PASS QuickFilter customizing view :: Name / Status / Priority / Allocated To / Add Filter / Done
+PASS QuickFilter Done -> done event + customizing=false :: [1,false]
+console errors/warnings: 0
+ALL PASS

@@ -1,0 +1,337 @@
+{
+ "arrangement_editor.bundle.js": {
+  "raw": 36099,
+  "gz": 10495,
+  "vue": 0
+ },
+ "attachment_queue_review.bundle.js": {
+  "raw": 4012,
+  "gz": 1789,
+  "vue": 0
+ },
+ "billing.bundle.js": {
+  "raw": 3178,
+  "gz": 1637,
+  "vue": 0
+ },
+ "bootstrap-4-web.bundle.js": {
+  "raw": 1719,
+  "gz": 674,
+  "vue": 0
+ },
+ "bottom_sheet.bundle.js": {
+  "raw": 19616,
+  "gz": 6609,
+  "vue": 0
+ },
+ "calendar.bundle.js": {
+  "raw": 264101,
+  "gz": 76670,
+  "vue": 0
+ },
+ "controls.bundle.js": {
+  "raw": 925463,
+  "gz": 253664,
+  "vue": 0
+ },
+ "data_import_tools.bundle.js": {
+  "raw": 161341,
+  "gz": 50114,
+  "vue": 0
+ },
+ "data_import_wizard.bundle.js": {
+  "raw": 24655,
+  "gz": 7519,
+  "vue": 0
+ },
+ "desk.bundle.js": {
+  "raw": 1452728,
+  "gz": 416964,
+  "vue": 0
+ },
+ "desk_charts.bundle.js": {
+  "raw": 2182,
+  "gz": 1004,
+  "vue": 0
+ },
+ "desktop_icons.bundle.js": {
+  "raw": 18640,
+  "gz": 5641,
+  "vue": 0
+ },
+ "dialog.bundle.js": {
+  "raw": 65730,
+  "gz": 19905,
+  "vue": 0
+ },
+ "doctype_settings.bundle.js": {
+  "raw": 40407,
+  "gz": 11650,
+  "vue": 0
+ },
+ "embedded_list.bundle.js": {
+  "raw": 8718,
+  "gz": 2832,
+  "vue": 0
+ },
+ "flow_launcher.bundle.js": {
+  "raw": 12592,
+  "gz": 4816,
+  "vue": 0
+ },
+ "form.bundle.js": {
+  "raw": 217427,
+  "gz": 60340,
+  "vue": 0
+ },
+ "frappe-web.bundle.js": {
+  "raw": 689846,
+  "gz": 212911,
+  "vue": 0
+ },
+ "grid_import.bundle.js": {
+  "raw": 29324,
+  "gz": 9255,
+  "vue": 0
+ },
+ "leaflet.bundle.js": {
+  "raw": 215842,
+  "gz": 56422,
+  "vue": 0
+ },
+ "libs.bundle.js": {
+  "raw": 344748,
+  "gz": 107520,
+  "vue": 0
+ },
+ "list.bundle.js": {
+  "raw": 287530,
+  "gz": 82892,
+  "vue": 0
+ },
+ "list_filter.bundle.js": {
+  "raw": 28586,
+  "gz": 8050,
+  "vue": 0
+ },
+ "list_view_virtualization.bundle.js": {
+  "raw": 7586,
+  "gz": 1814,
+  "vue": 0
+ },
+ "logtypes.bundle.js": {
+  "raw": 720,
+  "gz": 458,
+  "vue": 0
+ },
+ "mobile_nav.bundle.js": {
+  "raw": 10573,
+  "gz": 3875,
+  "vue": 0
+ },
+ "onboarding_tours.bundle.js": {
+  "raw": 6887,
+  "gz": 2240,
+  "vue": 0
+ },
+ "optional_sections.bundle.js": {
+  "raw": 2776,
+  "gz": 1026,
+  "vue": 0
+ },
+ "photoswipe.bundle.js": {
+  "raw": 60108,
+  "gz": 17363,
+  "vue": 0
+ },
+ "print.bundle.js": {
+  "raw": 62710,
+  "gz": 12482,
+  "vue": 0
+ },
+ "print_pages.bundle.js": {
+  "raw": 9744,
+  "gz": 3856,
+  "vue": 0
+ },
+ "report.bundle.js": {
+  "raw": 233092,
+  "gz": 69564,
+  "vue": 0
+ },
+ "sentry.bundle.js": {
+  "raw": 73509,
+  "gz": 25015,
+  "vue": 0
+ },
+ "side_panel.bundle.js": {
+  "raw": 14154,
+  "gz": 5075,
+  "vue": 0
+ },
+ "syntax_highlighting.bundle.js": {
+  "raw": 38949,
+  "gz": 14271,
+  "vue": 0
+ },
+ "talk_to_us.bundle.js": {
+  "raw": 2749,
+  "gz": 1220,
+  "vue": 0
+ },
+ "telemetry.bundle.js": {
+  "raw": 1662,
+  "gz": 725,
+  "vue": 0
+ },
+ "upload_first.bundle.js": {
+  "raw": 863,
+  "gz": 520,
+  "vue": 0
+ },
+ "upload_first_review.bundle.js": {
+  "raw": 3047,
+  "gz": 1251,
+  "vue": 0
+ },
+ "user_settings_dialog.bundle.js": {
+  "raw": 15910,
+  "gz": 5110,
+  "vue": 0
+ },
+ "video_player.bundle.js": {
+  "raw": 119717,
+  "gz": 35596,
+  "vue": 0
+ },
+ "web_form.bundle.js": {
+  "raw": 1149051,
+  "gz": 319279,
+  "vue": 0
+ },
+ "web_form_request.bundle.js": {
+  "raw": 2916,
+  "gz": 1305,
+  "vue": 0
+ },
+ "kanban_board.bundle.js": {
+  "raw": 55645,
+  "gz": 18781,
+  "vue": 0
+ },
+ "kanban.bundle.js": {
+  "raw": 114912,
+  "gz": 34163,
+  "vue": 0
+ },
+ "kanban_settings.bundle.js": {
+  "raw": 7518,
+  "gz": 2579,
+  "vue": 0
+ },
+ "form_builder.bundle.js": {
+  "raw": 283754,
+  "gz": 88992,
+  "vue": 0
+ },
+ "layout_builder.bundle.js": {
+  "raw": 142032,
+  "gz": 50281,
+  "vue": 0
+ },
+ "print_format_builder.bundle.js": {
+  "raw": 408776,
+  "gz": 115896,
+  "vue": 0
+ },
+ "workflow_builder.bundle.js": {
+  "raw": 250925,
+  "gz": 78562,
+  "vue": 0
+ },
+ "build_events.bundle.js": {
+  "raw": 5141,
+  "gz": 2405,
+  "vue": 0
+ },
+ "file_uploader.bundle.js": {
+  "raw": 104387,
+  "gz": 34553,
+  "vue": 0
+ },
+ "vue_first.bundle.js": {
+  "raw": 166892,
+  "gz": 50933,
+  "vue": 0
+ },
+ "frappe.chart.island.js": {
+  "raw": 1068205,
+  "gz": 355440,
+  "vue": 2
+ },
+ "frappe.page.notifications.island.js": {
+  "raw": 30389,
+  "gz": 10339,
+  "vue": 0
+ },
+ "frappe.page.profile.island.js": {
+  "raw": 18024,
+  "gz": 6219,
+  "vue": 0
+ },
+ "frappe.page.search.island.js": {
+  "raw": 8279,
+  "gz": 3617,
+  "vue": 0
+ },
+ "vue_first8.bundle.js": {
+  "raw": 248080,
+  "gz": 73607,
+  "vue": 0
+ },
+ "bank-reconciliation-tool.bundle.js": {
+  "raw": 18582,
+  "gz": 4649,
+  "vue": 0
+ },
+ "erpnext.bundle.js": {
+  "raw": 409478,
+  "gz": 96468,
+  "vue": 0
+ },
+ "item-dashboard.bundle.js": {
+  "raw": 10194,
+  "gz": 2938,
+  "vue": 0
+ },
+ "point-of-sale.bundle.js": {
+  "raw": 108617,
+  "gz": 26564,
+  "vue": 0
+ },
+ "bom_creator.bundle.js": {
+  "raw": 733172,
+  "gz": 187461,
+  "vue": 0
+ },
+ "erpnext.project_costing.island.js": {
+  "raw": 169774,
+  "gz": 47279,
+  "vue": 0
+ },
+ "erpnext.project_overview.island.js": {
+  "raw": 40541,
+  "gz": 12861,
+  "vue": 0
+ },
+ "frappe.flow.chat.island.js": {
+  "raw": 1194289,
+  "gz": 361422,
+  "vue": 2
+ },
+ "vue.bundle.js": {
+  "raw": 130926,
+  "gz": 51412,
+  "vue": 2
+ }
+}

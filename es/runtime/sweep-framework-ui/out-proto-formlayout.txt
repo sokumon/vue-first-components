@@ -1,0 +1,31 @@
+PASS es-fw-form-layout | tabs strip rendered :: Details,More
+PASS es-fw-form-layout | update:activeTab announced on mount :: details
+PASS es-fw-form-layout | fields rendered with labels
+PASS es-fw-form-layout | reason hidden by dependsOn
+PASS es-fw-form-layout | typing writes into the page doc (in-place mutation of the object given with .prop) :: Fix it docEvents=0
+PASS es-fw-form-layout | select writes doc.status :: Closed
+PASS es-fw-form-layout | dependsOn re-evaluates after in-form edit
+PASS es-fw-form-layout | select trigger shows Closed (Vue saw in-form edit) :: Status Closed
+PASS es-fw-form-layout | ui.on.change function in layout object fires :: [1]
+PASS es-fw-form-layout | tab click -> update:tab + update:activeTab :: ["more","more"]
+PASS es-fw-form-layout | Table field inside FormLayout renders
+PASS es-fw-form-layout | Table add row in FormLayout :: [{"item":"","__row_id":"row-1"}]
+PASS es-fw-form-layout | Table row editor drawn inside FormLayout :: [1]
+PASS es-fw-form-layout | typing in Table cell writes the child row :: [{"item":"Bolt","__row_id":"row-1"}]
+PASS es-fw-form-layout | keyboard ArrowRight moves tab :: more
+PASS es-fw-form-layout | .prop(tab, more) from the page selects the tab :: more
+FAIL es-fw-form-layout | page mutates doc.subject + .prop(doc, sameObject) reaches the field :: Fix it
+PASS es-fw-form-layout | page replaces doc (.prop(doc, newObject)) reaches the field :: Replaced
+PASS es-fw-form-layout | edits after replace land in the new page doc :: After replace
+PASS es-fw-form-layout | page mutates $(el).prop(doc).status -> dependsOn hides reason (no re-set) :: false
+PASS es-fw-form-layout | .detach().appendTo() keeps doc + active tab
+PASS es-fw-form-layout | edits after move still reach the page
+PASS es-fw-form-layout | second form from an HTML template: own doc, dependsOn shows reason
+PASS es-fw-form-layout | ids unique across two forms (one useId counter) :: 5
+PASS es-fw-form-layout | .empty() on host remounts with doc kept
+PASS es-fw-form-layout | .html() on an ancestor unmounts the form cleanly :: 
+PASS es-fw-form-layout | .clone() + .prop(layout/doc) before append renders the clone :: 
+PASS es-fw-form-layout | .remove() of the clone
+PASS es-fw-form-layout | no errors in Desk operations :: 
+console errors/warnings: 0
+1 FAILED of 29

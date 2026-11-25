@@ -1,0 +1,45 @@
+PASS es-fw-list-view-shell | meta fetched via getdoctype (ToDo once + Nope once) :: ToDo,Nope
+PASS es-fw-list-view-shell | shell default table slot from meta
+PASS es-fw-list-view-shell | shell named slot toolbar placed in toolbar region
+PASS es-fw-list-view-shell | shell footer slot bound + placed
+PASS es-fw-list-view-shell | shell custom #table slot replaces default
+PASS es-fw-list-view-shell | shell missing doctype -> error text
+PASS es-fw-sort-by | SortBy offers meta fields :: Status|Priority|Due Date|Allocated To|Description|Hours|Done|Name|Created On|Last Modified|Modified By|Owner
+PASS es-fw-sort-by | SortBy add -> v-model :: [{"fieldname":"priority","direction":"asc"}]
+PASS es-fw-sort-by | SortBy trigger reflects sort :: Priority
+PASS es-fw-sort-by | footer slot reacts (1 sorts) :: 0 filters · 1 sorts
+PASS es-fw-filter | Filter offers meta fields :: Name|Created By|Last Updated By|Tags|Like|Assigned To|Created On|Last Updated On|Status|Priority|Due Date|Allocated To|Description|Hours|Done
+PASS es-fw-filter | Filter add -> v-model :: [{"field":{"label":"Status","value":"status","fieldname":"status","fieldtype":"Select","options":"Open\nClosed\nCancelled"},"fieldname":"status","operator":"equals","value":"Open"}]
+PASS es-fw-filter | Filter popover opens with a Where row :: Where Status Equals Open Add Filter Clear All Filters
+PASS es-fw-filter | Filter value -> v-model :: [{"field":{"label":"Status","value":"status","fieldname":"status","fieldtype":"Select","options":"Open\nClosed\nCancelled"},"fieldname":"status","operator":"equals","value":"Closed"}]
+PASS es-fw-filter | Filter count badge :: Filter 1
+PASS es-fw-quick-filter | QuickFilter shares filters (Status quick input shows Closed) :: ≈ Closed Priority Show less
+PASS es-fw-quick-filter | QuickFilter input -> filters v-model :: [{"field":{"label":"Status","value":"status","fieldname":"status","fieldtype":"Select","options":"Open\nClosed\nCancelled"},"fieldname":"status","operator":"equals","value":"Closed"},{"field":{"label":"Name","value":"name","fieldname":"name
+PASS es-fw-filter | Filter clear all :: []
+PASS es-fw-group-by | GroupBy popover opens :: Group By Add Group By Aggregate Count Add Aggregate Show totals Clear Grouping Apply
+PASS es-fw-group-by | GroupBy apply -> v-model :: {"fields":["docstatus"],"aggregates":[{"function":"count"}]}
+PASS es-fw-column-settings | ColumnSettings popover lists columns :: Status,Priority
+PASS es-fw-column-settings | ColumnSettings rename (click, type, Enter) :: ["State","Priority"]
+PASS es-fw-column-settings | ColumnSettings drag reorder (sortablejs) :: ["priority","status"]
+PASS es-fw-column-settings | ColumnSettings add column :: ["priority","status","date"]
+PASS es-fw-column-settings | ColumnSettings remove column :: ["status","date"]
+PASS es-fw-column-settings | ColumnSettings reset emits :: 1
+PASS es-fw-column-settings | Escape closed popover
+PASS es-fw-quick-filter | QuickFilter customizing view :: Name Status Priority Allocated To Add Filter Done
+PASS es-fw-quick-filter | QuickFilter Done -> done event + customizing=false :: [1,false]
+PASS es-fw-quick-filter | no page errors in core scenarios :: 
+PASS es-fw-list-view-shell | nested es-fw-filter is a Vue descendant of ListViewShell (one tree) :: Filter<EsNode<EsSlotOutlet<ListViewShell<EsNode<EsBucket<EsGroup<EsRoot
+PASS es-fw-list-view-shell | es-fw-sort-by appended into the toolbar slot node renders :: Sort
+PASS es-fw-list-view-shell | appended sort-by opens and lists meta fields (shell meta cache shared) :: Status|Priority|Due Date|Allocated To|Description|Hours|Done|Name|Created On|Last Modified|Modified By|Owner
+PASS es-fw-list-view-shell | .remove() the appended control :: 
+PASS es-fw-list-view-shell | .detach().appendTo() whole shell: toolbar + footer kept
+PASS es-fw-list-view-shell | sort-by still drives update:modelValue after the move :: [{"fieldname":"priority","direction":"asc"}] -> [{"fieldname":"priority","direction":"desc"}]
+PASS es-fw-list-view-shell | .html() on a slot node stays in place
+PASS es-fw-list-view-shell | .html() on a host with a new named slot child: remount shows it :: second table
+PASS es-fw-list-view-shell | .clone() + .attr(doctype) renders the default table from meta :: Status Priority Due Date 7 fields in meta
+PASS es-fw-list-view-shell | .remove() whole shell (nested elements unmount too, no errors) :: 
+PASS es-fw-filter | standalone filter with .prop(modelValue) shows count 1 :: Filter 1
+PASS es-fw-filter | popover opens with the given row :: Where Status Equals Add Filter Clear All Filters
+PASS es-fw-filter | .remove() while popover open closes it :: 
+console errors/warnings: 0
+ALL PASS (43)

@@ -1,0 +1,56 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="/dist/es-ui.css">
+<script src="/jquery.js"></script>
+<script src="/dist/es-ui.iife.js"></script>
+</head><body class="p-6">
+<!-- jQuery port of wc/sweep/shell/xo/pages/menus.html: Dropdown, ContextMenu -->
+<div id="app" class="space-y-4"></div>
+<div id="desk" style="margin-left:300px"></div>
+<script>
+$(function () {
+  const S = window.S = { dd: false, cm: false, notify: true, log: [] }
+  const push = (m) => { S.log.push(m); $('.logn').text(S.log.length) }
+  const own = ($el, ev, fn) => $el.on(ev, function (e) { if (e.target === e.currentTarget) fn(e.originalEvent.detail, e) })
+  const ddOptions = () => [
+    { group: 'Actions', options: [
+      { label: 'Edit', icon: 'lucide-pencil', onClick: () => push('edit') },
+      { label: 'Share', submenu: [{ label: 'Email', onClick: () => push('email') }, { label: 'Link', onClick: () => push('link') }] },
+      { label: 'Notify', switch: true, switchValue: S.notify, onClick: (v) => { S.notify = v; push('notify-' + v); $('#dd').prop('options', ddOptions()) } },
+    ] },
+    { group: 'Danger', options: [{ label: 'Delete', theme: 'red', slot: 'danger', onClick: () => push('delete') }] },
+  ]
+  $('#app').append(`
+  <button id="dd-open" class="border px-2">open dd from state</button>
+  <div style="margin-left:300px; margin-top:80px">
+    <es-dropdown id="dd">
+      <es-button id="dd-trigger" label="Menu" icon-right="lucide-chevron-down"></es-button>
+      <span slot="item-danger" id="dd-danger" class="text-ink-red-6">Delete forever (<span class="logn">0</span>)</span>
+    </es-dropdown>
+  </div>
+  <div style="margin-left:300px">
+    <es-dropdown id="dd3" button='{"label":"Suffix menu"}'><span slot="item-suffix" class="dd-suffix">⌘<span class="logn">0</span></span></es-dropdown>
+  </div>
+  <div style="margin-left:300px">
+    <es-dropdown id="dd2" options="[]">
+      <button slot="trigger" id="dd2-trigger" class="border px-2">Empty menu</button>
+      <div slot="empty" id="dd2-empty">Nothing here</div>
+    </es-dropdown>
+  </div>
+  <es-context-menu id="cm">
+    <div id="cm-area" class="border p-10 w-80">Right click here (<span class="logn">0</span>)</div>
+  </es-context-menu>
+  <div style="height:300px"></div>`)
+  $('#dd').prop('options', ddOptions())
+  $('#dd3').prop('options', [{ label: 'One' }, { label: 'Two' }, { label: 'Three' }])
+  $('#cm').prop('options', [
+    { label: 'Copy', onClick: () => push('copy') },
+    { label: 'Paste', disabled: true, onClick: () => push('paste') },
+    { label: 'More', submenu: [{ label: 'Deep', onClick: () => push('deep') }] },
+  ])
+  own($('#dd'), 'update:open', (v) => { S.dd = v })
+  own($('#cm'), 'update:open', (v) => { S.cm = v })
+  $('#dd-open').on('click', () => $('#dd').prop('open', true))
+  window.READY = true
+})
+</script>
+</body></html>

@@ -1,0 +1,68 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../build/es-wc-spike.css">
+<script defer src="../build/es-components.js"></script>
+<script defer src="../build/petite-vue.iife.js"></script>
+</head><body class="p-6">
+<div id="app" v-scope="{ agree: false, agree2: false, showRg2: false, radioOpts: [{v:'a',l:'A'},{v:'b',l:'B'},{v:'c',l:'C'}], todos: [{id:1,text:'one',done:false},{id:2,text:'two',done:true}], on: false, name: 'Ada', bio: 'Hello', pw: 'secret', rating: 2, half: 1.5, sl: [30], range: [20, 80], committed: null, dur: 5400, dur2: null, color: 'b', who: 'Ada', ivoked: 0,
+  dump() { return JSON.stringify({agree:this.agree,agree2:this.agree2,on:this.on,name:this.name,bio:this.bio,pw:this.pw,rating:this.rating,half:this.half,sl:this.sl,range:this.range,committed:this.committed,dur:this.dur,dur2:this.dur2,color:this.color}) } }" class="space-y-4 max-w-lg">
+  <pre id="state">{{ dump() }}</pre>
+
+  <!-- checkbox: label prop, named label slot, description slot, indeterminate, disabled -->
+  <es-checkbox id="cb" label="I agree" description="desc prop" :model-value="agree" @update:model-value="agree = $event.detail[0]"></es-checkbox>
+  <es-checkbox id="cb-slot" :model-value="agree2" @update:model-value="agree2 = $event.detail[0]">
+    <span slot="label" id="cb-label-slot">Agree as <b>{{ who }}</b></span>
+    <span slot="description" id="cb-desc-slot">Desc slot {{ agree2 }}</span>
+  </es-checkbox>
+  <es-checkbox id="cb-ind" label="Mixed" :indeterminate="true" :model-value="false"></es-checkbox>
+  <es-checkbox id="cb-dis" label="Disabled" :disabled="true" :model-value="false"></es-checkbox>
+
+  <!-- switch -->
+  <es-switch id="sw" label="Notifications" description="sw desc" :model-value="on" @update:model-value="on = $event.detail[0]"></es-switch>
+  <es-switch id="sw-slot" :model-value="on" @update:model-value="on = $event.detail[0]"><span slot="label" id="sw-label-slot">Switch slot {{ on }}</span></es-switch>
+
+  <!-- text input: prefix/suffix slots, type, debounce, error, exposed focus -->
+  <es-text-input id="ti" label="Name" placeholder="Your name" error="Required field" :model-value="name" @update:model-value="name = $event.detail[0]">
+    <span slot="prefix" id="ti-prefix">@</span>
+    <span slot="suffix" id="ti-suffix">{{ name.length }}</span>
+  </es-text-input>
+  <es-text-input id="ti-num" type="number" :model-value="3"></es-text-input>
+  <es-text-input id="ti-deb" :debounce="300" :model-value="name" @update:model-value="name = $event.detail[0]"></es-text-input>
+
+  <!-- textarea -->
+  <es-textarea id="ta" label="Bio" :rows="5" :model-value="bio" @update:model-value="bio = $event.detail[0]"><span slot="description" id="ta-desc">Bio slot desc</span></es-textarea>
+
+  <!-- password -->
+  <es-password id="pw" label="Password" :model-value="pw" @update:model-value="pw = $event.detail[0]"><span slot="prefix" id="pw-prefix">KEY</span></es-password>
+
+  <!-- radio group -->
+  <es-radio-group id="rg" label="Colour" :model-value="color" @update:model-value="color = $event.detail[0]">
+    <es-radio id="r-a" value="a" label="Alpha"></es-radio>
+    <es-radio id="r-b" value="b" label="Beta" description="second"></es-radio>
+    <es-radio id="r-c" value="c"><span slot="label" id="r-c-label">Gamma {{ who }}</span></es-radio>
+  </es-radio-group>
+  <es-radio id="r-orphan" value="x" label="Orphan"></es-radio>
+
+  <!-- rating -->
+  <es-rating id="rt" label="Stars" :model-value="rating" @update:model-value="rating = $event.detail[0]"></es-rating>
+  <es-rating id="rt-half" :step="0.5" :max="4" :model-value="half" @update:model-value="half = $event.detail[0]"></es-rating>
+  <es-rating id="rt-icon" :max="3" :model-value="2"><span slot="icon" class="es-heart">H</span></es-rating>
+
+  <!-- slider -->
+  <es-slider id="sl" label="Volume" :min="0" :max="100" :step="10" :model-value="sl" @update:model-value="sl = $event.detail[0]" @value-commit="committed = $event.detail[0]"></es-slider>
+  <es-slider id="sl-range" :model-value="range" @update:model-value="range = $event.detail[0]"></es-slider>
+
+  <!-- duration -->
+  <es-duration id="du" label="Time" :model-value="dur" @update:model-value="dur = $event.detail[0]"></es-duration>
+  <es-duration id="du-long" format="long" :model-value="dur"></es-duration>
+  <es-duration id="du-empty" placeholder="e.g. 1h 30m" :model-value="dur2" @update:model-value="dur2 = $event.detail[0]"></es-duration>
+
+  <button id="show-rg2" @click="showRg2 = !showRg2">toggle rg2</button>
+  <es-radio-group v-if="showRg2" id="rg2" :model-value="color" @update:model-value="color = $event.detail[0]">
+    <es-radio v-for="o in radioOpts" :key="o.v" :value="o.v" :label="o.l + ' ' + who"></es-radio>
+  </es-radio-group>
+  <div id="vfor"><es-checkbox v-for="t in todos" :key="t.id" :label="t.text" :model-value="t.done" @update:model-value="t.done = $event.detail[0]"></es-checkbox></div>
+  <pre id="todos">{{ todos.map(t => t.done ? 1 : 0).join('') }}</pre>
+  <button id="change-who" @click="who = 'Linus'; agree2 = true">change</button>
+</div>
+<script>addEventListener('DOMContentLoaded', () => PetiteVue.createApp().mount('#app'))</script>
+</body></html>

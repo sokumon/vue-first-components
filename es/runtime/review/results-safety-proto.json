@@ -1,0 +1,59 @@
+{
+ "name": "safety",
+ "fails": 1,
+ "n": 5,
+ "results": [
+  {
+   "k": "user text in attrs / slots / JSON / props never executes, {{ }} stays literal",
+   "ok": true,
+   "info": {
+    "PWN": 0,
+    "imgs": 1,
+    "mustache49": false,
+    "rawTpl": true
+   }
+  },
+  {
+   "k": "on-click / v-on:click / :label attribute text is never compiled or run",
+   "ok": true,
+   "info": {
+    "HIT": 0,
+    "err": null,
+    "n": 1
+   }
+  },
+  {
+   "k": "host onclick attribute runs once per click (not copied to inner root)",
+   "ok": false,
+   "info": {
+    "HIT": 2,
+    "rootHasOnclick": "window.HIT++"
+   }
+  },
+  {
+   "k": "INFO component v-html sinks reachable from jQuery data (NotificationItem title/description)",
+   "ok": true,
+   "info": {
+    "PWN": 9,
+    "imgs": 2,
+    "props": [
+     "notification",
+     "class"
+    ]
+   }
+  },
+  {
+   "k": "INFO iife bundle carries Vue template compiler / new Function (CSP unsafe-eval); no page string is compiled",
+   "ok": true,
+   "info": {
+    "compiler": true,
+    "newFunction": 3,
+    "evalCalls": 0
+   }
+  }
+ ],
+ "errs": [
+  "error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+  "error: Failed to load resource: the server responded with a status of 404 (Not Found)"
+ ]
+}

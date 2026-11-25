@@ -1,0 +1,161 @@
+{
+ "page": "dates.html",
+ "fails": 0,
+ "n": 32,
+ "results": [
+  {
+   "k": "date-picker shows model in input",
+   "ok": true,
+   "extra": "2024-03-15"
+  },
+  {
+   "k": "date-picker prefix slot inside trigger",
+   "ok": true
+  },
+  {
+   "k": "date-picker opens popover, update:open",
+   "ok": true,
+   "extra": "{\"d\":\"2024-03-15\",\"dOpen\":true,\"changed\":\"\",\"changeEvents\":0,\"range\":[\"2024-03-01\",\"2024-03-05\"],\"dt\":\"2024-03-15 10:30:00\",\"t\":\"09:00\",\"tOpen\":false,\"d2\":\"2024-03-13\",\"ctlOpen\":false,\"scoped\":null,\"scopeKeys\":[\"selected\",\"setDate\",\"clear\",\"close\",\"open\",\"disabled\",\"setOpen\"]}"
+  },
+  {
+   "k": "date-picker <template slot=actions> stamped inside popover",
+   "ok": true
+  },
+  {
+   "k": "es-slot event carries the scoped slot props (setDate, close...)",
+   "ok": true,
+   "extra": "[\"selected\",\"setDate\",\"clear\",\"close\",\"open\",\"disabled\",\"setOpen\"]"
+  },
+  {
+   "k": "selected cell aria-selected",
+   "ok": true
+  },
+  {
+   "k": "click cell -> model + change event + closes",
+   "ok": true,
+   "extra": "{\"d\":\"2024-03-20\",\"dOpen\":false,\"changed\":\"2024-03-20\",\"changeEvents\":1,\"range\":[\"2024-03-01\",\"2024-03-05\"],\"dt\":\"2024-03-15 10:30:00\",\"t\":\"09:00\",\"tOpen\":false,\"d2\":\"2024-03-13\",\"ctlOpen\":false,\"scoped\":null,\"scopeKeys\":[\"selected\",\"setDate\",\"clear\",\"close\",\"open\",\"disabled\",\"setOpen\"]}"
+  },
+  {
+   "k": "actions slot button (jQuery sets model) -> 2024-12-25",
+   "ok": true,
+   "extra": "{\"d\":\"2024-12-25\",\"dOpen\":true,\"changed\":\"2024-03-20\",\"changeEvents\":1,\"range\":[\"2024-03-01\",\"2024-03-05\"],\"dt\":\"2024-03-15 10:30:00\",\"t\":\"09:00\",\"tOpen\":false,\"d2\":\"2024-03-13\",\"ctlOpen\":false,\"scoped\":null,\"scopeKeys\":[\"selected\",\"setDate\",\"clear\",\"close\",\"open\",\"disabled\",\"setOpen\"]} input=2024-0"
+  },
+  {
+   "k": "calendar follows model change while open",
+   "ok": true
+  },
+  {
+   "k": "Escape closes date-picker",
+   "ok": true
+  },
+  {
+   "k": "[component, same in plain Vue] input shows host-set model after close",
+   "ok": true,
+   "extra": "2024-03-20"
+  },
+  {
+   "k": "scoped setDate() from es-slot detail works (was unreachable per-element)",
+   "ok": true,
+   "extra": "{\"d\":\"2024-11-11\",\"scoped\":\"clicked\"}"
+  },
+  {
+   "k": "typing a date + Enter commits",
+   "ok": true,
+   "extra": "{\"d\":\"2024-07-04\",\"dOpen\":false,\"changed\":\"2024-07-04\",\"changeEvents\":3,\"range\":[\"2024-03-01\",\"2024-03-05\"],\"dt\":\"2024-03-15 10:30:00\",\"t\":\"09:00\",\"tOpen\":false,\"d2\":\"2024-03-13\",\"ctlOpen\":false,\"scoped\":\"clicked\",\"scopeKeys\":[\"selected\",\"setDate\",\"clear\",\"close\",\"open\",\"disabled\",\"setOpen\"]}"
+  },
+  {
+   "k": "min/max attrs + isDateUnavailable fn via .prop disable cells",
+   "ok": true,
+   "extra": "{\"2024-03-09\":true,\"2024-03-11\":false,\"2024-03-16\":true,\"2024-03-21\":true}"
+  },
+  {
+   "k": "format=DD/MM/YYYY display, model ISO",
+   "ok": true,
+   "extra": "12/03/2024 2024-03-12"
+  },
+  {
+   "k": "custom slot=trigger replaces input",
+   "ok": true
+  },
+  {
+   "k": "custom trigger opens via .prop(open)",
+   "ok": true,
+   "extra": "{\"d\":\"2024-07-04\",\"dOpen\":false,\"changed\":\"2024-07-04\",\"changeEvents\":3,\"range\":[\"2024-03-01\",\"2024-03-05\"],\"dt\":\"2024-03-15 10:30:00\",\"t\":\"09:00\",\"tOpen\":false,\"d2\":\"2024-03-12\",\"ctlOpen\":true,\"scoped\":\"clicked\",\"scopeKeys\":[\"selected\",\"setDate\",\"clear\",\"close\",\"open\",\"disabled\",\"setOpen\"]}"
+  },
+  {
+   "k": "controlled picker selection -> model, closes, trigger text by jQuery",
+   "ok": true,
+   "extra": "{\"d\":\"2024-07-10\",\"dOpen\":false,\"changed\":\"2024-07-04\",\"changeEvents\":3,\"range\":[\"2024-03-01\",\"2024-03-05\"],\"dt\":\"2024-03-15 10:30:00\",\"t\":\"09:00\",\"tOpen\":false,\"d2\":\"2024-03-12\",\"ctlOpen\":false,\"scoped\":\"clicked\",\"scopeKeys\":[\"selected\",\"setDate\",\"clear\",\"close\",\"open\",\"disabled\",\"setOpen\"]} Custom"
+  },
+  {
+   "k": "exposed focus() on date-picker host focuses its input",
+   "ok": true
+  },
+  {
+   "k": "[caveat] exposed open() shadowed by the `open` prop accessor",
+   "ok": true,
+   "extra": "typeof el.open = boolean"
+  },
+  {
+   "k": ".on(change) gets exactly one event (component emit), not the native input change",
+   "ok": true,
+   "extra": "{\"n\":1,\"v\":\"2024-08-01\"}"
+  },
+  {
+   "k": "range picker displays array model",
+   "ok": true,
+   "extra": "2024-03-01 to 2024-03-05"
+  },
+  {
+   "k": "range picker two clicks -> [from,to]",
+   "ok": true,
+   "extra": "[\"2024-03-10\",\"2024-03-14\"]"
+  },
+  {
+   "k": "datetime picker shows model",
+   "ok": true,
+   "extra": "2024-03-15 10:30:00"
+  },
+  {
+   "k": "datetime picker cell click",
+   "ok": true,
+   "extra": "2024-03-18 10:30:00"
+  },
+  {
+   "k": "datetime typed value commits",
+   "ok": true,
+   "extra": "2024-05-01 14:45:00"
+  },
+  {
+   "k": "time-picker prefix slot + model",
+   "ok": true,
+   "extra": "09:00"
+  },
+  {
+   "k": "time-picker interval=\"30\" attr -> 30-min options",
+   "ok": true,
+   "extra": "00:00,00:30,01:00,01:30 n=48"
+  },
+  {
+   "k": "time-picker option click -> model 10:30, closes",
+   "ok": true,
+   "extra": "{\"d\":\"2024-08-01\",\"dOpen\":false,\"changed\":\"2024-08-01\",\"changeEvents\":1,\"range\":[\"2024-03-10\",\"2024-03-14\"],\"dt\":\"2024-05-01 14:45:00\",\"t\":\"10:30\",\"tOpen\":false,\"d2\":\"2024-03-12\",\"ctlOpen\":false,\"scoped\":\"clicked\",\"scopeKeys\":[\"selected\",\"setDate\",\"clear\",\"close\",\"open\",\"disabled\",\"setOpen\"]}"
+  },
+  {
+   "k": "time-picker typed \"3pm\" -> 15:00",
+   "ok": true,
+   "extra": "15:00"
+  },
+  {
+   "k": "time-picker options prop (array of objects)",
+   "ok": true,
+   "extra": "Breakfast,Lunch"
+  },
+  {
+   "k": "time-picker options select -> 12:30",
+   "ok": true,
+   "extra": "12:30"
+  }
+ ],
+ "errs": []
+}

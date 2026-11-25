@@ -1,0 +1,21 @@
+{
+ "label": "J-A",
+ "open new ToDo, painted (ms)": 87.6,
+ "open new Workflow, painted (ms)": 78,
+ "make 100 Link, painted (ms)": 463.2,
+ "make 100 Select, painted (ms)": 662.3,
+ "set_input 100 Select, painted (ms)": 309.4,
+ "dialog 40 Link + 10 Select, painted (ms)": 245.8,
+ "heap per Link, attached (KB)": 122.9,
+ "DOM nodes per Link": 84,
+ "listeners per Link": 24,
+ "heap kept after remove 200 Link (KB)": 19295,
+ "heap per Select, attached (KB)": 223.6,
+ "DOM nodes per Select": 174,
+ "listeners per Select": 40,
+ "heap kept after remove 200 Select (KB)": 38278,
+ "open new Sales Invoice, painted (ms)": 372.7,
+ "open new Stock Entry, painted (ms)": 211.1,
+ "heap growth per new Sales Invoice (KB)": 685,
+ "JS heap after (MB)": 35.6
+}

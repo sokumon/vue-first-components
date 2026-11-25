@@ -1,0 +1,40 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="es-wc-spike.css">
+<script defer src="es-components.js"></script>
+<script defer src="petite-vue.iife.js"></script>
+</head><body class="p-6">
+<es-frappe-uiprovider id="prov">
+<div id="app" v-scope="{ log: [], kOpen: false, n: 0, push(e) { this.log.push(e) },
+    confirm() { const self = this; FUI.dialog.confirm({ title: 'Really?', message: 'Confirm message', onConfirm: () => self.push('confirmed') }) },
+    toastIt() { this.n++; FUI.toast.success('Saved <b>#' + this.n + '</b>', { description: 'desc ' + this.n }) },
+    toastAction() { const self = this; FUI.toast('With action', { action: { label: 'Undo', onClick: () => self.push('undo') } }) } }" class="space-y-4">
+  <p id="state">k={{ kOpen }}|n={{ n }}</p>
+  <p id="log">{{ log.join(',') }}</p>
+  <button id="btn-toast" class="border px-2" @click="toastIt()">toast</button>
+  <button id="btn-toast-act" class="border px-2" @click="toastAction()">toast action</button>
+  <button id="btn-confirm" class="border px-2" @click="confirm()">confirm</button>
+  <button id="btn-k" class="border px-2" @click="kOpen = true">shortcuts</button>
+
+  <es-keyboard-shortcuts-dialog id="kd" :open="kOpen" @update:open="kOpen = $event.detail[0]" title="Shortcuts here" :search-threshold="3"></es-keyboard-shortcuts-dialog>
+
+  <style>es-scroll-area.fill > [data-slot=scroll-area] { height: 100% }</style>
+  <es-scroll-area id="sa2" class="fill block h-40 w-60 border">
+    <div id="sa2-content"><p v-for="i in 40">Row {{ i }}</p></div>
+  </es-scroll-area>
+  <es-scroll-area id="sa" class="block h-40 w-60 border" viewport-class="sa-vp">
+    <div id="sa-content"><p v-for="i in 40" class="sa-row">Row {{ i }}</p></div>
+  </es-scroll-area>
+</div>
+</es-frappe-uiprovider>
+<script>
+addEventListener('DOMContentLoaded', () => {
+  window.__unreg = FUI.registerShortcuts([
+    { combo: 'Mod+S', description: 'Save doc', group: 'File', handler: () => (window.__saved = (window.__saved || 0) + 1) },
+    { combo: 'Mod+O', description: 'Open doc', group: 'File', handler: () => {} },
+    { combo: 'Mod+K', description: 'Go home', group: 'Nav', handler: () => {} },
+    { combo: 'Shift+?', description: 'Show shortcuts', group: 'Nav', handler: () => {} },
+  ])
+  PetiteVue.createApp().mount('#app')
+})
+</script>
+</body></html>

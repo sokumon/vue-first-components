@@ -1,0 +1,18 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="/build/fw-sweep.css">
+<script defer src="/build/es-components.js"></script>
+<script defer src="/petite-vue.iife.js"></script>
+</head><body class="p-6">
+<div id="app" v-scope="{ n: 0, open: false, committed: [], files: [], uploading: [],
+  transport(file, args, ctx) { window.__tx = (window.__tx || 0) + 1; ctx.onProgress(1, 1); return Promise.resolve({ name: 'X', file_name: file.name, file_url: '/files/custom-' + file.name, is_private: 0 }) } }">
+  <pre id="state" class="text-xs">{{ JSON.stringify({ n, open, committed, files, uploading }) }}</pre>
+  <button id="poke" @click="n++">poke</button>
+  <button id="open" @click="open = true">open uploader</button>
+  <es-fw-file-upload-dialog id="c-fud" :open="open" @update:open="open = $event.detail[0]" :multiple="true" title="Add files" progress-mode="inline"
+     :restrictions="{ max_file_size: 1000, allowed_file_types: ['.txt', '.md'] }"
+     @committed="committed = $event.detail[0].map(r => r.file_url)" @uploading="uploading.push($event.detail[0])"></es-fw-file-upload-dialog>
+  <es-fw-attachments-list id="c-al" :model-value="files" @update:model-value="files = $event.detail[0]" :transport="transport"></es-fw-attachments-list>
+  <es-fw-upload-tray id="c-tray"></es-fw-upload-tray>
+</div>
+<script>window.EsBindSlot = (el, p) => { const s = PetiteVue.reactive(p), app = PetiteVue.createApp(s).mount(el); return { update: (n) => Object.assign(s, n), unmount: () => app.unmount() } }; addEventListener('DOMContentLoaded', () => PetiteVue.createApp().mount('#app'))</script>
+</body></html>

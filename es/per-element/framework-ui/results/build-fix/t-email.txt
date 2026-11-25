@@ -1,0 +1,13 @@
+PASS lists accounts from frappe.client.get_list (mocked) :: Email accounts Connect mailboxes to send and receive email. New Default incoming Support Default outgoing Support Mailboxes 1 Support support@example.com Receive Send
+PASS get_list called for Email Account :: frappe.integrations.frappe_providers.email_oauth.get_one_click_services,frappe.client.get_list
+PASS New -> add view with provider tiles (providers prop) :: Back: New email account Choose your email provider Gmail Custom email
+PASS typing in add form -> v-model:dirty true :: true :: Back: New custom email account Unsaved Create Account name * (required) Email address * (required) Password * (required) Email domain Leave empty to enter the server settings yourself. Incoming server
+PASS Create -> frappe.client.insert + created event + back to list (dirty false) :: {"n":2,"dirty":false,"created":[""]} frappe.client.get_list,frappe.client.get_list,frappe.integrations.frappe_providers.email_oauth.get_one_click_services
+console errors/warnings: 6
+  http 404 http://fw.test/assets/frappe/images/email-providers/gmail.png
+  error: Failed to load resource: the server responded with a status of 404 (Not Found)
+  http 404 http://fw.test/assets/frappe/images/email-providers/gmail.png
+  error: Failed to load resource: the server responded with a status of 404 (Not Found)
+  http 404 http://fw.test/assets/frappe/images/email-providers/gmail.png
+  error: Failed to load resource: the server responded with a status of 404 (Not Found)
+ALL PASS

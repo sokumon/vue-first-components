@@ -1,0 +1,54 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="/dist/es-ui.css">
+<script src="/jquery.js"></script>
+<script src="/dist/es-ui.iife.js"></script>
+</head><body class="p-6">
+<div id="stage" class="space-y-3 max-w-md"></div>
+<script>
+// Desk-style jQuery operations on every inputs-group element. Specs are data; the test drives them.
+// probe: a selector inside the host that proves the component rendered.
+// slot: markup for a slot child (with .mark) that the component renders visibly while closed (or null).
+// open: selector to click to open an overlay (or null).
+window.S = {}
+const colors = [{ label: 'Red', value: 'red' }, { label: 'Blue', value: 'blue' }]
+window.SPECS = [
+  { tag: 'es-button', attrs: 'label="Go"', probe: 'button', slot: null },
+  { tag: 'es-button', attrs: '', probe: 'button', slot: '<span class="mark">Slot btn</span>', name: 'es-button(slot)' },
+  { tag: 'es-badge', attrs: 'label="Draft"', probe: 'span,div' },
+  { tag: 'es-avatar', attrs: 'label="Ada Lovelace"', probe: 'div,span' },
+  { tag: 'es-checkbox', attrs: 'label="Agree"', probe: 'input[type=checkbox]', slot: '<span slot="description" class="mark">desc</span>', model: false },
+  { tag: 'es-switch', attrs: 'label="Sw"', probe: '[role=switch]', slot: '<span slot="label" class="mark">lbl</span>', model: false },
+  { tag: 'es-text-input', attrs: 'label="Name" placeholder="p"', probe: 'input', slot: '<span slot="prefix" class="mark">@</span>', model: 'Ada', type: 'input' },
+  { tag: 'es-textarea', attrs: 'label="Bio" rows="3"', probe: 'textarea', slot: '<span slot="description" class="mark">d</span>', model: 'Hi', type: 'textarea' },
+  { tag: 'es-password', attrs: 'label="Pw"', probe: 'input', slot: '<span slot="prefix" class="mark">K</span>', model: 'secret', type: 'input' },
+  { tag: 'es-radio-group', attrs: 'label="Colour"', probe: '[role=radiogroup],[role=radio]', slot: '<es-radio value="a" label="A" class="mark"></es-radio><es-radio value="b" label="B"></es-radio>', model: 'a', nestedProbe: '[role=radio]' },
+  { tag: 'es-rating', attrs: 'max="4"', probe: '[data-slot=star]', model: 2 },
+  { tag: 'es-slider', attrs: 'min="0" max="100" step="10"', probe: '[role=slider]', model: [30] },
+  { tag: 'es-duration', attrs: 'label="T"', probe: 'input', model: 5400, type: 'input' },
+  { tag: 'es-select', attrs: 'placeholder="Pick"', probe: '[data-slot=trigger]', props: { options: colors }, model: 'red', open: '[data-slot=trigger]', slot: '<div slot="footer" class="mark">foot</div>', slotWhenOpen: true },
+  { tag: 'es-combobox', attrs: 'placeholder="Find"', probe: 'input', props: { options: colors }, model: null, open: 'input', slot: '<div slot="footer" class="mark">foot</div>', slotWhenOpen: true },
+  { tag: 'es-multi-select', attrs: 'placeholder="Tags"', probe: '[data-slot=trigger]', props: { options: colors }, model: ['red'], open: '[data-slot=trigger]', slot: '<div slot="footer" class="mark">foot</div>', slotWhenOpen: true },
+  { tag: 'es-date-picker', attrs: 'label="D"', probe: 'input', model: '2024-03-15', open: 'input', slot: '<span slot="prefix" class="mark">D</span>' },
+  { tag: 'es-date-range-picker', attrs: '', probe: 'input', model: ['2024-03-01', '2024-03-05'], open: 'input' },
+  { tag: 'es-date-time-picker', attrs: '', probe: 'input', model: '2024-03-15 10:30:00', open: 'input' },
+  { tag: 'es-time-picker', attrs: 'interval="30"', probe: 'input', model: '09:00', open: 'input', slot: '<span slot="prefix" class="mark">AT</span>' },
+  { tag: 'es-file-uploader', attrs: 'upload-endpoint="/api/method/upload_file"', probe: 'input[type=file]', slot: '<button class="mark">Attach</button>' },
+  { tag: 'es-form-control', attrs: 'label="FC" type="text"', probe: 'input', slot: '<span slot="prefix" class="mark">P</span>', esAttrs: { modelValue: 'fc' } },
+  { tag: 'es-fw-check-field', attrs: '', probe: 'input', props: { field: { fieldname: 'x', label: 'X', fieldtype: 'Check' } }, model: 0 },
+  { tag: 'es-dropdown', attrs: '', probe: '[data-slot=trigger]', props: { options: [{ label: 'Edit', onClick() { S.dd = 1 } }], button: { label: 'Act' } }, open: 'button' },
+  { tag: 'es-dialog', attrs: 'title="Dlg"', probe: null, slot: '<p class="mark">Body</p>', model: false, modelName: 'open', openProp: 'open', slotWhenOpen: true },
+]
+// Builds one element the Desk way: an HTML string inside a larger template, then .prop() for non-string values.
+window.make = function (spec, where) {
+  const $wrap = $(`<div class="frappe-control" data-fieldtype="x"><div class="control-input">
+      <${spec.tag} ${spec.attrs}>${spec.slot || ''}</${spec.tag}></div></div>`)
+  const $el = $wrap.find(spec.tag).first()
+  if (spec.props) $el.prop(spec.props)
+  if (spec.esAttrs) $el.prop('esAttrs', spec.esAttrs)
+  if ('model' in spec) $el.prop(spec.modelName || 'modelValue', spec.model)
+  $wrap.appendTo(where || '#stage')
+  return $el
+}
+window.READY = true
+</script>
+</body></html>

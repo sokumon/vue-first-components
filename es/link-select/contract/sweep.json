@@ -1,0 +1,262 @@
+{
+ "app": {
+  "simple": {
+   "select: add_options / set_options / select-change": 9,
+   "create new: .new_doc override / call": 24,
+   "query: get_query in a df literal": 190,
+   "query: frm.set_query / set_query": 624,
+   "DOM: select / option reach-ins": 1,
+   "DOM: input[data-fieldname=] / [data-target=]": 3,
+   "awesomplete: .awesomplete / Awesomplete": 20,
+   "awesomplete: awesomplete-* events": 5,
+   "DOM: link-field / link-btn / btn-open / btn-clear selectors": 8,
+   "search: frappe.desk.search.search_link / search_widget": 13,
+   "df flags: only_select / ignore_link_validation / remember_last_selected_value": 3,
+   "dynamic link: df.get_options / get_options()": 9,
+   "fetch: frm.add_fetch": 52,
+   "query: .get_query = (control / grid field)": 61,
+   "advanced search: LinkSelector": 1,
+   "create new: frappe._from_link / make_quick_entry": 5,
+   "title: link titles": 19,
+   "create new: get_route_options_for_new_doc": 19,
+   "query: df.filters / link_filters in JS": 2,
+   "DOM: data-fieldtype Link/Select selectors": 1
+  },
+  "handles": {
+   "Link / new_doc": 1,
+   "? / set_input": 2,
+   "? / value": 10,
+   "Link / value": 4,
+   "Link / get_query": 51,
+   "Dynamic Link / get_query": 3,
+   "Select / set_description": 1,
+   "Select / set_input": 4,
+   "Select / $input": 1,
+   "Select / refresh": 1,
+   "Link / set_description": 2,
+   "? / set_label": 1,
+   "? / $wrapper": 4,
+   "Link / get_value": 9,
+   "? / df": 13,
+   "? / grid": 14,
+   "Select / get_value": 3,
+   "? / get_value": 1,
+   "? / set_value": 2,
+   "? / wrapper": 2,
+   "? / datepicker": 1,
+   "Select / df": 5,
+   "Link / set_label": 1,
+   "? / refresh": 6,
+   "Link / set_input": 2,
+   "Link / df": 1,
+   "Link / refresh": 1,
+   "Link / set_focus": 1,
+   "Dynamic Link / set_label": 1
+  },
+  "setdf": {
+   "Select / options": 46,
+   "Select / hidden": 5,
+   "Select / description": 3,
+   "Link / only_select": 1,
+   "Select / read_only": 4,
+   "Link / hidden": 4,
+   "Link / description": 3,
+   "Link / read_only": 9,
+   "Dynamic Link / label": 2,
+   "Dynamic Link / description": 1,
+   "Select / reqd": 1,
+   "Link / label": 12,
+   "Link / print_hide": 2,
+   "Link / reqd": 6
+  },
+  "upddf": {
+   "Select / options": 20,
+   "Select / read_only": 1,
+   "Link / label": 1,
+   "Link / read_only": 7,
+   "Link / in_list_view": 2,
+   "Dynamic Link / label": 2,
+   "Dynamic Link / reqd": 2
+  },
+  "refresh": {
+   "Link": 2,
+   "Select": 1
+  },
+  "setval": {
+   "Link": 238,
+   "Select": 50,
+   "Dynamic Link": 15
+  },
+  "toggles": {
+   "Select / toggle_enable": 2,
+   "Link / toggle_reqd": 27,
+   "Link / toggle_enable": 13,
+   "Select / toggle_display": 9,
+   "Link / toggle_display": 3,
+   "Select / toggle_reqd": 3
+  }
+ },
+ "core": {
+  "simple": {
+   "create new: frappe._from_link / make_quick_entry": 18,
+   "DOM: input[data-fieldname=] / [data-target=]": 2,
+   "query: df.filters / link_filters in JS": 34,
+   "search: frappe.desk.search.search_link / search_widget": 9,
+   "query: .get_query = (control / grid field)": 12,
+   "query: get_query in a df literal": 19,
+   "dynamic link: df.get_options / get_options()": 2,
+   "df flags: only_select / ignore_link_validation / remember_last_selected_value": 17,
+   "validate: frappe.client.validate_link / validate_link_and_fetch": 5,
+   "awesomplete: .awesomplete / Awesomplete": 64,
+   "awesomplete: awesomplete-* events": 26,
+   "title: link titles": 44,
+   "create new: .new_doc override / call": 24,
+   "select: add_options / set_options / select-change": 21,
+   "DOM: select / option reach-ins": 4,
+   "translation: translated_doctypes / translate_values": 23,
+   "fetch: fetch_dict / fetch_map": 27,
+   "DOM: data-fieldtype Link/Select selectors": 1,
+   "keyboard: frappe.ui.keys / keydown on link inputs": 18,
+   "DOM: link-field / link-btn / btn-open / btn-clear selectors": 11,
+   "fetch: frm.add_fetch": 1,
+   "advanced search: LinkSelector": 4,
+   "class: ControlLink / ControlDynamicLink / ControlSelect / Combobox variants": 29,
+   "create new: get_route_options_for_new_doc": 2,
+   "custom options: ControlLink.link_options / custom_awesomplete_filter": 7,
+   "query: frm.set_query / set_query": 1
+  },
+  "handles": {
+   "Dynamic Link / get_query": 3,
+   "Link / get_query": 1,
+   "Dynamic Link / df": 1,
+   "Link / get_value": 1,
+   "Link / set_input": 1,
+   "? / input": 1,
+   "? / grid": 1,
+   "? / df": 2,
+   "Select / df": 1,
+   "? / get_value": 1,
+   "? / $wrapper": 1
+  },
+  "setdf": {
+   "Select / options": 4,
+   "Select / hidden": 1,
+   "Dynamic Link / hidden": 1,
+   "Link / read_only": 2,
+   "Link / description": 2
+  },
+  "upddf": {},
+  "refresh": {
+   "Select": 1
+  },
+  "setval": {
+   "Select": 7
+  },
+  "toggles": {}
+ },
+ "app_df_keys": {
+  "Select": {
+   "options": 154,
+   "default": 102,
+   "reqd": 35,
+   "description": 6,
+   "width": 7,
+   "placeholder": 3,
+   "change": 1,
+   "read_only": 2,
+   "in_list_view": 3,
+   "depends_on": 17,
+   "hidden": 2,
+   "link": 1,
+   "default_value": 1,
+   "onchange": 5,
+   "mandatory_depends_on": 1,
+   "null": 1
+  },
+  "Link": {
+   "options": 474,
+   "change": 1,
+   "reqd": 147,
+   "default": 159,
+   "value": 1,
+   "width": 25,
+   "description": 5,
+   "onchange": 4,
+   "mandatory_depends_on": 7,
+   "depends_on": 15,
+   "read_only": 41,
+   "in_list_view": 37,
+   "hidden": 5,
+   "placeholder": 3,
+   "get_query": 5,
+   "columns": 4,
+   "mandatory": 5
+  },
+  "Dynamic Link": {
+   "options": 10,
+   "width": 2,
+   "reqd": 2,
+   "default": 1,
+   "mandatory_depends_on": 1,
+   "read_only": 1,
+   "in_list_view": 1
+  }
+ },
+ "meta": {
+  "Select": {
+   "fields": 770,
+   "read_only": 125,
+   "reqd": 245,
+   "in_list_view": 240,
+   "default": 299,
+   "depends_on": 136,
+   "search_index": 39,
+   "mandatory_depends_on": 32,
+   "read_only_depends_on": 10,
+   "fetch_from": 10,
+   "sort_options": 2,
+   "fetch_if_empty": 5,
+   "allow_on_submit": 21
+  },
+  "Link": {
+   "fields": 2592,
+   "read_only": 613,
+   "reqd": 580,
+   "in_list_view": 689,
+   "search_index": 265,
+   "depends_on": 447,
+   "ignore_user_permissions": 173,
+   "default": 28,
+   "mandatory_depends_on": 70,
+   "link_filters": 34,
+   "fetch_from": 125,
+   "fetch_if_empty": 27,
+   "remember_last_selected_value": 53,
+   "allow_on_submit": 110,
+   "read_only_depends_on": 30
+  },
+  "Dynamic Link": {
+   "fields": 120,
+   "read_only": 36,
+   "search_index": 21,
+   "in_list_view": 60,
+   "reqd": 28,
+   "depends_on": 15,
+   "mandatory_depends_on": 7,
+   "fetch_if_empty": 1,
+   "read_only_depends_on": 1,
+   "allow_on_submit": 1
+  },
+  "doctypes": {
+   "show_title_field_in_link": 20,
+   "translated_doctype": 25
+  },
+  "fetch_from": {
+   "fields with fetch_from": 422
+  }
+ },
+ "files": {
+  "app": 1412,
+  "core": 556
+ }
+}

@@ -1,0 +1,179 @@
+
+Running 15 tests using 1 worker
+
+  ✓   1 playwright/tests/control_attach.spec.js:67:6 › Attach Control › Checking functionality for "Link" button in the "Attach" fieldtype (4.7s)
+  ✓   2 playwright/tests/control_attach.spec.js:85:6 › Attach Control › Checking functionality for "Library" button in the "Attach" fieldtype (7.7s)
+  ✓   3 playwright/tests/control_attach.spec.js:114:6 › Attach Control › Checking that "Camera" button in the "Attach" fieldtype does show if camera is available (2.0s)
+  ✓   4 playwright/tests/control_attach.spec.js:131:6 › Attach Control › Checking that "Camera" button in the "Attach" fieldtype does not show if no camera is available (2.1s)
+  ✓   5 playwright/tests/control_attach.spec.js:173:6 › Attach Control with Failed Document Save › Attaching a file on an unsaved document (3.4s)
+  ✓   6 playwright/tests/control_attach.spec.js:196:6 › Attach Control with Failed Document Save › Check if file was uploaded correctly (4.1s)
+  ✓   7 playwright/tests/control_attach.spec.js:227:6 › Attach Control with Failed Document Save › Check if file exists with temporary name (1.4s)
+  ✓   8 playwright/tests/control_attach.spec.js:270:6 › Attach Control in a Child Table Row › keeps the row open after uploading and clearing a file (3.9s)
+  ✘   9 playwright/tests/file_uploader.spec.js:40:6 › FileUploader › upload dialog api works (36.3s)
+  ✘  10 playwright/tests/file_uploader.spec.js:46:6 › FileUploader › should accept dropped files (32.8s)
+  ✘  11 playwright/tests/file_uploader.spec.js:58:6 › FileUploader › should accept uploaded files (34.7s)
+  ✘  12 playwright/tests/file_uploader.spec.js:133:7 › FileUploader › Public file upload restriction › should show checkbox and toggle when setting is disabled for System Manager (32.7s)
+  ✘  13 playwright/tests/file_uploader.spec.js:153:7 › FileUploader › Public file upload restriction › should show checkbox and toggle when setting is disabled for non-System Manager (32.6s)
+  ✘  14 playwright/tests/file_uploader.spec.js:175:7 › FileUploader › Public file upload restriction › should show checkbox and toggle when setting is enabled for System Manager (36.3s)
+  ✘  15 playwright/tests/file_uploader.spec.js:195:7 › FileUploader › Public file upload restriction › should show disabled checkbox and hide toggle when setting is enabled for non-System Manager (32.7s)
+
+
+  1) playwright/tests/file_uploader.spec.js:40:6 › FileUploader › upload dialog api works ──────────
+
+    TimeoutError: page.goto: Timeout 30000ms exceeded.
+    Call log:
+    [2m  - navigating to "http://v5.localhost:8000/desk", waiting until "load"[22m
+
+
+      34 | 	test.beforeEach(async ({ page, desk }) => {
+      35 | 		await desk.login("Administrator");
+    > 36 | 		await page.goto("/desk");
+         | 		           ^
+      37 | 		await desk.ready();
+      38 | 	});
+      39 |
+        at /home/claude/fb/frappe-bench/apps/frappe/playwright/tests/file_uploader.spec.js:36:14
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/file_uploader-FileUploader-upload-dialog-api-works/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) playwright/tests/file_uploader.spec.js:46:6 › FileUploader › should accept dropped files ──────
+
+    TimeoutError: page.goto: Timeout 30000ms exceeded.
+    Call log:
+    [2m  - navigating to "http://v5.localhost:8000/desk", waiting until "load"[22m
+
+
+      34 | 	test.beforeEach(async ({ page, desk }) => {
+      35 | 		await desk.login("Administrator");
+    > 36 | 		await page.goto("/desk");
+         | 		           ^
+      37 | 		await desk.ready();
+      38 | 	});
+      39 |
+        at /home/claude/fb/frappe-bench/apps/frappe/playwright/tests/file_uploader.spec.js:36:14
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/file_uploader-FileUploader-should-accept-dropped-files/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/file_uploader-FileUploader-should-accept-dropped-files/error-context.md
+
+  3) playwright/tests/file_uploader.spec.js:58:6 › FileUploader › should accept uploaded files ─────
+
+    TimeoutError: page.goto: Timeout 30000ms exceeded.
+    Call log:
+    [2m  - navigating to "http://v5.localhost:8000/desk", waiting until "load"[22m
+
+
+      34 | 	test.beforeEach(async ({ page, desk }) => {
+      35 | 		await desk.login("Administrator");
+    > 36 | 		await page.goto("/desk");
+         | 		           ^
+      37 | 		await desk.ready();
+      38 | 	});
+      39 |
+        at /home/claude/fb/frappe-bench/apps/frappe/playwright/tests/file_uploader.spec.js:36:14
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/file_uploader-FileUploader-should-accept-uploaded-files/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/file_uploader-FileUploader-should-accept-uploaded-files/error-context.md
+
+  4) playwright/tests/file_uploader.spec.js:133:7 › FileUploader › Public file upload restriction › should show checkbox and toggle when setting is disabled for System Manager 
+
+    TimeoutError: page.goto: Timeout 30000ms exceeded.
+    Call log:
+    [2m  - navigating to "http://v5.localhost:8000/desk", waiting until "load"[22m
+
+
+      34 | 	test.beforeEach(async ({ page, desk }) => {
+      35 | 		await desk.login("Administrator");
+    > 36 | 		await page.goto("/desk");
+         | 		           ^
+      37 | 		await desk.ready();
+      38 | 	});
+      39 |
+        at /home/claude/fb/frappe-bench/apps/frappe/playwright/tests/file_uploader.spec.js:36:14
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/file_uploader-FileUploader-928fb-disabled-for-System-Manager/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/file_uploader-FileUploader-928fb-disabled-for-System-Manager/error-context.md
+
+  5) playwright/tests/file_uploader.spec.js:153:7 › FileUploader › Public file upload restriction › should show checkbox and toggle when setting is disabled for non-System Manager 
+
+    TimeoutError: page.goto: Timeout 30000ms exceeded.
+    Call log:
+    [2m  - navigating to "http://v5.localhost:8000/desk", waiting until "load"[22m
+
+
+      34 | 	test.beforeEach(async ({ page, desk }) => {
+      35 | 		await desk.login("Administrator");
+    > 36 | 		await page.goto("/desk");
+         | 		           ^
+      37 | 		await desk.ready();
+      38 | 	});
+      39 |
+        at /home/claude/fb/frappe-bench/apps/frappe/playwright/tests/file_uploader.spec.js:36:14
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/file_uploader-FileUploader-77396-bled-for-non-System-Manager/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/file_uploader-FileUploader-77396-bled-for-non-System-Manager/error-context.md
+
+  6) playwright/tests/file_uploader.spec.js:175:7 › FileUploader › Public file upload restriction › should show checkbox and toggle when setting is enabled for System Manager 
+
+    TimeoutError: page.goto: Timeout 30000ms exceeded.
+    Call log:
+    [2m  - navigating to "http://v5.localhost:8000/desk", waiting until "load"[22m
+
+
+      34 | 	test.beforeEach(async ({ page, desk }) => {
+      35 | 		await desk.login("Administrator");
+    > 36 | 		await page.goto("/desk");
+         | 		           ^
+      37 | 		await desk.ready();
+      38 | 	});
+      39 |
+        at /home/claude/fb/frappe-bench/apps/frappe/playwright/tests/file_uploader.spec.js:36:14
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/file_uploader-FileUploader-83faa--enabled-for-System-Manager/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  7) playwright/tests/file_uploader.spec.js:195:7 › FileUploader › Public file upload restriction › should show disabled checkbox and hide toggle when setting is enabled for non-System Manager 
+
+    TimeoutError: page.goto: Timeout 30000ms exceeded.
+    Call log:
+    [2m  - navigating to "http://v5.localhost:8000/desk", waiting until "load"[22m
+
+
+      34 | 	test.beforeEach(async ({ page, desk }) => {
+      35 | 		await desk.login("Administrator");
+    > 36 | 		await page.goto("/desk");
+         | 		           ^
+      37 | 		await desk.ready();
+      38 | 	});
+      39 |
+        at /home/claude/fb/frappe-bench/apps/frappe/playwright/tests/file_uploader.spec.js:36:14
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/file_uploader-FileUploader-dc4e0-bled-for-non-System-Manager/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/file_uploader-FileUploader-dc4e0-bled-for-non-System-Manager/error-context.md
+
+  7 failed
+    playwright/tests/file_uploader.spec.js:40:6 › FileUploader › upload dialog api works ───────────
+    playwright/tests/file_uploader.spec.js:46:6 › FileUploader › should accept dropped files ───────
+    playwright/tests/file_uploader.spec.js:58:6 › FileUploader › should accept uploaded files ──────
+    playwright/tests/file_uploader.spec.js:133:7 › FileUploader › Public file upload restriction › should show checkbox and toggle when setting is disabled for System Manager 
+    playwright/tests/file_uploader.spec.js:153:7 › FileUploader › Public file upload restriction › should show checkbox and toggle when setting is disabled for non-System Manager 
+    playwright/tests/file_uploader.spec.js:175:7 › FileUploader › Public file upload restriction › should show checkbox and toggle when setting is enabled for System Manager 
+    playwright/tests/file_uploader.spec.js:195:7 › FileUploader › Public file upload restriction › should show disabled checkbox and hide toggle when setting is enabled for non-System Manager 
+  8 passed (5.0m)

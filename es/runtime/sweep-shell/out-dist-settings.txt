@@ -1,0 +1,70 @@
+PASS es-settings-dialog | closed: no dialog, panels not rendered
+PASS es-settings-dialog | opens from .prop("open", true)
+PASS es-settings-dialog | title slot -> aria-labelledby :: App settings for Ada
+PASS es-settings-dialog | description slot -> aria-describedby
+PASS es-settings-sidebar | tablist with 3 tabs (nav items get TabsRoot context) :: ["A Profile:active","Notifications 3:inactive","Members:inactive"]
+PASS es-settings-dialog | tab attribute selects Profile :: A Profile:active
+PASS es-settings-nav-group | label attr + slot="label"
+PASS es-settings-nav-item | prefix slot (es-avatar) inside the tab
+PASS es-settings-nav-item | suffix slot (es-badge) inside the tab
+PASS es-settings-content | sidebar left of content
+PASS es-settings-header | title/description + actions slot
+PASS es-settings-row | title/description + control slot (es-text-input)
+PASS es-settings-row | row title becomes <label for> the detected control :: frappe-ui-es-6
+PASS es-text-input | typing -> update:modelValue (delegated on document) -> title slot text + avatar attr :: Grace
+PASS es-settings-header | action button click (delegated on document) :: save
+FAIL es-settings-dialog | handler delegated on the dialog HOST sees clicks in its slot content :: slot content is teleported to <es-portal>: DOM events do not bubble through the host
+PASS es-settings-panel | click tab -> update:tab on host; notifications panel shown, profile hidden :: {"open":false,"tab":"notifications","digest":false,"sounds":true,"name":"Grace","unread":3,"log":["save"]}
+PASS es-settings-body | scrolls (ScrollArea viewport)
+PASS es-settings-row | clicking the row title (label) toggles the es-switch :: {"open":false,"tab":"notifications","digest":true,"sounds":true,"name":"Grace","unread":3,"log":["save"]}
+PASS es-switch | description slot (with link) + switch (boolean attr model-value) toggles off :: {"open":false,"tab":"notifications","digest":true,"sounds":false,"name":"Grace","unread":3,"log":["save"]}
+PASS es-settings-nav-item | ArrowDown moves focus (manual activation: not selected yet) :: Notifications 3
+PASS es-settings-nav-item | Enter selects -> members panel, custom header slot :: Custom header (3)
+PASS es-settings-dialog | Escape closes -> update:open false
+PASS es-settings-dialog | Ctrl+Shift+, opens (keyboard shortcut) :: {"open":true,"tab":"members","digest":true,"sounds":false,"name":"Grace","unread":3,"log":["save"]}
+PASS es-settings-dialog | reopened: fresh TabsRoot, selection kept (element kept tab=members) :: ["Profile:inactive","3:inactive","Members:active"]
+PASS es-settings-dialog | reopened: switching tabs works, input kept its value
+PASS es-settings-dialog | shortcut toggles closed
+PASS es-settings-dialog | .prop("tab") while closed selects that panel on open
+PASS es-settings-dialog | closed again; no leaked dialog
+PASS es-settings-nav-item | appended while closed: 4 tabs on open :: ["Profile:inactive","3:active","Members:inactive","Billing:inactive"]
+PASS es-settings-panel | appended panel shows on its tab; row label-for works
+PASS es-settings-body | .append() while open: new paragraph rendered in the open panel
+PASS es-settings-header | .html() on host while open: new slot shown, old gone
+PASS es-settings-body | .empty() on host while open: content gone, dialog still works
+PASS es-settings-nav-item | .remove() while open: 3 tabs left :: ["Profile:inactive","3:inactive","Members:active"]
+FAIL es-settings-row | .detach() + .append() into same body (same task): still renders, input value kept :: ["console: HierarchyRequestError: Failed to execute 'insertBefore' on 'Node': The new child element contains the parent.\n    at beforeUpdate (http://jq.test/dist/es-ui.iife.js:194:21272)\n    at zf (http://jq.test/dist/es-ui.iife.js:17:194
+FAIL es-settings-dialog | .clone() of the closed dialog does not open anything
+FAIL es-settings-dialog | the clone opens its own dialog with its own tabs :: {"n":2,"tabs":["Profile:active","3:inactive","Members:inactive"]}
+FAIL es-settings-dialog | .remove() of the clone: no dialog left, ids unique
+   !! pageerror: Cannot destructure property 'bum' of 'G' as it is null. @     at fe (http://jq.test/dist/es-ui.iife.js:19:35226) |     at Q (http://jq.test/dist/es-ui.iife.js:19:34372) |     at fe (http://jq.test/dist/es-ui.iife.js:19:35323)
+FAIL es-settings-dialog | .remove() while OPEN: dialog gone, body unlocked :: 
+console errors/warnings: 6
+  console: HierarchyRequestError: Failed to execute 'insertBefore' on 'Node': The new child element contains the parent.
+    at beforeUpdate (http://jq.test/dist/es-ui.iife.js:194:21272)
+    at zf (http://jq.test/dist/es-ui.iife.js:17:1946)
+    at ra (http://jq.test/dist/es-ui.iife.js:17:2017)
+    at nu (http:
+  console: HierarchyRequestError: Failed to execute 'insertBefore' on 'Node': The new child element contains the parent.
+    at beforeUpdate (http://jq.test/dist/es-ui.iife.js:194:21272)
+    at zf (http://jq.test/dist/es-ui.iife.js:17:1946)
+    at ra (http://jq.test/dist/es-ui.iife.js:17:2017)
+    at nu (http:
+  console: TypeError: Cannot read properties of null (reading 'nextSibling')
+    at nextSibling (http://jq.test/dist/es-ui.iife.js:23:833)
+    at xe (http://jq.test/dist/es-ui.iife.js:19:35183)
+    at le (http://jq.test/dist/es-ui.iife.js:19:34830)
+    at Q (http://jq.test/dist/es-ui.iife.js:19:34606)
+    at f
+  console: TypeError: Cannot read properties of null (reading 'parentNode')
+    at parentNode (http://jq.test/dist/es-ui.iife.js:23:805)
+    at Gg.Me [as fn] (http://jq.test/dist/es-ui.iife.js:19:30311)
+    at Gg.run (http://jq.test/dist/es-ui.iife.js:10:2169)
+    at Gg.runIfDirty (http://jq.test/dist/es-ui.ii
+  console: TypeError: Cannot read properties of null (reading 'nextSibling')
+    at nextSibling (http://jq.test/dist/es-ui.iife.js:23:833)
+    at U (http://jq.test/dist/es-ui.iife.js:19:35638)
+    at U (http://jq.test/dist/es-ui.iife.js:19:35563)
+    at Gg.Me [as fn] (http://jq.test/dist/es-ui.iife.js:19:30328
+  pageerror: Cannot destructure property 'bum' of 'G' as it is null.
+6 FAILED of 40

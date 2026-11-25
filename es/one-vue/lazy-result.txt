@@ -1,0 +1,28 @@
+ok   website /login: FileUploader defined, Vue not downloaded at startup  {"vue":false,"uploader_class":"function","component":false,"scripts":["frappe-web.bundle.N4U57P2J.js","website_script.js"],"fetched":[]}
+ok   website /login: new FileUploader loads vue.bundle then the uploader and mounts  {"vue":true,"uploader_class":"function","component":true,"scripts":["vue.bundle.MHKP3RF3.js","file_uploader.bundle.SCWBQFMK.js","frappe-web.bundle.N4U57P2J.js","website_script.js"],"fetched":["vue.bundle.MHKP3RF3.js","file_uploader.bundle.SCWBQFMK.js"]}
+ok   website /login: vue.bundle requested before file_uploader.bundle  ["vue.bundle.MHKP3RF3.js","file_uploader.bundle.SCWBQFMK.js"]
+ok   website /login: no console errors (v8 spike errors listed apart)  {"real":[],"spike":[]}
+ok   website /me: FileUploader defined, Vue not downloaded at startup  {"vue":false,"uploader_class":"function","component":false,"scripts":["frappe-web.bundle.N4U57P2J.js","website_script.js"],"fetched":[]}
+ok   website /me: new FileUploader loads vue.bundle then the uploader and mounts  {"vue":true,"uploader_class":"function","component":true,"scripts":["vue.bundle.MHKP3RF3.js","file_uploader.bundle.SCWBQFMK.js","frappe-web.bundle.N4U57P2J.js","website_script.js"],"fetched":["vue.bundle.MHKP3RF3.js","file_uploader.bundle.SCWBQFMK.js"]}
+ok   website /me: vue.bundle requested before file_uploader.bundle  ["vue.bundle.MHKP3RF3.js","file_uploader.bundle.SCWBQFMK.js"]
+ok   website /me: no console errors (v8 spike errors listed apart)  {"real":[],"spike":[]}
+ok   web form: FileUploader defined, Vue not downloaded at startup  {"vue":false,"uploader_class":"function","component":false,"scripts":["frappe-web.bundle.N4U57P2J.js","website_script.js","web_form.bundle.25GOZGMI.js"],"fetched":[]}
+ok   web form: Attach button opens the uploader (lazy load)  {"fetched":["vue.bundle.MHKP3RF3.js","file_uploader.bundle.SCWBQFMK.js"]}
+ok   web form: file uploads and the Attach field gets its URL  {"status":200,"file_url":"/private/files/onevue-webform.png","name":"7c468fad8a"}
+ok   web form /update-profile (Attach Image): no console errors (v8 spike errors listed apart)  {"real":[],"spike":[]}
+ok   print page /printview: renders  {"body":81,"vue":false,"fetched":[]}
+ok   print page /desk/print: preview renders  {"fetched":["vue.bundle.MHKP3RF3.js"]}
+ok   print page: no console errors (v8 spike errors listed apart)  {"real":[],"spike":[]}
+ok   desk: FileUploader is the eager class, uploader bundle not downloaded at startup  {"vue":true,"uploader_class":"function","component":false,"scripts":["build_events.bundle.GJZL3WGJ.js","libs.bundle.MRDOEXQW.js","billing.bundle.PZG6FW7H.js","desk.bundle.ZWDK3RA7.js","list.bundle.GT2CWRNF.js","form.bundle.NQFQQTXX.js","vue.bundle.MHKP3RF3.js","vue_first8.bundle.ZNJKQH2Z.js","controls.bundle.QMZHWNV3.js","report.bundle.FVH5PSRL.js","telemetry.bundle.CHFVMD5G.js","flow_launcher.bundle.LS2FQJOT.js"],"fetched":["vue.bundle.MHKP3RF3.js"]}
+ok   desk: dialog shows synchronously on the first new FileUploader  {"dialog_now":true,"shown":["Upload"],"uploader_now":false}
+ok   desk: component mounts after the lazy load  {"fetched":["vue.bundle.MHKP3RF3.js","file_uploader.bundle.SCWBQFMK.js"]}
+ok   desk: upload attaches the file to the ToDo  {"status":200,"name":"090b9a992f","attached_to":"1001"}
+ok   desk: a later FileUploader mounts synchronously (uploader set in the constructor)  {"sync":true,"instanceof":true,"ready":true}
+ok   desk: vue.bundle and file_uploader.bundle each ran once  {"vue":1,"fu":1,"scripts":2}
+ok   desk lazy uploader: no console errors (v8 spike errors listed apart)  {"real":[],"spike":[]}
+ok   desk: three concurrent first FileUploaders share one load and all mount  {"mounted":true,"wrapper_ready":true,"scripts":2,"fetched":["vue.bundle.MHKP3RF3.js","file_uploader.bundle.SCWBQFMK.js"]}
+ok   desk concurrent first uses: no console errors (v8 spike errors listed apart)  {"real":[],"spike":[]}
+ok   scratch: vue/jsx-runtime and vue.esm-bundler.js use frappe.Vue; jsx renders and re-renders  {"same_createApp":true,"same_fragment":true,"full_is_shared":true,"rendered":"jsx 1","rerendered":"jsx 2"}
+ok   scratch jsx bundle: no console errors (v8 spike errors listed apart)  {"real":[],"spike":[]}
+
+26 pass, 0 fail

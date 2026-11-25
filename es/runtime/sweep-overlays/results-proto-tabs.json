@@ -1,0 +1,225 @@
+{
+ "page": "tabs.html",
+ "fails": 0,
+ "n": 39,
+ "results": [
+  {
+   "tag": "es-tabs (composed: es-tab-list/es-tab-trigger/es-tab-panel)",
+   "k": "3 triggers inside a tablist",
+   "ok": true,
+   "extra": "[\"One:inactive\",\"Two (3):active\",\"Three:inactive:dis\"]"
+  },
+  {
+   "tag": "es-tabs (composed: es-tab-list/es-tab-trigger/es-tab-panel)",
+   "k": "model-value=\"two\" attribute selects Two",
+   "ok": true,
+   "extra": "[\"One:inactive\",\"Two (3):active\",\"Three:inactive:dis\"]"
+  },
+  {
+   "tag": "es-tabs (composed: es-tab-list/es-tab-trigger/es-tab-panel)",
+   "k": "disabled attribute (boolean) on es-tab-trigger",
+   "ok": true,
+   "extra": "[\"One:inactive\",\"Two (3):active\",\"Three:inactive:dis\"]"
+  },
+  {
+   "tag": "es-tabs (composed: es-tab-list/es-tab-trigger/es-tab-panel)",
+   "k": "suffix slot inside trigger",
+   "ok": true
+  },
+  {
+   "tag": "es-tabs (composed: es-tab-list/es-tab-trigger/es-tab-panel)",
+   "k": "only panel two visible",
+   "ok": true
+  },
+  {
+   "tag": "es-tabs (composed: es-tab-list/es-tab-trigger/es-tab-panel)",
+   "k": "panel inside [role=tabpanel]",
+   "ok": true
+  },
+  {
+   "tag": "es-tabs (composed: es-tab-list/es-tab-trigger/es-tab-panel)",
+   "k": "trigger aria-controls points at its panel id (one useId counter)",
+   "ok": true
+  },
+  {
+   "tag": "es-tabs (composed: es-tab-list/es-tab-trigger/es-tab-panel)",
+   "k": "click One -> update:modelValue on es-tabs host, panel one shown",
+   "ok": true
+  },
+  {
+   "tag": "es-tabs (composed: es-tab-list/es-tab-trigger/es-tab-panel)",
+   "k": "ArrowRight activates Two",
+   "ok": true
+  },
+  {
+   "tag": "es-tabs (composed: es-tab-list/es-tab-trigger/es-tab-panel)",
+   "k": "disabled Three is skipped",
+   "ok": true,
+   "extra": "one"
+  },
+  {
+   "tag": "es-tabs (composed: es-tab-list/es-tab-trigger/es-tab-panel)",
+   "k": "jQuery .text() on slot nodes stays visible",
+   "ok": true
+  },
+  {
+   "tag": "es-tabs (composed: es-tab-list/es-tab-trigger/es-tab-panel)",
+   "k": "es-tab-trigger is a Vue descendant of TabList and Tabs (one tree)",
+   "ok": true
+  },
+  {
+   "tag": "es-tabs (shorthand: tabs prop)",
+   "k": "tabs prop renders triggers (condition fn honoured)",
+   "ok": true,
+   "extra": "[\"Alpha:inactive\",\"Beta:active\",\"Gamma:inactive\"]"
+  },
+  {
+   "tag": "es-tabs (shorthand: tabs prop)",
+   "k": "tab-panel slot (one plain node) shown in the active panel",
+   "ok": true,
+   "extra": "1 / Shared panel body (short=b)"
+  },
+  {
+   "tag": "es-tabs (shorthand: tabs prop)",
+   "k": "click Gamma -> page state, panel follows",
+   "ok": true
+  },
+  {
+   "tag": "es-tabs (shorthand: tabs prop)",
+   "k": "back to an EARLIER tab keeps the slot",
+   "ok": true,
+   "extra": "Shared panel body (short=a)"
+  },
+  {
+   "tag": "es-tabs (shorthand: tabs prop)",
+   "k": "<template slot=\"tab-panel\"> stamped with scope (data-es-text tab.label + es-slot)",
+   "ok": true,
+   "extra": "[\"Panel for Ex:x\"]"
+  },
+  {
+   "tag": "es-tabs (shorthand: tabs prop)",
+   "k": "template slot re-stamped for the new tab",
+   "ok": true,
+   "extra": "Panel for Why"
+  },
+  {
+   "tag": "es-tab-buttons",
+   "k": "options render, Week checked",
+   "ok": true,
+   "extra": "[\"Day:inactive\",\"Week:active\",\"Month:inactive\"]"
+  },
+  {
+   "tag": "es-tab-buttons",
+   "k": "click Month -> update:modelValue + option onClick",
+   "ok": true
+  },
+  {
+   "tag": "es-tab-buttons",
+   "k": "ArrowLeft moves focus to Week, Space selects",
+   "ok": true,
+   "extra": "Week week"
+  },
+  {
+   "tag": "es-tab-buttons",
+   "k": "sliding indicator sits on the active button",
+   "ok": true,
+   "extra": "0"
+  },
+  {
+   "tag": "es-tab-trigger (alone)",
+   "k": "outside es-tabs: page survives (other tabs still work)",
+   "ok": true
+  },
+  {
+   "tag": "es-tabs (composed: es-tab-list/es-tab-trigger/es-tab-panel)",
+   "k": ".append() a new es-tab-trigger into es-tab-list: 4 triggers",
+   "ok": true,
+   "extra": "[\"One:active\",\"Two (4):inactive\",\"Three:inactive:dis\",\"Four:inactive\"]"
+  },
+  {
+   "tag": "es-tabs (composed: es-tab-list/es-tab-trigger/es-tab-panel)",
+   "k": "new tab selects and shows its appended panel",
+   "ok": true
+  },
+  {
+   "tag": "es-tabs (composed: es-tab-list/es-tab-trigger/es-tab-panel)",
+   "k": ".remove() a trigger and its panel",
+   "ok": true,
+   "extra": "[\"Two (4):inactive\",\"Three:inactive:dis\",\"Four:active\"]"
+  },
+  {
+   "tag": "es-tabs (composed: es-tab-list/es-tab-trigger/es-tab-panel)",
+   "k": "keyboard roving still works after DOM changes",
+   "ok": true,
+   "extra": "two"
+  },
+  {
+   "tag": "es-tabs (composed: es-tab-list/es-tab-trigger/es-tab-panel)",
+   "k": ".html() on es-tab-panel: new content in the active panel",
+   "ok": true
+  },
+  {
+   "tag": "es-tabs (composed: es-tab-list/es-tab-trigger/es-tab-panel)",
+   "k": ".html() on es-tab-list with new es-tab-trigger children",
+   "ok": true,
+   "extra": "[\"Two!:active\",\"Four!:inactive\"]"
+  },
+  {
+   "tag": "es-tabs (composed: es-tab-list/es-tab-trigger/es-tab-panel)",
+   "k": "rewritten triggers still drive es-tabs",
+   "ok": true
+  },
+  {
+   "tag": "es-tabs (composed: es-tab-list/es-tab-trigger/es-tab-panel)",
+   "k": ".detach().appendTo() whole es-tabs: selection kept, panel shown",
+   "ok": true
+  },
+  {
+   "tag": "es-tabs (composed: es-tab-list/es-tab-trigger/es-tab-panel)",
+   "k": ".clone() of the compound renders its own triggers",
+   "ok": true,
+   "extra": "[\"Two!:active\",\"Four!:inactive\"]"
+  },
+  {
+   "tag": "es-tabs (composed: es-tab-list/es-tab-trigger/es-tab-panel)",
+   "k": "clone switches independently of the original",
+   "ok": true,
+   "extra": "{\"s\":\"four\"}"
+  },
+  {
+   "tag": "es-tabs (composed: es-tab-list/es-tab-trigger/es-tab-panel)",
+   "k": ".remove() of the clone leaves the original working",
+   "ok": true
+  },
+  {
+   "tag": "es-tabs (shorthand: tabs prop)",
+   "k": ".prop(\"tabs\", new) re-renders triggers",
+   "ok": true,
+   "extra": "[\"Alpha:active\",\"Delta:inactive\"]"
+  },
+  {
+   "tag": "es-tabs (shorthand: tabs prop)",
+   "k": ".prop(\"modelValue\") selects programmatically",
+   "ok": true
+  },
+  {
+   "tag": "es-tab-buttons",
+   "k": ".detach().appendTo(): state kept, indicator still on active",
+   "ok": true,
+   "extra": "0"
+  },
+  {
+   "tag": "es-tab-buttons",
+   "k": ".clone() + .prop(\"options\")",
+   "ok": true
+  },
+  {
+   "tag": "es-tab-buttons",
+   "k": ".remove()",
+   "ok": true
+  }
+ ],
+ "errs": [
+  "console: Error: Injection `Symbol(TabsRootContext)` not found. Component must be used within `TabsRoot`\n    at http://jq.test/dist/es-ui.iife.js:30:5712\n    at setup (http://jq.test/dist/es-ui.iife.js:37:52055)\n    at zf (http://jq.test/dist/es-ui.iife.js:17:1946)\n    at F0e (http://jq.test/dist/es-ui.iife.j"
+ ]
+}

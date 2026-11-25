@@ -1,0 +1,74 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="es-wc-spike.css">
+<script defer src="es-components.js"></script>
+<script defer src="petite-vue.iife.js"></script>
+</head><body class="p-6">
+<div id="app" v-scope="{
+  name: 'Ada', log: [], dOpen: false, dmOpen: false, d3Open: false, saved: 0,
+  sheetOpen: false, sheet2: false, popOpen: false, popCtl: false, hcOpen: false,
+  push(e) { this.log.push(e) } }" class="space-y-4">
+
+  <p id="state">{{ name }}|d={{ dOpen }}|dm={{ dmOpen }}|saved={{ saved }}|sheet={{ sheetOpen }}|pop={{ popOpen }}|hc={{ hcOpen }}</p>
+  <p id="log">{{ log.join(',') }}</p>
+
+  <!-- ===== Dialog: v-model:open, title/actions props with functions, named title + actions slots, close + after-leave events -->
+  <button id="open-d" class="border px-2" @click="dOpen = true">open d</button>
+  <es-dialog id="d" :open="dOpen" @update:open="dOpen = $event.detail[0]" @close="push('d-close')" @after-leave="push('d-after')"
+     message="ignored when default slot given" icon="lucide-info" theme="blue" size="sm" :actions="[{ label: 'Cancel' }, { label: 'Save', variant: 'solid', onClick: ({ close }) => { saved++; close() } }]">
+    <span slot="title" id="d-title">Custom <b>title</b> for {{ name }}</span>
+    <div id="d-body">Body for {{ name }} <input id="d-input" class="border" :value="name" @input="name = $event.target.value"></div>
+  </es-dialog>
+
+  <!-- Dialog with v-model (modelValue), message prop only, slot="actions" replacing the footer, dismissible=false -->
+  <button id="open-dm" class="border px-2" @click="dmOpen = true">open dm</button>
+  <es-dialog id="dm" title="Model dialog" message="Message prop text" :model-value="dmOpen" @update:model-value="dmOpen = $event.detail[0]" :dismissible="false" :show-close-button="false">
+    <div slot="actions" id="dm-actions" class="flex gap-2 p-2">
+      <es-button id="dm-ok" label="OK closes" @click="dmOpen = false; push('dm-ok')"></es-button>
+    </div>
+  </es-dialog>
+
+  <!-- bare dialog -->
+  <button id="open-d3" class="border px-2" @click="d3Open = true">open d3</button>
+  <es-dialog id="d3" bare :open="d3Open" @update:open="d3Open = $event.detail[0]">
+    <div id="d3-body" class="p-8">Bare content {{ name }} <button id="d3-x" @click="d3Open = false">x</button></div>
+  </es-dialog>
+
+  <!-- ===== BottomSheet -->
+  <button id="open-sheet" class="border px-2" @click="sheetOpen = true">open sheet</button>
+  <es-bottom-sheet id="sheet" title="Sheet title" :open="sheetOpen" @update:open="sheetOpen = $event.detail[0]" @after-leave="push('sheet-after')">
+    <ul id="sheet-body"><li v-for="i in 3">Row {{ i }} for {{ name }}</li></ul>
+    <button id="sheet-close" @click="sheetOpen = false">Close sheet</button>
+  </es-bottom-sheet>
+  <button id="open-sheet2" class="border px-2" @click="sheet2 = true">open sheet2</button>
+  <es-bottom-sheet id="sheet2" :dismissible="false" :open="sheet2" @update:open="sheet2 = $event.detail[0]">
+    <p id="sheet2-body">Not dismissible <button id="sheet2-close" @click="sheet2 = false">done</button></p>
+  </es-bottom-sheet>
+
+  <div style="height:200px"></div>
+  <!-- ===== Popover: uncontrolled, slot=trigger es-button, open/close/update:open events -->
+  <div style="margin-left:300px">
+  <es-popover id="pop" @update:open="popOpen = $event.detail[0]" @open="push('pop-open')" @close="push('pop-close')" side="bottom" align="start" arrow>
+    <es-button slot="trigger" id="pop-trigger" label="Pop trigger"></es-button>
+    <div id="pop-body" class="p-3">Popover body {{ name }} <button id="pop-rename" @click="name = 'Linus'">rename</button></div>
+  </es-popover>
+  </div>
+
+  <!-- Popover controlled + plain button trigger + bare + dismissible=false -->
+  <div style="margin-left:300px">
+  <es-popover id="pop2" :open="popCtl" @update:open="popCtl = $event.detail[0]" :dismissible="false" bare>
+    <button slot="trigger" id="pop2-trigger" class="border px-2">Pop2 trigger</button>
+    <div id="pop2-body" class="p-3 bg-white border">Bare popover <button id="pop2-close" @click="popCtl = false">close</button></div>
+  </es-popover>
+  </div>
+
+  <!-- ===== HoverCard -->
+  <div style="margin-left:300px">
+  <es-hover-card id="hc" :hover-delay="50" :leave-delay="50" @update:open="hcOpen = $event.detail[0]">
+    <a slot="trigger" id="hc-trigger" href="#" class="underline">@ada</a>
+    <div id="hc-body" class="p-3">Hover card for {{ name }}</div>
+  </es-hover-card>
+  </div>
+  <div id="far" style="height:300px">far away</div>
+</div>
+<script>addEventListener('DOMContentLoaded', () => PetiteVue.createApp().mount('#app'))</script>
+</body></html>

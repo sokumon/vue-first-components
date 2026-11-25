@@ -1,0 +1,49 @@
+{
+ "label": "baseline-login",
+ "route": "/login",
+ "state": {
+  "vue": false,
+  "uploader_class": "function",
+  "uploader_loaded": false
+ },
+ "js": {
+  "files": 2,
+  "raw": 858994,
+  "gz": 273995
+ },
+ "all": {
+  "files": 4,
+  "raw": 1526546,
+  "gz": 374623
+ },
+ "vue_bundle": [],
+ "file_uploader": [
+  {
+   "file": "file_uploader.bundle.A2UZYJPE.js",
+   "raw": 173064,
+   "gz": 61376
+  }
+ ],
+ "assets": [
+  {
+   "file": "file_uploader.bundle.A2UZYJPE.js",
+   "raw": 173064,
+   "gz": 61376
+  },
+  {
+   "file": "frappe-web.bundle.M5XNIVSS.js",
+   "raw": 685930,
+   "gz": 212619
+  },
+  {
+   "file": "login.bundle.C2YXZYK5.css",
+   "raw": 76789,
+   "gz": 11965
+  },
+  {
+   "file": "website.bundle.MM4AQ7Q5.css",
+   "raw": 590763,
+   "gz": 88663
+  }
+ ]
+}

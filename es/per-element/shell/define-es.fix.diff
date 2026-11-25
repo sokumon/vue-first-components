@@ -1,0 +1,200 @@
+--- src-base/define-es.js	2026-11-23 22:39:40.191094721 +0000
++++ src/define-es.js	2026-11-23 22:48:34.673308493 +0000
+@@ -49,25 +49,70 @@
+ 
+ const DomSlot = defineComponent({
+   name: 'EsSlot',
+-  props: { nodes: Array, holder: Object },
++  props: { part: Object },
+   setup(props) {
+     const el = ref()
+-    onMounted(() => props.nodes.forEach((n) => el.value.appendChild(n)))
+-    onBeforeUnmount(() => props.nodes.forEach((n) => props.holder.appendChild(n)))
++    const self = getCurrentInstance()
++    // [sweep/shell fix B] the es-slot carries the instance rendered at the
++    // slot location; a custom element moved in reads its provides from it.
++    // [sweep/shell fix D] move the slot's own container (<es-slots-part>,
++    // display:contents), not a node list captured at connect. The slot nodes
++    // then never change parent: petite-vue's v-if / v-for remember the parent
++    // they were walked in (insertBefore on it later), and replace nodes
++    // (comment anchor + clone) that a captured list would miss.
++    onMounted(() => { el.value.__esSlotInst = self; el.value.appendChild(props.part) })
++    onBeforeUnmount(() => { const h = props.part.__esHolder; if (h && props.part.parentNode === el.value) h.appendChild(props.part) })
+     return () => h('es-slot', { ref: el, style: 'display:contents' })
+   },
+ })
+ 
++const PARKED = { parked: true }
++// Nearest slot context of a node: the DomSlot instance of the <es-slot> it sits
++// in, PARKED while it waits in an <es-slots> holder, null when top-level.
++function slotCtx(el) {
++  for (let n = el.parentNode; n; n = n.parentNode) {
++    if (n.nodeName === 'ES-SLOT') return n.__esSlotInst || PARKED
++    if (n.nodeName === 'ES-SLOTS') return PARKED
++  }
++  return null
++}
++
++// [sweep/shell fix F] hosts are layout-transparent by default, like a Vue
++// component that renders straight into its parent. Only for hosts the page
++// does not style itself (no class/style attribute): a host with a class keeps
++// being a box, so `class="h-40"` / `class="block h-screen"` still apply.
++// Without it an inline/block host sits between a flex/grid parent and the
++// component root, and `flex-1 min-h-0` / grid stretch chains break
++// (SettingsDialog panels stop scrolling, MobileNav items shrink).
++let layoutSheet
++const seenTags = new Set()
++function contentsByDefault(tag) {
++  if (seenTags.has(tag)) return
++  seenTags.add(tag)
++  if (!layoutSheet) {
++    layoutSheet = new CSSStyleSheet()
++    document.adoptedStyleSheets = [...document.adoptedStyleSheets, layoutSheet]
++  }
++  layoutSheet.insertRule(`:where(${tag}:not([class]):not([style])){display:contents}`, layoutSheet.cssRules.length)
++}
++
+ const emitNames = (e) => (Array.isArray(e) ? e : e ? Object.keys(e) : [])
+ const propKeys = (p) => (Array.isArray(p) ? p : Object.keys(p || {})).map(camelize)
+ const DIRECTIVE = /^(@|:|v-)/
+ const hasDirectives = (el) => [...el.attributes].some((a) => DIRECTIVE.test(a.name))
+ 
+ // One promise for "the page's binder has had its DOMContentLoaded turn".
++// [sweep/shell fix E] a `defer` bundle runs while readyState is already
++// 'interactive' but before DOMContentLoaded (where host binders mount), so
++// readyState alone said "loaded" and slot content rendered (and moved) before
++// the binder walked it. The navigation timing entry says whether DCL started.
++const dclPending = () =>
++  document.readyState === 'loading' ||
++  performance.getEntriesByType?.('navigation')?.[0]?.domContentLoadedEventStart === 0
+ let docReady
+ const whenDocReady = () =>
+   (docReady ||= new Promise((r) =>
+-    document.readyState === 'loading'
++    dclPending()
+       ? addEventListener('DOMContentLoaded', () => setTimeout(r), { once: true })
+       : r(),
+   ))
+@@ -96,7 +141,7 @@
+       const instance = getCurrentInstance()
+       const host = instance.ce
+       const noDirs = ref(!host || !hasDirectives(host))
+-      const loaded = ref(document.readyState !== 'loading')
++      const loaded = ref(!dclPending())
+       if (!loaded.value) whenDocReady().then(() => (loaded.value = true))
+       if (!noDirs.value) {
+         const ob = new MutationObserver(() => { if (!hasDirectives(host)) { ob.disconnect(); noDirs.value = true } })
+@@ -108,45 +153,85 @@
+       return () => {
+         host && host._esTick.value // re-render on every host update (a prop set to its cast value)
+         if (!noDirs.value || !loaded.value) return null
++        // [sweep/shell fix B] slot content of another es-* element renders only
++        // while that slot is rendered, inside the slot location's provide chain
++        // (Sidebar -> SidebarItem collapsed state, TabsRoot -> TabsTrigger, ...).
++        const ctx = host && host._esCtx.value
++        if (ctx === PARKED) return null
++        if (ctx && host._app) Object.setPrototypeOf(host._app._context.provides, ctx.provides)
+         const raw = (host ? host._props : instance.vnode.props) || {}
+         const set = {}
+         for (const k of keys) if (k in raw) set[k] = props[k]
+-        return h(comp, { ...attrs, ...set, ...on, ref: inner }, slots)
++        return h(comp, { ...attrs, ...set, ...on, ref: inner, key: ctx ? ctx.uid : 0 }, slots)
+       }
+     },
+   })
+ }
+ 
+ export function defineEs(comp) {
++  const keys = propKeys(comp.props)
+   const Base = defineCustomElement(wrap(comp), { shadowRoot: false })
+   class EsElement extends Base {
+     constructor(...a) {
+       super(...a)
+       this._esTick = shallowRef(0)
++      this._esCtx = shallowRef(null)
++      // [sweep/shell fix A] Vue defines prop accessors only in connectedCallback
++      // (_resolveProps). A binder that sets props on a not-yet-connected element
++      // (petite-vue v-if / v-for clones) tests `key in el`, misses, and calls
++      // setAttribute -> "[object Object]" / "false". Own, configurable
++      // accessors from the start; _resolveProps later redefines them.
++      for (const k of keys) {
++        if (Object.prototype.hasOwnProperty.call(this, k)) continue
++        Object.defineProperty(this, k, {
++          get() { return this._props[k] },
++          set(v) { this._setProp(k, v, false, false) },
++          configurable: true, enumerable: false,
++        })
++      }
+     }
+     connectedCallback() {
++      contentsByDefault(this.localName)
+       if (!this._esHolder) {
+         const holder = (this._esHolder = document.createElement('es-slots'))
+         holder.hidden = true
+-        const groups = {}
++        const parts = {}
+         // A clone of an upgraded element (petite-vue v-if / v-for clone their
+         // template element) carries a copy of the old holder plus whatever
+         // Vue had rendered. The holder copy is the slot content; the rest is
+         // stale render output.
+         const kids = [...this.childNodes]
+         const old = kids.find((n) => n.nodeName === 'ES-SLOTS')
+-        for (const n of old ? [...old.childNodes] : kids) {
++        // Parts of this host: those in the holder copy, and those a rendered
++        // slot had moved into the copied Vue output (nearest es-* host is us).
++        const owner = (n) => { for (let a = n.parentElement; a; a = a.parentElement) if (/^ES-/.test(a.tagName) && !/^ES-SLOTS?(-PART)?$/.test(a.tagName)) return a }
++        const src = old
++          ? [...old.childNodes, ...[...this.querySelectorAll('es-slots-part')].filter((n) => owner(n) === this && !old.contains(n))]
++              .flatMap((n) => n.nodeName === 'ES-SLOTS-PART' ? [...n.childNodes] : [n])
++          : kids
++        for (const n of src) {
+           if (n.nodeType === 3 && !n.data.trim()) { n.remove(); continue }
+           const name = (n.nodeType === 1 && n.getAttribute('slot')) || 'default'
+-          ;(groups[name] ||= []).push(n)
+-          holder.appendChild(n)
++          if (!parts[name]) {
++            const part = (parts[name] = document.createElement('es-slots-part'))
++            part.style.display = 'contents'
++            part.__esHolder = holder
++            holder.appendChild(part)
++          }
++          parts[name].appendChild(n)
+         }
+         if (old) kids.forEach((n) => n.remove())
+         this._esSlotFns = Object.fromEntries(
+-          Object.entries(groups).map(([name, nodes]) => [name, () => [h(DomSlot, { nodes, holder })]]),
++          Object.entries(parts).map(([name, part]) => [name, () => [h(DomSlot, { part })]]),
+         )
+       }
++      const ctx = slotCtx(this)
++      const moved = ctx !== this._esCtx.value
++      if (moved) this._esCtx.value = ctx
+       super.connectedCallback()
++      // Placed by a slot that just mounted: render now, as a Vue child would be,
++      // so the parent's onMounted sees it (SettingsRow finds its control's id).
++      if (moved && ctx && ctx !== PARKED && this._instance && this._instance.job) this._instance.job()
+       // app.mount() emptied the host; the holder goes back as its first child
+       // (Vue only patches relative to its own nodes, so a leading sibling is safe).
+       if (this._esHolder.parentNode !== this) this.prepend(this._esHolder)
+@@ -160,6 +245,21 @@
+     }
+     _createVNode() {
+       const vnode = super._createVNode()
++      // [sweep/shell fix C] a component that re-emits a native event it got from
++      // its own light-DOM output (emit('click', $event)) would fire host
++      // listeners twice: once by native bubbling, once as the CustomEvent.
++      if (vnode.ce) {
++        const ce = vnode.ce
++        vnode.ce = (inst) => {
++          ce(inst)
++          const emit = inst.emit
++          inst.emit = (ev, ...args) => {
++            const e = args[0]
++            if (e instanceof Event && e.type === ev && e.bubbles && e.target instanceof Node && this.contains(e.target)) return
++            return emit(ev, ...args)
++          }
++        }
++      }
+       if (this._esSlotFns && Object.keys(this._esSlotFns).length) {
+         vnode.children = { ...this._esSlotFns }
+         vnode.shapeFlag |= 32 // ShapeFlags.SLOTS_CHILDREN

@@ -1,0 +1,34 @@
+PASS es-mobile-shell | fills the viewport (fixed inset-0) :: {"x":0,"y":0,"w":390,"h":800}
+PASS es-mobile-shell | header on top, scroll region middle, nav at the bottom :: {"hdr":{"x":0,"y":0,"w":390,"h":52},"sc":{"x":0,"y":52,"w":390,"h":689},"nav":{"x":0,"y":741,"w":390,"h":59}}
+PASS es-page-header-mobile | teleported into MobileShell header target
+PASS es-mobile-nav | inside the shell (nav slot)
+PASS es-mobile-shell | content default slot inside the scroll region
+PASS es-page-header-mobile | prefix slot: back button in the prefix box
+PASS es-page-header-mobile | suffix slot: action in the suffix box
+PASS es-page-header-mobile-title | inside <h1>, with its own prefix slot
+PASS es-page-header-mobile-title | title from .prop :: Inbox (home)
+PASS es-page-header-mobile | title centred and inset past the prefix control :: {"tt":{"x":60,"y":14,"w":270,"h":24},"pre":{"x":12,"y":10,"w":32,"h":32}}
+PASS es-page-header-mobile | suffix button click -> jQuery handler, title follows :: Drafts (home)
+PASS es-mobile-nav-item | equal columns (no host-page CSS needed) :: 4
+PASS es-mobile-nav-item | :active from .prop
+PASS es-mobile-nav-item | icon rendered
+PASS es-mobile-nav-item | click -> delegated .on("click", item) exactly once, active moves :: plus,search
+PASS es-mobile-nav-item | default slot (custom glyph) replaces icon, label kept
+PASS es-mobile-nav-item | href -> <a href>
+PASS es-mobile-nav-item | keyboard Enter activates
+PASS es-mobile-shell | scroll region scrolls, header stays :: 500
+PASS es-mobile-nav | .append() an item from a string: 5 equal columns :: 5
+PASS es-mobile-nav | delegated handler fires for the appended item
+PASS es-mobile-nav | .remove() an item: 4 columns again :: 4
+PASS es-mobile-nav | reorder: .detach() first item + .append() to the same nav (same task): moved last, no error :: []
+PASS es-mobile-nav | moved item still works
+PASS es-mobile-nav | .clone() of an item with .attr changes: 5 columns, clone label :: Find
+PASS es-page-header-mobile-title | .html() on host with a named-slot child: prefix replaced, title prop kept :: Drafts (home)
+PASS es-page-header-mobile | .append() a second suffix button: both in the suffix box
+PASS es-page-header-mobile | .detach() + .prepend() back into the shell: header still teleported, no error :: []
+   !! pageerror: Cannot read properties of undefined (reading 'options') @     at hasAppHistory (http://jq.test/dist/es-ui.iife.js:53446:26) |     at navigateBack (http://jq.test/dist/es-ui.iife.js:53469:10) |     at onClick (http://jq.test/dist/es-ui.iife.js:53491:9)
+FAIL es-page-header-back-button | works without vue-router (no throw, navigates) :: pageerror: Cannot read properties of undefined (reading 'options') url=http://jq.test/sweep-shell/pages/mobile.html
+PASS es-page-header-back-button | with ES.configure(app => app.use(router)): a new back button navigates to fallback-route ::  url=http://jq.test/sweep-shell/pages/mobile.html#/home
+console errors/warnings: 1
+  pageerror: Cannot read properties of undefined (reading 'options')
+1 FAILED of 30

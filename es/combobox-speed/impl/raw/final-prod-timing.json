@@ -1,0 +1,4034 @@
+{
+ "meta": {
+  "tag": "final-prod",
+  "suite": "timing",
+  "runs": 7,
+  "date": "2026-11-25T09:12:29.855Z",
+  "seconds": 126.562,
+  "ua": "/home/claude/.cache/ms-playwright/chromium-1194/chrome-linux/chrome"
+ },
+ "data": {
+  "mount_1_desk:cold": [
+   {
+    "sync": 34.950000286102295,
+    "tick": 38.014999866485596,
+    "painted": 51.69000005722046,
+    "cdpScript": 0.109,
+    "cdpTask": 54.057,
+    "cdpLayout": 8.955,
+    "cdpStyle": 2.619
+   },
+   {
+    "sync": 36.53999996185303,
+    "tick": 39.639999866485596,
+    "painted": 49.38000011444092,
+    "cdpScript": 0.118,
+    "cdpTask": 51.756,
+    "cdpLayout": 4.546,
+    "cdpStyle": 3.23
+   },
+   {
+    "sync": 18.77500009536743,
+    "tick": 20.625,
+    "painted": 27.994999885559082,
+    "cdpScript": 0.1,
+    "cdpTask": 30.081,
+    "cdpLayout": 3.226,
+    "cdpStyle": 2.624
+   },
+   {
+    "sync": 34.16999959945679,
+    "tick": 35.734999656677246,
+    "painted": 42.87999963760376,
+    "cdpScript": 0.072,
+    "cdpTask": 44.666,
+    "cdpLayout": 3.451,
+    "cdpStyle": 2.421
+   },
+   {
+    "sync": 38.27500009536743,
+    "tick": 41.420000076293945,
+    "painted": 50.355000019073486,
+    "cdpScript": 0.109,
+    "cdpTask": 52.617,
+    "cdpLayout": 4.292,
+    "cdpStyle": 2.616
+   },
+   {
+    "sync": 36.139999866485596,
+    "tick": 39.22000026702881,
+    "painted": 48.93499994277954,
+    "cdpScript": 0.101,
+    "cdpTask": 48.663,
+    "cdpLayout": 3.843,
+    "cdpStyle": 2.014
+   },
+   {
+    "sync": 34.44000005722046,
+    "tick": 37.519999980926514,
+    "painted": 45.71499967575073,
+    "cdpScript": 0.127,
+    "cdpTask": 47.519,
+    "cdpLayout": 3.243,
+    "cdpStyle": 3.173
+   }
+  ],
+  "mount_1_desk:warm": [
+   {
+    "sync": 5.369999885559082,
+    "tick": 6.454999923706055,
+    "painted": 28.739999771118164,
+    "cdpScript": 0.01,
+    "cdpTask": 9.2,
+    "cdpLayout": 0.24,
+    "cdpStyle": 0.572
+   },
+   {
+    "sync": 5.349999904632568,
+    "tick": 6.690000057220459,
+    "painted": 28.699999809265137,
+    "cdpScript": 0.015,
+    "cdpTask": 9.656,
+    "cdpLayout": 0.264,
+    "cdpStyle": 0.519
+   },
+   {
+    "sync": 5.744999885559082,
+    "tick": 6.710000038146973,
+    "painted": 28.46999979019165,
+    "cdpScript": 0.013,
+    "cdpTask": 9.785,
+    "cdpLayout": 0.247,
+    "cdpStyle": 0.569
+   },
+   {
+    "sync": 5.349999904632568,
+    "tick": 6.585000038146973,
+    "painted": 29.394999980926514,
+    "cdpScript": 0.012,
+    "cdpTask": 9.494,
+    "cdpLayout": 0.277,
+    "cdpStyle": 0.587
+   },
+   {
+    "sync": 5.085000038146973,
+    "tick": 6.069999694824219,
+    "painted": 28.864999771118164,
+    "cdpScript": 0.011,
+    "cdpTask": 9.026,
+    "cdpLayout": 0.274,
+    "cdpStyle": 0.566
+   },
+   {
+    "sync": 5.505000114440918,
+    "tick": 6.49500036239624,
+    "painted": 29.085000038146973,
+    "cdpScript": 0.018,
+    "cdpTask": 9.572,
+    "cdpLayout": 0.233,
+    "cdpStyle": 0.428
+   },
+   {
+    "sync": 4.480000019073486,
+    "tick": 5.460000038146973,
+    "painted": 27.630000114440918,
+    "cdpScript": 0.019,
+    "cdpTask": 8.083,
+    "cdpLayout": 0.234,
+    "cdpStyle": 0.443
+   }
+  ],
+  "mount_25_desk:cold": [
+   {
+    "sync": 77.73999977111816,
+    "tick": 88.51999998092651,
+    "painted": 99.90000009536743,
+    "cdpScript": 0.162,
+    "cdpTask": 101.938,
+    "cdpLayout": 4.163,
+    "cdpStyle": 4.529
+   },
+   {
+    "sync": 77.76000022888184,
+    "tick": 94.04500007629395,
+    "painted": 108.5600004196167,
+    "cdpScript": 0.159,
+    "cdpTask": 110.956,
+    "cdpLayout": 3.634,
+    "cdpStyle": 7.738
+   },
+   {
+    "sync": 76.625,
+    "tick": 90.09499979019165,
+    "painted": 102.33500003814697,
+    "cdpScript": 0.135,
+    "cdpTask": 104.973,
+    "cdpLayout": 4.316,
+    "cdpStyle": 4.855
+   },
+   {
+    "sync": 83.80500030517578,
+    "tick": 98.10500001907349,
+    "painted": 109.75,
+    "cdpScript": 0.126,
+    "cdpTask": 111.777,
+    "cdpLayout": 4.109,
+    "cdpStyle": 4.481
+   },
+   {
+    "sync": 66.58500003814697,
+    "tick": 77.57999992370605,
+    "painted": 88.44499969482422,
+    "cdpScript": 0.13,
+    "cdpTask": 90.277,
+    "cdpLayout": 3.803,
+    "cdpStyle": 4.347
+   },
+   {
+    "sync": 83.05500030517578,
+    "tick": 93.76000022888184,
+    "painted": 108.79500007629395,
+    "cdpScript": 0.276,
+    "cdpTask": 111.4,
+    "cdpLayout": 5.915,
+    "cdpStyle": 3.951
+   },
+   {
+    "sync": 81.80000019073486,
+    "tick": 92.78000020980835,
+    "painted": 106.75500011444092,
+    "cdpScript": 0.245,
+    "cdpTask": 109.039,
+    "cdpLayout": 4.615,
+    "cdpStyle": 4.02
+   }
+  ],
+  "mount_25_desk:warm": [
+   {
+    "sync": 38.40500020980835,
+    "tick": 48.46000003814697,
+    "painted": 62.52500009536743,
+    "cdpScript": 0.031,
+    "cdpTask": 55.534,
+    "cdpLayout": 0.676,
+    "cdpStyle": 3.364
+   },
+   {
+    "sync": 49.239999771118164,
+    "tick": 53.239999771118164,
+    "painted": 62.37999963760376,
+    "cdpScript": 0.019,
+    "cdpTask": 58.735,
+    "cdpLayout": 0.687,
+    "cdpStyle": 1.971
+   },
+   {
+    "sync": 38.55999994277954,
+    "tick": 43.045000076293945,
+    "painted": 47.92500019073486,
+    "cdpScript": 0.063,
+    "cdpTask": 49.004,
+    "cdpLayout": 1.041,
+    "cdpStyle": 1.972
+   },
+   {
+    "sync": 50.764999866485596,
+    "tick": 55.15000009536743,
+    "painted": 63.47499990463257,
+    "cdpScript": 0.057,
+    "cdpTask": 60.849,
+    "cdpLayout": 0.728,
+    "cdpStyle": 1.954
+   },
+   {
+    "sync": 41.519999980926514,
+    "tick": 45.489999771118164,
+    "painted": 63.239999771118164,
+    "cdpScript": 0.044,
+    "cdpTask": 50.68,
+    "cdpLayout": 0.733,
+    "cdpStyle": 1.783
+   },
+   {
+    "sync": 42.83500003814697,
+    "tick": 53.80000019073486,
+    "painted": 61.55500030517578,
+    "cdpScript": 0.03,
+    "cdpTask": 59.539,
+    "cdpLayout": 0.789,
+    "cdpStyle": 2.003
+   },
+   {
+    "sync": 33.44500017166138,
+    "tick": 44.545000076293945,
+    "painted": 62.84999990463257,
+    "cdpScript": 0.023,
+    "cdpTask": 49.811,
+    "cdpLayout": 0.676,
+    "cdpStyle": 1.92
+   }
+  ],
+  "mount_100_desk:cold": [
+   {
+    "sync": 200.30000019073486,
+    "tick": 242.9800000190735,
+    "painted": 264.7550001144409,
+    "cdpScript": 0.228,
+    "cdpTask": 267.281,
+    "cdpLayout": 5.631,
+    "cdpStyle": 9.866
+   },
+   {
+    "sync": 184.29500007629395,
+    "tick": 225.42000007629395,
+    "painted": 250.30499982833862,
+    "cdpScript": 0.557,
+    "cdpTask": 250.472,
+    "cdpLayout": 5.488,
+    "cdpStyle": 10.405
+   },
+   {
+    "sync": 177.75500011444092,
+    "tick": 217.28000020980835,
+    "painted": 238.0349998474121,
+    "cdpScript": 0.403,
+    "cdpTask": 240.722,
+    "cdpLayout": 4.837,
+    "cdpStyle": 9.044
+   },
+   {
+    "sync": 180.75499963760376,
+    "tick": 221.4399995803833,
+    "painted": 242.84499979019165,
+    "cdpScript": 0.411,
+    "cdpTask": 245.274,
+    "cdpLayout": 5.674,
+    "cdpStyle": 9.366
+   },
+   {
+    "sync": 166.37999963760376,
+    "tick": 215.23499965667725,
+    "painted": 239.58500003814697,
+    "cdpScript": 0.353,
+    "cdpTask": 242.023,
+    "cdpLayout": 7.626,
+    "cdpStyle": 8.88
+   },
+   {
+    "sync": 172.92000007629395,
+    "tick": 207.875,
+    "painted": 226.69999980926514,
+    "cdpScript": 0.194,
+    "cdpTask": 228.562,
+    "cdpLayout": 4.464,
+    "cdpStyle": 8.537
+   },
+   {
+    "sync": 184.35999965667725,
+    "tick": 231.18499994277954,
+    "painted": 251.9099998474121,
+    "cdpScript": 0.477,
+    "cdpTask": 260.87,
+    "cdpLayout": 5.145,
+    "cdpStyle": 9.215
+   }
+  ],
+  "mount_100_desk:warm": [
+   {
+    "sync": 105.94499969482422,
+    "tick": 122.40499973297119,
+    "painted": 136.94999980926514,
+    "cdpScript": 0.114,
+    "cdpTask": 170.393,
+    "cdpLayout": 2.253,
+    "cdpStyle": 7.085
+   },
+   {
+    "sync": 104.28499984741211,
+    "tick": 119.64499998092651,
+    "painted": 133.32999992370605,
+    "cdpScript": 0.15,
+    "cdpTask": 170.371,
+    "cdpLayout": 2.274,
+    "cdpStyle": 6.326
+   },
+   {
+    "sync": 95.76999998092651,
+    "tick": 114.29500007629395,
+    "painted": 129.73999977111816,
+    "cdpScript": 0.178,
+    "cdpTask": 165.702,
+    "cdpLayout": 2.594,
+    "cdpStyle": 7.268
+   },
+   {
+    "sync": 94.0600004196167,
+    "tick": 115.08000040054321,
+    "painted": 131.74000024795532,
+    "cdpScript": 0.187,
+    "cdpTask": 164.197,
+    "cdpLayout": 2.785,
+    "cdpStyle": 7.764
+   },
+   {
+    "sync": 86.94000005722046,
+    "tick": 101.70499992370605,
+    "painted": 114.44500017166138,
+    "cdpScript": 0.097,
+    "cdpTask": 146.489,
+    "cdpLayout": 2.062,
+    "cdpStyle": 5.963
+   },
+   {
+    "sync": 90.06999969482422,
+    "tick": 104.92999982833862,
+    "painted": 120.80999994277954,
+    "cdpScript": 0.167,
+    "cdpTask": 156.016,
+    "cdpLayout": 2.48,
+    "cdpStyle": 8.036
+   },
+   {
+    "sync": 93.53999996185303,
+    "tick": 107.35500001907349,
+    "painted": 120.80999994277954,
+    "cdpScript": 0.094,
+    "cdpTask": 144.041,
+    "cdpLayout": 2.236,
+    "cdpStyle": 6.424
+   }
+  ],
+  "unmount_100_desk:warm": [
+   {
+    "sync": 14.070000171661377,
+    "tick": 14.099999904632568,
+    "painted": 20.480000019073486,
+    "cdpScript": 0.006,
+    "cdpTask": 16.024,
+    "cdpLayout": 0.099,
+    "cdpStyle": 0.014
+   },
+   {
+    "sync": 12.804999828338623,
+    "tick": 12.839999675750732,
+    "painted": 20.84499979019165,
+    "cdpScript": 0.005,
+    "cdpTask": 14.761,
+    "cdpLayout": 0.089,
+    "cdpStyle": 0.016
+   },
+   {
+    "sync": 11.179999828338623,
+    "tick": 11.210000038146973,
+    "painted": 27.239999771118164,
+    "cdpScript": 0.011,
+    "cdpTask": 12.829,
+    "cdpLayout": 0.073,
+    "cdpStyle": 0.014
+   },
+   {
+    "sync": 11.65500020980835,
+    "tick": 11.690000057220459,
+    "painted": 30.110000133514404,
+    "cdpScript": 0.008,
+    "cdpTask": 13.195,
+    "cdpLayout": 0.077,
+    "cdpStyle": 0.013
+   },
+   {
+    "sync": 8.53000020980835,
+    "tick": 8.565000057220459,
+    "painted": 31.81500005722046,
+    "cdpScript": 0.007,
+    "cdpTask": 10.202,
+    "cdpLayout": 0.064,
+    "cdpStyle": 0.011
+   },
+   {
+    "sync": 10.554999828338623,
+    "tick": 10.579999923706055,
+    "painted": 21.28000020980835,
+    "cdpScript": 0.006,
+    "cdpTask": 11.971,
+    "cdpLayout": 0.073,
+    "cdpStyle": 0.015
+   },
+   {
+    "sync": 6.460000038146973,
+    "tick": 6.480000019073486,
+    "painted": 33.46999979019165,
+    "cdpScript": 0.012,
+    "cdpTask": 7.961,
+    "cdpLayout": 0.097,
+    "cdpStyle": 0.013
+   }
+  ],
+  "mount_300_desk:cold": [
+   {
+    "sync": 410.75,
+    "tick": 483.94999980926514,
+    "painted": 526.8200001716614,
+    "cdpScript": 0.629,
+    "cdpTask": 530.343,
+    "cdpLayout": 9.784,
+    "cdpStyle": 22.449
+   },
+   {
+    "sync": 440.75499963760376,
+    "tick": 520.9749999046326,
+    "painted": 569.8199996948242,
+    "cdpScript": 0.641,
+    "cdpTask": 573.294,
+    "cdpLayout": 11.431,
+    "cdpStyle": 26.255
+   },
+   {
+    "sync": 446.80999994277954,
+    "tick": 521.1999998092651,
+    "painted": 561.9850001335144,
+    "cdpScript": 0.391,
+    "cdpTask": 565.118,
+    "cdpLayout": 10.194,
+    "cdpStyle": 20.371
+   },
+   {
+    "sync": 408.5549998283386,
+    "tick": 492.90500020980835,
+    "painted": 536.2300000190735,
+    "cdpScript": 0.454,
+    "cdpTask": 539.604,
+    "cdpLayout": 10.754,
+    "cdpStyle": 21.88
+   },
+   {
+    "sync": 407.17000007629395,
+    "tick": 487.58999967575073,
+    "painted": 529.3499999046326,
+    "cdpScript": 0.511,
+    "cdpTask": 532.265,
+    "cdpLayout": 10.141,
+    "cdpStyle": 21.516
+   },
+   {
+    "sync": 431.375,
+    "tick": 510.5950002670288,
+    "painted": 568.4850001335144,
+    "cdpScript": 0.583,
+    "cdpTask": 571.722,
+    "cdpLayout": 19.057,
+    "cdpStyle": 23.706
+   },
+   {
+    "sync": 382.57499980926514,
+    "tick": 448.05999994277954,
+    "painted": 488.22499990463257,
+    "cdpScript": 0.424,
+    "cdpTask": 490.624,
+    "cdpLayout": 9.87,
+    "cdpStyle": 20.33
+   }
+  ],
+  "mount_300_desk:warm": [
+   {
+    "sync": 331.1850004196167,
+    "tick": 390.79500007629395,
+    "painted": 432.8300004005432,
+    "cdpScript": 0.484,
+    "cdpTask": 438.341,
+    "cdpLayout": 9.479,
+    "cdpStyle": 21.257
+   },
+   {
+    "sync": 320.47499990463257,
+    "tick": 375.72499990463257,
+    "painted": 414.3699998855591,
+    "cdpScript": 0.287,
+    "cdpTask": 418.825,
+    "cdpLayout": 7.505,
+    "cdpStyle": 20.999
+   },
+   {
+    "sync": 314.8500003814697,
+    "tick": 362.3650002479553,
+    "painted": 399.9700002670288,
+    "cdpScript": 0.41,
+    "cdpTask": 405.427,
+    "cdpLayout": 6.709,
+    "cdpStyle": 21.035
+   },
+   {
+    "sync": 310.59999990463257,
+    "tick": 366.18499994277954,
+    "painted": 399.1399998664856,
+    "cdpScript": 0.254,
+    "cdpTask": 403.447,
+    "cdpLayout": 6.115,
+    "cdpStyle": 18.043
+   },
+   {
+    "sync": 323.9249997138977,
+    "tick": 378.6799998283386,
+    "painted": 416.5199999809265,
+    "cdpScript": 0.346,
+    "cdpTask": 421.139,
+    "cdpLayout": 6.164,
+    "cdpStyle": 19.867
+   },
+   {
+    "sync": 311.42000007629395,
+    "tick": 361.6000003814697,
+    "painted": 394.1150002479553,
+    "cdpScript": 0.269,
+    "cdpTask": 398.108,
+    "cdpLayout": 5.937,
+    "cdpStyle": 17.687
+   },
+   {
+    "sync": 309.08999967575073,
+    "tick": 352.80999994277954,
+    "painted": 385.0249996185303,
+    "cdpScript": 0.245,
+    "cdpTask": 388.948,
+    "cdpLayout": 6.042,
+    "cdpStyle": 17.561
+   }
+  ],
+  "mount_1_opts20:cold": [
+   {
+    "sync": 34.11999988555908,
+    "tick": 37.014999866485596,
+    "painted": 46.36999988555908,
+    "cdpScript": 0.059,
+    "cdpTask": 47.234,
+    "cdpLayout": 3.511,
+    "cdpStyle": 2.35
+   },
+   {
+    "sync": 36.78999996185303,
+    "tick": 39.77999973297119,
+    "painted": 46.69499969482422,
+    "cdpScript": 0.132,
+    "cdpTask": 49.148,
+    "cdpLayout": 2.991,
+    "cdpStyle": 2.42
+   },
+   {
+    "sync": 37.105000019073486,
+    "tick": 38.81500005722046,
+    "painted": 46.5,
+    "cdpScript": 0.113,
+    "cdpTask": 48.888,
+    "cdpLayout": 3.885,
+    "cdpStyle": 2.413
+   },
+   {
+    "sync": 38.25499963760376,
+    "tick": 41.44499969482422,
+    "painted": 51.769999980926514,
+    "cdpScript": 0.065,
+    "cdpTask": 50.648,
+    "cdpLayout": 2.632,
+    "cdpStyle": 2.487
+   },
+   {
+    "sync": 34.56999969482422,
+    "tick": 37.80499982833862,
+    "painted": 44.47499990463257,
+    "cdpScript": 0.056,
+    "cdpTask": 46.544,
+    "cdpLayout": 2.91,
+    "cdpStyle": 2.366
+   },
+   {
+    "sync": 36.96499967575073,
+    "tick": 38.71000003814697,
+    "painted": 53.88000011444092,
+    "cdpScript": 0.113,
+    "cdpTask": 49.638,
+    "cdpLayout": 3.692,
+    "cdpStyle": 2.356
+   },
+   {
+    "sync": 35.14500045776367,
+    "tick": 37.135000228881836,
+    "painted": 45.97000026702881,
+    "cdpScript": 0.123,
+    "cdpTask": 48.625,
+    "cdpLayout": 4.273,
+    "cdpStyle": 2.545
+   }
+  ],
+  "mount_1_opts20:warm": [
+   {
+    "sync": 5.100000381469727,
+    "tick": 6.1650004386901855,
+    "painted": 27.945000171661377,
+    "cdpScript": 0.01,
+    "cdpTask": 9.219,
+    "cdpLayout": 0.261,
+    "cdpStyle": 0.542
+   },
+   {
+    "sync": 6.309999942779541,
+    "tick": 7.329999923706055,
+    "painted": 25.93499994277954,
+    "cdpScript": 0.015,
+    "cdpTask": 10.771,
+    "cdpLayout": 0.217,
+    "cdpStyle": 0.474
+   },
+   {
+    "sync": 5.494999885559082,
+    "tick": 6.75,
+    "painted": 28.625,
+    "cdpScript": 0.014,
+    "cdpTask": 9.869,
+    "cdpLayout": 0.258,
+    "cdpStyle": 0.488
+   },
+   {
+    "sync": 3.0850000381469727,
+    "tick": 3.700000286102295,
+    "painted": 30.954999923706055,
+    "cdpScript": 0.012,
+    "cdpTask": 5.573,
+    "cdpLayout": 0.15,
+    "cdpStyle": 0.288
+   },
+   {
+    "sync": 2.755000114440918,
+    "tick": 3.7400002479553223,
+    "painted": 30.545000076293945,
+    "cdpScript": 0.061,
+    "cdpTask": 6.491,
+    "cdpLayout": 0.24,
+    "cdpStyle": 0.555
+   },
+   {
+    "sync": 5.009999752044678,
+    "tick": 6.014999866485596,
+    "painted": 29.69499969482422,
+    "cdpScript": 0.087,
+    "cdpTask": 8.902,
+    "cdpLayout": 0.255,
+    "cdpStyle": 0.549
+   },
+   {
+    "sync": 5.644999980926514,
+    "tick": 6.62999963760376,
+    "painted": 29.139999866485596,
+    "cdpScript": 0.01,
+    "cdpTask": 9.763,
+    "cdpLayout": 0.279,
+    "cdpStyle": 0.565
+   }
+  ],
+  "mount_25_opts20:cold": [
+   {
+    "sync": 76.44000005722046,
+    "tick": 84.19999980926514,
+    "painted": 95.02499961853027,
+    "cdpScript": 0.254,
+    "cdpTask": 97.708,
+    "cdpLayout": 3.986,
+    "cdpStyle": 4.101
+   },
+   {
+    "sync": 84.59999990463257,
+    "tick": 93.11500024795532,
+    "painted": 104.10500001907349,
+    "cdpScript": 0.171,
+    "cdpTask": 107.342,
+    "cdpLayout": 4.493,
+    "cdpStyle": 3.918
+   },
+   {
+    "sync": 86.73499965667725,
+    "tick": 96.80499982833862,
+    "painted": 108.52999973297119,
+    "cdpScript": 0.159,
+    "cdpTask": 111.626,
+    "cdpLayout": 3.957,
+    "cdpStyle": 4.626
+   },
+   {
+    "sync": 62.92500019073486,
+    "tick": 71.59000015258789,
+    "painted": 81.875,
+    "cdpScript": 0.133,
+    "cdpTask": 83.936,
+    "cdpLayout": 3.333,
+    "cdpStyle": 4.219
+   },
+   {
+    "sync": 81.58999967575073,
+    "tick": 90.06999969482422,
+    "painted": 101.79500007629395,
+    "cdpScript": 0.169,
+    "cdpTask": 105.085,
+    "cdpLayout": 4.494,
+    "cdpStyle": 4.37
+   },
+   {
+    "sync": 90.25500011444092,
+    "tick": 104.2999997138977,
+    "painted": 119.18499994277954,
+    "cdpScript": 0.237,
+    "cdpTask": 121.844,
+    "cdpLayout": 5.16,
+    "cdpStyle": 4.664
+   },
+   {
+    "sync": 83.70499992370605,
+    "tick": 92.26000022888184,
+    "painted": 104.09499979019165,
+    "cdpScript": 0.483,
+    "cdpTask": 106.85,
+    "cdpLayout": 4.153,
+    "cdpStyle": 4.314
+   }
+  ],
+  "mount_25_opts20:warm": [
+   {
+    "sync": 33.985000133514404,
+    "tick": 37.31500005722046,
+    "painted": 63.31500005722046,
+    "cdpScript": 0.055,
+    "cdpTask": 43.434,
+    "cdpLayout": 0.852,
+    "cdpStyle": 2.23
+   },
+   {
+    "sync": 45.40500020980835,
+    "tick": 49.704999923706055,
+    "painted": 61.74499988555908,
+    "cdpScript": 0.088,
+    "cdpTask": 56.145,
+    "cdpLayout": 0.74,
+    "cdpStyle": 1.862
+   },
+   {
+    "sync": 41.28499984741211,
+    "tick": 48.920000076293945,
+    "painted": 62.920000076293945,
+    "cdpScript": 0.105,
+    "cdpTask": 57.982,
+    "cdpLayout": 1.225,
+    "cdpStyle": 3.21
+   },
+   {
+    "sync": 34.00500011444092,
+    "tick": 41.11500024795532,
+    "painted": 64.32999992370605,
+    "cdpScript": 0.065,
+    "cdpTask": 50.51,
+    "cdpLayout": 1.317,
+    "cdpStyle": 3.677
+   },
+   {
+    "sync": 34.959999561309814,
+    "tick": 39.139999866485596,
+    "painted": 63.14999961853027,
+    "cdpScript": 0.052,
+    "cdpTask": 44.95,
+    "cdpLayout": 0.662,
+    "cdpStyle": 2.118
+   },
+   {
+    "sync": 33.889999866485596,
+    "tick": 38.09000015258789,
+    "painted": 62.93499994277954,
+    "cdpScript": 0.096,
+    "cdpTask": 44.858,
+    "cdpLayout": 0.761,
+    "cdpStyle": 2.339
+   },
+   {
+    "sync": 51.58500003814697,
+    "tick": 55.954999923706055,
+    "painted": 62.519999980926514,
+    "cdpScript": 0.053,
+    "cdpTask": 62.468,
+    "cdpLayout": 0.706,
+    "cdpStyle": 2.059
+   }
+  ],
+  "mount_100_opts20:cold": [
+   {
+    "sync": 181.42999982833862,
+    "tick": 221.44999980926514,
+    "painted": 241.67500019073486,
+    "cdpScript": 0.401,
+    "cdpTask": 247.816,
+    "cdpLayout": 4.491,
+    "cdpStyle": 9.509
+   },
+   {
+    "sync": 182.76000022888184,
+    "tick": 222.7849998474121,
+    "painted": 245.33500003814697,
+    "cdpScript": 0.252,
+    "cdpTask": 250.85,
+    "cdpLayout": 5.549,
+    "cdpStyle": 10.181
+   },
+   {
+    "sync": 193.79500007629395,
+    "tick": 231.00500011444092,
+    "painted": 252.91499996185303,
+    "cdpScript": 1.119,
+    "cdpTask": 257.832,
+    "cdpLayout": 4.972,
+    "cdpStyle": 9.818
+   },
+   {
+    "sync": 153.42500019073486,
+    "tick": 192.69000005722046,
+    "painted": 213.78000020980835,
+    "cdpScript": 0.467,
+    "cdpTask": 217.042,
+    "cdpLayout": 4.728,
+    "cdpStyle": 9.676
+   },
+   {
+    "sync": 172.42000007629395,
+    "tick": 207.3300004005432,
+    "painted": 227.8949999809265,
+    "cdpScript": 0.402,
+    "cdpTask": 232.914,
+    "cdpLayout": 4.719,
+    "cdpStyle": 9.632
+   },
+   {
+    "sync": 198.40000009536743,
+    "tick": 234.16499996185303,
+    "painted": 254.99499988555908,
+    "cdpScript": 0.354,
+    "cdpTask": 259.819,
+    "cdpLayout": 5.671,
+    "cdpStyle": 9.215
+   },
+   {
+    "sync": 184.2050004005432,
+    "tick": 227.7150001525879,
+    "painted": 248.8600001335144,
+    "cdpScript": 0.468,
+    "cdpTask": 253.597,
+    "cdpLayout": 4.948,
+    "cdpStyle": 9.376
+   }
+  ],
+  "mount_100_opts20:warm": [
+   {
+    "sync": 84.65000009536743,
+    "tick": 105.57000017166138,
+    "painted": 119.72499990463257,
+    "cdpScript": 0.134,
+    "cdpTask": 153.668,
+    "cdpLayout": 2.159,
+    "cdpStyle": 6.892
+   },
+   {
+    "sync": 86.05000019073486,
+    "tick": 99.33500003814697,
+    "painted": 112.64499998092651,
+    "cdpScript": 0.108,
+    "cdpTask": 145.421,
+    "cdpLayout": 2.158,
+    "cdpStyle": 5.943
+   },
+   {
+    "sync": 88.625,
+    "tick": 106.38000011444092,
+    "painted": 119.71500015258789,
+    "cdpScript": 0.121,
+    "cdpTask": 145.531,
+    "cdpLayout": 2.167,
+    "cdpStyle": 6.392
+   },
+   {
+    "sync": 84.94500017166138,
+    "tick": 100.2649998664856,
+    "painted": 113.78999996185303,
+    "cdpScript": 0.112,
+    "cdpTask": 144.536,
+    "cdpLayout": 2.244,
+    "cdpStyle": 6.269
+   },
+   {
+    "sync": 94.63499975204468,
+    "tick": 110.23000001907349,
+    "painted": 123.70499992370605,
+    "cdpScript": 0.1,
+    "cdpTask": 153.08,
+    "cdpLayout": 2.215,
+    "cdpStyle": 6.272
+   },
+   {
+    "sync": 90.69999980926514,
+    "tick": 105.26999998092651,
+    "painted": 119.05999994277954,
+    "cdpScript": 0.128,
+    "cdpTask": 155.885,
+    "cdpLayout": 2.477,
+    "cdpStyle": 6.27
+   },
+   {
+    "sync": 87.84000015258789,
+    "tick": 104.59500026702881,
+    "painted": 120.7000002861023,
+    "cdpScript": 0.142,
+    "cdpTask": 156.126,
+    "cdpLayout": 2.407,
+    "cdpStyle": 8.037
+   }
+  ],
+  "unmount_100_opts20:warm": [
+   {
+    "sync": 10.454999923706055,
+    "tick": 10.480000019073486,
+    "painted": 18.77500009536743,
+    "cdpScript": 0.007,
+    "cdpTask": 11.905,
+    "cdpLayout": 0.081,
+    "cdpStyle": 0.013
+   },
+   {
+    "sync": 9.970000267028809,
+    "tick": 10.005000114440918,
+    "painted": 29.769999980926514,
+    "cdpScript": 0.007,
+    "cdpTask": 11.791,
+    "cdpLayout": 0.095,
+    "cdpStyle": 0.018
+   },
+   {
+    "sync": 6.679999828338623,
+    "tick": 6.704999923706055,
+    "painted": 31.47499990463257,
+    "cdpScript": 0.005,
+    "cdpTask": 7.917,
+    "cdpLayout": 0.064,
+    "cdpStyle": 0.013
+   },
+   {
+    "sync": 9.614999771118164,
+    "tick": 9.65500020980835,
+    "painted": 32.105000019073486,
+    "cdpScript": 0.009,
+    "cdpTask": 11.551,
+    "cdpLayout": 0.106,
+    "cdpStyle": 0.015
+   },
+   {
+    "sync": 10.795000076293945,
+    "tick": 10.815000057220459,
+    "painted": 24.985000133514404,
+    "cdpScript": 0.005,
+    "cdpTask": 12.066,
+    "cdpLayout": 0.07,
+    "cdpStyle": 0.013
+   },
+   {
+    "sync": 10.880000114440918,
+    "tick": 10.914999961853027,
+    "painted": 20.320000171661377,
+    "cdpScript": 0.007,
+    "cdpTask": 12.76,
+    "cdpLayout": 0.09,
+    "cdpStyle": 0.016
+   },
+   {
+    "sync": 12.570000171661377,
+    "tick": 12.599999904632568,
+    "painted": 17.009999752044678,
+    "cdpScript": 0.006,
+    "cdpTask": 14.307,
+    "cdpLayout": 0.091,
+    "cdpStyle": 0.015
+   }
+  ],
+  "mount_300_opts20:cold": [
+   {
+    "sync": 412.6549997329712,
+    "tick": 488.3400001525879,
+    "painted": 549.2150001525879,
+    "cdpScript": 0.682,
+    "cdpTask": 562.25,
+    "cdpLayout": 17.968,
+    "cdpStyle": 23.273
+   },
+   {
+    "sync": 422.9299998283386,
+    "tick": 506.1599998474121,
+    "painted": 548.7600002288818,
+    "cdpScript": 0.499,
+    "cdpTask": 557.776,
+    "cdpLayout": 9.474,
+    "cdpStyle": 22.331
+   },
+   {
+    "sync": 417.25,
+    "tick": 504.5149998664856,
+    "painted": 548.5999999046326,
+    "cdpScript": 0.54,
+    "cdpTask": 562.507,
+    "cdpLayout": 10.503,
+    "cdpStyle": 21.155
+   },
+   {
+    "sync": 404.9150004386902,
+    "tick": 466.8650002479553,
+    "painted": 507.44000005722046,
+    "cdpScript": 0.65,
+    "cdpTask": 520.637,
+    "cdpLayout": 9.624,
+    "cdpStyle": 20.58
+   },
+   {
+    "sync": 362.0449995994568,
+    "tick": 429.58999967575073,
+    "painted": 469.62999963760376,
+    "cdpScript": 0.568,
+    "cdpTask": 477.276,
+    "cdpLayout": 8.956,
+    "cdpStyle": 20.525
+   },
+   {
+    "sync": 400.84499979019165,
+    "tick": 468.42500019073486,
+    "painted": 526.460000038147,
+    "cdpScript": 0.793,
+    "cdpTask": 539.197,
+    "cdpLayout": 17.652,
+    "cdpStyle": 20.335
+   },
+   {
+    "sync": 405.3899998664856,
+    "tick": 469.59999990463257,
+    "painted": 513.460000038147,
+    "cdpScript": 0.529,
+    "cdpTask": 529.078,
+    "cdpLayout": 10.437,
+    "cdpStyle": 22.19
+   }
+  ],
+  "mount_300_opts20:warm": [
+   {
+    "sync": 316.0050001144409,
+    "tick": 368.7649998664856,
+    "painted": 402.8899998664856,
+    "cdpScript": 0.331,
+    "cdpTask": 444.548,
+    "cdpLayout": 6.278,
+    "cdpStyle": 18.668
+   },
+   {
+    "sync": 310.5499997138977,
+    "tick": 364.09999990463257,
+    "painted": 403.1749997138977,
+    "cdpScript": 0.37,
+    "cdpTask": 446.977,
+    "cdpLayout": 6.751,
+    "cdpStyle": 20.012
+   },
+   {
+    "sync": 298.0400004386902,
+    "tick": 346.9300003051758,
+    "painted": 384.05000019073486,
+    "cdpScript": 0.352,
+    "cdpTask": 427.058,
+    "cdpLayout": 6.322,
+    "cdpStyle": 21.077
+   },
+   {
+    "sync": 274.7400002479553,
+    "tick": 332.55000019073486,
+    "painted": 371.3400001525879,
+    "cdpScript": 0.301,
+    "cdpTask": 402.789,
+    "cdpLayout": 7.414,
+    "cdpStyle": 21.248
+   },
+   {
+    "sync": 277.22499990463257,
+    "tick": 320.56500005722046,
+    "painted": 354.82499980926514,
+    "cdpScript": 0.272,
+    "cdpTask": 394.931,
+    "cdpLayout": 6.046,
+    "cdpStyle": 19.597
+   },
+   {
+    "sync": 301.78500032424927,
+    "tick": 350.4500002861023,
+    "painted": 387.42000007629395,
+    "cdpScript": 0.306,
+    "cdpTask": 422.099,
+    "cdpLayout": 6.956,
+    "cdpStyle": 20.069
+   },
+   {
+    "sync": 294.56500005722046,
+    "tick": 356.1449999809265,
+    "painted": 395.9099998474121,
+    "cdpScript": 0.404,
+    "cdpTask": 402.677,
+    "cdpLayout": 6.812,
+    "cdpStyle": 21.269
+   }
+  ],
+  "ref_100_input:cold": [
+   {
+    "sync": 1.2750000953674316,
+    "tick": 1.320000171661377,
+    "painted": 21.100000381469727,
+    "cdpScript": 0.011,
+    "cdpTask": 23.212,
+    "cdpLayout": 7.9,
+    "cdpStyle": 6.005
+   },
+   {
+    "sync": 1.5249996185302734,
+    "tick": 1.5749998092651367,
+    "painted": 28.164999961853027,
+    "cdpScript": 0.015,
+    "cdpTask": 30.443,
+    "cdpLayout": 12.4,
+    "cdpStyle": 6.529
+   },
+   {
+    "sync": 1.3799996376037598,
+    "tick": 1.429999828338623,
+    "painted": 24.174999713897705,
+    "cdpScript": 0.028,
+    "cdpTask": 26.326,
+    "cdpLayout": 9.575,
+    "cdpStyle": 6.301
+   },
+   {
+    "sync": 1.4250001907348633,
+    "tick": 1.4699997901916504,
+    "painted": 17.494999885559082,
+    "cdpScript": 0.009,
+    "cdpTask": 19.405,
+    "cdpLayout": 4.893,
+    "cdpStyle": 6.783
+   },
+   {
+    "sync": 1.2450003623962402,
+    "tick": 1.2800002098083496,
+    "painted": 19.415000438690186,
+    "cdpScript": 0.009,
+    "cdpTask": 21.202,
+    "cdpLayout": 6.756,
+    "cdpStyle": 5.632
+   },
+   {
+    "sync": 1.299999713897705,
+    "tick": 1.3449997901916504,
+    "painted": 21.509999752044678,
+    "cdpScript": 0.009,
+    "cdpTask": 23.35,
+    "cdpLayout": 8.237,
+    "cdpStyle": 5.934
+   },
+   {
+    "sync": 1.4350004196166992,
+    "tick": 1.4850001335144043,
+    "painted": 24.480000019073486,
+    "cdpScript": 0.013,
+    "cdpTask": 26.747,
+    "cdpLayout": 9.012,
+    "cdpStyle": 6.804
+   }
+  ],
+  "ref_100_input:warm": [
+   {
+    "sync": 0.6550002098083496,
+    "tick": 0.6649999618530273,
+    "painted": 29.144999980926514,
+    "cdpScript": 0.01,
+    "cdpTask": 15.673,
+    "cdpLayout": 3.394,
+    "cdpStyle": 5.53
+   },
+   {
+    "sync": 0.9099998474121094,
+    "tick": 0.9250001907348633,
+    "painted": 28.260000228881836,
+    "cdpScript": 0.021,
+    "cdpTask": 10.091,
+    "cdpLayout": 1.78,
+    "cdpStyle": 2.89
+   },
+   {
+    "sync": 0.6500000953674316,
+    "tick": 0.6600003242492676,
+    "painted": 29.18000030517578,
+    "cdpScript": 0.01,
+    "cdpTask": 17.296,
+    "cdpLayout": 3.703,
+    "cdpStyle": 6.119
+   },
+   {
+    "sync": 0.37000036239624023,
+    "tick": 0.38000011444091797,
+    "painted": 29.850000381469727,
+    "cdpScript": 0.014,
+    "cdpTask": 9.199,
+    "cdpLayout": 1.783,
+    "cdpStyle": 3.014
+   },
+   {
+    "sync": 0.6299996376037598,
+    "tick": 0.6399998664855957,
+    "painted": 32.704999923706055,
+    "cdpScript": 0.01,
+    "cdpTask": 15.358,
+    "cdpLayout": 3.148,
+    "cdpStyle": 5.443
+   },
+   {
+    "sync": 0.4199995994567871,
+    "tick": 0.42999982833862305,
+    "painted": 30.5,
+    "cdpScript": 0.014,
+    "cdpTask": 9.074,
+    "cdpLayout": 1.677,
+    "cdpStyle": 3.225
+   },
+   {
+    "sync": 0.6700000762939453,
+    "tick": 0.684999942779541,
+    "painted": 32.99000024795532,
+    "cdpScript": 0.018,
+    "cdpTask": 22.082,
+    "cdpLayout": 4.258,
+    "cdpStyle": 6.434
+   }
+  ],
+  "unmount_ref_100_input:warm": [
+   {
+    "sync": 1.184999942779541,
+    "tick": 1.1999998092651367,
+    "painted": 26.55999994277954,
+    "cdpScript": 0.007,
+    "cdpTask": 2.916,
+    "cdpLayout": 0.127,
+    "cdpStyle": 0.015
+   },
+   {
+    "sync": 0.5250000953674316,
+    "tick": 0.5300002098083496,
+    "painted": 28.77500009536743,
+    "cdpScript": 0.013,
+    "cdpTask": 1.883,
+    "cdpLayout": 0.07,
+    "cdpStyle": 0.013
+   },
+   {
+    "sync": 0.7899999618530273,
+    "tick": 0.7999997138977051,
+    "painted": 25.28499984741211,
+    "cdpScript": 0.008,
+    "cdpTask": 2.558,
+    "cdpLayout": 0.075,
+    "cdpStyle": 0.015
+   },
+   {
+    "sync": 0.75,
+    "tick": 0.755000114440918,
+    "painted": 29.134999752044678,
+    "cdpScript": 0.014,
+    "cdpTask": 2.623,
+    "cdpLayout": 0.086,
+    "cdpStyle": 0.012
+   },
+   {
+    "sync": 1.1949996948242188,
+    "tick": 1.2100000381469727,
+    "painted": 24.899999618530273,
+    "cdpScript": 0.007,
+    "cdpTask": 2.786,
+    "cdpLayout": 0.086,
+    "cdpStyle": 0.014
+   },
+   {
+    "sync": 0.619999885559082,
+    "tick": 0.625,
+    "painted": 29.22000026702881,
+    "cdpScript": 0.012,
+    "cdpTask": 1.79,
+    "cdpLayout": 0.065,
+    "cdpStyle": 0.011
+   },
+   {
+    "sync": 0.929999828338623,
+    "tick": 0.945000171661377,
+    "painted": 23.164999961853027,
+    "cdpScript": 0.008,
+    "cdpTask": 2.587,
+    "cdpLayout": 0.08,
+    "cdpStyle": 0.015
+   }
+  ],
+  "ref_300_input:cold": [
+   {
+    "sync": 2.1750001907348633,
+    "tick": 2.2150001525878906,
+    "painted": 47.72499990463257,
+    "cdpScript": 0.015,
+    "cdpTask": 50.392,
+    "cdpLayout": 14.409,
+    "cdpStyle": 16.782
+   },
+   {
+    "sync": 1.2649998664855957,
+    "tick": 1.2950000762939453,
+    "painted": 23.889999866485596,
+    "cdpScript": 0.006,
+    "cdpTask": 25.181,
+    "cdpLayout": 9.378,
+    "cdpStyle": 7.413
+   },
+   {
+    "sync": 2.7100000381469727,
+    "tick": 2.7699999809265137,
+    "painted": 47.355000019073486,
+    "cdpScript": 0.008,
+    "cdpTask": 49.624,
+    "cdpLayout": 14.615,
+    "cdpStyle": 18.029
+   },
+   {
+    "sync": 2.5,
+    "tick": 2.5550003051757812,
+    "painted": 48.57000017166138,
+    "cdpScript": 0.013,
+    "cdpTask": 50.609,
+    "cdpLayout": 15.033,
+    "cdpStyle": 17.901
+   },
+   {
+    "sync": 2.320000171661377,
+    "tick": 2.375,
+    "painted": 48,
+    "cdpScript": 0.01,
+    "cdpTask": 50.18,
+    "cdpLayout": 14.852,
+    "cdpStyle": 19.773
+   },
+   {
+    "sync": 1.8899998664855957,
+    "tick": 1.9200000762939453,
+    "painted": 24.384999752044678,
+    "cdpScript": 0.008,
+    "cdpTask": 25.876,
+    "cdpLayout": 7.787,
+    "cdpStyle": 8.438
+   },
+   {
+    "sync": 1.2200002670288086,
+    "tick": 1.25,
+    "painted": 22.125,
+    "cdpScript": 0.006,
+    "cdpTask": 23.173,
+    "cdpLayout": 7.535,
+    "cdpStyle": 7.46
+   }
+  ],
+  "ref_300_input:warm": [
+   {
+    "sync": 2.0450000762939453,
+    "tick": 2.1599998474121094,
+    "painted": 44.89999961853027,
+    "cdpScript": 0.013,
+    "cdpTask": 35.117,
+    "cdpLayout": 8.541,
+    "cdpStyle": 17.215
+   },
+   {
+    "sync": 1.880000114440918,
+    "tick": 1.9900002479553223,
+    "painted": 47.389999866485596,
+    "cdpScript": 0.01,
+    "cdpTask": 38.675,
+    "cdpLayout": 9.68,
+    "cdpStyle": 16.04
+   },
+   {
+    "sync": 1.885000228881836,
+    "tick": 2.0300002098083496,
+    "painted": 43.6850004196167,
+    "cdpScript": 0.005,
+    "cdpTask": 34.361,
+    "cdpLayout": 8.588,
+    "cdpStyle": 15.757
+   },
+   {
+    "sync": 1.1349997520446777,
+    "tick": 1.239999771118164,
+    "painted": 47.71999979019165,
+    "cdpScript": 0.011,
+    "cdpTask": 36.809,
+    "cdpLayout": 10.452,
+    "cdpStyle": 14.769
+   },
+   {
+    "sync": 1.8849997520446777,
+    "tick": 1.9850001335144043,
+    "painted": 46.86999988555908,
+    "cdpScript": 0.009,
+    "cdpTask": 37.275,
+    "cdpLayout": 9.242,
+    "cdpStyle": 15.784
+   },
+   {
+    "sync": 2.1999998092651367,
+    "tick": 2.3249998092651367,
+    "painted": 32.21999979019165,
+    "cdpScript": 0.008,
+    "cdpTask": 21.857,
+    "cdpLayout": 4.722,
+    "cdpStyle": 7.87
+   },
+   {
+    "sync": 2.140000343322754,
+    "tick": 2.255000114440918,
+    "painted": 46.40000009536743,
+    "cdpScript": 0.01,
+    "cdpTask": 37.312,
+    "cdpLayout": 9.6,
+    "cdpStyle": 18.035
+   }
+  ],
+  "ref_100_mini:cold": [
+   {
+    "sync": 35.90499973297119,
+    "tick": 35.96000003814697,
+    "painted": 53.40000009536743,
+    "cdpScript": 0.094,
+    "cdpTask": 56.334,
+    "cdpLayout": 6.784,
+    "cdpStyle": 4.884
+   },
+   {
+    "sync": 17.394999980926514,
+    "tick": 17.424999713897705,
+    "painted": 34.65999984741211,
+    "cdpScript": 0.091,
+    "cdpTask": 29.412,
+    "cdpLayout": 4.001,
+    "cdpStyle": 2.497
+   },
+   {
+    "sync": 32.360000133514404,
+    "tick": 32.390000343322754,
+    "painted": 49.855000019073486,
+    "cdpScript": 0.075,
+    "cdpTask": 52.343,
+    "cdpLayout": 7.485,
+    "cdpStyle": 4.194
+   },
+   {
+    "sync": 20.664999961853027,
+    "tick": 20.735000133514404,
+    "painted": 29.289999961853027,
+    "cdpScript": 0.008,
+    "cdpTask": 31.611,
+    "cdpLayout": 3.406,
+    "cdpStyle": 2.278
+   },
+   {
+    "sync": 30.759999752044678,
+    "tick": 30.84999990463257,
+    "painted": 46.704999923706055,
+    "cdpScript": 0.059,
+    "cdpTask": 49.495,
+    "cdpLayout": 6.089,
+    "cdpStyle": 4.362
+   },
+   {
+    "sync": 15.704999923706055,
+    "tick": 15.734999656677246,
+    "painted": 28.679999828338623,
+    "cdpScript": 0.077,
+    "cdpTask": 27.242,
+    "cdpLayout": 3.864,
+    "cdpStyle": 2.724
+   },
+   {
+    "sync": 30.760000228881836,
+    "tick": 30.795000076293945,
+    "painted": 45.05500030517578,
+    "cdpScript": 0.061,
+    "cdpTask": 47.949,
+    "cdpLayout": 5.584,
+    "cdpStyle": 3.817
+   }
+  ],
+  "ref_100_mini:warm": [
+   {
+    "sync": 9.849999904632568,
+    "tick": 9.860000133514404,
+    "painted": 28.514999866485596,
+    "cdpScript": 0.017,
+    "cdpTask": 23.234,
+    "cdpLayout": 3.115,
+    "cdpStyle": 3.857
+   },
+   {
+    "sync": 6.419999599456787,
+    "tick": 6.424999713897705,
+    "painted": 29.579999923706055,
+    "cdpScript": 0.016,
+    "cdpTask": 14.35,
+    "cdpLayout": 1.684,
+    "cdpStyle": 2.508
+   },
+   {
+    "sync": 8.394999980926514,
+    "tick": 8.394999980926514,
+    "painted": 28.25,
+    "cdpScript": 0.016,
+    "cdpTask": 20.65,
+    "cdpLayout": 2.87,
+    "cdpStyle": 4.033
+   },
+   {
+    "sync": 6.894999980926514,
+    "tick": 6.904999732971191,
+    "painted": 29.634999752044678,
+    "cdpScript": 0.015,
+    "cdpTask": 14.683,
+    "cdpLayout": 1.569,
+    "cdpStyle": 2.275
+   },
+   {
+    "sync": 9.12999963760376,
+    "tick": 9.134999752044678,
+    "painted": 30.609999656677246,
+    "cdpScript": 0.013,
+    "cdpTask": 21.714,
+    "cdpLayout": 2.972,
+    "cdpStyle": 3.765
+   },
+   {
+    "sync": 5.924999713897705,
+    "tick": 5.929999828338623,
+    "painted": 29.239999771118164,
+    "cdpScript": 0.017,
+    "cdpTask": 13.666,
+    "cdpLayout": 1.553,
+    "cdpStyle": 2.802
+   },
+   {
+    "sync": 10.384999752044678,
+    "tick": 10.400000095367432,
+    "painted": 29.199999809265137,
+    "cdpScript": 0.014,
+    "cdpTask": 23.401,
+    "cdpLayout": 3.118,
+    "cdpStyle": 3.88
+   }
+  ],
+  "unmount_ref_100_mini:warm": [
+   {
+    "sync": 1.9649996757507324,
+    "tick": 1.9800000190734863,
+    "painted": 27.329999923706055,
+    "cdpScript": 0.007,
+    "cdpTask": 3.634,
+    "cdpLayout": 0.1,
+    "cdpStyle": 0.016
+   },
+   {
+    "sync": 1.6800003051757812,
+    "tick": 1.690000057220459,
+    "painted": 29.414999961853027,
+    "cdpScript": 0.011,
+    "cdpTask": 3.062,
+    "cdpLayout": 0.072,
+    "cdpStyle": 0.011
+   },
+   {
+    "sync": 1.8000001907348633,
+    "tick": 1.820000171661377,
+    "painted": 28.05500030517578,
+    "cdpScript": 0.011,
+    "cdpTask": 3.496,
+    "cdpLayout": 0.084,
+    "cdpStyle": 0.015
+   },
+   {
+    "sync": 1.7049999237060547,
+    "tick": 1.7149996757507324,
+    "painted": 27.730000019073486,
+    "cdpScript": 0.012,
+    "cdpTask": 3.169,
+    "cdpLayout": 0.079,
+    "cdpStyle": 0.016
+   },
+   {
+    "sync": 1.809999942779541,
+    "tick": 1.8299999237060547,
+    "painted": 28.105000019073486,
+    "cdpScript": 0.005,
+    "cdpTask": 3.417,
+    "cdpLayout": 0.077,
+    "cdpStyle": 0.014
+   },
+   {
+    "sync": 1.6399998664855957,
+    "tick": 1.6549997329711914,
+    "painted": 28.869999885559082,
+    "cdpScript": 0.01,
+    "cdpTask": 3.184,
+    "cdpLayout": 0.074,
+    "cdpStyle": 0.013
+   },
+   {
+    "sync": 1.4049997329711914,
+    "tick": 1.419999599456787,
+    "painted": 28.15499973297119,
+    "cdpScript": 0.006,
+    "cdpTask": 2.869,
+    "cdpLayout": 0.07,
+    "cdpStyle": 0.012
+   }
+  ],
+  "ref_300_mini:cold": [
+   {
+    "sync": 55.94000005722046,
+    "tick": 55.97499990463257,
+    "painted": 75.51999998092651,
+    "cdpScript": 0.33,
+    "cdpTask": 79.381,
+    "cdpLayout": 6.161,
+    "cdpStyle": 7.726
+   },
+   {
+    "sync": 57.56500005722046,
+    "tick": 57.59000015258789,
+    "painted": 76.18499994277954,
+    "cdpScript": 0.223,
+    "cdpTask": 81.441,
+    "cdpLayout": 7.169,
+    "cdpStyle": 6.192
+   },
+   {
+    "sync": 51.74000024795532,
+    "tick": 51.8100004196167,
+    "painted": 82.74000024795532,
+    "cdpScript": 0.33,
+    "cdpTask": 86.133,
+    "cdpLayout": 13.052,
+    "cdpStyle": 8.779
+   },
+   {
+    "sync": 43.18499994277954,
+    "tick": 43.22499990463257,
+    "painted": 67.25500011444092,
+    "cdpScript": 0.2,
+    "cdpTask": 70.875,
+    "cdpLayout": 7.797,
+    "cdpStyle": 8.516
+   },
+   {
+    "sync": 50.980000019073486,
+    "tick": 51.00999975204468,
+    "painted": 81.31500005722046,
+    "cdpScript": 0.46,
+    "cdpTask": 85.348,
+    "cdpLayout": 12.117,
+    "cdpStyle": 7.817
+   },
+   {
+    "sync": 29.010000228881836,
+    "tick": 29.050000190734863,
+    "painted": 47.91000032424927,
+    "cdpScript": 0.117,
+    "cdpTask": 50.255,
+    "cdpLayout": 6.448,
+    "cdpStyle": 6.859
+   },
+   {
+    "sync": 53.11999988555908,
+    "tick": 53.15500020980835,
+    "painted": 73.69000005722046,
+    "cdpScript": 0.23,
+    "cdpTask": 78.035,
+    "cdpLayout": 9.682,
+    "cdpStyle": 5.937
+   }
+  ],
+  "ref_300_mini:warm": [
+   {
+    "sync": 8.269999980926514,
+    "tick": 8.269999980926514,
+    "painted": 30.664999961853027,
+    "cdpScript": 0.011,
+    "cdpTask": 22.767,
+    "cdpLayout": 4.105,
+    "cdpStyle": 4.988
+   },
+   {
+    "sync": 18.425000190734863,
+    "tick": 18.43499994277954,
+    "painted": 40.295000076293945,
+    "cdpScript": 0.017,
+    "cdpTask": 42.03,
+    "cdpLayout": 6.286,
+    "cdpStyle": 10.684
+   },
+   {
+    "sync": 10.139999866485596,
+    "tick": 10.144999980926514,
+    "painted": 31.43499994277954,
+    "cdpScript": 0.012,
+    "cdpTask": 26.196,
+    "cdpLayout": 4.833,
+    "cdpStyle": 5.258
+   },
+   {
+    "sync": 11.829999923706055,
+    "tick": 11.834999561309814,
+    "painted": 29.549999713897705,
+    "cdpScript": 0.013,
+    "cdpTask": 29.56,
+    "cdpLayout": 4.878,
+    "cdpStyle": 6.55
+   },
+   {
+    "sync": 16.119999885559082,
+    "tick": 16.125,
+    "painted": 41.94500017166138,
+    "cdpScript": 0.009,
+    "cdpTask": 43.285,
+    "cdpLayout": 8.319,
+    "cdpStyle": 11.146
+   },
+   {
+    "sync": 8.28000020980835,
+    "tick": 8.285000324249268,
+    "painted": 30.230000019073486,
+    "cdpScript": 0.013,
+    "cdpTask": 25.693,
+    "cdpLayout": 5.19,
+    "cdpStyle": 6.308
+   },
+   {
+    "sync": 8.054999828338623,
+    "tick": 8.065000057220459,
+    "painted": 30.244999885559082,
+    "cdpScript": 0.013,
+    "cdpTask": 23.283,
+    "cdpLayout": 4.378,
+    "cdpStyle": 5.451
+   }
+  ],
+  "options20_arrive_closed": [
+   {
+    "sync": 0.3250002861022949,
+    "tick": 0.994999885559082,
+    "painted": 19.304999828338623,
+    "cdpScript": 0.01,
+    "cdpTask": 2.756,
+    "cdpLayout": 0,
+    "cdpStyle": 0
+   },
+   {
+    "sync": 0.24000024795532227,
+    "tick": 0.6599998474121094,
+    "painted": 27.385000228881836,
+    "cdpScript": 0.026,
+    "cdpTask": 3.867,
+    "cdpLayout": 0,
+    "cdpStyle": 0
+   },
+   {
+    "sync": 0.27500009536743164,
+    "tick": 0.7350001335144043,
+    "painted": 24.800000190734863,
+    "cdpScript": 0.036,
+    "cdpTask": 2.293,
+    "cdpLayout": 0,
+    "cdpStyle": 0
+   },
+   {
+    "sync": 0.2649998664855957,
+    "tick": 0.744999885559082,
+    "painted": 16.18000030517578,
+    "cdpScript": 0.007,
+    "cdpTask": 2.541,
+    "cdpLayout": 0,
+    "cdpStyle": 0
+   },
+   {
+    "sync": 0.33499956130981445,
+    "tick": 0.8799996376037598,
+    "painted": 21.06999969482422,
+    "cdpScript": 0.01,
+    "cdpTask": 2.534,
+    "cdpLayout": 0,
+    "cdpStyle": 0
+   },
+   {
+    "sync": 0.4549999237060547,
+    "tick": 1.0799999237060547,
+    "painted": 17.05999994277954,
+    "cdpScript": 0.011,
+    "cdpTask": 2.574,
+    "cdpLayout": 0,
+    "cdpStyle": 0
+   },
+   {
+    "sync": 0.25,
+    "tick": 0.7150001525878906,
+    "painted": 25.75,
+    "cdpScript": 0.014,
+    "cdpTask": 2.08,
+    "cdpLayout": 0,
+    "cdpStyle": 0
+   }
+  ],
+  "first_open_opts20": [
+   {
+    "sync": 0.1700000762939453,
+    "tick": 61.28499984741211,
+    "painted": 80.86999988555908,
+    "cdpScript": 0.734,
+    "cdpTask": 82.872,
+    "cdpLayout": 6.6,
+    "cdpStyle": 8.097
+   },
+   {
+    "sync": 0.10000038146972656,
+    "tick": 44.89500045776367,
+    "painted": 56.24500036239624,
+    "cdpScript": 0.396,
+    "cdpTask": 57.673,
+    "cdpLayout": 2.668,
+    "cdpStyle": 5.981
+   },
+   {
+    "sync": 0.125,
+    "tick": 38.50500011444092,
+    "painted": 48.97499990463257,
+    "cdpScript": 0.385,
+    "cdpTask": 50.412,
+    "cdpLayout": 2.204,
+    "cdpStyle": 4.926
+   },
+   {
+    "sync": 0.06000041961669922,
+    "tick": 43.83000040054321,
+    "painted": 54.60000038146973,
+    "cdpScript": 0.344,
+    "cdpTask": 55.837,
+    "cdpLayout": 2.599,
+    "cdpStyle": 5.724
+   },
+   {
+    "sync": 0.07000017166137695,
+    "tick": 44.730000019073486,
+    "painted": 55.014999866485596,
+    "cdpScript": 0.288,
+    "cdpTask": 56.264,
+    "cdpLayout": 2.921,
+    "cdpStyle": 5.144
+   },
+   {
+    "sync": 0.07000017166137695,
+    "tick": 64.99499988555908,
+    "painted": 82.52500009536743,
+    "cdpScript": 0.606,
+    "cdpTask": 84.505,
+    "cdpLayout": 3.491,
+    "cdpStyle": 9.131
+   },
+   {
+    "sync": 0.059999942779541016,
+    "tick": 40.885000228881836,
+    "painted": 50.889999866485596,
+    "cdpScript": 0.362,
+    "cdpTask": 52.205,
+    "cdpLayout": 2.493,
+    "cdpStyle": 5.248
+   }
+  ],
+  "first_close_opts20": [
+   {
+    "sync": 0.04500007629394531,
+    "tick": 9.765000343322754,
+    "painted": 24.445000171661377,
+    "cdpScript": 0.288,
+    "cdpTask": 20.609,
+    "cdpLayout": 0.188,
+    "cdpStyle": 2.589
+   },
+   {
+    "sync": 0.05000019073486328,
+    "tick": 8.21500015258789,
+    "painted": 17.110000133514404,
+    "cdpScript": 0.254,
+    "cdpTask": 17.731,
+    "cdpLayout": 0.135,
+    "cdpStyle": 2.06
+   },
+   {
+    "sync": 0.059999942779541016,
+    "tick": 8.039999961853027,
+    "painted": 25.759999752044678,
+    "cdpScript": 0.268,
+    "cdpTask": 18.057,
+    "cdpLayout": 0.194,
+    "cdpStyle": 1.889
+   },
+   {
+    "sync": 0.034999847412109375,
+    "tick": 8.889999866485596,
+    "painted": 21.300000190734863,
+    "cdpScript": 0.243,
+    "cdpTask": 17.082,
+    "cdpLayout": 0.159,
+    "cdpStyle": 1.961
+   },
+   {
+    "sync": 0.024999618530273438,
+    "tick": 5.704999923706055,
+    "painted": 19.94000005722046,
+    "cdpScript": 0.208,
+    "cdpTask": 13.035,
+    "cdpLayout": 0.161,
+    "cdpStyle": 1.708
+   },
+   {
+    "sync": 0.04500007629394531,
+    "tick": 9.34000015258789,
+    "painted": 25.670000076293945,
+    "cdpScript": 0.296,
+    "cdpTask": 19.464,
+    "cdpLayout": 0.134,
+    "cdpStyle": 2.208
+   },
+   {
+    "sync": 0.03500032424926758,
+    "tick": 6.890000343322754,
+    "painted": 25.660000324249268,
+    "cdpScript": 0.186,
+    "cdpTask": 14.815,
+    "cdpLayout": 0.139,
+    "cdpStyle": 1.705
+   }
+  ],
+  "second_open_opts20": [
+   {
+    "sync": 0.04500007629394531,
+    "tick": 30.589999675750732,
+    "painted": 36.954999923706055,
+    "cdpScript": 0.077,
+    "cdpTask": 37.809,
+    "cdpLayout": 0.946,
+    "cdpStyle": 3.784
+   },
+   {
+    "sync": 0.039999961853027344,
+    "tick": 23.869999885559082,
+    "painted": 30.949999809265137,
+    "cdpScript": 0.083,
+    "cdpTask": 31.762,
+    "cdpLayout": 0.923,
+    "cdpStyle": 3.87
+   },
+   {
+    "sync": 0.06500005722045898,
+    "tick": 29.09999990463257,
+    "painted": 36.28000020980835,
+    "cdpScript": 0.097,
+    "cdpTask": 37.263,
+    "cdpLayout": 1.038,
+    "cdpStyle": 4.066
+   },
+   {
+    "sync": 0.034999847412109375,
+    "tick": 28.135000228881836,
+    "painted": 35.90500020980835,
+    "cdpScript": 0.097,
+    "cdpTask": 36.918,
+    "cdpLayout": 1.12,
+    "cdpStyle": 4.257
+   },
+   {
+    "sync": 0.039999961853027344,
+    "tick": 25.77500009536743,
+    "painted": 32.22499990463257,
+    "cdpScript": 0.086,
+    "cdpTask": 33.013,
+    "cdpLayout": 1.013,
+    "cdpStyle": 3.819
+   },
+   {
+    "sync": 0.039999961853027344,
+    "tick": 26.619999885559082,
+    "painted": 32.63000011444092,
+    "cdpScript": 0.078,
+    "cdpTask": 33.382,
+    "cdpLayout": 0.91,
+    "cdpStyle": 3.482
+   },
+   {
+    "sync": 0.04999971389770508,
+    "tick": 25.139999866485596,
+    "painted": 31.68499994277954,
+    "cdpScript": 0.075,
+    "cdpTask": 32.643,
+    "cdpLayout": 0.897,
+    "cdpStyle": 3.744
+   }
+  ],
+  "open_other_opts20": [
+   {
+    "sync": 0.03000020980834961,
+    "tick": 19.43000030517578,
+    "painted": 33.62000036239624,
+    "cdpScript": 0.255,
+    "cdpTask": 47.581,
+    "cdpLayout": 1.247,
+    "cdpStyle": 7.025
+   },
+   {
+    "sync": 0.05500030517578125,
+    "tick": 34.72499990463257,
+    "painted": 49.954999923706055,
+    "cdpScript": 0.233,
+    "cdpTask": 58.565,
+    "cdpLayout": 1.099,
+    "cdpStyle": 6.657
+   },
+   {
+    "sync": 0.04500007629394531,
+    "tick": 25.03000020980835,
+    "painted": 50.32000017166138,
+    "cdpScript": 0.409,
+    "cdpTask": 49.894,
+    "cdpLayout": 1.181,
+    "cdpStyle": 6.524
+   },
+   {
+    "sync": 0.039999961853027344,
+    "tick": 21.394999980926514,
+    "painted": 33.49499988555908,
+    "cdpScript": 0.283,
+    "cdpTask": 47.87,
+    "cdpLayout": 1.172,
+    "cdpStyle": 6.949
+   },
+   {
+    "sync": 0.02500009536743164,
+    "tick": 26.494999885559082,
+    "painted": 50.360000133514404,
+    "cdpScript": 0.406,
+    "cdpTask": 57.891,
+    "cdpLayout": 1.107,
+    "cdpStyle": 7.011
+   },
+   {
+    "sync": 0.04500007629394531,
+    "tick": 20.94499969482422,
+    "painted": 33.33999967575073,
+    "cdpScript": 0.319,
+    "cdpTask": 54.56,
+    "cdpLayout": 1.143,
+    "cdpStyle": 7.335
+   },
+   {
+    "sync": 0.04500007629394531,
+    "tick": 20.47000026702881,
+    "painted": 33.32000017166138,
+    "cdpScript": 0.293,
+    "cdpTask": 50.838,
+    "cdpLayout": 1.297,
+    "cdpStyle": 8.104
+   }
+  ],
+  "open_filterable_20": [
+   {
+    "sync": 0.0950002670288086,
+    "tick": 67.20499992370605,
+    "painted": 78.73000001907349,
+    "cdpScript": 0.346,
+    "cdpTask": 80.414,
+    "cdpLayout": 2.888,
+    "cdpStyle": 5.025
+   },
+   {
+    "sync": 0.10500001907348633,
+    "tick": 61.00500011444092,
+    "painted": 71.29500007629395,
+    "cdpScript": 0.333,
+    "cdpTask": 72.995,
+    "cdpLayout": 2.307,
+    "cdpStyle": 4.897
+   },
+   {
+    "sync": 0.0950002670288086,
+    "tick": 51.53000020980835,
+    "painted": 61.40000009536743,
+    "cdpScript": 0.299,
+    "cdpTask": 62.629,
+    "cdpLayout": 2.39,
+    "cdpStyle": 5.337
+   },
+   {
+    "sync": 0.09000015258789062,
+    "tick": 54.69500017166138,
+    "painted": 67.5,
+    "cdpScript": 0.367,
+    "cdpTask": 68.96,
+    "cdpLayout": 2.776,
+    "cdpStyle": 7.228
+   },
+   {
+    "sync": 0.09499979019165039,
+    "tick": 56.89999961853027,
+    "painted": 66.83499956130981,
+    "cdpScript": 0.701,
+    "cdpTask": 68.162,
+    "cdpLayout": 2.431,
+    "cdpStyle": 5.875
+   },
+   {
+    "sync": 0.1549997329711914,
+    "tick": 53.480000019073486,
+    "painted": 63.230000019073486,
+    "cdpScript": 0.322,
+    "cdpTask": 64.69,
+    "cdpLayout": 2.608,
+    "cdpStyle": 4.915
+   },
+   {
+    "sync": 0.13000011444091797,
+    "tick": 66.13500022888184,
+    "painted": 76.85000038146973,
+    "cdpScript": 0.285,
+    "cdpTask": 78.213,
+    "cdpLayout": 2.719,
+    "cdpStyle": 5.996
+   }
+  ],
+  "type_20": [
+   {
+    "keys": [
+     {
+      "ch": "C",
+      "sync": 0.4500002861022949,
+      "tick": 20.84000015258789,
+      "painted": 37.05500030517578,
+      "rows": 20
+     },
+     {
+      "ch": "Cu",
+      "sync": 0.3299999237060547,
+      "tick": 14.360000133514404,
+      "painted": 32.84500026702881,
+      "rows": 20
+     },
+     {
+      "ch": "Cus",
+      "sync": 0.41499996185302734,
+      "tick": 18.574999809265137,
+      "painted": 33.16499996185303,
+      "rows": 20
+     },
+     {
+      "ch": "Cust",
+      "sync": 0.38499975204467773,
+      "tick": 7.855000019073486,
+      "painted": 33.239999771118164,
+      "rows": 20
+     },
+     {
+      "ch": "Custo",
+      "sync": 0.24500036239624023,
+      "tick": 6.715000152587891,
+      "painted": 33.38000011444092,
+      "rows": 20
+     },
+     {
+      "ch": "Custom",
+      "sync": 0.27499961853027344,
+      "tick": 13.105000019073486,
+      "painted": 33.47499990463257,
+      "rows": 20
+     },
+     {
+      "ch": "Custome",
+      "sync": 0.40000009536743164,
+      "tick": 12.360000133514404,
+      "painted": 32.99000024795532,
+      "rows": 20
+     },
+     {
+      "ch": "Customer",
+      "sync": 0.315000057220459,
+      "tick": 13.15500020980835,
+      "painted": 33.355000019073486,
+      "rows": 20
+     },
+     {
+      "ch": "Customer ",
+      "sync": 0.30500030517578125,
+      "tick": 10.650000095367432,
+      "painted": 33.420000076293945,
+      "rows": 20
+     },
+     {
+      "ch": "Customer 0",
+      "sync": 0.3899998664855957,
+      "tick": 13.199999809265137,
+      "painted": 33.59499979019165,
+      "rows": 20
+     },
+     {
+      "ch": "Customer 00",
+      "sync": 0.33500003814697266,
+      "tick": 11.054999828338623,
+      "painted": 32.71999979019165,
+      "rows": 20
+     },
+     {
+      "ch": "Customer 001",
+      "sync": 0.2049999237060547,
+      "tick": 10.914999961853027,
+      "painted": 33.15500020980835,
+      "rows": 10
+     }
+    ],
+    "cdpScript": 4.422,
+    "cdpTask": 192.801,
+    "cdpLayout": 3.262,
+    "cdpStyle": 4.584
+   },
+   {
+    "keys": [
+     {
+      "ch": "C",
+      "sync": 0.4249997138977051,
+      "tick": 12.239999771118164,
+      "painted": 28.69499969482422,
+      "rows": 20
+     },
+     {
+      "ch": "Cu",
+      "sync": 0.43000030517578125,
+      "tick": 10.25,
+      "painted": 32.980000019073486,
+      "rows": 20
+     },
+     {
+      "ch": "Cus",
+      "sync": 0.4050002098083496,
+      "tick": 11.820000171661377,
+      "painted": 33.66000032424927,
+      "rows": 20
+     },
+     {
+      "ch": "Cust",
+      "sync": 0.309999942779541,
+      "tick": 9.074999809265137,
+      "painted": 32.67999982833862,
+      "rows": 20
+     },
+     {
+      "ch": "Custo",
+      "sync": 0.28999996185302734,
+      "tick": 6.740000247955322,
+      "painted": 33.325000286102295,
+      "rows": 20
+     },
+     {
+      "ch": "Custom",
+      "sync": 0.2850003242492676,
+      "tick": 6.5,
+      "painted": 33.24500036239624,
+      "rows": 20
+     },
+     {
+      "ch": "Custome",
+      "sync": 0.37000036239624023,
+      "tick": 10.565000057220459,
+      "painted": 33.075000286102295,
+      "rows": 20
+     },
+     {
+      "ch": "Customer",
+      "sync": 0.23999977111816406,
+      "tick": 11.009999752044678,
+      "painted": 33.24499988555908,
+      "rows": 20
+     },
+     {
+      "ch": "Customer ",
+      "sync": 0.27500009536743164,
+      "tick": 10.475000381469727,
+      "painted": 33.59500026702881,
+      "rows": 20
+     },
+     {
+      "ch": "Customer 0",
+      "sync": 0.31999969482421875,
+      "tick": 15,
+      "painted": 33.11999988555908,
+      "rows": 20
+     },
+     {
+      "ch": "Customer 00",
+      "sync": 0.21500015258789062,
+      "tick": 10.625,
+      "painted": 32.96999979019165,
+      "rows": 20
+     },
+     {
+      "ch": "Customer 001",
+      "sync": 0.21500015258789062,
+      "tick": 10.760000228881836,
+      "painted": 33.25500011444092,
+      "rows": 10
+     }
+    ],
+    "cdpScript": 3.884,
+    "cdpTask": 159.74,
+    "cdpLayout": 2.793,
+    "cdpStyle": 4.048
+   },
+   {
+    "keys": [
+     {
+      "ch": "C",
+      "sync": 0.5850000381469727,
+      "tick": 17.449999809265137,
+      "painted": 20.740000247955322,
+      "rows": 20
+     },
+     {
+      "ch": "Cu",
+      "sync": 0.2350001335144043,
+      "tick": 14.795000076293945,
+      "painted": 32.17500019073486,
+      "rows": 20
+     },
+     {
+      "ch": "Cus",
+      "sync": 0.4500002861022949,
+      "tick": 11.260000228881836,
+      "painted": 33.639999866485596,
+      "rows": 20
+     },
+     {
+      "ch": "Cust",
+      "sync": 0.4249997138977051,
+      "tick": 13.46999979019165,
+      "painted": 32.9399995803833,
+      "rows": 20
+     },
+     {
+      "ch": "Custo",
+      "sync": 0.5099997520446777,
+      "tick": 13.359999656677246,
+      "painted": 33.19000005722046,
+      "rows": 20
+     },
+     {
+      "ch": "Custom",
+      "sync": 0.2350001335144043,
+      "tick": 5.765000343322754,
+      "painted": 33.265000343322754,
+      "rows": 20
+     },
+     {
+      "ch": "Custome",
+      "sync": 0.4049997329711914,
+      "tick": 12.295000076293945,
+      "painted": 33.204999923706055,
+      "rows": 20
+     },
+     {
+      "ch": "Customer",
+      "sync": 0.30499982833862305,
+      "tick": 12.940000057220459,
+      "painted": 33.42999982833862,
+      "rows": 20
+     },
+     {
+      "ch": "Customer ",
+      "sync": 0.3899998664855957,
+      "tick": 10.709999561309814,
+      "painted": 33.18499994277954,
+      "rows": 20
+     },
+     {
+      "ch": "Customer 0",
+      "sync": 0.309999942779541,
+      "tick": 11.205000400543213,
+      "painted": 33.19500017166138,
+      "rows": 20
+     },
+     {
+      "ch": "Customer 00",
+      "sync": 0.25999975204467773,
+      "tick": 5.985000133514404,
+      "painted": 33.19500017166138,
+      "rows": 20
+     },
+     {
+      "ch": "Customer 001",
+      "sync": 0.2350001335144043,
+      "tick": 5.880000114440918,
+      "painted": 33.144999980926514,
+      "rows": 10
+     }
+    ],
+    "cdpScript": 4.418,
+    "cdpTask": 168.49,
+    "cdpLayout": 2.878,
+    "cdpStyle": 4.307
+   },
+   {
+    "keys": [
+     {
+      "ch": "C",
+      "sync": 0.5250000953674316,
+      "tick": 13.380000114440918,
+      "painted": 20.619999885559082,
+      "rows": 20
+     },
+     {
+      "ch": "Cu",
+      "sync": 0.25,
+      "tick": 10.994999885559082,
+      "painted": 33.38499975204468,
+      "rows": 20
+     },
+     {
+      "ch": "Cus",
+      "sync": 0.41499996185302734,
+      "tick": 10.759999752044678,
+      "painted": 33.68499994277954,
+      "rows": 20
+     },
+     {
+      "ch": "Cust",
+      "sync": 0.3449997901916504,
+      "tick": 8.714999675750732,
+      "painted": 32.62999963760376,
+      "rows": 20
+     },
+     {
+      "ch": "Custo",
+      "sync": 0.309999942779541,
+      "tick": 7.300000190734863,
+      "painted": 33.07000017166138,
+      "rows": 20
+     },
+     {
+      "ch": "Custom",
+      "sync": 0.21499967575073242,
+      "tick": 6.244999885559082,
+      "painted": 33.5,
+      "rows": 20
+     },
+     {
+      "ch": "Custome",
+      "sync": 0.3400001525878906,
+      "tick": 7.715000152587891,
+      "painted": 33.05999994277954,
+      "rows": 20
+     },
+     {
+      "ch": "Customer",
+      "sync": 0.17500019073486328,
+      "tick": 8.305000305175781,
+      "painted": 33.31500005722046,
+      "rows": 20
+     },
+     {
+      "ch": "Customer ",
+      "sync": 0.25,
+      "tick": 7.430000305175781,
+      "painted": 33.6850004196167,
+      "rows": 20
+     },
+     {
+      "ch": "Customer 0",
+      "sync": 0.4099998474121094,
+      "tick": 8.34499979019165,
+      "painted": 32.94000005722046,
+      "rows": 20
+     },
+     {
+      "ch": "Customer 00",
+      "sync": 0.2350001335144043,
+      "tick": 6.809999942779541,
+      "painted": 33.19999980926514,
+      "rows": 20
+     },
+     {
+      "ch": "Customer 001",
+      "sync": 0.3400001525878906,
+      "tick": 8.320000171661377,
+      "painted": 32.97500038146973,
+      "rows": 10
+     }
+    ],
+    "cdpScript": 4.011,
+    "cdpTask": 137.882,
+    "cdpLayout": 2.688,
+    "cdpStyle": 4.513
+   },
+   {
+    "keys": [
+     {
+      "ch": "C",
+      "sync": 0.36499977111816406,
+      "tick": 10.234999656677246,
+      "painted": 17.94499969482422,
+      "rows": 20
+     },
+     {
+      "ch": "Cu",
+      "sync": 0.27500009536743164,
+      "tick": 14.795000076293945,
+      "painted": 49.91499996185303,
+      "rows": 20
+     },
+     {
+      "ch": "Cus",
+      "sync": 0.3900003433227539,
+      "tick": 15.885000228881836,
+      "painted": 33.52500009536743,
+      "rows": 20
+     },
+     {
+      "ch": "Cust",
+      "sync": 0.4650001525878906,
+      "tick": 13.650000095367432,
+      "painted": 32.71000003814697,
+      "rows": 20
+     },
+     {
+      "ch": "Custo",
+      "sync": 0.40000009536743164,
+      "tick": 12.15500020980835,
+      "painted": 33.53500032424927,
+      "rows": 20
+     },
+     {
+      "ch": "Custom",
+      "sync": 0.3449997901916504,
+      "tick": 9.789999961853027,
+      "painted": 32.92500019073486,
+      "rows": 20
+     },
+     {
+      "ch": "Custome",
+      "sync": 0.25,
+      "tick": 6.694999694824219,
+      "painted": 33.13499975204468,
+      "rows": 20
+     },
+     {
+      "ch": "Customer",
+      "sync": 0.2350001335144043,
+      "tick": 8.53499984741211,
+      "painted": 33.579999923706055,
+      "rows": 20
+     },
+     {
+      "ch": "Customer ",
+      "sync": 0.3449997901916504,
+      "tick": 15.609999656677246,
+      "painted": 33.114999771118164,
+      "rows": 20
+     },
+     {
+      "ch": "Customer 0",
+      "sync": 0.3400001525878906,
+      "tick": 11.735000133514404,
+      "painted": 33.05999994277954,
+      "rows": 20
+     },
+     {
+      "ch": "Customer 00",
+      "sync": 0.21500015258789062,
+      "tick": 6.409999847412109,
+      "painted": 33.40999984741211,
+      "rows": 20
+     },
+     {
+      "ch": "Customer 001",
+      "sync": 0.2849998474121094,
+      "tick": 7.909999847412109,
+      "painted": 33.139999866485596,
+      "rows": 10
+     }
+    ],
+    "cdpScript": 3.925,
+    "cdpTask": 166.02,
+    "cdpLayout": 3.172,
+    "cdpStyle": 4.073
+   },
+   {
+    "keys": [
+     {
+      "ch": "C",
+      "sync": 0.434999942779541,
+      "tick": 10.21999979019165,
+      "painted": 25.75,
+      "rows": 20
+     },
+     {
+      "ch": "Cu",
+      "sync": 0.375,
+      "tick": 19.414999961853027,
+      "painted": 32.88000011444092,
+      "rows": 20
+     },
+     {
+      "ch": "Cus",
+      "sync": 0.23000001907348633,
+      "tick": 8.204999923706055,
+      "painted": 33.795000076293945,
+      "rows": 20
+     },
+     {
+      "ch": "Cust",
+      "sync": 0.4850001335144043,
+      "tick": 14.119999885559082,
+      "painted": 32.80999994277954,
+      "rows": 20
+     },
+     {
+      "ch": "Custo",
+      "sync": 0.2950000762939453,
+      "tick": 11.699999809265137,
+      "painted": 33.27500009536743,
+      "rows": 20
+     },
+     {
+      "ch": "Custom",
+      "sync": 0.26999998092651367,
+      "tick": 10.974999904632568,
+      "painted": 33.200000286102295,
+      "rows": 20
+     },
+     {
+      "ch": "Custome",
+      "sync": 0.25,
+      "tick": 12.049999713897705,
+      "painted": 33.579999923706055,
+      "rows": 20
+     },
+     {
+      "ch": "Customer",
+      "sync": 0.315000057220459,
+      "tick": 11.024999618530273,
+      "painted": 33.09999990463257,
+      "rows": 20
+     },
+     {
+      "ch": "Customer ",
+      "sync": 0.27499961853027344,
+      "tick": 14.759999752044678,
+      "painted": 33.25,
+      "rows": 20
+     },
+     {
+      "ch": "Customer 0",
+      "sync": 0.35500001907348633,
+      "tick": 15.454999923706055,
+      "painted": 33.144999980926514,
+      "rows": 20
+     },
+     {
+      "ch": "Customer 00",
+      "sync": 0.2350001335144043,
+      "tick": 9.914999961853027,
+      "painted": 33.25999975204468,
+      "rows": 20
+     },
+     {
+      "ch": "Customer 001",
+      "sync": 0.22499990463256836,
+      "tick": 11.375,
+      "painted": 33.239999771118164,
+      "rows": 10
+     }
+    ],
+    "cdpScript": 3.761,
+    "cdpTask": 195.128,
+    "cdpLayout": 3.247,
+    "cdpStyle": 4.457
+   },
+   {
+    "keys": [
+     {
+      "ch": "C",
+      "sync": 0.5149998664855957,
+      "tick": 16.43499994277954,
+      "painted": 21.72499990463257,
+      "rows": 20
+     },
+     {
+      "ch": "Cu",
+      "sync": 0.2349996566772461,
+      "tick": 15.709999561309814,
+      "painted": 32.54499959945679,
+      "rows": 20
+     },
+     {
+      "ch": "Cus",
+      "sync": 0.4699997901916504,
+      "tick": 14.78000020980835,
+      "painted": 33.97499990463257,
+      "rows": 20
+     },
+     {
+      "ch": "Cust",
+      "sync": 0.6400003433227539,
+      "tick": 13.869999885559082,
+      "painted": 32.44000005722046,
+      "rows": 20
+     },
+     {
+      "ch": "Custo",
+      "sync": 0.25499963760375977,
+      "tick": 7.454999923706055,
+      "painted": 33.424999713897705,
+      "rows": 20
+     },
+     {
+      "ch": "Custom",
+      "sync": 0.33500003814697266,
+      "tick": 11.855000019073486,
+      "painted": 33.079999923706055,
+      "rows": 20
+     },
+     {
+      "ch": "Custome",
+      "sync": 0.25999975204467773,
+      "tick": 7.434999942779541,
+      "painted": 33.16499996185303,
+      "rows": 20
+     },
+     {
+      "ch": "Customer",
+      "sync": 0.2850003242492676,
+      "tick": 11.470000267028809,
+      "painted": 33.28500032424927,
+      "rows": 20
+     },
+     {
+      "ch": "Customer ",
+      "sync": 0.24000024795532227,
+      "tick": 5.845000267028809,
+      "painted": 33.360000133514404,
+      "rows": 20
+     },
+     {
+      "ch": "Customer 0",
+      "sync": 0.75,
+      "tick": 9.805000305175781,
+      "painted": 33.34999990463257,
+      "rows": 20
+     },
+     {
+      "ch": "Customer 00",
+      "sync": 0.32000017166137695,
+      "tick": 6.855000019073486,
+      "painted": 32.985000133514404,
+      "rows": 20
+     },
+     {
+      "ch": "Customer 001",
+      "sync": 0.2050004005432129,
+      "tick": 6.005000114440918,
+      "painted": 33.325000286102295,
+      "rows": 10
+     }
+    ],
+    "cdpScript": 4.679,
+    "cdpTask": 170.484,
+    "cdpLayout": 2.728,
+    "cdpStyle": 4.461
+   }
+  ],
+  "open_filterable_500": [
+   {
+    "sync": 0.10500001907348633,
+    "tick": 326.3450002670288,
+    "painted": 384.7200002670288,
+    "cdpScript": 0.829,
+    "cdpTask": 386.159,
+    "cdpLayout": 18.032,
+    "cdpStyle": 51.271
+   },
+   {
+    "sync": 0.11999988555908203,
+    "tick": 348.31500005722046,
+    "painted": 402.5,
+    "cdpScript": 0.866,
+    "cdpTask": 403.899,
+    "cdpLayout": 27.646,
+    "cdpStyle": 48.348
+   },
+   {
+    "sync": 0.059999942779541016,
+    "tick": 320.835000038147,
+    "painted": 374.0199999809265,
+    "cdpScript": 0.995,
+    "cdpTask": 375.143,
+    "cdpLayout": 17.547,
+    "cdpStyle": 48.233
+   },
+   {
+    "sync": 0.08500003814697266,
+    "tick": 379.2350001335144,
+    "painted": 454.03000020980835,
+    "cdpScript": 0.723,
+    "cdpTask": 455.52,
+    "cdpLayout": 24.418,
+    "cdpStyle": 61.962
+   },
+   {
+    "sync": 0.09000015258789062,
+    "tick": 328.57999992370605,
+    "painted": 383.6300001144409,
+    "cdpScript": 1.331,
+    "cdpTask": 385.054,
+    "cdpLayout": 21.069,
+    "cdpStyle": 49.582
+   },
+   {
+    "sync": 0.09999990463256836,
+    "tick": 349.9449996948242,
+    "painted": 417.6349997520447,
+    "cdpScript": 0.423,
+    "cdpTask": 418.898,
+    "cdpLayout": 17.403,
+    "cdpStyle": 61.311
+   },
+   {
+    "sync": 0.09999990463256836,
+    "tick": 336.54500007629395,
+    "painted": 391.78000020980835,
+    "cdpScript": 1.179,
+    "cdpTask": 393.198,
+    "cdpLayout": 18.002,
+    "cdpStyle": 50.546
+   }
+  ],
+  "type_500": [
+   {
+    "keys": [
+     {
+      "ch": "C",
+      "sync": 0.9599995613098145,
+      "tick": 252.32499980926514,
+      "painted": 256.3699998855591,
+      "rows": 500
+     },
+     {
+      "ch": "Cu",
+      "sync": 0.5100002288818359,
+      "tick": 226.08500003814697,
+      "painted": 238.4350004196167,
+      "rows": 500
+     },
+     {
+      "ch": "Cus",
+      "sync": 0.690000057220459,
+      "tick": 208.38000011444092,
+      "painted": 216.05500030517578,
+      "rows": 500
+     },
+     {
+      "ch": "Cust",
+      "sync": 0.5,
+      "tick": 191.51500034332275,
+      "painted": 199.8949999809265,
+      "rows": 500
+     },
+     {
+      "ch": "Custo",
+      "sync": 0.6750001907348633,
+      "tick": 210.8250002861023,
+      "painted": 216.17000007629395,
+      "rows": 500
+     },
+     {
+      "ch": "Custom",
+      "sync": 0.47499990463256836,
+      "tick": 194.01000022888184,
+      "painted": 214.5,
+      "rows": 500
+     },
+     {
+      "ch": "Custome",
+      "sync": 0.6050000190734863,
+      "tick": 189.74000024795532,
+      "painted": 201.9850001335144,
+      "rows": 500
+     },
+     {
+      "ch": "Customer",
+      "sync": 0.7049999237060547,
+      "tick": 204.07000017166138,
+      "painted": 226.19500017166138,
+      "rows": 500
+     },
+     {
+      "ch": "Customer ",
+      "sync": 0.7750000953674316,
+      "tick": 195.79500007629395,
+      "painted": 205.34999990463257,
+      "rows": 500
+     },
+     {
+      "ch": "Customer 0",
+      "sync": 0.6149997711181641,
+      "tick": 212.6549997329712,
+      "painted": 216.375,
+      "rows": 500
+     },
+     {
+      "ch": "Customer 00",
+      "sync": 0.39499998092651367,
+      "tick": 75.80499982833862,
+      "painted": 83.05499982833862,
+      "rows": 100
+     },
+     {
+      "ch": "Customer 001",
+      "sync": 0.32000017166137695,
+      "tick": 15.890000343322754,
+      "painted": 33.50500011444092,
+      "rows": 10
+     }
+    ],
+    "cdpScript": 6.822,
+    "cdpTask": 2287.421,
+    "cdpLayout": 2.972,
+    "cdpStyle": 3.669
+   },
+   {
+    "keys": [
+     {
+      "ch": "C",
+      "sync": 1.5199999809265137,
+      "tick": 253.3600001335144,
+      "painted": 257.3650002479553,
+      "rows": 500
+     },
+     {
+      "ch": "Cu",
+      "sync": 0.40000009536743164,
+      "tick": 207.4650001525879,
+      "painted": 230.30999994277954,
+      "rows": 500
+     },
+     {
+      "ch": "Cus",
+      "sync": 0.7649998664855957,
+      "tick": 210.21999979019165,
+      "painted": 215.00500011444092,
+      "rows": 500
+     },
+     {
+      "ch": "Cust",
+      "sync": 0.4549999237060547,
+      "tick": 184.2799997329712,
+      "painted": 198.29500007629395,
+      "rows": 500
+     },
+     {
+      "ch": "Custo",
+      "sync": 0.49000024795532227,
+      "tick": 193.82999992370605,
+      "painted": 199.8400001525879,
+      "rows": 500
+     },
+     {
+      "ch": "Custom",
+      "sync": 0.39499998092651367,
+      "tick": 264.20499992370605,
+      "painted": 283.57999992370605,
+      "rows": 500
+     },
+     {
+      "ch": "Custome",
+      "sync": 0.5749998092651367,
+      "tick": 208.4650001525879,
+      "painted": 215.78999996185303,
+      "rows": 500
+     },
+     {
+      "ch": "Customer",
+      "sync": 0.619999885559082,
+      "tick": 198.50999975204468,
+      "painted": 223.30999994277954,
+      "rows": 500
+     },
+     {
+      "ch": "Customer ",
+      "sync": 0.5799999237060547,
+      "tick": 212.69500017166138,
+      "painted": 225.9850001335144,
+      "rows": 500
+     },
+     {
+      "ch": "Customer 0",
+      "sync": 0.6500000953674316,
+      "tick": 213.5950002670288,
+      "painted": 216.86500024795532,
+      "rows": 500
+     },
+     {
+      "ch": "Customer 00",
+      "sync": 0.440000057220459,
+      "tick": 78.72000026702881,
+      "painted": 82.66500043869019,
+      "rows": 100
+     },
+     {
+      "ch": "Customer 001",
+      "sync": 0.33500003814697266,
+      "tick": 15.954999923706055,
+      "painted": 33.28999996185303,
+      "rows": 10
+     }
+    ],
+    "cdpScript": 6.48,
+    "cdpTask": 2355.086,
+    "cdpLayout": 2.96,
+    "cdpStyle": 3.74
+   },
+   {
+    "keys": [
+     {
+      "ch": "C",
+      "sync": 1.380000114440918,
+      "tick": 281.78000020980835,
+      "painted": 286.0050001144409,
+      "rows": 500
+     },
+     {
+      "ch": "Cu",
+      "sync": 0.44500017166137695,
+      "tick": 220.17000007629395,
+      "painted": 230.3949999809265,
+      "rows": 500
+     },
+     {
+      "ch": "Cus",
+      "sync": 0.8250002861022949,
+      "tick": 216.9850001335144,
+      "painted": 231.0199999809265,
+      "rows": 500
+     },
+     {
+      "ch": "Cust",
+      "sync": 0.46000003814697266,
+      "tick": 202.7000002861023,
+      "painted": 216.27500009536743,
+      "rows": 500
+     },
+     {
+      "ch": "Custo",
+      "sync": 0.4099998474121094,
+      "tick": 208.07999992370605,
+      "painted": 216.65000009536743,
+      "rows": 500
+     },
+     {
+      "ch": "Custom",
+      "sync": 0.630000114440918,
+      "tick": 214.88000011444092,
+      "painted": 233.3400001525879,
+      "rows": 500
+     },
+     {
+      "ch": "Custome",
+      "sync": 0.4549999237060547,
+      "tick": 193.65000009536743,
+      "painted": 199.2649998664856,
+      "rows": 500
+     },
+     {
+      "ch": "Customer",
+      "sync": 0.7150001525878906,
+      "tick": 220.3949999809265,
+      "painted": 238.55500030517578,
+      "rows": 500
+     },
+     {
+      "ch": "Customer ",
+      "sync": 0.5950002670288086,
+      "tick": 184.4500002861023,
+      "painted": 193.75500011444092,
+      "rows": 500
+     },
+     {
+      "ch": "Customer 0",
+      "sync": 0.39499998092651367,
+      "tick": 191.86499977111816,
+      "painted": 199.98999977111816,
+      "rows": 500
+     },
+     {
+      "ch": "Customer 00",
+      "sync": 0.49000024795532227,
+      "tick": 85.88000011444092,
+      "painted": 99.63000011444092,
+      "rows": 100
+     },
+     {
+      "ch": "Customer 001",
+      "sync": 0.26999998092651367,
+      "tick": 16.22000026702881,
+      "painted": 35.50500011444092,
+      "rows": 10
+     }
+    ],
+    "cdpScript": 6.535,
+    "cdpTask": 2332.155,
+    "cdpLayout": 2.769,
+    "cdpStyle": 3.519
+   },
+   {
+    "keys": [
+     {
+      "ch": "C",
+      "sync": 1.065000057220459,
+      "tick": 261.98999977111816,
+      "painted": 267.4099998474121,
+      "rows": 500
+     },
+     {
+      "ch": "Cu",
+      "sync": 0.4500002861022949,
+      "tick": 213.2350001335144,
+      "painted": 223.94000005722046,
+      "rows": 500
+     },
+     {
+      "ch": "Cus",
+      "sync": 0.5899996757507324,
+      "tick": 213.86999988555908,
+      "painted": 231.83999967575073,
+      "rows": 500
+     },
+     {
+      "ch": "Cust",
+      "sync": 0.6999998092651367,
+      "tick": 242.14999961853027,
+      "painted": 249.6749997138977,
+      "rows": 500
+     },
+     {
+      "ch": "Custo",
+      "sync": 0.6449999809265137,
+      "tick": 218.65000009536743,
+      "painted": 232.32999992370605,
+      "rows": 500
+     },
+     {
+      "ch": "Custom",
+      "sync": 0.6449999809265137,
+      "tick": 211.0499997138977,
+      "painted": 228.94999980926514,
+      "rows": 500
+     },
+     {
+      "ch": "Custome",
+      "sync": 0.4500002861022949,
+      "tick": 234.0800004005432,
+      "painted": 254.1850004196167,
+      "rows": 500
+     },
+     {
+      "ch": "Customer",
+      "sync": 0.6499996185302734,
+      "tick": 223.71999979019165,
+      "painted": 241.77499961853027,
+      "rows": 500
+     },
+     {
+      "ch": "Customer ",
+      "sync": 0.5899996757507324,
+      "tick": 200.2799997329712,
+      "painted": 206.47999954223633,
+      "rows": 500
+     },
+     {
+      "ch": "Customer 0",
+      "sync": 0.47499990463256836,
+      "tick": 218.17999982833862,
+      "painted": 233.4850001335144,
+      "rows": 500
+     },
+     {
+      "ch": "Customer 00",
+      "sync": 0.5749998092651367,
+      "tick": 78.64999961853027,
+      "painted": 82.62999963760376,
+      "rows": 100
+     },
+     {
+      "ch": "Customer 001",
+      "sync": 0.38000011444091797,
+      "tick": 15.744999885559082,
+      "painted": 33.46000003814697,
+      "rows": 10
+     }
+    ],
+    "cdpScript": 6.593,
+    "cdpTask": 2441.487,
+    "cdpLayout": 3.05,
+    "cdpStyle": 3.634
+   },
+   {
+    "keys": [
+     {
+      "ch": "C",
+      "sync": 1.0099997520446777,
+      "tick": 227.7849998474121,
+      "painted": 232.25,
+      "rows": 500
+     },
+     {
+      "ch": "Cu",
+      "sync": 0.4549999237060547,
+      "tick": 217.55999994277954,
+      "painted": 221.9850001335144,
+      "rows": 500
+     },
+     {
+      "ch": "Cus",
+      "sync": 0.7399997711181641,
+      "tick": 199.42999982833862,
+      "painted": 215.32499980926514,
+      "rows": 500
+     },
+     {
+      "ch": "Cust",
+      "sync": 0.5749998092651367,
+      "tick": 185.1399998664856,
+      "painted": 199.78000020980835,
+      "rows": 500
+     },
+     {
+      "ch": "Custo",
+      "sync": 0.49000024795532227,
+      "tick": 183.93000030517578,
+      "painted": 199.81500005722046,
+      "rows": 500
+     },
+     {
+      "ch": "Custom",
+      "sync": 0.5999999046325684,
+      "tick": 206.69000005722046,
+      "painted": 222.80499982833862,
+      "rows": 500
+     },
+     {
+      "ch": "Custome",
+      "sync": 0.47499990463256836,
+      "tick": 186.4800000190735,
+      "painted": 193.3899998664856,
+      "rows": 500
+     },
+     {
+      "ch": "Customer",
+      "sync": 0.5450000762939453,
+      "tick": 186.95499992370605,
+      "painted": 208.25500011444092,
+      "rows": 500
+     },
+     {
+      "ch": "Customer ",
+      "sync": 0.7300000190734863,
+      "tick": 188.29500007629395,
+      "painted": 191.63000011444092,
+      "rows": 500
+     },
+     {
+      "ch": "Customer 0",
+      "sync": 1.0399999618530273,
+      "tick": 200.36499977111816,
+      "painted": 215.19499969482422,
+      "rows": 500
+     },
+     {
+      "ch": "Customer 00",
+      "sync": 0.5149998664855957,
+      "tick": 70.23499965667725,
+      "painted": 83.39999961853027,
+      "rows": 100
+     },
+     {
+      "ch": "Customer 001",
+      "sync": 0.34999990463256836,
+      "tick": 15.5,
+      "painted": 32.80999994277954,
+      "rows": 10
+     }
+    ],
+    "cdpScript": 6.848,
+    "cdpTask": 2160.159,
+    "cdpLayout": 2.803,
+    "cdpStyle": 3.404
+   },
+   {
+    "keys": [
+     {
+      "ch": "C",
+      "sync": 1.4499998092651367,
+      "tick": 241.67999982833862,
+      "painted": 245.3550000190735,
+      "rows": 500
+     },
+     {
+      "ch": "Cu",
+      "sync": 0.35500001907348633,
+      "tick": 224.1050000190735,
+      "painted": 242.38500022888184,
+      "rows": 500
+     },
+     {
+      "ch": "Cus",
+      "sync": 0.5550003051757812,
+      "tick": 215.74500036239624,
+      "painted": 229.0750002861023,
+      "rows": 500
+     },
+     {
+      "ch": "Cust",
+      "sync": 0.434999942779541,
+      "tick": 198.5299997329712,
+      "painted": 216.50999975204468,
+      "rows": 500
+     },
+     {
+      "ch": "Custo",
+      "sync": 0.5349998474121094,
+      "tick": 207.1399998664856,
+      "painted": 216.32999992370605,
+      "rows": 500
+     },
+     {
+      "ch": "Custom",
+      "sync": 0.4099998474121094,
+      "tick": 214.5649995803833,
+      "painted": 233.4399995803833,
+      "rows": 500
+     },
+     {
+      "ch": "Custome",
+      "sync": 0.6449999809265137,
+      "tick": 214.67999982833862,
+      "painted": 233.17999982833862,
+      "rows": 500
+     },
+     {
+      "ch": "Customer",
+      "sync": 0.6349997520446777,
+      "tick": 218.1449999809265,
+      "painted": 237.46000003814697,
+      "rows": 500
+     },
+     {
+      "ch": "Customer ",
+      "sync": 0.5249996185302734,
+      "tick": 199.20999956130981,
+      "painted": 211.47499990463257,
+      "rows": 500
+     },
+     {
+      "ch": "Customer 0",
+      "sync": 0.5499997138977051,
+      "tick": 179.2799997329712,
+      "painted": 182.91499996185303,
+      "rows": 500
+     },
+     {
+      "ch": "Customer 00",
+      "sync": 0.3449997901916504,
+      "tick": 70.46000003814697,
+      "painted": 83.17999982833862,
+      "rows": 100
+     },
+     {
+      "ch": "Customer 001",
+      "sync": 0.2350001335144043,
+      "tick": 9.700000286102295,
+      "painted": 33.40500020980835,
+      "rows": 10
+     }
+    ],
+    "cdpScript": 6.535,
+    "cdpTask": 2302.38,
+    "cdpLayout": 2.759,
+    "cdpStyle": 3.401
+   },
+   {
+    "keys": [
+     {
+      "ch": "C",
+      "sync": 0.7699999809265137,
+      "tick": 252.5149998664856,
+      "painted": 256.57499980926514,
+      "rows": 500
+     },
+     {
+      "ch": "Cu",
+      "sync": 0.43000030517578125,
+      "tick": 230.3600001335144,
+      "painted": 248.3899998664856,
+      "rows": 500
+     },
+     {
+      "ch": "Cus",
+      "sync": 0.8449997901916504,
+      "tick": 246.1449999809265,
+      "painted": 265.7749996185303,
+      "rows": 500
+     },
+     {
+      "ch": "Cust",
+      "sync": 0.5900001525878906,
+      "tick": 216.08500003814697,
+      "painted": 232.90000009536743,
+      "rows": 500
+     },
+     {
+      "ch": "Custo",
+      "sync": 0.6350002288818359,
+      "tick": 215.05000019073486,
+      "painted": 232.99000024795532,
+      "rows": 500
+     },
+     {
+      "ch": "Custom",
+      "sync": 0.49500036239624023,
+      "tick": 222.5900001525879,
+      "painted": 233.2150001525879,
+      "rows": 500
+     },
+     {
+      "ch": "Custome",
+      "sync": 0.6050000190734863,
+      "tick": 215.8149995803833,
+      "painted": 233.27499961853027,
+      "rows": 500
+     },
+     {
+      "ch": "Customer",
+      "sync": 0.5450000762939453,
+      "tick": 206.19000005722046,
+      "painted": 226.53999996185303,
+      "rows": 500
+     },
+     {
+      "ch": "Customer ",
+      "sync": 0.6200003623962402,
+      "tick": 189.96000003814697,
+      "painted": 205.7200002670288,
+      "rows": 500
+     },
+     {
+      "ch": "Customer 0",
+      "sync": 0.4700002670288086,
+      "tick": 189.9350004196167,
+      "painted": 200.03000020980835,
+      "rows": 500
+     },
+     {
+      "ch": "Customer 00",
+      "sync": 0.554999828338623,
+      "tick": 93.65999984741211,
+      "painted": 99.55999994277954,
+      "rows": 100
+     },
+     {
+      "ch": "Customer 001",
+      "sync": 0.2350001335144043,
+      "tick": 9.664999961853027,
+      "painted": 33.329999923706055,
+      "rows": 10
+     }
+    ],
+    "cdpScript": 6.549,
+    "cdpTask": 2378.541,
+    "cdpLayout": 2.752,
+    "cdpStyle": 3.108
+   }
+  ],
+  "update100_query": [
+   {
+    "sync": 0.6749997138977051,
+    "tick": 35.41499996185303,
+    "painted": 44.00999975204468,
+    "cdpScript": 0.012,
+    "cdpTask": 44.76,
+    "cdpLayout": 2.396,
+    "cdpStyle": 2.043
+   },
+   {
+    "sync": 0.6700000762939453,
+    "tick": 36.53000020980835,
+    "painted": 45.02500009536743,
+    "cdpScript": 0.01,
+    "cdpTask": 45.814,
+    "cdpLayout": 2.235,
+    "cdpStyle": 2.079
+   },
+   {
+    "sync": 0.6749997138977051,
+    "tick": 36.25499963760376,
+    "painted": 45.42999982833862,
+    "cdpScript": 0.006,
+    "cdpTask": 46.417,
+    "cdpLayout": 2.507,
+    "cdpStyle": 2.225
+   },
+   {
+    "sync": 0.48000001907348633,
+    "tick": 33.765000343322754,
+    "painted": 41.125,
+    "cdpScript": 0.006,
+    "cdpTask": 41.782,
+    "cdpLayout": 2.086,
+    "cdpStyle": 1.672
+   },
+   {
+    "sync": 0.8450002670288086,
+    "tick": 39.605000019073486,
+    "painted": 47.894999980926514,
+    "cdpScript": 0.005,
+    "cdpTask": 48.607,
+    "cdpLayout": 2.21,
+    "cdpStyle": 1.985
+   },
+   {
+    "sync": 0.625,
+    "tick": 32.82000017166138,
+    "painted": 40.40999984741211,
+    "cdpScript": 0.005,
+    "cdpTask": 41.043,
+    "cdpLayout": 2.112,
+    "cdpStyle": 1.675
+   },
+   {
+    "sync": 0.5,
+    "tick": 33.83500003814697,
+    "painted": 42.34999990463257,
+    "cdpScript": 0.006,
+    "cdpTask": 43.191,
+    "cdpLayout": 2.226,
+    "cdpStyle": 2.165
+   }
+  ],
+  "update100_options20": [
+   {
+    "sync": 1.5250000953674316,
+    "tick": 8.575000286102295,
+    "painted": 26.295000076293945,
+    "cdpScript": 0.006,
+    "cdpTask": 9.776,
+    "cdpLayout": 0,
+    "cdpStyle": 0
+   },
+   {
+    "sync": 2.8600001335144043,
+    "tick": 16.699999809265137,
+    "painted": 27.304999828338623,
+    "cdpScript": 0.004,
+    "cdpTask": 18.144,
+    "cdpLayout": 0,
+    "cdpStyle": 0
+   },
+   {
+    "sync": 1.625,
+    "tick": 10.430000305175781,
+    "painted": 29.75,
+    "cdpScript": 0.003,
+    "cdpTask": 11.338,
+    "cdpLayout": 0,
+    "cdpStyle": 0
+   },
+   {
+    "sync": 1.4499998092651367,
+    "tick": 7,
+    "painted": 27.59000015258789,
+    "cdpScript": 0.002,
+    "cdpTask": 7.841,
+    "cdpLayout": 0,
+    "cdpStyle": 0
+   },
+   {
+    "sync": 2.4549999237060547,
+    "tick": 13.679999828338623,
+    "painted": 27.980000019073486,
+    "cdpScript": 0.005,
+    "cdpTask": 14.85,
+    "cdpLayout": 0,
+    "cdpStyle": 0
+   },
+   {
+    "sync": 2.6449999809265137,
+    "tick": 12.525000095367432,
+    "painted": 17.664999961853027,
+    "cdpScript": 0.003,
+    "cdpTask": 13.478,
+    "cdpLayout": 0,
+    "cdpStyle": 0
+   },
+   {
+    "sync": 2.7750000953674316,
+    "tick": 15.740000247955322,
+    "painted": 27.635000228881836,
+    "cdpScript": 0.005,
+    "cdpTask": 17.107,
+    "cdpLayout": 0,
+    "cdpStyle": 0
+   }
+  ],
+  "update100_query_again": [
+   {
+    "sync": 0.30499982833862305,
+    "tick": 34.674999713897705,
+    "painted": 40.84999990463257,
+    "cdpScript": 0.006,
+    "cdpTask": 41.266,
+    "cdpLayout": 1.958,
+    "cdpStyle": 1.33
+   },
+   {
+    "sync": 0.2999997138977051,
+    "tick": 42.454999923706055,
+    "painted": 50.614999771118164,
+    "cdpScript": 0.044,
+    "cdpTask": 51.225,
+    "cdpLayout": 2.586,
+    "cdpStyle": 1.773
+   },
+   {
+    "sync": 0.30500030517578125,
+    "tick": 49.36500024795532,
+    "painted": 57.66499996185303,
+    "cdpScript": 0.005,
+    "cdpTask": 58.244,
+    "cdpLayout": 2.469,
+    "cdpStyle": 1.97
+   },
+   {
+    "sync": 0.565000057220459,
+    "tick": 44.480000019073486,
+    "painted": 52.24000024795532,
+    "cdpScript": 0.007,
+    "cdpTask": 53.01,
+    "cdpLayout": 2.396,
+    "cdpStyle": 1.823
+   },
+   {
+    "sync": 0.19500017166137695,
+    "tick": 35.25500011444092,
+    "painted": 42.46000003814697,
+    "cdpScript": 0.005,
+    "cdpTask": 42.909,
+    "cdpLayout": 2.305,
+    "cdpStyle": 1.549
+   },
+   {
+    "sync": 0.3599996566772461,
+    "tick": 36.30999994277954,
+    "painted": 42.46000003814697,
+    "cdpScript": 0.005,
+    "cdpTask": 43.029,
+    "cdpLayout": 1.959,
+    "cdpStyle": 1.268
+   },
+   {
+    "sync": 0.41499996185302734,
+    "tick": 43.88000011444092,
+    "painted": 50.08000040054321,
+    "cdpScript": 0.005,
+    "cdpTask": 50.734,
+    "cdpLayout": 1.973,
+    "cdpStyle": 1.291
+   }
+  ],
+  "update1_query": [
+   {
+    "sync": 0.04999971389770508,
+    "tick": 1.4099998474121094,
+    "painted": 14.389999866485596,
+    "cdpScript": 0.009,
+    "cdpTask": 4.984,
+    "cdpLayout": 0.373,
+    "cdpStyle": 0.195
+   },
+   {
+    "sync": 0.034999847412109375,
+    "tick": 0.6999998092651367,
+    "painted": 21.074999809265137,
+    "cdpScript": 0.072,
+    "cdpTask": 4.578,
+    "cdpLayout": 0.407,
+    "cdpStyle": 0.172
+   },
+   {
+    "sync": 0.04500007629394531,
+    "tick": 1.179999828338623,
+    "painted": 15.875,
+    "cdpScript": 0.005,
+    "cdpTask": 4.965,
+    "cdpLayout": 0.472,
+    "cdpStyle": 0.173
+   },
+   {
+    "sync": 0.034999847412109375,
+    "tick": 0.695000171661377,
+    "painted": 22.579999923706055,
+    "cdpScript": 0.03,
+    "cdpTask": 3.197,
+    "cdpLayout": 0.249,
+    "cdpStyle": 0.122
+   },
+   {
+    "sync": 0.04500007629394531,
+    "tick": 1.070000171661377,
+    "painted": 16.890000343322754,
+    "cdpScript": 0.008,
+    "cdpTask": 4.531,
+    "cdpLayout": 0.394,
+    "cdpStyle": 0.153
+   },
+   {
+    "sync": 0.04500007629394531,
+    "tick": 1.0500001907348633,
+    "painted": 16.255000114440918,
+    "cdpScript": 0.004,
+    "cdpTask": 4.179,
+    "cdpLayout": 0.334,
+    "cdpStyle": 0.142
+   },
+   {
+    "sync": 0.06000041961669922,
+    "tick": 0.6000003814697266,
+    "painted": 25.115000247955322,
+    "cdpScript": 0.038,
+    "cdpTask": 3.26,
+    "cdpLayout": 0.279,
+    "cdpStyle": 0.128
+   }
+  ],
+  "update1_options20": [
+   {
+    "sync": 0.17500019073486328,
+    "tick": 0.3899998664855957,
+    "painted": 27.65500020980835,
+    "cdpScript": 0.009,
+    "cdpTask": 1.694,
+    "cdpLayout": 0,
+    "cdpStyle": 0
+   },
+   {
+    "sync": 0.1399998664855957,
+    "tick": 0.434999942779541,
+    "painted": 26.429999828338623,
+    "cdpScript": 0.075,
+    "cdpTask": 1.605,
+    "cdpLayout": 0,
+    "cdpStyle": 0
+   },
+   {
+    "sync": 0.10000038146972656,
+    "tick": 0.22500038146972656,
+    "painted": 28.860000133514404,
+    "cdpScript": 0.051,
+    "cdpTask": 1.232,
+    "cdpLayout": 0,
+    "cdpStyle": 0
+   },
+   {
+    "sync": 0.10500001907348633,
+    "tick": 0.25500011444091797,
+    "painted": 28.260000228881836,
+    "cdpScript": 0.042,
+    "cdpTask": 1.126,
+    "cdpLayout": 0,
+    "cdpStyle": 0
+   },
+   {
+    "sync": 0.1699995994567871,
+    "tick": 0.4649996757507324,
+    "painted": 28.984999656677246,
+    "cdpScript": 0.068,
+    "cdpTask": 2.007,
+    "cdpLayout": 0,
+    "cdpStyle": 0
+   },
+   {
+    "sync": 0.1100001335144043,
+    "tick": 0.38499975204467773,
+    "painted": 29.670000076293945,
+    "cdpScript": 0.005,
+    "cdpTask": 1.355,
+    "cdpLayout": 0,
+    "cdpStyle": 0
+   },
+   {
+    "sync": 0.08500003814697266,
+    "tick": 0.24499988555908203,
+    "painted": 29.710000038146973,
+    "cdpScript": 0.03,
+    "cdpTask": 1.075,
+    "cdpLayout": 0,
+    "cdpStyle": 0
+   }
+  ],
+  "update100_placeholder": [
+   {
+    "sync": 0.619999885559082,
+    "tick": 40.80499982833862,
+    "painted": 42.69499969482422,
+    "cdpScript": 0.065,
+    "cdpTask": 43.37,
+    "cdpLayout": 0,
+    "cdpStyle": 1.474
+   },
+   {
+    "sync": 0.5350003242492676,
+    "tick": 45.33500003814697,
+    "painted": 47.46500015258789,
+    "cdpScript": 0.09,
+    "cdpTask": 48.051,
+    "cdpLayout": 0,
+    "cdpStyle": 1.554
+   },
+   {
+    "sync": 0.570000171661377,
+    "tick": 40.99500036239624,
+    "painted": 42.90000009536743,
+    "cdpScript": 0.045,
+    "cdpTask": 43.476,
+    "cdpLayout": 0,
+    "cdpStyle": 1.466
+   },
+   {
+    "sync": 0.5500001907348633,
+    "tick": 37.61500024795532,
+    "painted": 39.480000019073486,
+    "cdpScript": 0.031,
+    "cdpTask": 40.101,
+    "cdpLayout": 0,
+    "cdpStyle": 1.401
+   },
+   {
+    "sync": 0.6949996948242188,
+    "tick": 31.1899995803833,
+    "painted": 32.924999713897705,
+    "cdpScript": 0.045,
+    "cdpTask": 33.565,
+    "cdpLayout": 0,
+    "cdpStyle": 1.345
+   },
+   {
+    "sync": 0.5300002098083496,
+    "tick": 39.980000019073486,
+    "painted": 41.61500024795532,
+    "cdpScript": 0.045,
+    "cdpTask": 42.139,
+    "cdpLayout": 0,
+    "cdpStyle": 1.265
+   },
+   {
+    "sync": 0.4650001525878906,
+    "tick": 34.18499994277954,
+    "painted": 35.69999980926514,
+    "cdpScript": 0.048,
+    "cdpTask": 36.607,
+    "cdpLayout": 0,
+    "cdpStyle": 1.156
+   }
+  ],
+  "ref_mini_update100_query": [
+   {
+    "sync": 1.7750000953674316,
+    "tick": 21.980000019073486,
+    "painted": 34.670000076293945,
+    "cdpScript": 0.011,
+    "cdpTask": 33.216,
+    "cdpLayout": 2.856,
+    "cdpStyle": 1.586
+   },
+   {
+    "sync": 1.0749998092651367,
+    "tick": 8.054999828338623,
+    "painted": 26.40000009536743,
+    "cdpScript": 0.014,
+    "cdpTask": 17.485,
+    "cdpLayout": 1.796,
+    "cdpStyle": 1.36
+   },
+   {
+    "sync": 2.3550000190734863,
+    "tick": 16.355000019073486,
+    "painted": 35.730000019073486,
+    "cdpScript": 0.016,
+    "cdpTask": 30.296,
+    "cdpLayout": 3.262,
+    "cdpStyle": 2.283
+   },
+   {
+    "sync": 1.875,
+    "tick": 10.074999809265137,
+    "painted": 20.524999618530273,
+    "cdpScript": 0.009,
+    "cdpTask": 17.815,
+    "cdpLayout": 1.435,
+    "cdpStyle": 0.958
+   },
+   {
+    "sync": 0.8599996566772461,
+    "tick": 7.099999904632568,
+    "painted": 19.074999809265137,
+    "cdpScript": 0.006,
+    "cdpTask": 14.597,
+    "cdpLayout": 1.631,
+    "cdpStyle": 1.131
+   },
+   {
+    "sync": 1.3600001335144043,
+    "tick": 7.204999923706055,
+    "painted": 21.52999973297119,
+    "cdpScript": 0.008,
+    "cdpTask": 14.822,
+    "cdpLayout": 1.691,
+    "cdpStyle": 0.966
+   },
+   {
+    "sync": 1.8450002670288086,
+    "tick": 14.244999885559082,
+    "painted": 27.90500020980835,
+    "cdpScript": 0.01,
+    "cdpTask": 28.058,
+    "cdpLayout": 3.344,
+    "cdpStyle": 1.971
+   }
+  ]
+ }
+}

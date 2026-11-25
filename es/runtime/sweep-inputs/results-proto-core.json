@@ -1,0 +1,122 @@
+{
+ "page": "core.html",
+ "fails": 0,
+ "n": 25,
+ "results": [
+  {
+   "k": "button label prop renders",
+   "ok": true,
+   "extra": "Label prop"
+  },
+  {
+   "k": "button default slot (child text) renders",
+   "ok": true,
+   "extra": "Slot text"
+  },
+  {
+   "k": "tailwind applied to button",
+   "ok": true
+  },
+  {
+   "k": "jQuery click handler -> .attr(loading,true) disables button",
+   "ok": true
+  },
+  {
+   "k": "text-input update:modelValue -> state",
+   "ok": true,
+   "extra": "Grace|false|false|red|false|0"
+  },
+  {
+   "k": "checkbox starts unchecked (prop false)",
+   "ok": true
+  },
+  {
+   "k": "CheckField starts unchecked (prop 0)",
+   "ok": true
+  },
+  {
+   "k": "checkbox model",
+   "ok": true,
+   "extra": "Grace|true|false|red|false|0"
+  },
+  {
+   "k": "switch model",
+   "ok": true,
+   "extra": "Grace|true|true|red|false|0"
+  },
+  {
+   "k": "select options prop + model",
+   "ok": true,
+   "extra": "Grace|true|true|blue|false|0"
+  },
+  {
+   "k": "badge",
+   "ok": true
+  },
+  {
+   "k": "avatar renders",
+   "ok": true
+  },
+  {
+   "k": "dropdown (function in options via .prop)",
+   "ok": true,
+   "extra": "Delete"
+  },
+  {
+   "k": "dialog opens via .prop(open,true)",
+   "ok": true
+  },
+  {
+   "k": "dialog title prop (title attr -> prop, no native tooltip on host)",
+   "ok": true,
+   "extra": "Hello from es-dialog /  / Dialog body via slot, name=Grace /  / Rename"
+  },
+  {
+   "k": "dialog body slot inside teleported dialog, inside <es-portal>",
+   "ok": true
+  },
+  {
+   "k": "slot content updated by jQuery while closed shows on open",
+   "ok": true,
+   "extra": "Hello from es-dialog /  / Dialog body via slot, name=Grace /  / Rename"
+  },
+  {
+   "k": "nested es-button in teleported dialog: jQuery handler fires",
+   "ok": true,
+   "extra": "Dialog body via slot, name=Linus | Linus|true|true|blue|false|0"
+  },
+  {
+   "k": "button slot updated by jQuery",
+   "ok": true,
+   "extra": "Hi Linus"
+  },
+  {
+   "k": "dialog Escape -> update:open false",
+   "ok": true,
+   "extra": "Linus|true|true|blue|false|0"
+  },
+  {
+   "k": "closed dialog body still findable by $(#id) (in <es-slots> inside host)",
+   "ok": true
+  },
+  {
+   "k": "@framework/ui CheckField (0|1) model",
+   "ok": true,
+   "extra": "Linus|true|true|blue|false|1"
+  },
+  {
+   "k": "$(`<es-dialog open>`) from a template string mounts open",
+   "ok": true
+  },
+  {
+   "k": ".remove() from inside its own dialog: unmounted, no leaked teleport",
+   "ok": true,
+   "extra": "{\"before\":{\"body\":4,\"dialogs\":0,\"portal\":2},\"after\":{\"host\":false,\"body\":4,\"dialogs\":0,\"kill\":false,\"portal\":2}}"
+  },
+  {
+   "k": "dialog reopens, body slot still live node with handler",
+   "ok": true
+  }
+ ],
+ "errs": []
+}

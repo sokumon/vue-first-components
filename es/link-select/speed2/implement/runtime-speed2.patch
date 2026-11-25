@@ -1,0 +1,47 @@
+--- a/B-es-tags/build/src/runtime.js
++++ b/B-es-tags/build/src/runtime.js
+@@ -540,10 +540,11 @@
+   portalEl = document.createElement('es-portal')
+   document.body.append(appEl, portalEl)
+   if (!document.querySelector('style[data-es-ui-base]')) {
+-    // hosts render as their content; the sheets carry the same rules (plus the :not(:defined) guard)
++    // hosts render as their content; the sheets carry the same rules (plus the :not(:defined) guard).
++    // [speed2] a plain tag list: Chrome buckets it by tag, a rightmost :where(list) is tested on every element
+     const st = document.createElement('style')
+     st.setAttribute('data-es-ui-base', '')
+-    st.textContent = `:where(${[...defs.keys()].join(',')}){display:contents}es-app,es-portal,es-slot{display:contents}es-slots{display:none!important}`
++    st.textContent = `${[...defs.keys()].join(',')}{display:contents}es-app,es-portal,es-slot{display:contents}es-slots{display:none!important}`
+     document.head.appendChild(st)
+   }
+   app = createApp(Root)
+@@ -564,15 +565,14 @@
+ }
+ 
+ // ---------------------------------------------------------------- connect / disconnect
++// [speed2] native closest() + getRootNode() instead of a JS walk to the root (same answers: closest stops
++// where the walk returned null, at a fragment or shadow root)
++let ownerSel = 'es-slot,es-slots'
+ function ownerOf(host) {
+-  for (let n = host.parentNode; n; n = n.parentNode) {
+-    if (n.nodeType === 9) return 'top'
+-    if (n.nodeType !== 1) return null
+-    const ln = n.localName
+-    if (ln === 'es-slot') return n._esOutlet || 'wait'
+-    if (ln === 'es-slots' || defs.has(ln)) return 'wait'
+-  }
+-  return null
++  const p = host.parentElement
++  const a = p && p.closest(ownerSel)
++  if (a) return a.localName === 'es-slot' ? a._esOutlet || 'wait' : 'wait'
++  return host.getRootNode() === document ? 'top' : null
+ }
+ 
+ let parsing = null
+@@ -726,6 +726,7 @@
+   if (customElements.get(tag)) return false
+   const def = makeDef(tag, comp)
+   defs.set(tag, def)
++  ownerSel = ['es-slot', 'es-slots', ...defs.keys()].join(',')
+   class C extends EsElement {}
+   for (const k of def.props.keys()) {
+     if (k === 'id' || k === 'slot' || isMethod(k)) continue

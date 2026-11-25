@@ -1,0 +1,191 @@
+
+Running 52 tests using 1 worker
+
+  ✓   1 playwright/tests/control_dynamic_link.spec.js:90:6 › Dynamic Link › Creating a dynamic link by passing option as function and verifying it in a dialog (3.7s)
+  ✓   2 playwright/tests/control_dynamic_link.spec.js:103:6 › Dynamic Link › Creating a dynamic link and verifying it in a dialog (3.6s)
+  ✓   3 playwright/tests/control_dynamic_link.spec.js:113:6 › Dynamic Link › Shows dynamic link options in list filters (2.6s)
+  ✓   4 playwright/tests/control_dynamic_link.spec.js:123:6 › Dynamic Link › Shows dynamic link options in new form (2.9s)
+  ✓   5 playwright/tests/control_dynamic_link.spec.js:138:6 › Dynamic Link › Shows error when invalid DocType is passed (5.2s)
+  ✓   6 playwright/tests/control_link_combobox.spec.js:53:6 › Control Link (combobox) › picks a row, clears it, and is driven from the keyboard (7.5s)
+  ✓   7 playwright/tests/control_link_combobox.spec.js:96:6 › Control Link (combobox) › Select mode lists everything without a search box and jumps by letter (3.3s)
+  ✓   8 playwright/tests/control_link_combobox.spec.js:119:6 › Control Link (combobox) › pages a long list on scroll, and map_options groups the rows (3.6s)
+  ✓   9 playwright/tests/control_link.spec.js:113:6 › Control Link › should set the valid value (8.3s)
+  ✓  10 playwright/tests/control_link.spec.js:135:6 › Control Link › should unset invalid value (5.8s)
+  ✓  11 playwright/tests/control_link.spec.js:146:6 › Control Link › should keep typed text when the window loses focus (5.8s)
+  ✓  12 playwright/tests/control_link.spec.js:167:6 › Control Link › should show the results again when the window regains focus (5.8s)
+  ✓  13 playwright/tests/control_link.spec.js:183:6 › Control Link › should be possible set empty value explicitly (4.6s)
+  ✓  14 playwright/tests/control_link.spec.js:195:6 › Control Link › should show open link button (5.6s)
+  ✓  15 playwright/tests/control_link.spec.js:212:6 › Control Link › show title field in link (7.0s)
+  ✓  16 playwright/tests/control_link.spec.js:244:6 › Control Link › should update dependant fields (via fetch_from) (11.1s)
+  ✓  17 playwright/tests/control_link.spec.js:276:6 › Control Link › should set default values (7.0s)
+  ✘  18 playwright/tests/control_link.spec.js:311:6 › Control Link › show translated text for Gender link field with language de with input in de (28.3s)
+  ✘  19 playwright/tests/control_link.spec.js:330:6 › Control Link › show text for Gender link field with language en (28.6s)
+  ✓  20 playwright/tests/control_link.spec.js:344:6 › Control Link › show custom link option (5.5s)
+  ✓  21 playwright/tests/control_link.spec.js:369:6 › Control Link › keeps list format filters when merging link filters (4.2s)
+  ✓  22 playwright/tests/control_link.spec.js:407:6 › Control Link › passes the form to a get_query function (4.5s)
+  ✓  23 playwright/tests/control_link.spec.js:463:6 › Control Link › previews the doc the field holds after its value is set in code (11.8s)
+  ✓  24 playwright/tests/control_link.spec.js:484:6 › Control Link › drops a preview that arrives after the field moved to another doc (9.3s)
+  ✓  25 playwright/tests/control_select.spec.js:9:6 › Control Select › toggles placholder on clicking an option (2.5s)
+  ✓  26 playwright/tests/link_selector.spec.js:13:6 › Link Selector › passes the form to a grid field's get_query function (1.9s)
+  ✓  27 playwright/tests/control_dynamic_link.spec.js:90:6 › Dynamic Link › Creating a dynamic link by passing option as function and verifying it in a dialog (3.7s)
+  ✓  28 playwright/tests/control_dynamic_link.spec.js:103:6 › Dynamic Link › Creating a dynamic link and verifying it in a dialog (3.5s)
+  ✓  29 playwright/tests/control_dynamic_link.spec.js:113:6 › Dynamic Link › Shows dynamic link options in list filters (2.8s)
+  ✓  30 playwright/tests/control_dynamic_link.spec.js:123:6 › Dynamic Link › Shows dynamic link options in new form (2.8s)
+  ✓  31 playwright/tests/control_dynamic_link.spec.js:138:6 › Dynamic Link › Shows error when invalid DocType is passed (5.3s)
+  ✓  32 playwright/tests/control_link_combobox.spec.js:53:6 › Control Link (combobox) › picks a row, clears it, and is driven from the keyboard (7.8s)
+  ✓  33 playwright/tests/control_link_combobox.spec.js:96:6 › Control Link (combobox) › Select mode lists everything without a search box and jumps by letter (3.5s)
+  ✓  34 playwright/tests/control_link_combobox.spec.js:119:6 › Control Link (combobox) › pages a long list on scroll, and map_options groups the rows (3.6s)
+  ✓  35 playwright/tests/control_link.spec.js:113:6 › Control Link › should set the valid value (8.3s)
+  ✓  36 playwright/tests/control_link.spec.js:135:6 › Control Link › should unset invalid value (6.0s)
+  ✓  37 playwright/tests/control_link.spec.js:146:6 › Control Link › should keep typed text when the window loses focus (5.9s)
+  ✓  38 playwright/tests/control_link.spec.js:167:6 › Control Link › should show the results again when the window regains focus (5.9s)
+  ✓  39 playwright/tests/control_link.spec.js:183:6 › Control Link › should be possible set empty value explicitly (4.4s)
+  ✓  40 playwright/tests/control_link.spec.js:195:6 › Control Link › should show open link button (5.5s)
+  ✓  41 playwright/tests/control_link.spec.js:212:6 › Control Link › show title field in link (6.7s)
+  ✓  42 playwright/tests/control_link.spec.js:244:6 › Control Link › should update dependant fields (via fetch_from) (10.9s)
+  ✓  43 playwright/tests/control_link.spec.js:276:6 › Control Link › should set default values (6.8s)
+  ✘  44 playwright/tests/control_link.spec.js:311:6 › Control Link › show translated text for Gender link field with language de with input in de (28.1s)
+  ✘  45 playwright/tests/control_link.spec.js:330:6 › Control Link › show text for Gender link field with language en (28.5s)
+  ✓  46 playwright/tests/control_link.spec.js:344:6 › Control Link › show custom link option (5.5s)
+  ✓  47 playwright/tests/control_link.spec.js:369:6 › Control Link › keeps list format filters when merging link filters (4.1s)
+  ✓  48 playwright/tests/control_link.spec.js:407:6 › Control Link › passes the form to a get_query function (4.3s)
+  ✓  49 playwright/tests/control_link.spec.js:463:6 › Control Link › previews the doc the field holds after its value is set in code (11.5s)
+  ✓  50 playwright/tests/control_link.spec.js:484:6 › Control Link › drops a preview that arrives after the field moved to another doc (9.2s)
+  ✓  51 playwright/tests/control_select.spec.js:9:6 › Control Select › toggles placholder on clicking an option (2.4s)
+  ✓  52 playwright/tests/link_selector.spec.js:13:6 › Link Selector › passes the form to a grid field's get_query function (1.9s)
+
+
+  1) playwright/tests/control_link.spec.js:311:6 › Control Link › show translated text for Gender link field with language de with input in de 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoContainText[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator: locator('.frappe-control[data-fieldname=link] input').locator('..').getByRole('listbox').locator('div[role=\'option\']').first()
+    Expected substring: [32m"Sonstiges"[39m
+    Received string:    [31m"Neu erstellen: Geschlecht"[39m
+    Timeout: 20000ms
+
+    Call log:
+    [2m  - Expect "toContainText" with timeout 20000ms[22m
+    [2m  - waiting for locator('.frappe-control[data-fieldname=link] input').locator('..').getByRole('listbox').locator('div[role=\'option\']').first()[22m
+    [2m    23 × locator resolved to <div role="option" tabindex="-1" data-size="sm" data-slot="item" data-v-03c0ef0b="" data-highlighted="" aria-selected="false" data-state="unchecked" id="reka-combobox-item-es-4" data-reka-collection-item="" textvalue="Neu erstellen: Geschlecht" class="select-none rounded-4 border-0 text-base text-ink-gray-9 transition-colors duration-100 ease-out data-[disabled]:text-ink-gray-4 data-[highlighted]:bg-surface-alpha-gray-2 data-[state=checked]:bg-surface-gray-3 data-[highlighted]:data-[state=checked]:…>…</div>[22m
+    [2m       - unexpected value "Neu erstellen: Geschlecht"[22m
+
+
+      76 | 	async function select_first_result(input, text) {
+      77 | 		await input.pressSequentially(text, { delay: 100 });
+    > 78 | 		await expect(get_dropdown(input).locator("div[role='option']").first()).toContainText(
+         | 		                                                                        ^
+      79 | 			text
+      80 | 		);
+      81 | 		await input.press("Enter");
+        at select_first_result (/home/claude/fb/frappe-bench/apps/frappe/playwright/tests/control_link.spec.js:78:75)
+        at /home/claude/fb/frappe-bench/apps/frappe/playwright/tests/control_link.spec.js:323:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/control_link-Control-Link--c8124-anguage-de-with-input-in-de/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/control_link-Control-Link--c8124-anguage-de-with-input-in-de/error-context.md
+
+  2) playwright/tests/control_link.spec.js:330:6 › Control Link › show text for Gender link field with language en 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoContainText[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator: locator('.frappe-control[data-fieldname=link] input').locator('..').getByRole('listbox').locator('div[role=\'option\']').first()
+    Expected substring: [32m"Non-Conforming"[39m
+    Received string:    [31m"Create a new Gender"[39m
+    Timeout: 20000ms
+
+    Call log:
+    [2m  - Expect "toContainText" with timeout 20000ms[22m
+    [2m  - waiting for locator('.frappe-control[data-fieldname=link] input').locator('..').getByRole('listbox').locator('div[role=\'option\']').first()[22m
+    [2m    23 × locator resolved to <div role="option" tabindex="-1" data-size="sm" data-slot="item" data-v-03c0ef0b="" data-highlighted="" aria-selected="false" data-state="unchecked" id="reka-combobox-item-es-4" data-reka-collection-item="" textvalue="Create a new Gender" class="select-none rounded-4 border-0 text-base text-ink-gray-9 transition-colors duration-100 ease-out data-[disabled]:text-ink-gray-4 data-[highlighted]:bg-surface-alpha-gray-2 data-[state=checked]:bg-surface-gray-3 data-[highlighted]:data-[state=checked]:bg-sur…>…</div>[22m
+    [2m       - unexpected value "Create a new Gender"[22m
+
+
+      76 | 	async function select_first_result(input, text) {
+      77 | 		await input.pressSequentially(text, { delay: 100 });
+    > 78 | 		await expect(get_dropdown(input).locator("div[role='option']").first()).toContainText(
+         | 		                                                                        ^
+      79 | 			text
+      80 | 		);
+      81 | 		await input.press("Enter");
+        at select_first_result (/home/claude/fb/frappe-bench/apps/frappe/playwright/tests/control_link.spec.js:78:75)
+        at /home/claude/fb/frappe-bench/apps/frappe/playwright/tests/control_link.spec.js:337:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/control_link-Control-Link--359b2-link-field-with-language-en/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/control_link-Control-Link--359b2-link-field-with-language-en/error-context.md
+
+  3) playwright/tests/control_link.spec.js:311:6 › Control Link › show translated text for Gender link field with language de with input in de 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoContainText[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator: locator('.frappe-control[data-fieldname=link] input').locator('..').getByRole('listbox').locator('div[role=\'option\']').first()
+    Expected substring: [32m"Sonstiges"[39m
+    Received string:    [31m"Neu erstellen: Geschlecht"[39m
+    Timeout: 20000ms
+
+    Call log:
+    [2m  - Expect "toContainText" with timeout 20000ms[22m
+    [2m  - waiting for locator('.frappe-control[data-fieldname=link] input').locator('..').getByRole('listbox').locator('div[role=\'option\']').first()[22m
+    [2m    23 × locator resolved to <div role="option" tabindex="-1" data-size="sm" data-slot="item" data-v-03c0ef0b="" data-highlighted="" aria-selected="false" data-state="unchecked" id="reka-combobox-item-es-4" data-reka-collection-item="" textvalue="Neu erstellen: Geschlecht" class="select-none rounded-4 border-0 text-base text-ink-gray-9 transition-colors duration-100 ease-out data-[disabled]:text-ink-gray-4 data-[highlighted]:bg-surface-alpha-gray-2 data-[state=checked]:bg-surface-gray-3 data-[highlighted]:data-[state=checked]:…>…</div>[22m
+    [2m       - unexpected value "Neu erstellen: Geschlecht"[22m
+
+
+      76 | 	async function select_first_result(input, text) {
+      77 | 		await input.pressSequentially(text, { delay: 100 });
+    > 78 | 		await expect(get_dropdown(input).locator("div[role='option']").first()).toContainText(
+         | 		                                                                        ^
+      79 | 			text
+      80 | 		);
+      81 | 		await input.press("Enter");
+        at select_first_result (/home/claude/fb/frappe-bench/apps/frappe/playwright/tests/control_link.spec.js:78:75)
+        at /home/claude/fb/frappe-bench/apps/frappe/playwright/tests/control_link.spec.js:323:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/control_link-Control-Link--c8124-anguage-de-with-input-in-de-repeat1/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/control_link-Control-Link--c8124-anguage-de-with-input-in-de-repeat1/error-context.md
+
+  4) playwright/tests/control_link.spec.js:330:6 › Control Link › show text for Gender link field with language en 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoContainText[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator: locator('.frappe-control[data-fieldname=link] input').locator('..').getByRole('listbox').locator('div[role=\'option\']').first()
+    Expected substring: [32m"Non-Conforming"[39m
+    Received string:    [31m"Create a new Gender"[39m
+    Timeout: 20000ms
+
+    Call log:
+    [2m  - Expect "toContainText" with timeout 20000ms[22m
+    [2m  - waiting for locator('.frappe-control[data-fieldname=link] input').locator('..').getByRole('listbox').locator('div[role=\'option\']').first()[22m
+    [2m    23 × locator resolved to <div role="option" tabindex="-1" data-size="sm" data-slot="item" data-v-03c0ef0b="" data-highlighted="" aria-selected="false" data-state="unchecked" id="reka-combobox-item-es-4" data-reka-collection-item="" textvalue="Create a new Gender" class="select-none rounded-4 border-0 text-base text-ink-gray-9 transition-colors duration-100 ease-out data-[disabled]:text-ink-gray-4 data-[highlighted]:bg-surface-alpha-gray-2 data-[state=checked]:bg-surface-gray-3 data-[highlighted]:data-[state=checked]:bg-sur…>…</div>[22m
+    [2m       - unexpected value "Create a new Gender"[22m
+
+
+      76 | 	async function select_first_result(input, text) {
+      77 | 		await input.pressSequentially(text, { delay: 100 });
+    > 78 | 		await expect(get_dropdown(input).locator("div[role='option']").first()).toContainText(
+         | 		                                                                        ^
+      79 | 			text
+      80 | 		);
+      81 | 		await input.press("Enter");
+        at select_first_result (/home/claude/fb/frappe-bench/apps/frappe/playwright/tests/control_link.spec.js:78:75)
+        at /home/claude/fb/frappe-bench/apps/frappe/playwright/tests/control_link.spec.js:337:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/control_link-Control-Link--359b2-link-field-with-language-en-repeat1/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/control_link-Control-Link--359b2-link-field-with-language-en-repeat1/error-context.md
+
+  4 failed
+    playwright/tests/control_link.spec.js:311:6 › Control Link › show translated text for Gender link field with language de with input in de 
+    playwright/tests/control_link.spec.js:330:6 › Control Link › show text for Gender link field with language en 
+    playwright/tests/control_link.spec.js:311:6 › Control Link › show translated text for Gender link field with language de with input in de 
+    playwright/tests/control_link.spec.js:330:6 › Control Link › show text for Gender link field with language en 
+  48 passed (6.7m)

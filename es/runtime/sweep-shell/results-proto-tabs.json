@@ -1,0 +1,188 @@
+{
+ "page": "tabs.html",
+ "fails": 0,
+ "n": 32,
+ "results": [
+  {
+   "tag": "es-tab-list",
+   "k": "composed: 3 triggers inside a tablist",
+   "ok": true,
+   "extra": "[\"One:inactive\",\"Two (3):active\",\"Three:inactive:dis\"]"
+  },
+  {
+   "tag": "es-tabs",
+   "k": "composed: model-value \"two\" is the active trigger",
+   "ok": true,
+   "extra": "[\"One:inactive\",\"Two (3):active\",\"Three:inactive:dis\"]"
+  },
+  {
+   "tag": "es-tab-trigger",
+   "k": "suffix slot inside trigger",
+   "ok": true
+  },
+  {
+   "tag": "es-tab-trigger",
+   "k": "disabled boolean attribute",
+   "ok": true,
+   "extra": "Three:inactive:dis"
+  },
+  {
+   "tag": "es-tab-panel",
+   "k": "only panel two visible",
+   "ok": true
+  },
+  {
+   "tag": "es-tab-panel",
+   "k": "panel content inside [role=tabpanel]",
+   "ok": true
+  },
+  {
+   "tag": "es-tabs",
+   "k": "click One -> update:modelValue on host + panel one shown",
+   "ok": true
+  },
+  {
+   "tag": "es-tabs",
+   "k": "ArrowRight activates Two (automatic activation)",
+   "ok": true
+  },
+  {
+   "tag": "es-tabs",
+   "k": "disabled Three is skipped",
+   "ok": true
+  },
+  {
+   "tag": "es-tabs",
+   "k": "jQuery-written slot text stays live",
+   "ok": true
+  },
+  {
+   "tag": "es-tabs",
+   "k": "shorthand: .prop(\"tabs\") renders triggers (condition fn honoured)",
+   "ok": true,
+   "extra": "[\"Alpha:inactive\",\"Beta:active\",\"Gamma:inactive\"]"
+  },
+  {
+   "tag": "es-tabs",
+   "k": "shorthand: <template slot=\"tab-panel\"> stamped, data-es-text bound to tab.value",
+   "ok": true,
+   "extra": "1 / Shared panel body (short=b)"
+  },
+  {
+   "tag": "es-tabs",
+   "k": "shorthand: click Gamma -> state, panel follows",
+   "ok": true,
+   "extra": "Shared panel body (short=c)"
+  },
+  {
+   "tag": "es-tabs",
+   "k": "shorthand: back to an EARLIER tab keeps the slot",
+   "ok": true,
+   "extra": "Shared panel body (short=a)"
+  },
+  {
+   "tag": "es-tab-buttons",
+   "k": "options (.prop) render, Week checked",
+   "ok": true,
+   "extra": "[\"Day:inactive\",\"Week:active\",\"Month:inactive\"]"
+  },
+  {
+   "tag": "es-tab-buttons",
+   "k": "click Month -> update:modelValue + option onClick",
+   "ok": true
+  },
+  {
+   "tag": "es-tab-buttons",
+   "k": "ArrowLeft moves focus to Week, Space selects",
+   "ok": true,
+   "extra": "Week week"
+  },
+  {
+   "tag": "es-tab-buttons",
+   "k": "sliding indicator sits on the active button",
+   "ok": true,
+   "extra": "0"
+  },
+  {
+   "tag": "es-tab-trigger",
+   "k": "lone trigger outside es-tabs does not kill the page (logs an error, renders nothing)",
+   "ok": true,
+   "extra": "<!---->"
+  },
+  {
+   "tag": "es-tab-trigger",
+   "k": ".append() trigger + panel from strings: 4 triggers",
+   "ok": true,
+   "extra": "[\"One:active\",\"Two (4):inactive\",\"Three:inactive:dis\",\"Four:inactive\"]"
+  },
+  {
+   "tag": "es-tab-panel",
+   "k": "appended panel shows on its trigger",
+   "ok": true
+  },
+  {
+   "tag": "es-tabs",
+   "k": ".prop(\"modelValue\") from jQuery switches the panel",
+   "ok": true
+  },
+  {
+   "tag": "es-tab-trigger",
+   "k": "reorder: .detach() + .append() to same tab-list (same task): One last, still active, no error",
+   "ok": true,
+   "extra": "{\"order\":[\"Two (4):inactive\",\"Three:inactive:dis\",\"Four:inactive\",\"One:active\"],\"e\":[]}"
+  },
+  {
+   "tag": "es-tab-trigger",
+   "k": ".remove(): 3 triggers",
+   "ok": true
+  },
+  {
+   "tag": "es-tabs",
+   "k": ".clone() of composed tabs: own TabsRoot, 3 triggers, own selection",
+   "ok": true,
+   "extra": "[\"Two (4):active\",\"Three:inactive:dis\",\"One:inactive\"]"
+  },
+  {
+   "tag": "es-tabs",
+   "k": "clone starts from the copied model-value attribute (two), not the .prop value",
+   "ok": true,
+   "extra": "Panel two, count=4"
+  },
+  {
+   "tag": "es-tabs",
+   "k": "clone switches independently of the original",
+   "ok": true,
+   "extra": "Panel one / Panel two, count=4"
+  },
+  {
+   "tag": "es-tabs",
+   "k": "created inside a larger jQuery template: 2 triggers, nested es-text-input in panel",
+   "ok": true
+  },
+  {
+   "tag": "es-tabs",
+   "k": "panel switch away and back: input value (Desk sets it via jQuery) -- unmounted panels lose DOM state",
+   "ok": true,
+   "extra": "value after switch back=kept"
+  },
+  {
+   "tag": "es-tabs",
+   "k": ".empty() on es-tabs: no triggers, no error",
+   "ok": true
+  },
+  {
+   "tag": "es-tab-buttons",
+   "k": "replace options + modelValue with .prop",
+   "ok": true,
+   "extra": "[\"Quarter:inactive\",\"Year:active\"]"
+  },
+  {
+   "tag": "es-tab-buttons",
+   "k": ".detach() + .prepend() keeps state",
+   "ok": true
+  }
+ ],
+ "errs": [
+  "console: Error: Injection `Symbol(TabsRootContext)` not found. Component must be used within `TabsRoot`\n    at injectContext (http://jq.test/dist/es-ui.iife.js:13332:13)\n    at setup (http://jq.test/dist/es-ui.iife.js:30098:27)\n    at callWithErrorHandling (http://jq.test/dist/es-ui.iife.js:2619:21)\n    at s"
+ ]
+}

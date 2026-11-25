@@ -1,0 +1,60 @@
+{
+ "results": [
+  {
+   "k": "page-header-base (no shell) teleports into the registered page-header-target",
+   "pass": true,
+   "info": "tgt"
+  },
+  {
+   "k": "page-header-base: $attrs (class) land on the teleported <header>",
+   "pass": false,
+   "info": "z-10 flex min-h-12 flex-col justify-center border-b bg-surface-base px-3 sm:px-5"
+  },
+  {
+   "k": "page-header-base anchor <span hidden> stays at declaration site",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "teleported base header slot stays live (click + interpolation)",
+   "pass": true,
+   "info": "Base header for Grace"
+  },
+  {
+   "k": "clicking header background scrolls its declaration scroll parent to top",
+   "pass": true,
+   "info": "0"
+  },
+  {
+   "k": "second header (page-header in v-if) also teleported to the same target",
+   "pass": true,
+   "info": "Slot title Grace"
+  },
+  {
+   "k": "page-header-title default slot overrides title",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "v-if false removes the teleported header",
+   "pass": true,
+   "info": "2 -> 1"
+  },
+  {
+   "k": "standalone page-header-mobile-title (title prop)",
+   "pass": true,
+   "info": "Standalone mobile title"
+  },
+  {
+   "k": "standalone page-header-title slot-only, interpolated",
+   "pass": true,
+   "info": "Slot only Grace"
+  },
+  {
+   "k": "standalone back button: icon-only ghost button, aria-label \"Back\" (default label) + chevron",
+   "pass": true,
+   "info": ""
+  }
+ ],
+ "errs": []
+}

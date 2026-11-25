@@ -1,0 +1,524 @@
+{
+ "page": "fields.html",
+ "fails": 2,
+ "n": 90,
+ "results": [
+  {
+   "tag": "es-fw-text-field",
+   "k": "initial value from .prop(modelValue)",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-text-field",
+   "k": "label + description from .prop(field)",
+   "ok": true,
+   "extra": "Data field Plain text"
+  },
+  {
+   "tag": "es-fw-text-field",
+   "k": "typing -> update:modelValue",
+   "ok": true,
+   "extra": "Grace"
+  },
+  {
+   "tag": "es-fw-text-field",
+   "k": "change on commit (component event, exactly once)",
+   "ok": true,
+   "extra": "data=\"Grace\""
+  },
+  {
+   "tag": "es-fw-text-field",
+   "k": "element keeps v-model value (el.modelValue)",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-textarea-field",
+   "k": "v-model",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-password-field",
+   "k": "v-model",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-password-field",
+   "k": "masked",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-phone-field",
+   "k": "v-model",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-number-field",
+   "k": "Float formatted",
+   "ok": true,
+   "extra": "1.50"
+  },
+  {
+   "tag": "es-fw-number-field",
+   "k": "Float parses to number + change",
+   "ok": true,
+   "extra": "12.345 data=\"Grace\";hours=12.345"
+  },
+  {
+   "tag": "es-fw-number-field",
+   "k": "Int initial",
+   "ok": true,
+   "extra": "3"
+  },
+  {
+   "tag": "es-fw-number-field",
+   "k": "Int v-model number",
+   "ok": true,
+   "extra": "7"
+  },
+  {
+   "tag": "es-fw-number-field",
+   "k": "Currency shows value",
+   "ok": true,
+   "extra": "10"
+  },
+  {
+   "tag": "es-fw-check-field",
+   "k": "starts unchecked",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-check-field",
+   "k": "click -> 1 + change",
+   "ok": true,
+   "extra": "1 data=\"Grace\";hours=12.345;done=1"
+  },
+  {
+   "tag": "es-fw-check-field",
+   "k": "keyboard Space -> 0",
+   "ok": true,
+   "extra": "0"
+  },
+  {
+   "tag": "es-fw-select-field",
+   "k": "picks option",
+   "ok": true,
+   "extra": "Closed"
+  },
+  {
+   "tag": "es-fw-select-field",
+   "k": "trigger shows value",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-select-field",
+   "k": "keyboard Enter/ArrowDown/Enter picks next",
+   "ok": true,
+   "extra": "Cancelled"
+  },
+  {
+   "tag": "es-fw-autocomplete-field",
+   "k": "lists options on click",
+   "ok": true,
+   "extra": "Apple,Banana,Cherry"
+  },
+  {
+   "tag": "es-fw-autocomplete-field",
+   "k": "pick",
+   "ok": true,
+   "extra": "Banana"
+  },
+  {
+   "tag": "es-fw-link-field",
+   "k": "fetches search_link with txt",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-link-field",
+   "k": "shows options",
+   "ok": true,
+   "extra": "Grace Hopper"
+  },
+  {
+   "tag": "es-fw-link-field",
+   "k": "keyboard select -> v-model + change",
+   "ok": true,
+   "extra": "grace@example.com data=\"Grace\";hours=12.345;done=1;done=0;user=\"grace@example.com\""
+  },
+  {
+   "tag": "es-fw-dynamic-link-field",
+   "k": ".prop(row, doc) -> enabled",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-dynamic-link-field",
+   "k": "without row/DocKey disabled",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-date-field",
+   "k": "displays value",
+   "ok": true,
+   "extra": "2026-11-20"
+  },
+  {
+   "tag": "es-fw-date-field",
+   "k": "picker picks a day",
+   "ok": true,
+   "extra": "2026-11-25"
+  },
+  {
+   "tag": "es-fw-datetime-field",
+   "k": "displays value",
+   "ok": true,
+   "extra": "2026-11-20 10:30:00"
+  },
+  {
+   "tag": "es-fw-time-field",
+   "k": "displays value",
+   "ok": true,
+   "extra": "09:15"
+  },
+  {
+   "tag": "es-fw-duration-field",
+   "k": "displays value",
+   "ok": true,
+   "extra": "Duration / 1h"
+  },
+  {
+   "tag": "es-fw-rating-field",
+   "k": "5 stars, 0.4 -> 2 filled",
+   "ok": true,
+   "extra": "5 filled,filled,empty,empty,empty"
+  },
+  {
+   "tag": "es-fw-rating-field",
+   "k": "click 4th star -> 0.8",
+   "ok": true,
+   "extra": "0.8 filled,filled,filled,filled,empty"
+  },
+  {
+   "tag": "es-fw-color-field",
+   "k": "hex shown",
+   "ok": true,
+   "extra": "#ff0000"
+  },
+  {
+   "tag": "es-fw-color-field",
+   "k": "swatch teleported into the field row",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-color-field",
+   "k": "pick -> change",
+   "ok": true,
+   "extra": "data=\"Grace\";hours=12.345;done=1;done=0;user=\"grace@example.com\";color=\"#7c7c7c\""
+  },
+  {
+   "tag": "es-fw-heading-field",
+   "k": "renders label",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-html-field",
+   "k": "sanitized",
+   "ok": true,
+   "extra": "<es-slots hidden=\"\"></es-slots><div class=\"prose prose-sm max-w-none text-ink-gray-8\"><p id=\"html-p\">Hello <b>bold</b></p><img src=\"x\"></div>"
+  },
+  {
+   "tag": "es-fw-button-field",
+   "k": "native click bubbles to host .on(click), once",
+   "ok": true,
+   "extra": "data=\"Grace\";hours=12.345;done=1;done=0;user=\"grace@example.com\";color=\"#7c7c7c\";btn=1"
+  },
+  {
+   "tag": "es-fw-button-field",
+   "k": "keyboard Enter clicks",
+   "ok": true,
+   "extra": "data=\"Grace\";hours=12.345;done=1;done=0;user=\"grace@example.com\";color=\"#7c7c7c\";btn=1;btn=1"
+  },
+  {
+   "tag": "es-fw-image-field",
+   "k": "uses modelValue",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-code-editor-field",
+   "k": "renders codemirror",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-code-editor-field",
+   "k": "typing -> v-model",
+   "ok": true,
+   "extra": "\"{\\\"a\\\": 1} \""
+  },
+  {
+   "tag": "es-fw-geolocation-field",
+   "k": "summary of initial point",
+   "ok": true,
+   "extra": "12.97000°N, 77.59000°E"
+  },
+  {
+   "tag": "es-fw-geolocation-field",
+   "k": "dialog with leaflet map + marker",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-geolocation-field",
+   "k": "Save -> geojson v-model, dialog closed",
+   "ok": true,
+   "extra": "{\"type\":\"FeatureCollection\",\"features\":[{\"type\":\"Feature\",\"properties\":{},\"geometry\":{\"type\":\"Point\""
+  },
+  {
+   "tag": "es-fw-table-multi-select-field",
+   "k": "options from search_link",
+   "ok": true,
+   "extra": "Ada Lovelace|Grace Hopper|Linus T"
+  },
+  {
+   "tag": "es-fw-table-multi-select-field",
+   "k": "-> child rows",
+   "ok": true,
+   "extra": "[{\"tag\":\"ada@example.com\",\"__row_id\":\"row-1\"}]"
+  },
+  {
+   "tag": "es-fw-table-field",
+   "k": "add row -> v-model",
+   "ok": true,
+   "extra": "[{\"item\":\"\",\"__row_id\":\"row-2\"}]"
+  },
+  {
+   "tag": "es-fw-table-field",
+   "k": "row drawn with an editor (standalone, no FormLayout; needs ResolveFieldKey provided app-wide)",
+   "ok": true,
+   "extra": "[1] frameworkUI exposed=true"
+  },
+  {
+   "tag": "es-fw-table-field",
+   "k": "no render errors drawing the row",
+   "ok": true,
+   "extra": ""
+  },
+  {
+   "tag": "es-fw-attach-field",
+   "k": "opens upload dialog",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-attach-field",
+   "k": "upload -> file_url v-model",
+   "ok": true,
+   "extra": "\"/files/hello.txt\""
+  },
+  {
+   "tag": "page",
+   "k": "no page errors in core scenarios apart from TableField (native change never reaches .on(change) handlers)",
+   "ok": true,
+   "extra": ""
+  },
+  {
+   "tag": "es-fw-text-field",
+   "k": "created from HTML string in a template, JSON field attr -> label + value",
+   "ok": true,
+   "extra": "From template"
+  },
+  {
+   "tag": "es-fw-text-field",
+   "k": "template appended BEFORE .prop(field): no crash, renders once props arrive",
+   "ok": true,
+   "extra": "{\"ok1\":1,\"errs\":[]} Late props"
+  },
+  {
+   "tag": "es-fw-text-field",
+   "k": "no console error while the element sat connected without its required field prop",
+   "ok": false,
+   "extra": "error: TypeError: Cannot read properties of undefined (reading 'label')\n    at Proxy.<anonymous> (http://jq.test/dist/es-ui.iife.js:194:12483)\n    at xS (http://jq.test/dist/es-ui.iife.js:19:19969)\n    at Yg.Me [as fn] (http://jq.test/dist/es-ui.iife.js:19:30859)\n    at Yg.run (http://jq.test/dist/e"
+  },
+  {
+   "tag": "es-fw-text-field",
+   "k": "same order inside ES.batch(): renders once with props, no console error",
+   "ok": true,
+   "extra": ""
+  },
+  {
+   "tag": "es-fw-text-field",
+   "k": ".prop(modelValue) after mount updates the input",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-text-field",
+   "k": ".prop(field, new object) relabels",
+   "ok": true,
+   "extra": "Relabelled * (required) Plain text"
+  },
+  {
+   "tag": "es-fw-text-field",
+   "k": "in-place mutation of the field object + .prop(field, sameRef) re-renders",
+   "ok": true,
+   "extra": "Mutated * (required) Plain text"
+  },
+  {
+   "tag": "es-fw-text-field",
+   "k": "props of the field element (for reference)",
+   "ok": true,
+   "extra": "field,modelValue,row,error"
+  },
+  {
+   "tag": "es-fw-text-field",
+   "k": ".detach().appendTo() keeps value and stays live",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-text-field",
+   "k": "events still reach the page after the move",
+   "ok": true,
+   "extra": "after move"
+  },
+  {
+   "tag": "es-fw-text-field",
+   "k": ".empty() on host remounts with props kept",
+   "ok": true,
+   "extra": "after move"
+  },
+  {
+   "tag": "es-fw-text-field",
+   "k": "listeners kept after .empty()",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-text-field",
+   "k": ".html(x) on host: component still rendered",
+   "ok": true,
+   "extra": "<es-slots hidden=\"\"><span id=\"junk\">junk</span></es-slots><div class=\"space-y-1.5\"><label id=\"frappe-ui-es-93-label\" for=\"frappe-ui-es-93\" data-slot=\"label\" class=\"block text-sm leading-tighter text-i"
+  },
+  {
+   "tag": "es-fw-text-field",
+   "k": ".clone() of attr-configured field renders independently",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-text-field",
+   "k": "clone has its own state",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-text-field",
+   "k": ".clone() of a .prop-configured field: props are not copied (contract) - renders without crash",
+   "ok": false,
+   "extra": "{\"html\":38} error: TypeError: Cannot read properties of undefined (reading 'label')\n    at Proxy.<anonymous> (http://jq.test/dist/es-ui.iife.js:160:16811)\n    at xS (http://jq.test/dist/es-ui.iife.js:19:19969)\n    at Yg.Me [as fn] (http://jq.test/dist/es-ui.iife.js:19:30859)\n    at Yg.run (http://jq"
+  },
+  {
+   "tag": "es-fw-text-field",
+   "k": ".remove() unmounts (no leftover rendered nodes)",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-select-field",
+   "k": "after .detach().appendTo(): dropdown still positions + picks",
+   "ok": true,
+   "extra": "Open"
+  },
+  {
+   "tag": "es-fw-select-field",
+   "k": ".prop(field) with new options -> menu shows them",
+   "ok": true,
+   "extra": "Open,Closed,Cancelled,On Hold"
+  },
+  {
+   "tag": "es-fw-select-field",
+   "k": ".remove() closes cleanly (no orphan listbox)",
+   "ok": true,
+   "extra": ""
+  },
+  {
+   "tag": "es-fw-check-field",
+   "k": ".prop(modelValue,1) checks without emitting change",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-check-field",
+   "k": "detach/append keeps checked",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-link-field",
+   "k": "built in a fragment with .find().prop() then appended: opens + lists",
+   "ok": true,
+   "extra": "Ada Lovelace|Grace Hopper|Linus T"
+  },
+  {
+   "tag": "es-fw-link-field",
+   "k": ".remove() of the wrapper unmounts the field",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-date-field",
+   "k": ".prop(modelValue) shows new date",
+   "ok": true,
+   "extra": "2026-01-02"
+  },
+  {
+   "tag": "es-fw-date-field",
+   "k": "after move: picker opens anchored under the input",
+   "ok": true,
+   "extra": "[{\"x\":856,\"y\":557,\"width\":224,\"height\":262},{\"x\":856,\"y\":822.796875,\"width\":400,\"height\":28,\"top\":822.796875,\"right\":1256,\"bottom\":850.796875,\"left\":856}]"
+  },
+  {
+   "tag": "es-fw-table-field",
+   "k": ".prop(modelValue, rows) redraws rows",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-table-field",
+   "k": "detach/append keeps rows",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-geolocation-field",
+   "k": "after move: dialog + leaflet map",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-geolocation-field",
+   "k": ".remove() no errors",
+   "ok": true,
+   "extra": ""
+  },
+  {
+   "tag": "es-fw-code-editor-field",
+   "k": ".prop(modelValue) updates codemirror",
+   "ok": true,
+   "extra": "{\"b\": 2}"
+  },
+  {
+   "tag": "es-fw-code-editor-field",
+   "k": "detach/append keeps the editor content",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-rating-field",
+   "k": ".prop(modelValue,1) -> 5 filled",
+   "ok": true,
+   "extra": "filled,filled,filled,filled,filled model=1"
+  },
+  {
+   "tag": "es-fw-rating-field",
+   "k": "clone + .prop renders its own value",
+   "ok": true
+  },
+  {
+   "tag": "page",
+   "k": "page errors during Desk operations (all)",
+   "ok": true,
+   "extra": "error: TypeError: Cannot read properties of undefined (reading 'label')\n    at Proxy.<anonymous> (http://jq.test/dist/es-ui.iife.js:194:12483)\n    at xS (http://jq.test/dist/es-ui.iife.js:19:19969)\n    at Yg.Me [as fn] (http://jq.test/dist/es-ui.iife.js:19:30859)\n    at Yg.run (http://jq.test/dist/e"
+  }
+ ],
+ "errs": [
+  "http 404 http://jq.test/sweep-framework-ui/pages/x",
+  "error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+  "http 404 http://jq.test/dist/none.png",
+  "error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+  "error: TypeError: Cannot read properties of undefined (reading 'label')\n    at Proxy.<anonymous> (http://jq.test/dist/es-ui.iife.js:194:12483)\n    at xS (http://jq.test/dist/es-ui.iife.js:19:19969)\n    at Yg.Me [as fn] (http://jq.test/dist/es-ui.iife.js:19:30859)\n    at Yg.run (http://jq.test/dist/es-ui.ii",
+  "error: TypeError: Cannot read properties of undefined (reading 'label')\n    at Proxy.<anonymous> (http://jq.test/dist/es-ui.iife.js:160:16811)\n    at xS (http://jq.test/dist/es-ui.iife.js:19:19969)\n    at Yg.Me [as fn] (http://jq.test/dist/es-ui.iife.js:19:30859)\n    at Yg.run (http://jq.test/dist/es-ui.ii"
+ ]
+}

@@ -1,0 +1,66 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="/dist/es-ui.css">
+<script src="/jquery.js"></script>
+<script src="/dist/es-ui.iife.js"></script>
+</head><body class="p-6">
+<div id="app" class="space-y-4"></div>
+<div id="desk" class="space-y-4 border-t mt-4 pt-4" style="margin-left:300px"></div>
+<script>
+// jQuery port of wc/sweep/overlays/pages/menus.html (Dropdown, ContextMenu) + Desk-style operations.
+$(function () {
+  const S = window.S = { dd: false, cm: false, notify: true, log: [] }
+  const push = (x) => { S.log.push(x); $('.logn').text(S.log.length) }
+  const own = ($el, ev, fn) => $el.on(ev, function (e) { if (e.target === e.currentTarget) fn(e.originalEvent.detail, e) })
+  const $app = $('#app')
+  $('<button id="dd-open" class="border px-2">open dd from state</button>').on('click', () => $('#dd').prop('open', true)).appendTo($app)
+
+  const ddOptions = () => [
+    { group: 'Actions', options: [
+      { label: 'Edit', icon: 'lucide-pencil', onClick: () => push('edit') },
+      { label: 'Share', submenu: [{ label: 'Email', onClick: () => push('email') }, { label: 'Link', onClick: () => push('link') }] },
+      { label: 'Notify', switch: true, switchValue: S.notify, onClick: (v) => { S.notify = v; push('notify-' + v); $('#dd').prop('options', ddOptions()) } },
+    ] },
+    { group: 'Danger', options: [{ label: 'Delete', theme: 'red', slot: 'danger', onClick: () => push('delete') }] },
+  ]
+  const $w1 = $('<div style="margin-left:300px; margin-top:80px"></div>').appendTo($app)
+  own($(`<es-dropdown id="dd">
+      <es-button id="dd-trigger" label="Menu" icon-right="lucide-chevron-down"></es-button>
+      <span slot="item-danger" id="dd-danger" class="text-ink-red-6">Delete forever (<span class="logn">0</span>)</span>
+    </es-dropdown>`).prop('options', ddOptions()), 'update:open', (v) => (S.dd = v)).appendTo($w1)
+
+  // item-suffix: one plain light-DOM node (rendered per row => clones) and a <template> (stamped per row)
+  const $w3 = $('<div style="margin-left:300px"></div>').appendTo($app)
+  $(`<es-dropdown id="dd3" button='{"label":"Suffix menu"}'><span slot="item-suffix" class="dd-suffix">⌘<span class="logn">0</span></span></es-dropdown>`)
+    .prop('options', [{ label: 'One' }, { label: 'Two' }, { label: 'Three' }]).appendTo($w3)
+  $(`<es-dropdown id="dd4" button='{"label":"Tpl suffix menu"}'><template slot="item-suffix"><kbd class="dd4-suffix" data-es-text="item.label"></kbd></template></es-dropdown>`)
+    .prop('options', [{ label: 'One' }, { label: 'Two' }, { label: 'Three' }])
+    .on('es-slot', (e) => { const d = e.originalEvent.detail; $(d.nodes).attr('data-row', d.scope && d.scope.item && d.scope.item.label) })
+    .appendTo($w3)
+
+  // empty options: slot="trigger" plain button, slot="empty"
+  const $w2 = $('<div style="margin-left:300px"></div>').appendTo($app)
+  $(`<es-dropdown id="dd2"><button slot="trigger" id="dd2-trigger" class="border px-2">Empty menu</button><div slot="empty" id="dd2-empty">Nothing here</div></es-dropdown>`).prop('options', []).appendTo($w2)
+
+  // ContextMenu: default slot is the right-clickable region
+  own($(`<es-context-menu id="cm"><div id="cm-area" class="border p-10 w-80">Right click here (<span class="logn">0</span>)</div></es-context-menu>`)
+    .prop('options', [
+      { label: 'Copy', onClick: () => push('copy') },
+      { label: 'Paste', disabled: true, onClick: () => push('paste') },
+      { label: 'More', submenu: [{ label: 'Deep', onClick: () => push('deep') }] },
+    ]), 'update:open', (v) => (S.cm = v)).appendTo($app)
+  $app.append('<div style="height:200px"></div>')
+
+  // Desk: a list-row template with a row-actions dropdown per row, built from an HTML string
+  const rows = ['ToDo-1', 'ToDo-2', 'ToDo-3']
+  const $list = $('<div class="list-rows"></div>')
+  for (const name of rows) {
+    const $row = $(`<div class="list-row flex gap-2 items-center" data-name="${name}"><span class="title">${name}</span>
+        <es-dropdown class="row-dd"><es-button label="..." class="row-dd-btn"></es-button></es-dropdown></div>`)
+    $row.find('.row-dd').prop('options', [{ label: 'Open', onClick: () => push('open:' + name) }, { label: 'Delete', onClick: () => { push('del:' + name); $row.remove() } }])
+    $list.append($row)
+  }
+  $('#desk').append($list)
+  window.READY = true
+})
+</script>
+</body></html>

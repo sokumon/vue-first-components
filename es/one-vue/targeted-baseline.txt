@@ -1,0 +1,51 @@
+ok   form builder: fields drawn
+ok   form builder: store edit re-renders the field label  {"shown":true,"is_reactive":true}
+ok   form builder: clicking a field selects it
+FAIL form builder: one Vue copy among loaded esbuild bundles  ["vue_first8.bundle.NY7TRGTH.js","file_uploader.bundle.A2UZYJPE.js","build_events.bundle.RD2CSZCA.js","form_builder.bundle.ALIKUHWX.js"]
+ok   form builder: no console errors / Vue warnings (v8 spike errors listed apart)  {"real":[],"spike":[]}
+ok   print format builder: setup screen drawn (Crumb Format has no saved layout)
+FAIL print format builder: store ref swaps setup/canvas; zoom ref re-renders label and style  {"canvas":true,"label":"70%","css":"0.7","back":true}
+FAIL print format builder: one Vue copy among loaded esbuild bundles  ["vue_first8.bundle.NY7TRGTH.js","file_uploader.bundle.A2UZYJPE.js","build_events.bundle.RD2CSZCA.js","print_format_builder.bundle.OOKTSWIG.js"]
+ok   print format builder: no console errors / Vue warnings (v8 spike errors listed apart)  {"real":[],"spike":["error: TypeError: Cannot set properties of undefined (setting 'fieldobj')\n    at Oa.make (http://v5.localhost:8000/assets/frappe/dist/js/vue_first8.bundle.NY7TRGTH.js:37:17279)\n    at Oa.make (http://v5.localhost:8000/assets/frappe/dist/js/vue_first8.bundle.NY7TRGTH.js:39:5081)\n    at Oa.mounted (http://v5","error: TypeError: Cannot set properties of undefined (setting 'fieldobj')\n    at frappe.ui.form.ControlColor.make (http://v5.localhost:8000/assets/frappe/dist/js/vue
+ok   workflow builder: @vue-flow nodes drawn  {"nodes":5}
+ok   workflow builder: zoom in button changes the viewport (vue-flow store)  {"t0":"translate(0px, 0px) scale(1)","t1":"translate(-70.3px, -63.7px) scale(1.2)"}
+ok   workflow builder: store push draws a new node  {"n":6,"text":true}
+FAIL workflow builder: one Vue copy among loaded esbuild bundles  ["vue_first8.bundle.NY7TRGTH.js","file_uploader.bundle.A2UZYJPE.js","build_events.bundle.RD2CSZCA.js","workflow_builder.bundle.Z56VI4GT.js"]
+ok   workflow builder: no console errors / Vue warnings (v8 spike errors listed apart)  {"real":[],"spike":["error: TypeError: Cannot set properties of undefined (setting 'fieldobj')\n    at Oa.make (http://v5.localhost:8000/assets/frappe/dist/js/vue_first8.bundle.NY7TRGTH.js:37:17279)\n    at Oa.make (http://v5.localhost:8000/assets/frappe/dist/js/vue_first8.bundle.NY7TRGTH.js:39:5081)\n    at Oa.mounted (http://v5"]}
+ok   layout builder: mounts with rows from the store  {"rows":42,"text":true,"has_drag":true}
+ok   layout builder: select/update/deselect re-render  {"open":true,"relabel":true,"closed":true,"dirty":true}
+ok   layout builder: destroy unmounts  0
+FAIL layout builder: one Vue copy among loaded esbuild bundles  ["vue_first8.bundle.NY7TRGTH.js","file_uploader.bundle.A2UZYJPE.js","build_events.bundle.RD2CSZCA.js","layout_builder.bundle.AWPKWB5T.js"]
+ok   layout builder: no console errors / Vue warnings (v8 spike errors listed apart)  {"real":[],"spike":[]}
+ok   file uploader: dialog drawn
+ok   file uploader: picked file listed (input -> files ref -> FilePreview)
+ok   file uploader: bundle watch() on files shows the Upload button  {"visible":true,"text":"UploadingUpload"}
+FAIL file uploader: one Vue copy among loaded esbuild bundles  ["vue_first8.bundle.NY7TRGTH.js","file_uploader.bundle.A2UZYJPE.js","build_events.bundle.RD2CSZCA.js"]
+ok   file uploader: no console errors / Vue warnings (v8 spike errors listed apart)  {"real":[],"spike":[]}
+ok   kanban: board drawn, vue.bundle executed before kanban_board  {"cols":3,"cards":35,"vue_first":true}
+FAIL kanban: one Vue copy among loaded esbuild bundles  ["vue_first8.bundle.NY7TRGTH.js","file_uploader.bundle.A2UZYJPE.js","build_events.bundle.RD2CSZCA.js"]
+ok   kanban: no console errors / Vue warnings (v8 spike errors listed apart)  {"real":[],"spike":[]}
+ok   build events: success toast renders on a build_event  {"ok_text":"Compiled successfully  Refresh","ok_vis":true}
+FAIL build events: one Vue copy among loaded esbuild bundles  ["vue_first8.bundle.NY7TRGTH.js","file_uploader.bundle.A2UZYJPE.js","build_events.bundle.RD2CSZCA.js"]
+ok   build events: no console errors / Vue warnings (v8 spike errors listed apart)  {"real":[],"spike":[]}
+ok   mobile nav: drawn at phone width  {"relabel":true,"state":"active","items":4,"visible":59}
+ok   mobile nav: attribute/prop changes re-render the custom element  {"relabel":true,"state":"active","items":4,"visible":59}
+ok   mobile nav: tapping Search navigates and the bar is drawn again  {"before":"http://v5.localhost:8000/desk/build/todo","after":"http://v5.localhost:8000/desk/search"}
+FAIL mobile nav: one Vue copy among loaded esbuild bundles  ["vue_first8.bundle.NY7TRGTH.js","file_uploader.bundle.A2UZYJPE.js","mobile_nav.bundle.ACJ5PNDD.js","build_events.bundle.RD2CSZCA.js"]
+ok   mobile nav: no console errors / Vue warnings (v8 spike errors listed apart)  {"real":[],"spike":[]}
+FAIL website /me: file uploader loads with Vue  {"uploader":true,"vue":false,"scripts":["file_uploader.bundle.A2UZYJPE.js","frappe-web.bundle.M5XNIVSS.js","website_script.js"]}
+FAIL website /me: one Vue copy among loaded esbuild bundles  ["file_uploader.bundle.A2UZYJPE.js"]
+ok   website /me: no console errors / Vue warnings (v8 spike errors listed apart)  {"real":[],"spike":[]}
+FAIL website /test-grid-dropdown/new: file uploader loads with Vue  {"uploader":true,"vue":false,"scripts":["file_uploader.bundle.A2UZYJPE.js","frappe-web.bundle.M5XNIVSS.js","website_script.js","web_form.bundle.KY6EMARD.js"]}
+FAIL website /test-grid-dropdown/new: one Vue copy among loaded esbuild bundles  ["file_uploader.bundle.A2UZYJPE.js"]
+FAIL website /test-grid-dropdown/new: no console errors / Vue warnings (v8 spike errors listed apart)  {"real":["pageerror: Class extends value undefined is not a constructor or null @ at http://v5.localhost:8000/assets/frappe/dist/js/web_form.bundle.KY6EMARD.js:87:69"],"spike":[]}
+FAIL shared reactivity: form-builder-made reactive drives uploader render  {"a_is_reactive":true,"a_initial":true,"a_updated":false,"b_initial":true,"b_updated":false,"c_computed":"no frappe.Vue.computed","same_runtime":true,"same_raw":true}
+FAIL shared reactivity: uploader-made reactive drives form builder render  {"a_is_reactive":true,"a_initial":true,"a_updated":false,"b_initial":true,"b_updated":false,"c_computed":"no frappe.Vue.computed","same_runtime":true,"same_raw":true}
+FAIL shared reactivity: computed across apps, same runtime, one proxy per object  {"a_is_reactive":true,"a_initial":true,"a_updated":false,"b_initial":true,"b_updated":false,"c_computed":"no frappe.Vue.computed","same_runtime":true,"same_raw":true}
+FAIL two bundles on one page (form builder + file uploader): one Vue copy among loaded esbuild bundles  ["vue_first8.bundle.NY7TRGTH.js","file_uploader.bundle.A2UZYJPE.js","build_events.bundle.RD2CSZCA.js","form_builder.bundle.ALIKUHWX.js"]
+ok   two bundles on one page (form builder + file uploader): no console errors / Vue warnings (v8 spike errors listed apart)  {"real":[],"spike":[]}
+FAIL two bundles on one page (mobile nav + kanban, phone): steps ran  "page.evaluate: TypeError: frappe.Vue.reactive is not a function\n    at eval (eval at evaluate (:290:30), <anonymous>:4:25)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+FAIL two bundles on one page (mobile nav + kanban, phone): one Vue copy among loaded esbuild bundles  ["vue_first8.bundle.NY7TRGTH.js","file_uploader.bundle.A2UZYJPE.js","mobile_nav.bundle.ACJ5PNDD.js","build_events.bundle.RD2CSZCA.js"]
+ok   two bundles on one page (mobile nav + kanban, phone): no console errors / Vue warnings (v8 spike errors listed apart)  {"real":[],"spike":[]}
+
+29 pass, 20 fail

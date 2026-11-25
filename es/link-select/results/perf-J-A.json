@@ -1,0 +1,50 @@
+{
+ "label": "J-A",
+ "started": "2026-11-24T16:20:13.892Z",
+ "open User (ms)": 172.7,
+ "open User controls": {
+  "link": 6,
+  "select": 5,
+  "all": 106
+ },
+ "open ToDo (new) (ms)": 86.6,
+ "open ToDo (new) controls": {
+  "link": 6,
+  "select": 2,
+  "all": 18
+ },
+ "open Workflow (new) (ms)": 80.9,
+ "open Workflow (new) controls": {
+  "link": 1,
+  "select": 0,
+  "all": 17
+ },
+ "make 200 Link controls (ms)": 717.3,
+ "make 200 Select controls (ms)": 1956.7,
+ "set_input on 200 Link (ms)": 68.6,
+ "refresh() on 200 Link (ms)": 72.5,
+ "set_input on 200 Select (ms)": 801.7,
+ "dialog 40 Link + 10 Select, new+show (ms)": 386.9,
+ "DOM nodes per Link control": 84,
+ "DOM nodes per Select control": 174,
+ "JS listeners per Link control": 24,
+ "JS listeners per Select control": 40,
+ "DOM nodes left after removing 600 controls": 76500,
+ "heap per Link control (KB)": 123.89,
+ "heap per Select control (KB)": 224.8,
+ "heap left after removing 600 controls (KB)": 87029,
+ "open Sales Invoice (new) (ms)": 268.8,
+ "open Sales Invoice (new) controls": {
+  "link": 52,
+  "select": 4,
+  "all": 208
+ },
+ "open Stock Entry (new) (ms)": 138,
+ "open Stock Entry (new) controls": {
+  "link": 27,
+  "select": 3,
+  "all": 80
+ },
+ "heap growth per new Sales Invoice (KB, 5 opens)": 565.4,
+ "heap after (MB)": 34.4
+}

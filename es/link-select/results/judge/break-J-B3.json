@@ -1,0 +1,402 @@
+{
+ "label": "J-B3",
+ "form-switch-docs": {
+  "J1": {
+   "allocated_to": {
+    "v": "Administrator",
+    "seen": {
+     "m": "in",
+     "t": "Administrator"
+    }
+   },
+   "status": {
+    "v": "Open",
+    "seen": {
+     "m": "in",
+     "t": "Open"
+    }
+   },
+   "priority": {
+    "v": "High",
+    "seen": {
+     "m": "in",
+     "t": "High"
+    }
+   },
+   "reference_type": {
+    "v": "User",
+    "seen": {
+     "m": "in",
+     "t": "User"
+    }
+   },
+   "reference_name": {
+    "v": "Administrator",
+    "seen": {
+     "m": "in",
+     "t": "Administrator"
+    }
+   }
+  },
+  "J2": {
+   "allocated_to": {
+    "v": "Guest",
+    "seen": {
+     "m": "in",
+     "t": "Guest"
+    }
+   },
+   "status": {
+    "v": "Cancelled",
+    "seen": {
+     "m": "in",
+     "t": "Cancelled"
+    }
+   },
+   "priority": {
+    "v": "Low",
+    "seen": {
+     "m": "in",
+     "t": "Low"
+    }
+   },
+   "reference_type": {
+    "v": "Role",
+    "seen": {
+     "m": "in",
+     "t": "Role"
+    }
+   },
+   "reference_name": {
+    "v": "System Manager",
+    "seen": {
+     "m": "in",
+     "t": "System Manager"
+    }
+   }
+  },
+  "J1_again": {
+   "allocated_to": {
+    "v": "Administrator",
+    "seen": {
+     "m": "in",
+     "t": "Administrator"
+    }
+   },
+   "status": {
+    "v": "Open",
+    "seen": {
+     "m": "in",
+     "t": "Open"
+    }
+   },
+   "priority": {
+    "v": "High",
+    "seen": {
+     "m": "in",
+     "t": "High"
+    }
+   },
+   "reference_type": {
+    "v": "User",
+    "seen": {
+     "m": "in",
+     "t": "User"
+    }
+   },
+   "reference_name": {
+    "v": "Administrator",
+    "seen": {
+     "m": "in",
+     "t": "Administrator"
+    }
+   }
+  },
+  "after_reload_doc": {
+   "allocated_to": {
+    "v": "Administrator",
+    "seen": {
+     "m": "in",
+     "t": "Administrator"
+    }
+   },
+   "status": {
+    "v": "Open",
+    "seen": {
+     "m": "in",
+     "t": "Open"
+    }
+   },
+   "priority": {
+    "v": "High",
+    "seen": {
+     "m": "in",
+     "t": "High"
+    }
+   },
+   "reference_type": {
+    "v": "User",
+    "seen": {
+     "m": "in",
+     "t": "User"
+    }
+   },
+   "reference_name": {
+    "v": "Administrator",
+    "seen": {
+     "m": "in",
+     "t": "Administrator"
+    }
+   }
+  }
+ },
+ "switch-doc-with-list-open": {
+  "open_before": 3,
+  "listbox_after": [
+   "Guest",
+   "Create a new User",
+   "Advanced Search"
+  ],
+  "J2": {
+   "allocated_to": {
+    "v": "Guest",
+    "seen": {
+     "m": "in",
+     "t": "Guest"
+    }
+   },
+   "status": {
+    "v": "Cancelled",
+    "seen": {
+     "m": "in",
+     "t": "Cancelled"
+    }
+   },
+   "priority": {
+    "v": "Low",
+    "seen": {
+     "m": "in",
+     "t": "Low"
+    }
+   },
+   "reference_type": {
+    "v": "Role",
+    "seen": {
+     "m": "in",
+     "t": "Role"
+    }
+   },
+   "reference_name": {
+    "v": "System Manager",
+    "seen": {
+     "m": "in",
+     "t": "System Manager"
+    }
+   }
+  },
+  "J1_doc": {
+   "allocated_to": "Administrator",
+   "dirty": false
+  },
+  "J1": {
+   "allocated_to": {
+    "v": "Administrator",
+    "seen": {
+     "m": "in",
+     "t": "Administrator"
+    }
+   },
+   "status": {
+    "v": "Open",
+    "seen": {
+     "m": "in",
+     "t": "Open"
+    }
+   },
+   "priority": {
+    "v": "High",
+    "seen": {
+     "m": "in",
+     "t": "High"
+    }
+   },
+   "reference_type": {
+    "v": "User",
+    "seen": {
+     "m": "in",
+     "t": "User"
+    }
+   },
+   "reference_name": {
+    "v": "Administrator",
+    "seen": {
+     "m": "in",
+     "t": "Administrator"
+    }
+   }
+  }
+ },
+ "read-only-toggle": {
+  "ro": {
+   "allocated_to": {
+    "v": "Administrator",
+    "seen": {
+     "m": "disp",
+     "t": "Administrator",
+     "href": "/desk/user/Administrator"
+    }
+   },
+   "status": {
+    "v": "Open",
+    "seen": {
+     "m": "disp",
+     "t": "Open",
+     "href": null
+    }
+   },
+   "priority": {
+    "v": "High",
+    "seen": {
+     "m": "in",
+     "t": "High"
+    }
+   },
+   "reference_type": {
+    "v": "User",
+    "seen": {
+     "m": "in",
+     "t": "User"
+    }
+   },
+   "reference_name": {
+    "v": "Administrator",
+    "seen": {
+     "m": "disp",
+     "t": "Administrator",
+     "href": "/desk/user/Administrator"
+    }
+   }
+  },
+  "rw": {
+   "allocated_to": {
+    "v": "Administrator",
+    "seen": {
+     "m": "in",
+     "t": "Administrator"
+    }
+   },
+   "status": {
+    "v": "Open",
+    "seen": {
+     "m": "in",
+     "t": "Open"
+    }
+   },
+   "priority": {
+    "v": "High",
+    "seen": {
+     "m": "in",
+     "t": "High"
+    }
+   },
+   "reference_type": {
+    "v": "User",
+    "seen": {
+     "m": "in",
+     "t": "User"
+    }
+   },
+   "reference_name": {
+    "v": "Administrator",
+    "seen": {
+     "m": "in",
+     "t": "Administrator"
+    }
+   }
+  },
+  "toggle_enable_false": {
+   "m": "disp",
+   "t": "High",
+   "href": null
+  },
+  "frm_set_read_only": {
+   "allocated_to": {
+    "v": "Administrator",
+    "seen": {
+     "m": "disp",
+     "t": "Administrator",
+     "href": "/desk/user/Administrator"
+    }
+   },
+   "status": {
+    "v": "Open",
+    "seen": {
+     "m": "disp",
+     "t": "Open",
+     "href": null
+    }
+   },
+   "priority": {
+    "v": "High",
+    "seen": {
+     "m": "disp",
+     "t": "High",
+     "href": null
+    }
+   },
+   "reference_type": {
+    "v": "User",
+    "seen": {
+     "m": "disp",
+     "t": "User",
+     "href": "/desk/doctype/User"
+    }
+   },
+   "reference_name": {
+    "v": "Administrator",
+    "seen": {
+     "m": "disp",
+     "t": "Administrator",
+     "href": "/desk/user/Administrator"
+    }
+   }
+  },
+  "after_reload": {
+   "allocated_to": {
+    "v": "Administrator",
+    "seen": {
+     "m": "in",
+     "t": "Administrator"
+    }
+   },
+   "status": {
+    "v": "Open",
+    "seen": {
+     "m": "in",
+     "t": "Open"
+    }
+   },
+   "priority": {
+    "v": "High",
+    "seen": {
+     "m": "in",
+     "t": "High"
+    }
+   },
+   "reference_type": {
+    "v": "User",
+    "seen": {
+     "m": "in",
+     "t": "User"
+    }
+   },
+   "reference_name": {
+    "v": "Administrator",
+    "seen": {
+     "m": "in",
+     "t": "Administrator"
+    }
+   }
+  }
+ }
+}

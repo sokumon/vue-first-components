@@ -1,0 +1,11 @@
+FAIL es-toast-provider | standalone provider shows ES.toast.error with action, exactly once :: {"tt":["Failed / Retry","Failed / Retry"],"toasters":2}
+PASS es-toast-provider | error toast has an icon
+FAIL es-toast-provider | core (threw) :: locator.click: Timeout 4000ms exceeded.
+PASS es-dialogs | standalone es-dialogs renders dialog.danger() exactly once :: 1
+PASS es-dialogs | async onConfirm runs and closes :: deleted
+PASS es-dialogs | imperative dialog Escape closes
+FAIL es-toast-provider | .detach() + .append() (same task): toast shown, one toaster :: {"n":2,"e":[]}
+PASS es-toast-provider | after .remove(): ES.toast still shows (one toaster) :: 1
+PASS es-dialogs | after .remove(): ES.dialog still renders once (root Dialogs)
+console errors/warnings: 0
+3 FAILED of 9

@@ -1,0 +1,35 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../build/es-wc-spike.css">
+<script defer src="../build/es-components.js"></script>
+<script defer src="../build/petite-vue.iife.js"></script>
+</head><body class="p-6">
+<div id="app" v-scope="{
+  uploaded: null, failed: '', up2: null, txt: 'hello', sel: 'b', chk: false, area: 'x', who: 'Ada',
+  opts: [{label:'A',value:'a'},{label:'B',value:'b'}],
+  noBig: (f) => f.size > 10 ? 'Too big: ' + f.name : null,
+  pick(ev) { ev.target.closest('es-file-uploader').querySelector('input[type=file]').click() },
+  dump() { return JSON.stringify({uploaded:this.uploaded,failed:this.failed,up2:this.up2,txt:this.txt,sel:this.sel,chk:this.chk,area:this.area}) } }" class="space-y-4 max-w-md">
+  <pre id="state">{{ dump() }}</pre>
+
+  <!-- default UI: built-in Upload button -->
+  <es-file-uploader id="fu" upload-endpoint="http://upload.test/api/method/upload_file" :file-types="['.txt', '.png']"
+    @success="uploaded = $event.detail[0]" @failure="failed = String($event.detail[0])"></es-file-uploader>
+  <!-- validateFile fn prop -->
+  <es-file-uploader id="fu-val" upload-endpoint="http://upload.test/api/method/upload_file" :validate-file="noBig"
+    @failure="failed = String($event.detail[0])"></es-file-uploader>
+  <!-- custom default slot: scoped props (openFileSelector, progress) unreachable; host opens the hidden input itself -->
+  <es-file-uploader id="fu-slot" upload-endpoint="http://upload.test/api/method/upload_file" @success="up2 = $event.detail[0]">
+    <button id="fu-slot-btn" @click="pick($event)">Attach for {{ who }}</button>
+  </es-file-uploader>
+
+  <!-- FormControl dispatcher: modelValue/options are not FormControl props (fall-through attrs) -->
+  <es-form-control id="fc-text" label="Text" description="fc desc" :model-value="txt" @update:model-value="txt = $event.detail[0]">
+    <span slot="prefix" id="fc-prefix">P</span>
+  </es-form-control>
+  <es-form-control id="fc-sel" type="select" label="Select" :options="opts" :model-value="sel" @update:model-value="sel = $event.detail[0]"></es-form-control>
+  <es-form-control id="fc-chk" type="checkbox" label="Check" :model-value="chk" @update:model-value="chk = $event.detail[0]"></es-form-control>
+  <es-form-control id="fc-area" type="textarea" label="Area" :model-value="area" @update:model-value="area = $event.detail[0]"></es-form-control>
+  <es-form-control id="fc-num" type="number" label="Num" placeholder="nr"></es-form-control>
+</div>
+<script>addEventListener('DOMContentLoaded', () => PetiteVue.createApp().mount('#app'))</script>
+</body></html>

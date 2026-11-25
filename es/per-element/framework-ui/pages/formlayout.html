@@ -1,0 +1,38 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="/build/fw-sweep.css">
+<script defer src="/build/es-components.js"></script>
+<script defer src="/petite-vue.iife.js"></script>
+</head><body class="p-6">
+<div id="app" v-scope="{
+  doc: { subject: 'Fix bug', status: 'Open', reason: '', done: 0, items: [] },
+  tab: '', active: '', log: [],
+  layout: [
+    { name: 'details', label: 'Details', sections: [
+      { name: 's1', label: 'Main', columns: [
+        { fields: [
+          { fieldname: 'subject', fieldtype: 'Data', label: 'Subject', reqd: true },
+          { fieldname: 'status', fieldtype: 'Select', label: 'Status', options: 'Open\nClosed' },
+        ] },
+        { fields: [
+          { fieldname: 'reason', fieldtype: 'Data', label: 'Close reason', dependsOn: 'eval:doc.status==\'Closed\'' },
+          { fieldname: 'done', fieldtype: 'Check', label: 'Done', ui: { on: { change: (v) => window.__commits = (window.__commits || []).concat([v]) } } },
+        ] },
+      ] },
+    ] },
+    { name: 'more', label: 'More', sections: [
+      { name: 's2', label: 'Items', columns: [ { fields: [
+        { fieldname: 'items', fieldtype: 'Table', label: 'Items', options: 'Row', childFields: [ { fieldname: 'item', fieldtype: 'Data', label: 'Item', in_list_view: 1 } ] },
+      ] } ] },
+    ] },
+  ],
+}">
+  <pre id="state" class="text-xs">{{ JSON.stringify({ doc, tab, active, log }) }}</pre>
+  <es-fw-form-layout id="c-form" :layout="layout" :doc="doc" @update:doc="doc = $event.detail[0]"
+     :tab="tab" @update:tab="tab = $event.detail[0]" @update:active-tab="active = $event.detail[0]; log.push('at:' + $event.detail[0] + ':' + $event.type)"></es-fw-form-layout>
+  <button id="set-subject" @click="doc.subject = 'From host'">host mutates doc.subject</button>
+  <button id="replace-doc" @click="doc = Object.assign({}, doc, { subject: 'Replaced' })">host replaces doc</button>
+  <button id="poke" @click="log.push('poke')">poke</button>
+  <button id="go-more" @click="tab = 'more'">host selects tab More</button>
+</div>
+<script>window.EsBindSlot = (el, p) => { const s = PetiteVue.reactive(p), app = PetiteVue.createApp(s).mount(el); return { update: (n) => Object.assign(s, n), unmount: () => app.unmount() } }; addEventListener('DOMContentLoaded', () => PetiteVue.createApp().mount('#app'))</script>
+</body></html>

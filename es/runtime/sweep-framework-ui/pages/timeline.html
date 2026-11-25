@@ -1,0 +1,43 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="/dist/es-ui.css">
+<link rel="stylesheet" href="page.css">
+<script src="/jquery.js"></script>
+<script src="/dist/es-ui.iife.js"></script>
+</head><body class="p-6">
+<!-- jQuery port of wc/sweep/framework-ui/pages/timeline.html -->
+<pre id="state" class="text-xs"></pre>
+<div id="app"></div>
+<div id="desk" class="border-t mt-4 pt-4"></div>
+<script>
+$(function () {
+  const S = window.S = { n: 0, editing: false, saved: '', discards: 0, more: 0, log: [] }
+  const ada = { fullname: 'Ada Lovelace', email: 'ada@example.com', name: 'ada@example.com' }
+  const acts = window.ACTS = [
+    { type: 'log', key: 'l1', timestamp: '2026-11-20 10:00:00', author: ada, data: { name: 'l1', subtype: 'created', text: 'created this' } },
+    { type: 'version', key: 'v1', timestamp: '2026-11-20 10:05:00', author: ada, data: { name: 'v1', type: 'diff', prefix: 'changed', fieldname: 'status', from: 'Open', to: 'Closed' } },
+    { type: 'comment', key: 'c1', timestamp: '2026-11-20 10:10:00', author: ada, data: { name: 'c1', content: '<p>Looks <b>good</b></p>', attachments: [{ file_url: '/files/notes.txt', file_name: 'notes.txt' }] } },
+    { type: 'email', key: 'e1', timestamp: '2026-11-20 10:20:00', author: ada, data: { name: 'e1', subject: 'Re: bug', sender: 'ada@example.com', to: 'grace@example.com', content: '<p>Email body here</p>' } },
+    { type: 'attachment_log', key: 'a1', timestamp: '2026-11-20 10:30:00', author: ada, data: { name: 'a1', action: 'added', fileName: 'spec.pdf', isPrivate: false } },
+  ]
+  const paginate = { hasNextPage: true, isFetchingNextPage: false, fetchNextPage() { S.more++; show() }, loadMore: { position: 'top', label: 'Older activity' } }
+  const show = () => { $('#state').text(JSON.stringify({ n: S.n, editing: S.editing, saved: S.saved, discards: S.discards, more: S.more })); $('#tl-empty .m').text(S.more); $('#tc-child .n').text(S.n) }
+  const own = ($el, ev, fn) => $el.on(ev, function (e) { if (e.target === e.currentTarget) { fn(e.originalEvent.detail, e); show() } })
+  window.own = own; window.show = show
+  $('<es-fw-activity-timeline id="c-tl" class="block h-[28rem]"><span slot="icon-log" class="logicon">L</span></es-fw-activity-timeline>').prop({ activities: acts, paginate }).appendTo('#app')
+  $('<es-fw-activity-timeline id="c-tl-empty"><div slot="empty" id="tl-empty">Quiet here (<span class="m"></span>)</div></es-fw-activity-timeline>').prop('activities', []).appendTo('#app')
+  $('<es-fw-activity-timeline id="c-tl-tpl"><template slot="item-comment"><div class="tplcomment">Comment <span data-es-text="activity.key"></span> by <span data-es-text="activity.author.fullname"></span></div></template></es-fw-activity-timeline>').prop('activities', acts).appendTo('#app')
+  $('<es-fw-timeline-container id="c-tc"><p id="tc-child">container child <span class="n"></span></p></es-fw-timeline-container>').appendTo('#app')
+  const $ci = $('<es-fw-comment-item id="c-comment"><button slot="actions" id="edit-btn">Edit</button></es-fw-comment-item>').prop({ comment: acts[2], editable: false })
+  $ci.find('#edit-btn').on('click', () => { S.editing = true; $('#c-comment').prop('editable', true); show() })
+  own($ci, 'save', (v) => { S.saved = v; S.editing = false; $('#c-comment').prop('editable', false) })
+  own($ci, 'discard', () => { S.discards++; S.editing = false; $('#c-comment').prop('editable', false) })
+  $ci.appendTo('#app')
+  $('<es-fw-email-item id="c-email"><div slot="footer" id="email-footer">Reply to <span class="s"></span></div></es-fw-email-item>').prop('email', acts[3]).find('.s').text(acts[3].data.sender).end().appendTo('#app')
+  $('<es-fw-log-item id="c-log">').prop('activity', acts[0]).appendTo('#app')
+  $('<es-fw-version-item id="c-version">').prop('activity', acts[1]).appendTo('#app')
+  $('<es-fw-attachment-chip id="c-chip" label="readme.md" url="/files/readme.md"></es-fw-attachment-chip>').appendTo('#app')
+  show()
+  window.READY = true
+})
+</script>
+</body></html>

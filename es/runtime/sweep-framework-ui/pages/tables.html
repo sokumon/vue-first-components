@@ -1,0 +1,73 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="/dist/es-ui.css">
+<link rel="stylesheet" href="page.css">
+<script src="/jquery.js"></script>
+<script src="/dist/es-ui.iife.js"></script>
+</head><body class="p-6">
+<!-- jQuery port of wc/sweep/framework-ui/pages/tables.html: experimental List + BulkBar + Footer, GroupByTable, Grid -->
+<pre id="state" class="text-xs"></pre>
+<div id="app"></div>
+<div id="desk" class="border-t mt-4 pt-4"></div>
+<script>
+// app-level router for List rowLink (RouterLink): Desk would install its own; one app -> one install
+ES.configure((app) => { const VR = ES.VueRouter; window.__router = VR.createRouter({ history: VR.createMemoryHistory(), routes: [{ path: '/:p(.*)*', component: { render: () => null } }] }); app.use(window.__router) })
+$(function () {
+  const S = window.S = {
+    cols: [{ fieldname: 'name', label: 'ID' }, { fieldname: 'status', label: 'Status' }, { fieldname: 'hours', label: 'Hours', align: 'right' }],
+    rows: [{ name: 'T-1', status: 'Open', hours: 2 }, { name: 'T-2', status: 'Closed', hours: 5 }, { name: 'T-3', status: 'Open', hours: 1 }],
+    selection: [], sort: [], pageSize: 20, loadMore: 0, resized: [],
+    grows: [{ item: 'Apple', qty: 1 }, { item: 'Pear', qty: 2 }], gcols: [{ fieldname: 'item', label: 'Item', reqd: true }, { fieldname: 'qty', label: 'Qty', fieldtype: 'Int', align: 'right' }],
+    gev: [],
+    gb: { fields: ['status'], aggregates: [{ function: 'count' }, { function: 'sum', fieldname: 'hours' }], showTotals: true },
+    log: [],
+  }
+  const actions = [{ label: 'Archive', onClick(sel) { window.__bulk = sel.slice() } }]
+  const show = () => $('#state').text(JSON.stringify({ selection: S.selection, sort: S.sort, pageSize: S.pageSize, loadMore: S.loadMore, resized: S.resized, grows: S.grows, gev: S.gev, gb: S.gb }))
+  const own = ($el, ev, fn) => $el.on(ev, function (e) { if (e.target === e.currentTarget) { fn(e.originalEvent.detail, e); show() } })
+  window.own = own; window.show = show
+  const setSel = (v) => { S.selection = v; $('#c-list').prop('selection', v); $('#c-bulk').prop('selection', v) }
+  const setGrows = (v) => { S.grows = v; $('#c-grid, #c-grid-tpl').prop('modelValue', v) }
+  const box = (cls) => $('<div>').addClass(cls).appendTo('#app')
+  const $b1 = box('relative flex h-72 flex-col border')
+  own($('<es-fw-list id="c-list" class="flex min-h-0 flex-1 flex-col">').prop({ columns: S.cols, rows: S.rows, selection: S.selection, sort: S.sort }), 'update:selection', setSel)
+    .on('update:sort', (e) => { S.sort = e.originalEvent.detail; show() })
+    .on('column-resize', (e) => { S.resized.push(e.originalEvent.detail); show() }).appendTo($b1)
+  own($('<es-fw-list-bulk-bar id="c-bulk">').prop({ actions, selection: S.selection }), 'update:selection', setSel).appendTo($b1)
+  own($('<es-fw-list-footer id="c-footer" has-counts>').attr('row-count', S.rows.length).attr('total-count', 10).prop('pageSize', S.pageSize), 'update:pageSize', (v) => { S.pageSize = v; $('#c-footer').prop('pageSize', v) })
+    .on('load-more', () => { S.loadMore++; show() }).appendTo($b1)
+  $(`<div class="flex h-40 flex-col border mt-2"><es-fw-list id="c-list-cell" class="flex min-h-0 flex-1 flex-col"><span slot="cell" class="cellslot">CELL</span><div slot="empty">nothing here</div></es-fw-list></div>`)
+    .find('es-fw-list').prop({ columns: S.cols, rows: S.rows }).end().appendTo('#app')
+  $(`<div class="flex h-24 flex-col border mt-2"><es-fw-list id="c-list-empty" class="flex min-h-0 flex-1 flex-col"><div slot="empty" id="empty-slot">Nothing for ${S.cols.length} columns</div></es-fw-list></div>`)
+    .find('es-fw-list').prop({ columns: S.cols, rows: [] }).end().appendTo('#app')
+  $(`<div class="flex h-24 flex-col border mt-2"><es-fw-list id="c-list-link" class="flex min-h-0 flex-1 flex-col"></es-fw-list></div>`)
+    .find('es-fw-list').prop({ columns: S.cols, rows: S.rows.slice(0, 1), rowLink: () => (r) => '/todo/' + r.name }).end().appendTo('#app')
+  $(`<div class="flex h-48 flex-col border mt-2"><es-fw-group-by-table id="c-gbt" doctype="ToDo"></es-fw-group-by-table></div>`)
+    .find('es-fw-group-by-table').prop({ groupBy: S.gb, rows: [{ status: 'Open', _aggregate_0: 2, _aggregate_1: 3 }, { status: 'Closed', _aggregate_0: 1, _aggregate_1: 5 }], totals: { _aggregate_0: 3, _aggregate_1: 8 } })
+    .on('update:groupBy', function (e) { S.gb = e.originalEvent.detail; show() }).end().appendTo('#app')
+  // scoped #cell <template>: text bound with data-es-text, the rest filled from the es-slot event
+  $(`<div class="flex h-40 flex-col border mt-2"><es-fw-list id="c-list-tpl" class="flex min-h-0 flex-1 flex-col">
+      <template slot="cell"><span class="tplcell"><span data-es-text="column.fieldname"></span>=<span data-es-text="value"></span></span></template></es-fw-list></div>`)
+    .find('es-fw-list').prop({ columns: S.cols, rows: S.rows }).end().appendTo('#app')
+  // Grid with an editor per cell: a <template slot="cell"> wired from es-slot (scope: value, update(), commit())
+  const $gt = $(`<es-fw-grid id="c-grid-tpl" class="mt-2 block" label="Editable"><template slot="cell"><input class="gcell w-full px-2"></template></es-fw-grid>`)
+    .prop({ columns: S.gcols, modelValue: S.grows })
+    .on('es-slot', (e) => {
+      const d = e.originalEvent.detail, $i = $(d.nodes).filter('input')
+      $i.data('scope', d.scope)
+      if (document.activeElement !== $i[0]) $i.val(d.scope.value == null ? '' : d.scope.value)
+      if (!d.update) $i.on('input', function () { $(this).data('scope').update(this.value) }).on('change', function () { $(this).data('scope').commit(this.value) })
+    })
+  own($gt, 'update:modelValue', setGrows)
+  own($gt, 'commit', (v) => S.gev.push('commit:' + v.column.fieldname))
+  $gt.appendTo('#app')
+  const $g = $('<es-fw-grid id="c-grid" class="mt-2 block" label="Items">').prop({ columns: S.gcols, modelValue: S.grows,
+    // jQuery's .prop() CALLS a function value (value-callback form): function props are passed wrapped once
+    newRow: () => () => ({ item: 'New', qty: 0 }), cellError: () => (row, col) => (col.fieldname === 'qty' && row.qty === 0 ? 'Qty required' : undefined) })
+  own($g, 'update:modelValue', setGrows)
+  own($g, 'add', () => S.gev.push('add')); own($g, 'change', () => S.gev.push('change')); own($g, 'remove', (v) => S.gev.push('remove:' + v.rows.length))
+  $g.appendTo('#app')
+  show()
+  window.READY = true
+})
+</script>
+</body></html>

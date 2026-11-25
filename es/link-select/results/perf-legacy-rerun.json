@@ -1,0 +1,45 @@
+{
+ "label": "legacy-rerun",
+ "started": "2026-11-24T13:15:49.072Z",
+ "open User (ms)": 187.7,
+ "open User controls": {
+  "link": 6,
+  "select": 5,
+  "all": 106
+ },
+ "open ToDo (new) (ms)": 70.4,
+ "open ToDo (new) controls": {
+  "link": 6,
+  "select": 2,
+  "all": 18
+ },
+ "open Workflow (new) (ms)": 67.2,
+ "open Workflow (new) controls": {
+  "link": 1,
+  "select": 0,
+  "all": 17
+ },
+ "make 200 Link controls (ms)": 106.5,
+ "make 200 Select controls (ms)": 108.5,
+ "set_input on 200 Link (ms)": 11.3,
+ "refresh() on 200 Link (ms)": 14,
+ "set_input on 200 Select (ms)": 4.6,
+ "dialog 40 Link + 10 Select, new+show (ms)": 54.1,
+ "heap per Link control (KB)": 5.98,
+ "heap per Select control (KB)": -0.25,
+ "heap left after removing 600 controls (KB)": 437.8,
+ "open Sales Invoice (new) (ms)": 243.7,
+ "open Sales Invoice (new) controls": {
+  "link": 52,
+  "select": 4,
+  "all": 208
+ },
+ "open Stock Entry (new) (ms)": 134.7,
+ "open Stock Entry (new) controls": {
+  "link": 27,
+  "select": 3,
+  "all": 80
+ },
+ "heap growth per new Sales Invoice (KB, 5 opens)": 694.6,
+ "heap after (MB)": 23.6
+}

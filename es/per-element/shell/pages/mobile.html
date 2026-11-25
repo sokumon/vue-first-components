@@ -1,0 +1,31 @@
+<!doctype html><html><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="es-wc-spike.css">
+<script defer src="es-components.js"></script>
+<script defer src="petite-vue.iife.js"></script>
+</head><body>
+<div id="app" v-scope="{ tab: 'home', title: 'Inbox', logs: [], log(m) { this.logs.push(m) } }">
+  <p id="state" class="fixed top-14 right-0 z-50 bg-white text-xs">tab={{ tab }}|title={{ title }}</p>
+  <p id="log" class="fixed top-20 right-0 z-50 bg-white text-xs">{{ logs.join(',') }}</p>
+  <es-mobile-shell id="ms">
+    <es-page-header-mobile id="phm">
+      <es-page-header-back-button slot="prefix" id="back" label="Back" fallback-route="/home"></es-page-header-back-button>
+      <es-page-header-mobile-title id="phmt" :title="title + ' (' + tab + ')'">
+        <span slot="prefix" id="phmt-prefix" class="lucide-inbox size-4"></span>
+      </es-page-header-mobile-title>
+      <es-button slot="suffix" id="phm-act" icon="lucide-plus" variant="ghost" @click="log('plus'); title = 'Drafts'"></es-button>
+    </es-page-header-mobile>
+    <div id="mcontent" class="p-4">
+      <p>Mobile content {{ tab }}</p>
+      <div v-for="i in 60" class="py-3 border-b">Item {{ i }}</div>
+    </div>
+    <es-mobile-nav slot="nav" id="nav">
+      <es-mobile-nav-item id="mn-home" label="Home" icon="lucide-home" :active="tab==='home'" @click="tab='home'; log('home')"></es-mobile-nav-item>
+      <es-mobile-nav-item id="mn-search" label="Search" icon="lucide-search" :active="tab==='search'" @click="tab='search'; log('search')"></es-mobile-nav-item>
+      <es-mobile-nav-item id="mn-me" label="Me" :active="tab==='me'" @click="tab='me'; log('me')"><span id="mn-me-slot" class="size-6 rounded-full bg-surface-gray-4 text-xs">AL</span></es-mobile-nav-item>
+      <es-mobile-nav-item id="mn-link" label="Docs" icon="lucide-book" href="https://example.com/docs"></es-mobile-nav-item>
+    </es-mobile-nav>
+  </es-mobile-shell>
+</div>
+<script>addEventListener('DOMContentLoaded', () => PetiteVue.createApp().mount('#app'))</script>
+</body></html>

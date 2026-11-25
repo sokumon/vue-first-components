@@ -1,0 +1,1640 @@
+{
+ "results": {
+  "es-alert": [
+   [
+    true,
+    "row layout, role=status, title prop",
+    ""
+   ],
+   [
+    true,
+    "title prop does not leave a native title tooltip on the host",
+    ""
+   ],
+   [
+    true,
+    ":icon=\"false\" hides the status icon (Boolean false via property)",
+    ""
+   ],
+   [
+    true,
+    "banner layout from description; red -> role=alert",
+    ""
+   ],
+   [
+    true,
+    "secondaryAction object onClick runs",
+    ""
+   ],
+   [
+    true,
+    "primaryAction onClick({dismiss}) -> dismiss event -> jQuery .remove() removes alert",
+    ""
+   ],
+   [
+    true,
+    "named slots title/description/prefix land in their regions",
+    ""
+   ],
+   [
+    true,
+    "actions slot (non-scoped use) lands in actions region",
+    ""
+   ],
+   [
+    true,
+    "slot content stays reactive (click in actions slot -> title slot interpolation)",
+    ""
+   ],
+   [
+    true,
+    "dismissible x emits dismiss",
+    ""
+   ],
+   [
+    true,
+    "jq: attr icon=\"false\" also hides the icon (Boolean reads \"false\")",
+    ""
+   ],
+   [
+    true,
+    "jq: .prop(\"title\") reads the title prop back; attr moved to es-title",
+    ""
+   ],
+   [
+    true,
+    "jq: .attr(\"title\", x) after mount updates the prop, no native tooltip",
+    ""
+   ],
+   [
+    true,
+    "jq: .attr(\"theme\",\"red\") re-renders (role=alert)",
+    ""
+   ],
+   [
+    true,
+    "desk: html string in a larger template renders on the next line",
+    ""
+   ],
+   [
+    true,
+    "desk: .detach() + re-append (same task) keeps the instance",
+    ""
+   ],
+   [
+    true,
+    "desk: .detach(), wait, re-append: unmounted while out, remounts with its slot content",
+    ""
+   ],
+   [
+    true,
+    "desk: .clone() renders the same (props re-applied) and leaves the original intact",
+    ""
+   ],
+   [
+    true,
+    "desk: .clone() does not turn the old render into slot content",
+    ""
+   ],
+   [
+    true,
+    "desk: .clone(): nested es-* in the clone are live and rendered",
+    ""
+   ],
+   [
+    true,
+    "desk: .html(newSlots) re-reads slot content and remounts",
+    ""
+   ],
+   [
+    true,
+    "desk: .empty() keeps a live, rendered component with no slot content",
+    ""
+   ],
+   [
+    true,
+    "desk: .remove() unmounts synchronously",
+    ""
+   ],
+   [
+    true,
+    "desk: .remove() leaves no portal leftovers",
+    ""
+   ],
+   [
+    true,
+    "desk: re-append after .remove() mounts fresh",
+    ""
+   ],
+   [
+    true,
+    "desk: ancestor .html(\"\") unmounts the host and its nested es-* at once",
+    ""
+   ],
+   [
+    false,
+    "desk events (threw)",
+    "page.evaluate: TypeError: Cannot read properties of undefined (reading 'click')"
+   ]
+  ],
+  "es-avatar": [
+   [
+    true,
+    "label initial + size xl (32px) + theme blue",
+    ""
+   ],
+   [
+    true,
+    "broken image falls back to initial",
+    ""
+   ],
+   [
+    true,
+    "image renders <img> that loaded",
+    ""
+   ],
+   [
+    true,
+    "default slot replaces initial, indicator slot in corner box",
+    ""
+   ],
+   [
+    true,
+    "class=\"size-16\" sizing override (documented) reaches the avatar root",
+    ""
+   ],
+   [
+    true,
+    "desk: html string in a larger template renders on the next line",
+    ""
+   ],
+   [
+    true,
+    "desk: .detach() + re-append (same task) keeps the instance",
+    ""
+   ],
+   [
+    true,
+    "desk: .detach(), wait, re-append: unmounted while out, remounts with its slot content",
+    ""
+   ],
+   [
+    true,
+    "desk: .clone() renders the same (props re-applied) and leaves the original intact",
+    ""
+   ],
+   [
+    true,
+    "desk: .clone() does not turn the old render into slot content",
+    ""
+   ],
+   [
+    true,
+    "desk: .clone(): nested es-* in the clone are live and rendered",
+    ""
+   ],
+   [
+    true,
+    "desk: .html(newSlots) re-reads slot content and remounts",
+    ""
+   ],
+   [
+    true,
+    "desk: .empty() keeps a live, rendered component with no slot content",
+    ""
+   ],
+   [
+    true,
+    "desk: .remove() unmounts synchronously",
+    ""
+   ],
+   [
+    true,
+    "desk: .remove() leaves no portal leftovers",
+    ""
+   ],
+   [
+    true,
+    "desk: re-append after .remove() mounts fresh",
+    ""
+   ],
+   [
+    true,
+    "desk: ancestor .html(\"\") unmounts the host and its nested es-* at once",
+    ""
+   ]
+  ],
+  "es-badge": [
+   [
+    true,
+    "label prop",
+    ""
+   ],
+   [
+    true,
+    ":label number + solid/lg",
+    ""
+   ],
+   [
+    true,
+    "prefix/default/suffix slots inside badge in order, reactive",
+    ""
+   ],
+   [
+    true,
+    "desk: html string in a larger template renders on the next line",
+    ""
+   ],
+   [
+    true,
+    "desk: .detach() + re-append (same task) keeps the instance",
+    ""
+   ],
+   [
+    true,
+    "desk: .detach(), wait, re-append: unmounted while out, remounts with its slot content",
+    ""
+   ],
+   [
+    true,
+    "desk: .clone() renders the same (props re-applied) and leaves the original intact",
+    ""
+   ],
+   [
+    true,
+    "desk: .clone() does not turn the old render into slot content",
+    ""
+   ],
+   [
+    true,
+    "desk: .clone(): nested es-* in the clone are live and rendered",
+    ""
+   ],
+   [
+    true,
+    "desk: .html(newSlots) re-reads slot content and remounts",
+    ""
+   ],
+   [
+    true,
+    "desk: .empty() keeps a live, rendered component with no slot content",
+    ""
+   ],
+   [
+    true,
+    "desk: .remove() unmounts synchronously",
+    ""
+   ],
+   [
+    true,
+    "desk: .remove() leaves no portal leftovers",
+    ""
+   ],
+   [
+    true,
+    "desk: re-append after .remove() mounts fresh",
+    ""
+   ],
+   [
+    true,
+    "desk: ancestor .html(\"\") unmounts the host and its nested es-* at once",
+    ""
+   ]
+  ],
+  "es-breadcrumbs": [
+   [
+    true,
+    "items prop renders crumbs with separators",
+    ""
+   ],
+   [
+    true,
+    "onClick item (button crumb)",
+    ""
+   ],
+   [
+    true,
+    "href+onClick: plain click runs handler and does not navigate",
+    ""
+   ],
+   [
+    true,
+    "href item navigates",
+    ""
+   ],
+   [
+    true,
+    "scoped #prefix slot rendered for every crumb",
+    ""
+   ],
+   [
+    true,
+    "overflow collapses to ellipsis dropdown + last two",
+    ""
+   ],
+   [
+    true,
+    "overflow dropdown (teleported) lists hidden crumbs",
+    ""
+   ],
+   [
+    true,
+    "route item: router-link resolves to a link",
+    ""
+   ],
+   [
+    true,
+    "jq: route item renders a real <a href> through the app router (ES.configure(app => app.use(router)))",
+    ""
+   ],
+   [
+    true,
+    "jq: clicking the route crumb navigates the shared router",
+    ""
+   ],
+   [
+    true,
+    "jq: .prop(\"items\", new array) re-renders",
+    ""
+   ],
+   [
+    false,
+    "jq: items given as a JSON .attr() string render (prop has no runtime type)",
+    "string"
+   ],
+   [
+    true,
+    "desk: html string in a larger template renders on the next line",
+    ""
+   ],
+   [
+    true,
+    "desk: .detach() + re-append (same task) keeps the instance",
+    ""
+   ],
+   [
+    true,
+    "desk: .detach(), wait, re-append: unmounted while out, remounts with its slot content",
+    ""
+   ],
+   [
+    true,
+    "desk: .clone() renders the same (props re-applied) and leaves the original intact",
+    ""
+   ],
+   [
+    true,
+    "desk: .clone() does not turn the old render into slot content",
+    ""
+   ],
+   [
+    true,
+    "desk: .clone(): nested es-* in the clone are live and rendered",
+    ""
+   ],
+   [
+    true,
+    "desk: .html(newSlots) re-reads slot content and remounts",
+    ""
+   ],
+   [
+    true,
+    "desk: .empty() keeps a live, rendered component with no slot content",
+    ""
+   ],
+   [
+    true,
+    "desk: .remove() unmounts synchronously",
+    ""
+   ],
+   [
+    true,
+    "desk: .remove() leaves no portal leftovers",
+    ""
+   ],
+   [
+    true,
+    "desk: re-append after .remove() mounts fresh",
+    ""
+   ],
+   [
+    true,
+    "desk: ancestor .html(\"\") unmounts the host and its nested es-* at once",
+    ""
+   ],
+   [
+    true,
+    "desk: ancestor .html(\"\") while the overflow menu is open removes the menu",
+    ""
+   ]
+  ],
+  "es-button": [
+   [
+    true,
+    "prefix/default/suffix slots inside <button> in order",
+    ""
+   ],
+   [
+    true,
+    "icon=\"lucide-x\" renders sized mask icon",
+    ""
+   ],
+   [
+    true,
+    "host aria-label reaches the inner <button> (icon button accessible name)",
+    ""
+   ],
+   [
+    false,
+    "default slot = one lucide icon -> square icon button (28px)",
+    "30"
+   ],
+   [
+    true,
+    "host convention: slot=\"icon\" -> square icon button (28px)",
+    ""
+   ],
+   [
+    true,
+    "tooltip prop shows bubble above the button after hover delay",
+    ""
+   ],
+   [
+    true,
+    "disabled: @click on host not fired",
+    ""
+   ],
+   [
+    true,
+    "href -> <a target=_blank>",
+    ""
+   ],
+   [
+    true,
+    "loading + loading-text: spinner, text, disabled",
+    ""
+   ],
+   [
+    true,
+    "type=submit submits the enclosing form",
+    ""
+   ],
+   [
+    true,
+    "jq: $host.text(\"…\") becomes the default slot; .text(\"\") falls back to label",
+    ""
+   ],
+   [
+    true,
+    "jq: .on(\"click\") on host fires exactly once per click (no emit collision)",
+    ""
+   ],
+   [
+    true,
+    "jq: el.focus() right after appendTo focuses the inner <button>",
+    ""
+   ],
+   [
+    true,
+    "jq: :visible and .offset() on the display:contents host",
+    ""
+   ],
+   [
+    true,
+    "desk: html string in a larger template renders on the next line",
+    ""
+   ],
+   [
+    true,
+    "desk: .detach() + re-append (same task) keeps the instance",
+    ""
+   ],
+   [
+    true,
+    "desk: .detach(), wait, re-append: unmounted while out, remounts with its slot content",
+    ""
+   ],
+   [
+    true,
+    "desk: .clone() renders the same (props re-applied) and leaves the original intact",
+    ""
+   ],
+   [
+    true,
+    "desk: .clone() does not turn the old render into slot content",
+    ""
+   ],
+   [
+    true,
+    "desk: .clone(): nested es-* in the clone are live and rendered",
+    ""
+   ],
+   [
+    true,
+    "desk: .html(newSlots) re-reads slot content and remounts",
+    ""
+   ],
+   [
+    true,
+    "desk: .empty() keeps a live, rendered component with no slot content",
+    ""
+   ],
+   [
+    true,
+    "desk: .remove() unmounts synchronously",
+    ""
+   ],
+   [
+    true,
+    "desk: .remove() leaves no portal leftovers",
+    ""
+   ],
+   [
+    true,
+    "desk: re-append after .remove() mounts fresh",
+    ""
+   ],
+   [
+    true,
+    "desk: ancestor .html(\"\") unmounts the host and its nested es-* at once",
+    ""
+   ],
+   [
+    false,
+    "desk: .clone() of a label-only button renders one <button> (no button-in-button)",
+    "[0,0,0]"
+   ],
+   [
+    false,
+    "desk delegated (threw)",
+    "page.evaluate: TypeError: Cannot read properties of undefined (reading 'click')"
+   ]
+  ],
+  "es-divider": [
+   [
+    true,
+    "horizontal rule spans the container",
+    ""
+   ],
+   [
+    true,
+    "vertical + flex-item stretches to the flex row height (40px)",
+    ""
+   ],
+   [
+    true,
+    "action button on the rule, align=start",
+    ""
+   ],
+   [
+    true,
+    "action.onClick runs",
+    ""
+   ],
+   [
+    true,
+    "desk: html string in a larger template renders on the next line",
+    ""
+   ],
+   [
+    true,
+    "desk: .detach() + re-append (same task) keeps the instance",
+    ""
+   ],
+   [
+    true,
+    "desk: .detach(), wait, re-append: unmounted while out, remounts with its slot content",
+    ""
+   ],
+   [
+    true,
+    "desk: .clone() renders the same (props re-applied) and leaves the original intact",
+    ""
+   ],
+   [
+    false,
+    "desk: .clone() does not turn the old render into slot content",
+    "[1,0,\"<div class=\\\"relative whitespace-nowrap border-0 border-outline-gray-2 flex w-ful\"]"
+   ],
+   [
+    true,
+    "desk: .clone(): nested es-* in the clone are live and rendered",
+    ""
+   ],
+   [
+    true,
+    "desk: .empty() keeps a live, rendered component with no slot content",
+    ""
+   ],
+   [
+    true,
+    "desk: .remove() unmounts synchronously",
+    ""
+   ],
+   [
+    true,
+    "desk: .remove() leaves no portal leftovers",
+    ""
+   ],
+   [
+    true,
+    "desk: re-append after .remove() mounts fresh",
+    ""
+   ],
+   [
+    true,
+    "desk: ancestor .html(\"\") unmounts the host and its nested es-* at once",
+    ""
+   ]
+  ],
+  "es-error-message": [
+   [
+    true,
+    ":message string",
+    ""
+   ],
+   [
+    true,
+    ":message array -> one line each",
+    ""
+   ],
+   [
+    true,
+    "HTML kept but sanitized (no onerror)",
+    ""
+   ],
+   [
+    true,
+    "empty message renders nothing",
+    ""
+   ],
+   [
+    true,
+    "clearing the bound message removes it",
+    ""
+   ],
+   [
+    true,
+    "desk: html string in a larger template renders on the next line",
+    ""
+   ],
+   [
+    true,
+    "desk: .detach() + re-append (same task) keeps the instance",
+    ""
+   ],
+   [
+    true,
+    "desk: .detach(), wait, re-append: unmounted while out, remounts with its slot content",
+    ""
+   ],
+   [
+    true,
+    "desk: .clone() renders the same (props re-applied) and leaves the original intact",
+    ""
+   ],
+   [
+    false,
+    "desk: .clone() does not turn the old render into slot content",
+    "[1,0,\"<div class=\\\"whitespace-pre-line text-sm text-ink-red-7\\\" role=\\\"alert\\\">Desk error<\"]"
+   ],
+   [
+    true,
+    "desk: .clone(): nested es-* in the clone are live and rendered",
+    ""
+   ],
+   [
+    true,
+    "desk: .empty() keeps a live, rendered component with no slot content",
+    ""
+   ],
+   [
+    true,
+    "desk: .remove() unmounts synchronously",
+    ""
+   ],
+   [
+    true,
+    "desk: .remove() leaves no portal leftovers",
+    ""
+   ],
+   [
+    true,
+    "desk: re-append after .remove() mounts fresh",
+    ""
+   ],
+   [
+    true,
+    "desk: ancestor .html(\"\") unmounts the host and its nested es-* at once",
+    ""
+   ]
+  ],
+  "es-form-label": [
+   [
+    true,
+    "label + required asterisk",
+    ""
+   ],
+   [
+    true,
+    ":id prop -> label[for]",
+    ""
+   ],
+   [
+    true,
+    ":id prop does not rewrite the host element id (no duplicate ids)",
+    ""
+   ],
+   [
+    true,
+    "clicking the label focuses the control",
+    ""
+   ],
+   [
+    true,
+    "unknown host attribute (data-t) not leaked camelized onto the label",
+    ""
+   ],
+   [
+    true,
+    "desk: html string in a larger template renders on the next line",
+    ""
+   ],
+   [
+    true,
+    "desk: .detach() + re-append (same task) keeps the instance",
+    ""
+   ],
+   [
+    true,
+    "desk: .detach(), wait, re-append: unmounted while out, remounts with its slot content",
+    ""
+   ],
+   [
+    true,
+    "desk: .clone() renders the same (props re-applied) and leaves the original intact",
+    ""
+   ],
+   [
+    false,
+    "desk: .clone() does not turn the old render into slot content",
+    "[1,0,\"<label class=\\\"block text-sm leading-tighter text-ink-gray-6\\\" data-slot=\\\"label\\\">D\"]"
+   ],
+   [
+    true,
+    "desk: .clone(): nested es-* in the clone are live and rendered",
+    ""
+   ],
+   [
+    true,
+    "desk: .empty() keeps a live, rendered component with no slot content",
+    ""
+   ],
+   [
+    true,
+    "desk: .remove() unmounts synchronously",
+    ""
+   ],
+   [
+    true,
+    "desk: .remove() leaves no portal leftovers",
+    ""
+   ],
+   [
+    true,
+    "desk: re-append after .remove() mounts fresh",
+    ""
+   ],
+   [
+    true,
+    "desk: ancestor .html(\"\") unmounts the host and its nested es-* at once",
+    ""
+   ]
+  ],
+  "es-icon": [
+   [
+    true,
+    "lucide icon renders a visible mask glyph",
+    ""
+   ],
+   [
+    true,
+    "class=\"size-6\" on the element sizes the glyph (Icon binds $attrs to its root)",
+    ""
+   ],
+   [
+    true,
+    "emoji",
+    ""
+   ],
+   [
+    true,
+    "name alias",
+    ""
+   ],
+   [
+    true,
+    "unsupported string renders nothing",
+    ""
+   ],
+   [
+    true,
+    "desk: html string in a larger template renders on the next line",
+    ""
+   ],
+   [
+    true,
+    "desk: .detach() + re-append (same task) keeps the instance",
+    ""
+   ],
+   [
+    true,
+    "desk: .detach(), wait, re-append: unmounted while out, remounts with its slot content",
+    ""
+   ],
+   [
+    true,
+    "desk: .clone() renders the same (props re-applied) and leaves the original intact",
+    ""
+   ],
+   [
+    false,
+    "desk: .clone() does not turn the old render into slot content",
+    "[1,0,\"<span class=\\\"lucide-star size-5\\\" aria-hidden=\\\"true\\\"></span>\"]"
+   ],
+   [
+    true,
+    "desk: .clone(): nested es-* in the clone are live and rendered",
+    ""
+   ],
+   [
+    true,
+    "desk: .empty() keeps a live, rendered component with no slot content",
+    ""
+   ],
+   [
+    true,
+    "desk: .remove() unmounts synchronously",
+    ""
+   ],
+   [
+    true,
+    "desk: .remove() leaves no portal leftovers",
+    ""
+   ],
+   [
+    true,
+    "desk: re-append after .remove() mounts fresh",
+    ""
+   ],
+   [
+    true,
+    "desk: ancestor .html(\"\") unmounts the host and its nested es-* at once",
+    ""
+   ]
+  ],
+  "es-keyboard-shortcut": [
+   [
+    true,
+    "combo Mod+K -> Ctrl+K on Linux with aria-label",
+    ""
+   ],
+   [
+    true,
+    "bg -> kbd chips (Enter as icon)",
+    ""
+   ],
+   [
+    true,
+    ":alt-combos array + :show-plus",
+    ""
+   ],
+   [
+    true,
+    "default slot fallback when no combo (reactive)",
+    ""
+   ],
+   [
+    true,
+    "desk: html string in a larger template renders on the next line",
+    ""
+   ],
+   [
+    true,
+    "desk: .detach() + re-append (same task) keeps the instance",
+    ""
+   ],
+   [
+    true,
+    "desk: .detach(), wait, re-append: unmounted while out, remounts with its slot content",
+    ""
+   ],
+   [
+    true,
+    "desk: .clone() renders the same (props re-applied) and leaves the original intact",
+    ""
+   ],
+   [
+    false,
+    "desk: .clone() does not turn the old render into slot content",
+    "[1,0,\"<span class=\\\"inline-flex items-center gap-0.5\\\" aria-label=\\\"Shortcut Control + S\\\"\"]"
+   ],
+   [
+    true,
+    "desk: .clone(): nested es-* in the clone are live and rendered",
+    ""
+   ],
+   [
+    true,
+    "desk: .html(newSlots) re-reads slot content and remounts",
+    ""
+   ],
+   [
+    true,
+    "desk: .empty() keeps a live, rendered component with no slot content",
+    ""
+   ],
+   [
+    true,
+    "desk: .remove() unmounts synchronously",
+    ""
+   ],
+   [
+    true,
+    "desk: .remove() leaves no portal leftovers",
+    ""
+   ],
+   [
+    true,
+    "desk: re-append after .remove() mounts fresh",
+    ""
+   ],
+   [
+    true,
+    "desk: ancestor .html(\"\") unmounts the host and its nested es-* at once",
+    ""
+   ]
+  ],
+  "es-spinner": [
+   [
+    true,
+    "size lg = 20px, theme red, track",
+    ""
+   ],
+   [
+    true,
+    "default 16px, animated (scoped style present)",
+    ""
+   ],
+   [
+    true,
+    "desk: html string in a larger template renders on the next line",
+    ""
+   ],
+   [
+    true,
+    "desk: .detach() + re-append (same task) keeps the instance",
+    ""
+   ],
+   [
+    true,
+    "desk: .detach(), wait, re-append: unmounted while out, remounts with its slot content",
+    ""
+   ],
+   [
+    true,
+    "desk: .clone() renders the same (props re-applied) and leaves the original intact",
+    ""
+   ],
+   [
+    false,
+    "desk: .clone() does not turn the old render into slot content",
+    "[1,0,\"<svg data-v-b805c741=\\\"\\\" class=\\\"fui-spinner inline-block shrink-0\\\" width=\\\"16\\\" hei\"]"
+   ],
+   [
+    true,
+    "desk: .clone(): nested es-* in the clone are live and rendered",
+    ""
+   ],
+   [
+    true,
+    "desk: .empty() keeps a live, rendered component with no slot content",
+    ""
+   ],
+   [
+    true,
+    "desk: .remove() unmounts synchronously",
+    ""
+   ],
+   [
+    true,
+    "desk: .remove() leaves no portal leftovers",
+    ""
+   ],
+   [
+    true,
+    "desk: re-append after .remove() mounts fresh",
+    ""
+   ],
+   [
+    true,
+    "desk: ancestor .html(\"\") unmounts the host and its nested es-* at once",
+    ""
+   ]
+  ],
+  "es-loading-indicator": [
+   [
+    true,
+    "alias of Spinner, size xs = 12px",
+    ""
+   ],
+   [
+    true,
+    "desk: html string in a larger template renders on the next line",
+    ""
+   ],
+   [
+    true,
+    "desk: .detach() + re-append (same task) keeps the instance",
+    ""
+   ],
+   [
+    true,
+    "desk: .detach(), wait, re-append: unmounted while out, remounts with its slot content",
+    ""
+   ],
+   [
+    true,
+    "desk: .clone() renders the same (props re-applied) and leaves the original intact",
+    ""
+   ],
+   [
+    false,
+    "desk: .clone() does not turn the old render into slot content",
+    "[1,0,\"<svg data-v-b805c741=\\\"\\\" class=\\\"fui-spinner inline-block shrink-0\\\" width=\\\"16\\\" hei\"]"
+   ],
+   [
+    true,
+    "desk: .clone(): nested es-* in the clone are live and rendered",
+    ""
+   ],
+   [
+    true,
+    "desk: .empty() keeps a live, rendered component with no slot content",
+    ""
+   ],
+   [
+    true,
+    "desk: .remove() unmounts synchronously",
+    ""
+   ],
+   [
+    true,
+    "desk: .remove() leaves no portal leftovers",
+    ""
+   ],
+   [
+    true,
+    "desk: re-append after .remove() mounts fresh",
+    ""
+   ],
+   [
+    true,
+    "desk: ancestor .html(\"\") unmounts the host and its nested es-* at once",
+    ""
+   ]
+  ],
+  "es-loading-text": [
+   [
+    true,
+    "default text + spinner",
+    ""
+   ],
+   [
+    true,
+    "text prop",
+    ""
+   ],
+   [
+    true,
+    "desk: html string in a larger template renders on the next line",
+    ""
+   ],
+   [
+    true,
+    "desk: .detach() + re-append (same task) keeps the instance",
+    ""
+   ],
+   [
+    true,
+    "desk: .detach(), wait, re-append: unmounted while out, remounts with its slot content",
+    ""
+   ],
+   [
+    true,
+    "desk: .clone() renders the same (props re-applied) and leaves the original intact",
+    ""
+   ],
+   [
+    false,
+    "desk: .clone() does not turn the old render into slot content",
+    "[1,0,\"<div class=\\\"flex items-center text-base text-ink-gray-4\\\"><svg data-v-b805c741=\\\"\\\"\"]"
+   ],
+   [
+    true,
+    "desk: .clone(): nested es-* in the clone are live and rendered",
+    ""
+   ],
+   [
+    true,
+    "desk: .empty() keeps a live, rendered component with no slot content",
+    ""
+   ],
+   [
+    true,
+    "desk: .remove() unmounts synchronously",
+    ""
+   ],
+   [
+    true,
+    "desk: .remove() leaves no portal leftovers",
+    ""
+   ],
+   [
+    true,
+    "desk: re-append after .remove() mounts fresh",
+    ""
+   ],
+   [
+    true,
+    "desk: ancestor .html(\"\") unmounts the host and its nested es-* at once",
+    ""
+   ]
+  ],
+  "es-progress": [
+   [
+    true,
+    ":value + label + hint",
+    ""
+   ],
+   [
+    true,
+    "reactive value update (bar, aria, hint)",
+    ""
+   ],
+   [
+    true,
+    "#hint slot reactive",
+    ""
+   ],
+   [
+    true,
+    "intervals: 2 of 4 filled",
+    ""
+   ],
+   [
+    true,
+    "value as string attribute",
+    ""
+   ],
+   [
+    true,
+    "jq: .attr(\"value\", \"20\") after mount (untyped prop gets a string)",
+    ""
+   ],
+   [
+    true,
+    "desk: html string in a larger template renders on the next line",
+    ""
+   ],
+   [
+    true,
+    "desk: .detach() + re-append (same task) keeps the instance",
+    ""
+   ],
+   [
+    true,
+    "desk: .detach(), wait, re-append: unmounted while out, remounts with its slot content",
+    ""
+   ],
+   [
+    true,
+    "desk: .clone() renders the same (props re-applied) and leaves the original intact",
+    ""
+   ],
+   [
+    true,
+    "desk: .clone() does not turn the old render into slot content",
+    ""
+   ],
+   [
+    true,
+    "desk: .clone(): nested es-* in the clone are live and rendered",
+    ""
+   ],
+   [
+    true,
+    "desk: .html(newSlots) re-reads slot content and remounts",
+    ""
+   ],
+   [
+    true,
+    "desk: .empty() keeps a live, rendered component with no slot content",
+    ""
+   ],
+   [
+    true,
+    "desk: .remove() unmounts synchronously",
+    ""
+   ],
+   [
+    true,
+    "desk: .remove() leaves no portal leftovers",
+    ""
+   ],
+   [
+    true,
+    "desk: re-append after .remove() mounts fresh",
+    ""
+   ],
+   [
+    true,
+    "desk: ancestor .html(\"\") unmounts the host and its nested es-* at once",
+    ""
+   ]
+  ],
+  "es-skeleton": [
+   [
+    true,
+    "class=\"h-4 w-32\" sizes the visible pulse block",
+    ""
+   ],
+   [
+    true,
+    "desk: html string in a larger template renders on the next line",
+    ""
+   ],
+   [
+    true,
+    "desk: .detach() + re-append (same task) keeps the instance",
+    ""
+   ],
+   [
+    true,
+    "desk: .detach(), wait, re-append: unmounted while out, remounts with its slot content",
+    ""
+   ],
+   [
+    true,
+    "desk: .clone() renders the same (props re-applied) and leaves the original intact",
+    ""
+   ],
+   [
+    false,
+    "desk: .clone() does not turn the old render into slot content",
+    "[1,0,\"<div class=\\\"fui-skeleton animate-pulse bg-surface-gray-3 block h-4 w-24\\\" aria-hi\"]"
+   ],
+   [
+    true,
+    "desk: .clone(): nested es-* in the clone are live and rendered",
+    ""
+   ],
+   [
+    true,
+    "desk: .empty() keeps a live, rendered component with no slot content",
+    ""
+   ],
+   [
+    true,
+    "desk: .remove() unmounts synchronously",
+    ""
+   ],
+   [
+    true,
+    "desk: .remove() leaves no portal leftovers",
+    ""
+   ],
+   [
+    true,
+    "desk: re-append after .remove() mounts fresh",
+    ""
+   ],
+   [
+    true,
+    "desk: ancestor .html(\"\") unmounts the host and its nested es-* at once",
+    ""
+   ]
+  ],
+  "es-tooltip": [
+   [
+    true,
+    "hover shows text bubble",
+    ""
+   ],
+   [
+    true,
+    "bubble positioned above its trigger (side=top)",
+    ""
+   ],
+   [
+    true,
+    "leaving closes it",
+    ""
+   ],
+   [
+    true,
+    "#content slot (reactive interpolation) shown, side=bottom",
+    ""
+   ],
+   [
+    true,
+    "Escape closes",
+    ""
+   ],
+   [
+    true,
+    "disabled: no bubble",
+    ""
+   ],
+   [
+    true,
+    "trigger that is itself an es-* element (es-button): bubble anchored to it",
+    ""
+   ],
+   [
+    true,
+    "keyboard focus (Tab) opens the bubble",
+    ""
+   ],
+   [
+    true,
+    "jq: .attr(\"text\") after mount shows new text",
+    ""
+   ],
+   [
+    true,
+    "jq: handlers bound on the trigger before mount survive (live nodes, not copies)",
+    ""
+   ],
+   [
+    true,
+    "desk: html string in a larger template renders on the next line",
+    ""
+   ],
+   [
+    true,
+    "desk: .detach() + re-append (same task) keeps the instance",
+    ""
+   ],
+   [
+    true,
+    "desk: .detach(), wait, re-append: unmounted while out, remounts with its slot content",
+    ""
+   ],
+   [
+    true,
+    "desk: .clone() renders the same (props re-applied) and leaves the original intact",
+    ""
+   ],
+   [
+    true,
+    "desk: .clone() does not turn the old render into slot content",
+    ""
+   ],
+   [
+    true,
+    "desk: .clone(): nested es-* in the clone are live and rendered",
+    ""
+   ],
+   [
+    true,
+    "desk: .html(newSlots) re-reads slot content and remounts",
+    ""
+   ],
+   [
+    true,
+    "desk: .empty() keeps a live, rendered component with no slot content",
+    ""
+   ],
+   [
+    true,
+    "desk: .remove() unmounts synchronously",
+    ""
+   ],
+   [
+    true,
+    "desk: .remove() leaves no portal leftovers",
+    ""
+   ],
+   [
+    true,
+    "desk: re-append after .remove() mounts fresh",
+    ""
+   ],
+   [
+    true,
+    "desk: ancestor .html(\"\") unmounts the host and its nested es-* at once",
+    ""
+   ],
+   [
+    true,
+    "desk: open bubble survives detach + re-append in the same task",
+    ""
+   ],
+   [
+    true,
+    "desk: .remove() while open removes the teleported bubble",
+    ""
+   ]
+  ],
+  "es-tooltip-provider": [
+   [
+    true,
+    "child tooltips work inside the provider",
+    ""
+   ],
+   [
+    true,
+    "provider hover-delay=0 applies to child es-tooltip (open within 150ms)",
+    ""
+   ],
+   [
+    true,
+    "child es-tooltip is a Vue descendant of the TooltipProvider (one tree)",
+    ""
+   ]
+  ],
+  "es-item-list-row": [
+   [
+    true,
+    "prefix / default label / suffix regions, size md (32px), reactive",
+    ""
+   ],
+   [
+    true,
+    "active -> data-state=active; #label slot",
+    ""
+   ],
+   [
+    true,
+    "no prefix slot -> no prefix region",
+    ""
+   ],
+   [
+    true,
+    "as=\"button\" renders a button; host @click fires",
+    ""
+   ],
+   [
+    true,
+    "disabled styling",
+    ""
+   ],
+   [
+    true,
+    "desk: html string in a larger template renders on the next line",
+    ""
+   ],
+   [
+    true,
+    "desk: .detach() + re-append (same task) keeps the instance",
+    ""
+   ],
+   [
+    true,
+    "desk: .detach(), wait, re-append: unmounted while out, remounts with its slot content",
+    ""
+   ],
+   [
+    true,
+    "desk: .clone() renders the same (props re-applied) and leaves the original intact",
+    ""
+   ],
+   [
+    true,
+    "desk: .clone() does not turn the old render into slot content",
+    ""
+   ],
+   [
+    true,
+    "desk: .clone(): nested es-* in the clone are live and rendered",
+    ""
+   ],
+   [
+    true,
+    "desk: .html(newSlots) re-reads slot content and remounts",
+    ""
+   ],
+   [
+    true,
+    "desk: .empty() keeps a live, rendered component with no slot content",
+    ""
+   ],
+   [
+    true,
+    "desk: .remove() unmounts synchronously",
+    ""
+   ],
+   [
+    true,
+    "desk: .remove() leaves no portal leftovers",
+    ""
+   ],
+   [
+    true,
+    "desk: re-append after .remove() mounts fresh",
+    ""
+   ],
+   [
+    true,
+    "desk: ancestor .html(\"\") unmounts the host and its nested es-* at once",
+    ""
+   ]
+  ],
+  "es-tree": [
+   [
+    true,
+    ":nodes + :expanded=[\"a\"] renders roots and open children",
+    ""
+   ],
+   [
+    true,
+    "item-suffix slot rendered on every row",
+    ""
+   ],
+   [
+    true,
+    "row click -> update:expanded event -> jQuery state, child shows",
+    ""
+   ],
+   [
+    true,
+    "keyboard ArrowDown moves focus",
+    ""
+   ],
+   [
+    true,
+    "keyboard ArrowLeft collapses -> update:expanded",
+    ""
+   ],
+   [
+    true,
+    "exposed expandAll() reachable on the element",
+    ""
+   ],
+   [
+    true,
+    "el.expandAll() writes the model (update:expanded event)",
+    ""
+   ],
+   [
+    true,
+    "drag-and-drop -> @drag-end detail",
+    ""
+   ],
+   [
+    true,
+    "#empty slot when nodes=[] (jQuery-updated text)",
+    ""
+   ],
+   [
+    true,
+    "jq: element keeps the v-model value (el.expanded matches last update:expanded)",
+    ""
+   ],
+   [
+    true,
+    "jq: preventDefault() on update:expanded vetoes the stored value",
+    ""
+   ],
+   [
+    true,
+    "desk: internal expand state survives detach + re-append",
+    ""
+   ],
+   [
+    false,
+    "desk state (threw)",
+    "page.evaluate: TypeError: Cannot read properties of null (reading 'nextSibling')"
+   ]
+  ],
+  "global": [
+   [
+    true,
+    ":not(:defined) guard rule present in es-ui.css",
+    ""
+   ]
+  ]
+ },
+ "errs": [
+  "console: TypeError: (n.items || []).filter is not a function\n    at Ibe.fn (http://jq.test/dist/es-ui.iife.js:52:16936)\n    at GV (http://jq.test/dist/es-ui.iife.js:10:3583)\n    at get value (http://jq.test/dist/es-ui.iife.js:10:16453)\n    at Ibe.fn (http://jq.test/dist/es-ui.iife.js:52:17229)\n    at GV (htt",
+  "console: Failed to load resource: the server responded with a status of 404 (Not Found)",
+  "pageerror: Cannot read properties of null (reading 'emitsOptions')",
+  "pageerror: Cannot read properties of null (reading 'emitsOptions')",
+  "pageerror: Cannot read properties of null (reading 'emitsOptions')",
+  "pageerror: Cannot read properties of null (reading 'emitsOptions')",
+  "pageerror: Cannot read properties of null (reading 'emitsOptions')",
+  "pageerror: Cannot read properties of null (reading 'emitsOptions')",
+  "pageerror: Cannot read properties of null (reading 'emitsOptions')"
+ ]
+}

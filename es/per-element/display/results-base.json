@@ -1,0 +1,421 @@
+{
+ "results": {
+  "es-alert": [
+   [
+    true,
+    "row layout, role=status, title prop"
+   ],
+   [
+    false,
+    "title prop does not leave a native title tooltip on the host"
+   ],
+   [
+    true,
+    ":icon=\"false\" hides the status icon (Boolean false via property)"
+   ],
+   [
+    true,
+    "banner layout from description; red -> role=alert"
+   ],
+   [
+    true,
+    "secondaryAction object onClick runs"
+   ],
+   [
+    true,
+    "primaryAction onClick({dismiss}) -> @dismiss -> v-if removes alert"
+   ],
+   [
+    true,
+    "named slots title/description/prefix land in their regions"
+   ],
+   [
+    true,
+    "actions slot (non-scoped use) lands in actions region"
+   ],
+   [
+    true,
+    "slot content stays reactive (click in actions slot -> title slot interpolation)"
+   ],
+   [
+    true,
+    "dismissible x emits dismiss"
+   ]
+  ],
+  "es-avatar": [
+   [
+    true,
+    "label initial + size xl (32px) + theme blue"
+   ],
+   [
+    true,
+    "broken image falls back to initial"
+   ],
+   [
+    true,
+    "image renders <img> that loaded"
+   ],
+   [
+    true,
+    "default slot replaces initial, indicator slot in corner box"
+   ],
+   [
+    false,
+    "class=\"size-16\" sizing override (documented) reaches the avatar root"
+   ]
+  ],
+  "es-badge": [
+   [
+    true,
+    "label prop"
+   ],
+   [
+    true,
+    ":label number + solid/lg"
+   ],
+   [
+    true,
+    "prefix/default/suffix slots inside badge in order, reactive"
+   ]
+  ],
+  "es-breadcrumbs": [
+   [
+    true,
+    "items prop renders crumbs with separators"
+   ],
+   [
+    true,
+    "onClick item (button crumb)"
+   ],
+   [
+    true,
+    "href+onClick: plain click runs handler and does not navigate"
+   ],
+   [
+    true,
+    "href item navigates"
+   ],
+   [
+    false,
+    "scoped #prefix slot rendered for every crumb"
+   ],
+   [
+    true,
+    "overflow collapses to ellipsis dropdown + last two"
+   ],
+   [
+    true,
+    "overflow dropdown (teleported) lists hidden crumbs"
+   ],
+   [
+    false,
+    "route item: router-link resolves to a link"
+   ]
+  ],
+  "es-button": [
+   [
+    true,
+    "prefix/default/suffix slots inside <button> in order"
+   ],
+   [
+    true,
+    "icon=\"lucide-x\" renders sized mask icon"
+   ],
+   [
+    false,
+    "host aria-label reaches the inner <button> (icon button accessible name)"
+   ],
+   [
+    false,
+    "default slot = one lucide icon -> square icon button (28px)"
+   ],
+   [
+    true,
+    "host convention: slot=\"icon\" -> square icon button (28px)"
+   ],
+   [
+    true,
+    "tooltip prop shows bubble above the button after hover delay"
+   ],
+   [
+    true,
+    "disabled: @click on host not fired"
+   ],
+   [
+    true,
+    "href -> <a target=_blank>"
+   ],
+   [
+    true,
+    "loading + loading-text: spinner, text, disabled"
+   ],
+   [
+    true,
+    "type=submit submits the enclosing form"
+   ]
+  ],
+  "es-divider": [
+   [
+    true,
+    "horizontal rule spans the container"
+   ],
+   [
+    false,
+    "vertical + flex-item stretches to the flex row height (40px)"
+   ],
+   [
+    true,
+    "action button on the rule, align=start"
+   ],
+   [
+    true,
+    "action.onClick runs"
+   ]
+  ],
+  "es-error-message": [
+   [
+    true,
+    ":message string"
+   ],
+   [
+    true,
+    ":message array -> one line each"
+   ],
+   [
+    true,
+    "HTML kept but sanitized (no onerror)"
+   ],
+   [
+    true,
+    "empty message renders nothing"
+   ],
+   [
+    true,
+    "clearing the bound message removes it"
+   ]
+  ],
+  "es-form-label": [
+   [
+    true,
+    "label + required asterisk"
+   ],
+   [
+    true,
+    ":id prop -> label[for]"
+   ],
+   [
+    false,
+    ":id prop does not rewrite the host element id (no duplicate ids)"
+   ],
+   [
+    false,
+    "clicking the label focuses the control"
+   ],
+   [
+    false,
+    "unknown host attribute (data-t) not leaked camelized onto the label"
+   ]
+  ],
+  "es-icon": [
+   [
+    true,
+    "lucide icon renders a visible mask glyph"
+   ],
+   [
+    false,
+    "class=\"size-6\" on the element sizes the glyph (Icon binds $attrs to its root)"
+   ],
+   [
+    true,
+    "emoji"
+   ],
+   [
+    true,
+    "name alias"
+   ],
+   [
+    true,
+    "unsupported string renders nothing"
+   ]
+  ],
+  "es-keyboard-shortcut": [
+   [
+    true,
+    "combo Mod+K -> Ctrl+K on Linux with aria-label"
+   ],
+   [
+    true,
+    "bg -> kbd chips (Enter as icon)"
+   ],
+   [
+    true,
+    ":alt-combos array + :show-plus"
+   ],
+   [
+    true,
+    "default slot fallback when no combo (reactive)"
+   ]
+  ],
+  "es-spinner": [
+   [
+    true,
+    "size lg = 20px, theme red, track"
+   ],
+   [
+    true,
+    "default 16px, animated (scoped style present)"
+   ]
+  ],
+  "es-loading-indicator": [
+   [
+    true,
+    "alias of Spinner, size xs = 12px"
+   ]
+  ],
+  "es-loading-text": [
+   [
+    true,
+    "default text + spinner"
+   ],
+   [
+    true,
+    "text prop"
+   ]
+  ],
+  "es-progress": [
+   [
+    true,
+    ":value + label + hint"
+   ],
+   [
+    true,
+    "reactive value update (bar, aria, hint)"
+   ],
+   [
+    true,
+    "#hint slot reactive"
+   ],
+   [
+    true,
+    "intervals: 2 of 4 filled"
+   ],
+   [
+    true,
+    "value as string attribute"
+   ]
+  ],
+  "es-skeleton": [
+   [
+    false,
+    "class=\"h-4 w-32\" sizes the visible pulse block"
+   ]
+  ],
+  "es-tooltip": [
+   [
+    true,
+    "hover shows text bubble"
+   ],
+   [
+    false,
+    "bubble positioned above its trigger (side=top)"
+   ],
+   [
+    true,
+    "leaving closes it"
+   ],
+   [
+    false,
+    "#content slot (reactive interpolation) shown, side=bottom"
+   ],
+   [
+    true,
+    "Escape closes"
+   ],
+   [
+    true,
+    "disabled: no bubble"
+   ],
+   [
+    false,
+    "trigger that is itself an es-* element (es-button): bubble anchored to it"
+   ],
+   [
+    false,
+    "keyboard focus (Tab) opens the bubble"
+   ]
+  ],
+  "es-tooltip-provider": [
+   [
+    true,
+    "child tooltips work inside the provider"
+   ],
+   [
+    false,
+    "provider hover-delay=0 applies to child es-tooltip (open within 150ms)"
+   ]
+  ],
+  "es-item-list-row": [
+   [
+    true,
+    "prefix / default label / suffix regions, size md (32px), reactive"
+   ],
+   [
+    true,
+    "active -> data-state=active; #label slot"
+   ],
+   [
+    true,
+    "no prefix slot -> no prefix region"
+   ],
+   [
+    true,
+    "as=\"button\" renders a button; host @click fires"
+   ],
+   [
+    true,
+    "disabled styling"
+   ]
+  ],
+  "es-tree": [
+   [
+    true,
+    ":nodes + :expanded=[\"a\"] renders roots and open children"
+   ],
+   [
+    false,
+    "item-suffix slot rendered on every row"
+   ],
+   [
+    true,
+    "row click -> update:expanded -> petite state, child shows"
+   ],
+   [
+    true,
+    "keyboard ArrowDown moves focus"
+   ],
+   [
+    true,
+    "keyboard ArrowLeft collapses -> update:expanded"
+   ],
+   [
+    false,
+    "exposed expandAll() reachable on the element"
+   ],
+   [
+    true,
+    "expandAll() writes the model (via private _instance.exposed if needed)"
+   ],
+   [
+    true,
+    "drag-and-drop -> @drag-end detail"
+   ],
+   [
+    true,
+    "#empty slot when nodes=[] (reactive)"
+   ]
+  ]
+ },
+ "errs": [
+  "error: Failed to load resource: net::ERR_FILE_NOT_FOUND"
+ ]
+}

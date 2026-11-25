@@ -1,0 +1,32 @@
+PASS List renders header + 3 rows :: ID Status Hours T-1 Open 2 T-2 Closed 5 T-3 Open 1
+PASS List row checkbox -> v-model:selection :: ["T-2"]
+PASS BulkBar appears with count :: 1 selected / Archive
+PASS BulkBar action fn prop gets selection :: ["T-2"]
+PASS List keyboard Space toggles row :: ["T-2","T-3"]
+PASS BulkBar clear -> selection [] :: []
+PASS List select all :: ["T-1","T-2","T-3"]
+PASS List header click -> v-model:sort :: [{"fieldname":"status","direction":"asc"}]
+PASS List column-resize event (kebab emit name) :: [{"fieldname":"name","width":"641px"}]
+FAIL List #cell slot rendered in every cell (9) :: light-DOM cell slot nodes found in 1 cell(s); rows text: ID Status Hours CELL
+FAIL scoped #cell <template> stamped per cell with slot props :: []
+PASS List #empty slot bound
+FAIL List rowLink (RouterLink) renders the row (needs an installed router) :: ID Status Hours
+FAIL rowLink row is a link to the route :: null
+PASS Footer counts
+PASS Footer page size -> v-model:pageSize :: 100
+PASS Footer load-more (kebab event) :: 1
+PASS GroupByTable rows + aggregates + totals :: Status Count Sum of Hours Open 2 3 Closed 1 5 Total 3 8
+PASS GroupByTable header sort -> update:groupBy :: [{"fieldname":"count:","direction":"asc"}]
+PASS Grid renders label, reqd marker, rows :: Items # Item * Qty 1 Apple 1 2 Pear 2 Add Row
+PASS Grid Add Row uses newRow fn prop, emits add+change, v-model :: [{"item":"Apple","qty":1},{"item":"Pear","qty":2},{"item":"New","qty":0,"__row_id":"row-1"}] add,change
+PASS Grid cellError fn marks invalid cell :: 1
+PASS Grid select + Delete -> remove event, v-model :: ["Pear","New"] add,change,change,remove:1,change
+FAIL Grid scoped #cell editor stamped per cell :: 0
+FAIL Grid editor update() -> v-model, commit() -> commit event :: ["Pear","New"] add,change,change,remove:1,change
+FAIL Grid ArrowDown moves to the editor below :: BODY
+console errors/warnings: 1
+  error: TypeError: Cannot destructure property 'options' of 'inject(...)' as it is undefined.
+    at setup (http://fw.test/build/es-components.js:32583:15)
+    at callWithErrorHandling (http://fw.test/build/es-components.js:2619:21)
+    at setupStatefulComponent (http://fw.test/build/es-components.js:9466:2
+7 FAILED

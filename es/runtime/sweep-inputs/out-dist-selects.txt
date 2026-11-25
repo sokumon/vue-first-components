@@ -1,0 +1,49 @@
+PASS select shows selected label in trigger :: * / Red
+PASS select opens on click, update:open :: {"color":"red","selOpen":true,"ctlOpen":false,"footerHits":0,"plain":null,"fruit":null,"query":"","cbOpen":false,"tags":["a"],"msOpen":false,"who":"Ada","custom":null}
+PASS select #footer slot shown inside open popover (in es-portal) :: {"inListbox":true,"inPortal":true,"text":"Footer for Ada"}
+PASS select #item-prefix slot rendered for every option :: ["**","**","**"]
+PASS select disabled option is aria-disabled
+PASS select keyboard ArrowDown+Enter -> blue, closes, update:open false :: {"color":"blue","selOpen":false,"ctlOpen":false,"footerHits":0,"plain":null,"fruit":null,"query":"","cbOpen":false,"tags":["a"],"msOpen":false,"who":"Ada","custom":null}
+PASS peer select follows via .prop(modelValue) from handler :: Blue
+PASS select footer button (jQuery .on) works inside teleported popover :: {"color":"blue","selOpen":true,"ctlOpen":false,"footerHits":1,"plain":null,"fruit":null,"query":"","cbOpen":false,"tags":["a"],"msOpen":false,"who":"Ada","custom":null}
+FAIL after close, footer slot node back inside host (not left in body) :: connected=false
+PASS select string options + model :: {"color":"blue","selOpen":false,"ctlOpen":false,"footerHits":1,"plain":"Two","fruit":null,"query":"","cbOpen":false,"tags":["a"],"msOpen":false,"who":"Ada","custom":null}
+  click #sel-empty [data-slot=trigger] page.click: Timeout 3000ms exceeded.
+FAIL select #empty slot shown when no options (options attr "[]" JSON) :: Nothing here, Ada
+PASS controlled .prop(open,true) opens es-select :: 1
+PASS Escape on controlled select emits update:open false
+PASS controlled open: element keeps open=false after update:open (input-like)
+PASS combobox update:query event :: {"color":"blue","selOpen":false,"ctlOpen":false,"footerHits":1,"plain":"Two","fruit":null,"query":"blu","cbOpen":true,"tags":["a"],"msOpen":false,"who":"Ada","custom":null}
+PASS combobox filters options (option slots fn returns string) :: ["BB:Blueberry"]
+PASS combobox #footer slot visible in popover
+PASS combobox Enter selects highlighted -> blueberry :: {"color":"blue","selOpen":false,"ctlOpen":false,"footerHits":1,"plain":"Two","fruit":"blueberry","query":"Blueberry","cbOpen":false,"tags":["a"],"msOpen":false,"who":"Ada","custom":null}
+PASS combobox #empty slot shown + jQuery-updated query text :: No fruit for "zzz"
+PASS combobox custom option onClick (function in options) gets query :: create:cre
+PASS combobox trigger=button shows selected label + opens with search :: Blueberry
+PASS combobox button mode select -> apple :: {"color":"blue","selOpen":false,"ctlOpen":false,"footerHits":1,"plain":"Two","fruit":"apple","query":"Apple","cbOpen":false,"tags":["a"],"msOpen":false,"who":"Ada","custom":"create:cre"}
+PASS multiselect opens, update:open
+PASS multiselect toggles add values -> [a,b,c] :: ["a","b","c"]
+PASS multiselect #footer slot visible
+PASS multiselect toggle off -> [b,c] :: ["b","c"]
+PASS multiselect Escape closes
+PASS multiselect #summary slot updated by jQuery :: 2 tags
+FAIL closed select footer (in <es-slots>) updated by jQuery
+PASS [caveat] multi-rendered #item-prefix: owner live, others clones :: ["*","*","*"]
+PASS jQuery-created es-select opens with its footer slot
+PASS .remove() while open: host gone, no leaked listbox/teleport/footer :: {"before":{"body":4,"lb":0,"portal":4},"after":{"host":false,"body":4,"lb":0,"portal":4,"footer":false}}
+PASS exposed clear() on es-select host
+PASS el.clear() emits update:modelValue -> model null/empty :: null
+console errors/warnings: 2
+  console: TypeError: (r.options || []).map is not a function
+    at Ibe.fn (http://jq.test/dist/es-ui.iife.js:55:3356)
+    at GV (http://jq.test/dist/es-ui.iife.js:10:3583)
+    at get value (http://jq.test/dist/es-ui.iife.js:10:16453)
+    at Ibe.fn (http://jq.test/dist/es-ui.iife.js:55:3736)
+    at GV (http:/
+  console: TypeError: Cannot read properties of undefined (reading 'length')
+    at http://jq.test/dist/es-ui.iife.js:55:7321
+    at i (http://jq.test/dist/es-ui.iife.js:17:4961)
+    at oe (http://jq.test/dist/es-ui.iife.js:19:10231)
+    at http://jq.test/dist/es-ui.iife.js:37:45218
+    at i (http://jq.test/di
+3 FAILED of 34

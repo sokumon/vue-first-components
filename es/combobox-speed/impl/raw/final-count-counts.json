@@ -1,0 +1,4623 @@
+{
+ "meta": {
+  "tag": "final-count",
+  "suite": "counts",
+  "runs": 1,
+  "date": "2026-11-25T09:12:42.079Z",
+  "seconds": 1.715,
+  "ua": "/home/claude/.cache/ms-playwright/chromium-1194/chrome-linux/chrome"
+ },
+ "data": {
+  "desk": {
+   "tree": [
+    {
+     "name": "BenchCell",
+     "depth": 0,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "Combobox",
+     "depth": 1,
+     "fx": {
+      "computed": 34,
+      "dep": 50,
+      "ref": 9,
+      "customRef": 3,
+      "watch": 6,
+      "effect": 7
+     }
+    },
+    {
+     "name": "LabelingWrapper",
+     "depth": 2,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ComboboxRoot",
+     "depth": 3,
+     "fx": {
+      "ref": 13,
+      "dep": 22,
+      "computed": 8,
+      "objectRef": 21,
+      "watch": 2,
+      "effect": 3,
+      "proxy": 2
+     }
+    },
+    {
+     "name": "PopperRoot",
+     "depth": 4,
+     "fx": {
+      "ref": 1,
+      "dep": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxRoot",
+     "depth": 5,
+     "fx": {
+      "objectRef": 14,
+      "ref": 13,
+      "dep": 20,
+      "proxy": 1,
+      "computed": 5,
+      "customRef": 1,
+      "watch": 3,
+      "effect": 4
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 6,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ComboboxAnchor",
+     "depth": 7,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "PopperAnchor",
+     "depth": 8,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "watch": 1,
+      "effect": 2
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 9,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "PrimitiveSlot",
+     "depth": 10,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 11,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ComboboxInput",
+     "depth": 12,
+     "fx": {
+      "ref": 5,
+      "dep": 10,
+      "computed": 2,
+      "watch": 4,
+      "effect": 5
+     }
+    },
+    {
+     "name": "ListboxFilter",
+     "depth": 13,
+     "fx": {
+      "computed": 4,
+      "dep": 9,
+      "ref": 5,
+      "watch": 1,
+      "effect": 2
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 14,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ComboboxTrigger",
+     "depth": 12,
+     "fx": {
+      "ref": 1,
+      "dep": 3,
+      "computed": 2,
+      "effect": 1
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 13,
+     "fx": {
+      "effect": 1
+     }
+    }
+   ],
+   "totalsAllCells": {
+    "scope": 1701,
+    "proxy": 2001,
+    "effect": 3401,
+    "dep": 18900,
+    "computed": 5700,
+    "ref": 4900,
+    "customRef": 400,
+    "watch": 1700,
+    "objectRef": 3500
+   },
+   "n": 100,
+   "dom": {
+    "all": 25,
+    "el": 7,
+    "text": 12,
+    "comment": 6
+   },
+   "docNodes": {
+    "all": 2505,
+    "el": 703,
+    "text": 1202,
+    "comment": 600
+   }
+  },
+  "desk_open1": {
+   "tree": [
+    {
+     "name": "BenchCell",
+     "depth": 0,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "Combobox",
+     "depth": 1,
+     "fx": {
+      "computed": 34,
+      "dep": 50,
+      "ref": 9,
+      "customRef": 3,
+      "watch": 6,
+      "effect": 7
+     }
+    },
+    {
+     "name": "LabelingWrapper",
+     "depth": 2,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ComboboxRoot",
+     "depth": 3,
+     "fx": {
+      "ref": 13,
+      "dep": 22,
+      "computed": 8,
+      "objectRef": 21,
+      "watch": 2,
+      "effect": 3,
+      "proxy": 2
+     }
+    },
+    {
+     "name": "PopperRoot",
+     "depth": 4,
+     "fx": {
+      "ref": 1,
+      "dep": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxRoot",
+     "depth": 5,
+     "fx": {
+      "objectRef": 14,
+      "ref": 13,
+      "dep": 20,
+      "proxy": 1,
+      "computed": 5,
+      "customRef": 1,
+      "watch": 3,
+      "effect": 4
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 6,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ComboboxAnchor",
+     "depth": 7,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "PopperAnchor",
+     "depth": 8,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "watch": 1,
+      "effect": 2
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 9,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "PrimitiveSlot",
+     "depth": 10,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 11,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ComboboxInput",
+     "depth": 12,
+     "fx": {
+      "ref": 5,
+      "dep": 10,
+      "computed": 2,
+      "watch": 4,
+      "effect": 5
+     }
+    },
+    {
+     "name": "ListboxFilter",
+     "depth": 13,
+     "fx": {
+      "computed": 4,
+      "dep": 9,
+      "ref": 5,
+      "watch": 1,
+      "effect": 2
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 14,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ComboboxTrigger",
+     "depth": 12,
+     "fx": {
+      "ref": 1,
+      "dep": 3,
+      "computed": 2,
+      "effect": 1
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 13,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ComboboxContent",
+     "depth": 7,
+     "fx": {
+      "ref": 2,
+      "dep": 5,
+      "computed": 3,
+      "effect": 1
+     }
+    },
+    {
+     "name": "Presence",
+     "depth": 8,
+     "fx": {
+      "objectRef": 2,
+      "ref": 4,
+      "dep": 16,
+      "proxy": 1,
+      "watch": 3,
+      "effect": 4,
+      "computed": 1
+     }
+    },
+    {
+     "name": "ComboboxContentImpl",
+     "depth": 9,
+     "fx": {
+      "objectRef": 27,
+      "watch": 5,
+      "effect": 6,
+      "dep": 11,
+      "computed": 6,
+      "ref": 2,
+      "instScope": 1
+     }
+    },
+    {
+     "name": "ListboxContent",
+     "depth": 10,
+     "fx": {
+      "computed": 2,
+      "dep": 3,
+      "customRef": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "CollectionSlot",
+     "depth": 11,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "watch": 1,
+      "effect": 2
+     }
+    },
+    {
+     "name": "PrimitiveSlot",
+     "depth": 12,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 13,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "PrimitiveSlot",
+     "depth": 14,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "FocusScope",
+     "depth": 15,
+     "fx": {
+      "ref": 2,
+      "dep": 5,
+      "computed": 1,
+      "proxy": 1,
+      "watch": 3,
+      "effect": 4
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 16,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "PrimitiveSlot",
+     "depth": 17,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "DismissableLayer",
+     "depth": 18,
+     "fx": {
+      "ref": 4,
+      "dep": 13,
+      "computed": 7,
+      "watch": 6,
+      "effect": 7
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 19,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "PrimitiveSlot",
+     "depth": 20,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "PopperContent",
+     "depth": 21,
+     "fx": {
+      "ref": 12,
+      "dep": 51,
+      "computed": 25,
+      "watch": 5,
+      "effect": 6,
+      "proxy": 6
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 22,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "FocusScope",
+     "depth": 23,
+     "fx": {
+      "ref": 2,
+      "dep": 5,
+      "computed": 1,
+      "proxy": 1,
+      "watch": 3,
+      "effect": 4
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 24,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "PrimitiveSlot",
+     "depth": 25,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "PopoverPanel",
+     "depth": 26,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ComboboxResults",
+     "depth": 27,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ComboboxViewport",
+     "depth": 28,
+     "fx": {
+      "ref": 2,
+      "dep": 4,
+      "computed": 2,
+      "objectRef": 3,
+      "effect": 1
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 29,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ComboboxGroup",
+     "depth": 30,
+     "fx": {
+      "computed": 1,
+      "dep": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxGroup",
+     "depth": 31,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 32,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ComboboxItem",
+     "depth": 33,
+     "fx": {
+      "ref": 1,
+      "dep": 3,
+      "computed": 2,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItem",
+     "depth": 34,
+     "fx": {
+      "computed": 6,
+      "dep": 7,
+      "ref": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "CollectionItem",
+     "depth": 35,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "watch": 1,
+      "effect": 2
+     }
+    },
+    {
+     "name": "PrimitiveSlot",
+     "depth": 36,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 37,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ItemListRow",
+     "depth": 38,
+     "fx": {
+      "computed": 3,
+      "dep": 3,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ComboboxItemIndicator",
+     "depth": 39,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItemIndicator",
+     "depth": 40,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "Presence",
+     "depth": 41,
+     "fx": {
+      "objectRef": 2,
+      "ref": 4,
+      "dep": 6,
+      "proxy": 1,
+      "watch": 3,
+      "effect": 4,
+      "computed": 1
+     }
+    },
+    {
+     "name": "ComboboxItem",
+     "depth": 33,
+     "fx": {
+      "ref": 1,
+      "dep": 3,
+      "computed": 2,
+      "effect": 1,
+      "proxy": 1
+     }
+    },
+    {
+     "name": "ListboxItem",
+     "depth": 34,
+     "fx": {
+      "computed": 6,
+      "dep": 7,
+      "ref": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "CollectionItem",
+     "depth": 35,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "watch": 1,
+      "effect": 2
+     }
+    },
+    {
+     "name": "PrimitiveSlot",
+     "depth": 36,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 37,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ItemListRow",
+     "depth": 38,
+     "fx": {
+      "computed": 3,
+      "dep": 3,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ComboboxItemIndicator",
+     "depth": 39,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItemIndicator",
+     "depth": 40,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "Presence",
+     "depth": 41,
+     "fx": {
+      "objectRef": 2,
+      "ref": 4,
+      "dep": 6,
+      "proxy": 1,
+      "watch": 3,
+      "effect": 4,
+      "computed": 1
+     }
+    },
+    {
+     "name": "ComboboxItem",
+     "depth": 33,
+     "fx": {
+      "ref": 1,
+      "dep": 3,
+      "computed": 2,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItem",
+     "depth": 34,
+     "fx": {
+      "computed": 6,
+      "dep": 7,
+      "ref": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "CollectionItem",
+     "depth": 35,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "watch": 1,
+      "effect": 2
+     }
+    },
+    {
+     "name": "PrimitiveSlot",
+     "depth": 36,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 37,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ItemListRow",
+     "depth": 38,
+     "fx": {
+      "computed": 3,
+      "dep": 3,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ComboboxItemIndicator",
+     "depth": 39,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItemIndicator",
+     "depth": 40,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "Presence",
+     "depth": 41,
+     "fx": {
+      "objectRef": 2,
+      "ref": 4,
+      "dep": 6,
+      "proxy": 1,
+      "watch": 3,
+      "effect": 4,
+      "computed": 1
+     }
+    },
+    {
+     "name": "ComboboxItem",
+     "depth": 33,
+     "fx": {
+      "ref": 1,
+      "dep": 3,
+      "computed": 2,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItem",
+     "depth": 34,
+     "fx": {
+      "computed": 6,
+      "dep": 7,
+      "ref": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "CollectionItem",
+     "depth": 35,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "watch": 1,
+      "effect": 2
+     }
+    },
+    {
+     "name": "PrimitiveSlot",
+     "depth": 36,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 37,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ItemListRow",
+     "depth": 38,
+     "fx": {
+      "computed": 3,
+      "dep": 3,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ComboboxItemIndicator",
+     "depth": 39,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItemIndicator",
+     "depth": 40,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "Presence",
+     "depth": 41,
+     "fx": {
+      "objectRef": 2,
+      "ref": 4,
+      "dep": 6,
+      "proxy": 1,
+      "watch": 3,
+      "effect": 4,
+      "computed": 1
+     }
+    },
+    {
+     "name": "ComboboxItem",
+     "depth": 33,
+     "fx": {
+      "ref": 1,
+      "dep": 3,
+      "computed": 2,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItem",
+     "depth": 34,
+     "fx": {
+      "computed": 6,
+      "dep": 7,
+      "ref": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "CollectionItem",
+     "depth": 35,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "watch": 1,
+      "effect": 2
+     }
+    },
+    {
+     "name": "PrimitiveSlot",
+     "depth": 36,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 37,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ItemListRow",
+     "depth": 38,
+     "fx": {
+      "computed": 3,
+      "dep": 3,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ComboboxItemIndicator",
+     "depth": 39,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItemIndicator",
+     "depth": 40,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "Presence",
+     "depth": 41,
+     "fx": {
+      "objectRef": 2,
+      "ref": 4,
+      "dep": 6,
+      "proxy": 1,
+      "watch": 3,
+      "effect": 4,
+      "computed": 1
+     }
+    },
+    {
+     "name": "ComboboxItem",
+     "depth": 33,
+     "fx": {
+      "ref": 1,
+      "dep": 3,
+      "computed": 2,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItem",
+     "depth": 34,
+     "fx": {
+      "computed": 6,
+      "dep": 7,
+      "ref": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "CollectionItem",
+     "depth": 35,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "watch": 1,
+      "effect": 2
+     }
+    },
+    {
+     "name": "PrimitiveSlot",
+     "depth": 36,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 37,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ItemListRow",
+     "depth": 38,
+     "fx": {
+      "computed": 3,
+      "dep": 3,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ComboboxItemIndicator",
+     "depth": 39,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItemIndicator",
+     "depth": 40,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "Presence",
+     "depth": 41,
+     "fx": {
+      "objectRef": 2,
+      "ref": 4,
+      "dep": 6,
+      "proxy": 1,
+      "watch": 3,
+      "effect": 4,
+      "computed": 1
+     }
+    },
+    {
+     "name": "ComboboxItem",
+     "depth": 33,
+     "fx": {
+      "ref": 1,
+      "dep": 3,
+      "computed": 2,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItem",
+     "depth": 34,
+     "fx": {
+      "computed": 6,
+      "dep": 7,
+      "ref": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "CollectionItem",
+     "depth": 35,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "watch": 1,
+      "effect": 2
+     }
+    },
+    {
+     "name": "PrimitiveSlot",
+     "depth": 36,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 37,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ItemListRow",
+     "depth": 38,
+     "fx": {
+      "computed": 3,
+      "dep": 3,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ComboboxItemIndicator",
+     "depth": 39,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItemIndicator",
+     "depth": 40,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "Presence",
+     "depth": 41,
+     "fx": {
+      "objectRef": 2,
+      "ref": 4,
+      "dep": 6,
+      "proxy": 1,
+      "watch": 3,
+      "effect": 4,
+      "computed": 1
+     }
+    },
+    {
+     "name": "ComboboxItem",
+     "depth": 33,
+     "fx": {
+      "ref": 1,
+      "dep": 3,
+      "computed": 2,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItem",
+     "depth": 34,
+     "fx": {
+      "computed": 6,
+      "dep": 7,
+      "ref": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "CollectionItem",
+     "depth": 35,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "watch": 1,
+      "effect": 2
+     }
+    },
+    {
+     "name": "PrimitiveSlot",
+     "depth": 36,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 37,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ItemListRow",
+     "depth": 38,
+     "fx": {
+      "computed": 3,
+      "dep": 3,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ComboboxItemIndicator",
+     "depth": 39,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItemIndicator",
+     "depth": 40,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "Presence",
+     "depth": 41,
+     "fx": {
+      "objectRef": 2,
+      "ref": 4,
+      "dep": 6,
+      "proxy": 1,
+      "watch": 3,
+      "effect": 4,
+      "computed": 1
+     }
+    },
+    {
+     "name": "ComboboxItem",
+     "depth": 33,
+     "fx": {
+      "ref": 1,
+      "dep": 3,
+      "computed": 2,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItem",
+     "depth": 34,
+     "fx": {
+      "computed": 6,
+      "dep": 7,
+      "ref": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "CollectionItem",
+     "depth": 35,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "watch": 1,
+      "effect": 2
+     }
+    },
+    {
+     "name": "PrimitiveSlot",
+     "depth": 36,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 37,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ItemListRow",
+     "depth": 38,
+     "fx": {
+      "computed": 3,
+      "dep": 3,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ComboboxItemIndicator",
+     "depth": 39,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItemIndicator",
+     "depth": 40,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "Presence",
+     "depth": 41,
+     "fx": {
+      "objectRef": 2,
+      "ref": 4,
+      "dep": 6,
+      "proxy": 1,
+      "watch": 3,
+      "effect": 4,
+      "computed": 1
+     }
+    },
+    {
+     "name": "ComboboxItem",
+     "depth": 33,
+     "fx": {
+      "ref": 1,
+      "dep": 3,
+      "computed": 2,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItem",
+     "depth": 34,
+     "fx": {
+      "computed": 6,
+      "dep": 7,
+      "ref": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "CollectionItem",
+     "depth": 35,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "watch": 1,
+      "effect": 2
+     }
+    },
+    {
+     "name": "PrimitiveSlot",
+     "depth": 36,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 37,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ItemListRow",
+     "depth": 38,
+     "fx": {
+      "computed": 3,
+      "dep": 3,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ComboboxItemIndicator",
+     "depth": 39,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItemIndicator",
+     "depth": 40,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "Presence",
+     "depth": 41,
+     "fx": {
+      "objectRef": 2,
+      "ref": 4,
+      "dep": 6,
+      "proxy": 1,
+      "watch": 3,
+      "effect": 4,
+      "computed": 1
+     }
+    },
+    {
+     "name": "ComboboxItem",
+     "depth": 33,
+     "fx": {
+      "ref": 1,
+      "dep": 3,
+      "computed": 2,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItem",
+     "depth": 34,
+     "fx": {
+      "computed": 6,
+      "dep": 7,
+      "ref": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "CollectionItem",
+     "depth": 35,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "watch": 1,
+      "effect": 2
+     }
+    },
+    {
+     "name": "PrimitiveSlot",
+     "depth": 36,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 37,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ItemListRow",
+     "depth": 38,
+     "fx": {
+      "computed": 3,
+      "dep": 3,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ComboboxItemIndicator",
+     "depth": 39,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItemIndicator",
+     "depth": 40,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "Presence",
+     "depth": 41,
+     "fx": {
+      "objectRef": 2,
+      "ref": 4,
+      "dep": 6,
+      "proxy": 1,
+      "watch": 3,
+      "effect": 4,
+      "computed": 1
+     }
+    },
+    {
+     "name": "ComboboxItem",
+     "depth": 33,
+     "fx": {
+      "ref": 1,
+      "dep": 3,
+      "computed": 2,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItem",
+     "depth": 34,
+     "fx": {
+      "computed": 6,
+      "dep": 7,
+      "ref": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "CollectionItem",
+     "depth": 35,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "watch": 1,
+      "effect": 2
+     }
+    },
+    {
+     "name": "PrimitiveSlot",
+     "depth": 36,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 37,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ItemListRow",
+     "depth": 38,
+     "fx": {
+      "computed": 3,
+      "dep": 3,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ComboboxItemIndicator",
+     "depth": 39,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItemIndicator",
+     "depth": 40,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "Presence",
+     "depth": 41,
+     "fx": {
+      "objectRef": 2,
+      "ref": 4,
+      "dep": 6,
+      "proxy": 1,
+      "watch": 3,
+      "effect": 4,
+      "computed": 1
+     }
+    },
+    {
+     "name": "ComboboxItem",
+     "depth": 33,
+     "fx": {
+      "ref": 1,
+      "dep": 3,
+      "computed": 2,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItem",
+     "depth": 34,
+     "fx": {
+      "computed": 6,
+      "dep": 7,
+      "ref": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "CollectionItem",
+     "depth": 35,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "watch": 1,
+      "effect": 2
+     }
+    },
+    {
+     "name": "PrimitiveSlot",
+     "depth": 36,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 37,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ItemListRow",
+     "depth": 38,
+     "fx": {
+      "computed": 3,
+      "dep": 3,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ComboboxItemIndicator",
+     "depth": 39,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItemIndicator",
+     "depth": 40,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "Presence",
+     "depth": 41,
+     "fx": {
+      "objectRef": 2,
+      "ref": 4,
+      "dep": 6,
+      "proxy": 1,
+      "watch": 3,
+      "effect": 4,
+      "computed": 1
+     }
+    },
+    {
+     "name": "ComboboxItem",
+     "depth": 33,
+     "fx": {
+      "ref": 1,
+      "dep": 3,
+      "computed": 2,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItem",
+     "depth": 34,
+     "fx": {
+      "computed": 6,
+      "dep": 7,
+      "ref": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "CollectionItem",
+     "depth": 35,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "watch": 1,
+      "effect": 2
+     }
+    },
+    {
+     "name": "PrimitiveSlot",
+     "depth": 36,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 37,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ItemListRow",
+     "depth": 38,
+     "fx": {
+      "computed": 3,
+      "dep": 3,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ComboboxItemIndicator",
+     "depth": 39,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItemIndicator",
+     "depth": 40,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "Presence",
+     "depth": 41,
+     "fx": {
+      "objectRef": 2,
+      "ref": 4,
+      "dep": 6,
+      "proxy": 1,
+      "watch": 3,
+      "effect": 4,
+      "computed": 1
+     }
+    },
+    {
+     "name": "ComboboxItem",
+     "depth": 33,
+     "fx": {
+      "ref": 1,
+      "dep": 3,
+      "computed": 2,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItem",
+     "depth": 34,
+     "fx": {
+      "computed": 6,
+      "dep": 7,
+      "ref": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "CollectionItem",
+     "depth": 35,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "watch": 1,
+      "effect": 2
+     }
+    },
+    {
+     "name": "PrimitiveSlot",
+     "depth": 36,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 37,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ItemListRow",
+     "depth": 38,
+     "fx": {
+      "computed": 3,
+      "dep": 3,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ComboboxItemIndicator",
+     "depth": 39,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItemIndicator",
+     "depth": 40,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "Presence",
+     "depth": 41,
+     "fx": {
+      "objectRef": 2,
+      "ref": 4,
+      "dep": 6,
+      "proxy": 1,
+      "watch": 3,
+      "effect": 4,
+      "computed": 1
+     }
+    },
+    {
+     "name": "ComboboxItem",
+     "depth": 33,
+     "fx": {
+      "ref": 1,
+      "dep": 3,
+      "computed": 2,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItem",
+     "depth": 34,
+     "fx": {
+      "computed": 6,
+      "dep": 7,
+      "ref": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "CollectionItem",
+     "depth": 35,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "watch": 1,
+      "effect": 2
+     }
+    },
+    {
+     "name": "PrimitiveSlot",
+     "depth": 36,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 37,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ItemListRow",
+     "depth": 38,
+     "fx": {
+      "computed": 3,
+      "dep": 3,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ComboboxItemIndicator",
+     "depth": 39,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItemIndicator",
+     "depth": 40,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "Presence",
+     "depth": 41,
+     "fx": {
+      "objectRef": 2,
+      "ref": 4,
+      "dep": 6,
+      "proxy": 1,
+      "watch": 3,
+      "effect": 4,
+      "computed": 1
+     }
+    },
+    {
+     "name": "ComboboxItem",
+     "depth": 33,
+     "fx": {
+      "ref": 1,
+      "dep": 3,
+      "computed": 2,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItem",
+     "depth": 34,
+     "fx": {
+      "computed": 6,
+      "dep": 7,
+      "ref": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "CollectionItem",
+     "depth": 35,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "watch": 1,
+      "effect": 2
+     }
+    },
+    {
+     "name": "PrimitiveSlot",
+     "depth": 36,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 37,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ItemListRow",
+     "depth": 38,
+     "fx": {
+      "computed": 3,
+      "dep": 3,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ComboboxItemIndicator",
+     "depth": 39,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItemIndicator",
+     "depth": 40,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "Presence",
+     "depth": 41,
+     "fx": {
+      "objectRef": 2,
+      "ref": 4,
+      "dep": 6,
+      "proxy": 1,
+      "watch": 3,
+      "effect": 4,
+      "computed": 1
+     }
+    },
+    {
+     "name": "ComboboxItem",
+     "depth": 33,
+     "fx": {
+      "ref": 1,
+      "dep": 3,
+      "computed": 2,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItem",
+     "depth": 34,
+     "fx": {
+      "computed": 6,
+      "dep": 7,
+      "ref": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "CollectionItem",
+     "depth": 35,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "watch": 1,
+      "effect": 2
+     }
+    },
+    {
+     "name": "PrimitiveSlot",
+     "depth": 36,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 37,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ItemListRow",
+     "depth": 38,
+     "fx": {
+      "computed": 3,
+      "dep": 3,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ComboboxItemIndicator",
+     "depth": 39,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItemIndicator",
+     "depth": 40,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "Presence",
+     "depth": 41,
+     "fx": {
+      "objectRef": 2,
+      "ref": 4,
+      "dep": 6,
+      "proxy": 1,
+      "watch": 3,
+      "effect": 4,
+      "computed": 1
+     }
+    },
+    {
+     "name": "ComboboxItem",
+     "depth": 33,
+     "fx": {
+      "ref": 1,
+      "dep": 3,
+      "computed": 2,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItem",
+     "depth": 34,
+     "fx": {
+      "computed": 6,
+      "dep": 7,
+      "ref": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "CollectionItem",
+     "depth": 35,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "watch": 1,
+      "effect": 2
+     }
+    },
+    {
+     "name": "PrimitiveSlot",
+     "depth": 36,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 37,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ItemListRow",
+     "depth": 38,
+     "fx": {
+      "computed": 3,
+      "dep": 3,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ComboboxItemIndicator",
+     "depth": 39,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItemIndicator",
+     "depth": 40,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "Presence",
+     "depth": 41,
+     "fx": {
+      "objectRef": 2,
+      "ref": 4,
+      "dep": 6,
+      "proxy": 1,
+      "watch": 3,
+      "effect": 4,
+      "computed": 1
+     }
+    },
+    {
+     "name": "ComboboxItem",
+     "depth": 33,
+     "fx": {
+      "ref": 1,
+      "dep": 3,
+      "computed": 2,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItem",
+     "depth": 34,
+     "fx": {
+      "computed": 6,
+      "dep": 7,
+      "ref": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "CollectionItem",
+     "depth": 35,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "watch": 1,
+      "effect": 2
+     }
+    },
+    {
+     "name": "PrimitiveSlot",
+     "depth": 36,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 37,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ItemListRow",
+     "depth": 38,
+     "fx": {
+      "computed": 3,
+      "dep": 3,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ComboboxItemIndicator",
+     "depth": 39,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItemIndicator",
+     "depth": 40,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "Presence",
+     "depth": 41,
+     "fx": {
+      "objectRef": 2,
+      "ref": 4,
+      "dep": 6,
+      "proxy": 1,
+      "watch": 3,
+      "effect": 4,
+      "computed": 1
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 29,
+     "fx": {
+      "effect": 1
+     }
+    }
+   ],
+   "totalsAllCells": {
+    "scope": 226,
+    "proxy": 284,
+    "effect": 349,
+    "dep": 1433,
+    "computed": 388,
+    "ref": 244,
+    "customRef": 5,
+    "watch": 124,
+    "objectRef": 107
+   },
+   "n": 1,
+   "dom": {
+    "all": 26,
+    "el": 7,
+    "text": 14,
+    "comment": 5
+   },
+   "docNodes": {
+    "all": 454,
+    "el": 145,
+    "text": 228,
+    "comment": 81
+   }
+  },
+  "opts20": {
+   "tree": [
+    {
+     "name": "BenchCell",
+     "depth": 0,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "Combobox",
+     "depth": 1,
+     "fx": {
+      "computed": 34,
+      "dep": 50,
+      "ref": 9,
+      "customRef": 3,
+      "watch": 6,
+      "effect": 7
+     }
+    },
+    {
+     "name": "LabelingWrapper",
+     "depth": 2,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ComboboxRoot",
+     "depth": 3,
+     "fx": {
+      "ref": 13,
+      "dep": 22,
+      "computed": 8,
+      "objectRef": 21,
+      "watch": 2,
+      "effect": 3,
+      "proxy": 2
+     }
+    },
+    {
+     "name": "PopperRoot",
+     "depth": 4,
+     "fx": {
+      "ref": 1,
+      "dep": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxRoot",
+     "depth": 5,
+     "fx": {
+      "objectRef": 14,
+      "ref": 13,
+      "dep": 20,
+      "proxy": 1,
+      "computed": 5,
+      "customRef": 1,
+      "watch": 3,
+      "effect": 4
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 6,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ComboboxAnchor",
+     "depth": 7,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "PopperAnchor",
+     "depth": 8,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "watch": 1,
+      "effect": 2
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 9,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "PrimitiveSlot",
+     "depth": 10,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 11,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ComboboxInput",
+     "depth": 12,
+     "fx": {
+      "ref": 5,
+      "dep": 10,
+      "computed": 2,
+      "watch": 4,
+      "effect": 5
+     }
+    },
+    {
+     "name": "ListboxFilter",
+     "depth": 13,
+     "fx": {
+      "computed": 4,
+      "dep": 9,
+      "ref": 5,
+      "watch": 1,
+      "effect": 2
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 14,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ComboboxTrigger",
+     "depth": 12,
+     "fx": {
+      "ref": 1,
+      "dep": 3,
+      "computed": 2,
+      "effect": 1
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 13,
+     "fx": {
+      "effect": 1
+     }
+    }
+   ],
+   "totalsAllCells": {
+    "scope": 1701,
+    "proxy": 2001,
+    "effect": 3401,
+    "dep": 18900,
+    "computed": 5700,
+    "ref": 4900,
+    "customRef": 400,
+    "watch": 1700,
+    "objectRef": 3500
+   },
+   "n": 100,
+   "dom": {
+    "all": 25,
+    "el": 7,
+    "text": 12,
+    "comment": 6
+   },
+   "docNodes": {
+    "all": 2505,
+    "el": 703,
+    "text": 1202,
+    "comment": 600
+   }
+  },
+  "opts20_open1": {
+   "tree": [
+    {
+     "name": "BenchCell",
+     "depth": 0,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "Combobox",
+     "depth": 1,
+     "fx": {
+      "computed": 34,
+      "dep": 50,
+      "ref": 9,
+      "customRef": 3,
+      "watch": 6,
+      "effect": 7
+     }
+    },
+    {
+     "name": "LabelingWrapper",
+     "depth": 2,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ComboboxRoot",
+     "depth": 3,
+     "fx": {
+      "ref": 13,
+      "dep": 22,
+      "computed": 8,
+      "objectRef": 21,
+      "watch": 2,
+      "effect": 3,
+      "proxy": 2
+     }
+    },
+    {
+     "name": "PopperRoot",
+     "depth": 4,
+     "fx": {
+      "ref": 1,
+      "dep": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxRoot",
+     "depth": 5,
+     "fx": {
+      "objectRef": 14,
+      "ref": 13,
+      "dep": 20,
+      "proxy": 1,
+      "computed": 5,
+      "customRef": 1,
+      "watch": 3,
+      "effect": 4
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 6,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ComboboxAnchor",
+     "depth": 7,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "PopperAnchor",
+     "depth": 8,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "watch": 1,
+      "effect": 2
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 9,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "PrimitiveSlot",
+     "depth": 10,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 11,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ComboboxInput",
+     "depth": 12,
+     "fx": {
+      "ref": 5,
+      "dep": 10,
+      "computed": 2,
+      "watch": 4,
+      "effect": 5
+     }
+    },
+    {
+     "name": "ListboxFilter",
+     "depth": 13,
+     "fx": {
+      "computed": 4,
+      "dep": 9,
+      "ref": 5,
+      "watch": 1,
+      "effect": 2
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 14,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ComboboxTrigger",
+     "depth": 12,
+     "fx": {
+      "ref": 1,
+      "dep": 3,
+      "computed": 2,
+      "effect": 1
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 13,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ComboboxContent",
+     "depth": 7,
+     "fx": {
+      "ref": 2,
+      "dep": 5,
+      "computed": 3,
+      "effect": 1
+     }
+    },
+    {
+     "name": "Presence",
+     "depth": 8,
+     "fx": {
+      "objectRef": 2,
+      "ref": 4,
+      "dep": 16,
+      "proxy": 1,
+      "watch": 3,
+      "effect": 4,
+      "computed": 1
+     }
+    },
+    {
+     "name": "ComboboxContentImpl",
+     "depth": 9,
+     "fx": {
+      "objectRef": 27,
+      "watch": 5,
+      "effect": 6,
+      "dep": 11,
+      "computed": 6,
+      "ref": 2,
+      "instScope": 1
+     }
+    },
+    {
+     "name": "ListboxContent",
+     "depth": 10,
+     "fx": {
+      "computed": 2,
+      "dep": 3,
+      "customRef": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "CollectionSlot",
+     "depth": 11,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "watch": 1,
+      "effect": 2
+     }
+    },
+    {
+     "name": "PrimitiveSlot",
+     "depth": 12,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 13,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "PrimitiveSlot",
+     "depth": 14,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "FocusScope",
+     "depth": 15,
+     "fx": {
+      "ref": 2,
+      "dep": 5,
+      "computed": 1,
+      "proxy": 1,
+      "watch": 3,
+      "effect": 4
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 16,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "PrimitiveSlot",
+     "depth": 17,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "DismissableLayer",
+     "depth": 18,
+     "fx": {
+      "ref": 4,
+      "dep": 13,
+      "computed": 7,
+      "watch": 6,
+      "effect": 7
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 19,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "PrimitiveSlot",
+     "depth": 20,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "PopperContent",
+     "depth": 21,
+     "fx": {
+      "ref": 12,
+      "dep": 51,
+      "computed": 25,
+      "watch": 5,
+      "effect": 6,
+      "proxy": 6
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 22,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "FocusScope",
+     "depth": 23,
+     "fx": {
+      "ref": 2,
+      "dep": 5,
+      "computed": 1,
+      "proxy": 1,
+      "watch": 3,
+      "effect": 4
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 24,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "PrimitiveSlot",
+     "depth": 25,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "PopoverPanel",
+     "depth": 26,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ComboboxResults",
+     "depth": 27,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ComboboxViewport",
+     "depth": 28,
+     "fx": {
+      "ref": 2,
+      "dep": 4,
+      "computed": 2,
+      "objectRef": 3,
+      "effect": 1
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 29,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ComboboxGroup",
+     "depth": 30,
+     "fx": {
+      "computed": 1,
+      "dep": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxGroup",
+     "depth": 31,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 32,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ComboboxItem",
+     "depth": 33,
+     "fx": {
+      "ref": 1,
+      "dep": 3,
+      "computed": 2,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItem",
+     "depth": 34,
+     "fx": {
+      "computed": 6,
+      "dep": 7,
+      "ref": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "CollectionItem",
+     "depth": 35,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "watch": 1,
+      "effect": 2
+     }
+    },
+    {
+     "name": "PrimitiveSlot",
+     "depth": 36,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 37,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ItemListRow",
+     "depth": 38,
+     "fx": {
+      "computed": 3,
+      "dep": 3,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ComboboxItemIndicator",
+     "depth": 39,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItemIndicator",
+     "depth": 40,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "Presence",
+     "depth": 41,
+     "fx": {
+      "objectRef": 2,
+      "ref": 4,
+      "dep": 6,
+      "proxy": 1,
+      "watch": 3,
+      "effect": 4,
+      "computed": 1
+     }
+    },
+    {
+     "name": "ComboboxItem",
+     "depth": 33,
+     "fx": {
+      "ref": 1,
+      "dep": 3,
+      "computed": 2,
+      "effect": 1,
+      "proxy": 1
+     }
+    },
+    {
+     "name": "ListboxItem",
+     "depth": 34,
+     "fx": {
+      "computed": 6,
+      "dep": 7,
+      "ref": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "CollectionItem",
+     "depth": 35,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "watch": 1,
+      "effect": 2
+     }
+    },
+    {
+     "name": "PrimitiveSlot",
+     "depth": 36,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 37,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ItemListRow",
+     "depth": 38,
+     "fx": {
+      "computed": 3,
+      "dep": 3,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ComboboxItemIndicator",
+     "depth": 39,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItemIndicator",
+     "depth": 40,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "Presence",
+     "depth": 41,
+     "fx": {
+      "objectRef": 2,
+      "ref": 4,
+      "dep": 6,
+      "proxy": 1,
+      "watch": 3,
+      "effect": 4,
+      "computed": 1
+     }
+    },
+    {
+     "name": "ComboboxItem",
+     "depth": 33,
+     "fx": {
+      "ref": 1,
+      "dep": 3,
+      "computed": 2,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItem",
+     "depth": 34,
+     "fx": {
+      "computed": 6,
+      "dep": 7,
+      "ref": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "CollectionItem",
+     "depth": 35,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "watch": 1,
+      "effect": 2
+     }
+    },
+    {
+     "name": "PrimitiveSlot",
+     "depth": 36,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 37,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ItemListRow",
+     "depth": 38,
+     "fx": {
+      "computed": 3,
+      "dep": 3,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ComboboxItemIndicator",
+     "depth": 39,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItemIndicator",
+     "depth": 40,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "Presence",
+     "depth": 41,
+     "fx": {
+      "objectRef": 2,
+      "ref": 4,
+      "dep": 6,
+      "proxy": 1,
+      "watch": 3,
+      "effect": 4,
+      "computed": 1
+     }
+    },
+    {
+     "name": "ComboboxItem",
+     "depth": 33,
+     "fx": {
+      "ref": 1,
+      "dep": 3,
+      "computed": 2,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItem",
+     "depth": 34,
+     "fx": {
+      "computed": 6,
+      "dep": 7,
+      "ref": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "CollectionItem",
+     "depth": 35,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "watch": 1,
+      "effect": 2
+     }
+    },
+    {
+     "name": "PrimitiveSlot",
+     "depth": 36,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 37,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ItemListRow",
+     "depth": 38,
+     "fx": {
+      "computed": 3,
+      "dep": 3,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ComboboxItemIndicator",
+     "depth": 39,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItemIndicator",
+     "depth": 40,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "Presence",
+     "depth": 41,
+     "fx": {
+      "objectRef": 2,
+      "ref": 4,
+      "dep": 6,
+      "proxy": 1,
+      "watch": 3,
+      "effect": 4,
+      "computed": 1
+     }
+    },
+    {
+     "name": "ComboboxItem",
+     "depth": 33,
+     "fx": {
+      "ref": 1,
+      "dep": 3,
+      "computed": 2,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItem",
+     "depth": 34,
+     "fx": {
+      "computed": 6,
+      "dep": 7,
+      "ref": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "CollectionItem",
+     "depth": 35,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "watch": 1,
+      "effect": 2
+     }
+    },
+    {
+     "name": "PrimitiveSlot",
+     "depth": 36,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 37,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ItemListRow",
+     "depth": 38,
+     "fx": {
+      "computed": 3,
+      "dep": 3,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ComboboxItemIndicator",
+     "depth": 39,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItemIndicator",
+     "depth": 40,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "Presence",
+     "depth": 41,
+     "fx": {
+      "objectRef": 2,
+      "ref": 4,
+      "dep": 6,
+      "proxy": 1,
+      "watch": 3,
+      "effect": 4,
+      "computed": 1
+     }
+    },
+    {
+     "name": "ComboboxItem",
+     "depth": 33,
+     "fx": {
+      "ref": 1,
+      "dep": 3,
+      "computed": 2,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItem",
+     "depth": 34,
+     "fx": {
+      "computed": 6,
+      "dep": 7,
+      "ref": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "CollectionItem",
+     "depth": 35,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "watch": 1,
+      "effect": 2
+     }
+    },
+    {
+     "name": "PrimitiveSlot",
+     "depth": 36,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 37,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ItemListRow",
+     "depth": 38,
+     "fx": {
+      "computed": 3,
+      "dep": 3,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ComboboxItemIndicator",
+     "depth": 39,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItemIndicator",
+     "depth": 40,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "Presence",
+     "depth": 41,
+     "fx": {
+      "objectRef": 2,
+      "ref": 4,
+      "dep": 6,
+      "proxy": 1,
+      "watch": 3,
+      "effect": 4,
+      "computed": 1
+     }
+    },
+    {
+     "name": "ComboboxItem",
+     "depth": 33,
+     "fx": {
+      "ref": 1,
+      "dep": 3,
+      "computed": 2,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItem",
+     "depth": 34,
+     "fx": {
+      "computed": 6,
+      "dep": 7,
+      "ref": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "CollectionItem",
+     "depth": 35,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "watch": 1,
+      "effect": 2
+     }
+    },
+    {
+     "name": "PrimitiveSlot",
+     "depth": 36,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 37,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ItemListRow",
+     "depth": 38,
+     "fx": {
+      "computed": 3,
+      "dep": 3,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ComboboxItemIndicator",
+     "depth": 39,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItemIndicator",
+     "depth": 40,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "Presence",
+     "depth": 41,
+     "fx": {
+      "objectRef": 2,
+      "ref": 4,
+      "dep": 6,
+      "proxy": 1,
+      "watch": 3,
+      "effect": 4,
+      "computed": 1
+     }
+    },
+    {
+     "name": "ComboboxItem",
+     "depth": 33,
+     "fx": {
+      "ref": 1,
+      "dep": 3,
+      "computed": 2,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItem",
+     "depth": 34,
+     "fx": {
+      "computed": 6,
+      "dep": 7,
+      "ref": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "CollectionItem",
+     "depth": 35,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "watch": 1,
+      "effect": 2
+     }
+    },
+    {
+     "name": "PrimitiveSlot",
+     "depth": 36,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 37,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ItemListRow",
+     "depth": 38,
+     "fx": {
+      "computed": 3,
+      "dep": 3,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ComboboxItemIndicator",
+     "depth": 39,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItemIndicator",
+     "depth": 40,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "Presence",
+     "depth": 41,
+     "fx": {
+      "objectRef": 2,
+      "ref": 4,
+      "dep": 6,
+      "proxy": 1,
+      "watch": 3,
+      "effect": 4,
+      "computed": 1
+     }
+    },
+    {
+     "name": "ComboboxItem",
+     "depth": 33,
+     "fx": {
+      "ref": 1,
+      "dep": 3,
+      "computed": 2,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItem",
+     "depth": 34,
+     "fx": {
+      "computed": 6,
+      "dep": 7,
+      "ref": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "CollectionItem",
+     "depth": 35,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "watch": 1,
+      "effect": 2
+     }
+    },
+    {
+     "name": "PrimitiveSlot",
+     "depth": 36,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 37,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ItemListRow",
+     "depth": 38,
+     "fx": {
+      "computed": 3,
+      "dep": 3,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ComboboxItemIndicator",
+     "depth": 39,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItemIndicator",
+     "depth": 40,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "Presence",
+     "depth": 41,
+     "fx": {
+      "objectRef": 2,
+      "ref": 4,
+      "dep": 6,
+      "proxy": 1,
+      "watch": 3,
+      "effect": 4,
+      "computed": 1
+     }
+    },
+    {
+     "name": "ComboboxItem",
+     "depth": 33,
+     "fx": {
+      "ref": 1,
+      "dep": 3,
+      "computed": 2,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItem",
+     "depth": 34,
+     "fx": {
+      "computed": 6,
+      "dep": 7,
+      "ref": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "CollectionItem",
+     "depth": 35,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "watch": 1,
+      "effect": 2
+     }
+    },
+    {
+     "name": "PrimitiveSlot",
+     "depth": 36,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 37,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ItemListRow",
+     "depth": 38,
+     "fx": {
+      "computed": 3,
+      "dep": 3,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ComboboxItemIndicator",
+     "depth": 39,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItemIndicator",
+     "depth": 40,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "Presence",
+     "depth": 41,
+     "fx": {
+      "objectRef": 2,
+      "ref": 4,
+      "dep": 6,
+      "proxy": 1,
+      "watch": 3,
+      "effect": 4,
+      "computed": 1
+     }
+    },
+    {
+     "name": "ComboboxItem",
+     "depth": 33,
+     "fx": {
+      "ref": 1,
+      "dep": 3,
+      "computed": 2,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItem",
+     "depth": 34,
+     "fx": {
+      "computed": 6,
+      "dep": 7,
+      "ref": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "CollectionItem",
+     "depth": 35,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "watch": 1,
+      "effect": 2
+     }
+    },
+    {
+     "name": "PrimitiveSlot",
+     "depth": 36,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 37,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ItemListRow",
+     "depth": 38,
+     "fx": {
+      "computed": 3,
+      "dep": 3,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ComboboxItemIndicator",
+     "depth": 39,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItemIndicator",
+     "depth": 40,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "Presence",
+     "depth": 41,
+     "fx": {
+      "objectRef": 2,
+      "ref": 4,
+      "dep": 6,
+      "proxy": 1,
+      "watch": 3,
+      "effect": 4,
+      "computed": 1
+     }
+    },
+    {
+     "name": "ComboboxItem",
+     "depth": 33,
+     "fx": {
+      "ref": 1,
+      "dep": 3,
+      "computed": 2,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItem",
+     "depth": 34,
+     "fx": {
+      "computed": 6,
+      "dep": 7,
+      "ref": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "CollectionItem",
+     "depth": 35,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "watch": 1,
+      "effect": 2
+     }
+    },
+    {
+     "name": "PrimitiveSlot",
+     "depth": 36,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 37,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ItemListRow",
+     "depth": 38,
+     "fx": {
+      "computed": 3,
+      "dep": 3,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ComboboxItemIndicator",
+     "depth": 39,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItemIndicator",
+     "depth": 40,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "Presence",
+     "depth": 41,
+     "fx": {
+      "objectRef": 2,
+      "ref": 4,
+      "dep": 6,
+      "proxy": 1,
+      "watch": 3,
+      "effect": 4,
+      "computed": 1
+     }
+    },
+    {
+     "name": "ComboboxItem",
+     "depth": 33,
+     "fx": {
+      "ref": 1,
+      "dep": 3,
+      "computed": 2,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItem",
+     "depth": 34,
+     "fx": {
+      "computed": 6,
+      "dep": 7,
+      "ref": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "CollectionItem",
+     "depth": 35,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "watch": 1,
+      "effect": 2
+     }
+    },
+    {
+     "name": "PrimitiveSlot",
+     "depth": 36,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 37,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ItemListRow",
+     "depth": 38,
+     "fx": {
+      "computed": 3,
+      "dep": 3,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ComboboxItemIndicator",
+     "depth": 39,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItemIndicator",
+     "depth": 40,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "Presence",
+     "depth": 41,
+     "fx": {
+      "objectRef": 2,
+      "ref": 4,
+      "dep": 6,
+      "proxy": 1,
+      "watch": 3,
+      "effect": 4,
+      "computed": 1
+     }
+    },
+    {
+     "name": "ComboboxItem",
+     "depth": 33,
+     "fx": {
+      "ref": 1,
+      "dep": 3,
+      "computed": 2,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItem",
+     "depth": 34,
+     "fx": {
+      "computed": 6,
+      "dep": 7,
+      "ref": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "CollectionItem",
+     "depth": 35,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "watch": 1,
+      "effect": 2
+     }
+    },
+    {
+     "name": "PrimitiveSlot",
+     "depth": 36,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 37,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ItemListRow",
+     "depth": 38,
+     "fx": {
+      "computed": 3,
+      "dep": 3,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ComboboxItemIndicator",
+     "depth": 39,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItemIndicator",
+     "depth": 40,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "Presence",
+     "depth": 41,
+     "fx": {
+      "objectRef": 2,
+      "ref": 4,
+      "dep": 6,
+      "proxy": 1,
+      "watch": 3,
+      "effect": 4,
+      "computed": 1
+     }
+    },
+    {
+     "name": "ComboboxItem",
+     "depth": 33,
+     "fx": {
+      "ref": 1,
+      "dep": 3,
+      "computed": 2,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItem",
+     "depth": 34,
+     "fx": {
+      "computed": 6,
+      "dep": 7,
+      "ref": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "CollectionItem",
+     "depth": 35,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "watch": 1,
+      "effect": 2
+     }
+    },
+    {
+     "name": "PrimitiveSlot",
+     "depth": 36,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 37,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ItemListRow",
+     "depth": 38,
+     "fx": {
+      "computed": 3,
+      "dep": 3,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ComboboxItemIndicator",
+     "depth": 39,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItemIndicator",
+     "depth": 40,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "Presence",
+     "depth": 41,
+     "fx": {
+      "objectRef": 2,
+      "ref": 4,
+      "dep": 6,
+      "proxy": 1,
+      "watch": 3,
+      "effect": 4,
+      "computed": 1
+     }
+    },
+    {
+     "name": "ComboboxItem",
+     "depth": 33,
+     "fx": {
+      "ref": 1,
+      "dep": 3,
+      "computed": 2,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItem",
+     "depth": 34,
+     "fx": {
+      "computed": 6,
+      "dep": 7,
+      "ref": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "CollectionItem",
+     "depth": 35,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "watch": 1,
+      "effect": 2
+     }
+    },
+    {
+     "name": "PrimitiveSlot",
+     "depth": 36,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 37,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ItemListRow",
+     "depth": 38,
+     "fx": {
+      "computed": 3,
+      "dep": 3,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ComboboxItemIndicator",
+     "depth": 39,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItemIndicator",
+     "depth": 40,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "Presence",
+     "depth": 41,
+     "fx": {
+      "objectRef": 2,
+      "ref": 4,
+      "dep": 6,
+      "proxy": 1,
+      "watch": 3,
+      "effect": 4,
+      "computed": 1
+     }
+    },
+    {
+     "name": "ComboboxItem",
+     "depth": 33,
+     "fx": {
+      "ref": 1,
+      "dep": 3,
+      "computed": 2,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItem",
+     "depth": 34,
+     "fx": {
+      "computed": 6,
+      "dep": 7,
+      "ref": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "CollectionItem",
+     "depth": 35,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "watch": 1,
+      "effect": 2
+     }
+    },
+    {
+     "name": "PrimitiveSlot",
+     "depth": 36,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 37,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ItemListRow",
+     "depth": 38,
+     "fx": {
+      "computed": 3,
+      "dep": 3,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ComboboxItemIndicator",
+     "depth": 39,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItemIndicator",
+     "depth": 40,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "Presence",
+     "depth": 41,
+     "fx": {
+      "objectRef": 2,
+      "ref": 4,
+      "dep": 6,
+      "proxy": 1,
+      "watch": 3,
+      "effect": 4,
+      "computed": 1
+     }
+    },
+    {
+     "name": "ComboboxItem",
+     "depth": 33,
+     "fx": {
+      "ref": 1,
+      "dep": 3,
+      "computed": 2,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItem",
+     "depth": 34,
+     "fx": {
+      "computed": 6,
+      "dep": 7,
+      "ref": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "CollectionItem",
+     "depth": 35,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "watch": 1,
+      "effect": 2
+     }
+    },
+    {
+     "name": "PrimitiveSlot",
+     "depth": 36,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 37,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ItemListRow",
+     "depth": 38,
+     "fx": {
+      "computed": 3,
+      "dep": 3,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ComboboxItemIndicator",
+     "depth": 39,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItemIndicator",
+     "depth": 40,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "Presence",
+     "depth": 41,
+     "fx": {
+      "objectRef": 2,
+      "ref": 4,
+      "dep": 6,
+      "proxy": 1,
+      "watch": 3,
+      "effect": 4,
+      "computed": 1
+     }
+    },
+    {
+     "name": "ComboboxItem",
+     "depth": 33,
+     "fx": {
+      "ref": 1,
+      "dep": 3,
+      "computed": 2,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItem",
+     "depth": 34,
+     "fx": {
+      "computed": 6,
+      "dep": 7,
+      "ref": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "CollectionItem",
+     "depth": 35,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "watch": 1,
+      "effect": 2
+     }
+    },
+    {
+     "name": "PrimitiveSlot",
+     "depth": 36,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 37,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ItemListRow",
+     "depth": 38,
+     "fx": {
+      "computed": 3,
+      "dep": 3,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ComboboxItemIndicator",
+     "depth": 39,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItemIndicator",
+     "depth": 40,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "Presence",
+     "depth": 41,
+     "fx": {
+      "objectRef": 2,
+      "ref": 4,
+      "dep": 6,
+      "proxy": 1,
+      "watch": 3,
+      "effect": 4,
+      "computed": 1
+     }
+    },
+    {
+     "name": "ComboboxItem",
+     "depth": 33,
+     "fx": {
+      "ref": 1,
+      "dep": 3,
+      "computed": 2,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItem",
+     "depth": 34,
+     "fx": {
+      "computed": 6,
+      "dep": 7,
+      "ref": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "CollectionItem",
+     "depth": 35,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "watch": 1,
+      "effect": 2
+     }
+    },
+    {
+     "name": "PrimitiveSlot",
+     "depth": 36,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 37,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ItemListRow",
+     "depth": 38,
+     "fx": {
+      "computed": 3,
+      "dep": 3,
+      "effect": 1
+     }
+    },
+    {
+     "name": "ComboboxItemIndicator",
+     "depth": 39,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "ListboxItemIndicator",
+     "depth": 40,
+     "fx": {
+      "ref": 1,
+      "dep": 2,
+      "computed": 1,
+      "effect": 1
+     }
+    },
+    {
+     "name": "Presence",
+     "depth": 41,
+     "fx": {
+      "objectRef": 2,
+      "ref": 4,
+      "dep": 6,
+      "proxy": 1,
+      "watch": 3,
+      "effect": 4,
+      "computed": 1
+     }
+    },
+    {
+     "name": "Primitive",
+     "depth": 29,
+     "fx": {
+      "effect": 1
+     }
+    }
+   ],
+   "totalsAllCells": {
+    "scope": 226,
+    "proxy": 284,
+    "effect": 349,
+    "dep": 1433,
+    "computed": 388,
+    "ref": 244,
+    "customRef": 5,
+    "watch": 124,
+    "objectRef": 107
+   },
+   "n": 1,
+   "dom": {
+    "all": 26,
+    "el": 7,
+    "text": 14,
+    "comment": 5
+   },
+   "docNodes": {
+    "all": 454,
+    "el": 145,
+    "text": 228,
+    "comment": 81
+   }
+  },
+  "mini": {
+   "tree": [
+    {
+     "name": "BenchCell",
+     "depth": 0,
+     "fx": {
+      "effect": 1
+     }
+    },
+    {
+     "name": "MiniInput",
+     "depth": 1,
+     "fx": {
+      "effect": 1
+     }
+    }
+   ],
+   "totalsAllCells": {
+    "scope": 201,
+    "proxy": 201,
+    "effect": 201,
+    "dep": 900
+   },
+   "n": 100,
+   "dom": {
+    "all": 3,
+    "el": 3,
+    "text": 0,
+    "comment": 0
+   },
+   "docNodes": {
+    "all": 305,
+    "el": 303,
+    "text": 2,
+    "comment": 0
+   }
+  }
+ }
+}

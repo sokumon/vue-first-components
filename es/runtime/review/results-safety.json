@@ -1,0 +1,61 @@
+{
+ "name": "safety",
+ "fails": 1,
+ "n": 5,
+ "results": [
+  {
+   "k": "user text in attrs / slots / JSON / props never executes, {{ }} stays literal",
+   "ok": true,
+   "info": {
+    "PWN": 0,
+    "imgs": 1,
+    "mustache49": false,
+    "rawTpl": true
+   }
+  },
+  {
+   "k": "on-click / v-on:click / :label attribute text is never compiled or run",
+   "ok": true,
+   "info": {
+    "HIT": 0,
+    "err": null,
+    "n": 1
+   }
+  },
+  {
+   "k": "host onclick attribute runs once per click (not copied to inner root)",
+   "ok": false,
+   "info": {
+    "HIT": 2,
+    "rootHasOnclick": "window.HIT++"
+   }
+  },
+  {
+   "k": "INFO component v-html sinks reachable from jQuery data (NotificationItem title/description)",
+   "ok": true,
+   "info": {
+    "PWN": 9,
+    "imgs": 2,
+    "props": [
+     "notification",
+     "class"
+    ]
+   }
+  },
+  {
+   "k": "INFO iife bundle carries Vue template compiler / new Function (CSP unsafe-eval); no page string is compiled",
+   "ok": true,
+   "info": {
+    "compiler": true,
+    "newFunction": 3,
+    "evalCalls": 0
+   }
+  }
+ ],
+ "errs": [
+  "error: TypeError: (r.options || []).map is not a function\n    at Ibe.fn (http://jq.test/dist/es-ui.iife.js:55:3356)\n    at GV (http://jq.test/dist/es-ui.iife.js:10:3583)\n    at get value (http://jq.test/dist/es-ui.iife.js:10:16453)\n    at Ibe.fn (http://jq.test/dist/es-ui.iife.js:55:3736)\n    at GV (http:/",
+  "error: TypeError: Cannot read properties of undefined (reading 'length')\n    at http://jq.test/dist/es-ui.iife.js:55:7321\n    at i (http://jq.test/dist/es-ui.iife.js:17:4961)\n    at oe (http://jq.test/dist/es-ui.iife.js:19:10231)\n    at http://jq.test/dist/es-ui.iife.js:37:45218\n    at i (http://jq.test/di",
+  "error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+  "error: Failed to load resource: the server responded with a status of 404 (Not Found)"
+ ]
+}

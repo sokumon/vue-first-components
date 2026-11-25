@@ -1,0 +1,160 @@
+{
+ "page": "app.html",
+ "fails": 2,
+ "n": 28,
+ "results": [
+  {
+   "tag": "es-frappe-ui-provider",
+   "k": "provider renders its slot (jQuery-built app inside)",
+   "ok": true
+  },
+  {
+   "tag": "es-frappe-ui-provider",
+   "k": "provider slot is not hidden in es-slots",
+   "ok": true
+  },
+  {
+   "tag": "es-frappe-ui-provider",
+   "k": "jQuery appended into #app after mount (provider slot): visible",
+   "ok": true
+  },
+  {
+   "tag": "toast (ES.toast)",
+   "k": "toast.success shows title + description",
+   "ok": true,
+   "extra": "[\"Saved #1 / desc 1\",\"Saved #1 / desc 1\"]"
+  },
+  {
+   "tag": "toast (ES.toast)",
+   "k": "toast rendered once (app root ToastProvider + provider's own)",
+   "ok": false,
+   "extra": "2 toasts, 2 toasters"
+  },
+  {
+   "tag": "toast (ES.toast)",
+   "k": "toast has <b> from sanitised HTML",
+   "ok": true
+  },
+  {
+   "tag": "toast (ES.toast)",
+   "k": "toast sits bottom-right",
+   "ok": true,
+   "extra": "{\"x\":896,\"y\":814,\"w\":360,\"h\":62}"
+  },
+  {
+   "tag": "toast (ES.toast)",
+   "k": "core (threw)",
+   "ok": false,
+   "extra": "page.click: Timeout 5000ms exceeded. @line 19"
+  },
+  {
+   "tag": "dialog.confirm (ES.dialog)",
+   "k": "renders exactly once",
+   "ok": true,
+   "extra": "1"
+  },
+  {
+   "tag": "dialog.confirm (ES.dialog)",
+   "k": "onConfirm fires, dialog closes",
+   "ok": true
+  },
+  {
+   "tag": "es-keyboard-shortcuts-dialog",
+   "k": "useKeyboardShortcut via ES.addRoot component handles Mod+S",
+   "ok": true,
+   "extra": "1"
+  },
+  {
+   "tag": "es-keyboard-shortcuts-dialog",
+   "k": "opens with title prop",
+   "ok": true
+  },
+  {
+   "tag": "es-keyboard-shortcuts-dialog",
+   "k": "lists the registered groups/shortcuts",
+   "ok": true,
+   "extra": "Shortcuts here\nFile\nSave doc\nCtrl\nS\nOpen doc\nCtrl\nO\nNav\nGo home\nCtrl\nK\nShow shortcuts\nShift\n?"
+  },
+  {
+   "tag": "es-keyboard-shortcuts-dialog",
+   "k": "search shown above threshold (search-threshold=\"3\" -> Number)",
+   "ok": true
+  },
+  {
+   "tag": "es-keyboard-shortcuts-dialog",
+   "k": "search filters to \"Open doc\"",
+   "ok": true,
+   "extra": "Shortcuts here\nFile\nOpen doc\nCtrl\nO"
+  },
+  {
+   "tag": "es-keyboard-shortcuts-dialog",
+   "k": "Escape -> update:open false",
+   "ok": true
+  },
+  {
+   "tag": "es-scroll-area",
+   "k": "class=\"h-40\" on the host reaches the root and constrains the viewport",
+   "ok": true,
+   "extra": "{\"sa\":{\"x\":24,\"y\":66,\"w\":240,\"h\":160},\"vp\":{\"x\":25,\"y\":67,\"w\":238,\"h\":158}}"
+  },
+  {
+   "tag": "es-scroll-area",
+   "k": "slot rows inside viewport",
+   "ok": true
+  },
+  {
+   "tag": "es-scroll-area",
+   "k": "scrolls on wheel",
+   "ok": true,
+   "extra": "802"
+  },
+  {
+   "tag": "es-scroll-area",
+   "k": "custom vertical scrollbar shown",
+   "ok": true
+  },
+  {
+   "tag": "es-scroll-area",
+   "k": "viewport-class prop applied",
+   "ok": true
+  },
+  {
+   "tag": "es-scroll-area",
+   "k": "exposed viewportElement readable on element",
+   "ok": true
+  },
+  {
+   "tag": "es-scroll-area",
+   "k": "class=\"h-full\" inside a sized jQuery wrapper (display:contents host)",
+   "ok": true,
+   "extra": "{\"x\":25,\"y\":243,\"w\":238,\"h\":158}"
+  },
+  {
+   "tag": "es-scroll-area",
+   "k": "jQuery .append() into the content: new row inside viewport",
+   "ok": true
+  },
+  {
+   "tag": "es-scroll-area",
+   "k": ".html() on the host: new content inside the viewport, still scrolls",
+   "ok": true
+  },
+  {
+   "tag": "es-scroll-area",
+   "k": ".detach().prependTo(): component kept; scrollTop behaves like a native scroller (native resets to 0)",
+   "ok": true,
+   "extra": "{\"kept\":0,\"native\":0}"
+  },
+  {
+   "tag": "es-scroll-area",
+   "k": ".clone(): one viewport, content once",
+   "ok": true
+  },
+  {
+   "tag": "es-frappe-ui-provider",
+   "k": ".html() inside the provider slot: page keeps working, toast shows",
+   "ok": true
+  }
+ ],
+ "errs": []
+}

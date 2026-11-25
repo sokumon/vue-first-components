@@ -1,0 +1,36 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="/dist/es-ui.css">
+<script src="/jquery.js"></script>
+<script src="/dist/es-ui.iife.js"></script>
+</head><body class="p-6">
+<es-frappe-ui-provider id="prov"><div id="app" class="space-y-4"></div></es-frappe-ui-provider>
+<script>
+// jQuery port of wc/sweep/overlays/pages/app.html (FrappeUIProvider, toast, dialog.confirm, KeyboardShortcutsDialog, ScrollArea).
+$(function () {
+  const S = window.S = { k: false, n: 0, saved: 0, log: [] }
+  const push = (x) => S.log.push(x)
+  const own = ($el, ev, fn) => $el.on(ev, function (e) { if (e.target === e.currentTarget) fn(e.originalEvent.detail, e) })
+  const $app = $('#app')
+  $('<button id="btn-toast" class="border px-2">toast</button>').on('click', () => { S.n++; ES.toast.success('Saved <b>#' + S.n + '</b>', { description: 'desc ' + S.n }) }).appendTo($app)
+  $('<button id="btn-toast-act" class="border px-2">toast action</button>').on('click', () => ES.toast('With action', { action: { label: 'Undo', onClick: () => push('undo') } })).appendTo($app)
+  $('<button id="btn-confirm" class="border px-2">confirm</button>').on('click', () => ES.dialog.confirm({ title: 'Really?', message: 'Confirm message', onConfirm: () => push('confirmed') })).appendTo($app)
+  $('<button id="btn-k" class="border px-2">shortcuts</button>').on('click', () => $('#kd').prop('open', true)).appendTo($app)
+
+  own($('<es-keyboard-shortcuts-dialog id="kd" title="Shortcuts here" search-threshold="3"></es-keyboard-shortcuts-dialog>'), 'update:open', (v) => (S.k = v)).appendTo($app)
+
+  // useKeyboardShortcut needs a component instance: the only route from a jQuery page is a
+  // render-function component handed to ES.addRoot (no unregister handle).
+  ES.addRoot({ setup() { ES.frappeUI.useKeyboardShortcut([
+    { combo: 'Mod+S', description: 'Save doc', group: 'File', handler: () => S.saved++ },
+    { combo: 'Mod+O', description: 'Open doc', group: 'File', handler: () => {} },
+    { combo: 'Mod+K', description: 'Go home', group: 'Nav', handler: () => {} },
+    { combo: 'Shift+?', description: 'Show shortcuts', group: 'Nav', handler: () => {} },
+  ]); return () => null } })
+
+  const rows = (cls) => Array.from({ length: 40 }, (_, i) => `<p class="${cls}">Row ${i + 1}</p>`).join('')
+  $(`<es-scroll-area id="sa" class="h-40 w-60 border" viewport-class="sa-vp"><div id="sa-content">${rows('sa-row')}</div></es-scroll-area>`).appendTo($app)
+  $(`<div id="sa3-wrap" class="h-40 w-60 border"><es-scroll-area id="sa3" class="h-full"><div>${rows('sa3-row')}</div></es-scroll-area></div>`).appendTo($app)
+  window.READY = true
+})
+</script>
+</body></html>

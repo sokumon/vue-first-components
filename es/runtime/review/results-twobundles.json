@@ -1,0 +1,20 @@
+{
+ "name": "twobundles",
+ "fails": 1,
+ "n": 1,
+ "results": [
+  {
+   "k": "a second bundle importing es-ui shares the one runtime (toast from bundle 2 shows)",
+   "ok": false,
+   "info": {
+    "same": false,
+    "registered2": 0,
+    "app2": false,
+    "shown2": 0,
+    "shown1": 1,
+    "failed2": 0
+   }
+  }
+ ],
+ "errs": []
+}

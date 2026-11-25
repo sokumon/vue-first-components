@@ -1,0 +1,25 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="/dist/es-ui.css">
+<link rel="stylesheet" href="page.css">
+<script src="/jquery.js"></script>
+<script src="/dist/es-ui.iife.js"></script>
+</head><body class="p-6">
+<!-- jQuery port of wc/sweep/framework-ui/pages/email.html -->
+<pre id="state" class="text-xs"></pre>
+<div id="app"></div>
+<div id="desk" class="border-t mt-4 pt-4"></div>
+<script>
+$(function () {
+  const S = window.S = { n: 0, dirty: false, created: [], log: [] }
+  const show = () => $('#state').text(JSON.stringify({ n: S.n, dirty: S.dirty, created: S.created }))
+  const own = ($el, ev, fn) => $el.on(ev, function (e) { if (e.target === e.currentTarget) { fn(e.originalEvent.detail, e); show() } })
+  window.own = own; window.show = show
+  const $ea = $('<es-fw-email-accounts id="c-ea" class="block w-[40rem]" doctype="HD Ticket">').prop({ providers: ['GMail', ''], dirty: false })
+  own($ea, 'update:dirty', (v) => { S.dirty = v })
+  own($ea, 'created', (v) => { S.created.push(v) })
+  $ea.appendTo('#app')
+  show()
+  window.READY = true
+})
+</script>
+</body></html>

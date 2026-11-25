@@ -1,0 +1,131 @@
+{
+ "page": "parts.html",
+ "fails": 0,
+ "n": 22,
+ "results": [
+  {
+   "tag": "es-page-header-base",
+   "k": "teleports into the registered es-page-header-target",
+   "ok": true
+  },
+  {
+   "tag": "es-page-header-base",
+   "k": "class attribute lands on the teleported <header>",
+   "ok": true,
+   "extra": "flex h-10 items-center bg-surface-gray-2 px-2"
+  },
+  {
+   "tag": "es-page-header-base",
+   "k": "anchor <span hidden> stays at declaration site",
+   "ok": true
+  },
+  {
+   "tag": "es-page-header-base",
+   "k": "teleported slot stays live (jQuery handler + text)",
+   "ok": true,
+   "extra": "Base header for Grace"
+  },
+  {
+   "tag": "es-page-header-base",
+   "k": "clicking header background scrolls its declaration scroll parent to top",
+   "ok": true,
+   "extra": "0"
+  },
+  {
+   "tag": "es-page-header",
+   "k": "second header (page-header) also teleported to the same target",
+   "ok": true,
+   "extra": "Slot title Grace"
+  },
+  {
+   "tag": "es-page-header-title",
+   "k": "default slot overrides title",
+   "ok": true
+  },
+  {
+   "tag": "es-page-header",
+   "k": "jQuery .remove() of the wrapper removes the teleported header",
+   "ok": true,
+   "extra": "2 -> 1"
+  },
+  {
+   "tag": "es-page-header-mobile-title",
+   "k": "standalone, title attribute",
+   "ok": true,
+   "extra": "Standalone mobile title"
+  },
+  {
+   "tag": "es-page-header-title",
+   "k": "standalone slot-only",
+   "ok": true,
+   "extra": "Slot only Grace"
+  },
+  {
+   "tag": "es-page-header-back-button",
+   "k": "icon-only ghost button, aria-label \"Back\" + chevron",
+   "ok": true
+  },
+  {
+   "tag": "es-page-header-base",
+   "k": ".append() on host -> joins the teleported header slot",
+   "ok": true
+  },
+  {
+   "tag": "es-page-header-base",
+   "k": ".html() on host -> header remounted with new slot, still one header in target",
+   "ok": true,
+   "extra": "1"
+  },
+  {
+   "tag": "es-page-header-base",
+   "k": ".empty() on host -> empty header stays (one), old nodes gone",
+   "ok": true
+  },
+  {
+   "tag": "es-page-header-base",
+   "k": ".detach() + append elsewhere in same task: header stays in target, anchor moved",
+   "ok": true,
+   "extra": "[]"
+  },
+  {
+   "tag": "es-page-header-base",
+   "k": ".remove() takes its header out of the target",
+   "ok": true
+  },
+  {
+   "tag": "es-page-header",
+   "k": "created inside a larger jQuery template: teleported into the target",
+   "ok": true,
+   "extra": "From template\nAct"
+  },
+  {
+   "tag": "es-page-header-target",
+   "k": ".detach() + re-append the target in same task keeps the header",
+   "ok": true,
+   "extra": "[]"
+  },
+  {
+   "tag": "es-page-header-target",
+   "k": ".remove() of the target: header falls back to its declaration site (Teleport disabled, component behaviour)",
+   "ok": true
+  },
+  {
+   "tag": "es-page-header-target",
+   "k": "a new target from a string picks the existing header up",
+   "ok": true,
+   "extra": "From template\nAct"
+  },
+  {
+   "tag": "es-page-header-target",
+   "k": ".clone() of a target: no duplicate headers rendered from the clone",
+   "ok": true,
+   "extra": "1"
+  },
+  {
+   "tag": "es-page-header-back-button",
+   "k": ".clone() + .attr(label) -> aria-label \"Go back\"",
+   "ok": true
+  }
+ ],
+ "errs": []
+}

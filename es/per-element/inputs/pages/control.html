@@ -1,0 +1,27 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../build/es-wc-spike.css">
+<script defer src="../build/es-components.js"></script>
+</head><body class="p-6">
+<!-- Plain-Vue control: the same frappe-ui components mounted with createApp (no custom elements), for differential checks. -->
+<div id="ctl"></div><pre id="state"></pre>
+<script>
+addEventListener('DOMContentLoaded', () => {
+  const { createApp, h, ref, FUI } = window.__ctl
+  const S = {
+    radio() {
+      const v = ref('b')
+      return () => h('div', [h(FUI.RadioGroup, { label: 'Colour', modelValue: v.value, 'onUpdate:modelValue': (x) => (v.value = x) }, () => [
+        h(FUI.Radio, { value: 'a', label: 'Alpha', id: 'r-a' }), h(FUI.Radio, { value: 'b', label: 'Beta', id: 'r-b' }), h(FUI.Radio, { value: 'c', label: 'Gamma', id: 'r-c' })]),
+        h('pre', { id: 'state' }, JSON.stringify({ color: v.value }))])
+    },
+    date() {
+      const d = ref('2024-03-15')
+      return () => h('div', [h(FUI.DatePicker, { id: 'dp', modelValue: d.value, 'onUpdate:modelValue': (x) => (d.value = x) }, {
+        actions: () => h('button', { id: 'dp-preset', onClick: () => (d.value = '2024-12-25') }, 'Christmas') }),
+        h('pre', { id: 'state' }, JSON.stringify({ d: d.value }))])
+    },
+  }
+  document.getElementById('state').remove()
+  createApp({ setup: S[location.hash.slice(1)] }).mount('#ctl')
+})
+</script></body></html>

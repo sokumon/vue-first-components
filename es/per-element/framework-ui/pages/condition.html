@@ -1,0 +1,17 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="/build/fw-sweep.css">
+<script defer src="/build/es-components.js"></script>
+<script defer src="/petite-vue.iife.js"></script>
+</head><body class="p-6">
+<div id="app" v-scope="{ n: 0, tree: null, expr: '', ro: { conjunction: 'and', conditions: [{ fieldname: 'status', operator: 'equals', value: 'Open' }] } }">
+  <pre id="state" class="text-xs">{{ JSON.stringify({ n, tree, expr }) }}</pre>
+  <button id="poke" @click="n++">poke</button>
+  <es-fw-condition-builder id="c-cb" doctype="ToDo" label="Conditions" description="When should this run?" :model-value="tree"
+     @update:model-value="tree = $event.detail[0]" @update:expression="expr = $event.detail[0]">
+    <span slot="empty" id="cb-empty">Start with a rule ({{ expr === '' ? 'none' : 'some' }})</span>
+  </es-fw-condition-builder>
+  <es-fw-condition-builder id="c-cb-ro" class="mt-6 block" readonly :fields="[{ label: 'Status', fieldname: 'status', fieldtype: 'Select', options: 'Open\nClosed' }]" :model-value="ro"
+     :labels="{ empty: 'Nothing yet' }"></es-fw-condition-builder>
+</div>
+<script>window.EsBindSlot = (el, p) => { const s = PetiteVue.reactive(p), app = PetiteVue.createApp(s).mount(el); return { update: (n) => Object.assign(s, n), unmount: () => app.unmount() } }; addEventListener('DOMContentLoaded', () => PetiteVue.createApp().mount('#app'))</script>
+</body></html>

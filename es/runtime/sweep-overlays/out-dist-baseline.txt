@@ -1,0 +1,24 @@
+PASS es-button | label prop renders
+PASS es-button | default slot renders
+PASS es-button | tailwind applied
+PASS es-button | .attr("loading", "") from a jQuery click -> disabled spinner
+PASS es-text-input | update:modelValue -> page state :: Grace|false|false|red|false|0
+PASS es-checkbox | starts unchecked (prop false)
+PASS es-fw-check-field | starts unchecked (model 0)
+PASS es-checkbox | v-model
+PASS es-switch | v-model
+PASS es-select | options prop + v-model :: Grace|true|true|blue|false|0
+PASS es-badge | renders
+PASS es-avatar | renders
+PASS es-dropdown | function in options fires
+PASS es-dialog | opens via .prop from es-button click
+PASS es-dialog | title prop
+PASS es-dialog | body slot inside teleported dialog, text current
+PASS es-dialog | nested es-button in slot drives page state
+PASS es-button | slot text updated by jQuery
+PASS es-dialog | Escape -> update:open -> page state
+PASS es-fw-check-field | (0|1) v-model :: Linus|true|true|blue|false|1
+PASS es-dialog | created open from an HTML string (open attribute), slot current
+PASS es-dialog | $d2.remove() from its own nested button: unmounted, no leaked teleport, body interactive :: {"before":{"body":5,"dialogs":0},"after":{"host":false,"body":5,"dialogs":0,"kill":false,"pe":"auto"}}
+console errors/warnings: 0
+ALL PASS (22)

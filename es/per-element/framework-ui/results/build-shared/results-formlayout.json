@@ -1,0 +1,86 @@
+{
+ "results": [
+  {
+   "k": "tabs strip rendered",
+   "ok": true,
+   "extra": "Details,More"
+  },
+  {
+   "k": "update:activeTab announced on mount",
+   "ok": true,
+   "extra": "details"
+  },
+  {
+   "k": "fields rendered with labels",
+   "ok": true
+  },
+  {
+   "k": "reason hidden by dependsOn",
+   "ok": true
+  },
+  {
+   "k": "typing writes into host doc (in-place mutation)",
+   "ok": true,
+   "extra": "Fix it"
+  },
+  {
+   "k": "select writes doc.status",
+   "ok": true,
+   "extra": "Closed"
+  },
+  {
+   "k": "dependsOn re-evaluates after in-form edit",
+   "ok": true
+  },
+  {
+   "k": "ui.on.change function in layout object fires",
+   "ok": true,
+   "extra": "[1]"
+  },
+  {
+   "k": "tab click -> v-model:tab + activeTab",
+   "ok": true,
+   "extra": "[\"more\",\"more\"]"
+  },
+  {
+   "k": "Table field inside FormLayout renders",
+   "ok": true
+  },
+  {
+   "k": "Table add row in FormLayout",
+   "ok": true,
+   "extra": "[{\"item\":\"\",\"__row_id\":\"row-1\"}]"
+  },
+  {
+   "k": "Table row editor drawn inside FormLayout",
+   "ok": true,
+   "extra": "[1]"
+  },
+  {
+   "k": "typing in Table cell writes the child row",
+   "ok": true,
+   "extra": "[{\"item\":\"Bolt\",\"__row_id\":\"row-1\"}]"
+  },
+  {
+   "k": "keyboard ArrowRight moves tab",
+   "ok": true,
+   "extra": "more"
+  },
+  {
+   "k": "host nested mutation (doc.subject=) reaches the field",
+   "ok": true,
+   "extra": "From host"
+  },
+  {
+   "k": "host replacing doc reaches the field",
+   "ok": true,
+   "extra": "Replaced"
+  },
+  {
+   "k": "select trigger shows Closed (Vue saw in-form edit)",
+   "ok": true,
+   "extra": "Status\nClosed"
+  }
+ ],
+ "errs": []
+}

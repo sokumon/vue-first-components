@@ -1,0 +1,82 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="/dist/es-ui.css">
+<script src="/jquery.js"></script>
+<script src="/dist/es-ui.iife.js"></script>
+</head><body class="p-6">
+<div id="app" class="space-y-4 max-w-lg"></div>
+<script>
+// Page code: jQuery 3.7.1 only. Mirrors wc/sweep/inputs/pages/simple.html (petite-vue) scenario by scenario.
+$(function () {
+  const S = window.S = { agree: false, agree2: false, on: false, name: 'Ada', bio: 'Hello', pw: 'secret', rating: 2, half: 1.5, sl: [30], range: [20, 80],
+    committed: null, dur: 5400, dur2: null, color: 'b', who: 'Ada', todos: [{ id: 1, text: 'one', done: false }, { id: 2, text: 'two', done: true }] }
+  const model = ($el, key, after) => $el.on('update:modelValue', (e) => { if (e.target !== e.currentTarget) return; S[key] = e.originalEvent.detail; after && after(S[key]) })
+  const $app = $('#app')
+
+  // checkbox: label prop, named label slot, description slot, indeterminate, disabled
+  model($('<es-checkbox id="cb" label="I agree" description="desc prop">').prop('modelValue', false), 'agree').appendTo($app)
+  model($('<es-checkbox id="cb-slot">').prop('modelValue', false)
+    .append('<span slot="label" id="cb-label-slot">Agree as <b class="who">Ada</b></span>')
+    .append('<span slot="description" id="cb-desc-slot">Desc slot <i class="agree2">false</i></span>'), 'agree2', (v) => $('.agree2').text(String(v))).appendTo($app)
+  $app.append('<es-checkbox id="cb-ind" label="Mixed" indeterminate></es-checkbox>')
+  $('#cb-ind').prop('modelValue', false)
+  $app.append($('<es-checkbox id="cb-dis" label="Disabled">').attr('disabled', true).prop('modelValue', false))
+
+  // switch
+  model($('<es-switch id="sw" label="Notifications" description="sw desc">').prop('modelValue', false), 'on', (v) => { $('#sw-slot').prop('modelValue', v); $('.on').text(String(v)) }).appendTo($app)
+  model($('<es-switch id="sw-slot"><span slot="label" id="sw-label-slot">Switch slot <i class="on">false</i></span></es-switch>').prop('modelValue', false), 'on',
+    (v) => { $('#sw').prop('modelValue', v); $('.on').text(String(v)) }).appendTo($app)
+
+  // text input: built from a larger Desk-style HTML template string
+  const $ctl = $(`<div class="frappe-control" data-fieldname="name">
+      <es-text-input id="ti" label="Name" placeholder="Your name" error="Required field">
+        <span slot="prefix" id="ti-prefix">@</span>
+        <span slot="suffix" id="ti-suffix">3</span>
+      </es-text-input>
+      <es-text-input id="ti-num" type="number"></es-text-input>
+      <es-text-input id="ti-deb" debounce="300"></es-text-input>
+    </div>`).appendTo($app)
+  model($ctl.find('#ti').prop('modelValue', S.name), 'name', (v) => { $('#ti-suffix').text(v.length); $('#ti-deb').prop('modelValue', v) })
+  $ctl.find('#ti-num').prop('modelValue', 3)
+  model($ctl.find('#ti-deb').prop('modelValue', S.name), 'name', (v) => $('#ti').prop('modelValue', v))
+
+  model($('<es-textarea id="ta" label="Bio" rows="5"><span slot="description" id="ta-desc">Bio slot desc</span></es-textarea>').prop('modelValue', S.bio), 'bio').appendTo($app)
+  model($('<es-password id="pw" label="Password"><span slot="prefix" id="pw-prefix">KEY</span></es-password>').prop('modelValue', S.pw), 'pw').appendTo($app)
+
+  // radio group with nested es-radio children
+  model($('<es-radio-group id="rg" label="Colour">').prop('modelValue', S.color).append(
+    '<es-radio id="r-a" value="a" label="Alpha"></es-radio>',
+    '<es-radio id="r-b" value="b" label="Beta" description="second"></es-radio>',
+    '<es-radio id="r-c" value="c"><span slot="label" id="r-c-label">Gamma <b class="who">Ada</b></span></es-radio>'), 'color').appendTo($app)
+  $app.append('<es-radio id="r-orphan" value="x" label="Orphan"></es-radio>')
+
+  model($('<es-rating id="rt" label="Stars">').prop('modelValue', S.rating), 'rating').appendTo($app)
+  model($('<es-rating id="rt-half" step="0.5" max="4">').prop('modelValue', S.half), 'half').appendTo($app)
+  $('<es-rating id="rt-icon" max="3"><span slot="icon" class="es-heart">H</span></es-rating>').prop('modelValue', 2).appendTo($app)
+
+  model($('<es-slider id="sl" label="Volume" min="0" max="100" step="10">').prop('modelValue', S.sl), 'sl')
+    .on('value-commit', (e) => { S.committed = e.originalEvent.detail }).appendTo($app)
+  model($('<es-slider id="sl-range">').prop('modelValue', S.range), 'range').appendTo($app)
+
+  model($('<es-duration id="du" label="Time">').prop('modelValue', S.dur), 'dur', (v) => $('#du-long').prop('modelValue', v)).appendTo($app)
+  $('<es-duration id="du-long" format="long">').prop('modelValue', S.dur).appendTo($app)
+  model($('<es-duration id="du-empty" placeholder="e.g. 1h 30m">').prop('modelValue', null), 'dur2').appendTo($app)
+
+  // "v-if" radio group with "v-for" radios: built and removed by jQuery
+  $('<button id="show-rg2">toggle rg2</button>').appendTo($app).on('click', () => {
+    if ($('#rg2').length) return $('#rg2').remove()
+    const $rg = $('<es-radio-group id="rg2">').prop('modelValue', S.color)
+    for (const o of [{ v: 'a', l: 'A' }, { v: 'b', l: 'B' }, { v: 'c', l: 'C' }]) $('<es-radio>').attr({ value: o.v, label: o.l + ' ' + S.who }).appendTo($rg)
+    model($rg, 'color', (v) => $('#rg').prop('modelValue', v)).insertAfter('#show-rg2')
+  })
+  const $vfor = $('<div id="vfor">').appendTo($app)
+  const todos = () => $('#todos').text(S.todos.map((t) => (t.done ? 1 : 0)).join(''))
+  ES.batch(() => S.todos.forEach((t) => $('<es-checkbox>').attr('label', t.text).prop('modelValue', t.done)
+    .on('update:modelValue', (e) => { t.done = e.originalEvent.detail; todos() }).appendTo($vfor)))
+  $app.append('<pre id="todos"></pre>'); todos()
+  $('<button id="change-who">change</button>').appendTo($app).on('click', () => {
+    S.who = 'Linus'; $('.who').text('Linus'); S.agree2 = true; $('#cb-slot').prop('modelValue', true); $('.agree2').text('true')
+  })
+  window.READY = true
+})
+</script>
+</body></html>

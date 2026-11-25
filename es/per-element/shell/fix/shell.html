@@ -1,0 +1,61 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="es-wc-spike.css">
+<script defer src="es-components.js"></script>
+<script defer src="petite-vue.iife.js"></script>
+</head><body>
+<div id="app" v-scope="{ cur: 'inbox', collapsed: false, secCollapsed: false, logs: [], cardShown: true, n: 3,
+  log(m) { this.logs.push(m) },
+  ws: [{ label: 'Switch workspace', onClick() { window.__ws = 'switch' } }, { label: 'Log out', onClick() { window.__ws = 'logout' } }],
+  upgrade: { label: 'Upgrade now', onClick() { window.__up = (window.__up || 0) + 1 } },
+  fnClick(e) { window.__fn = e && e.type } }">
+  <p id="state" class="fixed bottom-0 right-0 z-50 bg-white text-xs">cur={{ cur }}|collapsed={{ collapsed }}|sec={{ secCollapsed }}|card={{ cardShown }}</p>
+  <p id="log" class="fixed bottom-4 right-0 z-50 bg-white text-xs">{{ logs.join(',') }}</p>
+
+  <es-desktop-shell id="shell" class="block h-screen">
+    <es-sidebar-rail slot="rail" id="rail">
+      <es-sidebar-rail-item id="ri-home" label="Home" icon="lucide-home" :active="cur==='inbox'" @click="cur = 'inbox'; log('rail-home')"></es-sidebar-rail-item>
+      <es-sidebar-rail-item id="ri-bell" label="Notifications" icon="lucide-bell" :badge="n" @click="log('rail-bell')"></es-sidebar-rail-item>
+      <es-sidebar-rail-item id="ri-dot" label="Mentions" icon="lucide-at-sign" :badge="2" badge-style="dot" variant="ghost"></es-sidebar-rail-item>
+      <es-sidebar-rail-item id="ri-custom" label="Profile" href="https://example.com/p"><span id="ri-custom-slot" class="text-xs">AL</span></es-sidebar-rail-item>
+    </es-sidebar-rail>
+
+    <es-sidebar slot="sidebar" id="sb" :collapsed="collapsed" @update:collapsed="collapsed = $event.detail[0]" aria-label="Main nav">
+      <es-sidebar-header id="sh" title="Acme" subtitle="ada@acme.io" :menu-items="ws"></es-sidebar-header>
+      <es-sidebar-item id="si-inbox" label="Inbox" icon="lucide-inbox" suffix="12" :active="cur==='inbox'" @click="cur='inbox'"></es-sidebar-item>
+      <es-sidebar-item id="si-drafts" icon="lucide-file" :active="cur==='drafts'" :on-click="fnClick" @click="cur='drafts'">
+        <span slot="prefix" id="si-drafts-prefix" class="lucide-pencil size-4"></span>
+        <span id="si-drafts-label">Drafts ({{ n }})</span>
+        <es-badge slot="suffix" id="si-drafts-suffix" label="new"></es-badge>
+      </es-sidebar-item>
+      <es-sidebar-item id="si-link" label="Docs" icon="lucide-book" href="https://example.com/docs"></es-sidebar-item>
+      <es-sidebar-label id="sl" divider>Projects</es-sidebar-label>
+      <es-sidebar-section id="ss" label="Teams" collapsible :collapsed="secCollapsed" @update:collapsed="secCollapsed = $event.detail[0]">
+        <es-sidebar-item id="si-team-a" label="Team A" icon="lucide-users" @click="cur='a'"></es-sidebar-item>
+        <es-sidebar-item id="si-team-b" label="Team B" icon="lucide-users" @click="cur='b'"></es-sidebar-item>
+      </es-sidebar-section>
+      <div class="flex-1"></div>
+      <div class="p-2" v-if="cardShown">
+        <es-sidebar-card id="card" title="Trial ends soon" description="5 days left" theme="amber" :action="upgrade" dismissible @dismiss="cardShown = false; log('dismiss')"></es-sidebar-card>
+      </div>
+      <div class="p-2">
+        <es-sidebar-card id="card2" theme="blue">
+          <span slot="title" id="card2-title">Slot title {{ n }}</span>
+          <span slot="description" id="card2-desc">Slot description</span>
+          <es-button slot="actions" id="card2-act" label="Act" @click="n++"></es-button>
+        </es-sidebar-card>
+      </div>
+      <es-sidebar-collapse-toggle id="toggle"></es-sidebar-collapse-toggle>
+    </es-sidebar>
+
+    <es-page-header id="ph">
+      <es-page-header-title id="pht" :title="'Page ' + cur"></es-page-header-title>
+      <es-button id="ph-act" label="New" variant="solid" @click="log('new')"></es-button>
+    </es-page-header>
+    <div id="content" class="p-5">
+      <p id="content-first">Content for {{ cur }}</p>
+      <div v-for="i in 80" class="py-2 border-b">Row {{ i }}</div>
+    </div>
+  </es-desktop-shell>
+</div>
+<script>addEventListener('DOMContentLoaded', () => PetiteVue.createApp().mount('#app'))</script>
+</body></html>

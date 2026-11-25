@@ -1,0 +1,135 @@
+--- ../src/runtime.js	2026-11-24 01:00:50.301456785 +0000
++++ proto/src/runtime.js	2026-11-24 01:23:09.784200390 +0000
+@@ -57,11 +57,12 @@
+     if (v === '' || v === 'true' || v === name || v === hyphenate(name)) return true
+     if (v === 'false') return false
+   }
+-  if (types.includes(String) || !types.length) return v
+-  if (types.includes(Number) && v.trim() !== '' && !isNaN(+v)) return +v
++  // JSON first when an Array/Object type is allowed, even next to String (fileTypes: String | Array)
+   if ((types.includes(Object) || types.includes(Array)) && /^\s*[[{]/.test(v)) {
+     try { return JSON.parse(v) } catch {}
+   }
++  if (types.includes(String) || !types.length) return v
++  if (types.includes(Number) && v.trim() !== '' && !isNaN(+v)) return +v
+   return v
+ }
+ 
+@@ -73,7 +74,7 @@
+   if (!def) return null
+   const e = (el._es = markRaw({
+     id: ++seq, ver: 0, host: el, def,
+-    props: shallowReactive({}), attrs: shallowReactive({}), src: {},
++    props: shallowReactive({}), attrs: shallowReactive({}), extra: shallowReactive({}), src: {},
+     slots: null, holder: null, tick: shallowRef(0),
+     owner: null, node: null, tv: null, inner: null, exposed: new Set(), killed: false,
+   }))
+@@ -132,6 +133,7 @@
+   if (ok && name.startsWith('update:')) {
+     const k = camelize(name.slice(7))
+     if (e.def.props.has(k)) { e.props[k] = args[0]; e.src[k] = 'prop' }
++    else if (k in e.extra) e.extra[k] = args[0]
+   }
+ }
+ 
+@@ -169,7 +171,7 @@
+   }
+   e.slots = shallowReactive({})
+   moving++
+-  try { addContent(e, content, false) } finally { moving-- }
++  try { addContent(e, content, false); holderOf(e) } finally { moving-- }
+ }
+ function addContent(e, nodes, prepend) {
+   const list = prepend ? [...nodes].reverse() : nodes
+@@ -192,6 +194,8 @@
+ // new slot content and the component is mounted afresh.
+ function onChildList(e) {
+   const el = e.host
++  const removed = e.removed || []
++  e.removed = null
+   if (!e.slots) return
+   const start = e.tv && e.tv.targetStart, end = e.tv && e.tv.targetAnchor
+   const rendered = e.node && start
+@@ -205,6 +209,13 @@
+       const vueNodes = new Set()
+       if (e.node.subTree) collectVue(e.node.subTree, vueNodes)
+       addContent(e, rest.filter((n) => !vueNodes.has(n)), false)
++      if (!e.holder) holderOf(e)
++      // .html()/.empty() detached Vue's nodes one by one. Unmounting a Fragment
++      // root walks nextSibling from its start anchor to its end anchor, which
++      // throws on detached nodes and leaves the one shared app broken. Put the
++      // removed nodes back in their old order in a scratch element first.
++      const scratch = document.createElement('div')
++      for (const n of removed) if (!n.parentNode && n !== e.holder) scratch.appendChild(n)
+     } finally { moving-- }
+     remount(e)
+     return
+@@ -247,7 +258,10 @@
+     const e = r.target._es
+     if (!e) continue
+     if (r.type === 'attributes') applyAttr(e, r.attributeName)
+-    else lists.add(e)
++    else {
++      lists.add(e)
++      if (r.removedNodes.length) (e.removed || (e.removed = [])).push(...r.removedNodes)
++    }
+   }
+   lists.forEach(onChildList)
+   flushDirty()
+@@ -314,7 +328,7 @@
+       const slots = {}
+       for (const name in e.slots) if (e.slots[name].length)
+         slots[name] = (scope) => [h(EsSlotOutlet, { entry: e, name, scope, group: e.slots[name] })]
+-      return h(e.def.comp, { ...e.attrs, ...e.props, ...e.listeners, ref: setRef }, slots)
++      return h(e.def.comp, { ...e.attrs, ...e.extra, ...e.props, ...e.listeners, ref: setRef }, slots)
+     }
+   },
+ })
+@@ -424,6 +438,22 @@
+     } finally { moving-- }
+     if (st.tpl) { applyScope(st); announce(st, false) }
+   },
++  // An outlet that was mounted outside the document (reka renders a closed
++  // Select's content into a detached DocumentFragment to collect its items)
++  // must not hold the live nodes: they go back to the host's <es-slots>, where
++  // $('#id') finds them, and this outlet shows clones. The next connected
++  // outlet of the slot becomes the owner.
++  mounted(el, { value: st }) {
++    if (!st.owner || el.isConnected) return
++    owners.delete(toRaw(st.group))
++    st.owner = false
++    moving++
++    try {
++      st.group.forEach((n) => n.parentNode === el && holderOf(st.e).appendChild(n))
++      st.mine = st.group.map((n) => n.cloneNode(true))
++      st.mine.forEach((n) => el.appendChild(n))
++    } finally { moving-- }
++  },
+   beforeUpdate(el, { value: st }) {
+     if (st.tpl) { applyScope(st); announce(st, true); return }
+     if (!st.owner) return
+@@ -637,6 +667,24 @@
+     for (const t of this.querySelectorAll(FOCUSABLE)) if (!t.closest('es-slots')) return t.focus(o)
+   }
+   get esComponent() { return this._es && this._es.inner }
++  // Fall-through values of any type for components that forward undeclared
++  // props to an inner component (FormControl -> TextInput/Select): .prop('esAttrs', { modelValue, options })
++  get esAttrs() { return entryOf(this).extra }
++  set esAttrs(o) { const e = entryOf(this); for (const k in o) e.extra[camelize(k)] = o[k]; dirty.add(e) }
++  // A listener for a component-style event the component does not declare
++  // (update:modelValue on FormControl) becomes a fall-through Vue listener, so
++  // the inner component's emit reaches the host like a declared one.
++  addEventListener(type, fn, o) {
++    const e = entryOf(this)
++    if (e && typeof type === 'string' && !type.startsWith('es-') && !('on' + type in HTMLElement.prototype)) {
++      const key = 'on' + capitalize(camelize(type))
++      if (!e.def.emits.some((n) => 'on' + capitalize(camelize(n)) === key) && !e.listeners[key]) {
++        e.listeners[key] = (...args) => emitOut(e, type, args)
++        dirty.add(e)
++      }
++    }
++    return super.addEventListener(type, fn, o)
++  }
+ }
+ 
+ // <es-slot> is display:contents too; reka `as-child` triggers merge onto it,

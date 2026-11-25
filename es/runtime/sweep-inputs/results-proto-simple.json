@@ -1,0 +1,280 @@
+{
+ "page": "simple.html",
+ "fails": 0,
+ "n": 60,
+ "results": [
+  {
+   "k": "host el.id property returns its id attribute",
+   "ok": true
+  },
+  {
+   "k": "element ids unique across the page",
+   "ok": true,
+   "extra": ""
+  },
+  {
+   "k": "one app for all hosts",
+   "ok": true,
+   "extra": "{\"groups\":1,\"buckets\":2,\"top\":23}"
+  },
+  {
+   "k": "checkbox starts unchecked",
+   "ok": true
+  },
+  {
+   "k": "checkbox label + description props render inside host",
+   "ok": true,
+   "extra": "I agree\n\ndesc prop"
+  },
+  {
+   "k": "click on checkbox <label> toggles its own input + model event",
+   "ok": true,
+   "extra": "{\"agree\":true,\"agree2\":false,\"on\":false,\"name\":\"Ada\",\"bio\":\"Hello\",\"pw\":\"secret\",\"rating\":2,\"half\":1.5,\"sl\":[30],\"range\":[20,80],\"committed\":null,\"dur\":5400,\"dur2\":null,\"color\":\"b\",\"who\":\"Ada\",\"todos\":[{\"id\":1,\"text\":\"one\",\"done\":false},{\"id\":2,\"text\":\"two\",\"done\":true}]}"
+  },
+  {
+   "k": "cb-slot not affected by cb",
+   "ok": true
+  },
+  {
+   "k": "named label slot rendered inside <label>",
+   "ok": true,
+   "extra": "Agree as Ada"
+  },
+  {
+   "k": "named description slot rendered in description",
+   "ok": true
+  },
+  {
+   "k": "clicking slotted label toggles cb-slot (not another checkbox)",
+   "ok": true,
+   "extra": "{\"agree\":true,\"agree2\":true,\"on\":false,\"name\":\"Ada\",\"bio\":\"Hello\",\"pw\":\"secret\",\"rating\":2,\"half\":1.5,\"sl\":[30],\"range\":[20,80],\"committed\":null,\"dur\":5400,\"dur2\":null,\"color\":\"b\",\"who\":\"Ada\",\"todos\":[{\"id\":1,\"text\":\"one\",\"done\":false},{\"id\":2,\"text\":\"two\",\"done\":true}]}"
+  },
+  {
+   "k": "cb-ind indeterminate",
+   "ok": true
+  },
+  {
+   "k": "cb-dis disabled (attr true)",
+   "ok": true
+  },
+  {
+   "k": ".attr(disabled,false) re-enables",
+   "ok": true
+  },
+  {
+   "k": "jQuery .text() on slot nodes shows (label/description)",
+   "ok": true,
+   "extra": "Agree as Linus | Desc slot true"
+  },
+  {
+   "k": ".prop(modelValue,true) from jQuery checks cb-slot",
+   "ok": true
+  },
+  {
+   "k": "switch click -> model true, peer switch follows",
+   "ok": true
+  },
+  {
+   "k": "switch label slot updated by jQuery",
+   "ok": true,
+   "extra": "Switch slot true"
+  },
+  {
+   "k": "switch keyboard Space toggles off",
+   "ok": true
+  },
+  {
+   "k": "switch description prop",
+   "ok": true
+  },
+  {
+   "k": "text-input inside $(`<div class=frappe-control>...`) template renders",
+   "ok": true
+  },
+  {
+   "k": "text-input prefix slot before input, suffix after",
+   "ok": true
+  },
+  {
+   "k": "text-input label + error render, aria-invalid",
+   "ok": true,
+   "extra": "Name\n@\n3\nRequired field"
+  },
+  {
+   "k": "text-input model + suffix slot updated by jQuery",
+   "ok": true
+  },
+  {
+   "k": "text-input type=number with numeric prop",
+   "ok": true
+  },
+  {
+   "k": "text-input debounce=\"300\" (attr string -> Number) delays emit",
+   "ok": true,
+   "extra": "Grace->Zed"
+  },
+  {
+   "k": "exposed focus() reachable on host",
+   "ok": true
+  },
+  {
+   "k": "exposed inputElement reachable on host",
+   "ok": true
+  },
+  {
+   "k": "$host.val() is not the component value (no value prop)",
+   "ok": true,
+   "extra": "\"\""
+  },
+  {
+   "k": "textarea rows attr",
+   "ok": true
+  },
+  {
+   "k": "textarea model",
+   "ok": true
+  },
+  {
+   "k": "textarea description slot",
+   "ok": true
+  },
+  {
+   "k": "password hidden by default, value from prop",
+   "ok": true
+  },
+  {
+   "k": "password prefix slot inside host, visible",
+   "ok": true
+  },
+  {
+   "k": "password reveal toggle shows text",
+   "ok": true
+  },
+  {
+   "k": "password model",
+   "ok": true
+  },
+  {
+   "k": "radio-group renders 3 nested es-radio, b checked",
+   "ok": true,
+   "extra": "[\"false:Alpha\",\"true:Beta\\nsecond\",\"false:Gamma Linus\"]"
+  },
+  {
+   "k": "nested es-radio is a Vue child of RadioGroup (shared context)",
+   "ok": true
+  },
+  {
+   "k": "radio click -> model a",
+   "ok": true,
+   "extra": "a"
+  },
+  {
+   "k": "[component] radio ArrowDown moves focus to b; selection on arrow is racy in the plain-Vue control too (pages/control.html: a/b ~50%)",
+   "ok": true,
+   "extra": "a"
+  },
+  {
+   "k": "radio label slot rendered inside radio row",
+   "ok": true,
+   "extra": "Gamma Linus"
+  },
+  {
+   "k": "[component, same in plain Vue] orphan es-radio throws \"must be used inside a RadioGroup\": host renders empty, neighbours in its bucket unaffected",
+   "ok": true,
+   "extra": "<es-slots hidden=\"\"></es-slots><!---->"
+  },
+  {
+   "k": "rating click 4th star -> 4",
+   "ok": true,
+   "extra": "4"
+  },
+  {
+   "k": "rating keyboard ArrowLeft -> 3",
+   "ok": true,
+   "extra": "3"
+  },
+  {
+   "k": "rating max=4 step=.5 attrs: 4 stars, 2nd half",
+   "ok": true
+  },
+  {
+   "k": "rating #icon slot rendered in every star half (clones)",
+   "ok": true,
+   "extra": "HH|HH|HH"
+  },
+  {
+   "k": "slider keyboard step 10 -> [40]",
+   "ok": true,
+   "extra": "[40]"
+  },
+  {
+   "k": "slider value-commit event reaches .on()",
+   "ok": true,
+   "extra": "[40]"
+  },
+  {
+   "k": "range slider has 2 thumbs at 20/80",
+   "ok": true
+  },
+  {
+   "k": "range slider model",
+   "ok": true,
+   "extra": "[20,79]"
+  },
+  {
+   "k": "duration formats seconds 5400 -> 1h 30m",
+   "ok": true
+  },
+  {
+   "k": "duration format=long",
+   "ok": true,
+   "extra": "1 hour 30 minutes"
+  },
+  {
+   "k": "duration parse + model -> 8100",
+   "ok": true,
+   "extra": "8100"
+  },
+  {
+   "k": "duration-long follows .prop() from handler",
+   "ok": true,
+   "extra": "2 hours 15 minutes"
+  },
+  {
+   "k": "duration null model shows placeholder",
+   "ok": true
+  },
+  {
+   "k": "duration blur commits",
+   "ok": true,
+   "extra": "2700"
+  },
+  {
+   "k": "jQuery-built es-radio-group + loop es-radio render, labels, checked follows model",
+   "ok": true,
+   "extra": "[\"true:A Linus\",\"false:B Linus\",\"false:C Linus\"]"
+  },
+  {
+   "k": "loop es-radio click -> model c",
+   "ok": true,
+   "extra": "c"
+  },
+  {
+   "k": ".remove() of radio group: host gone, Vue unmounted, top count down",
+   "ok": true,
+   "extra": "{\"before\":{\"top\":24,\"n\":14},\"after\":{\"top\":23,\"n\":11,\"gone\":true}}"
+  },
+  {
+   "k": "loop es-checkbox initial booleans",
+   "ok": true
+  },
+  {
+   "k": "loop es-checkbox model per item",
+   "ok": true,
+   "extra": "11"
+  }
+ ],
+ "errs": [
+  "console: Error: [frappe-ui] <Radio> must be used inside a <RadioGroup>.\n    at setup (http://jq.test/dist/es-ui.iife.js:56:18106)\n    at zf (http://jq.test/dist/es-ui.iife.js:17:1946)\n    at z0e (http://jq.test/dist/es-ui.iife.js:19:48985)\n    at P6 (http://jq.test/dist/es-ui.iife.js:19:48772)\n    at D (http"
+ ]
+}

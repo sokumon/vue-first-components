@@ -1,0 +1,40 @@
+--- a/src/components/shared/slotOutlet.ts	2026-11-25 09:15:16.052069030 +0000
++++ b/src/components/shared/slotOutlet.ts	2026-11-25 09:40:51.286349994 +0000
+@@ -1,4 +1,4 @@
+-import { Comment, Fragment, isVNode } from 'vue'
++import { Comment, Fragment, cloneVNode, isVNode } from 'vue'
+ import type { FunctionalComponent, VNode, VNodeArrayChildren } from 'vue'
+ 
+ // Same test as Vue's `ensureValidVNode`: a slot that renders only comments
+@@ -24,16 +24,28 @@
+ export const SlotOutlet: FunctionalComponent<{
+   render?: ((props: any) => VNode[]) | undefined
+   slotProps?: object
+-}> = (props, { slots }) => {
++}> = (props, { slots, attrs }) => {
+   const out = props.render ? props.render(props.slotProps ?? {}) : undefined
+   const nodes = out == null ? [] : Array.isArray(out) ? out : [out]
+   if (hasContent(nodes)) {
+     // A lone element is returned bare, not in a Fragment, so attributes a
+     // parent merges in (e.g. reka's `as-child` click / aria on #trigger) fall
+     // through onto it exactly as they did onto the `<slot>` outlet's child.
+-    const real = nodes.filter((n) => !(isVNode(n) && n.type === Comment))
+-    return real.length === 1 ? real[0] : nodes
++    // Flatten fragments (a forwarded `<slot>` or `<template v-if>` renders
++    // one) and put the parent's attrs on the first element, as reka's Slot
++    // does with a `<slot>` outlet's output.
++    const flat = (list: VNodeArrayChildren): VNodeArrayChildren =>
++      list.flatMap((n) => (isVNode(n) && n.type === Fragment && Array.isArray(n.children) ? flat(n.children as VNodeArrayChildren) : [n]))
++    const all = flat(nodes)
++    const real = all.filter((n) => !(isVNode(n) && n.type === Comment))
++    if (Object.keys(attrs).length) {
++      const i = all.indexOf(real[0])
++      if (isVNode(all[i])) all[i] = cloneVNode(all[i] as VNode, attrs, true)
++      return real.length === 1 ? (all[i] as VNode) : all
++    }
++    return real.length === 1 ? (real[0] as VNode) : nodes
+   }
+   return slots.default ? slots.default() : null
+ }
+ SlotOutlet.props = ['render', 'slotProps']
++SlotOutlet.inheritAttrs = false

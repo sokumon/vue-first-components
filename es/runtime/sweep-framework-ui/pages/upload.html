@@ -1,0 +1,33 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="/dist/es-ui.css">
+<link rel="stylesheet" href="page.css">
+<script src="/jquery.js"></script>
+<script src="/dist/es-ui.iife.js"></script>
+</head><body class="p-6">
+<!-- jQuery port of wc/sweep/framework-ui/pages/upload.html -->
+<pre id="state" class="text-xs"></pre>
+<div id="app"></div>
+<div id="desk" class="border-t mt-4 pt-4"></div>
+<script>
+$(function () {
+  const S = window.S = { n: 0, open: false, committed: [], files: [], uploading: [], log: [] }
+  const transport = (file, args, ctx) => { window.__tx = (window.__tx || 0) + 1; ctx.onProgress(1, 1); return Promise.resolve({ name: 'X', file_name: file.name, file_url: '/files/custom-' + file.name, is_private: 0 }) }
+  const show = () => $('#state').text(JSON.stringify({ n: S.n, open: S.open, committed: S.committed, files: S.files, uploading: S.uploading }))
+  const own = ($el, ev, fn) => $el.on(ev, function (e) { if (e.target === e.currentTarget) { fn(e.originalEvent.detail, e); show() } })
+  window.own = own; window.show = show
+  $('<button id="open" class="border px-2">open uploader</button>').on('click', () => { S.open = true; $('#c-fud').prop('open', true); show() }).appendTo('#app')
+  // Desk-style: boolean + string attributes, object prop via .prop
+  const $d = $('<es-fw-file-upload-dialog id="c-fud" multiple title="Add files" progress-mode="inline"></es-fw-file-upload-dialog>')
+    .prop('restrictions', { max_file_size: 1000, allowed_file_types: ['.txt', '.md'] })
+  own($d, 'update:open', (v) => { S.open = v })
+  own($d, 'committed', (v) => { S.committed = v.map((x) => x.file_url) })
+  own($d, 'uploading', (v) => { S.uploading.push(v) })
+  $d.appendTo('#app')
+  // a function prop through jQuery .prop must be wrapped once (jQuery calls function values)
+  own($('<es-fw-attachments-list id="c-al">').prop({ modelValue: S.files, transport: () => transport }), 'update:modelValue', (v) => { S.files = v }).appendTo('#app')
+  $('<es-fw-upload-tray id="c-tray">').appendTo('#app')
+  show()
+  window.READY = true
+})
+</script>
+</body></html>

@@ -1,0 +1,12 @@
+{
+ "page": "fields.html",
+ "fails": 0,
+ "n": 0,
+ "results": [],
+ "errs": [
+  "http 404 http://jq.test/sweep-framework-ui/pages/x",
+  "error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+  "http 404 http://jq.test/dist/none.png",
+  "error: Failed to load resource: the server responded with a status of 404 (Not Found)"
+ ]
+}

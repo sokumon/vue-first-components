@@ -1,0 +1,38 @@
+{
+ "label": "lazy-login",
+ "route": "/login",
+ "state": {
+  "vue": false,
+  "uploader_class": "function",
+  "uploader_loaded": false
+ },
+ "js": {
+  "files": 1,
+  "raw": 689846,
+  "gz": 213951
+ },
+ "all": {
+  "files": 3,
+  "raw": 1357398,
+  "gz": 314579
+ },
+ "vue_bundle": [],
+ "file_uploader": [],
+ "assets": [
+  {
+   "file": "frappe-web.bundle.N4U57P2J.js",
+   "raw": 689846,
+   "gz": 213951
+  },
+  {
+   "file": "login.bundle.C2YXZYK5.css",
+   "raw": 76789,
+   "gz": 11965
+  },
+  {
+   "file": "website.bundle.MM4AQ7Q5.css",
+   "raw": 590763,
+   "gz": 88663
+  }
+ ]
+}

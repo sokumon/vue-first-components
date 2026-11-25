@@ -1,0 +1,173 @@
+{
+ "page": "formlayout.html",
+ "fails": 1,
+ "n": 29,
+ "results": [
+  {
+   "tag": "es-fw-form-layout",
+   "k": "tabs strip rendered",
+   "ok": true,
+   "extra": "Details,More"
+  },
+  {
+   "tag": "es-fw-form-layout",
+   "k": "update:activeTab announced on mount",
+   "ok": true,
+   "extra": "details"
+  },
+  {
+   "tag": "es-fw-form-layout",
+   "k": "fields rendered with labels",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-form-layout",
+   "k": "reason hidden by dependsOn",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-form-layout",
+   "k": "typing writes into the page doc (in-place mutation of the object given with .prop)",
+   "ok": true,
+   "extra": "Fix it docEvents=0"
+  },
+  {
+   "tag": "es-fw-form-layout",
+   "k": "select writes doc.status",
+   "ok": true,
+   "extra": "Closed"
+  },
+  {
+   "tag": "es-fw-form-layout",
+   "k": "dependsOn re-evaluates after in-form edit",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-form-layout",
+   "k": "select trigger shows Closed (Vue saw in-form edit)",
+   "ok": true,
+   "extra": "Status Closed"
+  },
+  {
+   "tag": "es-fw-form-layout",
+   "k": "ui.on.change function in layout object fires",
+   "ok": true,
+   "extra": "[1]"
+  },
+  {
+   "tag": "es-fw-form-layout",
+   "k": "tab click -> update:tab + update:activeTab",
+   "ok": true,
+   "extra": "[\"more\",\"more\"]"
+  },
+  {
+   "tag": "es-fw-form-layout",
+   "k": "Table field inside FormLayout renders",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-form-layout",
+   "k": "Table add row in FormLayout",
+   "ok": true,
+   "extra": "[{\"item\":\"\",\"__row_id\":\"row-1\"}]"
+  },
+  {
+   "tag": "es-fw-form-layout",
+   "k": "Table row editor drawn inside FormLayout",
+   "ok": true,
+   "extra": "[1]"
+  },
+  {
+   "tag": "es-fw-form-layout",
+   "k": "typing in Table cell writes the child row",
+   "ok": true,
+   "extra": "[{\"item\":\"Bolt\",\"__row_id\":\"row-1\"}]"
+  },
+  {
+   "tag": "es-fw-form-layout",
+   "k": "keyboard ArrowRight moves tab",
+   "ok": true,
+   "extra": "more"
+  },
+  {
+   "tag": "es-fw-form-layout",
+   "k": ".prop(tab, more) from the page selects the tab",
+   "ok": true,
+   "extra": "more"
+  },
+  {
+   "tag": "es-fw-form-layout",
+   "k": "page mutates doc.subject + .prop(doc, sameObject) reaches the field",
+   "ok": false,
+   "extra": "Fix it"
+  },
+  {
+   "tag": "es-fw-form-layout",
+   "k": "page replaces doc (.prop(doc, newObject)) reaches the field",
+   "ok": true,
+   "extra": "Replaced"
+  },
+  {
+   "tag": "es-fw-form-layout",
+   "k": "edits after replace land in the new page doc",
+   "ok": true,
+   "extra": "After replace"
+  },
+  {
+   "tag": "es-fw-form-layout",
+   "k": "page mutates $(el).prop(doc).status -> dependsOn hides reason (no re-set)",
+   "ok": true,
+   "extra": "false"
+  },
+  {
+   "tag": "es-fw-form-layout",
+   "k": ".detach().appendTo() keeps doc + active tab",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-form-layout",
+   "k": "edits after move still reach the page",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-form-layout",
+   "k": "second form from an HTML template: own doc, dependsOn shows reason",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-form-layout",
+   "k": "ids unique across two forms (one useId counter)",
+   "ok": true,
+   "extra": "5"
+  },
+  {
+   "tag": "es-fw-form-layout",
+   "k": ".empty() on host remounts with doc kept",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-form-layout",
+   "k": ".html() on an ancestor unmounts the form cleanly",
+   "ok": true,
+   "extra": ""
+  },
+  {
+   "tag": "es-fw-form-layout",
+   "k": ".clone() + .prop(layout/doc) before append renders the clone",
+   "ok": true,
+   "extra": ""
+  },
+  {
+   "tag": "es-fw-form-layout",
+   "k": ".remove() of the clone",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-form-layout",
+   "k": "no errors in Desk operations",
+   "ok": true,
+   "extra": ""
+  }
+ ],
+ "errs": []
+}

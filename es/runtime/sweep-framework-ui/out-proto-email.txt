@@ -1,0 +1,22 @@
+PASS es-fw-email-accounts | lists accounts from frappe.client.get_list (mocked) :: Email accounts Connect mailboxes to send and receive email. New Default incoming Support Default outgoing Support Mailboxes 1 Support support@example.com Receive Send
+PASS es-fw-email-accounts | get_list called for Email Account :: frappe.integrations.frappe_providers.email_oauth.get_one_click_services,frappe.client.get_list
+PASS es-fw-email-accounts | New -> add view with provider tiles (providers prop) :: Back: New email account Choose your email provider Gmail Custom email
+PASS es-fw-email-accounts | typing in add form -> update:dirty true :: true
+PASS es-fw-email-accounts | .detach().appendTo() mid-form keeps typed values
+PASS es-fw-email-accounts | Create -> frappe.client.insert + created event + back to list (dirty false) :: {"n":0,"dirty":false,"created":[""],"log":[]}
+PASS es-fw-email-accounts | no page errors in core scenarios :: 
+PASS es-fw-email-accounts | .empty() on host: remount reloads the list (fresh state)
+PASS es-fw-email-accounts | second instance from an HTML template lists accounts
+PASS es-fw-email-accounts | .remove() both; no errors :: 
+console errors/warnings: 10
+  http 404 http://jq.test/assets/frappe/images/email-providers/gmail.png
+  error: Failed to load resource: the server responded with a status of 404 (Not Found)
+  http 404 http://jq.test/assets/frappe/images/email-providers/gmail.png
+  error: Failed to load resource: the server responded with a status of 404 (Not Found)
+  http 404 http://jq.test/assets/frappe/images/email-providers/gmail.png
+  error: Failed to load resource: the server responded with a status of 404 (Not Found)
+  http 404 http://jq.test/assets/frappe/images/email-providers/gmail.png
+  error: Failed to load resource: the server responded with a status of 404 (Not Found)
+  http 404 http://jq.test/assets/frappe/images/email-providers/gmail.png
+  error: Failed to load resource: the server responded with a status of 404 (Not Found)
+ALL PASS (10)

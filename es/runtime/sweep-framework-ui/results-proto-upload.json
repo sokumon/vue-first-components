@@ -1,0 +1,131 @@
+{
+ "page": "upload.html",
+ "fails": 0,
+ "n": 22,
+ "results": [
+  {
+   "tag": "es-fw-file-upload-dialog",
+   "k": "closed dialog renders nothing",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-file-upload-dialog",
+   "k": "title attribute became the prop (no native tooltip on host)",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-file-upload-dialog",
+   "k": ".prop(open,true) opens dialog (teleported into es-portal)",
+   "ok": true,
+   "extra": "Upload from device Embed a link or drop files to upload"
+  },
+  {
+   "tag": "es-fw-file-upload-dialog",
+   "k": "restrictions object prop enforced client-side (size + type)",
+   "ok": true,
+   "extra": "1 file All private a.txt 2 B \"big.txt\" was skipped — exceeds 1000 B. \"x.png\" was skipped — file type not allowed. Add more Upload from device Embed a link or drop files to upload Cancel Upload"
+  },
+  {
+   "tag": "es-fw-file-upload-dialog",
+   "k": "Upload -> default transport POST /api/method/upload_file",
+   "ok": true,
+   "extra": "upload_file"
+  },
+  {
+   "tag": "es-fw-file-upload-dialog",
+   "k": "committed event with file_url, uploading true/false events",
+   "ok": true,
+   "extra": "{\"n\":0,\"open\":false,\"committed\":[\"/files/a.txt\"],\"files\":[],\"uploading\":[true,false],\"log\":[]}"
+  },
+  {
+   "tag": "es-fw-file-upload-dialog",
+   "k": "dialog closed after commit (update:open)",
+   "ok": true,
+   "extra": "[false]"
+  },
+  {
+   "tag": "es-fw-file-upload-dialog",
+   "k": "keyboard Escape closes -> update:open false",
+   "ok": true,
+   "extra": "false"
+  },
+  {
+   "tag": "es-fw-attachments-list",
+   "k": "empty state",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-attachments-list",
+   "k": "uses transport fn prop (.prop(transport, () => fn)) + v-model",
+   "ok": true,
+   "extra": "[{\"file_url\":\"/files/custom-b.md\",\"file_name\":\"b.md\",\"is_private\":true}] tx=1"
+  },
+  {
+   "tag": "es-fw-attachments-list",
+   "k": "renders the file row",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-upload-tray",
+   "k": "shows the tray-mode batch (b.md)",
+   "ok": true,
+   "extra": "\"Uploading 0/1Uploading filesb.md100% \""
+  },
+  {
+   "tag": "es-fw-attachments-list",
+   "k": "remove -> v-model []",
+   "ok": true,
+   "extra": "[]"
+  },
+  {
+   "tag": "page",
+   "k": "no page errors in core scenarios",
+   "ok": true,
+   "extra": ""
+  },
+  {
+   "tag": "es-fw-file-upload-dialog",
+   "k": ".detach().appendTo() while open keeps the dialog open",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-file-upload-dialog",
+   "k": ".remove() while open: dialog and overlay gone, page not inert",
+   "ok": true,
+   "extra": ""
+  },
+  {
+   "tag": "es-fw-file-upload-dialog",
+   "k": "open=\"\" attribute opens a dialog created from an HTML string",
+   "ok": true,
+   "extra": "Upload from device Embed a link or drop files to upload"
+  },
+  {
+   "tag": "es-fw-file-upload-dialog",
+   "k": "Cancel -> update:open false, the page removes the attribute, dialog closed",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-file-upload-dialog",
+   "k": ".attr(open, \"\") reopens",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-attachments-list",
+   "k": ".prop(modelValue) shows rows",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-attachments-list",
+   "k": "detach/append keeps rows",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-attachments-list",
+   "k": ".remove() no errors",
+   "ok": true,
+   "extra": ""
+  }
+ ],
+ "errs": []
+}

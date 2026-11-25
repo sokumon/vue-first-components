@@ -1,0 +1,177 @@
+--- ../../jq/src/runtime.js	2026-11-24 01:00:50.301456785 +0000
++++ build/src/runtime.js	2026-11-24 13:39:03.937911082 +0000
+@@ -21,9 +21,11 @@
+ // and one public trick: render(h('i'), spare) flushes Vue's post-flush queue synchronously.
+ import {
+   createApp, render, defineComponent, h, Teleport, shallowReactive, shallowRef, markRaw,
+-  getCurrentInstance, withDirectives, camelize, capitalize, nextTick, toRaw,
++  getCurrentInstance, withDirectives, camelize, capitalize, nextTick, toRaw, onMounted,
+ } from 'vue'
+ 
++const VALID_ATTR = /^[A-Za-z_][-A-Za-z0-9_.]*$/
++const MOUNTED = 'es-mounted' // set on a host once rendered; a .clone() copies it (see takeSlots)
+ const hyphenate = (s) => s.replace(/\B([A-Z])/g, '-$1').toLowerCase()
+ const BUCKET = 16
+ const OVERRIDABLE = new Set(['focus', 'blur']) // exposed methods allowed to shadow HTMLElement's
+@@ -57,9 +59,11 @@
+     if (v === '' || v === 'true' || v === name || v === hyphenate(name)) return true
+     if (v === 'false') return false
+   }
+-  if (types.includes(String) || !types.length) return v
++  if (types.includes(String)) return v
+   if (types.includes(Number) && v.trim() !== '' && !isNaN(+v)) return +v
+-  if ((types.includes(Object) || types.includes(Array)) && /^\s*[[{]/.test(v)) {
++  // [sweep-shell fix 5b] a prop typed with an imported TS type (Dropdown `button?: ButtonProps`)
++  // has no runtime type even with prop types kept: JSON-looking text is parsed for it too.
++  if ((types.includes(Object) || types.includes(Array) || !types.length) && /^\s*[[{]/.test(v)) {
+     try { return JSON.parse(v) } catch {}
+   }
+   return v
+@@ -86,15 +90,23 @@
+   // A native event that shares an emit's name (change, click, input…) stops
+   // at the host, so .on(name) sees only the component's event. Added before
+   // any jQuery handler, so stopImmediatePropagation reaches those too.
+-  for (const name of def.emits) if (!name.includes(':'))
+-    el.addEventListener(name, (ev) => { if (!esEvents.has(ev)) ev.stopImmediatePropagation() })
++  // [B fix: native events not blocked] A host with the `es-native-events`
++  // attribute lets native events through: a page that hands out an inner
++  // native element (Desk's control.$input) keeps its delegated handlers above
++  // the host. focus/blur never collide (they do not bubble), so they are never stopped.
++  for (const name of def.emits) if (!name.includes(':') && name !== 'focus' && name !== 'blur')
++    el.addEventListener(name, (ev) => { if (!esEvents.has(ev) && !el.hasAttribute('es-native-events')) ev.stopImmediatePropagation() })
+   mo.observe(el, { attributes: true, childList: true })
+   return e
+ }
+ 
+ function applyAttr(e, name, initial) {
+   const el = e.host, def = e.def
+-  if (name === 'id' || name === 'slot') return
++  if (name === 'id' || name === 'slot' || name === MOUNTED || name === 'es-native-events') return
++  // [B fix: attributes on host only] inline handlers (onclick=…) already run
++  // on the host, and names setAttribute rejects (@click, :value) would throw
++  // inside Vue's patch and leave the one app unable to render: neither is passed on.
++  if ((/^on/i.test(name) && name.toLowerCase() in HTMLElement.prototype) || !VALID_ATTR.test(name)) return
+   let v = el.getAttribute(name)
+   if (name === 'es-id' && def.props.has('id')) return setFromAttr(e, 'id', v)
+   if (def.props.has('title') && (name === 'title' || name === 'es-title')) {
+@@ -155,8 +167,13 @@
+   const kids = [...el.childNodes]
+   const old = kids.find((n) => n.nodeName === 'ES-SLOTS')
+   let content = kids
+-  if (old) {
+-    content = [...old.childNodes]
++  // [sweep-shell fix 3] a clone of a rendered host is recognised by the
++  // es-mounted attribute it copied, even when it had no slot content (and so
++  // no <es-slots>): its children are stale render output, not slot content.
++  const cloned = el.hasAttribute(MOUNTED)
++  if (cloned) { moving++; try { el.removeAttribute(MOUNTED) } finally { moving-- } }
++  if (old || cloned) {
++    content = old ? [...old.childNodes] : []
+     const seen = new Set()
+     for (const s of el.querySelectorAll('es-slot[data-es-name]:not([data-es-stamp])')) {
+       let inner = false
+@@ -177,6 +194,13 @@
+     if ((n.nodeType === 3 && !n.data.trim()) || n.nodeType === 8) { n.remove(); continue }
+     if (n.nodeType !== 1 && n.nodeType !== 3) continue
+     const name = (n.nodeType === 1 && n.getAttribute('slot')) || 'default'
++    // [sweep-shell fix 1] a node that is already slot content (detached and
++    // re-appended to its own host, a Desk reorder) moves instead of being
++    // listed twice; a duplicate rendered two Teleports for one nested host.
++    for (const k in e.slots) {
++      const at = e.slots[k].indexOf(n)
++      if (at >= 0) { e.slots[k].splice(at, 1); const o0 = owners.get(toRaw(e.slots[k])); if (o0) dirtyOutlets.add(o0) }
++    }
+     const g = e.slots[name] || (e.slots[name] = shallowReactive([]))
+     prepend ? g.unshift(n) : g.push(n)
+     const o = owners.get(toRaw(g))
+@@ -205,10 +229,18 @@
+       const vueNodes = new Set()
+       if (e.node.subTree) collectVue(e.node.subTree, vueNodes)
+       addContent(e, rest.filter((n) => !vueNodes.has(n)), false)
+-    } finally { moving-- }
++      // [sweep-shell fix 2] .html()/.text()/.empty() took Vue's nodes out of the
++      // host. Unmounting a Fragment root (a component that renders a Teleport
++      // plus an in-place anchor, like PageHeaderBase) walks nextSibling from its
++      // first node, which throws once that node has no parent. Park the removed
++      // nodes, in their old order, in a detached box so the unmount can walk them.
++      const bin = document.createElement('div')
++      for (const n of e.removed || []) if (!n.parentNode) bin.appendChild(n)
++    } finally { moving--; e.removed = null }
+     remount(e)
+     return
+   }
++  e.removed = null
+   moving++
+   try {
+     const before = [], after = []
+@@ -247,7 +279,7 @@
+     const e = r.target._es
+     if (!e) continue
+     if (r.type === 'attributes') applyAttr(e, r.attributeName)
+-    else lists.add(e)
++    else { lists.add(e); if (r.removedNodes.length) (e.removed || (e.removed = [])).push(...r.removedNodes) }
+   }
+   lists.forEach(onChildList)
+   flushDirty()
+@@ -308,6 +340,7 @@
+     e.owner = p.owner
+     e.killed = false
+     const setRef = (v) => { if (v && e.node === inst) exposeOnHost(e, v) }
++    onMounted(() => { if (!e.host.hasAttribute(MOUNTED)) e.host.setAttribute(MOUNTED, '') })
+     return () => {
+       e.tick.value
+       dirty.delete(e)
+@@ -606,7 +639,11 @@
+   hooked = true
+   const orig = $.cleanData
+   $.cleanData = function (elems) {
+-    for (let i = 0, el; (el = elems[i]) != null; i++) if (el._es) el._es.killed = true
++    for (let i = 0, el; (el = elems[i]) != null; i++) if (el._es) {
++      el._es.killed = true
++      // [B addition] mounted while detached (ES.mount) and removed without ever connecting: no disconnect will come
++      if (!el.isConnected && el._es.owner) { const e = el._es; queueMicrotask(() => { if (!e.host.isConnected) finalize(e) }) }
++    }
+     return orig.apply(this, arguments)
+   }
+ }
+@@ -735,6 +772,17 @@
+       for (const i of set) if (!done.has(i)) syncUpdate(i)
+     }
+   },
++  /** [B addition] Render an element now although it is not in the document yet (a Teleport target need
++   *  not be connected): a jQuery page builds widgets in detached parents and reads their DOM at once.
++   *  When it is connected later it keeps this render; jQuery's .remove() of a never-connected element unmounts it. */
++  mount(el) {
++    const e = entryOf(el)
++    if (!e || e.owner) return el
++    ensureAppIfReady(); hookJquery()
++    drain()
++    addTop(e)
++    return el
++  },
+   /** Apply pending attribute/prop/children changes and render them now. */
+   flush() { drain(); flushDirty() },
+   /** Resolves after Vue's next flush (post-mount hooks, watchers). */
+@@ -753,3 +801,22 @@
+ }
+ 
+ if (!customElements.get('es-slot')) customElements.define('es-slot', EsSlotElement)
++
++// [sweep-shell fix 6] display:contents hosts and outlets have no box of their own, so a
++// ResizeObserver/IntersectionObserver on them never fires. floating-ui's autoUpdate
++// (reka popper) observes the reference that way to follow layout shifts, so popover and
++// menu content stayed put when jQuery moved or shifted its trigger. Observe the first
++// descendant that has a box instead.
++function boxOf(t) {
++  if (!t || t.nodeType !== 1 || !(t.localName === 'es-slot' || defs.has(t.localName))) return t
++  for (const c of t.querySelectorAll('*')) if (!c.closest('es-slots') && getComputedStyle(c).display !== 'contents') return c
++  return t
++}
++for (const O of [window.IntersectionObserver, window.ResizeObserver]) {
++  if (!O || O.prototype._esBox) continue
++  O.prototype._esBox = true
++  for (const m of ['observe', 'unobserve']) {
++    const orig = O.prototype[m]
++    O.prototype[m] = function (t, ...a) { return orig.call(this, boxOf(t), ...a) }
++  }
++}

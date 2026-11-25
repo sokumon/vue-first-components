@@ -1,0 +1,424 @@
+diff --git a/src/components/Combobox/Combobox.vue b/src/components/Combobox/Combobox.vue
+index 1da293c..c8ae701 100644
+--- a/src/components/Combobox/Combobox.vue
++++ b/src/components/Combobox/Combobox.vue
+@@ -1,20 +1,31 @@
+ <script setup lang="ts">
+-import { computed, nextTick, ref, useAttrs, useTemplateRef, watch } from 'vue'
++import {
++  computed,
++  nextTick,
++  onMounted,
++  ref,
++  useAttrs,
++  useTemplateRef,
++  watch,
++} from 'vue'
++import type { Ref } from 'vue'
+ import {
+   ComboboxAnchor,
+   ComboboxContent,
+   ComboboxInput,
+-  ComboboxPortal,
+   ComboboxRoot,
+   ComboboxTrigger,
+   FocusScope,
++  injectConfigProviderContext,
+ } from 'reka-ui'
+ import OptionIcon from '../shared/selection/OptionIcon.vue'
+ import PopoverPanel from '../shared/popover/PopoverPanel.vue'
+ import ComboboxResults from './ComboboxResults.vue'
++import { SlotOutlet } from '../shared/slotOutlet'
+ import { useInputLabeling } from '../../composables/useInputLabeling'
+ import { useReactiveSlots } from '../../composables/useReactiveSlots'
+ import { usePortalTarget } from '../../composables/usePortalTarget'
++import type { PortalTarget } from '../../composables/usePortalTarget'
+ import { useEmptyValueMapping } from '../shared/selection/useEmptyValueMapping'
+ import { useFilteredGroups } from '../shared/selection/useFilteredGroups'
+ import { rankMatch } from '../../utils/rankMatch'
+@@ -79,6 +90,18 @@ const props = withDefaults(defineProps<ComboboxProps>(), {
+ })
+ 
+ const portalTarget = usePortalTarget(() => props.portalTo)
++// The popover is teleported with Vue's own <Teleport> rather than reka's
++// ComboboxPortal, which costs two extra component instances and, through
++// `useMounted`, a second render after mount. The target resolves the same
++// way: `portalTo`, the host's portal target, reka's ConfigProvider
++// `teleportTo`, then `body`.
++// `teleportTo` is typed from reka-ui 2.10 on; older releases leave it unset.
++const rekaConfig = injectConfigProviderContext({}) as {
++  teleportTo?: Ref<PortalTarget | undefined>
++}
++const teleportTarget = computed(
++  () => portalTarget.value ?? rekaConfig.teleportTo?.value ?? 'body',
++)
+ 
+ const emit = defineEmits<ComboboxEmits>()
+ const attrs = useAttrs()
+@@ -89,6 +112,31 @@ const slots = useReactiveSlots<ComboboxSlots>()
+ // through the proxy.
+ const slotFns = slots as Record<string, ((props?: any) => any) | undefined>
+ 
++// Which slots are filled, for the template's `v-if`s. The slots proxy bumps on
++// every render of this component, so a condition that read it directly would
++// re-render the reka component around it each time, even with no slot in
++// play. This object keeps its identity until a slot is added or removed.
++// Rendering a slot still reads `slots.<name>` and so stays reactive.
++const SLOT_NAMES = [
++  'trigger',
++  'label',
++  'description',
++  'prefix',
++  'suffix',
++  'item-prefix',
++  'search-prefix',
++  'search-suffix',
++  'footer',
++] as const
++type FilledSlots = Record<(typeof SLOT_NAMES)[number], boolean>
++const filled = computed<FilledSlots>((previous) => {
++  const next = {} as FilledSlots
++  for (const name of SLOT_NAMES) next[name] = Boolean(slotFns[name])
++  return previous && SLOT_NAMES.every((name) => previous[name] === next[name])
++    ? previous
++    : next
++})
++
+ // No `default`. A `defineModel` default stays inside the component, so a
+ // `v-model` holding `undefined` would leave the parent at `undefined` while
+ // this component read `null`. `currentValue` reads both as the empty value,
+@@ -111,7 +159,20 @@ const inputRef = useTemplateRef('inputRef')
+ const searchInputRef = useTemplateRef('searchInputRef')
+ const triggerButtonRef = useTemplateRef('triggerButtonRef')
+ const anchorRef = useTemplateRef('anchorRef')
++const chevronRef = useTemplateRef('chevronRef')
+ const hasTypedSinceOpen = ref(false)
++// The popover subtree (teleport, content, results) mounts on first open and
++// then stays mounted, so a combobox that is never opened skips it entirely.
++// The template also checks `open`, so the popover mounts in the same render
++// that opens it, without waiting for the watcher below. A combobox that is
++// already open at mount teleports after mount, as reka's portal does, so
++// nothing is teleported during SSR.
++const hasOpened = ref(false)
++const mountState = { mounted: false }
++onMounted(() => {
++  mountState.mounted = true
++  if (open.value) hasOpened.value = true
++})
+ 
+ const {
+   inputId,
+@@ -152,6 +213,10 @@ const inputAttrs = computed(() => {
+   return { autocomplete: autocomplete ?? 'off', ...rest }
+ })
+ 
++// A stable array, so LabelingWrapper's props only change when the class does
++// and an unrelated update does not re-render it.
++const wrapperClass = computed(() => ['space-y-1.5', attrs.class as any])
++
+ const normalizedGroups = computed(() => normalizeComboboxOptions(props.options))
+ 
+ const allSelectableOptions = computed(() =>
+@@ -258,10 +323,16 @@ const hasVisibleItems = computed(() => filteredGroups.value.length > 0)
+ // that arrive asynchronously (a debounced server search resolving) land after
+ // that pass and would leave nothing highlighted. Gated to the typing path so
+ // merely opening the list still lets reka highlight the committed selection.
+-watch(filteredGroups, () => {
+-  if (!open.value || !hasTypedSinceOpen.value) return
+-  nextTick(() => rootRef.value?.highlightFirstItem?.())
+-})
++// The getter reads `filteredGroups` only on that path, so a closed combobox
++// never evaluates the filter: option updates while closed cost only the
++// normalization that the selected label needs.
++watch(
++  () => (open.value && hasTypedSinceOpen.value ? filteredGroups.value : null),
++  (groups) => {
++    if (!groups) return
++    nextTick(() => rootRef.value?.highlightFirstItem?.())
++  },
++)
+ 
+ const showEmpty = computed(() => !props.loading && !hasVisibleItems.value)
+ 
+@@ -442,6 +513,16 @@ watch(
+ 
+ watch(open, (isOpen, wasOpen) => {
+   if (isOpen === wasOpen) return
++  if (isOpen && !hasOpened.value) {
++    hasOpened.value = true
++    // reka's chevron trigger reads the content id without tracking it, and on
++    // this first open it renders before ComboboxContent has registered the
++    // id. Render it once more so its aria-controls names the list.
++    nextTick(() => {
++      ;(chevronRef.value as { $forceUpdate?: () => void } | null)
++        ?.$forceUpdate?.()
++    })
++  }
+ 
+   if (isOpen) {
+     if (!isButtonMode.value) return
+@@ -493,18 +574,18 @@ defineSlots<ComboboxSlots>()
+ <template>
+   <LabelingWrapper
+     :enabled="hasLabeling"
+-    :wrapper-class="['space-y-1.5', attrs.class as any]"
++    :wrapper-class="wrapperClass"
+     :wrapper-style="attrs.style as any"
+   >
+     <InputLabel
+-      v-if="label || $slots.label"
++      v-if="label || filled.label"
+       :id="labelId"
+       :for-id="inputId"
+       :label="label"
+       :required="required"
+     >
+-      <template v-if="$slots.label" #default="slotProps">
+-        <slot name="label" v-bind="slotProps" />
++      <template v-if="filled.label" #default="slotProps">
++        <SlotOutlet :render="slots.label" :slot-props="slotProps" />
+       </template>
+     </InputLabel>
+     <!--
+@@ -551,10 +632,10 @@ defineSlots<ComboboxSlots>()
+         `#trigger`, which we have no direct ref to.
+       -->
+           <ComboboxAnchor ref="anchorRef" as-child @click="handleTriggerClick">
+-            <slot
+-              v-if="$slots.trigger"
+-              name="trigger"
+-              v-bind="controlSlotProps"
++            <SlotOutlet
++              v-if="filled.trigger"
++              :render="slots.trigger"
++              :slot-props="controlSlotProps"
+             />
+ 
+             <!--
+@@ -598,24 +679,19 @@ defineSlots<ComboboxSlots>()
+                  string / emoji / component).
+               3. not selected + `#prefix` slot → user's placeholder affordance.
+           -->
+-              <template v-if="selectedOption && $slots['item-prefix']">
+-                <slot
+-                  name="item-prefix"
+-                  v-bind="{
+-                    item: selectedOption,
+-                    query: '',
+-                    selected: true,
+-                  }"
+-                />
+-              </template>
++              <SlotOutlet
++                v-if="selectedOption && filled['item-prefix']"
++                :render="slots['item-prefix']"
++                :slot-props="{ item: selectedOption, query: '', selected: true }"
++              />
+               <OptionIcon
+                 v-else-if="selectedOption?.icon"
+                 :icon="selectedOption.icon"
+               />
+-              <slot
+-                v-else-if="!selectedOption && $slots.prefix"
+-                name="prefix"
+-                v-bind="controlSlotProps"
++              <SlotOutlet
++                v-else-if="!selectedOption && filled.prefix"
++                :render="slots.prefix"
++                :slot-props="controlSlotProps"
+               />
+ 
+               <span
+@@ -627,7 +703,7 @@ defineSlots<ComboboxSlots>()
+                 {{ showsPlaceholder ? placeholder : displayValue }}
+               </span>
+ 
+-              <slot name="suffix" v-bind="controlSlotProps">
++              <SlotOutlet :render="slots.suffix" :slot-props="controlSlotProps">
+                 <span
+                   data-slot="chevron"
+                   :class="[
+@@ -635,7 +711,7 @@ defineSlots<ComboboxSlots>()
+                     open && 'rotate-180',
+                   ]"
+                 />
+-              </slot>
++              </SlotOutlet>
+             </button>
+           </ComboboxAnchor>
+         </template>
+@@ -661,17 +737,20 @@ defineSlots<ComboboxSlots>()
+           `#item-prefix` → selected option's icon auto-render →
+           user's `#prefix` slot.
+         -->
+-            <template v-if="selectedOption && $slots['item-prefix']">
+-              <slot
+-                name="item-prefix"
+-                v-bind="{ item: selectedOption, query: '', selected: true }"
+-              />
+-            </template>
++            <SlotOutlet
++              v-if="selectedOption && filled['item-prefix']"
++              :render="slots['item-prefix']"
++              :slot-props="{ item: selectedOption, query: '', selected: true }"
++            />
+             <OptionIcon
+               v-else-if="selectedOption?.icon"
+               :icon="selectedOption.icon"
+             />
+-            <slot v-else name="prefix" v-bind="controlSlotProps" />
++            <SlotOutlet
++              v-else-if="filled.prefix"
++              :render="slots.prefix"
++              :slot-props="controlSlotProps"
++            />
+ 
+             <ComboboxInput
+               :id="inputId"
+@@ -689,19 +768,41 @@ defineSlots<ComboboxSlots>()
+               @blur="emit('blur', $event)"
+             />
+ 
+-            <slot name="suffix" v-bind="controlSlotProps">
++            <!--
++              The default chevron is rendered directly when there is no
++              `#suffix`, so a plain combobox creates no slot outlet. It is
++              also the fallback for a `#suffix` that renders nothing.
++            -->
++            <SlotOutlet
++              v-if="filled.suffix"
++              :render="slots.suffix"
++              :slot-props="controlSlotProps"
++            >
+               <ComboboxTrigger
++                ref="chevronRef"
+                 :disabled="disabled"
+                 data-slot="chevron"
+                 class="inline-flex shrink-0 items-center justify-center text-ink-gray-4 outline-none transition-transform duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] data-[state=open]:rotate-180"
+               >
+                 <span class="lucide-chevron-down size-4 text-ink-gray-6" />
+               </ComboboxTrigger>
+-            </slot>
++            </SlotOutlet>
++            <ComboboxTrigger
++              v-else
++              ref="chevronRef"
++              :disabled="disabled"
++              data-slot="chevron"
++              class="inline-flex shrink-0 items-center justify-center text-ink-gray-4 outline-none transition-transform duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] data-[state=open]:rotate-180"
++            >
++              <span class="lucide-chevron-down size-4 text-ink-gray-6" />
++            </ComboboxTrigger>
+           </ComboboxAnchor>
+         </template>
+ 
+-        <ComboboxPortal :to="portalTarget">
++        <Teleport
++          v-if="hasOpened || (open && mountState.mounted)"
++          :to="teleportTarget"
++        >
+           <ComboboxContent
+             data-slot="content"
+             data-selection
+@@ -754,10 +855,10 @@ defineSlots<ComboboxSlots>()
+                   data-slot="search"
+                   class="flex items-center gap-2 border-b border-outline-gray-1 px-3"
+                 >
+-                  <slot
+-                    v-if="$slots['search-prefix']"
+-                    name="search-prefix"
+-                    v-bind="searchSlotProps"
++                  <SlotOutlet
++                    v-if="filled['search-prefix']"
++                    :render="slots['search-prefix']"
++                    :slot-props="searchSlotProps"
+                   />
+                   <ComboboxInput
+                     :id="`${inputId}-search-input`"
+@@ -772,10 +873,10 @@ defineSlots<ComboboxSlots>()
+                     @focus="emit('focus', $event)"
+                     @blur="emit('blur', $event)"
+                   />
+-                  <slot
+-                    v-if="$slots['search-suffix']"
+-                    name="search-suffix"
+-                    v-bind="searchSlotProps"
++                  <SlotOutlet
++                    v-if="filled['search-suffix']"
++                    :render="slots['search-suffix']"
++                    :slot-props="searchSlotProps"
+                   />
+                 </div>
+ 
+@@ -793,21 +894,21 @@ defineSlots<ComboboxSlots>()
+                   @select-option="handleOptionSelect"
+                 />
+ 
+-                <div v-if="$slots.footer" data-slot="footer">
+-                  <slot name="footer" v-bind="controlSlotProps" />
++                <div v-if="filled.footer" data-slot="footer">
++                  <SlotOutlet :render="slots.footer" :slot-props="controlSlotProps" />
+                 </div>
+               </PopoverPanel>
+             </FocusScope>
+           </ComboboxContent>
+-        </ComboboxPortal>
++        </Teleport>
+       </ComboboxRoot>
+     </div>
+     <InputDescription
+-      v-if="showDescription || $slots.description"
++      v-if="showDescription || filled.description"
+       :id="descriptionId"
+       :description="description"
+     >
+-      <slot v-if="$slots.description" name="description" />
++      <SlotOutlet v-if="filled.description" :render="slots.description" />
+     </InputDescription>
+     <InputError v-if="hasError" :id="errorMessageId" :lines="errorLines" />
+   </LabelingWrapper>
+diff --git a/src/components/shared/slotOutlet.ts b/src/components/shared/slotOutlet.ts
+new file mode 100644
+index 0000000..50f8786
+--- /dev/null
++++ b/src/components/shared/slotOutlet.ts
+@@ -0,0 +1,39 @@
++import { Comment, Fragment, isVNode } from 'vue'
++import type { FunctionalComponent, VNode, VNodeArrayChildren } from 'vue'
++
++// Same test as Vue's `ensureValidVNode`: a slot that renders only comments
++// (e.g. a `v-if` that is false) counts as empty, so the fallback shows.
++function hasContent(nodes: VNodeArrayChildren): boolean {
++  return nodes.some((child) => {
++    if (!isVNode(child)) return child != null && child !== false && child !== true
++    if (child.type === Comment) return false
++    if (child.type === Fragment && !hasContent(child.children as VNodeArrayChildren)) return false
++    return true
++  })
++}
++
++/**
++ * Renders a consumer slot from a component's own template WITHOUT a `<slot>`
++ * outlet. A `<slot>` inside another component's slot content makes the
++ * compiler mark that content FORWARDED, which turns into DYNAMIC_SLOTS (and a
++ * forced child re-render on every parent render) whenever this component's
++ * own slots are not compiler-stable — i.e. for every render-function or
++ * slot-less consumer. Reading `render` through `useReactiveSlots()` keeps the
++ * outlet subscribed to slot changes instead.
++ */
++export const SlotOutlet: FunctionalComponent<{
++  render?: ((props: any) => VNode[]) | undefined
++  slotProps?: object
++}> = (props, { slots }) => {
++  const out = props.render ? props.render(props.slotProps ?? {}) : undefined
++  const nodes = out == null ? [] : Array.isArray(out) ? out : [out]
++  if (hasContent(nodes)) {
++    // A lone element is returned bare, not in a Fragment, so attributes a
++    // parent merges in (e.g. reka's `as-child` click / aria on #trigger) fall
++    // through onto it exactly as they did onto the `<slot>` outlet's child.
++    const real = nodes.filter((n) => !(isVNode(n) && n.type === Comment))
++    return real.length === 1 ? real[0] : nodes
++  }
++  return slots.default ? slots.default() : null
++}
++SlotOutlet.props = ['render', 'slotProps']

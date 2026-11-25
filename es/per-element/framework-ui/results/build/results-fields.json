@@ -1,0 +1,247 @@
+{
+ "results": [
+  {
+   "k": "Data initial value",
+   "ok": true
+  },
+  {
+   "k": "Data v-model typing",
+   "ok": true,
+   "extra": "Grace"
+  },
+  {
+   "k": "Data change on commit",
+   "ok": true,
+   "extra": "data=\"Grace\""
+  },
+  {
+   "k": "Textarea v-model",
+   "ok": true
+  },
+  {
+   "k": "Password v-model",
+   "ok": true
+  },
+  {
+   "k": "Password masked",
+   "ok": true
+  },
+  {
+   "k": "Phone v-model",
+   "ok": true
+  },
+  {
+   "k": "Float formatted",
+   "ok": true,
+   "extra": "1.50"
+  },
+  {
+   "k": "Float parses to number",
+   "ok": true,
+   "extra": "12.345 changes=data=\"Grace\";hours=12.345"
+  },
+  {
+   "k": "Int initial",
+   "ok": true,
+   "extra": "3"
+  },
+  {
+   "k": "Int v-model number",
+   "ok": true,
+   "extra": "7"
+  },
+  {
+   "k": "Currency shows value",
+   "ok": true,
+   "extra": "10"
+  },
+  {
+   "k": "Check starts unchecked",
+   "ok": true
+  },
+  {
+   "k": "Check -> 1 + change",
+   "ok": true,
+   "extra": "1 data=\"Grace\";hours=12.345;done=1"
+  },
+  {
+   "k": "Select picks option",
+   "ok": true,
+   "extra": "Closed"
+  },
+  {
+   "k": "Select trigger shows value",
+   "ok": true
+  },
+  {
+   "k": "Autocomplete lists options on click",
+   "ok": true,
+   "extra": "Apple,Banana,Cherry"
+  },
+  {
+   "k": "Autocomplete pick",
+   "ok": true,
+   "extra": "Banana"
+  },
+  {
+   "k": "Link fetches search_link with txt",
+   "ok": true,
+   "extra": "[{\"txt\":\"\",\"doctype\":\"User\",\"filters\":{}},{\"txt\":\"\",\"doctype\":\"User\",\"filters\":{}},{\"txt\":\"\",\"doctype\":\"User\",\"filters\":{}},{\"txt\":\"\",\"doctype\":\"User\",\"filters\":{}},{\"txt\":\"grace\",\"doctype\":\"User\",\"filters\":{}}]"
+  },
+  {
+   "k": "Link shows options",
+   "ok": true,
+   "extra": "Grace Hopper"
+  },
+  {
+   "k": "Link keyboard select -> v-model + change",
+   "ok": true,
+   "extra": "grace@example.com data=\"Grace\";hours=12.345;done=1;user=\"grace@example.com\""
+  },
+  {
+   "k": "DynamicLink with :row enabled",
+   "ok": true
+  },
+  {
+   "k": "DynamicLink without row/DocKey disabled",
+   "ok": true
+  },
+  {
+   "k": "Date displays value",
+   "ok": true,
+   "extra": "2026-11-20"
+  },
+  {
+   "k": "Date picker picks a day",
+   "ok": true,
+   "extra": "2026-11-25"
+  },
+  {
+   "k": "Datetime displays value",
+   "ok": true,
+   "extra": "2026-11-20 10:30:00"
+  },
+  {
+   "k": "Time displays value",
+   "ok": true,
+   "extra": "09:15"
+  },
+  {
+   "k": "Duration displays value",
+   "ok": true,
+   "extra": "Duration / 1h"
+  },
+  {
+   "k": "Rating 5 stars, 0.4 -> 2 filled",
+   "ok": true,
+   "extra": "5 filled,filled,empty,empty,empty"
+  },
+  {
+   "k": "Rating click 4th star -> 0.8",
+   "ok": true,
+   "extra": "0.8 filled,filled,filled,filled,empty"
+  },
+  {
+   "k": "Color hex shown",
+   "ok": true,
+   "extra": "#ff0000"
+  },
+  {
+   "k": "Color swatch teleported into the field row",
+   "ok": true
+  },
+  {
+   "k": "Color pick -> change",
+   "ok": true,
+   "extra": "data=\"Grace\";hours=12.345;done=1;user=\"grace@example.com\";color=\"#7c7c7c\""
+  },
+  {
+   "k": "Heading",
+   "ok": true
+  },
+  {
+   "k": "HTML sanitized",
+   "ok": true,
+   "extra": "<es-slots hidden=\"\"></es-slots><div class=\"prose prose-sm max-w-none text-ink-gray-8\" aria-hidden=\"\"><p id=\"html-p\">Hello <b>bold</b></p><img src=\"x\"></div>"
+  },
+  {
+   "k": "Button field native click bubbles to host",
+   "ok": true,
+   "extra": "data=\"Grace\";hours=12.345;done=1;user=\"grace@example.com\";color=\"#7c7c7c\";btn=1"
+  },
+  {
+   "k": "Image field uses modelValue",
+   "ok": true
+  },
+  {
+   "k": "CodeEditor renders codemirror",
+   "ok": true
+  },
+  {
+   "k": "CodeEditor typing -> v-model",
+   "ok": true,
+   "extra": "\"{\\\"a\\\": 1} \""
+  },
+  {
+   "k": "Geolocation summary of initial point",
+   "ok": true,
+   "extra": "12.97000°N, 77.59000°E"
+  },
+  {
+   "k": "Geolocation dialog with leaflet map + marker",
+   "ok": true,
+   "extra": "Set Location\n+\n−\nDraw a polyline\nDraw a polygon\nDraw a rectangle\nDraw a circle\nDraw a marker\nDraw a circlemarker\nEdit la"
+  },
+  {
+   "k": "Geolocation Save -> geojson v-model",
+   "ok": true,
+   "extra": "{\"type\":\"FeatureCollection\",\"features\":[{\"type\":\"Feature\",\"properties\":{},\"geometry\":{\"type\":\"Point\""
+  },
+  {
+   "k": "TableMultiSelect options from search_link",
+   "ok": true,
+   "extra": "Ada Lovelace|Grace Hopper|Linus T"
+  },
+  {
+   "k": "TableMultiSelect -> child rows",
+   "ok": true,
+   "extra": "[{\"tag\":\"ada@example.com\",\"__row_id\":\"row-1\"}]"
+  },
+  {
+   "k": "Table add row",
+   "ok": true,
+   "extra": "[{\"item\":\"\",\"__row_id\":\"row-2\"}]"
+  },
+  {
+   "k": "Table row drawn with an editor (standalone, no FormLayout provider)",
+   "ok": false,
+   "extra": "[0]"
+  },
+  {
+   "k": "Attach opens upload dialog",
+   "ok": true,
+   "extra": "Upload from device Embed a link or drop files to upload"
+  },
+  {
+   "k": "Attach upload -> file_url v-model",
+   "ok": true,
+   "extra": "\"/files/hello.txt\" calls=frappe.desk.search.search_link,frappe.desk.search.search_link,frappe.desk.search.search_link,frappe.desk.search.search_link,frappe.desk.search.search_link,frappe.desk.search.search_link,frappe.desk.search.search_link,upload_file"
+  },
+  {
+   "k": "host @change handlers see only component change events (no native change bubbling in)",
+   "ok": false,
+   "extra": "pageerror: Cannot read properties of undefined (reading '0') | pageerror: Cannot read properties of undefined (reading '0') | pageerror: Cannot read properties of undefined (reading '0') | pageerror: Cannot read properties of undefined (reading '0')"
+  }
+ ],
+ "errs": [
+  "http 404 http://fw.test/x",
+  "error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+  "http 404 http://fw.test/build/none.png",
+  "error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+  "pageerror: Cannot read properties of undefined (reading '0')",
+  "pageerror: Cannot read properties of undefined (reading '0')",
+  "pageerror: Cannot read properties of undefined (reading '0')",
+  "pageerror: Cannot read properties of undefined (reading '0')",
+  "error: TypeError: resolveField is not a function\n    at isTextarea (http://fw.test/build/es-components.js:97547:72)\n    at http://fw.test/build/es-components.js:97681:27\n    at renderList (http://fw.test/build/es-components.js:5224:19)\n    at http://fw.test/build/es-components.js:97663:70\n    at renderFnWi"
+ ]
+}

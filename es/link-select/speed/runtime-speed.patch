@@ -1,0 +1,11 @@
+--- speed/orig/runtime.js	2026-11-24 17:36:15.990887124 +0000
++++ B-es-tags/build/src/runtime.js	2026-11-24 17:36:16.017485557 +0000
+@@ -735,6 +735,8 @@
+         get() { drain(); return this._es ? this._es.props[k] : undefined },
+         set(v) {
+           const e = entryOf(this)
++          // [speed] an unchanged value set again from code renders nothing
++          if (e.src[k] === 'prop' && Object.is(e.props[k], v)) return
+           e.props[k] = v
+           e.src[k] = 'prop'
+           dirty.add(e)

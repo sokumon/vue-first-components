@@ -1,0 +1,1007 @@
+diff --git a/esbuild/esbuild.js b/esbuild/esbuild.js
+index a9b9fdfb1c..ae4cb1a7a2 100644
+--- a/esbuild/esbuild.js
++++ b/esbuild/esbuild.js
+@@ -15,6 +15,7 @@ const style_plugin = require("./style-plugin");
+ const { derive_rtl_styles } = require("./derive-rtl");
+ const ignore_assets = require("./ignore-assets");
+ const build_cleanup_plugin = require("./build-cleanup").plugin;
++const frappe_vue = require("./frappe-vue");
+ 
+ const {
+ 	app_list,
+@@ -213,6 +214,11 @@ async function update_assets_obj(app, assets, assets_rtl) {
+ 			assets_rtl[`rtl_${key}`] = value;
+ 		} else {
+ 			assets[key] = value;
++			if (key.endsWith(".js") && key !== frappe_vue.VUE_BUNDLE) {
++				frappe_vue.apply_vue_requires(assets, {
++					[key]: frappe_vue.file_requires_vue(source_path),
++				});
++			}
+ 		}
+ 	}
+ }
+@@ -318,7 +324,13 @@ function get_files_to_build(files) {
+ function build_files({ files, outdir }) {
+ 	// vue_style before cleanup: it re-hashes bundle filenames after inlining
+ 	// css, and cleanup must judge staleness against the renamed metafile
+-	let build_plugins = [vue(), html_plugin, vue_style_plugin, build_cleanup_plugin];
++	let build_plugins = [
++		frappe_vue.plugin,
++		vue(),
++		html_plugin,
++		vue_style_plugin,
++		build_cleanup_plugin,
++	];
+ 	if (WATCH_MODE) build_plugins.push(watch_plugin);
+ 	return build_or_watch(get_build_options(files, outdir, build_plugins));
+ }
+@@ -373,6 +385,7 @@ function get_build_options(files, outdir, plugins) {
+ 			"process.env.NODE_ENV": JSON.stringify(PRODUCTION ? "production" : "development"),
+ 			__VUE_OPTIONS_API__: JSON.stringify(true),
+ 			__VUE_PROD_DEVTOOLS__: JSON.stringify(false),
++			__VUE_PROD_HYDRATION_MISMATCH_DETAILS__: JSON.stringify(false),
+ 		},
+ 		plugins: plugins,
+ 	};
+@@ -508,6 +521,7 @@ let assets_json_history = {};
+ async function write_assets_json(metafile) {
+ 	let rtl = false;
+ 	let out = {};
++	const vue_requires = frappe_vue.get_vue_requires(metafile);
+ 	for (let output in metafile.outputs) {
+ 		let info = metafile.outputs[output];
+ 		let asset_path = "/" + path.relative(sites_path, output);
+@@ -532,12 +546,14 @@ async function write_assets_json(metafile) {
+ 	}
+ 
+ 	const assets_json_path = get_assets_json_path(rtl);
+-	const { next: new_assets_json } = await update_assets_json(
+-		assets_json_path,
+-		(assets_json) => ({
+-			...assets_json,
+-			...out,
+-		})
++	const { next: new_assets_json } = await update_assets_json(assets_json_path, (assets_json) =>
++		frappe_vue.apply_vue_requires(
++			{
++				...assets_json,
++				...out,
++			},
++			rtl ? {} : vue_requires
++		)
+ 	);
+ 	let prev_assets_json = assets_json_history[assets_json_path];
+ 	assets_json_history[assets_json_path] = new_assets_json;
+diff --git a/esbuild/frappe-vue.js b/esbuild/frappe-vue.js
+new file mode 100644
+index 0000000000..42ed9c635d
+--- /dev/null
++++ b/esbuild/frappe-vue.js
+@@ -0,0 +1,200 @@
++// vue.bundle.js is the only bundle that carries Vue. Every other bundle, of every app,
++// imports "vue" and its runtime packages from a shim that reads frappe.vue_modules, and
++// assets.json records which bundles do ("<bundle>:requires"), so the loaders bring
++// vue.bundle.js first.
++
++const path = require("path");
++const fs = require("fs");
++const esbuild = require("esbuild");
++
++const VUE_BUNDLE = "vue.bundle.js";
++const VUE_ENTRY = path.resolve(__dirname, "..", "frappe", "public", "js", VUE_BUNDLE);
++const NAMESPACE = "frappe-vue";
++// marks a built file that needs vue.bundle.js, for --using-cached builds that have no metafile
++const MARKER = "frappe-vue-shim:" + VUE_BUNDLE;
++
++const SHIMMED = {
++	vue: "vue",
++	"@vue/runtime-dom": "vue",
++	"@vue/runtime-core": "vue",
++	"@vue/reactivity": "@vue/reactivity",
++	"@vue/shared": "@vue/shared",
++	"vue/dist/vue.runtime.esm-bundler.js": "vue",
++	"vue/dist/vue.runtime.esm-browser.js": "vue",
++	"vue/dist/vue.runtime.esm-browser.prod.js": "vue",
++	// the builds with the template compiler get the runtime: see COMPILER_NOTE
++	"vue/dist/vue.esm-bundler.js": "vue",
++	"vue/dist/vue.esm-browser.js": "vue",
++	"vue/dist/vue.esm-browser.prod.js": "vue",
++};
++const COMPILER_BUILD = /^vue\/dist\/vue\.esm-(bundler|browser)/;
++const COMPILER_NOTE =
++	`Desk's one Vue (${VUE_BUNDLE}) is the runtime-only build, as Desk's own was: compile` +
++	" templates at build time in .vue files instead of with compile() or a template string.";
++const FILTER = new RegExp(
++	"^(" +
++		Object.keys(SHIMMED)
++			.map((s) => s.replace(/[./]/g, "\\$&"))
++			.join("|") +
++		")$"
++);
++// files only vue.bundle.js reaches: inside them the real packages resolve as usual. Not the
++// rest of these packages, such as vue/jsx-runtime, which a bundle imports itself
++const VUE_PACKAGE_DIR =
++	/[\\/]node_modules[\\/](vue|@vue[\\/](runtime-core|runtime-dom|reactivity|shared))[\\/]dist[\\/]/;
++
++let export_names; // { specifier: [names] }, read once per process
++
++async function get_export_names(specifier) {
++	export_names ||= {};
++	if (!export_names[specifier]) {
++		const result = await esbuild.build({
++			stdin: {
++				contents: `export * from ${JSON.stringify(specifier)};`,
++				resolveDir: path.dirname(VUE_ENTRY),
++			},
++			nodePaths: [path.resolve(__dirname, "..", "node_modules")],
++			bundle: true,
++			write: false,
++			metafile: true,
++			format: "esm",
++			logLevel: "silent",
++			outfile: "names.js",
++			define: { "process.env.NODE_ENV": '"production"' },
++		});
++		export_names[specifier] = Object.values(result.metafile.outputs)
++			.flatMap((output) => output.exports || [])
++			.filter((name) => name !== "default");
++	}
++	return export_names[specifier];
++}
++
++function shim_source(specifier, names) {
++	const module_key = SHIMMED[specifier];
++	const lines = [
++		`/*! ${MARKER} */`,
++		`const modules = globalThis.frappe && globalThis.frappe.vue_modules;`,
++		`const m = modules && modules[${JSON.stringify(module_key)}];`,
++		`if (!m) {`,
++		`	const script = typeof document !== "undefined" && document.currentScript;`,
++		`	throw new Error(`,
++		`		"Desk's Vue (frappe.Vue, from ${VUE_BUNDLE}) is not loaded" +`,
++		`			(script && script.src ? " before " + script.src : "") +`,
++		`			". A bundle that imports " + ${JSON.stringify(JSON.stringify(specifier))} +`,
++		`			" must be loaded with frappe.require(), frappe.assets.load_asset() or include_script()," +`,
++		`			" which load ${VUE_BUNDLE} first, or after a <script> for ${VUE_BUNDLE}."`,
++		`	);`,
++		`}`,
++	];
++	// pure calls, so a bundle keeps only the names it uses
++	lines.push(`function pick(name) {`, `	return m[name];`, `}`);
++	const exported = [];
++	names.forEach((name, i) => {
++		lines.push(`const v${i} = /* @__PURE__ */ pick(${JSON.stringify(name)});`);
++		exported.push(`v${i} as ${JSON.stringify(name)}`);
++	});
++	lines.push(`export { ${exported.join(", ")} };`);
++	return lines.join("\n");
++}
++
++function imports_compile(importer, specifier) {
++	let source;
++	try {
++		source = fs.readFileSync(importer, "utf-8");
++	} catch {
++		return false;
++	}
++	const from = specifier.replace(/[./]/g, "\\$&");
++	return new RegExp(
++		`\\b(import|export)\\s*\\{[^}]*\\bcompile\\b[^}]*\\}\\s*from\\s*["']${from}["']`
++	).test(source);
++}
++
++function is_vue3(package_json) {
++	try {
++		const { version } = JSON.parse(fs.readFileSync(package_json, "utf-8"));
++		return version.split(".")[0] === "3";
++	} catch {
++		return true;
++	}
++}
++
++const plugin = {
++	name: "frappe-vue",
++	setup(build) {
++		const version_by_dir = new Map();
++
++		build.onResolve({ filter: FILTER }, async (args) => {
++			if (args.pluginData?.frappe_vue_skip) return;
++			if (args.importer === VUE_ENTRY || VUE_PACKAGE_DIR.test(args.importer)) return;
++
++			// an app pinned to another Vue major keeps its own copy
++			if (args.path === "vue" && args.resolveDir) {
++				if (!version_by_dir.has(args.resolveDir)) {
++					const own = await build.resolve("vue", {
++						resolveDir: args.resolveDir,
++						kind: args.kind,
++						pluginData: { frappe_vue_skip: true },
++					});
++					const pkg = own.errors.length
++						? null
++						: own.path.replace(/[\\/]dist[\\/].*$|[\\/]index\.m?js$/, "") +
++						  "/package.json";
++					version_by_dir.set(args.resolveDir, !pkg || is_vue3(pkg));
++				}
++				if (!version_by_dir.get(args.resolveDir)) return;
++			}
++			if (COMPILER_BUILD.test(args.path)) {
++				const text = `${args.path} resolves to ${VUE_BUNDLE}. ${COMPILER_NOTE}`;
++				if (imports_compile(args.importer, args.path)) return { errors: [{ text }] };
++				return { path: args.path, namespace: NAMESPACE, warnings: [{ text }] };
++			}
++			return { path: args.path, namespace: NAMESPACE };
++		});
++
++		build.onLoad({ filter: /.*/, namespace: NAMESPACE }, async (args) => {
++			let names = await get_export_names(SHIMMED[args.path] === "vue" ? "vue" : args.path);
++			// the runtime's compile() only warns at run time: a `* as Vue` import gets no compile
++			if (COMPILER_BUILD.test(args.path)) names = names.filter((name) => name !== "compile");
++			return { contents: shim_source(args.path, names), loader: "js" };
++		});
++	},
++};
++
++function get_vue_requires(metafile) {
++	const requires = {};
++	for (const output in metafile.outputs) {
++		const info = metafile.outputs[output];
++		if (!info.entryPoint || !output.endsWith(".js")) continue;
++		const key = path.basename(info.entryPoint);
++		if (key === VUE_BUNDLE) continue;
++		requires[key] = Object.keys(info.inputs).some((input) =>
++			input.startsWith(NAMESPACE + ":")
++		);
++	}
++	return requires;
++}
++
++const requires_key = (bundle) => `${bundle}:requires`;
++
++function apply_vue_requires(assets_json, requires) {
++	for (const [bundle, needs_vue] of Object.entries(requires)) {
++		if (needs_vue) assets_json[requires_key(bundle)] = VUE_BUNDLE;
++		else delete assets_json[requires_key(bundle)];
++	}
++	return assets_json;
++}
++
++// --using-cached has no metafile: the shim leaves MARKER in every file built with it
++function file_requires_vue(file) {
++	return fs.readFileSync(file, "utf-8").includes(MARKER);
++}
++
++module.exports = {
++	plugin,
++	VUE_BUNDLE,
++	get_vue_requires,
++	apply_vue_requires,
++	requires_key,
++	file_requires_vue,
++};
+diff --git a/frappe/public/js/frappe/asset_loader.js b/frappe/public/js/frappe/asset_loader.js
+new file mode 100644
+index 0000000000..40db870623
+--- /dev/null
++++ b/frappe/public/js/frappe/asset_loader.js
+@@ -0,0 +1,79 @@
++// What Desk's frappe.require (frappe/assets.js) and the website's (website/js/website.js) share:
++// each asset runs once per page, a load in flight is shared, and a bundle the build recorded as
++// needing another first ("<bundle>:requires" in assets.json, eg vue.bundle.js) gets it first.
++// Bundles can each import this file, so the state lives on frappe, one per page.
++
++export function get_asset_loader() {
++	window.frappe ||= {};
++	return (frappe._asset_loader ||= new AssetLoader());
++}
++
++class AssetLoader {
++	constructor() {
++		this.executed = []; // paths, as the loaders were given them
++		this.loading = {}; // path -> promise
++	}
++
++	// `run(url, path)` puts the asset on the page and resolves when it has run
++	load(path, url, run) {
++		if (this.executed.includes(path)) return Promise.resolve();
++		if (this.loading[path]) return this.loading[path];
++
++		const dependencies = this.get_dependencies(path).map((bundle) =>
++			this.load_dependency(bundle, run)
++		);
++		return (this.loading[path] = Promise.all(dependencies)
++			.then(() => run(url || path, path))
++			.then(() => {
++				this.executed.push(path);
++				delete this.loading[path];
++			}));
++	}
++
++	// "<bundle>:requires" in assets.json, looked up by bundle name or built path
++	get_dependencies(path) {
++		const assets_json = frappe.boot?.assets_json;
++		if (!assets_json) return [];
++		if (this._requires_source !== assets_json) {
++			this._requires_source = assets_json;
++			this._requires = {};
++			for (const key in assets_json) {
++				if (!key.endsWith(":requires")) continue;
++				const bundle = key.slice(0, -":requires".length);
++				const requires = assets_json[key].split(",");
++				this._requires[bundle] = requires;
++				if (assets_json[bundle]) this._requires[assets_json[bundle]] = requires;
++			}
++		}
++		return (
++			this._requires[new URL(path, window.location.origin).pathname] ||
++			this._requires[path] ||
++			[]
++		);
++	}
++
++	async load_dependency(bundle, run) {
++		// include_script may still add it further down the page being parsed
++		if (document.readyState === "loading") {
++			await new Promise((resolve) =>
++				document.addEventListener("DOMContentLoaded", resolve, { once: true })
++			);
++		}
++		const path = this.bundled_asset(bundle);
++		if (!this.loading[path] && !this.executed.includes(path) && this.on_page(path)) {
++			this.executed.push(path);
++		}
++		return this.load(path, path, run);
++	}
++
++	// a <script> include_script wrote, which ran before DOMContentLoaded
++	on_page(path) {
++		return [...document.scripts].some(
++			(script) => script.src && new URL(script.src).pathname === path
++		);
++	}
++
++	bundled_asset(bundle) {
++		return frappe.boot?.assets_json?.[bundle] || bundle;
++	}
++}
+diff --git a/frappe/public/js/frappe/assets.js b/frappe/public/js/frappe/assets.js
+index cc51fc9c92..2e43923092 100644
+--- a/frappe/public/js/frappe/assets.js
++++ b/frappe/public/js/frappe/assets.js
+@@ -5,6 +5,8 @@
+ // will try and get from localStorage if latest are available
+ // depends on frappe.versions to manage versioning
+ 
++import { get_asset_loader } from "./asset_loader";
++
+ frappe.require = function (items, callback) {
+ 	if (typeof items === "string") {
+ 		items = [items];
+@@ -21,7 +23,8 @@ frappe.require = function (items, callback) {
+ 
+ class AssetManager {
+ 	constructor() {
+-		this._executed = [];
++		this._loader = get_asset_loader();
++		this._executed = this._loader.executed;
+ 		this._handlers = {
+ 			js: (url) => {
+ 				return new Promise((resolve) => {
+@@ -91,15 +94,7 @@ class AssetManager {
+ 	}
+ 
+ 	load_asset(path, url) {
+-		if (this._executed.includes(path)) {
+-			return Promise.resolve();
+-		}
+-
+-		const ext = this.extn(path);
+-		const handler = this._handlers[ext];
+-		return handler(url).then(() => {
+-			this._executed.push(path);
+-		});
++		return this._loader.load(path, url, (url, path) => this._handlers[this.extn(path)](url));
+ 	}
+ 
+ 	execute(items, callback) {
+diff --git a/frappe/public/js/frappe/file_uploader/file_uploader.bundle.js b/frappe/public/js/frappe/file_uploader/file_uploader.bundle.js
+index 90ca33f732..b508b9cf5d 100644
+--- a/frappe/public/js/frappe/file_uploader/file_uploader.bundle.js
++++ b/frappe/public/js/frappe/file_uploader/file_uploader.bundle.js
+@@ -1,183 +1,53 @@
+-import { createApp } from "vue";
++import { createApp, watch } from "vue";
+ import FileUploaderComponent from "./FileUploader.vue";
+-import { watch } from "vue";
+ 
+-class FileUploader {
+-	static UploadOptions = [];
+-	constructor({
+-		wrapper,
+-		method,
+-		on_success,
+-		doctype,
+-		docname,
+-		fieldname,
+-		field_doctype,
+-		files,
+-		folder,
+-		restrictions = {},
+-		upload_notes,
+-		allow_multiple,
+-		as_dataurl,
+-		disable_file_browser,
+-		dialog_title,
+-		attach_doc_image,
+-		frm,
+-		make_attachments_public,
+-		allow_web_link,
+-		allow_take_photo,
+-		allow_toggle_private,
+-		allow_toggle_optimize,
+-		allow_google_drive,
+-		keep_grid_form_open = false,
+-	} = {}) {
+-		frm?.attachments?.max_reached?.(true);
++// frappe.ui.FileUploader (frappe/upload.js) loads this bundle and mounts the component with it
++function mount(file_uploader, props, files) {
++	let app = createApp(FileUploaderComponent, props);
++	SetVueGlobals(app);
++	file_uploader.uploader = app.mount(file_uploader.wrapper);
+ 
+-		if (allow_toggle_private === undefined) {
+-			allow_toggle_private = true;
+-		}
+-
+-		const force_private = Boolean(
+-			doctype && frappe.get_meta(doctype)?.force_private_attachments
+-		);
+-		if (force_private) {
+-			make_attachments_public = 0;
+-		}
+-
+-		allow_toggle_private = Boolean(
+-			allow_toggle_private && !force_private && frappe.utils.can_upload_public_files()
+-		);
+-		this.can_toggle_private = allow_toggle_private;
+-
+-		if (!wrapper) {
+-			this.make_dialog(dialog_title, keep_grid_form_open);
+-		} else {
+-			this.wrapper = wrapper.get ? wrapper.get(0) : wrapper;
+-		}
+-
+-		if (restrictions && !restrictions.allowed_file_types) {
+-			// apply global allow list if present
+-			let allowed_extensions = frappe.sys_defaults?.allowed_file_extensions;
+-			if (allowed_extensions) {
+-				restrictions.allowed_file_types = allowed_extensions
+-					.split("\n")
+-					.map((ext) => `.${ext}`);
+-			}
+-		}
+-
+-		let app = createApp(FileUploaderComponent, {
+-			show_upload_button: !Boolean(this.dialog),
+-			doctype,
+-			docname,
+-			fieldname,
+-			field_doctype,
+-			method,
+-			folder,
+-			on_success,
+-			restrictions,
+-			upload_notes,
+-			allow_multiple,
+-			as_dataurl,
+-			disable_file_browser,
+-			attach_doc_image,
+-			make_attachments_public,
+-			allow_web_link,
+-			allow_take_photo,
+-			allow_toggle_private,
+-			force_private,
+-			allow_toggle_optimize,
+-			allow_google_drive,
+-			additional_upload_handlers: this.constructor.UploadOptions.map((k) => ({
+-				...k,
+-				wrappedAction: () =>
+-					k.action({
+-						dialog: this.dialog,
+-						uploader: this.uploader,
+-						doctype,
+-						docname,
+-						fieldname,
+-					}),
+-			})),
+-		});
+-		SetVueGlobals(app);
+-		this.uploader = app.mount(this.wrapper);
+-
+-		if (!this.dialog) {
+-			this.uploader.wrapper_ready = true;
+-		}
+-
+-		watch(
+-			() => this.uploader.files,
+-			(files) => {
+-				let all_private = files.every((file) => file.private);
+-				if (this.dialog && this.can_toggle_private) {
+-					this.dialog.set_secondary_action_label(
+-						all_private ? __("Set all public") : __("Set all private")
+-					);
+-				}
+-			},
+-			{ deep: true }
+-		);
++	if (!file_uploader.dialog || file_uploader.wrapper_ready) {
++		file_uploader.uploader.wrapper_ready = true;
++	}
+ 
+-		watch(
+-			() => this.uploader.close_dialog,
+-			(close_dialog) => {
+-				if (close_dialog) {
+-					this.dialog && this.dialog.hide();
+-				}
++	watch(
++		() => file_uploader.uploader.files,
++		(files) => {
++			let all_private = files.every((file) => file.private);
++			if (file_uploader.dialog && file_uploader.can_toggle_private) {
++				file_uploader.dialog.set_secondary_action_label(
++					all_private ? __("Set all public") : __("Set all private")
++				);
+ 			}
+-		);
+-
+-		watch(
+-			() => this.uploader.hide_dialog_footer,
+-			(hide_dialog_footer) => {
+-				if (!this.dialog) return;
+-				this.dialog.footer.toggleClass("hide", hide_dialog_footer);
+-				this.dialog.$wrapper.data("bs.modal")._config.backdrop = hide_dialog_footer
+-					? "static"
+-					: true;
++		},
++		{ deep: true }
++	);
++
++	watch(
++		() => file_uploader.uploader.close_dialog,
++		(close_dialog) => {
++			if (close_dialog) {
++				file_uploader.dialog && file_uploader.dialog.hide();
+ 			}
+-		);
+-
+-		if (files && files.length) {
+-			this.uploader.add_files(files);
+ 		}
+-	}
+-
+-	upload_files() {
+-		return this.uploader.upload_files(this.dialog);
+-	}
+-
+-	make_dialog(title, keep_grid_form_open) {
+-		const dialog_opts = {
+-			title: title || __("Upload"),
+-			keep_grid_form_open,
+-			primary_action_label: __("Upload"),
+-			primary_action_loading_label: __("Uploading"),
+-			primary_action: () => this.upload_files(),
+-			on_page_show: () => {
+-				this.uploader.wrapper_ready = true;
+-			},
+-		};
+-
+-		// Only add secondary action if user is allowed to toggle privacy
+-		if (this.can_toggle_private) {
+-			dialog_opts.secondary_action_label = __("Set all private");
+-			dialog_opts.secondary_action = () => {
+-				this.uploader.toggle_all_private();
+-			};
++	);
++
++	watch(
++		() => file_uploader.uploader.hide_dialog_footer,
++		(hide_dialog_footer) => {
++			if (!file_uploader.dialog) return;
++			file_uploader.dialog.footer.toggleClass("hide", hide_dialog_footer);
++			file_uploader.dialog.$wrapper.data("bs.modal")._config.backdrop = hide_dialog_footer
++				? "static"
++				: true;
+ 		}
++	);
+ 
+-		this.dialog = new frappe.ui.Dialog(dialog_opts);
+-
+-		this.wrapper = this.dialog.body;
+-		this.dialog.show();
+-		this.dialog.$wrapper.on("hidden.bs.modal", function () {
+-			$(this).data("bs.modal", null);
+-			$(this).remove();
+-		});
++	if (files && files.length) {
++		file_uploader.uploader.add_files(files);
+ 	}
+ }
+ 
+ frappe.provide("frappe.ui");
+-frappe.ui.FileUploader = FileUploader;
+-export default FileUploader;
++frappe.ui.file_uploader_component = { mount };
+diff --git a/frappe/public/js/frappe/upload.js b/frappe/public/js/frappe/upload.js
+index caaa44fe0c..bba2ccd9d3 100644
+--- a/frappe/public/js/frappe/upload.js
++++ b/frappe/public/js/frappe/upload.js
+@@ -1,10 +1,171 @@
+ // Copyright (c) 2015, Frappe Technologies Pvt. Ltd. and Contributors
+ // MIT License. See license.txt
+ 
+-if (frappe.require) {
+-	frappe.require("file_uploader.bundle.js");
+-} else {
+-	frappe.ready(function () {
+-		frappe.require("file_uploader.bundle.js");
+-	});
++// The uploader's Vue component (and with it Vue) is loaded the first time one is made, so a
++// page that never uploads doesn't download it. Until then `uploader` is unset: `ready` resolves
++// once it is mounted.
++let loading;
++
++class FileUploader {
++	static UploadOptions = [];
++
++	static load() {
++		loading ||= frappe.require("file_uploader.bundle.js").then(() => {
++			if (!frappe.ui.file_uploader_component) {
++				loading = null;
++				throw new Error("file_uploader.bundle.js did not load");
++			}
++		});
++		return loading;
++	}
++
++	constructor({
++		wrapper,
++		method,
++		on_success,
++		doctype,
++		docname,
++		fieldname,
++		field_doctype,
++		files,
++		folder,
++		restrictions = {},
++		upload_notes,
++		allow_multiple,
++		as_dataurl,
++		disable_file_browser,
++		dialog_title,
++		attach_doc_image,
++		frm,
++		make_attachments_public,
++		allow_web_link,
++		allow_take_photo,
++		allow_toggle_private,
++		allow_toggle_optimize,
++		allow_google_drive,
++		keep_grid_form_open = false,
++	} = {}) {
++		frm?.attachments?.max_reached?.(true);
++
++		if (allow_toggle_private === undefined) {
++			allow_toggle_private = true;
++		}
++
++		const force_private = Boolean(
++			doctype && frappe.get_meta(doctype)?.force_private_attachments
++		);
++		if (force_private) {
++			make_attachments_public = 0;
++		}
++
++		allow_toggle_private = Boolean(
++			allow_toggle_private && !force_private && frappe.utils.can_upload_public_files()
++		);
++		this.can_toggle_private = allow_toggle_private;
++
++		if (!wrapper) {
++			this.make_dialog(dialog_title, keep_grid_form_open);
++		} else {
++			this.wrapper = wrapper.get ? wrapper.get(0) : wrapper;
++		}
++
++		if (restrictions && !restrictions.allowed_file_types) {
++			// apply global allow list if present
++			let allowed_extensions = frappe.sys_defaults?.allowed_file_extensions;
++			if (allowed_extensions) {
++				restrictions.allowed_file_types = allowed_extensions
++					.split("\n")
++					.map((ext) => `.${ext}`);
++			}
++		}
++
++		const props = {
++			show_upload_button: !Boolean(this.dialog),
++			doctype,
++			docname,
++			fieldname,
++			field_doctype,
++			method,
++			folder,
++			on_success,
++			restrictions,
++			upload_notes,
++			allow_multiple,
++			as_dataurl,
++			disable_file_browser,
++			attach_doc_image,
++			make_attachments_public,
++			allow_web_link,
++			allow_take_photo,
++			allow_toggle_private,
++			force_private,
++			allow_toggle_optimize,
++			allow_google_drive,
++			additional_upload_handlers: this.constructor.UploadOptions.map((k) => ({
++				...k,
++				wrappedAction: () =>
++					k.action({
++						dialog: this.dialog,
++						uploader: this.uploader,
++						doctype,
++						docname,
++						fieldname,
++					}),
++			})),
++		};
++
++		const mount = () => {
++			frappe.ui.file_uploader_component.mount(this, props, files);
++			return this;
++		};
++		if (frappe.ui.file_uploader_component) {
++			this.ready = Promise.resolve(mount());
++		} else {
++			this.ready = FileUploader.load().then(mount);
++			this.ready.catch((error) => {
++				console.error(error);
++				this.dialog?.hide();
++				frappe.msgprint(__("Could not load the file uploader. Please reload the page."));
++			});
++		}
++	}
++
++	upload_files() {
++		if (!this.uploader) return this.ready.then(() => this.upload_files());
++		return this.uploader.upload_files(this.dialog);
++	}
++
++	make_dialog(title, keep_grid_form_open) {
++		const dialog_opts = {
++			title: title || __("Upload"),
++			keep_grid_form_open,
++			primary_action_label: __("Upload"),
++			primary_action_loading_label: __("Uploading"),
++			primary_action: () => this.upload_files(),
++			on_page_show: () => {
++				this.wrapper_ready = true;
++				if (this.uploader) this.uploader.wrapper_ready = true;
++			},
++		};
++
++		// Only add secondary action if user is allowed to toggle privacy
++		if (this.can_toggle_private) {
++			dialog_opts.secondary_action_label = __("Set all private");
++			dialog_opts.secondary_action = () => {
++				this.uploader?.toggle_all_private();
++			};
++		}
++
++		this.dialog = new frappe.ui.Dialog(dialog_opts);
++
++		this.wrapper = this.dialog.body;
++		this.dialog.show();
++		this.dialog.$wrapper.on("hidden.bs.modal", function () {
++			$(this).data("bs.modal", null);
++			$(this).remove();
++		});
++	}
+ }
++
++frappe.provide("frappe.ui");
++frappe.ui.FileUploader = FileUploader;
+diff --git a/frappe/public/js/frappe/vue_global.js b/frappe/public/js/frappe/vue_global.js
+deleted file mode 100644
+index b2e1977de4..0000000000
+--- a/frappe/public/js/frappe/vue_global.js
++++ /dev/null
+@@ -1,44 +0,0 @@
+-// Desk's Vue, shared with prebuilt app bundles that mark `vue` as external
+-// (e.g. frappe-ui's <frappe-mobile-nav>) so they don't ship their own copy.
+-// Not in the default bundles: mobile_nav.bundle.js loads it on demand.
+-//
+-// Only the names those bundles call, so the rest of Vue is tree-shaken out of
+-// mobile_nav.bundle.js. A rebuilt element that calls a name missing here fails as it
+-// loads; add the name here when that happens.
+-import {
+-	computed,
+-	createBlock,
+-	createCommentVNode,
+-	createElementBlock,
+-	createElementVNode,
+-	defineComponent,
+-	defineCustomElement,
+-	getCurrentInstance,
+-	mergeProps,
+-	normalizeClass,
+-	openBlock,
+-	ref,
+-	renderSlot,
+-	resolveDynamicComponent,
+-	toDisplayString,
+-	withCtx,
+-} from "vue";
+-
+-frappe.Vue = {
+-	computed,
+-	createBlock,
+-	createCommentVNode,
+-	createElementBlock,
+-	createElementVNode,
+-	defineComponent,
+-	defineCustomElement,
+-	getCurrentInstance,
+-	mergeProps,
+-	normalizeClass,
+-	openBlock,
+-	ref,
+-	renderSlot,
+-	resolveDynamicComponent,
+-	toDisplayString,
+-	withCtx,
+-};
+diff --git a/frappe/public/js/mobile_nav.bundle.js b/frappe/public/js/mobile_nav.bundle.js
+index 737109fbb2..ed6e006ccc 100644
+--- a/frappe/public/js/mobile_nav.bundle.js
++++ b/frappe/public/js/mobile_nav.bundle.js
+@@ -1,6 +1,6 @@
+ // Loaded only on phone-sized screens (see frappe/ui/mobile_nav_loader.js), so a desktop
+-// never downloads Vue, the element or the tab bar. Vue comes first: the prebuilt element
+-// reads frappe.Vue as it loads.
+-import "./frappe/vue_global.js";
++// never downloads the element or the tab bar. The prebuilt element reads frappe.Vue as
++// it loads: importing "vue" makes the loader bring vue.bundle.js first.
++import "vue";
+ import "./lib/frappe-mobile-nav.js";
+ import "./frappe/ui/mobile_nav.js";
+diff --git a/frappe/public/js/vue.bundle.js b/frappe/public/js/vue.bundle.js
+new file mode 100644
+index 0000000000..2624e54bf2
+--- /dev/null
++++ b/frappe/public/js/vue.bundle.js
+@@ -0,0 +1,13 @@
++// Desk's one Vue: other bundles import "vue" from these objects (esbuild/frappe-vue.js).
++// A prebuilt element that keeps vue external reads frappe.Vue (Vite: `globals: { vue: "frappe.Vue" }`).
++import * as Vue from "vue";
++import * as reactivity from "@vue/reactivity";
++import * as shared from "@vue/shared";
++
++if (window.frappe?.Vue) {
++	console.warn("vue.bundle.js ran twice: keeping the frappe.Vue that loaded first");
++} else {
++	window.frappe ||= {};
++	frappe.Vue = Vue;
++	frappe.vue_modules = { vue: Vue, "@vue/reactivity": reactivity, "@vue/shared": shared };
++}
+diff --git a/frappe/utils/jinja_globals.py b/frappe/utils/jinja_globals.py
+index b9ce59d34c..6f19437c4b 100644
+--- a/frappe/utils/jinja_globals.py
++++ b/frappe/utils/jinja_globals.py
+@@ -99,15 +99,29 @@ def include_script(path, preload=True):
+ 	"""Get path of bundled script files.
+ 
+ 	If preload is specified the path will be added to preload headers so browsers can prefetch
+-	assets."""
++	assets. Bundles the build recorded as needed first (eg vue.bundle.js) are included
++	before it, once per page."""
++	import frappe
++
++	dependencies = ""
++	if ".bundle." in path and not path.startswith("/assets"):
++		from frappe.utils import get_assets_json
++
++		requires = get_assets_json().get(f"{path}:requires")
++		included = getattr(frappe.local, "included_bundles", None)
++		if included is None:
++			included = frappe.local.included_bundles = set()
++		included.add(path)
++		for dependency in requires.split(",") if requires else []:
++			if dependency not in included:
++				dependencies += include_script(dependency, preload)
++
+ 	path = bundled_asset(path)
+ 
+ 	if preload:
+-		import frappe
+-
+ 		frappe.local.preload_assets["script"].append(path)
+ 
+-	return f'<script type="text/javascript" src="{path}"></script>'
++	return dependencies + f'<script type="text/javascript" src="{path}"></script>'
+ 
+ 
+ def include_icons(path, preload=True):
+diff --git a/frappe/website/js/website.js b/frappe/website/js/website.js
+index fac81dc2e5..92bbda6f8e 100644
+--- a/frappe/website/js/website.js
++++ b/frappe/website/js/website.js
+@@ -1,13 +1,14 @@
+ // Copyright (c) 2015, Frappe Technologies Pvt. Ltd. and Contributors
+ // MIT License. See license.txt
+ import hljs from "./syntax_highlight";
++import { get_asset_loader } from "../../public/js/frappe/asset_loader";
+ 
+ frappe.provide("website");
+ frappe.provide("frappe.awesome_bar_path");
+ window.cur_frm = null;
+ 
+ $.extend(frappe, {
+-	_assets_loaded: [],
++	_assets_loaded: get_asset_loader().executed,
+ 	require: async function (links, callback) {
+ 		if (typeof links === "string") {
+ 			links = [links];
+@@ -29,25 +30,7 @@ $.extend(frappe, {
+ 		return path;
+ 	},
+ 	add_asset_to_head(link) {
+-		return new Promise((resolve) => {
+-			if (frappe._assets_loaded.includes(link)) return resolve();
+-			let el;
+-			if (link.split(".").pop() === "js") {
+-				el = document.createElement("script");
+-				el.type = "text/javascript";
+-				el.src = link;
+-			} else {
+-				el = document.createElement("link");
+-				el.type = "text/css";
+-				el.rel = "stylesheet";
+-				el.href = link;
+-			}
+-			document.getElementsByTagName("head")[0].appendChild(el);
+-			el.onload = () => {
+-				frappe._assets_loaded.push(link);
+-				resolve();
+-			};
+-		});
++		return get_asset_loader().load(link, link, add_to_head);
+ 	},
+ 	hide_message: function () {
+ 		$(".message-overlay").remove();
+@@ -550,3 +533,21 @@ frappe.ready(function () {
+ 	frappe.setup_videos();
+ 	frappe.realtime.init(window.socketio_port, true); // lazy connection
+ });
++
++function add_to_head(link) {
++	return new Promise((resolve) => {
++		let el;
++		if (link.split(".").pop() === "js") {
++			el = document.createElement("script");
++			el.type = "text/javascript";
++			el.src = link;
++		} else {
++			el = document.createElement("link");
++			el.type = "text/css";
++			el.rel = "stylesheet";
++			el.href = link;
++		}
++		document.getElementsByTagName("head")[0].appendChild(el);
++		el.onload = () => resolve();
++	});
++}

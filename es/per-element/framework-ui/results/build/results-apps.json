@@ -1,0 +1,134 @@
+{
+ "results": [
+  {
+   "k": "InviteUser load() fn prop called once on mount",
+   "ok": true,
+   "extra": "1"
+  },
+  {
+   "k": "Send invites disabled until email + role",
+   "ok": true
+  },
+  {
+   "k": "typing in MultiEmailInput -> debounced searchUsers fn prop",
+   "ok": true,
+   "extra": "gra"
+  },
+  {
+   "k": "email chip added",
+   "ok": true,
+   "extra": "Invite by email * (required) N new.person@example.com Roles * (required) Select roles Send invites"
+  },
+  {
+   "k": "role picked, submit enabled",
+   "ok": true,
+   "extra": "Invite by email * (required) N new.person@example.com Roles * (required) System Manager Send invites"
+  },
+  {
+   "k": "submit -> invite(emails, roles) fn prop + invited event",
+   "ok": true,
+   "extra": "[\"new.person@example.com\",[\"System Manager\"]] [\"new.person@example.com\"]"
+  },
+  {
+   "k": "form resets after invite",
+   "ok": true
+  },
+  {
+   "k": "NotificationPanel sets first tab on mount (update:activeTab)",
+   "ok": true,
+   "extra": "\"all\""
+  },
+  {
+   "k": "tab count from \"unread\" count prop",
+   "ok": true
+  },
+  {
+   "k": "tab switch -> filter fn prop hides read rows",
+   "ok": true,
+   "extra": "unread :: Notifications All Unread (1) Unread A Ada mentioned you 2 days ago Load more"
+  },
+  {
+   "k": "row click -> mark-as-read (kebab event)",
+   "ok": true,
+   "extra": "[\"N1\"]"
+  },
+  {
+   "k": "mark-all-as-read + close events",
+   "ok": true,
+   "extra": "[1,1]"
+  },
+  {
+   "k": "NotificationItem @click gets only the component event",
+   "ok": false,
+   "extra": "[\"custom:N1\",\"native:click\"]"
+  },
+  {
+   "k": "NotificationItem keyboard Enter -> click event",
+   "ok": true,
+   "extra": "[\"custom:N1\",\"native:click\",\"custom:N1\"]"
+  },
+  {
+   "k": "scoped #item <template> per notification",
+   "ok": false,
+   "extra": "[]"
+  },
+  {
+   "k": "slot-prop function markAsRead() emits mark-as-read",
+   "ok": false,
+   "extra": "[\"N1\"]"
+  },
+  {
+   "k": "Link focus opens (v-model:open) + loads options",
+   "ok": true,
+   "extra": "true opts=3"
+  },
+  {
+   "k": "creatable shows Create \"<query>\" item",
+   "ok": true,
+   "extra": "Create zed"
+  },
+  {
+   "k": "Create -> create event with query",
+   "ok": true,
+   "extra": "\"zed\""
+  },
+  {
+   "k": "Link keyboard pick (first option highlighted) -> v-model",
+   "ok": true,
+   "extra": "\"ada@example.com\""
+  },
+  {
+   "k": "Link exposed reload() reachable on element",
+   "ok": false
+  },
+  {
+   "k": "canvas draws nodes + toolbar slot inside panel",
+   "ok": true
+  },
+  {
+   "k": "canvas draws the edge",
+   "ok": true,
+   "extra": "1"
+  },
+  {
+   "k": "node click -> select event, selectedId round-trip, slot reacts",
+   "ok": true,
+   "extra": "[\"select:n2\"] Tool n2"
+  },
+  {
+   "k": "Add block picker -> add-node event",
+   "ok": true,
+   "extra": "[\"select:n2\",\"add:assign\"]"
+  },
+  {
+   "k": "node drag -> move event",
+   "ok": true,
+   "extra": "[\"select:n2\",\"add:assign\",\"move:n2\"]"
+  },
+  {
+   "k": "exposed fitView reachable on element",
+   "ok": false
+  }
+ ],
+ "errs": []
+}

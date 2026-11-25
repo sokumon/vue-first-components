@@ -1,0 +1,159 @@
+{
+ "name": "shared",
+ "fails": 2,
+ "n": 9,
+ "results": [
+  {
+   "k": "an @click attribute on one element does not break the page",
+   "ok": false,
+   "info": {
+    "a": {
+     "err": null,
+     "rendered": 0
+    },
+    "after": {
+     "ok": false,
+     "err": "Failed to execute 'setAttribute' on 'Element': '@click' is not a valid attribute name."
+    }
+   }
+  },
+  {
+   "k": "a render-function error in one element is contained (others still render)",
+   "ok": true,
+   "info": {
+    "b": {
+     "err": null
+    },
+    "after": {
+     "ok": true,
+     "err": null
+    }
+   }
+  },
+  {
+   "k": "a throwing page handler does not break the element or the app",
+   "ok": true,
+   "info": {
+    "c": {
+     "v": true
+    },
+    "after": {
+     "ok": true,
+     "err": null
+    }
+   }
+  },
+  {
+   "k": "Fragment-root .html() crash also freezes elements that were already mounted",
+   "ok": false,
+   "info": {
+    "err": null,
+    "err2": null,
+    "existingUpdated": "still alive?"
+   }
+  },
+  {
+   "k": "memory jq: 1000 create/remove cycles retain < 1 KB/cycle; no leaked entries",
+   "ok": true,
+   "info": {
+    "h0": {
+     "mb": 10.3,
+     "nodes": 38,
+     "listeners": 19
+    },
+    "h1": {
+     "mb": 11.59,
+     "nodes": 38,
+     "listeners": 19
+    },
+    "h2": {
+     "mb": 11.61,
+     "nodes": 38,
+     "listeners": 19
+    },
+    "perCycleKB": "0.02",
+    "s": {
+     "stats": {
+      "groups": 1,
+      "buckets": 1,
+      "top": 0
+     },
+     "portal": 0
+    }
+   }
+  },
+  {
+   "k": "memory native: 1000 create/remove cycles retain < 1 KB/cycle; no leaked entries",
+   "ok": true,
+   "info": {
+    "h0": {
+     "mb": 11.66,
+     "nodes": 40,
+     "listeners": 19
+    },
+    "h1": {
+     "mb": 11.27,
+     "nodes": 40,
+     "listeners": 19
+    },
+    "h2": {
+     "mb": 11.3,
+     "nodes": 40,
+     "listeners": 19
+    },
+    "perCycleKB": "0.03",
+    "s": {
+     "stats": {
+      "groups": 1,
+      "buckets": 2,
+      "top": 0
+     },
+     "portal": 0
+    }
+   }
+  },
+  {
+   "k": "  page still works after 2000+ cycles",
+   "ok": true,
+   "info": {
+    "ok": true,
+    "err": null
+   }
+  },
+  {
+   "k": "markup present before the bundle loads (lazy load): children upgraded before parents still end up inside their parent",
+   "ok": true,
+   "info": {
+    "tabs": 2,
+    "panels": 2,
+    "triggerChain": "EsNode<EsSlotOutlet<Primitive<PrimitiveSlot<Primitive<PrimitiveSlot<CollectionSlot<RovingFocusGroup<TabsList<TabList<EsNode<EsSlotOutlet<Primitive<TabsRoot<Tabs",
+    "radios": 2,
+    "radioUnderGroup": true,
+    "navItems": 1,
+    "tip": 1,
+    "top": 4
+   }
+  },
+  {
+   "k": "child built first at top level, then appended into its parent",
+   "ok": true,
+   "info": {
+    "tabs": 1,
+    "top": 1
+   }
+  }
+ ],
+ "errs": [
+  "pageerror: Failed to execute 'setAttribute' on 'Element': '@click' is not a valid attribute name.",
+  "pageerror: Failed to execute 'setAttribute' on 'Element': '@click' is not a valid attribute name.",
+  "error: TypeError: Cannot read properties of undefined (reading 'label')\n    at Proxy.<anonymous> (http://jq.test/dist/es-ui.iife.js:97634:32)\n    at renderComponentRoot (http://jq.test/dist/es-ui.iife.js:6253:19)\n    at ReactiveEffect.componentUpdateFn [as fn] (http://jq.test/dist/es-ui.iife.js:7466:48)\n  ",
+  "error: Error: boom in render\n    at Object.toString (eval at evaluate (:290:30), <anonymous>:1:142)\n    at String (<anonymous>)\n    at toDisplayString (http://jq.test/dist/es-ui.iife.js:556:240)\n    at http://jq.test/dist/es-ui.iife.js:39863:35\n    at renderSlot (http://jq.test/dist/es-ui.iife.js:5310:41)\n",
+  "pageerror: handler boom",
+  "error: Error: [frappe-ui] <Radio> must be used inside a <RadioGroup>.\n    at setup (http://jq.test/dist/es-ui.iife.js:51350:15)\n    at callWithErrorHandling (http://jq.test/dist/es-ui.iife.js:2619:21)\n    at setupStatefulComponent (http://jq.test/dist/es-ui.iife.js:9466:27)\n    at setupComponent (http://jq",
+  "error: Error: [frappe-ui] <Radio> must be used inside a <RadioGroup>.\n    at setup (http://jq.test/dist/es-ui.iife.js:51350:15)\n    at callWithErrorHandling (http://jq.test/dist/es-ui.iife.js:2619:21)\n    at setupStatefulComponent (http://jq.test/dist/es-ui.iife.js:9466:27)\n    at setupComponent (http://jq",
+  "error: Error: Injection `Symbol(TabsRootContext)` not found. Component must be used within `TabsRoot`\n    at injectContext (http://jq.test/dist/es-ui.iife.js:13332:13)\n    at setup (http://jq.test/dist/es-ui.iife.js:30040:24)\n    at callWithErrorHandling (http://jq.test/dist/es-ui.iife.js:2619:21)\n    at s",
+  "error: Error: Injection `Symbol(TabsRootContext)` not found. Component must be used within `TabsRoot`\n    at injectContext (http://jq.test/dist/es-ui.iife.js:13332:13)\n    at setup (http://jq.test/dist/es-ui.iife.js:29908:27)\n    at callWithErrorHandling (http://jq.test/dist/es-ui.iife.js:2619:21)\n    at s",
+  "error: Error: Injection `Symbol(TabsRootContext)` not found. Component must be used within `TabsRoot`\n    at injectContext (http://jq.test/dist/es-ui.iife.js:13332:13)\n    at setup (http://jq.test/dist/es-ui.iife.js:29908:27)\n    at callWithErrorHandling (http://jq.test/dist/es-ui.iife.js:2619:21)\n    at s",
+  "error: Error: Injection `Symbol(TabsRootContext)` not found. Component must be used within `TabsRoot`\n    at injectContext (http://jq.test/dist/es-ui.iife.js:13332:13)\n    at setup (http://jq.test/dist/es-ui.iife.js:30040:24)\n    at callWithErrorHandling (http://jq.test/dist/es-ui.iife.js:2619:21)\n    at s"
+ ]
+}

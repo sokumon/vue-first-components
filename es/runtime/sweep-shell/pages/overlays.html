@@ -1,0 +1,105 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="/dist/es-ui.css">
+<script src="/jquery.js"></script>
+<script src="/dist/es-ui.iife.js"></script>
+</head><body class="p-6">
+<div id="app" class="space-y-4"></div>
+<div id="desk" class="space-y-4 border-t mt-4 pt-4"></div>
+<script>
+// jQuery port of wc/sweep/overlays/pages/overlays.html (Dialog, BottomSheet, Popover, HoverCard) + Desk-style operations.
+$(function () {
+  const S = window.S = { name: 'Ada', d: false, dm: false, d3: false, saved: 0, sheet: false, sheet2: false, pop: false, popCtl: false, hc: false, log: [] }
+  const push = (x) => S.log.push(x)
+  // own events only (a nested element could bubble the same name)
+  const own = ($el, ev, fn) => $el.on(ev, function (e) { if (e.target === e.currentTarget) fn(e.originalEvent.detail, e) })
+  const $app = $('#app')
+  const rename = (v) => { S.name = v; $('.nm').text(v) }
+  $(document).on('input', '#d-input', function () { rename(this.value) })
+
+  // ===== Dialog: open prop, title/actions props with functions, named title + default slots, close + after-leave events
+  $('<button id="open-d" class="border px-2">open d</button>').on('click', () => $('#d').prop('open', true)).appendTo($app)
+  const $d = $(`<es-dialog id="d" message="ignored when default slot given" icon="lucide-info" theme="blue" size="sm">
+      <span slot="title" id="d-title">Custom <b>title</b> for <span class="nm">Ada</span></span>
+      <div id="d-body">Body for <span class="nm">Ada</span> <input id="d-input" class="border" value="Ada"></div>
+    </es-dialog>`)
+    .prop('actions', [{ label: 'Cancel' }, { label: 'Save', variant: 'solid', onClick: ({ close }) => { S.saved++; close() } }])
+  own($d, 'update:open', (v) => (S.d = v)); own($d, 'close', () => push('d-close')); own($d, 'after-leave', () => push('d-after'))
+  $d.appendTo($app)
+
+  // Dialog with modelValue, message prop only, slot="actions" replacing the footer, dismissible=false, no close button
+  $('<button id="open-dm" class="border px-2">open dm</button>').on('click', () => $('#dm').prop('modelValue', true)).appendTo($app)
+  const $dm = $(`<es-dialog id="dm" title="Model dialog" message="Message prop text" dismissible="false" show-close-button="false">
+      <div slot="actions" id="dm-actions" class="flex gap-2 p-2"><es-button id="dm-ok" label="OK closes"></es-button></div>
+    </es-dialog>`)
+  own($dm, 'update:modelValue', (v) => (S.dm = v))
+  $dm.find('#dm-ok').on('click', () => { $dm.prop('modelValue', false); S.dm = false; push('dm-ok') })
+  $dm.appendTo($app)
+
+  // bare dialog
+  $('<button id="open-d3" class="border px-2">open d3</button>').on('click', () => $('#d3').prop('open', true)).appendTo($app)
+  own($(`<es-dialog id="d3" bare><div id="d3-body" class="p-8">Bare content <span class="nm">Ada</span> <button id="d3-x">x</button></div></es-dialog>`), 'update:open', (v) => (S.d3 = v)).appendTo($app)
+  $(document).on('click', '#d3-x', () => $('#d3').prop('open', false))
+
+  // ===== BottomSheet
+  $('<button id="open-sheet" class="border px-2">open sheet</button>').on('click', () => $('#sheet').prop('open', true)).appendTo($app)
+  const $sheet = $(`<es-bottom-sheet id="sheet" title="Sheet title"><ul id="sheet-body"></ul><button id="sheet-close">Close sheet</button></es-bottom-sheet>`)
+  for (let i = 1; i <= 3; i++) $sheet.find('#sheet-body').append(`<li>Row ${i} for <span class="nm">${S.name}</span></li>`)
+  own($sheet, 'update:open', (v) => (S.sheet = v)); own($sheet, 'after-leave', () => push('sheet-after'))
+  $sheet.find('#sheet-close').on('click', () => $sheet.prop('open', false))
+  $sheet.appendTo($app)
+  $('<button id="open-sheet2" class="border px-2">open sheet2</button>').on('click', () => $('#sheet2').prop('open', true)).appendTo($app)
+  const $sheet2 = own($(`<es-bottom-sheet id="sheet2" dismissible="false"><p id="sheet2-body">Not dismissible <button id="sheet2-close">done</button></p></es-bottom-sheet>`), 'update:open', (v) => (S.sheet2 = v)).appendTo($app)
+  $sheet2.find('#sheet2-close').on('click', () => $sheet2.prop('open', false))
+
+  $app.append('<div style="height:200px"></div>')
+  // ===== Popover: uncontrolled, slot=trigger es-button, open/close/update:open events
+  const $pw = $('<div style="margin-left:300px"></div>').appendTo($app)
+  const $pop = $(`<es-popover id="pop" side="bottom" align="start" arrow>
+      <es-button slot="trigger" id="pop-trigger" label="Pop trigger"></es-button>
+      <div id="pop-body" class="p-3">Popover body <span class="nm">Ada</span> <button id="pop-rename">rename</button></div>
+    </es-popover>`)
+  own($pop, 'update:open', (v) => (S.pop = v)); own($pop, 'open', () => push('pop-open')); own($pop, 'close', () => push('pop-close'))
+  $pop.find('#pop-rename').on('click', () => rename('Linus'))
+  $pop.appendTo($pw)
+
+  // Popover controlled + plain button trigger + bare + dismissible=false
+  const $pw2 = $('<div style="margin-left:300px"></div>').appendTo($app)
+  const $pop2 = $(`<es-popover id="pop2" dismissible="false" bare>
+      <button slot="trigger" id="pop2-trigger" class="border px-2">Pop2 trigger</button>
+      <div id="pop2-body" class="p-3 bg-white border">Bare popover <button id="pop2-close">close</button></div>
+    </es-popover>`).prop('open', false)
+  own($pop2, 'update:open', (v) => (S.popCtl = v))
+  $pop2.find('#pop2-close').on('click', () => { $pop2.prop('open', false); S.popCtl = false })
+  $pop2.appendTo($pw2)
+
+  // ===== HoverCard
+  const $hw = $('<div style="margin-left:300px"></div>').appendTo($app)
+  own($(`<es-hover-card id="hc" hover-delay="50" leave-delay="50"><a slot="trigger" id="hc-trigger" href="#" class="underline">@ada</a><div id="hc-body" class="p-3">Hover card for <span class="nm">Ada</span></div></es-hover-card>`), 'update:open', (v) => (S.hc = v)).appendTo($hw)
+  $app.append('<div id="far" style="height:300px">far away</div>')
+
+  // ===== Desk-style section: elements created inside a larger jQuery template
+  const $desk = $('#desk')
+  const $tpl = $(`<div class="frappe-card">
+      <div class="card-head"><button id="desk-open" class="border px-2">open desk dialog</button>
+        <es-popover id="desk-pop"><button slot="trigger" id="desk-pop-trigger" class="border px-2">desk pop</button><div id="desk-pop-body" class="p-2">desk pop body
+          <es-dropdown id="desk-pop-dd" button='{"label":"Inner menu"}'></es-dropdown></div></es-popover>
+      </div>
+      <es-dialog id="desk-d" title="Desk dialog">
+        <div id="desk-d-body">
+          <p class="lead">Edit</p>
+          <es-text-input id="desk-d-input" placeholder="type"></es-text-input>
+          <es-dropdown id="desk-d-dd"><es-button id="desk-d-dd-btn" label="More"></es-button></es-dropdown>
+        </div>
+        <div slot="actions" class="flex gap-2"><es-button id="desk-d-save" variant="solid" label="Save"></es-button></div>
+      </es-dialog>
+    </div>`)
+  $tpl.find('#desk-d-dd').prop('options', [{ label: 'Inner A', onClick: () => push('inner-a') }, { label: 'Inner B', onClick: () => push('inner-b') }])
+  $tpl.find('#desk-pop-dd').prop('options', [{ label: 'Pop item', onClick: () => push('pop-item') }])
+  $tpl.find('#desk-open').on('click', () => $('#desk-d').prop('open', true))
+  $tpl.find('#desk-d-save').on('click', () => { push('desk-save:' + $('#desk-d-input input').val()); $('#desk-d').prop('open', false) })
+  own($tpl.find('#desk-d'), 'update:open', (v) => (S.deskD = v))
+  $desk.append($tpl)
+  window.READY = true
+})
+</script>
+</body></html>

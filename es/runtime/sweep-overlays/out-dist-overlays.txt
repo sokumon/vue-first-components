@@ -1,0 +1,73 @@
+PASS es-dialog | closed: no [role=dialog], slot nodes hidden
+PASS es-dialog | opens from .prop("open", true)
+PASS es-dialog | slot="title" inside dialog header :: Custom title for Ada
+PASS es-dialog | default slot replaces message prop :: Custom title for Ada / Body for Ada  / Cancel / Save
+PASS es-dialog | icon prop renders lucide badge
+PASS es-dialog | actions prop (.prop array of objects) renders buttons :: Cancel|Save
+PASS es-dialog | input in teleported slot: delegated jQuery handler sees it, live title updates :: Grace
+PASS es-dialog | action onClick({close}) fn: saved+1, closes, update:open/close/after-leave on host :: {"name":"Grace","d":false,"dm":false,"d3":false,"saved":1,"sheet":false,"sheet2":false,"pop":false,"popCtl":false,"hc":false,"log":["d-close","d-after"]}
+PASS es-dialog | element keeps open=false after update:open (like an <input>)
+PASS es-dialog | Escape closes
+PASS es-dialog | close button present by default
+PASS es-dialog | close button closes
+PASS es-dialog | outside click closes
+PASS es-dialog | slot nodes back in hidden <es-slots> after close, $("#d-body") still finds them
+PASS es-dialog | body pointer-events/overflow restored after close
+PASS es-dialog | Tab keeps focus inside the dialog (focus trap)
+PASS es-dialog | focus returns to the opener after Escape :: <button id="open-d" class="border px-2">open d</button>
+PASS es-dialog | modelValue dialog opens
+PASS es-dialog | message prop renders
+PASS es-dialog | slot="actions" replaces footer, nested es-button inside
+PASS es-dialog | show-close-button="false" hides close button
+PASS es-dialog | dismissible="false": Escape does not close
+PASS es-dialog | dismissible="false": outside click does not close
+PASS es-dialog | jQuery click on nested es-button in actions slot closes via .prop("modelValue", false)
+PASS es-dialog | bare: slot without header/actions chrome
+PASS es-dialog | bare closes from slot button (delegated handler)
+PASS es-bottom-sheet | opens with title
+PASS es-bottom-sheet | slot (jQuery-built list) inside sheet, live text :: Row 1 for Grace / Row 2 for Grace / Row 3 for Grace
+PASS es-bottom-sheet | sits at the bottom of the viewport :: {"x":304,"y":731,"w":672,"h":169}
+PASS es-bottom-sheet | Escape -> update:open false + after-leave
+PASS es-bottom-sheet | closes from slot button
+PASS es-bottom-sheet | swipe-down on grab handle dismisses :: {"hb":{"x":304,"y":731,"w":672,"h":73},"s":false}
+PASS es-bottom-sheet | dismissible="false" ignores Escape
+PASS es-bottom-sheet | sheet2 closes
+PASS es-popover | trigger es-button in slot="trigger" renders :: {"x":324,"y":298,"w":96,"h":28}
+PASS es-popover | opens on trigger click: update:open + open event
+PASS es-popover | content positioned under its trigger :: {"trig":{"x":324,"y":298,"w":96,"h":28},"pr":{"x":324,"y":335,"w":252,"h":48}}
+PASS es-popover | arrow rendered
+PASS es-popover | aria-expanded on the real trigger button
+PASS es-popover | jQuery handler in popover slot runs
+PASS es-popover | Escape closes + close event
+PASS es-popover | opens from keyboard (Enter on trigger)
+PASS es-popover | focus returns to the trigger button after Escape
+PASS es-popover | exposed close() on the element :: open,close,contentEl
+PASS es-popover | el.close() closes it
+PASS es-popover | controlled bare popover opens
+PASS es-popover | bare: no PopoverPanel shell
+PASS es-popover | dismissible="false" ignores outside click
+PASS es-popover | controlled popover closes from .prop("open", false)
+PASS es-popover | opens from .prop("open", true)
+PASS es-hover-card | opens on hover
+PASS es-hover-card | positioned under trigger :: {"ht":{"x":324,"y":386,"w":46,"h":19},"hr":{"x":324,"y":409,"w":186,"h":48}}
+PASS es-hover-card | closes on leave
+PASS es-hover-card | opens on keyboard focus
+PASS es-hover-card | closes on blur
+FAIL es-dialog | .html() on closed host: new content shows when opened :: ERR
+FAIL es-dialog | desk ops (threw) :: page.click: Timeout 5000ms exceeded. @line 69
+PASS es-bottom-sheet | jQuery .append() into slot node and .prepend() into host show up
+PASS es-bottom-sheet | .detach().appendTo() while open keeps it open
+FAIL es-bottom-sheet | .remove() while open: sheet gone, body free
+FAIL es-popover | desk ops (threw) :: page.click: Timeout 5000ms exceeded. @line 198
+FAIL es-hover-card | desk ops (threw) :: page.hover: Timeout 5000ms exceeded. @line 251
+console errors/warnings: 4
+  pageerror: Cannot read properties of null (reading 'nextSibling')
+  pageerror: Cannot read properties of null (reading 'emitsOptions')
+  pageerror: Cannot read properties of null (reading 'emitsOptions')
+  console: TypeError: Cannot read properties of null (reading 'emitsOptions')
+    at x0e (http://jq.test/dist/es-ui.iife.js:19:20849)
+    at H (http://jq.test/dist/es-ui.iife.js:19:29676)
+    at F (http://jq.test/dist/es-ui.iife.js:19:29376)
+    at g (http://jq.test/dist/es-ui.iife.js:19:25635)
+    at se (http
+5 FAILED of 62

@@ -1,0 +1,12 @@
+
+Running 7 tests using 1 worker
+
+  ✓  1 playwright/tests/zz_onevue_tmp_file_uploader.spec.js:40:6 › FileUploader › upload dialog api works (3.2s)
+  ✓  2 playwright/tests/zz_onevue_tmp_file_uploader.spec.js:46:6 › FileUploader › should accept dropped files (3.1s)
+  ✓  3 playwright/tests/zz_onevue_tmp_file_uploader.spec.js:58:6 › FileUploader › should accept uploaded files (3.6s)
+  ✓  4 playwright/tests/zz_onevue_tmp_file_uploader.spec.js:133:7 › FileUploader › Public file upload restriction › should show checkbox and toggle when setting is disabled for System Manager (4.2s)
+  ✓  5 playwright/tests/zz_onevue_tmp_file_uploader.spec.js:153:7 › FileUploader › Public file upload restriction › should show checkbox and toggle when setting is disabled for non-System Manager (4.2s)
+  ✓  6 playwright/tests/zz_onevue_tmp_file_uploader.spec.js:175:7 › FileUploader › Public file upload restriction › should show checkbox and toggle when setting is enabled for System Manager (5.6s)
+  ✓  7 playwright/tests/zz_onevue_tmp_file_uploader.spec.js:195:7 › FileUploader › Public file upload restriction › should show disabled checkbox and hide toggle when setting is enabled for non-System Manager (5.2s)
+
+  7 passed (35.7s)

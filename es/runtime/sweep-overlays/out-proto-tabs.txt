@@ -1,0 +1,46 @@
+PASS es-tabs (composed: es-tab-list/es-tab-trigger/es-tab-panel) | 3 triggers inside a tablist :: ["One:inactive","Two (3):active","Three:inactive:dis"]
+PASS es-tabs (composed: es-tab-list/es-tab-trigger/es-tab-panel) | model-value="two" attribute selects Two :: ["One:inactive","Two (3):active","Three:inactive:dis"]
+PASS es-tabs (composed: es-tab-list/es-tab-trigger/es-tab-panel) | disabled attribute (boolean) on es-tab-trigger :: ["One:inactive","Two (3):active","Three:inactive:dis"]
+PASS es-tabs (composed: es-tab-list/es-tab-trigger/es-tab-panel) | suffix slot inside trigger
+PASS es-tabs (composed: es-tab-list/es-tab-trigger/es-tab-panel) | only panel two visible
+PASS es-tabs (composed: es-tab-list/es-tab-trigger/es-tab-panel) | panel inside [role=tabpanel]
+PASS es-tabs (composed: es-tab-list/es-tab-trigger/es-tab-panel) | trigger aria-controls points at its panel id (one useId counter)
+PASS es-tabs (composed: es-tab-list/es-tab-trigger/es-tab-panel) | click One -> update:modelValue on es-tabs host, panel one shown
+PASS es-tabs (composed: es-tab-list/es-tab-trigger/es-tab-panel) | ArrowRight activates Two
+PASS es-tabs (composed: es-tab-list/es-tab-trigger/es-tab-panel) | disabled Three is skipped :: one
+PASS es-tabs (composed: es-tab-list/es-tab-trigger/es-tab-panel) | jQuery .text() on slot nodes stays visible
+PASS es-tabs (composed: es-tab-list/es-tab-trigger/es-tab-panel) | es-tab-trigger is a Vue descendant of TabList and Tabs (one tree)
+PASS es-tabs (shorthand: tabs prop) | tabs prop renders triggers (condition fn honoured) :: ["Alpha:inactive","Beta:active","Gamma:inactive"]
+PASS es-tabs (shorthand: tabs prop) | tab-panel slot (one plain node) shown in the active panel :: 1 / Shared panel body (short=b)
+PASS es-tabs (shorthand: tabs prop) | click Gamma -> page state, panel follows
+PASS es-tabs (shorthand: tabs prop) | back to an EARLIER tab keeps the slot :: Shared panel body (short=a)
+PASS es-tabs (shorthand: tabs prop) | <template slot="tab-panel"> stamped with scope (data-es-text tab.label + es-slot) :: ["Panel for Ex:x"]
+PASS es-tabs (shorthand: tabs prop) | template slot re-stamped for the new tab :: Panel for Why
+PASS es-tab-buttons | options render, Week checked :: ["Day:inactive","Week:active","Month:inactive"]
+PASS es-tab-buttons | click Month -> update:modelValue + option onClick
+PASS es-tab-buttons | ArrowLeft moves focus to Week, Space selects :: Week week
+PASS es-tab-buttons | sliding indicator sits on the active button :: 0
+PASS es-tab-trigger (alone) | outside es-tabs: page survives (other tabs still work)
+PASS es-tabs (composed: es-tab-list/es-tab-trigger/es-tab-panel) | .append() a new es-tab-trigger into es-tab-list: 4 triggers :: ["One:active","Two (4):inactive","Three:inactive:dis","Four:inactive"]
+PASS es-tabs (composed: es-tab-list/es-tab-trigger/es-tab-panel) | new tab selects and shows its appended panel
+PASS es-tabs (composed: es-tab-list/es-tab-trigger/es-tab-panel) | .remove() a trigger and its panel :: ["Two (4):inactive","Three:inactive:dis","Four:active"]
+PASS es-tabs (composed: es-tab-list/es-tab-trigger/es-tab-panel) | keyboard roving still works after DOM changes :: two
+PASS es-tabs (composed: es-tab-list/es-tab-trigger/es-tab-panel) | .html() on es-tab-panel: new content in the active panel
+PASS es-tabs (composed: es-tab-list/es-tab-trigger/es-tab-panel) | .html() on es-tab-list with new es-tab-trigger children :: ["Two!:active","Four!:inactive"]
+PASS es-tabs (composed: es-tab-list/es-tab-trigger/es-tab-panel) | rewritten triggers still drive es-tabs
+PASS es-tabs (composed: es-tab-list/es-tab-trigger/es-tab-panel) | .detach().appendTo() whole es-tabs: selection kept, panel shown
+PASS es-tabs (composed: es-tab-list/es-tab-trigger/es-tab-panel) | .clone() of the compound renders its own triggers :: ["Two!:active","Four!:inactive"]
+PASS es-tabs (composed: es-tab-list/es-tab-trigger/es-tab-panel) | clone switches independently of the original :: {"s":"four"}
+PASS es-tabs (composed: es-tab-list/es-tab-trigger/es-tab-panel) | .remove() of the clone leaves the original working
+PASS es-tabs (shorthand: tabs prop) | .prop("tabs", new) re-renders triggers :: ["Alpha:active","Delta:inactive"]
+PASS es-tabs (shorthand: tabs prop) | .prop("modelValue") selects programmatically
+PASS es-tab-buttons | .detach().appendTo(): state kept, indicator still on active :: 0
+PASS es-tab-buttons | .clone() + .prop("options")
+PASS es-tab-buttons | .remove()
+console errors/warnings: 1
+  console: Error: Injection `Symbol(TabsRootContext)` not found. Component must be used within `TabsRoot`
+    at http://jq.test/dist/es-ui.iife.js:30:5712
+    at setup (http://jq.test/dist/es-ui.iife.js:37:52055)
+    at zf (http://jq.test/dist/es-ui.iife.js:17:1946)
+    at F0e (http://jq.test/dist/es-ui.iife.j
+ALL PASS (39)

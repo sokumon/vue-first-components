@@ -1,0 +1,42 @@
+[bsession] waiting for bench lock
+[bsession] lock held 15:54:10
+{
+ "legacy Link": {
+  "heap_kb_per": 6.12,
+  "nodes_per": 71,
+  "listeners_per": 17,
+  "heap_kb_left_after_remove": 525,
+  "es_top_before_remove": 3,
+  "es_top_after_remove": 3
+ },
+ "legacy Select": {
+  "heap_kb_per": -1.66,
+  "nodes_per": 67,
+  "listeners_per": 3,
+  "heap_kb_left_after_remove": -499,
+  "es_top_before_remove": 3,
+  "es_top_after_remove": 3
+ },
+ "es Link": {
+  "heap_kb_per": 118.41,
+  "nodes_per": 112,
+  "listeners_per": 30,
+  "heap_kb_left_after_remove": 18299,
+  "es_top_before_remove": 203,
+  "es_top_after_remove": 3
+ },
+ "es Select": {
+  "heap_kb_per": 185.55,
+  "nodes_per": 196,
+  "listeners_per": 40,
+  "heap_kb_left_after_remove": 31940,
+  "es_top_before_remove": 203,
+  "es_top_after_remove": 3
+ },
+ "es_stats_after": {
+  "groups": 1,
+  "buckets": 13,
+  "top": 3
+ }
+}
+[bsession] done rc=0 15:54:40

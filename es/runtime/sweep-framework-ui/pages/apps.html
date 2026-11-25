@@ -1,0 +1,62 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="/dist/es-ui.css">
+<link rel="stylesheet" href="page.css">
+<script src="/jquery.js"></script>
+<script src="/dist/es-ui.iife.js"></script>
+</head><body class="p-6">
+<!-- jQuery port of wc/sweep/framework-ui/pages/apps.html: InviteUser, NotificationPanel/Item, Link, AutomationCanvas -->
+<pre id="state" class="text-xs"></pre>
+<div id="app"></div>
+<div id="desk" class="border-t mt-4 pt-4"></div>
+<script>
+$(function () {
+  const S = window.S = { n: 0, invited: [], tab: undefined, markRead: [], allRead: 0, closed: 0, itemClicks: [], link: null, linkCreate: '', linkOpen: false, selected: '', cevents: [], log: [] }
+  const show = () => { $('#state').text(JSON.stringify(S)); $('#canvas-tool .sel').text(S.selected) }
+  const own = ($el, ev, fn) => $el.on(ev, function (e) { if (e.target === e.currentTarget) { fn(e.originalEvent.detail, e); show() } })
+  const fn = (f) => () => f // jQuery's .prop() calls function values; wrap function props once
+  window.own = own; window.show = show; window.fnp = fn
+  // ---- InviteUser: the controller object spread with .prop({...}) (petite used v-bind="inv")
+  window.INV = {
+    roles: [{ label: 'System Manager', value: 'System Manager' }, { label: 'Guest', value: 'Guest' }], users: [{ label: 'Grace Hopper', value: 'grace@example.com' }], usersLoading: false, inviting: false, error: null,
+    invite: fn((emails, roles) => { window.__invite = [emails, roles]; return Promise.resolve({ invited_emails: emails.split(', '), disabled_user_emails: [], pending_invite_emails: [], accepted_invite_emails: [] }) }),
+    searchUsers: fn((q) => { window.__search = q }), load: fn(() => { window.__loaded = (window.__loaded || 0) + 1 }),
+  }
+  own($('<es-fw-invite-user id="c-inv">').prop(INV).attr('show-result-toasts', false), 'invited', (v) => { S.invited = v.invited_emails }).appendTo('#app')
+  // ---- Notifications
+  const notes = window.NOTES = [{ name: 'N1', subject: 'Ada mentioned you', read: 0, from_user: 'ada@example.com', creation: '2026-11-22 10:00:00' }, { name: 'N2', subject: 'Task assigned', read: 1, from_user: 'grace@example.com', creation: '2026-11-21 10:00:00' }]
+  // scoped #item <template>: subject via data-es-text, click wired from es-slot with the slot prop function markAsRead()
+  own($('<es-fw-notification-panel id="c-np-tpl" class="block h-40 w-96 border"><template slot="item"><div class="tplnote" data-es-text="notification.subject"></div></template></es-fw-notification-panel>')
+    .prop({ notifications: notes, hasNextPage: false })
+    .on('es-slot', (e) => { const d = e.originalEvent.detail; $(d.nodes).data('scope', d.scope); if (!d.update) $(d.nodes).on('click', function () { const sc = $(this).data('scope'); sc.markAsRead(sc.notification) }) }),
+  'mark-as-read', (v) => S.markRead.push('tpl:' + v.name)).appendTo('#app')
+  const $np = $('<es-fw-notification-panel id="c-np" class="block h-72 w-96 border">').prop({ notifications: notes, unreadCount: 1, hasNextPage: true,
+    tabs: [{ label: 'All', value: 'all' }, { label: 'Unread', value: 'unread', filter: (x) => !x.read, count: 'unread' }] })
+  own($np, 'update:activeTab', (v) => { S.tab = v })
+  own($np, 'mark-as-read', (v) => S.markRead.push(v.name))
+  own($np, 'mark-all-as-read', () => S.allRead++)
+  own($np, 'close', () => S.closed++)
+  $np.appendTo('#app')
+  // NotificationItem declares a "click" emit: the native click must not reach .on('click')
+  $('<es-fw-notification-item id="c-ni">').prop('notification', notes[0])
+    .on('click', (e) => { S.itemClicks.push(e.originalEvent instanceof CustomEvent ? 'custom:' + e.originalEvent.detail.name : 'native:' + e.type); show() }).appendTo('#app')
+  // ---- Link
+  const $l = $('<es-fw-link id="c-link" doctype="User" label="Assigned user" creatable>').prop({ modelValue: S.link, open: false })
+  own($l, 'update:modelValue', (v) => { S.link = v })
+  own($l, 'create', (v) => { S.linkCreate = v })
+  own($l, 'update:open', (v) => { S.linkOpen = v })
+  $l.appendTo('#app')
+  // ---- AutomationCanvas (vue-flow)
+  const $c = $('<es-fw-automation-canvas id="c-canvas" class="block h-96 w-[48rem] border"><button slot="toolbar" id="canvas-tool">Tool <span class="sel"></span></button></es-fw-automation-canvas>').prop({
+    nodes: [{ id: 'start', position: { x: 0, y: 0 }, data: { kicker: 'When', label: 'Ticket created', start: true, tone: 'blue' } }, { id: 'n2', position: { x: 0, y: 160 }, data: { kicker: 'Then', label: 'Send email', tone: 'green', terminal: true } }],
+    edges: [{ id: 'e1', source: 'start', target: 'n2' }], selectedId: '',
+    blockOptions: [{ group: 'Actions', options: [{ value: 'email', label: 'Send email' }, { value: 'assign', label: 'Assign to' }] }],
+  })
+  own($c, 'select', (v) => { S.selected = v; S.cevents.push('select:' + v); $('#c-canvas').prop('selectedId', v) })
+  own($c, 'add-node', (v) => S.cevents.push('add:' + v.value))
+  own($c, 'move', (v) => S.cevents.push('move:' + v.nodeId))
+  $c.appendTo('#app')
+  show()
+  window.READY = true
+})
+</script>
+</body></html>

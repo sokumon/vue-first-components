@@ -1,0 +1,47 @@
+PASS es-fw-invite-user | load() fn prop called once on mount :: 1
+PASS es-fw-invite-user | Send invites disabled until email + role
+PASS es-fw-invite-user | typing in MultiEmailInput -> debounced searchUsers fn prop :: gra
+PASS es-fw-invite-user | email chip added :: Invite by email * (required) N new.person@example.com Roles * (required) Select roles Send invites
+PASS es-fw-invite-user | role picked, submit enabled :: Invite by email * (required) N new.person@example.com Roles * (required) System Manager Send invites
+PASS es-fw-invite-user | submit -> invite(emails, roles) fn prop + invited event :: ["new.person@example.com",["System Manager"]] ["new.person@example.com"]
+PASS es-fw-invite-user | form resets after invite
+PASS es-fw-invite-user | show-result-toasts=false via .attr(x, false): no toast shown
+PASS es-fw-notification-panel | sets first tab on mount (update:activeTab) :: "all"
+PASS es-fw-notification-panel | tab count from "unread" count prop
+PASS es-fw-notification-panel | tab switch -> filter fn (inside an object prop) hides read rows :: unread :: Notifications All Unread (1) Unread A Ada mentioned you 2 days ago Load more
+PASS es-fw-notification-panel | row click -> mark-as-read (kebab event) :: ["N1"]
+PASS es-fw-notification-panel | mark-all-as-read + close events :: [1,1]
+PASS es-fw-notification-panel | scoped #item <template> per notification :: ["Ada mentioned you","Task assigned"]
+PASS es-fw-notification-panel | slot-prop function markAsRead() (wired from es-slot) emits mark-as-read :: ["N1","tpl:N1"]
+PASS es-fw-notification-item | .on(click) gets only the component event :: ["custom:N1"]
+PASS es-fw-notification-item | keyboard Enter -> click event (once) :: ["custom:N1","custom:N1"]
+PASS es-fw-link | focus opens (update:open) + loads options :: true opts=3
+PASS es-fw-link | creatable attr shows Create "<query>" item :: Create zed
+PASS es-fw-link | Create -> create event with query :: "zed"
+PASS es-fw-link | keyboard pick (first option highlighted) -> v-model :: "ada@example.com"
+PASS es-fw-link | exposed reload() reachable on element
+PASS es-fw-automation-canvas | draws nodes + toolbar slot inside panel
+PASS es-fw-automation-canvas | draws the edge :: 1
+  canvas hit: "[74,991,1700,0] <div data-v-c3d3d5f2=\"\" class=\"truncate text-xs leading-4 text-ink-gray-5\">&nbsp;</div>" body style: null open layers: 
+PASS es-fw-automation-canvas | node click -> select event, selectedId round-trip, slot (jQuery-updated) reacts :: ["select:n2"] Tool n2
+PASS es-fw-automation-canvas | Add block picker -> add-node event :: ["select:n2","add:assign"]
+PASS es-fw-automation-canvas | node drag -> move event :: ["select:n2","add:assign","move:n2"]
+PASS es-fw-automation-canvas | exposed fitView reachable on element
+PASS page | no page errors in core scenarios :: 
+PASS es-fw-invite-user | .detach().appendTo() does not re-run load() :: 1
+PASS es-fw-invite-user | .empty() remounts (load() runs again, form fresh)
+PASS es-fw-notification-panel | .prop(notifications, newArray): new row + template stamped for it :: ["Fresh one","Ada mentioned you","Task assigned"]
+PASS es-fw-notification-panel | stamped row from the update wired too (es-slot detail.update=false for new stamps) :: ["N1","tpl:N1","tpl:N3"]
+PASS es-fw-notification-panel | after detach/append, the stamped rows keep their jQuery handlers :: ["N1","tpl:N1","tpl:N3","tpl:N1"]
+PASS es-fw-notification-item | .clone() + .prop + .on(click): clone emits once with its own notification :: ["custom:N1","custom:N1","clone:N2"]
+PASS es-fw-link | .prop(modelValue) shows the value :: Grace Hopper
+PASS es-fw-link | after move: opens + lists options (filtered by the current value)
+  link open prop before: false active: <input data-v-e6954013="" aria-disabled="false" type="text" aria-expanded="false
+PASS es-fw-link | .prop(open, true) opens from the page
+PASS es-fw-link | .remove() while open: listbox gone :: 
+PASS es-fw-automation-canvas | .prop(nodes, more) draws the new node
+PASS es-fw-automation-canvas | .detach().appendTo() keeps the canvas (nodes + edge)
+PASS es-fw-automation-canvas | el.fitView() after move no errors :: 
+PASS es-fw-automation-canvas | .remove() no errors :: 
+console errors/warnings: 0
+ALL PASS (43)

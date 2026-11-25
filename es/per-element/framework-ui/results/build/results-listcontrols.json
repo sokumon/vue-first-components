@@ -1,0 +1,144 @@
+{
+ "results": [
+  {
+   "k": "meta fetched via getdoctype (ToDo once + Nope once)",
+   "ok": true,
+   "extra": "ToDo,Nope"
+  },
+  {
+   "k": "shell default table slot from meta",
+   "ok": true
+  },
+  {
+   "k": "shell named slot toolbar placed in toolbar region",
+   "ok": true
+  },
+  {
+   "k": "shell footer slot bound + placed",
+   "ok": true
+  },
+  {
+   "k": "shell custom #table slot replaces default",
+   "ok": true
+  },
+  {
+   "k": "shell missing doctype -> error text",
+   "ok": true
+  },
+  {
+   "k": "SortBy offers meta fields",
+   "ok": true,
+   "extra": "Status|Priority|Due Date|Allocated To|Description|Hours|Done|Name|Created On|Last Modified|Modified By|Owner"
+  },
+  {
+   "k": "SortBy add -> v-model",
+   "ok": true,
+   "extra": "[{\"fieldname\":\"priority\",\"direction\":\"asc\"}]"
+  },
+  {
+   "k": "SortBy trigger reflects sort",
+   "ok": true,
+   "extra": "Priority"
+  },
+  {
+   "k": "footer slot reacts (1 sorts)",
+   "ok": true,
+   "extra": "0 filters · 1 sorts"
+  },
+  {
+   "k": "Filter offers meta fields",
+   "ok": true,
+   "extra": "Name|Created By|Last Updated By|Tags|Like|Assigned To|Created On|Last Updated On|Status|Priority|Due Date|Allocated To|Description|Hours|Done"
+  },
+  {
+   "k": "Filter add -> v-model",
+   "ok": true,
+   "extra": "[{\"field\":{\"label\":\"Status\",\"value\":\"status\",\"fieldname\":\"status\",\"fieldtype\":\"Select\",\"options\":\"Open\\nClosed\\nCancelled\"},\"fieldname\":\"status\",\"operator\":\"equals\",\"value\":\"Open\"}]"
+  },
+  {
+   "k": "Filter popover opens with a Where row",
+   "ok": true,
+   "extra": "Where Status Equals Open Add Filter Clear All Filters"
+  },
+  {
+   "k": "Filter value -> v-model",
+   "ok": true,
+   "extra": "[{\"field\":{\"label\":\"Status\",\"value\":\"status\",\"fieldname\":\"status\",\"fieldtype\":\"Select\",\"options\":\"Open\\nClosed\\nCancelled\"},\"fieldname\":\"status\",\"operator\":\"equals\",\"value\":\"Closed\"}]"
+  },
+  {
+   "k": "Filter count badge",
+   "ok": true,
+   "extra": "Filter\n1"
+  },
+  {
+   "k": "QuickFilter shares filters (Status quick input shows Closed)",
+   "ok": true,
+   "extra": "≈\nClosed\nPriority\nShow less"
+  },
+  {
+   "k": "QuickFilter input -> filters v-model",
+   "ok": true,
+   "extra": "[{\"field\":{\"label\":\"Status\",\"value\":\"status\",\"fieldname\":\"status\",\"fieldtype\":\"Select\",\"options\":\"Open\\nClosed\\nCancelled\"},\"fieldname\":\"status\",\"operator\":\"equals\",\"value\":\"Closed\"},{\"field\":{\"label\":\"Name\",\"value\":\"name\",\"fieldname\":\"name\",\"fieldtype\":\"Link\",\"options\":\"ToDo\"},\"fieldname\":\"name\",\"o"
+  },
+  {
+   "k": "Filter clear all",
+   "ok": true,
+   "extra": "[]"
+  },
+  {
+   "k": "GroupBy popover opens",
+   "ok": true,
+   "extra": "Group By Add Group By Aggregate Count Add Aggregate Show totals Clear Grouping Apply"
+  },
+  {
+   "k": "GroupBy apply -> v-model",
+   "ok": true,
+   "extra": "{\"fields\":[\"docstatus\"],\"aggregates\":[{\"function\":\"count\"}]}"
+  },
+  {
+   "k": "ColumnSettings popover lists columns",
+   "ok": true,
+   "extra": "Status,Priority"
+  },
+  {
+   "k": "ColumnSettings rename (click, type, Enter)",
+   "ok": true,
+   "extra": "[\"State\",\"Priority\"]"
+  },
+  {
+   "k": "ColumnSettings drag reorder (sortablejs)",
+   "ok": true,
+   "extra": "[\"priority\",\"status\"]"
+  },
+  {
+   "k": "ColumnSettings add column",
+   "ok": true,
+   "extra": "[\"priority\",\"status\",\"date\"]"
+  },
+  {
+   "k": "ColumnSettings remove column",
+   "ok": true,
+   "extra": "[\"status\",\"date\"]"
+  },
+  {
+   "k": "ColumnSettings reset emits",
+   "ok": true,
+   "extra": "1"
+  },
+  {
+   "k": "Escape closed popover",
+   "ok": true
+  },
+  {
+   "k": "QuickFilter customizing view",
+   "ok": true,
+   "extra": "Name\nStatus\nPriority\nAllocated To\nAdd Filter\nDone"
+  },
+  {
+   "k": "QuickFilter Done -> done event + customizing=false",
+   "ok": true,
+   "extra": "[1,false]"
+  }
+ ],
+ "errs": []
+}

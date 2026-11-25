@@ -1,0 +1,41 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="/dist/es-ui.css">
+<script src="/jquery.js"></script>
+<script src="/dist/es-ui.iife.js"></script>
+</head><body class="p-6">
+<p id="state"></p>
+<div id="app" class="space-y-4"></div>
+<script>
+// jQuery port of wc/sweep/overlays/pages/baseline.html
+$(function () {
+  const S = window.S = { name: 'Ada', agree: false, on: false, color: 'red', open: false, chk: 0, picked: '', log: [] }
+  const show = () => $('#state').text([S.name, S.agree, S.on, S.color, S.open, S.chk].join('|'))
+  const own = ($el, ev, fn) => $el.on(ev, function (e) { if (e.target === e.currentTarget) { fn(e.originalEvent.detail, e); show() } })
+  const $app = $('#app')
+  $app.append(`<es-button id="b-label" label="Label prop" variant="solid"></es-button>
+    <es-button id="b-slot" variant="subtle">Slot text</es-button>
+    <es-button id="b-load" label="Save"></es-button>`)
+  $('#b-load').on('click', function () { $(this).attr('loading', '') })
+  own($('<es-text-input id="ti">').prop('modelValue', S.name), 'update:modelValue', (v) => { S.name = v; $('.nm').text(v); $('#b-dyn button').length; $('#b-dyn .nm').text(v) }).appendTo($app)
+  own($('<es-checkbox id="cb" label="I agree">').prop('modelValue', false), 'update:modelValue', (v) => (S.agree = v)).appendTo($app)
+  own($('<es-switch id="sw" label="Switch">').prop('modelValue', false), 'update:modelValue', (v) => (S.on = v)).appendTo($app)
+  own($('<es-select id="sel">').prop('options', [{ label: 'Red', value: 'red' }, { label: 'Blue', value: 'blue' }]).prop('modelValue', 'red'), 'update:modelValue', (v) => (S.color = v)).appendTo($app)
+  $app.append('<es-badge id="badge" label="Draft" theme="orange"></es-badge><es-avatar id="av" label="Ada Lovelace"></es-avatar>')
+  $('<es-dropdown id="dd">').prop('button', { label: 'Actions' }).prop('options', [{ label: 'Edit', onClick() { S.picked = 'Edit' } }, { label: 'Delete', onClick() { S.picked = 'Delete' } }]).appendTo($app)
+  $('<es-button id="open-dlg" label="Open dialog">').on('click', () => $('#dlg').prop('open', true)).appendTo($app)
+  const $dlg = $(`<es-dialog id="dlg" title="Hello from es-dialog"><p id="dlg-body">Dialog body via slot, name=<span class="nm">${S.name}</span></p><es-button id="dlg-rename" label="Rename"></es-button></es-dialog>`)
+  own($dlg, 'update:open', (v) => (S.open = v))
+  $dlg.find('#dlg-rename').on('click', () => { S.name = 'Linus'; $('.nm').text('Linus'); show() })
+  $dlg.appendTo($app)
+  $app.append(`<es-button id="b-dyn">Hi <span class="nm">${S.name}</span></es-button>`)
+  $('<es-button id="show-dlg2" label="Show dialog 2">').on('click', () => {
+    const $d2 = $(`<es-dialog id="dlg2" title="Second dialog" open><p id="dlg2-body">Second body, name=<span class="nm">${S.name}</span></p><es-button id="dlg2-kill" label="Remove"></es-button></es-dialog>`)
+    $d2.find('#dlg2-kill').on('click', () => $d2.remove())
+    $d2.appendTo($app)
+  }).appendTo($app)
+  own($('<es-fw-check-field id="fw">').prop('field', { fieldname: 'agree', label: 'Agree to terms', fieldtype: 'Check' }).prop('modelValue', 0), 'update:modelValue', (v) => (S.chk = v)).appendTo($app)
+  show()
+  window.READY = true
+})
+</script>
+</body></html>

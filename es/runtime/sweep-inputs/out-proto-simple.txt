@@ -1,0 +1,68 @@
+PASS host el.id property returns its id attribute
+PASS element ids unique across the page :: 
+PASS one app for all hosts :: {"groups":1,"buckets":2,"top":23}
+PASS checkbox starts unchecked
+PASS checkbox label + description props render inside host :: I agree /  / desc prop
+PASS click on checkbox <label> toggles its own input + model event :: {"agree":true,"agree2":false,"on":false,"name":"Ada","bio":"Hello","pw":"secret","rating":2,"half":1.5,"sl":[30],"range":[20,80],"committed":null,"dur":5400,"dur2":null,"color":"b","who":"Ada","todos":[{"id":1,"text":"one","done":false},{"i
+PASS cb-slot not affected by cb
+PASS named label slot rendered inside <label> :: Agree as Ada
+PASS named description slot rendered in description
+PASS clicking slotted label toggles cb-slot (not another checkbox) :: {"agree":true,"agree2":true,"on":false,"name":"Ada","bio":"Hello","pw":"secret","rating":2,"half":1.5,"sl":[30],"range":[20,80],"committed":null,"dur":5400,"dur2":null,"color":"b","who":"Ada","todos":[{"id":1,"text":"one","done":false},{"id
+PASS cb-ind indeterminate
+PASS cb-dis disabled (attr true)
+PASS .attr(disabled,false) re-enables
+PASS jQuery .text() on slot nodes shows (label/description) :: Agree as Linus | Desc slot true
+PASS .prop(modelValue,true) from jQuery checks cb-slot
+PASS switch click -> model true, peer switch follows
+PASS switch label slot updated by jQuery :: Switch slot true
+PASS switch keyboard Space toggles off
+PASS switch description prop
+PASS text-input inside $(`<div class=frappe-control>...`) template renders
+PASS text-input prefix slot before input, suffix after
+PASS text-input label + error render, aria-invalid :: Name / @ / 3 / Required field
+PASS text-input model + suffix slot updated by jQuery
+PASS text-input type=number with numeric prop
+PASS text-input debounce="300" (attr string -> Number) delays emit :: Grace->Zed
+PASS exposed focus() reachable on host
+PASS exposed inputElement reachable on host
+PASS $host.val() is not the component value (no value prop) :: ""
+PASS textarea rows attr
+PASS textarea model
+PASS textarea description slot
+PASS password hidden by default, value from prop
+PASS password prefix slot inside host, visible
+PASS password reveal toggle shows text
+PASS password model
+PASS radio-group renders 3 nested es-radio, b checked :: ["false:Alpha","true:Beta\nsecond","false:Gamma Linus"]
+PASS nested es-radio is a Vue child of RadioGroup (shared context)
+PASS radio click -> model a :: a
+PASS [component] radio ArrowDown moves focus to b; selection on arrow is racy in the plain-Vue control too (pages/control.html: a/b ~50%) :: a
+PASS radio label slot rendered inside radio row :: Gamma Linus
+PASS [component, same in plain Vue] orphan es-radio throws "must be used inside a RadioGroup": host renders empty, neighbours in its bucket unaffected :: <es-slots hidden=""></es-slots><!---->
+PASS rating click 4th star -> 4 :: 4
+PASS rating keyboard ArrowLeft -> 3 :: 3
+PASS rating max=4 step=.5 attrs: 4 stars, 2nd half
+PASS rating #icon slot rendered in every star half (clones) :: HH|HH|HH
+PASS slider keyboard step 10 -> [40] :: [40]
+PASS slider value-commit event reaches .on() :: [40]
+PASS range slider has 2 thumbs at 20/80
+PASS range slider model :: [20,79]
+PASS duration formats seconds 5400 -> 1h 30m
+PASS duration format=long :: 1 hour 30 minutes
+PASS duration parse + model -> 8100 :: 8100
+PASS duration-long follows .prop() from handler :: 2 hours 15 minutes
+PASS duration null model shows placeholder
+PASS duration blur commits :: 2700
+PASS jQuery-built es-radio-group + loop es-radio render, labels, checked follows model :: ["true:A Linus","false:B Linus","false:C Linus"]
+PASS loop es-radio click -> model c :: c
+PASS .remove() of radio group: host gone, Vue unmounted, top count down :: {"before":{"top":24,"n":14},"after":{"top":23,"n":11,"gone":true}}
+PASS loop es-checkbox initial booleans
+PASS loop es-checkbox model per item :: 11
+console errors/warnings: 1
+  console: Error: [frappe-ui] <Radio> must be used inside a <RadioGroup>.
+    at setup (http://jq.test/dist/es-ui.iife.js:56:18106)
+    at zf (http://jq.test/dist/es-ui.iife.js:17:1946)
+    at z0e (http://jq.test/dist/es-ui.iife.js:19:48985)
+    at P6 (http://jq.test/dist/es-ui.iife.js:19:48772)
+    at D (http
+ALL PASS (60)

@@ -1,0 +1,250 @@
+{
+ "results": [
+  {
+   "k": "dialog closed: no [role=dialog], slot nodes hidden",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "dialog opens from petite state",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "slot=\"title\" rendered inside dialog header, bound",
+   "pass": true,
+   "info": "Custom title for Ada"
+  },
+  {
+   "k": "default slot replaces message prop, inside dialog",
+   "pass": true,
+   "info": "Custom title for Ada\nBody for Ada \nCancel\nSave"
+  },
+  {
+   "k": "icon prop renders lucide badge",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "actions prop (array of objects) renders buttons",
+   "pass": true,
+   "info": "Cancel|Save"
+  },
+  {
+   "k": "input inside teleported slot drives host state + interpolation",
+   "pass": true,
+   "info": "Grace|d=true|dm=false|saved=0|sheet=false|pop=false|hc=false"
+  },
+  {
+   "k": "action onClick(fn from petite scope) gets {close}: saved+1 and closes, update:open + close + after-leave fire",
+   "pass": true,
+   "info": "Grace|d=false|dm=false|saved=1|sheet=false|pop=false|hc=false log=d-close,d-after"
+  },
+  {
+   "k": "dialog Escape closes -> state",
+   "pass": true,
+   "info": "Grace|d=false|dm=false|saved=1|sheet=false|pop=false|hc=false"
+  },
+  {
+   "k": "close button present by default",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "dialog close button closes",
+   "pass": true,
+   "info": "Grace|d=false|dm=false|saved=1|sheet=false|pop=false|hc=false"
+  },
+  {
+   "k": "dialog outside click closes",
+   "pass": true,
+   "info": "Grace|d=false|dm=false|saved=1|sheet=false|pop=false|hc=false"
+  },
+  {
+   "k": "dialog slot nodes returned to hidden holder after close",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "modelValue dialog opens",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "message prop renders",
+   "pass": true,
+   "info": "Model dialog\n\nMessage prop text\n\nOK closes"
+  },
+  {
+   "k": "slot=\"actions\" replaces footer",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "show-close-button=false hides close button",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "dismissible=false: Escape does not close",
+   "pass": true,
+   "info": "Grace|d=false|dm=true|saved=1|sheet=false|pop=false|hc=false"
+  },
+  {
+   "k": "dismissible=false: outside click does not close",
+   "pass": true,
+   "info": "Grace|d=false|dm=true|saved=1|sheet=false|pop=false|hc=false"
+  },
+  {
+   "k": "button in actions slot closes via host state (update:model-value path)",
+   "pass": true,
+   "info": "Grace|d=false|dm=false|saved=1|sheet=false|pop=false|hc=false"
+  },
+  {
+   "k": "bare dialog: slot rendered without header/actions chrome",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "bare dialog closes from slot button",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "bottom sheet opens with title",
+   "pass": true,
+   "info": "Sheet title\nRow 1 for Grace\nRow 2 for Grace\nRow 3 for Grace\nClose sheet"
+  },
+  {
+   "k": "sheet slot (v-for inside slot) bound inside sheet",
+   "pass": true,
+   "info": "Row 1 for Grace\nRow 2 for Grace\nRow 3 for Grace"
+  },
+  {
+   "k": "sheet sits at the bottom of the viewport",
+   "pass": true,
+   "info": "{\"x\":264,\"y\":731,\"w\":672,\"h\":169}"
+  },
+  {
+   "k": "sheet Escape -> update:open false + after-leave",
+   "pass": true,
+   "info": "Grace|d=false|dm=false|saved=1|sheet=false|pop=false|hc=false d-close,d-after,d-close,d-after,d-close,d-after,d-close,d-after,dm-ok,sheet-after"
+  },
+  {
+   "k": "sheet closes from slot button",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "sheet swipe-down on the grab handle dismisses (useSheetDrag bound inside the CE)",
+   "pass": true,
+   "info": "{\"x\":264,\"y\":731,\"w\":672,\"h\":73} Grace|d=false|dm=false|saved=1|sheet=false|pop=false|hc=false"
+  },
+  {
+   "k": "sheet dismissible=false ignores Escape",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "sheet2 closes",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "popover trigger es-button renders (slot=trigger)",
+   "pass": true,
+   "info": "{\"x\":324,\"y\":362,\"w\":96,\"h\":28}"
+  },
+  {
+   "k": "popover opens on trigger click: update:open + open event",
+   "pass": true,
+   "info": "Grace|d=false|dm=false|saved=1|sheet=false|pop=true|hc=false d-close,d-after,d-close,d-after,d-close,d-after,d-close,d-after,dm-ok,sheet-after,sheet-after,sheet-after,pop-open"
+  },
+  {
+   "k": "popover content positioned under its trigger",
+   "pass": true,
+   "info": "trigger {\"x\":324,\"y\":362,\"w\":96,\"h\":28} content {\"x\":324,\"y\":394,\"w\":252,\"h\":48}"
+  },
+  {
+   "k": "popover arrow rendered",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "trigger aria-expanded reflects open (on a real element)",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "button in popover slot updates host state",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "popover Escape closes + close event",
+   "pass": true,
+   "info": "Linus|d=false|dm=false|saved=1|sheet=false|pop=false|hc=false d-close,d-after,d-close,d-after,d-close,d-after,d-close,d-after,dm-ok,sheet-after,sheet-after,sheet-after,pop-open,pop-close"
+  },
+  {
+   "k": "popover opens from keyboard (Enter on trigger)",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "focus returns to the trigger button after Escape",
+   "pass": true,
+   "info": "<button type=\"button\" class=\"inline-flex items-center justify-center gap-2 trans"
+  },
+  {
+   "k": "exposed close() reachable on element",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "controlled bare popover opens through host state",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "bare popover: no PopoverPanel shell",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "dismissible=false popover ignores outside click",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "controlled popover closes when host state set false",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "hover card opens on hover (deferred trigger through es-slot)",
+   "pass": true,
+   "info": "Linus|d=false|dm=false|saved=1|sheet=false|pop=false|hc=true"
+  },
+  {
+   "k": "hover card positioned under trigger",
+   "pass": true,
+   "info": "{\"ht\":{\"x\":324,\"y\":450,\"w\":46,\"h\":19},\"hr\":{\"x\":324,\"y\":473,\"w\":186,\"h\":48}}"
+  },
+  {
+   "k": "hover card closes on leave",
+   "pass": true,
+   "info": "Linus|d=false|dm=false|saved=1|sheet=false|pop=false|hc=false"
+  },
+  {
+   "k": "hover card opens on keyboard focus",
+   "pass": true,
+   "info": "Linus|d=false|dm=false|saved=1|sheet=false|pop=false|hc=true"
+  },
+  {
+   "k": "hover card closes on blur",
+   "pass": true,
+   "info": "Linus|d=false|dm=false|saved=1|sheet=false|pop=false|hc=false"
+  }
+ ],
+ "errs": []
+}

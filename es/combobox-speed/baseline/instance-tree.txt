@@ -1,0 +1,24 @@
+One closed Desk-like Combobox, npm 1.2.0 (clone HEAD identical). [..] = reactivity objects created in that instance scope (count build).
+| dev self = Vue DEV-build self mount time per instance (own mount minus nested child mounts, incl. setup+render; Primitive averaged over its 5 instances), median of 5 runs, cross-origin-isolated timers. DEV is ~1.7x prod.
+
+BenchCell  [effect=1]  | dev self 104us (setup 24us), renders on mount 1
+  Combobox  [computed=31 dep=47 ref=7 customRef=3 watch=6 effect=7]  | dev self 268us (setup 191us), renders on mount 1
+    LabelingWrapper  [effect=1]  | dev self 122us (setup 28us), renders on mount 1
+      ComboboxRoot  [ref=13 dep=22 computed=8 objectRef=21 watch=2 effect=3 proxy=2]  | dev self 249us (setup 198us), renders on mount 1
+        PopperRoot  [ref=1 dep=1 effect=1]  | dev self 112us (setup 21us), renders on mount 1
+          ListboxRoot  [objectRef=14 ref=13 dep=20 proxy=1 computed=5 customRef=1 watch=3 effect=4]  | dev self 198us (setup 135us), renders on mount 1
+            Primitive  [effect=1]  | dev self 155us (setup 33us), renders on mount 1.8
+              ComboboxAnchor  [ref=1 dep=2 computed=1 effect=1]  | dev self 88us (setup 37us), renders on mount 2
+                PopperAnchor  [ref=1 dep=2 computed=1 watch=1 effect=2]  | dev self 122us (setup 69us), renders on mount 2
+                  Primitive  [effect=1]  | dev self 155us (setup 33us), renders on mount 1.8
+                    PrimitiveSlot  [effect=1]  | dev self 130us (setup 22us), renders on mount 2
+                      Primitive  [effect=1]  | dev self 155us (setup 33us), renders on mount 1.8
+                        ComboboxInput  [ref=5 dep=10 computed=2 watch=4 effect=5]  | dev self 198us (setup 107us), renders on mount 1
+                          ListboxFilter  [computed=4 dep=9 ref=5 watch=1 effect=2]  | dev self 150us (setup 68us), renders on mount 1
+                            Primitive  [effect=1]  | dev self 155us (setup 33us), renders on mount 1.8
+                        ComboboxTrigger  [ref=1 dep=3 computed=2 effect=1]  | dev self 125us (setup 44us), renders on mount 2
+                          Primitive  [effect=1]  | dev self 155us (setup 33us), renders on mount 1.8
+              ComboboxPortal  [effect=1]  | dev self 88us (setup 23us), renders on mount 2
+                Teleport  [computed=1 dep=2 ref=1 effect=1]  | dev self 57us (setup 25us), renders on mount 2
+                  ComboboxContent  [ref=2 dep=5 computed=3 effect=1]  | dev self 153us (setup 102us), renders on mount 1
+                    Presence  [objectRef=2 ref=4 dep=16 proxy=1 watch=3 effect=4 computed=1]  | dev self 126us (setup 97us), renders on mount 1

@@ -1,0 +1,128 @@
+{
+ "name": "claims",
+ "fails": 0,
+ "n": 10,
+ "results": [
+  {
+   "k": "WORKS es-checkbox: one change event with value, .attr(disabled) reaches input",
+   "ok": true,
+   "info": null
+  },
+  {
+   "k": "WORKS es-text-input: focus right after append, update:modelValue out, .prop in",
+   "ok": true,
+   "info": {
+    "focused": true,
+    "vals": [
+     "abc"
+    ],
+    "prop": "set-from-jq",
+    "shown": "set-from-jq"
+   }
+  },
+  {
+   "k": "WORKS compound es-tabs from a jQuery string: one tree, unique ids, switching",
+   "ok": true,
+   "info": {
+    "tabs": 2,
+    "dup": [],
+    "sel": "B",
+    "panel": "Panel B",
+    "mv": "b",
+    "chain": "EsNode<EsSlotOutlet<Primitive<PrimitiveSlot<Primitive<PrimitiveSlot<CollectionSlot<RovingFocusGroup<TabsList<TabList<EsNode<EsSlotOutlet<Primitive<TabsRoot<Tabs<EsNode<EsBucket<EsGroup<EsRoot"
+   }
+  },
+  {
+   "k": "WORKS detach + re-append same task keeps an open dialog and its input",
+   "ok": true,
+   "info": {
+    "same": true,
+    "open": true,
+    "val": "typed"
+   }
+  },
+  {
+   "k": "BROKEN(dist) es-tooltip-provider .html() crash then later es-button does not render",
+   "ok": true,
+   "info": {
+    "err": "Cannot read properties of null (reading 'nextSibling')",
+    "err2": null,
+    "after": 0
+   }
+  },
+  {
+   "k": "BROKEN(dist) es-slider step=\"10\" stays a string (ArrowRight from 30 does not give 40)",
+   "ok": true,
+   "info": {
+    "val": [
+     100
+    ],
+    "stepType": "string",
+    "types": []
+   }
+  },
+  {
+   "k": "CAVEAT(dist) es-badge .clone() renders the stale badge inside the clone",
+   "ok": true,
+   "info": {
+    "orig": 1,
+    "cloneHTML": "<es-slots hidden=\"\"></es-slots><div class=\"inline-flex select-none items-center gap-1 overflow-clip rounded-full leading-tighter whitespace-nowrap text-ink-gray-6 bg-surface-gray-2 h-5 px-1.5 text-xs\"><!----><es-slot data-es-name=\"default\"><div class=\"inline-flex select-none items-center gap-1 overflow-clip rounded-full leading-tighter whitespace-nowrap text-ink-gray-6 bg-surface-gray-2 h-5 px-1.5",
+    "nested": 1,
+    "txt": "New"
+   }
+  },
+  {
+   "k": "CAVEAT(dist) es-dropdown JSON button attr fails (TS-typed prop has no runtime type)",
+   "ok": true,
+   "info": {
+    "err": null,
+    "err2": "appendTo of an unrelated es-button threw: Failed to execute 'setAttribute' on 'Element': '0' is not a valid attribute name.",
+    "badgesRendered": 0,
+    "rendered": 0,
+    "after": 0
+   }
+  },
+  {
+   "k": "CAVEAT(dist) toast shows twice with es-frappe-ui-provider on page",
+   "ok": true,
+   "info": {
+    "toasters": 2,
+    "shown": 2
+   }
+  },
+  {
+   "k": "CAVEAT jQuery .prop(name, fn) calls fn instead of storing it",
+   "ok": true,
+   "info": {
+    "called": 1,
+    "stored": "string",
+    "val": "ret"
+   }
+  }
+ ],
+ "errs": [
+  "pageerror: Cannot read properties of null (reading 'emitsOptions')",
+  "pageerror: Failed to execute 'setAttribute' on 'Element': '0' is not a valid attribute name.",
+  "pageerror: Failed to execute 'setAttribute' on 'Element': '0' is not a valid attribute name.",
+  "pageerror: Failed to execute 'setAttribute' on 'Element': '0' is not a valid attribute name.",
+  "pageerror: Failed to execute 'setAttribute' on 'Element': '0' is not a valid attribute name.",
+  "pageerror: Failed to execute 'setAttribute' on 'Element': '0' is not a valid attribute name.",
+  "pageerror: Failed to execute 'setAttribute' on 'Element': '0' is not a valid attribute name.",
+  "pageerror: Failed to execute 'setAttribute' on 'Element': '0' is not a valid attribute name.",
+  "pageerror: Failed to execute 'setAttribute' on 'Element': '0' is not a valid attribute name.",
+  "pageerror: Failed to execute 'setAttribute' on 'Element': '0' is not a valid attribute name.",
+  "pageerror: Failed to execute 'setAttribute' on 'Element': '0' is not a valid attribute name.",
+  "pageerror: Failed to execute 'setAttribute' on 'Element': '0' is not a valid attribute name.",
+  "pageerror: Failed to execute 'setAttribute' on 'Element': '0' is not a valid attribute name.",
+  "pageerror: Failed to execute 'setAttribute' on 'Element': '0' is not a valid attribute name.",
+  "pageerror: Failed to execute 'setAttribute' on 'Element': '0' is not a valid attribute name.",
+  "pageerror: Failed to execute 'setAttribute' on 'Element': '0' is not a valid attribute name.",
+  "pageerror: Failed to execute 'setAttribute' on 'Element': '0' is not a valid attribute name.",
+  "pageerror: Failed to execute 'setAttribute' on 'Element': '0' is not a valid attribute name.",
+  "pageerror: Failed to execute 'setAttribute' on 'Element': '0' is not a valid attribute name.",
+  "pageerror: Failed to execute 'setAttribute' on 'Element': '0' is not a valid attribute name.",
+  "pageerror: Failed to execute 'setAttribute' on 'Element': '0' is not a valid attribute name.",
+  "pageerror: Failed to execute 'setAttribute' on 'Element': '0' is not a valid attribute name.",
+  "pageerror: Failed to execute 'setAttribute' on 'Element': '0' is not a valid attribute name."
+ ]
+}

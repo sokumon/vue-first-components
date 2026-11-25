@@ -1,0 +1,590 @@
+{
+ "meta": {
+  "tag": "head-prod",
+  "suite": "memory",
+  "runs": 5,
+  "date": "2026-11-25T08:37:35.260Z",
+  "seconds": 9.685,
+  "ua": "/home/claude/.cache/ms-playwright/chromium-1194/chrome-linux/chrome"
+ },
+ "data": {
+  "desk": [
+   {
+    "heapPerKB": 118.0799609375,
+    "domNodesPer": 40.01,
+    "jsListenersPer": 11,
+    "cellListeners": [
+     "blur",
+     "click",
+     "click",
+     "compositionend",
+     "compositionstart",
+     "compositionupdate",
+     "focus",
+     "focusout",
+     "input",
+     "keydown",
+     "pointerleave"
+    ],
+    "docListeners": [],
+    "winListeners": [
+     "__playwright_global_listeners_check__",
+     "auxclick",
+     "click",
+     "contextmenu",
+     "dblclick",
+     "mousedown",
+     "mousemove",
+     "mouseup",
+     "pointerdown",
+     "pointerup",
+     "touchcancel",
+     "touchend",
+     "touchstart"
+    ]
+   },
+   {
+    "heapPerKB": 118.0272265625,
+    "domNodesPer": 40.01,
+    "jsListenersPer": 11,
+    "cellListeners": [
+     "blur",
+     "click",
+     "click",
+     "compositionend",
+     "compositionstart",
+     "compositionupdate",
+     "focus",
+     "focusout",
+     "input",
+     "keydown",
+     "pointerleave"
+    ],
+    "docListeners": [],
+    "winListeners": [
+     "__playwright_global_listeners_check__",
+     "auxclick",
+     "click",
+     "contextmenu",
+     "dblclick",
+     "mousedown",
+     "mousemove",
+     "mouseup",
+     "pointerdown",
+     "pointerup",
+     "touchcancel",
+     "touchend",
+     "touchstart"
+    ]
+   },
+   {
+    "heapPerKB": 118.0272265625,
+    "domNodesPer": 40.01,
+    "jsListenersPer": 11,
+    "cellListeners": [
+     "blur",
+     "click",
+     "click",
+     "compositionend",
+     "compositionstart",
+     "compositionupdate",
+     "focus",
+     "focusout",
+     "input",
+     "keydown",
+     "pointerleave"
+    ],
+    "docListeners": [],
+    "winListeners": [
+     "__playwright_global_listeners_check__",
+     "auxclick",
+     "click",
+     "contextmenu",
+     "dblclick",
+     "mousedown",
+     "mousemove",
+     "mouseup",
+     "pointerdown",
+     "pointerup",
+     "touchcancel",
+     "touchend",
+     "touchstart"
+    ]
+   },
+   {
+    "heapPerKB": 118.04765625,
+    "domNodesPer": 40.01,
+    "jsListenersPer": 11,
+    "cellListeners": [
+     "blur",
+     "click",
+     "click",
+     "compositionend",
+     "compositionstart",
+     "compositionupdate",
+     "focus",
+     "focusout",
+     "input",
+     "keydown",
+     "pointerleave"
+    ],
+    "docListeners": [],
+    "winListeners": [
+     "__playwright_global_listeners_check__",
+     "auxclick",
+     "click",
+     "contextmenu",
+     "dblclick",
+     "mousedown",
+     "mousemove",
+     "mouseup",
+     "pointerdown",
+     "pointerup",
+     "touchcancel",
+     "touchend",
+     "touchstart"
+    ]
+   },
+   {
+    "heapPerKB": 118.0362890625,
+    "domNodesPer": 40.01,
+    "jsListenersPer": 11,
+    "cellListeners": [
+     "blur",
+     "click",
+     "click",
+     "compositionend",
+     "compositionstart",
+     "compositionupdate",
+     "focus",
+     "focusout",
+     "input",
+     "keydown",
+     "pointerleave"
+    ],
+    "docListeners": [],
+    "winListeners": [
+     "__playwright_global_listeners_check__",
+     "auxclick",
+     "click",
+     "contextmenu",
+     "dblclick",
+     "mousedown",
+     "mousemove",
+     "mouseup",
+     "pointerdown",
+     "pointerup",
+     "touchcancel",
+     "touchend",
+     "touchstart"
+    ]
+   }
+  ],
+  "opts20": [
+   {
+    "heapPerKB": 122.576015625,
+    "domNodesPer": 40.01,
+    "jsListenersPer": 11,
+    "cellListeners": [
+     "blur",
+     "click",
+     "click",
+     "compositionend",
+     "compositionstart",
+     "compositionupdate",
+     "focus",
+     "focusout",
+     "input",
+     "keydown",
+     "pointerleave"
+    ],
+    "docListeners": [],
+    "winListeners": [
+     "__playwright_global_listeners_check__",
+     "auxclick",
+     "click",
+     "contextmenu",
+     "dblclick",
+     "mousedown",
+     "mousemove",
+     "mouseup",
+     "pointerdown",
+     "pointerup",
+     "touchcancel",
+     "touchend",
+     "touchstart"
+    ]
+   },
+   {
+    "heapPerKB": 122.5794140625,
+    "domNodesPer": 40.01,
+    "jsListenersPer": 11,
+    "cellListeners": [
+     "blur",
+     "click",
+     "click",
+     "compositionend",
+     "compositionstart",
+     "compositionupdate",
+     "focus",
+     "focusout",
+     "input",
+     "keydown",
+     "pointerleave"
+    ],
+    "docListeners": [],
+    "winListeners": [
+     "__playwright_global_listeners_check__",
+     "auxclick",
+     "click",
+     "contextmenu",
+     "dblclick",
+     "mousedown",
+     "mousemove",
+     "mouseup",
+     "pointerdown",
+     "pointerup",
+     "touchcancel",
+     "touchend",
+     "touchstart"
+    ]
+   },
+   {
+    "heapPerKB": 122.57875,
+    "domNodesPer": 40.01,
+    "jsListenersPer": 11,
+    "cellListeners": [
+     "blur",
+     "click",
+     "click",
+     "compositionend",
+     "compositionstart",
+     "compositionupdate",
+     "focus",
+     "focusout",
+     "input",
+     "keydown",
+     "pointerleave"
+    ],
+    "docListeners": [],
+    "winListeners": [
+     "__playwright_global_listeners_check__",
+     "auxclick",
+     "click",
+     "contextmenu",
+     "dblclick",
+     "mousedown",
+     "mousemove",
+     "mouseup",
+     "pointerdown",
+     "pointerup",
+     "touchcancel",
+     "touchend",
+     "touchstart"
+    ]
+   },
+   {
+    "heapPerKB": 122.7376171875,
+    "domNodesPer": 40.01,
+    "jsListenersPer": 11,
+    "cellListeners": [
+     "blur",
+     "click",
+     "click",
+     "compositionend",
+     "compositionstart",
+     "compositionupdate",
+     "focus",
+     "focusout",
+     "input",
+     "keydown",
+     "pointerleave"
+    ],
+    "docListeners": [],
+    "winListeners": [
+     "__playwright_global_listeners_check__",
+     "auxclick",
+     "click",
+     "contextmenu",
+     "dblclick",
+     "mousedown",
+     "mousemove",
+     "mouseup",
+     "pointerdown",
+     "pointerup",
+     "touchcancel",
+     "touchend",
+     "touchstart"
+    ]
+   },
+   {
+    "heapPerKB": 122.581953125,
+    "domNodesPer": 40.01,
+    "jsListenersPer": 11,
+    "cellListeners": [
+     "blur",
+     "click",
+     "click",
+     "compositionend",
+     "compositionstart",
+     "compositionupdate",
+     "focus",
+     "focusout",
+     "input",
+     "keydown",
+     "pointerleave"
+    ],
+    "docListeners": [],
+    "winListeners": [
+     "__playwright_global_listeners_check__",
+     "auxclick",
+     "click",
+     "contextmenu",
+     "dblclick",
+     "mousedown",
+     "mousemove",
+     "mouseup",
+     "pointerdown",
+     "pointerup",
+     "touchcancel",
+     "touchend",
+     "touchstart"
+    ]
+   }
+  ],
+  "mini": [
+   {
+    "heapPerKB": 6.701640625,
+    "domNodesPer": 7.01,
+    "jsListenersPer": 1,
+    "cellListeners": [
+     "input"
+    ],
+    "docListeners": [],
+    "winListeners": [
+     "__playwright_global_listeners_check__",
+     "auxclick",
+     "click",
+     "contextmenu",
+     "dblclick",
+     "mousedown",
+     "mousemove",
+     "mouseup",
+     "pointerdown",
+     "pointerup",
+     "touchcancel",
+     "touchend",
+     "touchstart"
+    ]
+   },
+   {
+    "heapPerKB": 6.701640625,
+    "domNodesPer": 7.01,
+    "jsListenersPer": 1,
+    "cellListeners": [
+     "input"
+    ],
+    "docListeners": [],
+    "winListeners": [
+     "__playwright_global_listeners_check__",
+     "auxclick",
+     "click",
+     "contextmenu",
+     "dblclick",
+     "mousedown",
+     "mousemove",
+     "mouseup",
+     "pointerdown",
+     "pointerup",
+     "touchcancel",
+     "touchend",
+     "touchstart"
+    ]
+   },
+   {
+    "heapPerKB": 6.701640625,
+    "domNodesPer": 7.01,
+    "jsListenersPer": 1,
+    "cellListeners": [
+     "input"
+    ],
+    "docListeners": [],
+    "winListeners": [
+     "__playwright_global_listeners_check__",
+     "auxclick",
+     "click",
+     "contextmenu",
+     "dblclick",
+     "mousedown",
+     "mousemove",
+     "mouseup",
+     "pointerdown",
+     "pointerup",
+     "touchcancel",
+     "touchend",
+     "touchstart"
+    ]
+   },
+   {
+    "heapPerKB": 6.701640625,
+    "domNodesPer": 7.01,
+    "jsListenersPer": 1,
+    "cellListeners": [
+     "input"
+    ],
+    "docListeners": [],
+    "winListeners": [
+     "__playwright_global_listeners_check__",
+     "auxclick",
+     "click",
+     "contextmenu",
+     "dblclick",
+     "mousedown",
+     "mousemove",
+     "mouseup",
+     "pointerdown",
+     "pointerup",
+     "touchcancel",
+     "touchend",
+     "touchstart"
+    ]
+   },
+   {
+    "heapPerKB": 6.701640625,
+    "domNodesPer": 7.01,
+    "jsListenersPer": 1,
+    "cellListeners": [
+     "input"
+    ],
+    "docListeners": [],
+    "winListeners": [
+     "__playwright_global_listeners_check__",
+     "auxclick",
+     "click",
+     "contextmenu",
+     "dblclick",
+     "mousedown",
+     "mousemove",
+     "mouseup",
+     "pointerdown",
+     "pointerup",
+     "touchcancel",
+     "touchend",
+     "touchstart"
+    ]
+   }
+  ],
+  "input": [
+   {
+    "heapPerKB": 0.0105078125,
+    "domNodesPer": 6.01,
+    "jsListenersPer": 0,
+    "cellListeners": [],
+    "docListeners": [],
+    "winListeners": [
+     "__playwright_global_listeners_check__",
+     "auxclick",
+     "click",
+     "contextmenu",
+     "dblclick",
+     "mousedown",
+     "mousemove",
+     "mouseup",
+     "pointerdown",
+     "pointerup",
+     "touchcancel",
+     "touchend",
+     "touchstart"
+    ]
+   },
+   {
+    "heapPerKB": 0.0105078125,
+    "domNodesPer": 6.01,
+    "jsListenersPer": 0,
+    "cellListeners": [],
+    "docListeners": [],
+    "winListeners": [
+     "__playwright_global_listeners_check__",
+     "auxclick",
+     "click",
+     "contextmenu",
+     "dblclick",
+     "mousedown",
+     "mousemove",
+     "mouseup",
+     "pointerdown",
+     "pointerup",
+     "touchcancel",
+     "touchend",
+     "touchstart"
+    ]
+   },
+   {
+    "heapPerKB": 0.0105078125,
+    "domNodesPer": 6.01,
+    "jsListenersPer": 0,
+    "cellListeners": [],
+    "docListeners": [],
+    "winListeners": [
+     "__playwright_global_listeners_check__",
+     "auxclick",
+     "click",
+     "contextmenu",
+     "dblclick",
+     "mousedown",
+     "mousemove",
+     "mouseup",
+     "pointerdown",
+     "pointerup",
+     "touchcancel",
+     "touchend",
+     "touchstart"
+    ]
+   },
+   {
+    "heapPerKB": 0.0105078125,
+    "domNodesPer": 6.01,
+    "jsListenersPer": 0,
+    "cellListeners": [],
+    "docListeners": [],
+    "winListeners": [
+     "__playwright_global_listeners_check__",
+     "auxclick",
+     "click",
+     "contextmenu",
+     "dblclick",
+     "mousedown",
+     "mousemove",
+     "mouseup",
+     "pointerdown",
+     "pointerup",
+     "touchcancel",
+     "touchend",
+     "touchstart"
+    ]
+   },
+   {
+    "heapPerKB": 0.0105078125,
+    "domNodesPer": 6.01,
+    "jsListenersPer": 0,
+    "cellListeners": [],
+    "docListeners": [],
+    "winListeners": [
+     "__playwright_global_listeners_check__",
+     "auxclick",
+     "click",
+     "contextmenu",
+     "dblclick",
+     "mousedown",
+     "mousemove",
+     "mouseup",
+     "pointerdown",
+     "pointerup",
+     "touchcancel",
+     "touchend",
+     "touchstart"
+    ]
+   }
+  ]
+ }
+}

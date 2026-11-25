@@ -1,0 +1,52 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="/dist/es-ui.css">
+<script src="/jquery.js"></script>
+<script src="/dist/es-ui.iife.js"></script>
+</head><body class="p-6">
+<div id="app" class="space-y-6"></div>
+<div id="desk" class="space-y-6 border-t mt-4 pt-4"></div>
+<script>
+// jQuery port of wc/sweep/overlays/pages/tabs.html (Tabs, TabList, TabTrigger, TabPanel, TabButtons) + Desk-style operations.
+$(function () {
+  const S = window.S = { tab: 'two', short: 'b', tb: 'week', count: 3, log: [] }
+  const push = (x) => S.log.push(x)
+  const own = ($el, ev, fn) => $el.on(ev, function (e) { if (e.target === e.currentTarget) fn(e.originalEvent.detail, e) })
+  const $app = $('#app')
+
+  // Composed: es-tabs > es-tab-list > es-tab-trigger + es-tab-panel (one HTML string)
+  const $ct = $(`<es-tabs id="ct" model-value="two">
+      <es-tab-list>
+        <es-tab-trigger value="one" label="One"></es-tab-trigger>
+        <es-tab-trigger value="two" label="Two"><span slot="suffix" id="ct-count" class="ml-1 text-xs">(3)</span></es-tab-trigger>
+        <es-tab-trigger value="three" label="Three" disabled></es-tab-trigger>
+      </es-tab-list>
+      <es-tab-panel value="one"><p id="ct-p1">Panel one</p></es-tab-panel>
+      <es-tab-panel value="two"><p id="ct-p2">Panel two, count=<span class="cnt">3</span></p></es-tab-panel>
+      <es-tab-panel value="three"><p id="ct-p3">Panel three</p></es-tab-panel>
+    </es-tabs>`)
+  own($ct, 'update:modelValue', (v) => (S.tab = v))
+  $ct.appendTo($app)
+
+  // Shorthand: tabs prop (condition fn) + tab-panel slot as one plain node
+  own($(`<es-tabs id="st" variant="subtle"><div slot="tab-panel" class="st-panel">Shared panel body (short=<span class="sv">b</span>)</div></es-tabs>`)
+    .prop('tabs', [{ value: 'a', label: 'Alpha' }, { value: 'b', label: 'Beta' }, { value: 'c', label: 'Gamma', condition: () => S.count > 2 }])
+    .prop('modelValue', 'b'), 'update:modelValue', (v) => { S.short = v; $('#st .sv').text(v) }).appendTo($app)
+
+  // Shorthand with a <template slot="tab-panel"> stamped per tab (scope: tab)
+  $(`<es-tabs id="st2"><template slot="tab-panel"><div class="st2-panel">Panel for <b data-es-text="tab.label"></b></div></template></es-tabs>`)
+    .prop('tabs', [{ value: 'x', label: 'Ex' }, { value: 'y', label: 'Why' }]).prop('modelValue', 'x')
+    .on('es-slot', (e) => { const d = e.originalEvent.detail; $(d.nodes).attr('data-tab', d.scope && d.scope.tab && d.scope.tab.value) })
+    .appendTo($app)
+
+  // TabButtons
+  own($('<es-tab-buttons id="tb"></es-tab-buttons>')
+    .prop('options', [{ value: 'day', label: 'Day' }, { value: 'week', label: 'Week' }, { value: 'month', label: 'Month', onClick: () => push('month-click') }])
+    .prop('modelValue', 'week'), 'update:modelValue', (v) => (S.tb = v)).appendTo($app)
+
+  // standalone part outside es-tabs (not meaningful alone; must not break the page)
+  $('<es-tab-trigger id="lone-trigger" value="x" label="Lone"></es-tab-trigger>').appendTo($app)
+  $('<button id="inc" class="border px-2">inc</button>').on('click', () => { S.count++; $('#ct-count').text('(' + S.count + ')'); $('.cnt').text(S.count) }).appendTo($app)
+  window.READY = true
+})
+</script>
+</body></html>

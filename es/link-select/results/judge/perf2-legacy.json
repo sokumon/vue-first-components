@@ -1,0 +1,21 @@
+{
+ "label": "legacy",
+ "open new ToDo, painted (ms)": 82.1,
+ "open new Workflow, painted (ms)": 91.9,
+ "make 100 Link, painted (ms)": 88.1,
+ "make 100 Select, painted (ms)": 113.2,
+ "set_input 100 Select, painted (ms)": 33.3,
+ "dialog 40 Link + 10 Select, painted (ms)": 84.2,
+ "heap per Link, attached (KB)": 6,
+ "DOM nodes per Link": 71,
+ "listeners per Link": 17,
+ "heap kept after remove 200 Link (KB)": 506,
+ "heap per Select, attached (KB)": -1.5,
+ "DOM nodes per Select": 67,
+ "listeners per Select": 3,
+ "heap kept after remove 200 Select (KB)": -481,
+ "open new Sales Invoice, painted (ms)": 325.4,
+ "open new Stock Entry, painted (ms)": 172,
+ "heap growth per new Sales Invoice (KB)": 682,
+ "JS heap after (MB)": 24.3
+}

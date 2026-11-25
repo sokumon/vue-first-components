@@ -1,0 +1,234 @@
+{
+ "page": "settings.html",
+ "fails": 6,
+ "n": 40,
+ "results": [
+  {
+   "tag": "es-settings-dialog",
+   "k": "closed: no dialog, panels not rendered",
+   "ok": true
+  },
+  {
+   "tag": "es-settings-dialog",
+   "k": "opens from .prop(\"open\", true)",
+   "ok": true
+  },
+  {
+   "tag": "es-settings-dialog",
+   "k": "title slot -> aria-labelledby",
+   "ok": true,
+   "extra": "App settings for Ada"
+  },
+  {
+   "tag": "es-settings-dialog",
+   "k": "description slot -> aria-describedby",
+   "ok": true
+  },
+  {
+   "tag": "es-settings-sidebar",
+   "k": "tablist with 3 tabs (nav items get TabsRoot context)",
+   "ok": true,
+   "extra": "[\"A Profile:active\",\"Notifications 3:inactive\",\"Members:inactive\"]"
+  },
+  {
+   "tag": "es-settings-dialog",
+   "k": "tab attribute selects Profile",
+   "ok": true,
+   "extra": "A Profile:active"
+  },
+  {
+   "tag": "es-settings-nav-group",
+   "k": "label attr + slot=\"label\"",
+   "ok": true
+  },
+  {
+   "tag": "es-settings-nav-item",
+   "k": "prefix slot (es-avatar) inside the tab",
+   "ok": true
+  },
+  {
+   "tag": "es-settings-nav-item",
+   "k": "suffix slot (es-badge) inside the tab",
+   "ok": true
+  },
+  {
+   "tag": "es-settings-content",
+   "k": "sidebar left of content",
+   "ok": true
+  },
+  {
+   "tag": "es-settings-header",
+   "k": "title/description + actions slot",
+   "ok": true
+  },
+  {
+   "tag": "es-settings-row",
+   "k": "title/description + control slot (es-text-input)",
+   "ok": true
+  },
+  {
+   "tag": "es-settings-row",
+   "k": "row title becomes <label for> the detected control",
+   "ok": true,
+   "extra": "frappe-ui-es-6"
+  },
+  {
+   "tag": "es-text-input",
+   "k": "typing -> update:modelValue (delegated on document) -> title slot text + avatar attr",
+   "ok": true,
+   "extra": "Grace"
+  },
+  {
+   "tag": "es-settings-header",
+   "k": "action button click (delegated on document)",
+   "ok": true,
+   "extra": "save"
+  },
+  {
+   "tag": "es-settings-dialog",
+   "k": "handler delegated on the dialog HOST sees clicks in its slot content",
+   "ok": false,
+   "extra": "slot content is teleported to <es-portal>: DOM events do not bubble through the host"
+  },
+  {
+   "tag": "es-settings-panel",
+   "k": "click tab -> update:tab on host; notifications panel shown, profile hidden",
+   "ok": true,
+   "extra": "{\"open\":false,\"tab\":\"notifications\",\"digest\":false,\"sounds\":true,\"name\":\"Grace\",\"unread\":3,\"log\":[\"save\"]}"
+  },
+  {
+   "tag": "es-settings-body",
+   "k": "scrolls (ScrollArea viewport)",
+   "ok": true
+  },
+  {
+   "tag": "es-settings-row",
+   "k": "clicking the row title (label) toggles the es-switch",
+   "ok": true,
+   "extra": "{\"open\":false,\"tab\":\"notifications\",\"digest\":true,\"sounds\":true,\"name\":\"Grace\",\"unread\":3,\"log\":[\"save\"]}"
+  },
+  {
+   "tag": "es-switch",
+   "k": "description slot (with link) + switch (boolean attr model-value) toggles off",
+   "ok": true,
+   "extra": "{\"open\":false,\"tab\":\"notifications\",\"digest\":true,\"sounds\":false,\"name\":\"Grace\",\"unread\":3,\"log\":[\"save\"]}"
+  },
+  {
+   "tag": "es-settings-nav-item",
+   "k": "ArrowDown moves focus (manual activation: not selected yet)",
+   "ok": true,
+   "extra": "Notifications 3"
+  },
+  {
+   "tag": "es-settings-nav-item",
+   "k": "Enter selects -> members panel, custom header slot",
+   "ok": true,
+   "extra": "Custom header (3)"
+  },
+  {
+   "tag": "es-settings-dialog",
+   "k": "Escape closes -> update:open false",
+   "ok": true
+  },
+  {
+   "tag": "es-settings-dialog",
+   "k": "Ctrl+Shift+, opens (keyboard shortcut)",
+   "ok": true,
+   "extra": "{\"open\":true,\"tab\":\"members\",\"digest\":true,\"sounds\":false,\"name\":\"Grace\",\"unread\":3,\"log\":[\"save\"]}"
+  },
+  {
+   "tag": "es-settings-dialog",
+   "k": "reopened: fresh TabsRoot, selection kept (element kept tab=members)",
+   "ok": true,
+   "extra": "[\"Profile:inactive\",\"3:inactive\",\"Members:active\"]"
+  },
+  {
+   "tag": "es-settings-dialog",
+   "k": "reopened: switching tabs works, input kept its value",
+   "ok": true
+  },
+  {
+   "tag": "es-settings-dialog",
+   "k": "shortcut toggles closed",
+   "ok": true
+  },
+  {
+   "tag": "es-settings-dialog",
+   "k": ".prop(\"tab\") while closed selects that panel on open",
+   "ok": true
+  },
+  {
+   "tag": "es-settings-dialog",
+   "k": "closed again; no leaked dialog",
+   "ok": true
+  },
+  {
+   "tag": "es-settings-nav-item",
+   "k": "appended while closed: 4 tabs on open",
+   "ok": true,
+   "extra": "[\"Profile:inactive\",\"3:active\",\"Members:inactive\",\"Billing:inactive\"]"
+  },
+  {
+   "tag": "es-settings-panel",
+   "k": "appended panel shows on its tab; row label-for works",
+   "ok": true
+  },
+  {
+   "tag": "es-settings-body",
+   "k": ".append() while open: new paragraph rendered in the open panel",
+   "ok": true
+  },
+  {
+   "tag": "es-settings-header",
+   "k": ".html() on host while open: new slot shown, old gone",
+   "ok": true
+  },
+  {
+   "tag": "es-settings-body",
+   "k": ".empty() on host while open: content gone, dialog still works",
+   "ok": true
+  },
+  {
+   "tag": "es-settings-nav-item",
+   "k": ".remove() while open: 3 tabs left",
+   "ok": true,
+   "extra": "[\"Profile:inactive\",\"3:inactive\",\"Members:active\"]"
+  },
+  {
+   "tag": "es-settings-row",
+   "k": ".detach() + .append() into same body (same task): still renders, input value kept",
+   "ok": false,
+   "extra": "[\"console: HierarchyRequestError: Failed to execute 'insertBefore' on 'Node': The new child element contains the parent.\\n    at beforeUpdate (http://jq.test/dist/es-ui.iife.js:194:21272)\\n    at zf (http://jq.test/dist/es-ui.iife.js:17:1946)\\n    at ra (http://jq.test/dist/es-ui.iife.js:17:2017)\\n "
+  },
+  {
+   "tag": "es-settings-dialog",
+   "k": ".clone() of the closed dialog does not open anything",
+   "ok": false
+  },
+  {
+   "tag": "es-settings-dialog",
+   "k": "the clone opens its own dialog with its own tabs",
+   "ok": false,
+   "extra": "{\"n\":2,\"tabs\":[\"Profile:active\",\"3:inactive\",\"Members:inactive\"]}"
+  },
+  {
+   "tag": "es-settings-dialog",
+   "k": ".remove() of the clone: no dialog left, ids unique",
+   "ok": false
+  },
+  {
+   "tag": "es-settings-dialog",
+   "k": ".remove() while OPEN: dialog gone, body unlocked",
+   "ok": false,
+   "extra": ""
+  }
+ ],
+ "errs": [
+  "console: HierarchyRequestError: Failed to execute 'insertBefore' on 'Node': The new child element contains the parent.\n    at beforeUpdate (http://jq.test/dist/es-ui.iife.js:194:21272)\n    at zf (http://jq.test/dist/es-ui.iife.js:17:1946)\n    at ra (http://jq.test/dist/es-ui.iife.js:17:2017)\n    at nu (http:",
+  "console: HierarchyRequestError: Failed to execute 'insertBefore' on 'Node': The new child element contains the parent.\n    at beforeUpdate (http://jq.test/dist/es-ui.iife.js:194:21272)\n    at zf (http://jq.test/dist/es-ui.iife.js:17:1946)\n    at ra (http://jq.test/dist/es-ui.iife.js:17:2017)\n    at nu (http:",
+  "console: TypeError: Cannot read properties of null (reading 'nextSibling')\n    at nextSibling (http://jq.test/dist/es-ui.iife.js:23:833)\n    at xe (http://jq.test/dist/es-ui.iife.js:19:35183)\n    at le (http://jq.test/dist/es-ui.iife.js:19:34830)\n    at Q (http://jq.test/dist/es-ui.iife.js:19:34606)\n    at f",
+  "console: TypeError: Cannot read properties of null (reading 'parentNode')\n    at parentNode (http://jq.test/dist/es-ui.iife.js:23:805)\n    at Gg.Me [as fn] (http://jq.test/dist/es-ui.iife.js:19:30311)\n    at Gg.run (http://jq.test/dist/es-ui.iife.js:10:2169)\n    at Gg.runIfDirty (http://jq.test/dist/es-ui.ii",
+  "console: TypeError: Cannot read properties of null (reading 'nextSibling')\n    at nextSibling (http://jq.test/dist/es-ui.iife.js:23:833)\n    at U (http://jq.test/dist/es-ui.iife.js:19:35638)\n    at U (http://jq.test/dist/es-ui.iife.js:19:35563)\n    at Gg.Me [as fn] (http://jq.test/dist/es-ui.iife.js:19:30328",
+  "pageerror: Cannot destructure property 'bum' of 'G' as it is null."
+ ]
+}

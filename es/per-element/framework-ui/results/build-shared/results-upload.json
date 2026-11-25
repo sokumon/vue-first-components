@@ -1,0 +1,57 @@
+{
+ "results": [
+  {
+   "k": "closed dialog renders nothing",
+   "ok": true
+  },
+  {
+   "k": "host open=true opens dialog (teleported)",
+   "ok": true,
+   "extra": "Upload from device Embed a link or drop files to upload"
+  },
+  {
+   "k": "restrictions object prop enforced client-side (size + type)",
+   "ok": true,
+   "extra": "1 file All private a.txt 2 B \"big.txt\" was skipped — exceeds 1000 B. \"x.png\" was skipped — file type not allowed. Add more Upload from device Embed a link or drop files to upload Cancel Upload"
+  },
+  {
+   "k": "Upload -> default transport POST /api/method/upload_file",
+   "ok": true,
+   "extra": "upload_file"
+  },
+  {
+   "k": "committed event with file_url, uploading true/false events",
+   "ok": true,
+   "extra": "{\"n\":1,\"open\":false,\"committed\":[\"/files/a.txt\"],\"files\":[],\"uploading\":[true,false]}"
+  },
+  {
+   "k": "dialog closed after commit (update:open)",
+   "ok": true,
+   "extra": "[false]"
+  },
+  {
+   "k": "AttachmentsList empty state",
+   "ok": true
+  },
+  {
+   "k": "AttachmentsList uses transport fn prop + v-model",
+   "ok": true,
+   "extra": "[{\"file_url\":\"/files/custom-b.md\",\"file_name\":\"b.md\",\"is_private\":true}] tx=1"
+  },
+  {
+   "k": "AttachmentsList renders the file row",
+   "ok": true
+  },
+  {
+   "k": "UploadTray shows the tray-mode batch (b.md)",
+   "ok": true,
+   "extra": "\"Uploading 0/1\\nUploading files\\nb.md\\n100%\""
+  },
+  {
+   "k": "AttachmentsList remove -> v-model []",
+   "ok": true,
+   "extra": "[]"
+  }
+ ],
+ "errs": []
+}

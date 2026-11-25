@@ -1,0 +1,172 @@
+<!doctype html><html><head><meta charset="utf-8">
+<title>display sweep</title>
+<link rel="stylesheet" href="BUILD/es-wc-spike.css">
+<script defer src="BUILD/es-components.js"></script>
+<script defer src="BUILD/petite-vue.iife.js"></script>
+</head><body class="p-6">
+<div id="app" v-scope="{
+  log: [], who: 'Ada', showAlert: true, dismissed: 0, pct: 40, err: 'Name is required', expanded: ['a'], dragged: null,
+  crumbs: [
+    {label:'Home', href:'#home'},
+    {label:'Projects', href:'#projects', onClick(){ window.__crumb = 'Projects' }},
+    {label:'Website', onClick(){ window.__crumb = 'Website' }},
+  ],
+  manyCrumbs: [{label:'Alpha one', href:'#a'},{label:'Beta two', href:'#b'},{label:'Gamma three', href:'#c'},{label:'Delta four', href:'#d'},{label:'Epsilon five', href:'#e'}],
+  routeCrumbs: [{label:'Routed', route:'/x'},{label:'Leaf'}],
+  primary: { label: 'Retry', onClick(ctx){ window.__primary = (window.__primary||0)+1; ctx.dismiss() } },
+  secondary: { label: 'Later', onClick(){ window.__secondary = 1 } },
+  divAction: { label: 'Load more', onClick(){ window.__divider = (window.__divider||0)+1 } },
+  errs: ['First problem', 'Second problem'],
+  nodes: [
+    {key:'a', label:'Apples', children:[{key:'a1', label:'Fuji'},{key:'a2', label:'Gala'}]},
+    {key:'b', label:'Bananas', children:[{key:'b1', label:'Cavendish'}]},
+    {key:'c', label:'Cherries'},
+  ],
+  emptyNodes: [],
+  combos: ['Ctrl+J', 'Alt+K']
+}">
+  <pre id="state">{{ JSON.stringify({ who, dismissed, pct, expanded, showAlert, dragged, log }) }}</pre>
+
+  <!-- ===== es-alert ===== -->
+  <section id="s-alert" class="space-y-2">
+    <es-alert id="al-row" title="Saved" theme="green"></es-alert>
+    <es-alert id="al-banner" v-if="showAlert" title="Sync failed" description="The server did not answer." theme="red" dismissible
+      :primary-action="primary" :secondary-action="secondary" @dismiss="showAlert = false; dismissed++"></es-alert>
+    <es-alert id="al-slots" theme="amber" dismissible @dismiss="dismissed++">
+      <b slot="title" id="al-slot-title">Hello {{ who }}</b>
+      <span slot="description" id="al-slot-desc">Description for {{ who }}</span>
+      <span slot="prefix" id="al-slot-prefix">P</span>
+      <es-button slot="actions" id="al-slot-action" label="Rename" @click="who = 'Grace'"></es-button>
+    </es-alert>
+    <es-alert id="al-noicon" title="No icon" :icon="false"></es-alert>
+  </section>
+
+  <!-- ===== es-avatar ===== -->
+  <section id="s-avatar" class="flex gap-2 items-center">
+    <es-avatar id="av-label" label="Ada Lovelace" size="xl" theme="blue"></es-avatar>
+    <es-avatar id="av-broken" label="Zed" image="data:image/png;base64,broken"></es-avatar>
+    <es-avatar id="av-img" label="Img" image="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10'%3E%3Crect width='10' height='10' fill='red'/%3E%3C/svg%3E"></es-avatar>
+    <es-avatar id="av-slots" label="Q" size="2xl"><span id="av-default">★</span><span slot="indicator" id="av-ind" class="block size-full rounded-full bg-green-500"></span></es-avatar>
+    <es-avatar id="av-class" label="Big" class="size-16"></es-avatar>
+  </section>
+
+  <!-- ===== es-badge ===== -->
+  <section id="s-badge" class="flex gap-2">
+    <es-badge id="bd-label" label="Draft" theme="orange"></es-badge>
+    <es-badge id="bd-num" :label="42" theme="blue" variant="solid" size="lg"></es-badge>
+    <es-badge id="bd-slots" theme="green"><span slot="prefix" id="bd-pre">●</span>Live {{ who }}<span slot="suffix" id="bd-suf">→</span></es-badge>
+  </section>
+
+  <!-- ===== es-breadcrumbs ===== -->
+  <section id="s-crumbs">
+    <es-breadcrumbs id="bc" :items="crumbs"><span slot="prefix" class="bc-pre">#</span></es-breadcrumbs>
+    <div style="width:180px" class="border"><es-breadcrumbs id="bc-many" :items="manyCrumbs"></es-breadcrumbs></div>
+    <es-breadcrumbs id="bc-route" :items="routeCrumbs"></es-breadcrumbs>
+  </section>
+
+  <!-- ===== es-button ===== -->
+  <section id="s-button" class="flex gap-2 items-center">
+    <es-button id="bt-ps" variant="outline"><span slot="prefix" id="bt-pre">[P]</span>Middle<span slot="suffix" id="bt-suf">[S]</span></es-button>
+    <es-button id="bt-icon" icon="lucide-x" aria-label="Close"></es-button>
+    <es-button id="bt-slot-icon"><span class="lucide-star"></span></es-button>
+    <es-button id="bt-icon-slot"><span slot="icon" class="lucide-star size-4"></span></es-button>
+    <es-button id="bt-tip" label="Hover me" tooltip="Button tip"></es-button>
+    <es-button id="bt-dis" label="Disabled" disabled @click="log.push('disabled-click')"></es-button>
+    <es-button id="bt-href" label="Link" href="https://example.com/x"></es-button>
+    <es-button id="bt-lt" label="Save" loading loading-text="Saving..."></es-button>
+    <form id="frm" onsubmit="event.preventDefault(); window.__submitted = (window.__submitted||0)+1"><es-button id="bt-submit" type="submit" label="Submit"></es-button></form>
+  </section>
+
+  <!-- ===== es-divider ===== -->
+  <section id="s-divider" class="space-y-2">
+    <es-divider id="dv-h"></es-divider>
+    <div class="flex h-10 items-center gap-2"><span>L</span><es-divider id="dv-v" orientation="vertical" flex-item></es-divider><span>R</span></div>
+    <es-divider id="dv-act" :action="divAction" align="start"></es-divider>
+  </section>
+
+  <!-- ===== es-error-message ===== -->
+  <section id="s-error">
+    <es-error-message id="em-str" :message="err"></es-error-message>
+    <es-error-message id="em-arr" :message="errs"></es-error-message>
+    <es-error-message id="em-xss" message="<b>bold</b><img src=x onerror=&quot;window.__xss=1&quot;>"></es-error-message>
+    <es-error-message id="em-empty" message=""></es-error-message>
+    <es-button id="em-clear" label="Clear error" @click="err = ''"></es-button>
+  </section>
+
+  <!-- ===== es-form-label ===== -->
+  <section id="s-label">
+    <es-form-label id="fl" label="Email" required></es-form-label>
+    <es-form-label data-t="fl2" label="Phone" :id="'phone-input'"></es-form-label>
+    <input id="phone-input" class="border">
+  </section>
+
+  <!-- ===== es-icon ===== -->
+  <section id="s-icon" class="flex gap-2">
+    <es-icon id="ic-lucide" icon="lucide-star" class="size-6"></es-icon>
+    <es-icon id="ic-emoji" icon="🔥"></es-icon>
+    <es-icon id="ic-name" name="lucide-x"></es-icon>
+    <es-icon id="ic-bad" icon="star"></es-icon>
+  </section>
+
+  <!-- ===== es-keyboard-shortcut ===== -->
+  <section id="s-kbd" class="flex gap-4">
+    <es-keyboard-shortcut id="kb-plain" combo="Mod+K"></es-keyboard-shortcut>
+    <es-keyboard-shortcut id="kb-bg" combo="Mod+Shift+Enter" bg></es-keyboard-shortcut>
+    <es-keyboard-shortcut id="kb-alt" combo="Ctrl+K" :alt-combos="combos" :show-plus="true"></es-keyboard-shortcut>
+    <es-keyboard-shortcut id="kb-slot">Fallback {{ who }}</es-keyboard-shortcut>
+  </section>
+
+  <!-- ===== spinners / loading ===== -->
+  <section id="s-spin" class="flex gap-4 items-center">
+    <es-spinner id="sp-lg" size="lg" theme="red" track></es-spinner>
+    <es-spinner id="sp-def"></es-spinner>
+    <es-loading-indicator id="li" size="xs"></es-loading-indicator>
+    <es-loading-text id="lt-def"></es-loading-text>
+    <es-loading-text id="lt" text="Fetching rows"></es-loading-text>
+  </section>
+
+  <!-- ===== es-progress ===== -->
+  <section id="s-progress" class="w-64 space-y-3">
+    <es-progress id="pg" :value="pct" label="Upload" hint size="lg"></es-progress>
+    <es-progress id="pg-slot" :value="pct" hint><span slot="hint" id="pg-hint">{{ pct }} of 100</span></es-progress>
+    <es-progress id="pg-int" :value="50" :intervals="4" size="md"></es-progress>
+    <es-progress id="pg-attr" value="75"></es-progress>
+    <es-button id="pg-inc" label="+20" @click="pct = Math.min(100, pct + 20)"></es-button>
+  </section>
+
+  <!-- ===== es-skeleton ===== -->
+  <section id="s-skel">
+    <es-skeleton id="sk" class="block h-4 w-32"></es-skeleton>
+  </section>
+
+  <!-- ===== es-tooltip / provider ===== -->
+  <section id="s-tip" class="flex gap-6 p-8">
+    <es-tooltip id="tt" text="Plain tip" :hover-delay="0"><button id="tt-btn" class="border px-2">Hover A</button></es-tooltip>
+    <es-tooltip id="tt-slot" :hover-delay="0" side="bottom"><button id="tt-slot-btn" class="border px-2">Hover B</button><span slot="content" id="tt-content">Rich tip for {{ who }}</span></es-tooltip>
+    <es-tooltip id="tt-dis" text="Never" disabled :hover-delay="0"><button id="tt-dis-btn" class="border px-2">Hover C</button></es-tooltip>
+    <es-tooltip id="tt-es" text="On es-button" :hover-delay="0"><es-button id="tt-es-btn" label="Hover D"></es-button></es-tooltip>
+    <es-tooltip-provider id="tp" :hover-delay="0">
+      <es-tooltip id="tp-a" text="Group tip A"><button id="tp-a-btn" class="border px-2">Group A</button></es-tooltip>
+      <es-tooltip id="tp-b" text="Group tip B"><button id="tp-b-btn" class="border px-2">Group B</button></es-tooltip>
+    </es-tooltip-provider>
+  </section>
+
+  <!-- ===== es-item-list-row ===== -->
+  <section id="s-row" class="w-64">
+    <es-item-list-row id="ir" size="md"><span slot="prefix" id="ir-pre">◆</span>Row {{ who }}<span slot="suffix" id="ir-suf">3</span></es-item-list-row>
+    <es-item-list-row id="ir-active" active><span slot="label" id="ir-label">Label slot</span></es-item-list-row>
+    <es-item-list-row id="ir-btn" as="button" @click="log.push('row-click')">Clickable</es-item-list-row>
+    <es-item-list-row id="ir-dis" disabled>Disabled row</es-item-list-row>
+  </section>
+
+  <!-- ===== es-tree ===== -->
+  <section id="s-tree" class="w-72">
+    <es-tree id="tree" :nodes="nodes" :expanded="expanded" @update:expanded="expanded = $event.detail[0]" draggable
+      @drag-end="dragged = $event.detail[0] && ($event.detail[0].node.key + ':' + $event.detail[0].position + ':' + $event.detail[0].to)">
+      <span slot="item-suffix" class="tree-suf">•</span>
+    </es-tree>
+    <es-tree id="tree-empty" :nodes="emptyNodes"><span slot="empty" id="tree-empty-msg">Nothing here, {{ who }}</span></es-tree>
+  </section>
+</div>
+<script>addEventListener('DOMContentLoaded', () => PetiteVue.createApp().mount('#app'))</script>
+</body></html>

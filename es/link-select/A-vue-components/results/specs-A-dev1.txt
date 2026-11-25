@@ -1,0 +1,564 @@
+
+Running 26 tests using 1 worker
+
+  ✘   1 playwright/tests/control_dynamic_link.spec.js:90:6 › Dynamic Link › Creating a dynamic link by passing option as function and verifying it in a dialog (24.7s)
+  ✘   2 playwright/tests/control_dynamic_link.spec.js:103:6 › Dynamic Link › Creating a dynamic link and verifying it in a dialog (22.8s)
+  ✘   3 playwright/tests/control_dynamic_link.spec.js:113:6 › Dynamic Link › Shows dynamic link options in list filters (22.2s)
+  ✘   4 playwright/tests/control_dynamic_link.spec.js:123:6 › Dynamic Link › Shows dynamic link options in new form (22.2s)
+  ✘   5 playwright/tests/control_dynamic_link.spec.js:138:6 › Dynamic Link › Shows error when invalid DocType is passed (22.2s)
+  ✓   6 playwright/tests/control_link_combobox.spec.js:53:6 › Control Link (combobox) › picks a row, clears it, and is driven from the keyboard (7.0s)
+  ✓   7 playwright/tests/control_link_combobox.spec.js:96:6 › Control Link (combobox) › Select mode lists everything without a search box and jumps by letter (3.2s)
+  ✓   8 playwright/tests/control_link_combobox.spec.js:119:6 › Control Link (combobox) › pages a long list on scroll, and map_options groups the rows (3.5s)
+  ✘   9 playwright/tests/control_link.spec.js:113:6 › Control Link › should set the valid value (26.6s)
+  ✘  10 playwright/tests/control_link.spec.js:135:6 › Control Link › should unset invalid value (25.0s)
+  ✘  11 playwright/tests/control_link.spec.js:146:6 › Control Link › should keep typed text when the window loses focus (24.8s)
+  ✘  12 playwright/tests/control_link.spec.js:167:6 › Control Link › should show the results again when the window regains focus (24.9s)
+  ✘  13 playwright/tests/control_link.spec.js:183:6 › Control Link › should be possible set empty value explicitly (24.9s)
+  ✘  14 playwright/tests/control_link.spec.js:195:6 › Control Link › should show open link button (25.0s)
+  ✘  15 playwright/tests/control_link.spec.js:212:6 › Control Link › show title field in link (26.0s)
+  ✘  16 playwright/tests/control_link.spec.js:244:6 › Control Link › should update dependant fields (via fetch_from) (25.2s)
+  ✓  17 playwright/tests/control_link.spec.js:276:6 › Control Link › should set default values (7.3s)
+  ✘  18 playwright/tests/control_link.spec.js:311:6 › Control Link › show translated text for Gender link field with language de with input in de (26.5s)
+  ✘  19 playwright/tests/control_link.spec.js:330:6 › Control Link › show text for Gender link field with language en (26.9s)
+  ✓  20 playwright/tests/control_link.spec.js:344:6 › Control Link › show custom link option (5.4s)
+  ✓  21 playwright/tests/control_link.spec.js:369:6 › Control Link › keeps list format filters when merging link filters (4.0s)
+  ✓  22 playwright/tests/control_link.spec.js:407:6 › Control Link › passes the form to a get_query function (4.3s)
+  ✓  23 playwright/tests/control_link.spec.js:463:6 › Control Link › previews the doc the field holds after its value is set in code (11.2s)
+  ✓  24 playwright/tests/control_link.spec.js:484:6 › Control Link › drops a preview that arrives after the field moved to another doc (8.7s)
+  ✘  25 playwright/tests/control_select.spec.js:9:6 › Control Select › toggles placholder on clicking an option (22.7s)
+  ✓  26 playwright/tests/link_selector.spec.js:13:6 › Link Selector › passes the form to a grid field's get_query function (1.9s)
+
+
+  1) playwright/tests/control_dynamic_link.spec.js:90:6 › Dynamic Link › Creating a dynamic link by passing option as function and verifying it in a dialog 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('[data-fieldname="doc_type"]:not(.search) input:visible').first().locator('..').getByRole('listbox')
+    Expected: visible
+    Timeout: 20000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 20000ms[22m
+    [2m  - waiting for locator('[data-fieldname="doc_type"]:not(.search) input:visible').first().locator('..').getByRole('listbox')[22m
+
+
+       at ../support/desk.js:89
+
+      87 | 			await input.clear();
+      88 | 			await input.focus();
+    > 89 | 			await expect(dropdown).toBeVisible();
+         | 			                       ^
+      90 | 			await input.pressSequentially(value, { delay: 100 });
+      91 | 			await expect(dropdown.locator("div[role='option']").first()).toContainText(value);
+      92 | 			await input.press("Enter");
+        at Desk.fill_field (/home/claude/fb/frappe-bench/apps/frappe/playwright/support/desk.js:89:27)
+        at /home/claude/fb/frappe-bench/apps/frappe/playwright/tests/control_dynamic_link.spec.js:96:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/control_dynamic_link-Dynam-24347-nd-verifying-it-in-a-dialog/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/control_dynamic_link-Dynam-24347-nd-verifying-it-in-a-dialog/error-context.md
+
+  2) playwright/tests/control_dynamic_link.spec.js:103:6 › Dynamic Link › Creating a dynamic link and verifying it in a dialog 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('[data-fieldname="doc_type"]:not(.search) input:visible').first().locator('..').getByRole('listbox')
+    Expected: visible
+    Timeout: 20000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 20000ms[22m
+    [2m  - waiting for locator('[data-fieldname="doc_type"]:not(.search) input:visible').first().locator('..').getByRole('listbox')[22m
+
+
+       at ../support/desk.js:89
+
+      87 | 			await input.clear();
+      88 | 			await input.focus();
+    > 89 | 			await expect(dropdown).toBeVisible();
+         | 			                       ^
+      90 | 			await input.pressSequentially(value, { delay: 100 });
+      91 | 			await expect(dropdown.locator("div[role='option']").first()).toContainText(value);
+      92 | 			await input.press("Enter");
+        at Desk.fill_field (/home/claude/fb/frappe-bench/apps/frappe/playwright/support/desk.js:89:27)
+        at /home/claude/fb/frappe-bench/apps/frappe/playwright/tests/control_dynamic_link.spec.js:106:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/control_dynamic_link-Dynam-2539c-nd-verifying-it-in-a-dialog/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/control_dynamic_link-Dynam-2539c-nd-verifying-it-in-a-dialog/error-context.md
+
+  3) playwright/tests/control_dynamic_link.spec.js:113:6 › Dynamic Link › Shows dynamic link options in list filters 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('[data-fieldname="doc_type"]:not(.search) input:visible').first().locator('..').getByRole('listbox')
+    Expected: visible
+    Timeout: 20000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 20000ms[22m
+    [2m  - waiting for locator('[data-fieldname="doc_type"]:not(.search) input:visible').first().locator('..').getByRole('listbox')[22m
+
+
+       at ../support/desk.js:89
+
+      87 | 			await input.clear();
+      88 | 			await input.focus();
+    > 89 | 			await expect(dropdown).toBeVisible();
+         | 			                       ^
+      90 | 			await input.pressSequentially(value, { delay: 100 });
+      91 | 			await expect(dropdown.locator("div[role='option']").first()).toContainText(value);
+      92 | 			await input.press("Enter");
+        at Desk.fill_field (/home/claude/fb/frappe-bench/apps/frappe/playwright/support/desk.js:89:27)
+        at /home/claude/fb/frappe-bench/apps/frappe/playwright/tests/control_dynamic_link.spec.js:117:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/control_dynamic_link-Dynam-87664-ink-options-in-list-filters/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/control_dynamic_link-Dynam-87664-ink-options-in-list-filters/error-context.md
+
+  4) playwright/tests/control_dynamic_link.spec.js:123:6 › Dynamic Link › Shows dynamic link options in new form 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('[data-fieldname="doc_type"]:not(.search) input:visible').first().locator('..').getByRole('listbox')
+    Expected: visible
+    Timeout: 20000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 20000ms[22m
+    [2m  - waiting for locator('[data-fieldname="doc_type"]:not(.search) input:visible').first().locator('..').getByRole('listbox')[22m
+
+
+       at ../support/desk.js:89
+
+      87 | 			await input.clear();
+      88 | 			await input.focus();
+    > 89 | 			await expect(dropdown).toBeVisible();
+         | 			                       ^
+      90 | 			await input.pressSequentially(value, { delay: 100 });
+      91 | 			await expect(dropdown.locator("div[role='option']").first()).toContainText(value);
+      92 | 			await input.press("Enter");
+        at Desk.fill_field (/home/claude/fb/frappe-bench/apps/frappe/playwright/support/desk.js:89:27)
+        at /home/claude/fb/frappe-bench/apps/frappe/playwright/tests/control_dynamic_link.spec.js:126:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/control_dynamic_link-Dynam-6661c-ic-link-options-in-new-form/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/control_dynamic_link-Dynam-6661c-ic-link-options-in-new-form/error-context.md
+
+  5) playwright/tests/control_dynamic_link.spec.js:138:6 › Dynamic Link › Shows error when invalid DocType is passed 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('[data-fieldname="doc_type"]:not(.search) input:visible').first().locator('..').getByRole('listbox')
+    Expected: visible
+    Timeout: 20000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 20000ms[22m
+    [2m  - waiting for locator('[data-fieldname="doc_type"]:not(.search) input:visible').first().locator('..').getByRole('listbox')[22m
+
+
+       at ../support/desk.js:89
+
+      87 | 			await input.clear();
+      88 | 			await input.focus();
+    > 89 | 			await expect(dropdown).toBeVisible();
+         | 			                       ^
+      90 | 			await input.pressSequentially(value, { delay: 100 });
+      91 | 			await expect(dropdown.locator("div[role='option']").first()).toContainText(value);
+      92 | 			await input.press("Enter");
+        at Desk.fill_field (/home/claude/fb/frappe-bench/apps/frappe/playwright/support/desk.js:89:27)
+        at /home/claude/fb/frappe-bench/apps/frappe/playwright/tests/control_dynamic_link.spec.js:141:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/control_dynamic_link-Dynam-758d5-n-invalid-DocType-is-passed/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/control_dynamic_link-Dynam-758d5-n-invalid-DocType-is-passed/error-context.md
+
+  6) playwright/tests/control_link.spec.js:113:6 › Control Link › should set the valid value ───────
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('.frappe-control[data-fieldname=link] input').locator('..').getByRole('listbox')
+    Expected: visible
+    Timeout: 20000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 20000ms[22m
+    [2m  - waiting for locator('.frappe-control[data-fieldname=link] input').locator('..').getByRole('listbox')[22m
+
+
+      70 | 		const input = page.locator(".frappe-control[data-fieldname=link] input");
+      71 | 		await input.focus();
+    > 72 | 		await expect(get_dropdown(input)).toBeVisible();
+         | 		                                  ^
+      73 | 		return input;
+      74 | 	}
+      75 |
+        at focus_link_input (/home/claude/fb/frappe-bench/apps/frappe/playwright/tests/control_link.spec.js:72:37)
+        at /home/claude/fb/frappe-bench/apps/frappe/playwright/tests/control_link.spec.js:129:17
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/control_link-Control-Link-should-set-the-valid-value/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/control_link-Control-Link-should-set-the-valid-value/error-context.md
+
+  7) playwright/tests/control_link.spec.js:135:6 › Control Link › should unset invalid value ───────
+
+    TimeoutError: page.waitForResponse: Timeout 20000ms exceeded while waiting for event "response"
+
+      89 |
+      90 | 	const wait_for_link_validation = (page) =>
+    > 91 | 		page.waitForResponse((res) =>
+         | 		     ^
+      92 | 			res.url().includes("/api/method/frappe.client.validate_link_and_fetch")
+      93 | 		);
+      94 |
+        at wait_for_link_validation (/home/claude/fb/frappe-bench/apps/frappe/playwright/tests/control_link.spec.js:91:8)
+        at /home/claude/fb/frappe-bench/apps/frappe/playwright/tests/control_link.spec.js:138:21
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('.frappe-control[data-fieldname=link] input').locator('..').getByRole('listbox')
+    Expected: visible
+    Timeout: 20000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 20000ms[22m
+    [2m  - waiting for locator('.frappe-control[data-fieldname=link] input').locator('..').getByRole('listbox')[22m
+
+
+      70 | 		const input = page.locator(".frappe-control[data-fieldname=link] input");
+      71 | 		await input.focus();
+    > 72 | 		await expect(get_dropdown(input)).toBeVisible();
+         | 		                                  ^
+      73 | 		return input;
+      74 | 	}
+      75 |
+        at focus_link_input (/home/claude/fb/frappe-bench/apps/frappe/playwright/tests/control_link.spec.js:72:37)
+        at /home/claude/fb/frappe-bench/apps/frappe/playwright/tests/control_link.spec.js:139:17
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/control_link-Control-Link-should-unset-invalid-value/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/control_link-Control-Link-should-unset-invalid-value/error-context.md
+
+  8) playwright/tests/control_link.spec.js:146:6 › Control Link › should keep typed text when the window loses focus 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('.frappe-control[data-fieldname=link] input').locator('..').getByRole('listbox')
+    Expected: visible
+    Timeout: 20000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 20000ms[22m
+    [2m  - waiting for locator('.frappe-control[data-fieldname=link] input').locator('..').getByRole('listbox')[22m
+
+
+      70 | 		const input = page.locator(".frappe-control[data-fieldname=link] input");
+      71 | 		await input.focus();
+    > 72 | 		await expect(get_dropdown(input)).toBeVisible();
+         | 		                                  ^
+      73 | 		return input;
+      74 | 	}
+      75 |
+        at focus_link_input (/home/claude/fb/frappe-bench/apps/frappe/playwright/tests/control_link.spec.js:72:37)
+        at /home/claude/fb/frappe-bench/apps/frappe/playwright/tests/control_link.spec.js:149:17
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/control_link-Control-Link--fac8c-when-the-window-loses-focus/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/control_link-Control-Link--fac8c-when-the-window-loses-focus/error-context.md
+
+  9) playwright/tests/control_link.spec.js:167:6 › Control Link › should show the results again when the window regains focus 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('.frappe-control[data-fieldname=link] input').locator('..').getByRole('listbox')
+    Expected: visible
+    Timeout: 20000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 20000ms[22m
+    [2m  - waiting for locator('.frappe-control[data-fieldname=link] input').locator('..').getByRole('listbox')[22m
+
+
+      70 | 		const input = page.locator(".frappe-control[data-fieldname=link] input");
+      71 | 		await input.focus();
+    > 72 | 		await expect(get_dropdown(input)).toBeVisible();
+         | 		                                  ^
+      73 | 		return input;
+      74 | 	}
+      75 |
+        at focus_link_input (/home/claude/fb/frappe-bench/apps/frappe/playwright/tests/control_link.spec.js:72:37)
+        at /home/claude/fb/frappe-bench/apps/frappe/playwright/tests/control_link.spec.js:170:17
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/control_link-Control-Link--42959-en-the-window-regains-focus/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/control_link-Control-Link--42959-en-the-window-regains-focus/error-context.md
+
+  10) playwright/tests/control_link.spec.js:183:6 › Control Link › should be possible set empty value explicitly 
+
+    TimeoutError: page.waitForResponse: Timeout 20000ms exceeded while waiting for event "response"
+
+      89 |
+      90 | 	const wait_for_link_validation = (page) =>
+    > 91 | 		page.waitForResponse((res) =>
+         | 		     ^
+      92 | 			res.url().includes("/api/method/frappe.client.validate_link_and_fetch")
+      93 | 		);
+      94 |
+        at wait_for_link_validation (/home/claude/fb/frappe-bench/apps/frappe/playwright/tests/control_link.spec.js:91:8)
+        at /home/claude/fb/frappe-bench/apps/frappe/playwright/tests/control_link.spec.js:186:21
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('.frappe-control[data-fieldname=link] input').locator('..').getByRole('listbox')
+    Expected: visible
+    Timeout: 20000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 20000ms[22m
+    [2m  - waiting for locator('.frappe-control[data-fieldname=link] input').locator('..').getByRole('listbox')[22m
+
+
+      70 | 		const input = page.locator(".frappe-control[data-fieldname=link] input");
+      71 | 		await input.focus();
+    > 72 | 		await expect(get_dropdown(input)).toBeVisible();
+         | 		                                  ^
+      73 | 		return input;
+      74 | 	}
+      75 |
+        at focus_link_input (/home/claude/fb/frappe-bench/apps/frappe/playwright/tests/control_link.spec.js:72:37)
+        at /home/claude/fb/frappe-bench/apps/frappe/playwright/tests/control_link.spec.js:187:17
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/control_link-Control-Link--4693f--set-empty-value-explicitly/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/control_link-Control-Link--4693f--set-empty-value-explicitly/error-context.md
+
+  11) playwright/tests/control_link.spec.js:195:6 › Control Link › should show open link button ────
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('.frappe-control[data-fieldname=link] input').locator('..').getByRole('listbox')
+    Expected: visible
+    Timeout: 20000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 20000ms[22m
+    [2m  - waiting for locator('.frappe-control[data-fieldname=link] input').locator('..').getByRole('listbox')[22m
+
+
+      70 | 		const input = page.locator(".frappe-control[data-fieldname=link] input");
+      71 | 		await input.focus();
+    > 72 | 		await expect(get_dropdown(input)).toBeVisible();
+         | 		                                  ^
+      73 | 		return input;
+      74 | 	}
+      75 |
+        at focus_link_input (/home/claude/fb/frappe-bench/apps/frappe/playwright/tests/control_link.spec.js:72:37)
+        at /home/claude/fb/frappe-bench/apps/frappe/playwright/tests/control_link.spec.js:198:17
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/control_link-Control-Link-should-show-open-link-button/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/control_link-Control-Link-should-show-open-link-button/error-context.md
+
+  12) playwright/tests/control_link.spec.js:212:6 › Control Link › show title field in link ────────
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('.frappe-control[data-fieldname=link] input').locator('..').getByRole('listbox')
+    Expected: visible
+    Timeout: 20000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 20000ms[22m
+    [2m  - waiting for locator('.frappe-control[data-fieldname=link] input').locator('..').getByRole('listbox')[22m
+
+
+      70 | 		const input = page.locator(".frappe-control[data-fieldname=link] input");
+      71 | 		await input.focus();
+    > 72 | 		await expect(get_dropdown(input)).toBeVisible();
+         | 		                                  ^
+      73 | 		return input;
+      74 | 	}
+      75 |
+        at focus_link_input (/home/claude/fb/frappe-bench/apps/frappe/playwright/tests/control_link.spec.js:72:37)
+        at /home/claude/fb/frappe-bench/apps/frappe/playwright/tests/control_link.spec.js:234:17
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/control_link-Control-Link-show-title-field-in-link/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/control_link-Control-Link-show-title-field-in-link/error-context.md
+
+  13) playwright/tests/control_link.spec.js:244:6 › Control Link › should update dependant fields (via fetch_from) 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('[data-fieldname="assigned_by"]:not(.search) input:visible').first().locator('..').getByRole('listbox')
+    Expected: visible
+    Timeout: 20000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 20000ms[22m
+    [2m  - waiting for locator('[data-fieldname="assigned_by"]:not(.search) input:visible').first().locator('..').getByRole('listbox')[22m
+
+
+       at ../support/desk.js:89
+
+      87 | 			await input.clear();
+      88 | 			await input.focus();
+    > 89 | 			await expect(dropdown).toBeVisible();
+         | 			                       ^
+      90 | 			await input.pressSequentially(value, { delay: 100 });
+      91 | 			await expect(dropdown.locator("div[role='option']").first()).toContainText(value);
+      92 | 			await input.press("Enter");
+        at Desk.fill_field (/home/claude/fb/frappe-bench/apps/frappe/playwright/support/desk.js:89:27)
+        at /home/claude/fb/frappe-bench/apps/frappe/playwright/tests/control_link.spec.js:251:17
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/control_link-Control-Link--cec2a-dant-fields-via-fetch-from-/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/control_link-Control-Link--cec2a-dant-fields-via-fetch-from-/error-context.md
+
+  14) playwright/tests/control_link.spec.js:311:6 › Control Link › show translated text for Gender link field with language de with input in de 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('.frappe-control[data-fieldname=link] input').locator('..').getByRole('listbox')
+    Expected: visible
+    Timeout: 20000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 20000ms[22m
+    [2m  - waiting for locator('.frappe-control[data-fieldname=link] input').locator('..').getByRole('listbox')[22m
+
+
+      70 | 		const input = page.locator(".frappe-control[data-fieldname=link] input");
+      71 | 		await input.focus();
+    > 72 | 		await expect(get_dropdown(input)).toBeVisible();
+         | 		                                  ^
+      73 | 		return input;
+      74 | 	}
+      75 |
+        at focus_link_input (/home/claude/fb/frappe-bench/apps/frappe/playwright/tests/control_link.spec.js:72:37)
+        at /home/claude/fb/frappe-bench/apps/frappe/playwright/tests/control_link.spec.js:322:17
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/control_link-Control-Link--c8124-anguage-de-with-input-in-de/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/control_link-Control-Link--c8124-anguage-de-with-input-in-de/error-context.md
+
+  15) playwright/tests/control_link.spec.js:330:6 › Control Link › show text for Gender link field with language en 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('.frappe-control[data-fieldname=link] input').locator('..').getByRole('listbox')
+    Expected: visible
+    Timeout: 20000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 20000ms[22m
+    [2m  - waiting for locator('.frappe-control[data-fieldname=link] input').locator('..').getByRole('listbox')[22m
+
+
+      70 | 		const input = page.locator(".frappe-control[data-fieldname=link] input");
+      71 | 		await input.focus();
+    > 72 | 		await expect(get_dropdown(input)).toBeVisible();
+         | 		                                  ^
+      73 | 		return input;
+      74 | 	}
+      75 |
+        at focus_link_input (/home/claude/fb/frappe-bench/apps/frappe/playwright/tests/control_link.spec.js:72:37)
+        at /home/claude/fb/frappe-bench/apps/frappe/playwright/tests/control_link.spec.js:336:17
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/control_link-Control-Link--359b2-link-field-with-language-en/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/control_link-Control-Link--359b2-link-field-with-language-en/error-context.md
+
+  16) playwright/tests/control_select.spec.js:9:6 › Control Select › toggles placholder on clicking an option 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeAttached[2m([22m[2m)[22m failed
+
+    Locator: locator('.frappe-control[data-fieldname=select_control] .control-input').locator('.select-icon')
+    Expected: attached
+    Timeout: 20000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeAttached" with timeout 20000ms[22m
+    [2m  - waiting for locator('.frappe-control[data-fieldname=select_control] .control-input').locator('.select-icon')[22m
+
+
+      26 | 		const placeholder = control.locator(".placeholder");
+      27 |
+    > 28 | 		await expect(control.locator(".select-icon")).toBeAttached();
+         | 		                                              ^
+      29 | 		await expect(placeholder).toHaveCSS("display", "block");
+      30 | 		await select.selectOption("Option 1");
+      31 | 		await expect(select).toHaveValue("Option 1");
+        at /home/claude/fb/frappe-bench/apps/frappe/playwright/tests/control_select.spec.js:28:49
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/control_select-Control-Sel-ce8e4-older-on-clicking-an-option/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/control_select-Control-Sel-ce8e4-older-on-clicking-an-option/error-context.md
+
+  16 failed
+    playwright/tests/control_dynamic_link.spec.js:90:6 › Dynamic Link › Creating a dynamic link by passing option as function and verifying it in a dialog 
+    playwright/tests/control_dynamic_link.spec.js:103:6 › Dynamic Link › Creating a dynamic link and verifying it in a dialog 
+    playwright/tests/control_dynamic_link.spec.js:113:6 › Dynamic Link › Shows dynamic link options in list filters 
+    playwright/tests/control_dynamic_link.spec.js:123:6 › Dynamic Link › Shows dynamic link options in new form 
+    playwright/tests/control_dynamic_link.spec.js:138:6 › Dynamic Link › Shows error when invalid DocType is passed 
+    playwright/tests/control_link.spec.js:113:6 › Control Link › should set the valid value ────────
+    playwright/tests/control_link.spec.js:135:6 › Control Link › should unset invalid value ────────
+    playwright/tests/control_link.spec.js:146:6 › Control Link › should keep typed text when the window loses focus 
+    playwright/tests/control_link.spec.js:167:6 › Control Link › should show the results again when the window regains focus 
+    playwright/tests/control_link.spec.js:183:6 › Control Link › should be possible set empty value explicitly 
+    playwright/tests/control_link.spec.js:195:6 › Control Link › should show open link button ──────
+    playwright/tests/control_link.spec.js:212:6 › Control Link › show title field in link ──────────
+    playwright/tests/control_link.spec.js:244:6 › Control Link › should update dependant fields (via fetch_from) 
+    playwright/tests/control_link.spec.js:311:6 › Control Link › show translated text for Gender link field with language de with input in de 
+    playwright/tests/control_link.spec.js:330:6 › Control Link › show text for Gender link field with language en 
+    playwright/tests/control_select.spec.js:9:6 › Control Select › toggles placholder on clicking an option 
+  10 passed (8.2m)

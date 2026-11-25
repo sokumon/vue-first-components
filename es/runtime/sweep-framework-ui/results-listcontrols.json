@@ -1,0 +1,258 @@
+{
+ "page": "listcontrols.html",
+ "fails": 0,
+ "n": 43,
+ "results": [
+  {
+   "tag": "es-fw-list-view-shell",
+   "k": "meta fetched via getdoctype (ToDo once + Nope once)",
+   "ok": true,
+   "extra": "ToDo,Nope"
+  },
+  {
+   "tag": "es-fw-list-view-shell",
+   "k": "shell default table slot from meta",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-list-view-shell",
+   "k": "shell named slot toolbar placed in toolbar region",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-list-view-shell",
+   "k": "shell footer slot bound + placed",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-list-view-shell",
+   "k": "shell custom #table slot replaces default",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-list-view-shell",
+   "k": "shell missing doctype -> error text",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-sort-by",
+   "k": "SortBy offers meta fields",
+   "ok": true,
+   "extra": "Status|Priority|Due Date|Allocated To|Description|Hours|Done|Name|Created On|Last Modified|Modified By|Owner"
+  },
+  {
+   "tag": "es-fw-sort-by",
+   "k": "SortBy add -> v-model",
+   "ok": true,
+   "extra": "[{\"fieldname\":\"priority\",\"direction\":\"asc\"}]"
+  },
+  {
+   "tag": "es-fw-sort-by",
+   "k": "SortBy trigger reflects sort",
+   "ok": true,
+   "extra": "Priority"
+  },
+  {
+   "tag": "es-fw-sort-by",
+   "k": "footer slot reacts (1 sorts)",
+   "ok": true,
+   "extra": "0 filters · 1 sorts"
+  },
+  {
+   "tag": "es-fw-filter",
+   "k": "Filter offers meta fields",
+   "ok": true,
+   "extra": "Name|Created By|Last Updated By|Tags|Like|Assigned To|Created On|Last Updated On|Status|Priority|Due Date|Allocated To|Description|Hours|Done"
+  },
+  {
+   "tag": "es-fw-filter",
+   "k": "Filter add -> v-model",
+   "ok": true,
+   "extra": "[{\"field\":{\"label\":\"Status\",\"value\":\"status\",\"fieldname\":\"status\",\"fieldtype\":\"Select\",\"options\":\"Open\\nClosed\\nCancelled\"},\"fieldname\":\"status\",\"operator\":\"equals\",\"value\":\"Open\"}]"
+  },
+  {
+   "tag": "es-fw-filter",
+   "k": "Filter popover opens with a Where row",
+   "ok": true,
+   "extra": "Where Status Equals Open Add Filter Clear All Filters"
+  },
+  {
+   "tag": "es-fw-filter",
+   "k": "Filter value -> v-model",
+   "ok": true,
+   "extra": "[{\"field\":{\"label\":\"Status\",\"value\":\"status\",\"fieldname\":\"status\",\"fieldtype\":\"Select\",\"options\":\"Open\\nClosed\\nCancelled\"},\"fieldname\":\"status\",\"operator\":\"equals\",\"value\":\"Closed\"}]"
+  },
+  {
+   "tag": "es-fw-filter",
+   "k": "Filter count badge",
+   "ok": true,
+   "extra": "Filter 1"
+  },
+  {
+   "tag": "es-fw-quick-filter",
+   "k": "QuickFilter shares filters (Status quick input shows Closed)",
+   "ok": true,
+   "extra": "≈ Closed Priority Show less"
+  },
+  {
+   "tag": "es-fw-quick-filter",
+   "k": "QuickFilter input -> filters v-model",
+   "ok": true,
+   "extra": "[{\"field\":{\"label\":\"Status\",\"value\":\"status\",\"fieldname\":\"status\",\"fieldtype\":\"Select\",\"options\":\"Open\\nClosed\\nCancelled\"},\"fieldname\":\"status\",\"operator\":\"equals\",\"value\":\"Closed\"},{\"field\":{\"label\":\"Name\",\"value\":\"name\",\"fieldname\":\"name\",\"fieldtype\":\"Link\",\"options\":\"ToDo\"},\"fieldname\":\"name\",\"o"
+  },
+  {
+   "tag": "es-fw-filter",
+   "k": "Filter clear all",
+   "ok": true,
+   "extra": "[]"
+  },
+  {
+   "tag": "es-fw-group-by",
+   "k": "GroupBy popover opens",
+   "ok": true,
+   "extra": "Group By Add Group By Aggregate Count Add Aggregate Show totals Clear Grouping Apply"
+  },
+  {
+   "tag": "es-fw-group-by",
+   "k": "GroupBy apply -> v-model",
+   "ok": true,
+   "extra": "{\"fields\":[\"docstatus\"],\"aggregates\":[{\"function\":\"count\"}]}"
+  },
+  {
+   "tag": "es-fw-column-settings",
+   "k": "ColumnSettings popover lists columns",
+   "ok": true,
+   "extra": "Status,Priority"
+  },
+  {
+   "tag": "es-fw-column-settings",
+   "k": "ColumnSettings rename (click, type, Enter)",
+   "ok": true,
+   "extra": "[\"State\",\"Priority\"]"
+  },
+  {
+   "tag": "es-fw-column-settings",
+   "k": "ColumnSettings drag reorder (sortablejs)",
+   "ok": true,
+   "extra": "[\"priority\",\"status\"]"
+  },
+  {
+   "tag": "es-fw-column-settings",
+   "k": "ColumnSettings add column",
+   "ok": true,
+   "extra": "[\"priority\",\"status\",\"date\"]"
+  },
+  {
+   "tag": "es-fw-column-settings",
+   "k": "ColumnSettings remove column",
+   "ok": true,
+   "extra": "[\"status\",\"date\"]"
+  },
+  {
+   "tag": "es-fw-column-settings",
+   "k": "ColumnSettings reset emits",
+   "ok": true,
+   "extra": "1"
+  },
+  {
+   "tag": "es-fw-column-settings",
+   "k": "Escape closed popover",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-quick-filter",
+   "k": "QuickFilter customizing view",
+   "ok": true,
+   "extra": "Name Status Priority Allocated To Add Filter Done"
+  },
+  {
+   "tag": "es-fw-quick-filter",
+   "k": "QuickFilter Done -> done event + customizing=false",
+   "ok": true,
+   "extra": "[1,false]"
+  },
+  {
+   "tag": "es-fw-quick-filter",
+   "k": "no page errors in core scenarios",
+   "ok": true,
+   "extra": ""
+  },
+  {
+   "tag": "es-fw-list-view-shell",
+   "k": "nested es-fw-filter is a Vue descendant of ListViewShell (one tree)",
+   "ok": true,
+   "extra": "Filter<EsNode<EsSlotOutlet<ListViewShell<EsNode<EsBucket<EsGroup<EsRoot"
+  },
+  {
+   "tag": "es-fw-list-view-shell",
+   "k": "es-fw-sort-by appended into the toolbar slot node renders",
+   "ok": true,
+   "extra": "Sort"
+  },
+  {
+   "tag": "es-fw-list-view-shell",
+   "k": "appended sort-by opens and lists meta fields (shell meta cache shared)",
+   "ok": true,
+   "extra": "Status|Priority|Due Date|Allocated To|Description|Hours|Done|Name|Created On|Last Modified|Modified By|Owner"
+  },
+  {
+   "tag": "es-fw-list-view-shell",
+   "k": ".remove() the appended control",
+   "ok": true,
+   "extra": ""
+  },
+  {
+   "tag": "es-fw-list-view-shell",
+   "k": ".detach().appendTo() whole shell: toolbar + footer kept",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-list-view-shell",
+   "k": "sort-by still drives update:modelValue after the move",
+   "ok": true,
+   "extra": "[{\"fieldname\":\"priority\",\"direction\":\"asc\"}] -> [{\"fieldname\":\"priority\",\"direction\":\"desc\"}]"
+  },
+  {
+   "tag": "es-fw-list-view-shell",
+   "k": ".html() on a slot node stays in place",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-list-view-shell",
+   "k": ".html() on a host with a new named slot child: remount shows it",
+   "ok": true,
+   "extra": "second table"
+  },
+  {
+   "tag": "es-fw-list-view-shell",
+   "k": ".clone() + .attr(doctype) renders the default table from meta",
+   "ok": true,
+   "extra": "Status Priority Due Date 7 fields in meta"
+  },
+  {
+   "tag": "es-fw-list-view-shell",
+   "k": ".remove() whole shell (nested elements unmount too, no errors)",
+   "ok": true,
+   "extra": ""
+  },
+  {
+   "tag": "es-fw-filter",
+   "k": "standalone filter with .prop(modelValue) shows count 1",
+   "ok": true,
+   "extra": "Filter 1"
+  },
+  {
+   "tag": "es-fw-filter",
+   "k": "popover opens with the given row",
+   "ok": true,
+   "extra": "Where Status Equals Add Filter Clear All Filters"
+  },
+  {
+   "tag": "es-fw-filter",
+   "k": ".remove() while popover open closes it",
+   "ok": true,
+   "extra": ""
+  }
+ ],
+ "errs": []
+}

@@ -1,0 +1,27 @@
+# legacy vs V-final
+
+| class | differences |
+|---|---:|
+| behaviour | 0 |
+| api | 0 |
+| structure | 0 |
+| events | 1 |
+| requests | 1 |
+| errors | 0 |
+
+| flow | A ms | B ms |
+|---|---:|---:|
+| v5.form_todo | 40027 | 40008 |
+| v5.form_user_titles | 7827 | 7803 |
+| v5.dialog | 17940 | 18087 |
+| v5.grid_workflow | 11442 | 11614 |
+| v5.quick_entry | 5916 | 5943 |
+| v5.standalone | 5819 | 6024 |
+| v5.translation | 5197 | 5575 |
+| v5.web_form | 4730 | 4815 |
+| erp.sales_invoice | 18127 | 18586 |
+| erp.stock_entry | 17206 | 16930 |
+
+## Differences (structure and requests counted only; --all lists them)
+
+- [events] erp.stock_entry / warehouse-get_query: ["stock_entry_type:select-change","stock_entry_type:change","stock_entry_type:blur","from_warehouse:select-change","from_warehouse:focus","from_warehouse:awe... -> ["stock_entry_type:select-change","stock_entry_type:change","stock_entry_type:blur","from_warehouse:select-change","from_warehouse:focus","from_warehouse:awe...

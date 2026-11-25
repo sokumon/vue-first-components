@@ -1,0 +1,50 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="/dist/es-ui.css">
+<link rel="stylesheet" href="page.css">
+<script src="/jquery.js"></script>
+<script src="/dist/es-ui.iife.js"></script>
+</head><body class="p-6">
+<!-- jQuery port of wc/sweep/framework-ui/pages/formlayout.html -->
+<pre id="state" class="text-xs"></pre>
+<div id="app"></div>
+<div id="desk" class="border-t mt-4 pt-4"></div>
+<script>
+$(function () {
+  const S = window.S = { doc: { subject: 'Fix bug', status: 'Open', reason: '', done: 0, items: [] }, tab: '', active: '', log: [], docEvents: 0 }
+  window.LAYOUT = () => [
+    { name: 'details', label: 'Details', sections: [
+      { name: 's1', label: 'Main', columns: [
+        { fields: [
+          { fieldname: 'subject', fieldtype: 'Data', label: 'Subject', reqd: true },
+          { fieldname: 'status', fieldtype: 'Select', label: 'Status', options: 'Open\nClosed' },
+        ] },
+        { fields: [
+          { fieldname: 'reason', fieldtype: 'Data', label: 'Close reason', dependsOn: "eval:doc.status=='Closed'" },
+          { fieldname: 'done', fieldtype: 'Check', label: 'Done', ui: { on: { change: (v) => window.__commits = (window.__commits || []).concat([v]) } } },
+        ] },
+      ] },
+    ] },
+    { name: 'more', label: 'More', sections: [
+      { name: 's2', label: 'Items', columns: [{ fields: [
+        { fieldname: 'items', fieldtype: 'Table', label: 'Items', options: 'Row', childFields: [{ fieldname: 'item', fieldtype: 'Data', label: 'Item', in_list_view: 1 }] },
+      ] }] },
+    ] },
+  ]
+  const show = () => $('#state').text(JSON.stringify({ doc: S.doc, tab: S.tab, active: S.active, log: S.log }))
+  const own = ($el, ev, fn) => $el.on(ev, function (e) { if (e.target === e.currentTarget) { fn(e.originalEvent.detail, e); show() } })
+  window.own = own; window.show = show
+  const $f = $('<es-fw-form-layout id="c-form"></es-fw-form-layout>').prop('layout', LAYOUT()).prop('doc', S.doc)
+  own($f, 'update:doc', (v) => { S.doc = v; S.docEvents++ })
+  own($f, 'update:tab', (v) => { S.tab = v })
+  own($f, 'update:activeTab', (v, e) => { S.active = v; S.log.push('at:' + v + ':' + e.type) })
+  // field edits inside the form mutate the doc in place: re-read on any input/change inside (Desk-style delegated handler)
+  $f.on('input change click', () => setTimeout(show))
+  $f.appendTo('#app')
+  $('<button id="set-subject" class="border px-2">host mutates doc.subject</button>').on('click', () => { S.doc.subject = 'From host'; $('#c-form').prop('doc', S.doc); show() }).appendTo('#app')
+  $('<button id="replace-doc" class="border px-2">host replaces doc</button>').on('click', () => { S.doc = Object.assign({}, S.doc, { subject: 'Replaced' }); $('#c-form').prop('doc', S.doc); show() }).appendTo('#app')
+  $('<button id="go-more" class="border px-2">host selects tab More</button>').on('click', () => $('#c-form').prop('tab', 'more')).appendTo('#app')
+  show()
+  window.READY = true
+})
+</script>
+</body></html>

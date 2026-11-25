@@ -1,0 +1,27 @@
+{
+ "label": "J-B2",
+ "jquery Link": {
+  "made_kb": 24923,
+  "kept_kb_0.5s": 1562,
+  "kept_kb_5s": 1562,
+  "kept_kb_15s": 1580
+ },
+ "jquery Select": {
+  "made_kb": 37820,
+  "kept_kb_0.5s": 961,
+  "kept_kb_5s": 966,
+  "kept_kb_15s": 966
+ },
+ "native Link": {
+  "made_kb": 22930,
+  "kept_kb_0.5s": -507,
+  "kept_kb_5s": -507,
+  "kept_kb_15s": -521
+ },
+ "native Select": {
+  "made_kb": 37117,
+  "kept_kb_0.5s": 196,
+  "kept_kb_5s": 197,
+  "kept_kb_15s": 193
+ }
+}

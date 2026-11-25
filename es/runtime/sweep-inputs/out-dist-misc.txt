@@ -1,0 +1,25 @@
+FAIL file-uploader default Upload button + accept from JSON array attr :: [".txt", ".png"]
+PASS file-uploader uploads and emits success with data :: {"uploaded":{"file_url":"/files/small.txt","name":"F-1"},"failed":"","up2":null,"up3":null,"txt":"hello","sel":"b","chk":false,"area":"x","who":"Ada","progress":[0]} reqs=1
+PASS file-uploader data-state=success
+PASS validateFile fn prop (.prop(name, () => fn)) -> failure event + error message :: "Too big: tmp-big.txt" / Upload File / Too big: tmp-big.txt
+PASS custom default slot replaces Upload button :: Attach for Ada
+PASS custom slot opens file chooser via host-side input lookup (jQuery)
+PASS custom slot upload emits success :: {"file_url":"/files/small.txt","name":"F-1"}
+PASS <template> default slot stamped with scope (data-es-text) :: Pick false 0
+PASS scoped openFileSelector() from es-slot detail opens chooser (was unreachable per-element)
+PASS template-slot upload emits success, progress seen via es-slot updates :: {"up3":{"file_url":"/files/small.txt","name":"F-1"},"progress":[0,0,0,0]}
+PASS form-control label + description render :: Text / P /  / fc desc
+FAIL form-control text: .prop(esAttrs,{modelValue}) reaches input :: 
+PASS form-control prefix slot forwarded
+FAIL form-control text: update:modelValue reaches host .on() :: {"uploaded":{"file_url":"/files/small.txt","name":"F-1"},"failed":"Too big: tmp-big.txt","up2":{"file_url":"/files/small.txt","name":"F-1"},"up3":{"file_url":"/files/small.txt","name":"F-1"},"txt":"hello","sel":"b","chk":false,"area":"x","w
+FAIL form-control select: options + model shown :: Select / Select option
+  click [role=option]:has-text("A") page.click: Timeout 3000ms exceeded.
+FAIL form-control select: model :: {"uploaded":{"file_url":"/files/small.txt","name":"F-1"},"failed":"Too big: tmp-big.txt","up2":{"file_url":"/files/small.txt","name":"F-1"},"up3":{"file_url":"/files/small.txt","name":"F-1"},"txt":"hello","sel":"b","chk":false,"area":"x","w
+PASS form-control checkbox starts unchecked
+  click #fc-chk input page.click: Timeout 3000ms exceeded.
+FAIL form-control checkbox model :: {"uploaded":{"file_url":"/files/small.txt","name":"F-1"},"failed":"Too big: tmp-big.txt","up2":{"file_url":"/files/small.txt","name":"F-1"},"up3":{"file_url":"/files/small.txt","name":"F-1"},"txt":"hello","sel":"b","chk":false,"area":"x","w
+FAIL form-control textarea model :: {"uploaded":{"file_url":"/files/small.txt","name":"F-1"},"failed":"Too big: tmp-big.txt","up2":{"file_url":"/files/small.txt","name":"F-1"},"up3":{"file_url":"/files/small.txt","name":"F-1"},"txt":"hello","sel":"b","chk":false,"area":"x","w
+PASS [component] esAttrs set after mount is not forwarded by FormControl (untracked for..in over attrs; same in plain Vue) :: ""
+PASS form-control type=number passes through + placeholder attr
+console errors/warnings: 0
+7 FAILED of 21

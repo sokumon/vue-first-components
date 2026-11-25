@@ -1,0 +1,534 @@
+
+Running 156 tests using 1 worker
+
+  ✓    1 playwright/tests/client_script.spec.js:28:6 › Client Script › should run form script in doctype form (2.4s)
+  ✓    2 playwright/tests/client_script.spec.js:45:6 › Client Script › should run list script in doctype list view (2.3s)
+  ✓    3 playwright/tests/client_script.spec.js:62:6 › Client Script › should not run disabled scripts (2.4s)
+  ✓    4 playwright/tests/client_script.spec.js:81:6 › Client Script › should run multiple scripts (2.6s)
+  ✓    5 playwright/tests/control_attach.spec.js:67:6 › Attach Control › Checking functionality for "Link" button in the "Attach" fieldtype (5.0s)
+  ✓    6 playwright/tests/control_attach.spec.js:85:6 › Attach Control › Checking functionality for "Library" button in the "Attach" fieldtype (8.0s)
+  ✓    7 playwright/tests/control_attach.spec.js:114:6 › Attach Control › Checking that "Camera" button in the "Attach" fieldtype does show if camera is available (2.1s)
+  ✓    8 playwright/tests/control_attach.spec.js:131:6 › Attach Control › Checking that "Camera" button in the "Attach" fieldtype does not show if no camera is available (2.2s)
+  ✓    9 playwright/tests/control_attach.spec.js:173:6 › Attach Control with Failed Document Save › Attaching a file on an unsaved document (3.6s)
+  ✓   10 playwright/tests/control_attach.spec.js:196:6 › Attach Control with Failed Document Save › Check if file was uploaded correctly (4.2s)
+  ✓   11 playwright/tests/control_attach.spec.js:227:6 › Attach Control with Failed Document Save › Check if file exists with temporary name (1.6s)
+  ✓   12 playwright/tests/control_attach.spec.js:270:6 › Attach Control in a Child Table Row › keeps the row open after uploading and clearing a file (4.1s)
+  ✓   13 playwright/tests/control_autocomplete_combobox.spec.js:32:6 › Control Autocomplete (combobox) › keeps free text when it is allowed, and drops it when the list is the rule (4.7s)
+  ✘   14 playwright/tests/control_autocomplete.spec.js:29:6 › Control Autocomplete › should set the valid value (32.3s)
+  ✘   15 playwright/tests/control_autocomplete.spec.js:46:6 › Control Autocomplete › should set the valid value with different label (35.9s)
+  ✘   16 playwright/tests/control_autocomplete.spec.js:62:6 › Control Autocomplete › should keep typed text when the window loses focus (32.2s)
+  ✘   17 playwright/tests/control_autocomplete.spec.js:80:6 › Control Autocomplete › should keep the set value when options share a label (34.6s)
+  ✓   18 playwright/tests/control_autocomplete.spec.js:93:6 › Control Autocomplete › passes the form to a get_query function (2.1s)
+  ✓   19 playwright/tests/control_barcode.spec.js:22:6 › Control Barcode › should generate barcode on setting a value (2.8s)
+  ✓   20 playwright/tests/control_barcode.spec.js:36:6 › Control Barcode › should reset when input is cleared (2.6s)
+  ✓   21 playwright/tests/control_color.spec.js:9:6 › Control Color › Verifying if the color control is selecting correct (3.0s)
+  ✓   22 playwright/tests/control_color.spec.js:57:6 › Control Color › closes the picker when tabbing to the next field (2.8s)
+  ✓   23 playwright/tests/control_currency.spec.js:51:6 › Control Currency › check value changes (5.1s)
+  ✓   24 playwright/tests/control_data.spec.js:62:6 › Data Control › check custom formatters (2.2s)
+  ✓   25 playwright/tests/control_data.spec.js:72:6 › Data Control › Verifying data control by inputting different patterns for "Name" field (9.0s)
+  ✓   26 playwright/tests/control_data.spec.js:99:6 › Data Control › Verifying data control by inputting different patterns for "Email" field (6.1s)
+  ✓   27 playwright/tests/control_data.spec.js:116:6 › Data Control › Verifying data control by inputting different patterns for "Phone" field (4.0s)
+  ✓   28 playwright/tests/control_data.spec.js:127:6 › Data Control › Inputting correct data and saving the doc (4.5s)
+  ✓   29 playwright/tests/control_data.spec.js:143:6 › Data Control › Deleting the doc (2.5s)
+  ✘   30 playwright/tests/control_date_range.spec.js:4:6 › Date Range Control › Selecting a date range from the datepicker (32.3s)
+  ✘   31 playwright/tests/control_date.spec.js:29:6 › Date Control › Selecting a date from the datepicker & check prev & next button (35.9s)
+  ✘   32 playwright/tests/control_date.spec.js:58:6 › Date Control › Clicking on "Today" button gives todays date (32.4s)
+  ✓   33 playwright/tests/control_duration.spec.js:23:6 › Control Duration › should set duration (3.2s)
+  ✓   34 playwright/tests/control_duration.spec.js:44:6 › Control Duration › should hide days or seconds according to duration options (2.6s)
+  ✓   35 playwright/tests/control_dynamic_link.spec.js:90:6 › Dynamic Link › Creating a dynamic link by passing option as function and verifying it in a dialog (3.4s)
+  ✓   36 playwright/tests/control_dynamic_link.spec.js:103:6 › Dynamic Link › Creating a dynamic link and verifying it in a dialog (3.3s)
+  ✓   37 playwright/tests/control_dynamic_link.spec.js:113:6 › Dynamic Link › Shows dynamic link options in list filters (2.6s)
+  ✓   38 playwright/tests/control_dynamic_link.spec.js:123:6 › Dynamic Link › Shows dynamic link options in new form (2.8s)
+  ✓   39 playwright/tests/control_dynamic_link.spec.js:138:6 › Dynamic Link › Shows error when invalid DocType is passed (5.2s)
+  ✓   40 playwright/tests/control_float.spec.js:62:6 › Control Float › check value changes (5.2s)
+  ✓   41 playwright/tests/control_icon.spec.js:25:6 › Control Icon › should set icon (3.7s)
+  ✓   42 playwright/tests/control_icon.spec.js:38:6 › Control Icon › search for icon and clear search input (4.4s)
+  ✓   43 playwright/tests/control_icon.spec.js:60:6 › Control Icon › closes the picker when tabbing to the next field (3.8s)
+  ✓   44 playwright/tests/control_link_combobox.spec.js:53:6 › Control Link (combobox) › picks a row, clears it, and is driven from the keyboard (7.5s)
+  ✓   45 playwright/tests/control_link_combobox.spec.js:96:6 › Control Link (combobox) › Select mode lists everything without a search box and jumps by letter (3.4s)
+  ✓   46 playwright/tests/control_link_combobox.spec.js:119:6 › Control Link (combobox) › pages a long list on scroll, and map_options groups the rows (3.5s)
+  ✓   47 playwright/tests/control_link.spec.js:113:6 › Control Link › should set the valid value (8.0s)
+  ✓   48 playwright/tests/control_link.spec.js:135:6 › Control Link › should unset invalid value (5.8s)
+  ✓   49 playwright/tests/control_link.spec.js:146:6 › Control Link › should keep typed text when the window loses focus (5.8s)
+  ✓   50 playwright/tests/control_link.spec.js:167:6 › Control Link › should show the results again when the window regains focus (5.8s)
+  ✓   51 playwright/tests/control_link.spec.js:183:6 › Control Link › should be possible set empty value explicitly (4.5s)
+  ✓   52 playwright/tests/control_link.spec.js:195:6 › Control Link › should show open link button (5.6s)
+  ✓   53 playwright/tests/control_link.spec.js:212:6 › Control Link › show title field in link (7.1s)
+  ✓   54 playwright/tests/control_link.spec.js:244:6 › Control Link › should update dependant fields (via fetch_from) (10.6s)
+  ✓   55 playwright/tests/control_link.spec.js:276:6 › Control Link › should set default values (6.8s)
+  ✘   56 playwright/tests/control_link.spec.js:311:6 › Control Link › show translated text for Gender link field with language de with input in de (28.1s)
+  ✘   57 playwright/tests/control_link.spec.js:330:6 › Control Link › show text for Gender link field with language en (29.0s)
+  ✓   58 playwright/tests/control_link.spec.js:344:6 › Control Link › show custom link option (5.5s)
+  ✓   59 playwright/tests/control_link.spec.js:369:6 › Control Link › keeps list format filters when merging link filters (4.1s)
+  ✓   60 playwright/tests/control_link.spec.js:407:6 › Control Link › passes the form to a get_query function (4.3s)
+  ✓   61 playwright/tests/control_link.spec.js:463:6 › Control Link › previews the doc the field holds after its value is set in code (11.6s)
+  ✓   62 playwright/tests/control_link.spec.js:484:6 › Control Link › drops a preview that arrives after the field moved to another doc (9.0s)
+  ✓   63 playwright/tests/control_markdown_editor.spec.js:6:6 › Control Markdown Editor › should allow inserting images by drag and drop (3.3s)
+  ✓   64 playwright/tests/control_multiselect_combobox.spec.js:44:6 › Control MultiSelect (combobox) › Table MultiSelect: ticks rows into child rows, keeps the panel open and removes a pill (5.8s)
+  ✓   65 playwright/tests/control_multiselect_combobox.spec.js:86:6 › Control MultiSelect (combobox) › MultiSelectPills and MultiSelect: a list, a comma string, free text and Backspace (5.1s)
+  ✘   66 playwright/tests/control_multiselect_pills.spec.js:4:6 › Control MultiSelectPills › does not suggest a value that is already selected (34.2s)
+  ✘   67 playwright/tests/control_multiselect.spec.js:4:6 › Control MultiSelect › does not suggest a value that is already selected (34.5s)
+  ✓   68 playwright/tests/control_phone.spec.js:10:6 › Control Phone › should set flag and data (4.0s)
+  ✓   69 playwright/tests/control_phone.spec.js:65:6 › Control Phone › existing document should render phone field with data (5.9s)
+  ✓   70 playwright/tests/control_rating.spec.js:22:6 › Control Rating › click on the star rating to record value (2.6s)
+  ✓   71 playwright/tests/control_rating.spec.js:33:6 › Control Rating › hover on the star (2.6s)
+  ✓   72 playwright/tests/control_rating.spec.js:43:6 › Control Rating › check number of stars in rating (2.4s)
+  ✓   73 playwright/tests/control_select.spec.js:9:6 › Control Select › toggles placholder on clicking an option (2.9s)
+  ✓   74 playwright/tests/data_field_form_validation.spec.js:30:7 › Data Field Input Validation in New Form › Data Field Options › should validate email address (3.1s)
+  ✓   75 playwright/tests/data_field_form_validation.spec.js:34:7 › Data Field Input Validation in New Form › Data Field Options › should validate URL (7.4s)
+  ✓   76 playwright/tests/data_field_form_validation.spec.js:47:7 › Data Field Input Validation in New Form › Data Field Options › should validate phone number (2.9s)
+  ✓   77 playwright/tests/data_field_form_validation.spec.js:51:7 › Data Field Input Validation in New Form › Data Field Options › should validate name (2.9s)
+  ✘   78 playwright/tests/datetime_field_form_validation.spec.js:8:6 › Datetime Field Validation › datetime field form validation (32.4s)
+  ✓   79 playwright/tests/depends_on.spec.js:78:6 › Depends On › should show the tab on other setting field value (2.2s)
+  ✓   80 playwright/tests/depends_on.spec.js:85:6 › Depends On › should set the field as mandatory depending on other fields value (5.5s)
+  ✓   81 playwright/tests/depends_on.spec.js:111:6 › Depends On › should set the field as read only depending on other fields value (2.9s)
+  ✓   82 playwright/tests/depends_on.spec.js:127:6 › Depends On › should set the table and its fields as read only depending on other fields value (5.7s)
+  ✓   83 playwright/tests/depends_on.spec.js:184:6 › Depends On › should re-evaluate an on-grid column's depends_on when a sibling field is set programmatically (1.9s)
+  ✓   84 playwright/tests/depends_on.spec.js:217:6 › Depends On › should display the field depending on other fields value (2.0s)
+  ✓   85 playwright/tests/dialog_primary_action.spec.js:19:6 › Dialog primary action › frappe.prompt passes typed values to the callback (2.4s)
+  ✓   86 playwright/tests/dialog_primary_action.spec.js:39:6 › Dialog primary action › frappe.prompt still blocks an empty mandatory field (2.9s)
+  ✓   87 playwright/tests/dialog_primary_action.spec.js:55:6 › Dialog primary action › quick entry keeps typed values (2.5s)
+  ✓   88 playwright/tests/form_set_controller.spec.js:59:6 › Form Set Controller › binds the controller class while the form loads (2.1s)
+  ✓   89 playwright/tests/form_set_controller.spec.js:70:6 › Form Set Controller › keeps a subclass that a form script already bound (2.2s)
+  ✓   90 playwright/tests/form_tab_break.spec.js:11:6 › Form Tab Break › Should switch tab and open correct tabs on validation error (5.5s)
+  ✓   91 playwright/tests/form_tab_break.spec.js:36:6 › Form Tab Break › Should stay on the active tab after the first save (4.3s)
+  ✓   92 playwright/tests/form_web_link.spec.js:23:6 › Form Web Link › renders a published website page when the form sidebar is disabled (2.1s)
+  ✓   93 playwright/tests/form.spec.js:21:6 › Form › create a new form (3.5s)
+  ✓   94 playwright/tests/form.spec.js:46:6 › Form › navigates between documents with child table list filters applied (5.3s)
+  ✓   95 playwright/tests/form.spec.js:62:6 › Form › validates behaviour of Data options validations in child table (2.9s)
+  ✓   96 playwright/tests/form.spec.js:89:6 › Form › Jump to field in collapsed section (3.4s)
+  ✓   97 playwright/tests/form.spec.js:100:6 › Form › update docfield property using set_df_property in child table (2.4s)
+  ✓   98 playwright/tests/form.spec.js:135:6 › Form › downloads a file without the leave prompt and keeps the warning (2.1s)
+  ✓   99 playwright/tests/grid_configuration.spec.js:26:6 › Grid Configuration › Set user wise grid settings (4.0s)
+  ✓  100 playwright/tests/grid_configuration.spec.js:43:6 › Grid Configuration › Select All rechecks columns unchecked in the column selector (3.7s)
+  ✓  101 playwright/tests/grid_configuration.spec.js:59:6 › Grid Configuration › Populates footer parent label options on page load (7.0s)
+  ✓  102 playwright/tests/grid_dropdown_position.spec.js:8:6 › Grid dropdown position › draws the child table dropdown next to the field on a scrolled web form (2.3s)
+  ✓  103 playwright/tests/grid_import.spec.js:75:6 › Child Table Data Import › adds imported rows alongside the existing ones (4.2s)
+  ✓  104 playwright/tests/grid_import.spec.js:87:6 › Child Table Data Import › stops on Fix Issues until the bad cell is fixed (3.0s)
+  ✓  105 playwright/tests/grid_import.spec.js:97:6 › Child Table Data Import › lets a bad row be skipped instead of fixed (3.1s)
+  ✓  106 playwright/tests/grid_import.spec.js:113:6 › Child Table Data Import › updates the row matching the ID and flags blank or unmatched IDs (3.5s)
+  ✓  107 playwright/tests/grid_import.spec.js:144:6 › Child Table Data Import › does not count unchanged rows as updated (3.0s)
+  ✓  108 playwright/tests/grid_import.spec.js:158:6 › Child Table Data Import › upserts: updates known IDs and adds the rest (3.0s)
+  ✓  109 playwright/tests/grid_import.spec.js:172:6 › Child Table Data Import › blocks an insert when a mandatory field has no column (2.9s)
+  ✓  110 playwright/tests/grid_import.spec.js:182:6 › Child Table Data Import › does not let two columns fill the same field (2.8s)
+  ✓  111 playwright/tests/grid_import.spec.js:191:6 › Child Table Data Import › skips to Preview when more than 50 rows need fixing (3.3s)
+  ✓  112 playwright/tests/grid_keyboard_shortcut.spec.js:26:6 › Grid Keyboard Shortcut › Insert new row at the end (2.3s)
+  ✓  113 playwright/tests/grid_keyboard_shortcut.spec.js:34:6 › Grid Keyboard Shortcut › Insert new row at the top (2.3s)
+  ✓  114 playwright/tests/grid_keyboard_shortcut.spec.js:42:6 › Grid Keyboard Shortcut › Insert new row below (2.4s)
+  ✓  115 playwright/tests/grid_keyboard_shortcut.spec.js:50:6 › Grid Keyboard Shortcut › Insert new row above (2.3s)
+  ✓  116 playwright/tests/grid_pagination.spec.js:14:6 › Grid Pagination › creates pages for child table (2.2s)
+  ✓  117 playwright/tests/grid_pagination.spec.js:21:6 › Grid Pagination › goes to the next and previous page (2.7s)
+  ✓  118 playwright/tests/grid_pagination.spec.js:37:6 › Grid Pagination › adds and deletes rows and changes page (2.8s)
+  ✓  119 playwright/tests/grid_pagination.spec.js:52:6 › Grid Pagination › deletes selected rows from every page (3.2s)
+  ✓  120 playwright/tests/grid_pagination.spec.js:76:6 › Grid Pagination › go to specific page, use up and down arrow, type characters, 0 page and more than existing page (3.4s)
+  ✓  121 playwright/tests/grid_paste.spec.js:4:6 › Grid paste › pasting several rows fills them and cancels the native paste (2.1s)
+  ✓  122 playwright/tests/grid_rich_text.spec.js:35:6 › Grid Rich Text Column › shows stripped text instead of rendered HTML in static grid cells (1.8s)
+  ✓  123 playwright/tests/grid_row_dependency.spec.js:22:6 › Grid Row Dependency › keeps a dependent column on rows whose dependency is met (2.9s)
+  ✓  124 playwright/tests/grid_row_form_section_collapse.spec.js:38:6 › Grid Row Form Section Collapse › collapses the section until the user opens it (3.3s)
+  ✓  125 playwright/tests/grid_row_form_section_collapse.spec.js:42:6 › Grid Row Form Section Collapse › keeps the section open while typing in a field inside it (3.4s)
+  ✓  126 playwright/tests/grid_row_form_section_collapse.spec.js:52:6 › Grid Row Form Section Collapse › keeps the section collapsed after the user closes it (3.4s)
+  ✓  127 playwright/tests/grid_row_form_section_collapse.spec.js:63:6 › Grid Row Form Section Collapse › collapses the section again when the row form is reopened (3.6s)
+  ✓  128 playwright/tests/grid_row_form_tabs.spec.js:38:6 › Grid Row Form Tabs › should display tabs in grid row form (3.4s)
+  ✓  129 playwright/tests/grid_row_form_tabs.spec.js:50:6 › Grid Row Form Tabs › should switch tabs in grid row form (3.5s)
+  ✓  130 playwright/tests/grid_row_form_tabs.spec.js:73:6 › Grid Row Form Tabs › should preserve tab state when switching between rows (4.7s)
+  ✓  131 playwright/tests/grid_row_form_tabs.spec.js:88:6 › Grid Row Form Tabs › should jump to a field inside the grid row form (4.6s)
+  ✓  132 playwright/tests/grid_row_form_tabs.spec.js:112:6 › Grid Row Form Tabs › should allow data entry in fields across different tabs (5.0s)
+  ✓  133 playwright/tests/grid_search.spec.js:41:6 › Grid Search › Test search row visibility (3.1s)
+  ✓  134 playwright/tests/grid_search.spec.js:48:6 › Grid Search › test search field for different fieldtypes (9.7s)
+  ✓  135 playwright/tests/grid_search.spec.js:86:6 › Grid Search › test with multiple filter (6.5s)
+  ✓  136 playwright/tests/grid.spec.js:41:7 › Grid › Touch selection › selects rows on taps and cancels dragging on early movement (3.3s)
+  ✓  137 playwright/tests/grid.spec.js:72:7 › Grid › Touch selection › keeps mouse dragging immediate (2.7s)
+  ✓  138 playwright/tests/grid.spec.js:94:7 › Grid › Touch selection › drags from the checkbox after a hold when row numbers are hidden (3.3s)
+  ✓  139 playwright/tests/grid.spec.js:135:6 › Grid › update docfield property using update_docfield_property (2.8s)
+  ✓  140 playwright/tests/grid.spec.js:153:6 › Grid › update docfield property using toggle_display (2.8s)
+  ✓  141 playwright/tests/grid.spec.js:169:6 › Grid › update docfield property using toggle_enable (2.9s)
+  ✓  142 playwright/tests/grid.spec.js:185:6 › Grid › update docfield property using toggle_reqd (3.3s)
+  ✓  143 playwright/tests/grid.spec.js:207:6 › Grid › shows edit button only when child table allow_bulk_edit is enabled (2.3s)
+  ✓  144 playwright/tests/grid.spec.js:222:6 › Grid › bulk edit updates only selected child rows (3.1s)
+  ✓  145 playwright/tests/grid.spec.js:262:6 › Grid › shows bulk edit fields on submitted documents for allow-on-submit columns (2.8s)
+  ✓  146 playwright/tests/grid.spec.js:285:6 › Grid › hides add-row and add-multiple-rows buttons when rows are selected (2.4s)
+  ✘  147 playwright/tests/grid.spec.js:301:6 › Grid › parks the Link dropdown on the grid and puts it back when it closes (23.5s)
+Internal error: step id not found: fixture@102
+  ✘  148 playwright/tests/multi_select_dialog.spec.js:52:6 › MultiSelectDialog › checks multi select dialog api works (0ms)
+  -  149 playwright/tests/multi_select_dialog.spec.js:57:6 › MultiSelectDialog › checks for filters
+  -  150 playwright/tests/multi_select_dialog.spec.js:65:6 › MultiSelectDialog › checks for child item selection
+  -  151 playwright/tests/multi_select_dialog.spec.js:82:6 › MultiSelectDialog › tests more button
+  -  152 playwright/tests/multi_select_dialog.spec.js:102:6 › MultiSelectDialog › scopes child rows to filtered parents
+  ✘  153 playwright/tests/table_multiselect.spec.js:33:6 › Table MultiSelect › select value from multiselect dropdown (0ms)
+  -  154 playwright/tests/table_multiselect.spec.js:64:6 › Table MultiSelect › delete value using backspace
+  -  155 playwright/tests/table_multiselect.spec.js:72:6 › Table MultiSelect › delete value using x
+  -  156 playwright/tests/table_multiselect.spec.js:79:6 › Table MultiSelect › navigate to selected value
+
+
+  1) playwright/tests/control_autocomplete.spec.js:29:6 › Control Autocomplete › should set the valid value 
+
+    TimeoutError: page.goto: Timeout 30000ms exceeded.
+    Call log:
+    [2m  - navigating to "http://v5.localhost:8000/desk", waiting until "load"[22m
+
+
+      3 | test.describe("Control Autocomplete", () => {
+      4 | 	const get_dialog_with_autocomplete = async (page, desk, fieldname, options) => {
+    > 5 | 		await page.goto("/desk");
+        | 		           ^
+      6 | 		await desk.ready();
+      7 | 		return desk.dialog({
+      8 | 			title: "Autocomplete",
+        at get_dialog_with_autocomplete (/home/claude/fb/frappe-bench/apps/frappe/playwright/tests/control_autocomplete.spec.js:5:14)
+        at /home/claude/fb/frappe-bench/apps/frappe/playwright/tests/control_autocomplete.spec.js:31:24
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/control_autocomplete-Contr-eef20--should-set-the-valid-value/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/control_autocomplete-Contr-eef20--should-set-the-valid-value/error-context.md
+
+  2) playwright/tests/control_autocomplete.spec.js:46:6 › Control Autocomplete › should set the valid value with different label 
+
+    TimeoutError: page.goto: Timeout 30000ms exceeded.
+    Call log:
+    [2m  - navigating to "http://v5.localhost:8000/desk", waiting until "load"[22m
+
+
+      3 | test.describe("Control Autocomplete", () => {
+      4 | 	const get_dialog_with_autocomplete = async (page, desk, fieldname, options) => {
+    > 5 | 		await page.goto("/desk");
+        | 		           ^
+      6 | 		await desk.ready();
+      7 | 		return desk.dialog({
+      8 | 			title: "Autocomplete",
+        at get_dialog_with_autocomplete (/home/claude/fb/frappe-bench/apps/frappe/playwright/tests/control_autocomplete.spec.js:5:14)
+        at /home/claude/fb/frappe-bench/apps/frappe/playwright/tests/control_autocomplete.spec.js:48:24
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/control_autocomplete-Contr-a594a--value-with-different-label/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) playwright/tests/control_autocomplete.spec.js:62:6 › Control Autocomplete › should keep typed text when the window loses focus 
+
+    TimeoutError: page.goto: Timeout 30000ms exceeded.
+    Call log:
+    [2m  - navigating to "http://v5.localhost:8000/desk", waiting until "load"[22m
+
+
+      3 | test.describe("Control Autocomplete", () => {
+      4 | 	const get_dialog_with_autocomplete = async (page, desk, fieldname, options) => {
+    > 5 | 		await page.goto("/desk");
+        | 		           ^
+      6 | 		await desk.ready();
+      7 | 		return desk.dialog({
+      8 | 			title: "Autocomplete",
+        at get_dialog_with_autocomplete (/home/claude/fb/frappe-bench/apps/frappe/playwright/tests/control_autocomplete.spec.js:5:14)
+        at /home/claude/fb/frappe-bench/apps/frappe/playwright/tests/control_autocomplete.spec.js:64:9
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/control_autocomplete-Contr-57efd-when-the-window-loses-focus/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/control_autocomplete-Contr-57efd-when-the-window-loses-focus/error-context.md
+
+  4) playwright/tests/control_autocomplete.spec.js:80:6 › Control Autocomplete › should keep the set value when options share a label 
+
+    TimeoutError: page.goto: Timeout 30000ms exceeded.
+    Call log:
+    [2m  - navigating to "http://v5.localhost:8000/desk", waiting until "load"[22m
+
+
+      3 | test.describe("Control Autocomplete", () => {
+      4 | 	const get_dialog_with_autocomplete = async (page, desk, fieldname, options) => {
+    > 5 | 		await page.goto("/desk");
+        | 		           ^
+      6 | 		await desk.ready();
+      7 | 		return desk.dialog({
+      8 | 			title: "Autocomplete",
+        at get_dialog_with_autocomplete (/home/claude/fb/frappe-bench/apps/frappe/playwright/tests/control_autocomplete.spec.js:5:14)
+        at /home/claude/fb/frappe-bench/apps/frappe/playwright/tests/control_autocomplete.spec.js:82:24
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/control_autocomplete-Contr-df94b--when-options-share-a-label/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/control_autocomplete-Contr-df94b--when-options-share-a-label/error-context.md
+
+  5) playwright/tests/control_date_range.spec.js:4:6 › Date Range Control › Selecting a date range from the datepicker 
+
+    TimeoutError: page.goto: Timeout 30000ms exceeded.
+    Call log:
+    [2m  - navigating to "http://v5.localhost:8000/desk", waiting until "load"[22m
+
+
+      3 | test.describe("Date Range Control", () => {
+      4 | 	test("Selecting a date range from the datepicker", async ({ page, desk }) => {
+    > 5 | 		await page.goto("/desk");
+        | 		           ^
+      6 | 		await desk.ready();
+      7 |
+      8 | 		await desk.dialog({
+        at /home/claude/fb/frappe-bench/apps/frappe/playwright/tests/control_date_range.spec.js:5:14
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/control_date_range-Date-Ra-ca0fe-e-range-from-the-datepicker/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/control_date_range-Date-Ra-ca0fe-e-range-from-the-datepicker/error-context.md
+
+  6) playwright/tests/control_date.spec.js:29:6 › Date Control › Selecting a date from the datepicker & check prev & next button 
+
+    TimeoutError: page.goto: Timeout 30000ms exceeded.
+    Call log:
+    [2m  - navigating to "http://v5.localhost:8000/desk", waiting until "load"[22m
+
+
+      3 | test.describe("Date Control", () => {
+      4 | 	test.beforeEach(async ({ page, desk }) => {
+    > 5 | 		await page.goto("/desk");
+        | 		           ^
+      6 | 		await desk.ready();
+      7 | 	});
+      8 |
+        at /home/claude/fb/frappe-bench/apps/frappe/playwright/tests/control_date.spec.js:5:14
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/control_date-Date-Control--47caa-cker-check-prev-next-button/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  7) playwright/tests/control_date.spec.js:58:6 › Date Control › Clicking on "Today" button gives todays date 
+
+    TimeoutError: page.goto: Timeout 30000ms exceeded.
+    Call log:
+    [2m  - navigating to "http://v5.localhost:8000/desk", waiting until "load"[22m
+
+
+      3 | test.describe("Date Control", () => {
+      4 | 	test.beforeEach(async ({ page, desk }) => {
+    > 5 | 		await page.goto("/desk");
+        | 		           ^
+      6 | 		await desk.ready();
+      7 | 	});
+      8 |
+        at /home/claude/fb/frappe-bench/apps/frappe/playwright/tests/control_date.spec.js:5:14
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/control_date-Date-Control--e7c56-ay-button-gives-todays-date/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/control_date-Date-Control--e7c56-ay-button-gives-todays-date/error-context.md
+
+  8) playwright/tests/control_link.spec.js:311:6 › Control Link › show translated text for Gender link field with language de with input in de 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoContainText[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator: locator('.frappe-control[data-fieldname=link] input').locator('..').getByRole('listbox').locator('div[role=\'option\']').first()
+    Expected substring: [32m"Sonstiges"[39m
+    Received string:    [31m"Neu erstellen: Geschlecht"[39m
+    Timeout: 20000ms
+
+    Call log:
+    [2m  - Expect "toContainText" with timeout 20000ms[22m
+    [2m  - waiting for locator('.frappe-control[data-fieldname=link] input').locator('..').getByRole('listbox').locator('div[role=\'option\']').first()[22m
+    [2m    23 × locator resolved to <div role="option" tabindex="-1" data-size="sm" data-slot="item" data-v-03c0ef0b="" data-highlighted="" aria-selected="false" data-state="unchecked" id="reka-combobox-item-es-4" data-reka-collection-item="" textvalue="Neu erstellen: Geschlecht" class="select-none rounded-4 border-0 text-base text-ink-gray-9 transition-colors duration-100 ease-out data-[disabled]:text-ink-gray-4 data-[highlighted]:bg-surface-alpha-gray-2 data-[state=checked]:bg-surface-gray-3 data-[highlighted]:data-[state=checked]:…>…</div>[22m
+    [2m       - unexpected value "Neu erstellen: Geschlecht"[22m
+
+
+      76 | 	async function select_first_result(input, text) {
+      77 | 		await input.pressSequentially(text, { delay: 100 });
+    > 78 | 		await expect(get_dropdown(input).locator("div[role='option']").first()).toContainText(
+         | 		                                                                        ^
+      79 | 			text
+      80 | 		);
+      81 | 		await input.press("Enter");
+        at select_first_result (/home/claude/fb/frappe-bench/apps/frappe/playwright/tests/control_link.spec.js:78:75)
+        at /home/claude/fb/frappe-bench/apps/frappe/playwright/tests/control_link.spec.js:323:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/control_link-Control-Link--c8124-anguage-de-with-input-in-de/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/control_link-Control-Link--c8124-anguage-de-with-input-in-de/error-context.md
+
+  9) playwright/tests/control_link.spec.js:330:6 › Control Link › show text for Gender link field with language en 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoContainText[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator: locator('.frappe-control[data-fieldname=link] input').locator('..').getByRole('listbox').locator('div[role=\'option\']').first()
+    Expected substring: [32m"Non-Conforming"[39m
+    Received string:    [31m"Create a new Gender"[39m
+    Timeout: 20000ms
+
+    Call log:
+    [2m  - Expect "toContainText" with timeout 20000ms[22m
+    [2m  - waiting for locator('.frappe-control[data-fieldname=link] input').locator('..').getByRole('listbox').locator('div[role=\'option\']').first()[22m
+    [2m    23 × locator resolved to <div role="option" tabindex="-1" data-size="sm" data-slot="item" data-v-03c0ef0b="" data-highlighted="" aria-selected="false" data-state="unchecked" id="reka-combobox-item-es-4" data-reka-collection-item="" textvalue="Create a new Gender" class="select-none rounded-4 border-0 text-base text-ink-gray-9 transition-colors duration-100 ease-out data-[disabled]:text-ink-gray-4 data-[highlighted]:bg-surface-alpha-gray-2 data-[state=checked]:bg-surface-gray-3 data-[highlighted]:data-[state=checked]:bg-sur…>…</div>[22m
+    [2m       - unexpected value "Create a new Gender"[22m
+
+
+      76 | 	async function select_first_result(input, text) {
+      77 | 		await input.pressSequentially(text, { delay: 100 });
+    > 78 | 		await expect(get_dropdown(input).locator("div[role='option']").first()).toContainText(
+         | 		                                                                        ^
+      79 | 			text
+      80 | 		);
+      81 | 		await input.press("Enter");
+        at select_first_result (/home/claude/fb/frappe-bench/apps/frappe/playwright/tests/control_link.spec.js:78:75)
+        at /home/claude/fb/frappe-bench/apps/frappe/playwright/tests/control_link.spec.js:337:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/control_link-Control-Link--359b2-link-field-with-language-en/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/control_link-Control-Link--359b2-link-field-with-language-en/error-context.md
+
+  10) playwright/tests/control_multiselect_pills.spec.js:4:6 › Control MultiSelectPills › does not suggest a value that is already selected 
+
+    TimeoutError: page.goto: Timeout 30000ms exceeded.
+    Call log:
+    [2m  - navigating to "http://v5.localhost:8000/desk", waiting until "load"[22m
+
+
+      3 | test.describe("Control MultiSelectPills", () => {
+      4 | 	test("does not suggest a value that is already selected", async ({ page, desk }) => {
+    > 5 | 		await page.goto("/desk");
+        | 		           ^
+      6 | 		await desk.ready();
+      7 | 		await desk.dialog({
+      8 | 			title: "MultiSelectPills",
+        at /home/claude/fb/frappe-bench/apps/frappe/playwright/tests/control_multiselect_pills.spec.js:5:14
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/control_multiselect_pills--7e515-ue-that-is-already-selected/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/control_multiselect_pills--7e515-ue-that-is-already-selected/error-context.md
+
+  11) playwright/tests/control_multiselect.spec.js:4:6 › Control MultiSelect › does not suggest a value that is already selected 
+
+    TimeoutError: page.goto: Timeout 30000ms exceeded.
+    Call log:
+    [2m  - navigating to "http://v5.localhost:8000/desk", waiting until "load"[22m
+
+
+      3 | test.describe("Control MultiSelect", () => {
+      4 | 	test("does not suggest a value that is already selected", async ({ page, desk }) => {
+    > 5 | 		await page.goto("/desk");
+        | 		           ^
+      6 | 		await desk.ready();
+      7 | 		await desk.dialog({
+      8 | 			title: "MultiSelect",
+        at /home/claude/fb/frappe-bench/apps/frappe/playwright/tests/control_multiselect.spec.js:5:14
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/control_multiselect-Contro-95ed1-ue-that-is-already-selected/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/control_multiselect-Contro-95ed1-ue-that-is-already-selected/error-context.md
+
+  12) playwright/tests/datetime_field_form_validation.spec.js:8:6 › Datetime Field Validation › datetime field form validation 
+
+    TimeoutError: page.goto: Timeout 30000ms exceeded.
+    Call log:
+    [2m  - navigating to "http://v5.localhost:8000/desk", waiting until "load"[22m
+
+
+       7 |
+       8 | 	test("datetime field form validation", async ({ page, desk, api }) => {
+    >  9 | 		await page.goto("/desk");
+         | 		           ^
+      10 | 		await desk.ready();
+      11 | 		const doc = (await api.call("frappe.tests.ui_test_helpers.create_datetime_test_record"))
+      12 | 			.message;
+        at /home/claude/fb/frappe-bench/apps/frappe/playwright/tests/datetime_field_form_validation.spec.js:9:14
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/datetime_field_form_valida-d527d-etime-field-form-validation/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/datetime_field_form_valida-d527d-etime-field-form-validation/error-context.md
+
+  13) playwright/tests/grid.spec.js:301:6 › Grid › parks the Link dropdown on the grid and puts it back when it closes 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('.frappe-control[data-fieldname="links"]').locator('.grid-field > .awesomplete').locator('ul')
+    Expected: visible
+    Timeout: 20000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 20000ms[22m
+    [2m  - waiting for locator('.frappe-control[data-fieldname="links"]').locator('.grid-field > .awesomplete').locator('ul')[22m
+
+
+      321 | 		// the cell clips the dropdown, so it opens parked on the grid instead
+      322 | 		const parked = table.locator(".grid-field > .awesomplete");
+    > 323 | 		await expect(parked.locator("ul")).toBeVisible();
+          | 		                                   ^
+      324 |
+      325 | 		const parked_box = await parked.evaluate((el) => el.getBoundingClientRect().toJSON());
+      326 | 		const cell_box = await cell.evaluate((el) => el.getBoundingClientRect().toJSON());
+        at /home/claude/fb/frappe-bench/apps/frappe/playwright/tests/grid.spec.js:323:38
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/grid-Grid-parks-the-Link-d-984dd-puts-it-back-when-it-closes/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/grid-Grid-parks-the-Link-d-984dd-puts-it-back-when-it-closes/error-context.md
+
+  14) playwright/tests/multi_select_dialog.spec.js:52:6 › MultiSelectDialog › checks multi select dialog api works 
+
+    TimeoutError: page.goto: Timeout 30000ms exceeded.
+    Call log:
+    [2m  - navigating to "http://v5.localhost:8000/desk", waiting until "load"[22m
+
+
+      25 | 		}
+      26 |
+    > 27 | 		await shared.page.goto("/desk");
+         | 		                  ^
+      28 | 		await shared.desk.ready();
+      29 | 	});
+      30 |
+        at /home/claude/fb/frappe-bench/apps/frappe/playwright/tests/multi_select_dialog.spec.js:27:21
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/multi_select_dialog-MultiS-3a100-lti-select-dialog-api-works/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  15) playwright/tests/table_multiselect.spec.js:33:6 › Table MultiSelect › select value from multiselect dropdown 
+
+    Error: insert Assignment Rule: {"exception":"frappe.exceptions.LinkValidationError: Could not find Row #1: User: test@erpnext.com","exc_type":"LinkValidationError","exc":"[\"Traceback (most recent call last):\\n  File \\\"apps/frappe/frappe/app.py\\\", line 135, in application\\n    response = frappe.api.handle(request)\\n  File \\\"apps/frappe/frappe/api/__init__.py\\\", line 64, in handle\\n    data = endpoint(**arguments)\\n  File \\\"apps/frappe/frappe/api/v1.py\\\", line 50, in create_doc\\n    return frappe.new_doc(doctype, **data).insert().copy_with_fieldlevel_read_permissions()\\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^\\n  File \\\"apps/frappe/frappe/model/document.py\\\", line 1060, in insert\\n    self._validate_links()\\n    ~~~~~~~~~~~~~~~~~~~~^^\\n  File \\\"apps/frappe/frappe/model/document.py\\\", line 2027, in _validate_links\\n    frappe.throw(_(\\\"Could not find {0}\\\").format(msg), frappe.LinkValidationError)\\n    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"apps/frappe/frappe/utils/messages.py\\\", line 160, in throw\\n    msgprint(\\n    ~~~~~~~~^\\n    \\tmsg,\\n     ^^^^\\n    ...<7 lines>...\\n    \\tallow_dangerous_html=allow_dangerous_html,\\n     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n    )\\n    ^\\n  File \\\"apps/frappe/frappe/utils/messages.py\\\", line 119, in msgprint\\n    _raise_exception()\\n    ~~~~~~~~~~~~~~~~^^\\n  File \\\"apps/frappe/frappe/utils/messages.py\\\", line 59, in _raise_exception\\n    raise exc\\nfrappe.exceptions.LinkValidationError: Could not find Row #1: User: test@erpnext.com\\n\"]","_server_messages":"[\"{\\\"message\\\":\\\"Could not find Row #1: User: test@erpnext.com\\\",\\\"as_table\\\":false,\\\"title\\\":\\\"Message\\\",\\\"indicator\\\":\\\"red\\\",\\\"raise_exception\\\":1,\\\"__frappe_exc_id\\\":\\\"b2a0743912b600b0a160c75f5d43277d11d4e3bc11fa0ed5549c3a69\\\"}\"]"}
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoContain[2m([22m[32mexpected[39m[2m) // indexOf[22m
+
+    Expected value: [32m417[39m
+    Received array: [31m[200][39m
+
+       at ../support/api.js:56
+
+      54 | 		});
+      55 | 		const allowed = ignore_duplicate ? [200, 409] : [200];
+    > 56 | 		expect(allowed, `insert ${doctype}: ${await res.text()}`).toContain(res.status());
+         | 		                                                          ^
+      57 | 		return (await res.json()).data;
+      58 | 	}
+      59 |
+        at Api.insert_doc (/home/claude/fb/frappe-bench/apps/frappe/playwright/support/api.js:56:61)
+        at /home/claude/fb/frappe-bench/apps/frappe/playwright/tests/table_multiselect.spec.js:17:3
+
+  15 failed
+    playwright/tests/control_autocomplete.spec.js:29:6 › Control Autocomplete › should set the valid value 
+    playwright/tests/control_autocomplete.spec.js:46:6 › Control Autocomplete › should set the valid value with different label 
+    playwright/tests/control_autocomplete.spec.js:62:6 › Control Autocomplete › should keep typed text when the window loses focus 
+    playwright/tests/control_autocomplete.spec.js:80:6 › Control Autocomplete › should keep the set value when options share a label 
+    playwright/tests/control_date_range.spec.js:4:6 › Date Range Control › Selecting a date range from the datepicker 
+    playwright/tests/control_date.spec.js:29:6 › Date Control › Selecting a date from the datepicker & check prev & next button 
+    playwright/tests/control_date.spec.js:58:6 › Date Control › Clicking on "Today" button gives todays date 
+    playwright/tests/control_link.spec.js:311:6 › Control Link › show translated text for Gender link field with language de with input in de 
+    playwright/tests/control_link.spec.js:330:6 › Control Link › show text for Gender link field with language en 
+    playwright/tests/control_multiselect_pills.spec.js:4:6 › Control MultiSelectPills › does not suggest a value that is already selected 
+    playwright/tests/control_multiselect.spec.js:4:6 › Control MultiSelect › does not suggest a value that is already selected 
+    playwright/tests/datetime_field_form_validation.spec.js:8:6 › Datetime Field Validation › datetime field form validation 
+    playwright/tests/grid.spec.js:301:6 › Grid › parks the Link dropdown on the grid and puts it back when it closes 
+    playwright/tests/multi_select_dialog.spec.js:52:6 › MultiSelectDialog › checks multi select dialog api works 
+    playwright/tests/table_multiselect.spec.js:33:6 › Table MultiSelect › select value from multiselect dropdown 
+  7 did not run
+  134 passed (17.6m)

@@ -1,0 +1,30 @@
+PASS InviteUser load() fn prop called once on mount :: 1
+PASS Send invites disabled until email + role
+PASS typing in MultiEmailInput -> debounced searchUsers fn prop :: gra
+PASS email chip added :: Invite by email * (required) N new.person@example.com Roles * (required) Select roles Send invites
+PASS role picked, submit enabled :: Invite by email * (required) N new.person@example.com Roles * (required) System Manager Send invites
+PASS submit -> invite(emails, roles) fn prop + invited event :: ["new.person@example.com",["System Manager"]] ["new.person@example.com"]
+PASS form resets after invite
+PASS NotificationPanel sets first tab on mount (update:activeTab) :: "all"
+PASS tab count from "unread" count prop
+PASS tab switch -> filter fn prop hides read rows :: unread :: Notifications All Unread (1) Unread A Ada mentioned you 2 days ago Load more
+PASS row click -> mark-as-read (kebab event) :: ["N1"]
+PASS mark-all-as-read + close events :: [1,1]
+FAIL NotificationItem @click gets only the component event :: ["custom:N1","native:click"]
+PASS NotificationItem keyboard Enter -> click event :: ["custom:N1","native:click","custom:N1"]
+FAIL scoped #item <template> per notification :: []
+FAIL slot-prop function markAsRead() emits mark-as-read :: ["N1"]
+PASS Link focus opens (v-model:open) + loads options :: true opts=3
+PASS creatable shows Create "<query>" item :: Create zed
+PASS Create -> create event with query :: "zed"
+PASS Link keyboard pick (first option highlighted) -> v-model :: "ada@example.com"
+FAIL Link exposed reload() reachable on element
+PASS canvas draws nodes + toolbar slot inside panel
+PASS canvas draws the edge :: 1
+  node el: true {"x":73,"y":1014.578125,"width":315,"height":135} at point: truncate text-xs leading-4 text-ink-gray-5
+PASS node click -> select event, selectedId round-trip, slot reacts :: ["select:n2"] Tool n2
+PASS Add block picker -> add-node event :: ["select:n2","add:assign"]
+PASS node drag -> move event :: ["select:n2","add:assign","move:n2"]
+FAIL exposed fitView reachable on element
+console errors/warnings: 0
+5 FAILED
