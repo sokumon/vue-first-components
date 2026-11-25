@@ -1,0 +1,37 @@
+{
+ "results": [
+  {
+   "k": "lists accounts from frappe.client.get_list (mocked)",
+   "ok": true,
+   "extra": "Email accounts Connect mailboxes to send and receive email. New Default incoming Support Default outgoing Support Mailboxes 1 Support support@example.com Receive Send"
+  },
+  {
+   "k": "get_list called for Email Account",
+   "ok": true,
+   "extra": "frappe.integrations.frappe_providers.email_oauth.get_one_click_services,frappe.client.get_list"
+  },
+  {
+   "k": "New -> add view with provider tiles (providers prop)",
+   "ok": true,
+   "extra": "Back: New email account Choose your email provider Gmail Custom email"
+  },
+  {
+   "k": "typing in add form -> v-model:dirty true",
+   "ok": true,
+   "extra": "true :: Back: New custom email account Unsaved Create Account name * (required) Email address * (required) Password * (required) Email domain Leave empty to enter the server settings yourself. Incoming server"
+  },
+  {
+   "k": "Create -> frappe.client.insert + created event + back to list (dirty false)",
+   "ok": true,
+   "extra": "{\"n\":2,\"dirty\":false,\"created\":[\"\"]} frappe.client.get_list,frappe.client.get_list,frappe.integrations.frappe_providers.email_oauth.get_one_click_services"
+  }
+ ],
+ "errs": [
+  "http 404 http://fw.test/assets/frappe/images/email-providers/gmail.png",
+  "error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+  "http 404 http://fw.test/assets/frappe/images/email-providers/gmail.png",
+  "error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+  "http 404 http://fw.test/assets/frappe/images/email-providers/gmail.png",
+  "error: Failed to load resource: the server responded with a status of 404 (Not Found)"
+ ]
+}

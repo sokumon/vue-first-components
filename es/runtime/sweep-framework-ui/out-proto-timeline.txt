@@ -1,0 +1,36 @@
+PASS es-fw-activity-timeline | renders every activity type in order :: log,version,comment,email,attachment_log
+PASS es-fw-activity-timeline | rows show content :: Older activity L created this 4 days ago Ada Lovelace changed Open → Closed 4 days ago A Ada Lovelace 4 days ago Looks good notes.txt A Ada Lovelace 4 days ago To:grace@example.com Subject:Re: bug Ada Lovelace attached spec.pdf 4 days ago
+PASS es-fw-activity-timeline | #icon-log named slot lands in the log row gutter
+PASS es-fw-activity-timeline | paginate.fetchNextPage fn prop called by Load More :: 1
+PASS es-fw-activity-timeline | #empty slot jQuery-updated :: Quiet here (1)
+PASS es-fw-activity-timeline | exposed scrollToLatest/scrollToRow reachable on element
+PASS es-fw-activity-timeline | el.scrollToLatest() callable :: true
+PASS es-fw-activity-timeline | scoped #item-comment <template> gets {activity} :: ["Comment c1 by Ada Lovelace"]
+PASS es-fw-timeline-container | default slot
+PASS es-fw-comment-item | actions slot visible
+PASS es-fw-comment-item | .prop(editable,true) from a jQuery click -> Save/Discard :: Ada Lovelace 4 days ago Looks good Discard Save
+PASS es-fw-comment-item | editor becomes contenteditable
+PASS es-fw-comment-item | Ctrl+Enter -> save event with edited html :: "<p>Looks <strong>good indeed</strong><br></p>"
+PASS es-fw-comment-item | Discard -> discard event :: {"n":0,"editing":false,"saved":"<p>Looks <strong>good indeed</strong><br></p>","discards":1,"more":1,"log":[]}
+PASS es-fw-email-item | header + footer slot :: Ada Lovelace 4 days ago To:grace@example.com Subject:Re: bug Reply to ada@example.com
+PASS es-fw-email-item | body content visible :: Ada Lovelace 4 days ago To:grace@example.com Subject:Re: bug Reply to ada@example.com
+PASS es-fw-log-item | standalone :: created this 4 days ago
+PASS es-fw-version-item | standalone :: Ada Lovelace changed Open → Closed 4 days ago
+PASS es-fw-attachment-chip | opens preview dialog with fetched markdown :: readme.md / Hello from readme /  / Some text.
+PASS es-fw-attachment-chip | Escape closes preview
+PASS page | no page errors in core scenarios :: 
+FAIL es-fw-activity-timeline | page pushes into its array + .prop(activities, sameArray) shows the new row ::  good notes.txt A Ada Lovelace 4 days ago To:grace@example.com Subject:Re: bug Ada Lovelace attached spec.pdf 4 days ago
+PASS es-fw-activity-timeline | .prop(activities, newArray) shows the new row
+PASS es-fw-activity-timeline | .detach().appendTo() keeps rows + slot
+PASS es-fw-activity-timeline | .html(<template>) on host swaps the scoped template (both comments, c2 was pushed into the shared array) :: ["c1","c2"]
+PASS es-fw-activity-timeline | .clone() of a slot-configured timeline (+ .prop) renders the copied empty slot :: Quiet here (1)
+PASS es-fw-activity-timeline | .remove() no errors :: 
+PASS es-fw-comment-item | after move: jQuery handler on slot button still toggles editable
+PASS es-fw-comment-item | detach while editing keeps the editor open
+PASS es-fw-comment-item | .remove() no errors :: 
+PASS es-fw-email-item | jQuery writes into the footer slot node show in place
+PASS es-fw-email-item | .append() a second footer node joins the slot
+PASS es-fw-attachment-chip | chip from an HTML string opens preview
+PASS es-fw-attachment-chip | .remove() of the wrapper while its dialog is open: dialog goes away :: 
+console errors/warnings: 0
+1 FAILED of 34

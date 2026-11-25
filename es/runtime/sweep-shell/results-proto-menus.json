@@ -1,0 +1,182 @@
+{
+ "page": "menus.html",
+ "fails": 0,
+ "n": 32,
+ "results": [
+  {
+   "tag": "es-dropdown",
+   "k": "trigger: nested es-button in default slot renders",
+   "ok": true,
+   "extra": "{\"x\":324,\"y\":130,\"w\":80,\"h\":28}"
+  },
+  {
+   "tag": "es-dropdown",
+   "k": "opens on click -> update:open",
+   "ok": true
+  },
+  {
+   "tag": "es-dropdown",
+   "k": "menu positioned under trigger",
+   "ok": true,
+   "extra": "{\"tr\":{\"x\":324,\"y\":130,\"w\":80,\"h\":28},\"mr\":{\"x\":324,\"y\":162,\"w\":160,\"h\":197}}"
+  },
+  {
+   "tag": "es-dropdown",
+   "k": "trigger button carries aria-expanded / data-state=open",
+   "ok": true,
+   "extra": "true/open"
+  },
+  {
+   "tag": "es-dropdown",
+   "k": "group labels rendered",
+   "ok": true
+  },
+  {
+   "tag": "es-dropdown",
+   "k": "per-item named slot (option.slot -> slot=\"item-danger\") inside its row",
+   "ok": true,
+   "extra": "Delete forever (0)"
+  },
+  {
+   "tag": "es-dropdown",
+   "k": "ArrowDown moves focus into menu",
+   "ok": true,
+   "extra": "Edit"
+  },
+  {
+   "tag": "es-dropdown",
+   "k": "submenu opens on hover",
+   "ok": true
+  },
+  {
+   "tag": "es-dropdown",
+   "k": "submenu item onClick fires and menu closes",
+   "ok": true
+  },
+  {
+   "tag": "es-dropdown",
+   "k": "switch item toggles through onClick(value)",
+   "ok": true,
+   "extra": "email,notify-false"
+  },
+  {
+   "tag": "es-dropdown",
+   "k": "Escape closes",
+   "ok": true
+  },
+  {
+   "tag": "es-dropdown",
+   "k": "focus returns to trigger button after Escape",
+   "ok": true,
+   "extra": "BUTTON"
+  },
+  {
+   "tag": "es-dropdown",
+   "k": "opens from keyboard (Enter)",
+   "ok": true
+  },
+  {
+   "tag": "es-dropdown",
+   "k": "opens from .prop(\"open\", true)",
+   "ok": true
+  },
+  {
+   "tag": "es-dropdown",
+   "k": "item with slot clicked -> onClick",
+   "ok": true
+  },
+  {
+   "tag": "es-dropdown",
+   "k": "slot=\"trigger\" plain button opens dropdown",
+   "ok": true
+  },
+  {
+   "tag": "es-dropdown",
+   "k": "slot=\"empty\" rendered in empty menu",
+   "ok": true
+  },
+  {
+   "tag": "es-dropdown",
+   "k": "empty menu positioned under slot trigger",
+   "ok": true,
+   "extra": "{\"t2\":{\"x\":324,\"y\":218,\"w\":120,\"h\":26},\"m2\":{\"x\":324,\"y\":248,\"w\":160,\"h\":31}}"
+  },
+  {
+   "tag": "es-dropdown",
+   "k": "item-suffix slot on every row (one light-DOM node rendered 3 times)",
+   "ok": true,
+   "extra": "3"
+  },
+  {
+   "tag": "es-context-menu",
+   "k": "opens on right click -> update:open",
+   "ok": true
+  },
+  {
+   "tag": "es-context-menu",
+   "k": "menu at pointer",
+   "ok": true,
+   "extra": "{\"a\":{\"x\":24,\"y\":244,\"w\":320,\"h\":26},\"cr\":{\"x\":67,\"y\":265,\"w\":160,\"h\":98}}"
+  },
+  {
+   "tag": "es-context-menu",
+   "k": "disabled option is disabled",
+   "ok": true
+  },
+  {
+   "tag": "es-context-menu",
+   "k": "keyboard select Copy",
+   "ok": true,
+   "extra": "email,notify-false,delete,copy"
+  },
+  {
+   "tag": "es-context-menu",
+   "k": "region slot text written by jQuery stays live",
+   "ok": true,
+   "extra": "Right click here (4)"
+  },
+  {
+   "tag": "es-context-menu",
+   "k": "submenu item",
+   "ok": true
+  },
+  {
+   "tag": "es-dropdown",
+   "k": "created inside a larger template: plain <button> default-slot trigger opens the menu",
+   "ok": true
+  },
+  {
+   "tag": "es-dropdown",
+   "k": "item fires",
+   "ok": true
+  },
+  {
+   "tag": "es-dropdown",
+   "k": ".html() on host: new trigger works, options kept",
+   "ok": true
+  },
+  {
+   "tag": "es-dropdown",
+   "k": ".detach() + .prepend(): still opens, menu under trigger",
+   "ok": true
+  },
+  {
+   "tag": "es-dropdown",
+   "k": ".remove() while OPEN: menu gone, body unlocked",
+   "ok": true,
+   "extra": ""
+  },
+  {
+   "tag": "es-dropdown",
+   "k": ".clone(): own trigger (one button), own options",
+   "ok": true,
+   "extra": "1"
+  },
+  {
+   "tag": "es-context-menu",
+   "k": ".append() a second region: right click there opens the menu too",
+   "ok": true
+  }
+ ],
+ "errs": []
+}

@@ -1,0 +1,47 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="/dist/es-ui.css">
+<script src="/jquery.js"></script>
+<script src="/dist/es-ui.iife.js"></script>
+</head><body class="p-6">
+<!-- jQuery port of wc/sweep/shell/xo/pages/app.html: FrappeUIProvider, toast/dialog imperative APIs,
+     keyboard shortcuts + KeyboardShortcutsDialog, ScrollArea -->
+<div id="root"></div>
+<script>
+$(function () {
+  const S = window.S = { k: false, n: 0, log: [] }
+  const push = (m) => S.log.push(m)
+  const own = ($el, ev, fn) => $el.on(ev, function (e) { if (e.target === e.currentTarget) fn(e.originalEvent.detail, e) })
+  const rows = (cls) => Array.from({ length: 40 }, (_, i) => `<p class="${cls}">Row ${i + 1}</p>`).join('')
+  $('#root').append(`
+  <es-frappe-ui-provider id="prov">
+    <div id="app" class="space-y-4">
+      <p id="state">k=false|n=0</p>
+      <button id="btn-toast" class="border px-2">toast</button>
+      <button id="btn-toast-act" class="border px-2">toast action</button>
+      <button id="btn-confirm" class="border px-2">confirm</button>
+      <button id="btn-k" class="border px-2">shortcuts</button>
+      <es-keyboard-shortcuts-dialog id="kd" title="Shortcuts here" search-threshold="3"></es-keyboard-shortcuts-dialog>
+      <style>es-scroll-area.fill > [data-slot=scroll-area] { height: 100% }</style>
+      <es-scroll-area id="sa2" class="fill block h-40 w-60 border"><div id="sa2-content">${rows('')}</div></es-scroll-area>
+      <es-scroll-area id="sa" class="block h-40 w-60 border" viewport-class="sa-vp"><div id="sa-content">${rows('sa-row')}</div></es-scroll-area>
+    </div>
+  </es-frappe-ui-provider>`)
+  const state = () => $('#state').text('k=' + S.k + '|n=' + S.n)
+  $('#btn-toast').on('click', () => { S.n++; state(); ES.toast.success('Saved <b>#' + S.n + '</b>', { description: 'desc ' + S.n }) })
+  $('#btn-toast-act').on('click', () => ES.toast('With action', { action: { label: 'Undo', onClick: () => push('undo') } }))
+  $('#btn-confirm').on('click', () => ES.dialog.confirm({ title: 'Really?', message: 'Confirm message', onConfirm: () => push('confirmed') }))
+  $('#btn-k').on('click', () => $('#kd').prop('open', true))
+  own($('#kd'), 'update:open', (v) => { S.k = v; state() })
+  // Keyboard shortcuts: useKeyboardShortcut needs a component scope. jQuery pages have none, so the
+  // page renders a tiny render-function component at the app root (ES.addRoot; no template, no .vue).
+  window.__saved = 0
+  ES.addRoot({ setup() { ES.frappeUI.useKeyboardShortcut([
+    { combo: 'Mod+S', description: 'Save doc', group: 'File', handler: () => window.__saved++ },
+    { combo: 'Mod+O', description: 'Open doc', group: 'File', handler: () => {} },
+    { combo: 'Mod+K', description: 'Go home', group: 'Nav', handler: () => {} },
+    { combo: 'Shift+?', description: 'Show shortcuts', group: 'Nav', handler: () => {} },
+  ]); return () => null } })
+  window.READY = true
+})
+</script>
+</body></html>

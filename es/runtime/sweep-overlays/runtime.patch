@@ -1,0 +1,129 @@
+--- ../src/runtime.js	2026-11-24 01:00:50.301456785 +0000
++++ proto/src/runtime.js	2026-11-24 01:46:55.836509983 +0000
+@@ -21,7 +21,7 @@
+ // and one public trick: render(h('i'), spare) flushes Vue's post-flush queue synchronously.
+ import {
+   createApp, render, defineComponent, h, Teleport, shallowReactive, shallowRef, markRaw,
+-  getCurrentInstance, withDirectives, camelize, capitalize, nextTick, toRaw,
++  getCurrentInstance, onUnmounted, withDirectives, camelize, capitalize, nextTick, toRaw,
+ } from 'vue'
+ 
+ const hyphenate = (s) => s.replace(/\B([A-Z])/g, '-$1').toLowerCase()
+@@ -57,6 +57,9 @@
+     if (v === '' || v === 'true' || v === name || v === hyphenate(name)) return true
+     if (v === 'false') return false
+   }
++  // A prop declared with a TypeScript interface (Dropdown's `button: ButtonProps`)
++  // has no runtime type: a JSON-looking attribute value is that object.
++  if (!types.length && /^\s*[[{]/.test(v)) { try { return JSON.parse(v) } catch {} }
+   if (types.includes(String) || !types.length) return v
+   if (types.includes(Number) && v.trim() !== '' && !isNaN(+v)) return +v
+   if ((types.includes(Object) || types.includes(Array)) && /^\s*[[{]/.test(v)) {
+@@ -169,7 +172,10 @@
+   }
+   e.slots = shallowReactive({})
+   moving++
+-  try { addContent(e, content, false) } finally { moving-- }
++  // Always leave a holder: a .clone() of a rendered element is recognised by
++  // its <es-slots> copy, so an element with no slot content needs one too, or
++  // its clone reads the stale render output as slot content.
++  try { addContent(e, content, false); holderOf(e) } finally { moving-- }
+ }
+ function addContent(e, nodes, prepend) {
+   const list = prepend ? [...nodes].reverse() : nodes
+@@ -192,6 +198,8 @@
+ // new slot content and the component is mounted afresh.
+ function onChildList(e) {
+   const el = e.host
++  const removed = e.removed || []
++  e.removed = null
+   if (!e.slots) return
+   const start = e.tv && e.tv.targetStart, end = e.tv && e.tv.targetAnchor
+   const rendered = e.node && start
+@@ -205,6 +213,11 @@
+       const vueNodes = new Set()
+       if (e.node.subTree) collectVue(e.node.subTree, vueNodes)
+       addContent(e, rest.filter((n) => !vueNodes.has(n)), false)
++      if (!e.holder) holderOf(e)
++      // .html()/.empty() detached Vue's nodes; unmounting walks nextSibling between
++      // anchors, so park the removed nodes (in order) in a scratch element first.
++      const scratch = document.createElement('div')
++      for (const n of removed) if (!n.parentNode && n !== e.holder) scratch.appendChild(n)
+     } finally { moving-- }
+     remount(e)
+     return
+@@ -247,7 +260,10 @@
+     const e = r.target._es
+     if (!e) continue
+     if (r.type === 'attributes') applyAttr(e, r.attributeName)
+-    else lists.add(e)
++    else {
++      lists.add(e)
++      if (r.removedNodes.length) (e.removed || (e.removed = [])).push(...r.removedNodes)
++    }
+   }
+   lists.forEach(onChildList)
+   flushDirty()
+@@ -308,6 +324,9 @@
+     e.owner = p.owner
+     e.killed = false
+     const setRef = (v) => { if (v && e.node === inst) exposeOnHost(e, v) }
++    const tag = e.def.tag
++    mounted[tag] = (mounted[tag] || 0) + 1
++    onUnmounted(() => { mounted[tag]-- })
+     return () => {
+       e.tick.value
+       dirty.delete(e)
+@@ -451,6 +470,7 @@
+ // Top-level elements live in a two-level tree (root -> groups of 16 buckets ->
+ // buckets of 16), so adding or removing one re-renders one bucket of <=16 Teleports.
+ const groups = shallowReactive([])
++const mounted = shallowReactive({}) // tag -> mounted elements (read by Root for addRoot's `unless`)
+ const open = new Set() // buckets with room
+ const Bucket = defineComponent({
+   name: 'EsBucket',
+@@ -497,7 +517,7 @@
+ const Root = defineComponent({
+   name: 'EsRoot',
+   setup() {
+-    return () => [...rootExtras.map((c, i) => h(c, { key: 'x' + i })), ...groups.map((g) => h(Group, { key: g.id, g }))]
++    return () => [...rootExtras.map((x, i) => (x.unless.some((t) => mounted[t] > 0) ? null : h(x.comp, { key: 'x' + i }))), ...groups.map((g) => h(Group, { key: g.id, g }))]
+   },
+ })
+ 
+@@ -719,8 +739,8 @@
+   def: (tag) => defs.get(tag),
+   /** Run fn(app, ES) on the one app: now if it exists, else when it is created. */
+   configure(fn) { configureFns.push(fn); if (app) fn(app, ES) },
+-  /** Render a component once at the root (toast/dialog hosts). */
+-  addRoot(comp) { rootExtras.push(markRaw(comp)); if (rootInst) syncUpdate(rootInst) },
++  /** Render a component once at the root (toast/dialog hosts), except while an element named in `unless` is mounted (it brings its own). */
++  addRoot(comp, { unless = [] } = {}) { rootExtras.push(markRaw({ comp, unless })); if (rootInst) syncUpdate(rootInst) },
+   /** Run fn with rendering held back, then render everything it connected in one pass (still before batch returns). */
+   batch(fn) {
+     if (batching) return fn()
+@@ -752,4 +772,24 @@
+   return origAdd(e)
+ }
+ 
++// floating-ui (reka Popper) watches its reference with IntersectionObserver
++// (autoUpdate layoutShift) and ResizeObserver (elementResize). A reference that
++// is display:contents (<es-slot> of an as-child trigger, an es-* host) has no
++// box, so neither observer ever fires and an open menu/popover stays put when
++// jQuery shifts or moves its trigger. Observe the first descendant with a box.
++function boxTarget(t) {
++  if (!(t instanceof Element) || !(t.localName === 'es-slot' || defs.has(t.localName))) return t
++  for (const c of t.querySelectorAll('*')) {
++    if (c.localName === 'es-slots' || c.closest('es-slots')) continue
++    if (getComputedStyle(c).display !== 'contents') return c
++  }
++  return t
++}
++for (const O of [window.IntersectionObserver, window.ResizeObserver]) {
++  if (!O || O.prototype._esBox) continue
++  const ob = O.prototype.observe, un = O.prototype.unobserve
++  O.prototype._esBox = true
++  O.prototype.observe = function (t, o) { return ob.call(this, boxTarget(t), o) }
++  O.prototype.unobserve = function (t) { return un.call(this, boxTarget(t)) }
++}
+ if (!customElements.get('es-slot')) customElements.define('es-slot', EsSlotElement)

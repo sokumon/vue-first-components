@@ -1,0 +1,18 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="/dist/es-ui.css">
+<script src="/jquery.js"></script>
+<script src="/dist/es-ui.iife.js"></script>
+</head><body class="p-6"><div id="ctl"></div>
+<script>
+// Plain-Vue control (no custom elements): same frappe-ui components through ES.Vue.createApp, for differential checks.
+$(function () {
+  const { createApp, h, ref } = ES.Vue, F = ES.frappeUI
+  window.S = { color: 'b' }
+  createApp({ setup() {
+    const v = ref('b')
+    return () => h(F.RadioGroup, { label: 'Colour', modelValue: v.value, 'onUpdate:modelValue': (x) => { v.value = x; S.color = x } }, () => [
+      h(F.Radio, { value: 'a', label: 'Alpha', id: 'r-a' }), h(F.Radio, { value: 'b', label: 'Beta', id: 'r-b' }), h(F.Radio, { value: 'c', label: 'Gamma', id: 'r-c' })])
+  } }).mount('#ctl')
+  window.READY = true
+})
+</script></body></html>

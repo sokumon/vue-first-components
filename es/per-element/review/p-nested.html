@@ -1,0 +1,26 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../../dist/es-wc-spike.css">
+<script defer src="../../dist/es-components.js"></script>
+<script defer src="../../dist/petite-vue.iife.js"></script>
+</head><body class="p-6">
+<div id="app" v-scope="{ tab: 'two', open: false, color: 'red', colors: [{label:'Red',value:'red'},{label:'Blue',value:'blue'}], q: '' }">
+  <p id="state">{{ tab }}|{{ open }}|{{ color }}|{{ q }}</p>
+  <es-tabs id="ct" :model-value="tab" @update:model-value="tab = $event.detail[0]">
+    <es-tab-list>
+      <es-tab-trigger value="one" label="One"></es-tab-trigger>
+      <es-tab-trigger value="two" label="Two"></es-tab-trigger>
+    </es-tab-list>
+    <es-tab-panel value="one"><p id="p1">Panel one</p></es-tab-panel>
+    <es-tab-panel value="two"><p id="p2">Panel two</p></es-tab-panel>
+  </es-tabs>
+  <es-button id="open" label="Open" @click="open = true"></es-button>
+  <es-dialog id="dlg" title="With select" :open="open" @update:open="open = $event.detail[0]">
+    <div>
+      <es-select id="insel" :options="colors" :model-value="color" @update:model-value="color = $event.detail[0]"></es-select>
+      <es-text-input id="inti" :model-value="q" @update:model-value="q = $event.detail[0]"></es-text-input>
+    </div>
+  </es-dialog>
+  <es-button id="pfx" label="With prefix"><span slot="prefix" id="pfx-icon">P</span></es-button>
+</div>
+<script>addEventListener('DOMContentLoaded', () => PetiteVue.createApp().mount('#app'))</script>
+</body></html>

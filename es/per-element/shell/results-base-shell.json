@@ -1,0 +1,217 @@
+{
+ "results": [
+  {
+   "k": "desktop-shell: rail | sidebar | content side by side, full height",
+   "pass": true,
+   "info": "{\"rail\":{\"x\":0,\"y\":0,\"w\":50,\"h\":900},\"sb\":{\"x\":50,\"y\":0,\"w\":240,\"h\":900},\"ct\":{\"x\":290,\"y\":0,\"w\":910,\"h\":900}}"
+  },
+  {
+   "k": "desktop-shell: rail slot inside shell, sidebar slot inside shell",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "page-header teleported into DesktopShell header target (first child of content)",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "page-header-title renders title prop inside header",
+   "pass": true,
+   "info": "Page inbox\nNew"
+  },
+  {
+   "k": "page-header default slot: action button inside header",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "page-header action button click reaches petite",
+   "pass": true,
+   "info": "new"
+  },
+  {
+   "k": "default slot sits in the shell scroll region; scrolling keeps the header pinned",
+   "pass": true,
+   "info": "{\"scrolled\":{\"tag\":\"DIV\",\"top\":600,\"inShell\":true},\"h0\":{\"x\":290,\"y\":0,\"w\":910,\"h\":48},\"h1\":{\"x\":290,\"y\":0,\"w\":910,\"h\":48}}"
+  },
+  {
+   "k": "sidebar-item :active from petite (inbox active, drafts inactive)",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "sidebar-item suffix prop rendered in suffix zone",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "sidebar-item named slot prefix inside the button prefix box",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "sidebar-item default slot label inside button, interpolated",
+   "pass": true,
+   "info": "Drafts (3)"
+  },
+  {
+   "k": "sidebar-item named slot suffix inside suffix zone",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "sidebar-item click -> petite state + active flips + header title reactive",
+   "pass": true,
+   "info": "cur=drafts|collapsed=false|sec=false|card=true / Page drafts"
+  },
+  {
+   "k": "sidebar-item onClick function prop (:on-click) called with MouseEvent",
+   "pass": true,
+   "info": "click"
+  },
+  {
+   "k": "sidebar-item href renders <a href>",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "sidebar-item aria-label from slot text (tooltip/accessible name)",
+   "pass": true,
+   "info": "Drafts (3)"
+  },
+  {
+   "k": "sidebar-label slot text rendered",
+   "pass": true,
+   "info": "Projects"
+  },
+  {
+   "k": "sidebar-section label + items visible",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "sidebar-section collapse button -> update:collapsed -> petite, body hidden",
+   "pass": true,
+   "info": "cur=drafts|collapsed=false|sec=true|card=true"
+  },
+  {
+   "k": "sidebar-section expands again",
+   "pass": true,
+   "info": "cur=drafts|collapsed=false|sec=false|card=true"
+  },
+  {
+   "k": "item inside section click -> state",
+   "pass": true,
+   "info": "cur=b|collapsed=false|sec=false|card=true"
+  },
+  {
+   "k": "sidebar-header title/subtitle rendered",
+   "pass": true,
+   "info": "A\nAcme\nada@acme.io"
+  },
+  {
+   "k": "sidebar-header menu opens (Dropdown with menu-items)",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "sidebar-header menu item onClick fires, menu closes",
+   "pass": true,
+   "info": "logout"
+  },
+  {
+   "k": "sidebar-card title/description props",
+   "pass": false,
+   "info": ""
+  },
+  {
+   "k": "sidebar-card action object (label + onClick fn)",
+   "pass": false,
+   "info": "ERR up=undefined"
+  },
+  {
+   "k": "sidebar-card named slots title/description in their zones",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "sidebar-card actions slot (scoped slot used without props) in actions zone",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "slot content stays reactive: card title, item label, rail badge follow n",
+   "pass": true,
+   "info": "Slot title 4 / Drafts (4)"
+  },
+  {
+   "k": "sidebar-card dismiss -> @dismiss -> v-if removes it",
+   "pass": false,
+   "info": "new"
+  },
+  {
+   "k": "rail item active indicator on Home",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "rail item aria-label folds badge count",
+   "pass": true,
+   "info": "Notifications, 4 unread"
+  },
+  {
+   "k": "rail badge pill teleported + positioned next to its item, count reactive",
+   "pass": true,
+   "info": "{\"txt\":\"4\",\"dx\":20,\"dy\":-8,\"vis\":true}"
+  },
+  {
+   "k": "rail dot badge rendered",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "rail custom default slot inside <a href> cell",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "rail item tooltip on hover shows label",
+   "pass": true,
+   "info": "Notifications\nNotifications|Notifications"
+  },
+  {
+   "k": "rail item click event reaches petite @click exactly once",
+   "pass": false,
+   "info": "new,rail-home,rail-home,rail-bell,rail-bell"
+  },
+  {
+   "k": "collapse toggle label Collapse while expanded",
+   "pass": true,
+   "info": "Collapse"
+  },
+  {
+   "k": "collapse toggle -> Sidebar toggles -> update:collapsed -> petite",
+   "pass": false,
+   "info": "cur=inbox|collapsed=false|sec=false|card=true"
+  },
+  {
+   "k": "sidebar collapsed width (3rem) + data-state",
+   "pass": false,
+   "info": "{\"x\":50,\"y\":0,\"w\":240,\"h\":900}"
+  },
+  {
+   "k": "items see collapsed via inject (label hidden)",
+   "pass": false,
+   "info": "1"
+  },
+  {
+   "k": "toggle label switches to Expand (inject)",
+   "pass": false,
+   "info": "Collapse"
+  }
+ ],
+ "errs": [
+  "pageerror: Failed to execute 'setAttribute' on 'Element': '0' is not a valid attribute name."
+ ]
+}

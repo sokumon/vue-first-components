@@ -1,0 +1,41 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../build/es-wc-spike.css">
+<script defer src="../build/es-components.js"></script>
+<script defer src="../build/petite-vue.iife.js"></script>
+</head><body class="p-6">
+<div id="app" v-scope="{ name: 'Ada', agree: false, on: false, color: 'red', open: false, picked: '', loading: false, rating: 0, chk: 0, dlg2: false,
+  colors: [{label:'Red',value:'red'},{label:'Blue',value:'blue'}],
+  menu: [{label:'Edit', onClick(){ window.__picked='Edit' }},{label:'Delete', onClick(){ window.__picked='Delete' }}],
+  field: {fieldname:'agree', label:'Agree to terms', fieldtype:'Check'} }" class="space-y-4">
+
+  <p id="state">{{ name }}|{{ agree }}|{{ on }}|{{ color }}|{{ open }}|{{ chk }}</p>
+
+  <es-button id="b-label" label="Label prop" variant="solid"></es-button>
+  <es-button id="b-slot" variant="subtle">Slot text</es-button>
+  <es-button id="b-load" label="Save" :loading="loading" @click="loading = true"></es-button>
+
+  <es-text-input id="ti" :model-value="name" @update:model-value="name = $event.detail[0]"></es-text-input>
+  <es-checkbox id="cb" label="I agree" :model-value="agree" @update:model-value="agree = $event.detail[0]"></es-checkbox>
+  <es-switch id="sw" label="Switch" :model-value="on" @update:model-value="on = $event.detail[0]"></es-switch>
+  <es-select id="sel" :options="colors" :model-value="color" @update:model-value="color = $event.detail[0]"></es-select>
+  <es-badge id="badge" label="Draft" theme="orange"></es-badge>
+  <es-avatar id="av" label="Ada Lovelace"></es-avatar>
+  <es-dropdown id="dd" :options="menu" :button="{label:'Actions'}"></es-dropdown>
+
+  <es-button id="open-dlg" label="Open dialog" @click="open = true"></es-button>
+  <es-dialog id="dlg" title="Hello from es-dialog" :open="open" @update:open="open = $event.detail[0]">
+    <p id="dlg-body">Dialog body via slot, name={{ name }}</p>
+    <es-button id="dlg-rename" label="Rename" @click="name = 'Linus'"></es-button>
+  </es-dialog>
+
+  <es-button id="b-dyn">Hi {{ name }}</es-button>
+  <es-button id="show-dlg2" label="Show dialog 2" @click="dlg2 = true"></es-button>
+  <es-dialog v-if="dlg2" id="dlg2" title="Second dialog" :open="true">
+    <p id="dlg2-body">Second body, name={{ name }}</p>
+    <es-button id="dlg2-kill" label="Remove" @click="dlg2 = false"></es-button>
+  </es-dialog>
+
+  <es-fw-check-field id="fw" :field="field" :model-value="chk" @update:model-value="chk = $event.detail[0]"></es-fw-check-field>
+</div>
+<script>addEventListener('DOMContentLoaded', () => PetiteVue.createApp().mount('#app'))</script>
+</body></html>

@@ -1,0 +1,45 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="/dist/es-ui.css">
+<script src="/jquery.js"></script>
+<script src="/dist/es-ui.iife.js"></script>
+</head><body class="p-6">
+<div id="app" class="space-y-4"></div>
+<script>
+// jQuery port of wc/sweep/inputs/pages/core.html
+$(function () {
+  const S = window.S = { name: 'Ada', agree: false, on: false, color: 'red', open: false, loading: false, chk: 0, dlg2: false, picked: null }
+  const $app = $('#app')
+  const show = () => $('#state').text([S.name, S.agree, S.on, S.color, S.open, S.chk].join('|'))
+  const model = ($el, key, ev = 'update:modelValue') => $el.on(ev, (e) => { if (e.target !== e.currentTarget) return; S[key] = e.originalEvent.detail; show(); rename() })
+  const rename = () => { $('.nm').text(S.name) }
+  $app.append('<p id="state"></p>')
+  $app.append(`<es-button id="b-label" label="Label prop" variant="solid"></es-button>
+    <es-button id="b-slot" variant="subtle">Slot text</es-button>
+    <es-button id="b-load" label="Save"></es-button>`)
+  $('#b-load').on('click', function () { S.loading = true; $(this).attr('loading', true) })
+  model($('<es-text-input id="ti">').prop('modelValue', S.name), 'name').appendTo($app)
+  model($('<es-checkbox id="cb" label="I agree">').prop('modelValue', false), 'agree').appendTo($app)
+  model($('<es-switch id="sw" label="Switch">').prop('modelValue', false), 'on').appendTo($app)
+  model($('<es-select id="sel">').prop({ options: [{ label: 'Red', value: 'red' }, { label: 'Blue', value: 'blue' }], modelValue: S.color }), 'color').appendTo($app)
+  $app.append('<es-badge id="badge" label="Draft" theme="orange"></es-badge><es-avatar id="av" label="Ada Lovelace"></es-avatar>')
+  $('<es-dropdown id="dd">').prop({ options: [{ label: 'Edit', onClick() { S.picked = 'Edit' } }, { label: 'Delete', onClick() { S.picked = 'Delete' } }], button: { label: 'Actions' } }).appendTo($app)
+
+  $('<es-button id="open-dlg" label="Open dialog">').on('click', () => { $('#dlg').prop('open', true) }).appendTo($app)
+  model($(`<es-dialog id="dlg" title="Hello from es-dialog">
+      <p id="dlg-body">Dialog body via slot, name=<span class="nm">Ada</span></p>
+      <es-button id="dlg-rename" label="Rename"></es-button>
+    </es-dialog>`).prop('open', false), 'open', 'update:open').appendTo($app)
+  $('#dlg-rename').on('click', () => { S.name = 'Linus'; $('#ti').prop('modelValue', 'Linus'); rename(); show() })
+  $app.append('<es-button id="b-dyn">Hi <span class="nm">Ada</span></es-button>')
+  $('<es-button id="show-dlg2" label="Show dialog 2">').on('click', () => {
+    $(`<es-dialog id="dlg2" title="Second dialog" open>
+        <p id="dlg2-body">Second body, name=<span class="nm">${S.name}</span></p>
+        <es-button id="dlg2-kill" label="Remove"></es-button>
+      </es-dialog>`).appendTo($app).find('#dlg2-kill').on('click', () => $('#dlg2').remove())
+  }).appendTo($app)
+  model($('<es-fw-check-field id="fw">').prop({ field: { fieldname: 'agree', label: 'Agree to terms', fieldtype: 'Check' }, modelValue: 0 }), 'chk').appendTo($app)
+  show()
+  window.READY = true
+})
+</script>
+</body></html>

@@ -1,0 +1,174 @@
+{
+ "page": "app.html",
+ "fails": 2,
+ "n": 30,
+ "results": [
+  {
+   "tag": "es-frappe-ui-provider",
+   "k": "renders its slot",
+   "ok": true
+  },
+  {
+   "tag": "es-frappe-ui-provider",
+   "k": "slot is not hidden in es-slots",
+   "ok": true
+  },
+  {
+   "tag": "ES.toast",
+   "k": "toast.success shows title + description",
+   "ok": true,
+   "extra": "[\"Saved #1 / desc 1\",\"Saved #1 / desc 1\"]"
+  },
+  {
+   "tag": "es-frappe-ui-provider",
+   "k": "toast rendered once (one Toaster on the page, though the provider and the ES root each render a ToastProvider)",
+   "ok": false,
+   "extra": "{\"toasts\":2,\"toasters\":2,\"before\":2}"
+  },
+  {
+   "tag": "ES.toast",
+   "k": "<b> from sanitised HTML",
+   "ok": true
+  },
+  {
+   "tag": "ES.toast",
+   "k": "toast sits bottom-right",
+   "ok": true,
+   "extra": "{\"x\":896,\"y\":814,\"w\":360,\"h\":62}"
+  },
+  {
+   "tag": "ES.toast",
+   "k": "action onClick fires",
+   "ok": false,
+   "extra": ""
+  },
+  {
+   "tag": "ES.dialog",
+   "k": "dialog.confirm() renders exactly once (provider Dialogs + ES root Dialogs)",
+   "ok": true,
+   "extra": "1"
+  },
+  {
+   "tag": "ES.dialog",
+   "k": "onConfirm fires and dialog closes",
+   "ok": true,
+   "extra": "confirmed"
+  },
+  {
+   "tag": "es-keyboard-shortcuts-dialog",
+   "k": "useKeyboardShortcut registered from the page (ES.addRoot render fn) handles Mod+S",
+   "ok": true,
+   "extra": "1"
+  },
+  {
+   "tag": "es-keyboard-shortcuts-dialog",
+   "k": "opens with title (attribute -> prop)",
+   "ok": true,
+   "extra": "Shortcuts here\nFile\nSave doc\nCtrl\nS\nOpen doc\nCtrl\nO\nNav\nGo home\nCtrl\nK\nShow shortcuts\nShift\n?"
+  },
+  {
+   "tag": "es-keyboard-shortcuts-dialog",
+   "k": "lists the registered groups/shortcuts",
+   "ok": true,
+   "extra": "Shortcuts here | File | Save doc | Ctrl | S | Open doc | Ctrl | O | Nav | Go home | Ctrl | K | Show shortcuts | Shift | ?"
+  },
+  {
+   "tag": "es-keyboard-shortcuts-dialog",
+   "k": "search shown above threshold (search-threshold=\"3\" -> number)",
+   "ok": true
+  },
+  {
+   "tag": "es-keyboard-shortcuts-dialog",
+   "k": "search filters to \"Open doc\"",
+   "ok": true,
+   "extra": "Shortcuts here | File | Open doc | Ctrl | O"
+  },
+  {
+   "tag": "es-keyboard-shortcuts-dialog",
+   "k": "Escape -> update:open false on host",
+   "ok": true
+  },
+  {
+   "tag": "es-scroll-area",
+   "k": "host class h-40 constrains the viewport",
+   "ok": true,
+   "extra": "{\"sa\":{\"x\":25,\"y\":283,\"w\":240,\"h\":160},\"vp\":{\"x\":26,\"y\":284,\"w\":238,\"h\":158}}"
+  },
+  {
+   "tag": "es-scroll-area",
+   "k": "slot rows inside viewport",
+   "ok": true
+  },
+  {
+   "tag": "es-scroll-area",
+   "k": "scrolls on wheel",
+   "ok": true,
+   "extra": "300"
+  },
+  {
+   "tag": "es-scroll-area",
+   "k": "host CSS convention (host > [data-slot=scroll-area] {height:100%}) also works",
+   "ok": true,
+   "extra": "{\"vp2\":{\"x\":26,\"y\":108,\"w\":238,\"h\":156},\"s2\":300}"
+  },
+  {
+   "tag": "es-scroll-area",
+   "k": "custom vertical scrollbar shown",
+   "ok": true
+  },
+  {
+   "tag": "es-scroll-area",
+   "k": "viewport-class attribute applied",
+   "ok": true
+  },
+  {
+   "tag": "es-scroll-area",
+   "k": "exposed viewportElement readable on element",
+   "ok": true
+  },
+  {
+   "tag": "es-scroll-area",
+   "k": "appending inside slot content (jQuery owns it): new row in viewport",
+   "ok": true
+  },
+  {
+   "tag": "es-scroll-area",
+   "k": ".append() on host: joins default slot inside the viewport, scroll kept",
+   "ok": true
+  },
+  {
+   "tag": "es-scroll-area",
+   "k": ".html() on host: new rows in a working viewport",
+   "ok": true
+  },
+  {
+   "tag": "es-scroll-area",
+   "k": ".detach() + .prepend() in same task keeps the mounted viewport (scrollTop resets: native browser behaviour on removal)",
+   "ok": true,
+   "extra": "[]"
+  },
+  {
+   "tag": "es-scroll-area",
+   "k": ".clone(): one viewport, 41 rows + direct child, no stale scrollbar copies",
+   "ok": true,
+   "extra": "[1,41]"
+  },
+  {
+   "tag": "es-keyboard-shortcuts-dialog",
+   "k": "removed + recreated from an HTML string: opens, lists shortcuts",
+   "ok": true
+  },
+  {
+   "tag": "es-keyboard-shortcuts-dialog",
+   "k": "ancestor .remove() while open: dialog gone, body unlocked",
+   "ok": true
+  },
+  {
+   "tag": "es-frappe-ui-provider",
+   "k": "provider removed: ES.toast still works (root ToastProvider)",
+   "ok": true,
+   "extra": "[]"
+  }
+ ],
+ "errs": []
+}

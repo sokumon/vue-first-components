@@ -1,0 +1,12 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="/build/fw-sweep.css">
+<script defer src="/build/es-components.js"></script>
+<script defer src="/petite-vue.iife.js"></script>
+</head><body class="p-6">
+<div id="app" v-scope="{ n: 0, dirty: false, created: [] }">
+  <pre id="state" class="text-xs">{{ JSON.stringify({ n, dirty, created }) }}</pre>
+  <button id="poke" @click="n++">poke</button>
+  <es-fw-email-accounts id="c-ea" class="block w-[40rem]" doctype="HD Ticket" :providers="['GMail', '']" :dirty="dirty" @update:dirty="dirty = $event.detail[0]" @created="created.push($event.detail[0])"></es-fw-email-accounts>
+</div>
+<script>window.EsBindSlot = (el, p) => { const s = PetiteVue.reactive(p), app = PetiteVue.createApp(s).mount(el); return { update: (n) => Object.assign(s, n), unmount: () => app.unmount() } }; addEventListener('DOMContentLoaded', () => PetiteVue.createApp().mount('#app'))</script>
+</body></html>

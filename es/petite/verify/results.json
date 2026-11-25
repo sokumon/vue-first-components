@@ -1,0 +1,321 @@
+[
+ {
+  "file": "src/components/Icon/Icon.vue",
+  "steps": [
+   {
+    "label": "initial",
+    "same": false,
+    "ref": "<span class=\"lucide-house\" aria-hidden=\"true\"></span>",
+    "refTeleported": "",
+    "pv": ""
+   },
+   {
+    "label": "{\"set\":{\"icon\":\"🚀\"}}",
+    "same": false,
+    "ref": "<span class=\"inline-flex items-center justify-center leading-none\" aria-hidden=\"true\">🚀</span>",
+    "refTeleported": "",
+    "pv": "",
+    "errs": []
+   },
+   {
+    "label": "{\"set\":{\"icon\":\"lucide-x\"}}",
+    "same": false,
+    "ref": "<span class=\"lucide-x\" aria-hidden=\"true\"></span>",
+    "refTeleported": "",
+    "pv": "",
+    "errs": []
+   }
+  ],
+  "refErr": [],
+  "pvErr": []
+ },
+ {
+  "file": "src/components/Icon/Icon.vue",
+  "steps": [
+   {
+    "label": "initial",
+    "same": false,
+    "ref": "<span class=\"inline-flex items-center justify-center leading-none\" aria-hidden=\"true\">🚀</span>",
+    "refTeleported": "",
+    "pv": ""
+   }
+  ],
+  "refErr": [],
+  "pvErr": []
+ },
+ {
+  "file": "src/components/InputLabeling/InputError.vue",
+  "steps": [
+   {
+    "label": "initial",
+    "same": false,
+    "ref": "<div id=\"e1\" data-slot=\"error\" role=\"alert\" class=\"text-p-sm whitespace-pre-line text-ink-red-5\">Bad value Second</div>",
+    "refTeleported": "",
+    "pv": "<div data-slot=\"error\" role=\"alert\" class=\"text-p-sm whitespace-pre-line text-ink-red-5\" id=\"e1\">Bad value Second</div>"
+   },
+   {
+    "label": "{\"set\":{\"lines\":[\"Only\"]}}",
+    "same": false,
+    "ref": "<div id=\"e1\" data-slot=\"error\" role=\"alert\" class=\"text-p-sm whitespace-pre-line text-ink-red-5\">Only</div>",
+    "refTeleported": "",
+    "pv": "<div data-slot=\"error\" role=\"alert\" class=\"text-p-sm whitespace-pre-line text-ink-red-5\" id=\"e1\">Only</div>",
+    "errs": []
+   },
+   {
+    "label": "{\"set\":{\"lines\":[]}}",
+    "same": true,
+    "ref": "",
+    "refTeleported": "",
+    "pv": "",
+    "errs": []
+   }
+  ],
+  "refErr": [],
+  "pvErr": []
+ },
+ {
+  "file": "src/components/InputLabeling/RequiredIndicator.vue",
+  "steps": [
+   {
+    "label": "initial",
+    "same": true,
+    "ref": "<span class=\"text-ink-red-5 select-none\" aria-hidden=\"true\">*</span><span class=\"sr-only\">(required)</span>",
+    "refTeleported": "",
+    "pv": "<span class=\"text-ink-red-5 select-none\" aria-hidden=\"true\">*</span><span class=\"sr-only\">(required)</span>"
+   },
+   {
+    "label": "{\"set\":{\"required\":false}}",
+    "same": true,
+    "ref": "",
+    "refTeleported": "",
+    "pv": "",
+    "errs": []
+   },
+   {
+    "label": "{\"set\":{\"required\":true}}",
+    "same": true,
+    "ref": "<span class=\"text-ink-red-5 select-none\" aria-hidden=\"true\">*</span><span class=\"sr-only\">(required)</span>",
+    "refTeleported": "",
+    "pv": "<span class=\"text-ink-red-5 select-none\" aria-hidden=\"true\">*</span><span class=\"sr-only\">(required)</span>",
+    "errs": []
+   }
+  ],
+  "refErr": [],
+  "pvErr": []
+ },
+ {
+  "file": "src/components/InputLabeling/LabelingWrapper.vue",
+  "steps": [
+   {
+    "label": "initial",
+    "same": false,
+    "ref": "<div class=\"w\"><b class=\"slot-default\">child</b></div>",
+    "refTeleported": "",
+    "pv": "<div class=\"w\"><slot></slot></div>"
+   },
+   {
+    "label": "{\"set\":{\"enabled\":false}}",
+    "same": false,
+    "ref": "<b class=\"slot-default\">child</b>",
+    "refTeleported": "",
+    "pv": "<slot></slot>",
+    "errs": []
+   }
+  ],
+  "refErr": [],
+  "pvErr": [
+   "E ReferenceError: wrapperStyle is not defined"
+  ]
+ },
+ {
+  "file": "src/components/FormLabel/FormLabel.vue",
+  "steps": [
+   {
+    "label": "initial",
+    "same": false,
+    "ref": "<label class=\"block text-sm leading-tighter text-ink-gray-6\" for=\"x\" data-slot=\"label\">Name <span class=\"text-ink-red-5 select-none\" aria-hidden=\"true\">*</span><span class=\"sr-only\">(required)</span></label>",
+    "refTeleported": "",
+    "pv": "<label class=\"block text-sm leading-tighter text-ink-gray-6\" data-slot=\"label\" for=\"x\"> Name <requiredindicator required=\"true\"></requiredindicator></label>"
+   },
+   {
+    "label": "{\"set\":{\"label\":\"Email\"}}",
+    "same": false,
+    "ref": "<label class=\"block text-sm leading-tighter text-ink-gray-6\" for=\"x\" data-slot=\"label\">Email <span class=\"text-ink-red-5 select-none\" aria-hidden=\"true\">*</span><span class=\"sr-only\">(required)</span></label>",
+    "refTeleported": "",
+    "pv": "<label class=\"block text-sm leading-tighter text-ink-gray-6\" data-slot=\"label\" for=\"x\"> Email <requiredindicator required=\"true\"></requiredindicator></label>",
+    "errs": []
+   }
+  ],
+  "refErr": [],
+  "pvErr": []
+ },
+ {
+  "file": "src/components/DesktopShell/DesktopShell.vue",
+  "steps": [
+   {
+    "label": "initial",
+    "same": false,
+    "ref": "<div data-slot=\"desktop-shell\" class=\"flex h-full\"><b class=\"slot-rail\">rail</b><b class=\"slot-sidebar\">side</b><div data-slot=\"desktop-shell-content\" class=\"flex min-w-0 flex-1 flex-col overflow-hidden\"><div></div><div dir=\"ltr\" data-slot=\"scroll-area\" class=\"relative overflow-hidden min-h-0 flex-1\" style=\"position: relative; --reka-scroll-area-corner-width: 0px; --reka-scroll-area-corner-height: 0px;\"><div data-reka-scroll-area-viewport=\"\" data-slot=\"scroll-area-viewport\" class=\"h-full w-full\" tabindex=\"0\" style=\"overflow: hidden scroll;\"><div><b class=\"slot-default\">body</b></div></div><style> /* Hide scrollbars cross-browser and enable momentum scroll for touch devices */ [data-reka-scro",
+    "refTeleported": "",
+    "pv": "<div data-slot=\"desktop-shell\" class=\"\"><slot name=\"rail\"><slot name=\"sidebar\"><div data-slot=\"desktop-shell-content\" class=\"flex min-w-0 flex-1 flex-col overflow-hidden\"><pageheadertarget><scrollarea class=\"min-h-0 flex-1\"><slot></slot></scrollarea></pageheadertarget></div></slot></slot></div>"
+   }
+  ],
+  "refErr": [],
+  "pvErr": [
+   "E ReferenceError: navSide is not defined"
+  ]
+ },
+ {
+  "file": "src/components/KeyboardShortcutsDialog/KeyboardShortcutsDialog.vue",
+  "steps": [
+   {
+    "label": "initial",
+    "same": false,
+    "ref": "",
+    "refTeleported": "<div data-state=\"open\" class=\"fixed inset-0 z-50 bg-black-overlay-200 dark:bg-black-overlay-700 dialog-overlay outline-none\" data-aria-hidden=\"true\" aria-hidden=\"true\" style=\"pointer-events: auto;\"></div><div class=\"fixed inset-0 z-50 overflow-y-auto dialog-scroll-container\"><div class=\"flex min-h-s",
+    "pv": "<dialog size=\"5xl\" position=\"top\"><template #title=\"\"><div class=\"flex items-center pe-2\" data-slot=\"header\"><h3 class=\"shrink-0 text-3xl-semibold leading-6 text-ink-gray-9 flex-1\" data-slot=\"title\"> {{ title }} </h3><div v-if=\"shouldShowSearch\" class=\"w-fit ms-2\" data-slot=\"search\"><textinput v-model=\"searchQuery\" type=\"text\" placeholder=\"Search shortcuts\" aria-label=\"Search shortcuts\"></textinput></div></div></template><template #default=\"\"><slot :groups=\"filteredGroups\"><div v-if=\"!groups.length\" class=\"h-[20vh] py-8 text-center text-sm text-ink-gray-5\" data-slot=\"empty\" data-state=\"empty\"> No keyboard shortcuts available on this page. </div><div v-else-if=\"!filteredGroups.length\" class=\""
+   },
+   {
+    "label": "{\"click\":\"button\"}",
+    "same": false,
+    "ref": "",
+    "refTeleported": "<div data-state=\"open\" class=\"fixed inset-0 z-50 bg-black-overlay-200 dark:bg-black-overlay-700 dialog-overlay outline-none\" data-aria-hidden=\"true\" aria-hidden=\"true\" style=\"pointer-events: auto;\"></div><div class=\"fixed inset-0 z-50 overflow-y-auto dialog-scroll-container\"><div class=\"flex min-h-s",
+    "pv": "<dialog size=\"5xl\" position=\"top\"><template #title=\"\"><div class=\"flex items-center pe-2\" data-slot=\"header\"><h3 class=\"shrink-0 text-3xl-semibold leading-6 text-ink-gray-9 flex-1\" data-slot=\"title\"> {{ title }} </h3><div v-if=\"shouldShowSearch\" class=\"w-fit ms-2\" data-slot=\"search\"><textinput v-model=\"searchQuery\" type=\"text\" placeholder=\"Search shortcuts\" aria-label=\"Search shortcuts\"></textinput></div></div></template><template #default=\"\"><slot :groups=\"filteredGroups\"><div v-if=\"!groups.length\" class=\"h-[20vh] py-8 text-center text-sm text-ink-gray-5\" data-slot=\"empty\" data-state=\"empty\"> No keyboard shortcuts available on this page. </div><div v-else-if=\"!filteredGroups.length\" class=\"",
+    "errs": []
+   }
+  ],
+  "refErr": [
+   "W Warning: Missing `Description` or `aria-describedby=\"undefined\"` for DialogContent."
+  ],
+  "pvErr": [
+   "E ReferenceError: paddingTop is not defined"
+  ]
+ },
+ {
+  "file": "src/components/Combobox/ComboboxResults.vue",
+  "steps": [
+   {
+    "label": "initial",
+    "same": false,
+    "ref": "",
+    "refTeleported": "",
+    "pv": "<comboboxviewport class=\"flex max-h-60 flex-col overflow-auto p-1\"></comboboxviewport>"
+   }
+  ],
+  "refErr": [
+   "VueErr Injection `Symbol(ComboboxRootContext)` not found. Component must be used within `ComboboxRoot`",
+   "W [Vue warn]: Component is missing template or render function:  [object Object] \n  at <ComboboxViewport class=\"flex max-h-60 flex-col overflow-auto p-1\" > \n  at <ComboboxResults groups=  size=\"sm\" quer"
+  ],
+  "pvErr": [
+   "mount-throw Cannot read properties of null (reading 'insertBefore')"
+  ]
+ },
+ {
+  "file": "src/charts/AreaChart.vue",
+  "steps": [
+   {
+    "label": "initial",
+    "same": false,
+    "ref": "<div data-slot=\"chart-container\" data-state=\"ready\" class=\"flex h-full w-full min-w-0 flex-col gap-1.5\" dir=\"ltr\"><div data-slot=\"chart-header\" class=\"flex items-start justify-between gap-3\"><div class=\"min-w-0\"><div class=\"flex items-center gap-1.5 text-p-base text-ink-gray-8\"><span class=\"min-w-0 truncate\">Sales</span></div></div></div><div class=\"flex min-h-0 flex-1 flex-col gap-1.5\"><div data-slot=\"chart-plot\" class=\"relative min-h-0 flex-1\"><div class=\"h-full w-full\"><div class=\"h-full w-full rounded-2 focus-visible:focus-ring\" dir=\"ltr\" role=\"img\" aria-label=\"Sales\" tabindex=\"0\"></div><span class=\"sr-only\" role=\"status\"></span></div></div><div data-slot=\"chart-legend\" class=\"relative m",
+    "refTeleported": "",
+    "pv": "<chartcontainer title=\"Sales\" dir=\"undefined\"><template #default=\"\"><div ref=\"plotEl\" class=\"h-full w-full rounded-2 focus-visible:focus-ring\" dir=\"ltr\" role=\"img\" :aria-label=\"chartAriaLabel(title, subtitle)\" v-bind=\"plotAttrs\"><span class=\"sr-only\" role=\"status\">{{ reading }}</span><charttooltip :open=\"tooltip.open\" :x=\"tooltip.x\" :y=\"tooltip.y\" :label=\"tooltip.label\" :items=\"tooltip.items\" :rows=\"tooltip.rows\" :dir=\"dir\"><template v-if=\"$slots.tooltip\" #default=\"slotProps\"><slot name=\"tooltip\" v-bind=\"slotProps\"></slot></template></charttooltip></div></template></chartcontainer>"
+   }
+  ],
+  "refErr": [],
+  "pvErr": [
+   "E ReferenceError: $slots is not defined",
+   "E ReferenceError: $slots is not defined",
+   "E ReferenceError: $slots is not defined",
+   "E ReferenceError: $slots is not defined",
+   "E ReferenceError: $slots is not defined",
+   "E ReferenceError: legendItems is not defined",
+   "E ReferenceError: subtitle is not defined",
+   "E ReferenceError: yAxisTitle is not defined",
+   "E ReferenceError: y2AxisTitle is not defined",
+   "E ReferenceError: loading is not defined",
+   "E ReferenceError: error is not defined",
+   "E ReferenceError: isEmpty is not defined",
+   "E ReferenceError: dir is not defined"
+  ]
+ },
+ {
+  "file": "src/charts/BarChart.vue",
+  "steps": [
+   {
+    "label": "initial",
+    "same": false,
+    "ref": "<div data-slot=\"chart-container\" data-state=\"ready\" class=\"flex h-full w-full min-w-0 flex-col gap-1.5\" dir=\"ltr\"><div data-slot=\"chart-header\" class=\"flex items-start justify-between gap-3\"><div class=\"min-w-0\"><div class=\"flex items-center gap-1.5 text-p-base text-ink-gray-8\"><span class=\"min-w-0 truncate\">Sales</span></div></div></div><div class=\"flex min-h-0 flex-1 flex-col gap-1.5\"><div data-slot=\"chart-plot\" class=\"relative min-h-0 flex-1\"><div class=\"h-full w-full\"><div class=\"h-full w-full rounded-2 focus-visible:focus-ring\" dir=\"ltr\" role=\"img\" aria-label=\"Sales\" tabindex=\"0\"></div><span class=\"sr-only\" role=\"status\"></span></div></div><div data-slot=\"chart-legend\" class=\"relative m",
+    "refTeleported": "",
+    "pv": "<chartcontainer title=\"Sales\" dir=\"undefined\"><template #default=\"\"><div ref=\"plotEl\" class=\"h-full w-full rounded-2 focus-visible:focus-ring\" dir=\"ltr\" role=\"img\" :aria-label=\"chartAriaLabel(title, subtitle)\" v-bind=\"plotAttrs\"><span class=\"sr-only\" role=\"status\">{{ reading }}</span><charttooltip :open=\"tooltip.open\" :x=\"tooltip.x\" :y=\"tooltip.y\" :label=\"tooltip.label\" :items=\"tooltip.items\" :rows=\"tooltip.rows\" :dir=\"dir\"><template v-if=\"$slots.tooltip\" #default=\"slotProps\"><slot name=\"tooltip\" v-bind=\"slotProps\"></slot></template></charttooltip></div></template></chartcontainer>"
+   }
+  ],
+  "refErr": [],
+  "pvErr": [
+   "E ReferenceError: $slots is not defined",
+   "E ReferenceError: $slots is not defined",
+   "E ReferenceError: $slots is not defined",
+   "E ReferenceError: $slots is not defined",
+   "E ReferenceError: $slots is not defined",
+   "E ReferenceError: legendItems is not defined",
+   "E ReferenceError: subtitle is not defined",
+   "E ReferenceError: yAxisTitle is not defined",
+   "E ReferenceError: y2AxisTitle is not defined",
+   "E ReferenceError: axisTitlePlacement is not defined",
+   "E ReferenceError: loading is not defined",
+   "E ReferenceError: error is not defined",
+   "E ReferenceError: isEmpty is not defined",
+   "E ReferenceError: dir is not defined"
+  ]
+ },
+ {
+  "file": "src/charts/DonutChart.vue",
+  "steps": [
+   {
+    "label": "initial",
+    "same": false,
+    "ref": "<div data-slot=\"chart-container\" data-state=\"ready\" class=\"flex h-full w-full min-w-0 flex-col gap-1.5\" dir=\"ltr\"><div data-slot=\"chart-header\" class=\"flex items-start justify-between gap-3\"><div class=\"min-w-0\"><div class=\"flex items-center gap-1.5 text-p-base text-ink-gray-8\"><span class=\"min-w-0 truncate\">Visits</span></div></div></div><div class=\"flex min-h-0 flex-1 flex-col gap-1.5\"><div data-slot=\"chart-plot\" class=\"relative min-h-0 flex-1\"><div class=\"h-full w-full\"><div class=\"relative h-full w-full\"><div class=\"h-full w-full rounded-2 focus-visible:focus-ring\" dir=\"ltr\" role=\"img\" aria-label=\"Visits\" tabindex=\"0\"></div><span class=\"sr-only\" role=\"status\"></span><div class=\"pointer-e",
+    "refTeleported": "",
+    "pv": "<chartcontainer title=\"Visits\" dir=\"undefined\"><template #default=\"\"><div class=\"relative h-full w-full\"><div ref=\"plotEl\" class=\"h-full w-full rounded-2 focus-visible:focus-ring\" dir=\"ltr\" role=\"img\" :aria-label=\"chartAriaLabel(title, subtitle)\" v-bind=\"plotAttrs\"><span class=\"sr-only\" role=\"status\">{{ reading }}</span><div v-if=\"!showDataLabels\" class=\"pointer-events-none absolute inset-0 flex items-center justify-center\" :dir=\"dir\"><div class=\"relative flex aspect-square h-full min-w-0 max-w-full items-center justify-center\"><div class=\"w-[62%]\" :class=\"isHalf &amp;&amp; 'absolute left-1/2'\" :style=\"readoutStyle\"><slot name=\"center\" v-bind=\"center\"><div class=\"truncate text-center text-xl"
+   }
+  ],
+  "refErr": [],
+  "pvErr": [
+   "E ReferenceError: $slots is not defined",
+   "E ReferenceError: $slots is not defined",
+   "E ReferenceError: $slots is not defined",
+   "E ReferenceError: $slots is not defined",
+   "E ReferenceError: $slots is not defined",
+   "E ReferenceError: legendItems is not defined",
+   "E ReferenceError: subtitle is not defined",
+   "E ReferenceError: loading is not defined",
+   "E ReferenceError: error is not defined",
+   "E ReferenceError: isEmpty is not defined",
+   "E ReferenceError: dir is not defined"
+  ]
+ },
+ {
+  "file": "src/charts/CalendarHeatmapChart.vue",
+  "steps": [
+   {
+    "label": "initial",
+    "same": false,
+    "ref": "<div data-slot=\"chart-container\" data-state=\"ready\" class=\"flex h-full w-full min-w-0 flex-col gap-1.5\" dir=\"ltr\"><div data-slot=\"chart-header\" class=\"flex items-start justify-between gap-3\"><div class=\"min-w-0\"><div class=\"flex items-center gap-1.5 text-p-base text-ink-gray-8\"><span class=\"min-w-0 truncate\">Commits</span></div></div></div><div class=\"flex min-h-0 flex-1 flex-col gap-1.5\"><div data-slot=\"chart-plot\" class=\"relative min-h-0 flex-1 pb-3\"><div class=\"h-full w-full\"><div class=\"h-full w-full rounded-2 focus-visible:focus-ring\" dir=\"ltr\" role=\"img\" aria-label=\"Commits\" tabindex=\"0\"></div><div data-slot=\"chart-scale\" class=\"flex items-center gap-2 whitespace-nowrap text-2xs tabula",
+    "refTeleported": "<div style=\"position: absolute; top: -9999px; left: -9999px; visibility: hidden; white-space: pre; margin: 0px; padding: 0px; font: 11px InterVar, Inter, sans-serif;\">Mar</div>",
+    "pv": "<chartcontainer title=\"Commits\" dir=\"undefined\"><template #default=\"\"><div ref=\"plotEl\" class=\"h-full w-full rounded-2 focus-visible:focus-ring\" dir=\"ltr\" role=\"img\" :aria-label=\"chartAriaLabel(title, subtitle)\" v-bind=\"plotAttrs\"><chartscale v-if=\"grid &amp;&amp; cells.length &amp;&amp; layout\" class=\"absolute\" :style=\"{ top: `${layout.scaleTop}px`, left: `${layout.right}px`, transform: `translateX(max(-100%, -${layout.right}px))`, }\" :min=\"grid.min\" :max=\"grid.max\" :stops=\"grid.stops\" :format=\"format\" :below-min=\"clipped.belowMin\" :above-max=\"clipped.aboveMax\" :dir=\"dir\"><span class=\"sr-only\" role=\"status\">{{ reading }}</span><charttooltip :open=\"tooltip.open\" :x=\"tooltip.x\" :y=\"tooltip.y\""
+   }
+  ],
+  "refErr": [],
+  "pvErr": [
+   "E ReferenceError: $slots is not defined",
+   "E ReferenceError: $slots is not defined",
+   "E ReferenceError: $slots is not defined",
+   "E ReferenceError: $slots is not defined",
+   "E ReferenceError: $slots is not defined",
+   "E ReferenceError: subtitle is not defined",
+   "E ReferenceError: loading is not defined",
+   "E ReferenceError: error is not defined",
+   "E ReferenceError: isEmpty is not defined",
+   "E ReferenceError: dir is not defined"
+  ]
+ }
+]

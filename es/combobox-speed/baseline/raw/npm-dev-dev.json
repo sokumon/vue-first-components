@@ -1,0 +1,777 @@
+{
+ "meta": {
+  "tag": "npm-dev",
+  "suite": "dev",
+  "runs": 5,
+  "date": "2026-11-25T07:51:58.695Z",
+  "seconds": 3.848,
+  "ua": "/home/claude/.cache/ms-playwright/chromium-1194/chrome-linux/chrome"
+ },
+ "data": [
+  {
+   "timing": {
+    "sync": 281.2449998855591,
+    "tick": 383.34999990463257,
+    "painted": 404.3650002479553
+   },
+   "measures": {
+    "Anonymous": {
+     "mounts": 1,
+     "init": 0.08999967575073242,
+     "render": 0.4250001907348633,
+     "renders": 1,
+     "mountIncl": 270.70499992370605,
+     "mountSelf": 2.8800015449523926
+    },
+    "BenchCell": {
+     "mounts": 100,
+     "init": 2.1100006103515625,
+     "render": 2.749998092651367,
+     "renders": 100,
+     "mountIncl": 267.82499837875366,
+     "mountSelf": 10.094999313354492
+    },
+    "Combobox": {
+     "mounts": 100,
+     "init": 21.35999870300293,
+     "render": 1.999997615814209,
+     "renders": 100,
+     "mountIncl": 257.72999906539917,
+     "mountSelf": 26.769999504089355
+    },
+    "LabelingWrapper": {
+     "mounts": 100,
+     "init": 2.4150004386901855,
+     "render": 3.7950010299682617,
+     "renders": 100,
+     "mountIncl": 230.95999956130981,
+     "mountSelf": 12.964996814727783
+    },
+    "ComboboxRoot": {
+     "mounts": 100,
+     "init": 18.610002994537354,
+     "render": 1.2600021362304688,
+     "renders": 100,
+     "mountIncl": 217.99500274658203,
+     "mountSelf": 23.15999984741211
+    },
+    "PopperRoot": {
+     "mounts": 100,
+     "init": 1.8850016593933105,
+     "render": 4.345000267028809,
+     "renders": 100,
+     "mountIncl": 194.83500289916992,
+     "mountSelf": 10.230003356933594
+    },
+    "ListboxRoot": {
+     "mounts": 100,
+     "init": 12.34499740600586,
+     "render": 2.1999988555908203,
+     "renders": 100,
+     "mountIncl": 184.60499954223633,
+     "mountSelf": 18.420000076293945
+    },
+    "Primitive": {
+     "mounts": 500,
+     "init": 15.335002899169922,
+     "render": 25.495001316070557,
+     "renders": 900,
+     "mountIncl": 389.5650095939636,
+     "mountSelf": 68.20499992370605
+    },
+    "ComboboxAnchor": {
+     "mounts": 100,
+     "init": 3.2999982833862305,
+     "render": 2.5099987983703613,
+     "renders": 200,
+     "mountIncl": 135.70500469207764,
+     "mountSelf": 12.980008125305176
+    },
+    "PopperAnchor": {
+     "mounts": 100,
+     "init": 7.074999809265137,
+     "render": 2.650002956390381,
+     "renders": 200,
+     "mountIncl": 122.72499656677246,
+     "mountSelf": 12.159994125366211
+    },
+    "PrimitiveSlot": {
+     "mounts": 100,
+     "init": 2.499999523162842,
+     "render": 9.929999351501465,
+     "renders": 200,
+     "mountIncl": 103.52500104904175,
+     "mountSelf": 17.0899977684021
+    },
+    "ComboboxInput": {
+     "mounts": 100,
+     "init": 9.574995994567871,
+     "render": 3.2049989700317383,
+     "renders": 100,
+     "mountIncl": 46.79500102996826,
+     "mountSelf": 18.61000156402588
+    },
+    "ListboxFilter": {
+     "mounts": 100,
+     "init": 6.144999027252197,
+     "render": 3.720001697540283,
+     "renders": 100,
+     "mountIncl": 28.184999465942383,
+     "mountSelf": 13.214995384216309
+    },
+    "ComboboxTrigger": {
+     "mounts": 100,
+     "init": 3.6500024795532227,
+     "render": 16.494999408721924,
+     "renders": 200,
+     "mountIncl": 22.74000120162964,
+     "mountSelf": 11.330000877380371
+    },
+    "ComboboxPortal": {
+     "mounts": 100,
+     "init": 2,
+     "render": 4.145003318786621,
+     "renders": 200,
+     "mountIncl": 12.595001697540283,
+     "mountSelf": 7.3000006675720215
+    },
+    "Teleport": {
+     "mounts": 100,
+     "init": 2.3000001907348633,
+     "render": 3.7250027656555176,
+     "renders": 200,
+     "mountIncl": 5.295001029968262,
+     "mountSelf": 5.295001029968262
+    },
+    "ComboboxContent": {
+     "mounts": 100,
+     "init": 9.979999542236328,
+     "render": 1.6499977111816406,
+     "renders": 100,
+     "mountIncl": 27.625000953674316,
+     "mountSelf": 14.980002403259277
+    },
+    "Presence": {
+     "mounts": 100,
+     "init": 9.789999008178711,
+     "render": 0.6499996185302734,
+     "renders": 100,
+     "mountIncl": 12.644998550415039,
+     "mountSelf": 12.644998550415039
+    }
+   }
+  },
+  {
+   "timing": {
+    "sync": 304.94000005722046,
+    "tick": 407.55999994277954,
+    "painted": 428.09999990463257
+   },
+   "measures": {
+    "Anonymous": {
+     "mounts": 1,
+     "init": 0.07999992370605469,
+     "render": 0.19499969482421875,
+     "renders": 1,
+     "mountIncl": 296.26500034332275,
+     "mountSelf": 2.4299983978271484
+    },
+    "BenchCell": {
+     "mounts": 100,
+     "init": 2.3899998664855957,
+     "render": 3.9449996948242188,
+     "renders": 100,
+     "mountIncl": 293.8350019454956,
+     "mountSelf": 10.430000305175781
+    },
+    "Combobox": {
+     "mounts": 100,
+     "init": 24.51500129699707,
+     "render": 6.859999179840088,
+     "renders": 100,
+     "mountIncl": 283.4050016403198,
+     "mountSelf": 35.090001583099365
+    },
+    "LabelingWrapper": {
+     "mounts": 100,
+     "init": 2.765000343322754,
+     "render": 3.450000762939453,
+     "renders": 100,
+     "mountIncl": 248.31500005722046,
+     "mountSelf": 12.200001239776611
+    },
+    "ComboboxRoot": {
+     "mounts": 100,
+     "init": 19.165003299713135,
+     "render": 1.2249956130981445,
+     "renders": 100,
+     "mountIncl": 236.11499881744385,
+     "mountSelf": 24.124999523162842
+    },
+    "PopperRoot": {
+     "mounts": 100,
+     "init": 2.070002555847168,
+     "render": 4.704999923706055,
+     "renders": 100,
+     "mountIncl": 211.989999294281,
+     "mountSelf": 11.000000476837158
+    },
+    "ListboxRoot": {
+     "mounts": 100,
+     "init": 13.485000133514404,
+     "render": 2.325000762939453,
+     "renders": 100,
+     "mountIncl": 200.98999881744385,
+     "mountSelf": 19.8049955368042
+    },
+    "Primitive": {
+     "mounts": 500,
+     "init": 16.884999752044678,
+     "render": 27.290002822875977,
+     "renders": 900,
+     "mountIncl": 421.09500217437744,
+     "mountSelf": 74.03000974655151
+    },
+    "ComboboxAnchor": {
+     "mounts": 100,
+     "init": 3.7849984169006348,
+     "render": 2.5150017738342285,
+     "renders": 200,
+     "mountIncl": 146.77999782562256,
+     "mountSelf": 12.754997253417969
+    },
+    "PopperAnchor": {
+     "mounts": 100,
+     "init": 13.59499740600586,
+     "render": 2.679999351501465,
+     "renders": 200,
+     "mountIncl": 134.0250005722046,
+     "mountSelf": 18.960001468658447
+    },
+    "PrimitiveSlot": {
+     "mounts": 100,
+     "init": 2.1999988555908203,
+     "render": 22.740000247955322,
+     "renders": 200,
+     "mountIncl": 107.23999691009521,
+     "mountSelf": 12.29999828338623
+    },
+    "ComboboxInput": {
+     "mounts": 100,
+     "init": 10.660000324249268,
+     "render": 5.7700042724609375,
+     "renders": 100,
+     "mountIncl": 53.03499937057495,
+     "mountSelf": 20.44000005722046
+    },
+    "ListboxFilter": {
+     "mounts": 100,
+     "init": 6.77500057220459,
+     "render": 4.47999382019043,
+     "renders": 100,
+     "mountIncl": 32.59499931335449,
+     "mountSelf": 14.989997863769531
+    },
+    "ComboboxTrigger": {
+     "mounts": 100,
+     "init": 4.389996528625488,
+     "render": 5.719998836517334,
+     "renders": 200,
+     "mountIncl": 24.77499771118164,
+     "mountSelf": 12.474997997283936
+    },
+    "ComboboxPortal": {
+     "mounts": 100,
+     "init": 2.305001735687256,
+     "render": 4.854996204376221,
+     "renders": 200,
+     "mountIncl": 15.235000610351562,
+     "mountSelf": 9.009997844696045
+    },
+    "Teleport": {
+     "mounts": 100,
+     "init": 2.895000457763672,
+     "render": 4.215002059936523,
+     "renders": 200,
+     "mountIncl": 6.225002765655518,
+     "mountSelf": 6.225002765655518
+    },
+    "ComboboxContent": {
+     "mounts": 100,
+     "init": 9.934997081756592,
+     "render": 1.6449990272521973,
+     "renders": 100,
+     "mountIncl": 27.249999523162842,
+     "mountSelf": 14.845000743865967
+    },
+    "Presence": {
+     "mounts": 100,
+     "init": 9.535001277923584,
+     "render": 0.6099972724914551,
+     "renders": 100,
+     "mountIncl": 12.404998779296875,
+     "mountSelf": 12.404998779296875
+    }
+   }
+  },
+  {
+   "timing": {
+    "sync": 301.42000007629395,
+    "tick": 408.3199996948242,
+    "painted": 428.5299997329712
+   },
+   "measures": {
+    "Anonymous": {
+     "mounts": 1,
+     "init": 0.07999992370605469,
+     "render": 0.375,
+     "renders": 1,
+     "mountIncl": 293.23499965667725,
+     "mountSelf": 2.6449995040893555
+    },
+    "BenchCell": {
+     "mounts": 100,
+     "init": 2.6400036811828613,
+     "render": 2.630002498626709,
+     "renders": 100,
+     "mountIncl": 290.5900001525879,
+     "mountSelf": 10.680001735687256
+    },
+    "Combobox": {
+     "mounts": 100,
+     "init": 19.134997367858887,
+     "render": 2.609997272491455,
+     "renders": 100,
+     "mountIncl": 279.90999841690063,
+     "mountSelf": 25.379998207092285
+    },
+    "LabelingWrapper": {
+     "mounts": 100,
+     "init": 2.649996757507324,
+     "render": 3.4950013160705566,
+     "renders": 100,
+     "mountIncl": 254.53000020980835,
+     "mountSelf": 11.435002326965332
+    },
+    "ComboboxRoot": {
+     "mounts": 100,
+     "init": 23.904999256134033,
+     "render": 1.2850008010864258,
+     "renders": 100,
+     "mountIncl": 243.09499788284302,
+     "mountSelf": 29.109994411468506
+    },
+    "PopperRoot": {
+     "mounts": 100,
+     "init": 2.0600013732910156,
+     "render": 4.719996452331543,
+     "renders": 100,
+     "mountIncl": 213.9850034713745,
+     "mountSelf": 14.665002822875977
+    },
+    "ListboxRoot": {
+     "mounts": 100,
+     "init": 13.384999752044678,
+     "render": 2.474998950958252,
+     "renders": 100,
+     "mountIncl": 199.32000064849854,
+     "mountSelf": 19.659998416900635
+    },
+    "Primitive": {
+     "mounts": 500,
+     "init": 16.57499599456787,
+     "render": 43.04499101638794,
+     "renders": 900,
+     "mountIncl": 437.8499994277954,
+     "mountSelf": 77.72999858856201
+    },
+    "ComboboxAnchor": {
+     "mounts": 100,
+     "init": 3.635000705718994,
+     "render": 2.845003128051758,
+     "renders": 200,
+     "mountIncl": 143.80500078201294,
+     "mountSelf": 8.460001945495605
+    },
+    "PopperAnchor": {
+     "mounts": 100,
+     "init": 5.469996452331543,
+     "render": 2.8349971771240234,
+     "renders": 200,
+     "mountIncl": 135.34499883651733,
+     "mountSelf": 10.749999523162842
+    },
+    "PrimitiveSlot": {
+     "mounts": 100,
+     "init": 2.2300004959106445,
+     "render": 10.535003662109375,
+     "renders": 200,
+     "mountIncl": 117.29999780654907,
+     "mountSelf": 13.660001277923584
+    },
+    "ComboboxInput": {
+     "mounts": 100,
+     "init": 10.94999885559082,
+     "render": 5.869996547698975,
+     "renders": 100,
+     "mountIncl": 60.53499746322632,
+     "mountSelf": 20.50999641418457
+    },
+    "ListboxFilter": {
+     "mounts": 100,
+     "init": 7.369998455047607,
+     "render": 4.204999923706055,
+     "renders": 100,
+     "mountIncl": 40.02500104904175,
+     "mountSelf": 22.60500192642212
+    },
+    "ComboboxTrigger": {
+     "mounts": 100,
+     "init": 4.155003547668457,
+     "render": 5.665000915527344,
+     "renders": 200,
+     "mountIncl": 24.790002822875977,
+     "mountSelf": 12.255000591278076
+    },
+    "ComboboxPortal": {
+     "mounts": 100,
+     "init": 2.250000476837158,
+     "render": 4.644997596740723,
+     "renders": 200,
+     "mountIncl": 13.690001964569092,
+     "mountSelf": 8.040000915527344
+    },
+    "Teleport": {
+     "mounts": 100,
+     "init": 2.4449987411499023,
+     "render": 4.109999179840088,
+     "renders": 200,
+     "mountIncl": 5.650001049041748,
+     "mountSelf": 5.650001049041748
+    },
+    "ComboboxContent": {
+     "mounts": 100,
+     "init": 10.675000190734863,
+     "render": 1.8500032424926758,
+     "renders": 100,
+     "mountIncl": 29.21999454498291,
+     "mountSelf": 16.18999195098877
+    },
+    "Presence": {
+     "mounts": 100,
+     "init": 10.099999904632568,
+     "render": 0.7200007438659668,
+     "renders": 100,
+     "mountIncl": 13.03000259399414,
+     "mountSelf": 13.03000259399414
+    }
+   }
+  },
+  {
+   "timing": {
+    "sync": 304.6799998283386,
+    "tick": 402.1899995803833,
+    "painted": 421.09999990463257
+   },
+   "measures": {
+    "Anonymous": {
+     "mounts": 1,
+     "init": 0.07500028610229492,
+     "render": 0.41499996185302734,
+     "renders": 1,
+     "mountIncl": 295.1300001144409,
+     "mountSelf": 5.344996452331543
+    },
+    "BenchCell": {
+     "mounts": 100,
+     "init": 2.3350024223327637,
+     "render": 2.559998035430908,
+     "renders": 100,
+     "mountIncl": 289.7850036621094,
+     "mountSelf": 8.87000322341919
+    },
+    "Combobox": {
+     "mounts": 100,
+     "init": 15.96000337600708,
+     "render": 9.525001525878906,
+     "renders": 100,
+     "mountIncl": 280.9150004386902,
+     "mountSelf": 29.5049991607666
+    },
+    "LabelingWrapper": {
+     "mounts": 100,
+     "init": 2.89500093460083,
+     "render": 3.7249956130981445,
+     "renders": 100,
+     "mountIncl": 251.41000127792358,
+     "mountSelf": 12.030004501342773
+    },
+    "ComboboxRoot": {
+     "mounts": 100,
+     "init": 19.785000801086426,
+     "render": 1.3799991607666016,
+     "renders": 100,
+     "mountIncl": 239.3799967765808,
+     "mountSelf": 24.854995250701904
+    },
+    "PopperRoot": {
+     "mounts": 100,
+     "init": 2.2950000762939453,
+     "render": 4.809998512268066,
+     "renders": 100,
+     "mountIncl": 214.5250015258789,
+     "mountSelf": 11.54499864578247
+    },
+    "ListboxRoot": {
+     "mounts": 100,
+     "init": 13.565001487731934,
+     "render": 2.2549991607666016,
+     "renders": 100,
+     "mountIncl": 202.98000288009644,
+     "mountSelf": 19.7550048828125
+    },
+    "Primitive": {
+     "mounts": 500,
+     "init": 16.30001163482666,
+     "render": 29.44999885559082,
+     "renders": 900,
+     "mountIncl": 447.3499984741211,
+     "mountSelf": 87.07499742507935
+    },
+    "ComboboxAnchor": {
+     "mounts": 100,
+     "init": 4.274997234344482,
+     "render": 2.6700005531311035,
+     "renders": 200,
+     "mountIncl": 148.32499885559082,
+     "mountSelf": 8.844996452331543
+    },
+    "PopperAnchor": {
+     "mounts": 100,
+     "init": 6.8650031089782715,
+     "render": 3.005002975463867,
+     "renders": 200,
+     "mountIncl": 139.48000240325928,
+     "mountSelf": 12.435004234313965
+    },
+    "PrimitiveSlot": {
+     "mounts": 100,
+     "init": 2.179999351501465,
+     "render": 9.820002555847168,
+     "renders": 200,
+     "mountIncl": 119.9500002861023,
+     "mountSelf": 13.000000953674316
+    },
+    "ComboboxInput": {
+     "mounts": 100,
+     "init": 10.280001163482666,
+     "render": 3.454998016357422,
+     "renders": 100,
+     "mountIncl": 49.40500068664551,
+     "mountSelf": 17.355000019073486
+    },
+    "ListboxFilter": {
+     "mounts": 100,
+     "init": 6.8199968338012695,
+     "render": 4.19000244140625,
+     "renders": 100,
+     "mountIncl": 32.05000066757202,
+     "mountSelf": 14.939998626708984
+    },
+    "ComboboxTrigger": {
+     "mounts": 100,
+     "init": 4.380000114440918,
+     "render": 5.954997539520264,
+     "renders": 200,
+     "mountIncl": 26.72499990463257,
+     "mountSelf": 13.704998970031738
+    },
+    "ComboboxPortal": {
+     "mounts": 100,
+     "init": 2.2849974632263184,
+     "render": 4.304999351501465,
+     "renders": 200,
+     "mountIncl": 15.870001316070557,
+     "mountSelf": 9.889999866485596
+    },
+    "Teleport": {
+     "mounts": 100,
+     "init": 2.625002861022949,
+     "render": 4.445001125335693,
+     "renders": 200,
+     "mountIncl": 5.980001449584961,
+     "mountSelf": 5.980001449584961
+    },
+    "ComboboxContent": {
+     "mounts": 100,
+     "init": 19.574997425079346,
+     "render": 1.919997215270996,
+     "renders": 100,
+     "mountIncl": 37.035001277923584,
+     "mountSelf": 24.770000457763672
+    },
+    "Presence": {
+     "mounts": 100,
+     "init": 9.420000553131104,
+     "render": 0.6499981880187988,
+     "renders": 100,
+     "mountIncl": 12.265000820159912,
+     "mountSelf": 12.265000820159912
+    }
+   }
+  },
+  {
+   "timing": {
+    "sync": 305.32499980926514,
+    "tick": 408.4800000190735,
+    "painted": 428.63500022888184
+   },
+   "measures": {
+    "Anonymous": {
+     "mounts": 1,
+     "init": 0.09999990463256836,
+     "render": 0.3249998092651367,
+     "renders": 1,
+     "mountIncl": 295.5050001144409,
+     "mountSelf": 2.869999885559082
+    },
+    "BenchCell": {
+     "mounts": 100,
+     "init": 2.5800018310546875,
+     "render": 2.389997959136963,
+     "renders": 100,
+     "mountIncl": 292.63500022888184,
+     "mountSelf": 11.664999008178711
+    },
+    "Combobox": {
+     "mounts": 100,
+     "init": 17.900002002716064,
+     "render": 2.0950002670288086,
+     "renders": 100,
+     "mountIncl": 280.9700012207031,
+     "mountSelf": 23.965003490447998
+    },
+    "LabelingWrapper": {
+     "mounts": 100,
+     "init": 2.774998664855957,
+     "render": 3.6999993324279785,
+     "renders": 100,
+     "mountIncl": 257.0049977302551,
+     "mountSelf": 13.699997425079346
+    },
+    "ComboboxRoot": {
+     "mounts": 100,
+     "init": 25.559998512268066,
+     "render": 1.2750020027160645,
+     "renders": 100,
+     "mountIncl": 243.30500030517578,
+     "mountSelf": 30.885001182556152
+    },
+    "PopperRoot": {
+     "mounts": 100,
+     "init": 2.250000476837158,
+     "render": 4.579998016357422,
+     "renders": 100,
+     "mountIncl": 212.41999912261963,
+     "mountSelf": 11.15999984741211
+    },
+    "ListboxRoot": {
+     "mounts": 100,
+     "init": 16.865001678466797,
+     "render": 2.3099989891052246,
+     "renders": 100,
+     "mountIncl": 201.25999927520752,
+     "mountSelf": 23.190001487731934
+    },
+    "Primitive": {
+     "mounts": 500,
+     "init": 16.91999864578247,
+     "render": 33.315003395080566,
+     "renders": 900,
+     "mountIncl": 437.4150004386902,
+     "mountSelf": 83.909996509552
+    },
+    "ComboboxAnchor": {
+     "mounts": 100,
+     "init": 3.6850008964538574,
+     "render": 2.6349968910217285,
+     "renders": 200,
+     "mountIncl": 143.52000093460083,
+     "mountSelf": 8.355002403259277
+    },
+    "PopperAnchor": {
+     "mounts": 100,
+     "init": 4.770003318786621,
+     "render": 2.9199953079223633,
+     "renders": 200,
+     "mountIncl": 135.16499853134155,
+     "mountSelf": 10.264995574951172
+    },
+    "PrimitiveSlot": {
+     "mounts": 100,
+     "init": 2.5049991607666016,
+     "render": 20.1250057220459,
+     "renders": 200,
+     "mountIncl": 117.95499992370605,
+     "mountSelf": 12.940000534057617
+    },
+    "ComboboxInput": {
+     "mounts": 100,
+     "init": 12.219999313354492,
+     "render": 3.639998435974121,
+     "renders": 100,
+     "mountIncl": 52.830002307891846,
+     "mountSelf": 19.845004081726074
+    },
+    "ListboxFilter": {
+     "mounts": 100,
+     "init": 7.244997978210449,
+     "render": 4.355003833770752,
+     "renders": 100,
+     "mountIncl": 32.98499822616577,
+     "mountSelf": 15.604999542236328
+    },
+    "ComboboxTrigger": {
+     "mounts": 100,
+     "init": 4.510000705718994,
+     "render": 5.764997959136963,
+     "renders": 200,
+     "mountIncl": 24.735000133514404,
+     "mountSelf": 12.684998512268066
+    },
+    "ComboboxPortal": {
+     "mounts": 100,
+     "init": 2.7700014114379883,
+     "render": 5.294997692108154,
+     "renders": 200,
+     "mountIncl": 14.465000629425049,
+     "mountSelf": 8.840002536773682
+    },
+    "Teleport": {
+     "mounts": 100,
+     "init": 2.5099997520446777,
+     "render": 3.8950014114379883,
+     "renders": 200,
+     "mountIncl": 5.624998092651367,
+     "mountSelf": 5.624998092651367
+    },
+    "ComboboxContent": {
+     "mounts": 100,
+     "init": 10.194998264312744,
+     "render": 1.9499988555908203,
+     "renders": 100,
+     "mountIncl": 28.18000030517578,
+     "mountSelf": 15.349997997283936
+    },
+    "Presence": {
+     "mounts": 100,
+     "init": 9.67000150680542,
+     "render": 0.8299994468688965,
+     "renders": 100,
+     "mountIncl": 12.830002307891846,
+     "mountSelf": 12.830002307891846
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,5502 @@
+{
+ "label": "A",
+ "started": "2026-11-24T14:17:56.114Z",
+ "meta": {
+  "bench_mode": "legacy",
+  "v5": {
+   "vue": "3.5.43",
+   "combobox_link": false,
+   "link_class": "ControlLink",
+   "select_class": "ControlSelect",
+   "lang": "en"
+  },
+  "erp": {
+   "vue": "3.5.43",
+   "combobox_link": false,
+   "link_class": "ControlLink",
+   "select_class": "ControlSelect",
+   "lang": "en"
+  }
+ },
+ "flows": {
+  "v5.form_todo": {
+   "ms": 41032,
+   "fatal": null,
+   "steps": [
+    {
+     "name": "api",
+     "obs": {
+      "allocated_to": {
+       "api": {
+        "chain": [
+         "ControlLink",
+         "ControlReadOnly",
+         "ControlInput",
+         "Control",
+         "er"
+        ],
+        "methods": [
+         "set_value",
+         "get_value",
+         "refresh",
+         "refresh_input",
+         "set_input",
+         "set_focus",
+         "toggle_label",
+         "toggle_description",
+         "set_label",
+         "set_description",
+         "get_input_value",
+         "get_label_value",
+         "set_formatted_input",
+         "validate",
+         "parse",
+         "format_for_input",
+         "new_doc",
+         "open_advanced_search",
+         "get_options",
+         "set_custom_query",
+         "get_search_args",
+         "set_link_title",
+         "is_translatable",
+         "is_title_link",
+         "toggle",
+         "set_mandatory",
+         "set_invalid"
+        ],
+        "$input": true,
+        "input_el": true,
+        "input_is_$input": true,
+        "input_tag": "input:text",
+        "$wrapper": true,
+        "wrapper_el": true,
+        "wrapper_fieldobj": true,
+        "disp_area_el": true,
+        "input_area_el": true,
+        "awesomplete": true,
+        "awesomplete_ul_el": true,
+        "awesomplete_close_fn": true,
+        "awesomplete_list_prop": true,
+        "awesomplete_isOpened_prop": true,
+        "$link": true,
+        "$link_open": true,
+        "df_is_object": true,
+        "data_target": "User",
+        "data_fieldname": "allocated_to"
+       },
+       "structure": {
+        "frappe_control": true,
+        "data_fieldtype": "Link",
+        "data_fieldname": "allocated_to",
+        "control_input": 1,
+        "control_value": 1,
+        "link_field": 1,
+        "link_btn": 1,
+        "btn_open": 1,
+        "btn_clear": 1,
+        "awesomplete_div": 1,
+        "select_el": 0,
+        "select_icon": 0,
+        "input_with_feedback": 1
+       }
+      },
+      "status": {
+       "api": {
+        "chain": [
+         "ControlSelect",
+         "ControlReadOnly",
+         "ControlInput",
+         "Control",
+         "er"
+        ],
+        "methods": [
+         "set_value",
+         "get_value",
+         "refresh",
+         "refresh_input",
+         "set_input",
+         "set_focus",
+         "toggle_label",
+         "toggle_description",
+         "set_label",
+         "set_description",
+         "get_input_value",
+         "set_formatted_input",
+         "validate",
+         "parse",
+         "format_for_input",
+         "set_options",
+         "toggle",
+         "set_mandatory",
+         "set_invalid"
+        ],
+        "$input": true,
+        "input_el": true,
+        "input_is_$input": true,
+        "input_tag": "select:select-one",
+        "$wrapper": true,
+        "wrapper_el": true,
+        "wrapper_fieldobj": true,
+        "disp_area_el": true,
+        "input_area_el": true,
+        "awesomplete": false,
+        "awesomplete_ul_el": false,
+        "awesomplete_close_fn": false,
+        "awesomplete_list_prop": false,
+        "awesomplete_isOpened_prop": false,
+        "$link": false,
+        "$link_open": false,
+        "df_is_object": true,
+        "data_target": null,
+        "data_fieldname": "status"
+       },
+       "structure": {
+        "frappe_control": true,
+        "data_fieldtype": "Select",
+        "data_fieldname": "status",
+        "control_input": 1,
+        "control_value": 1,
+        "link_field": 0,
+        "link_btn": 0,
+        "btn_open": 0,
+        "btn_clear": 0,
+        "awesomplete_div": 0,
+        "select_el": 1,
+        "select_icon": 0,
+        "input_with_feedback": 1
+       }
+      },
+      "reference_name": {
+       "api": {
+        "chain": [
+         "ControlDynamicLink",
+         "ControlLink",
+         "ControlReadOnly",
+         "ControlInput",
+         "Control",
+         "er"
+        ],
+        "methods": [
+         "set_value",
+         "get_value",
+         "refresh",
+         "refresh_input",
+         "set_input",
+         "set_focus",
+         "toggle_label",
+         "toggle_description",
+         "set_label",
+         "set_description",
+         "get_input_value",
+         "get_label_value",
+         "set_formatted_input",
+         "validate",
+         "parse",
+         "format_for_input",
+         "new_doc",
+         "open_advanced_search",
+         "get_options",
+         "set_custom_query",
+         "get_search_args",
+         "set_link_title",
+         "is_translatable",
+         "is_title_link",
+         "toggle",
+         "set_mandatory",
+         "set_invalid"
+        ],
+        "$input": true,
+        "input_el": true,
+        "input_is_$input": true,
+        "input_tag": "input:text",
+        "$wrapper": true,
+        "wrapper_el": true,
+        "wrapper_fieldobj": true,
+        "disp_area_el": true,
+        "input_area_el": true,
+        "awesomplete": true,
+        "awesomplete_ul_el": true,
+        "awesomplete_close_fn": true,
+        "awesomplete_list_prop": true,
+        "awesomplete_isOpened_prop": true,
+        "$link": true,
+        "$link_open": true,
+        "df_is_object": true,
+        "data_target": "reference_type",
+        "data_fieldname": "reference_name"
+       },
+       "structure": {
+        "frappe_control": true,
+        "data_fieldtype": "Dynamic Link",
+        "data_fieldname": "reference_name",
+        "control_input": 1,
+        "control_value": 1,
+        "link_field": 1,
+        "link_btn": 1,
+        "btn_open": 1,
+        "btn_clear": 1,
+        "awesomplete_div": 1,
+        "select_el": 0,
+        "select_icon": 0,
+        "input_with_feedback": 1
+       }
+      },
+      "df_live": true
+     },
+     "events": [],
+     "fallbacks": [],
+     "requests": [],
+     "errors": [],
+     "ms": 19
+    },
+    {
+     "name": "initial-state",
+     "obs": {
+      "allocated_to": {
+       "get_value": "",
+       "model": null,
+       "input_value": "",
+       "input_visible": true,
+       "input_disabled": false,
+       "wrapper_visible": true,
+       "disp_visible": false,
+       "disp_text": null,
+       "disp_href": null,
+       "label": "Allocated To"
+      },
+      "status": {
+       "get_value": "Open",
+       "model": "Open",
+       "input_value": "Open",
+       "input_visible": true,
+       "input_disabled": false,
+       "wrapper_visible": true,
+       "disp_visible": false,
+       "disp_text": null,
+       "disp_href": null,
+       "label": "Status",
+       "select_options": [
+        [
+         "Open",
+         "Open"
+        ],
+        [
+         "Closed",
+         "Closed"
+        ],
+        [
+         "Cancelled",
+         "Cancelled"
+        ]
+       ],
+       "selected_text": "Open"
+      },
+      "priority": {
+       "get_value": "Medium",
+       "model": "Medium",
+       "input_value": "Medium",
+       "input_visible": true,
+       "input_disabled": false,
+       "wrapper_visible": true,
+       "disp_visible": false,
+       "disp_text": null,
+       "disp_href": null,
+       "label": "Priority",
+       "select_options": [
+        [
+         "High",
+         "High"
+        ],
+        [
+         "Medium",
+         "Medium"
+        ],
+        [
+         "Low",
+         "Low"
+        ]
+       ],
+       "selected_text": "Medium"
+      }
+     },
+     "events": [],
+     "fallbacks": [],
+     "requests": [],
+     "errors": [],
+     "ms": 14
+    },
+    {
+     "name": "link-focus-opens-list",
+     "obs": {
+      "count": 10,
+      "rows": [
+       "Administrator",
+       "frappe@example.com Frappe",
+       "Guest",
+       "test_list_col_width@example.com Frappe",
+       "test_print_view@example.com Frappe",
+       "test_report_child_group_by@example.com Frappe",
+       "test_report_group_by@example.com Frappe",
+       "test_report_permission@example.com Frappe",
+       "Create a new User",
+       "Advanced Search"
+      ],
+      "create_new": true,
+      "advanced_search": true,
+      "filtered_by": null,
+      "active": "Administrator"
+     },
+     "events": [
+      "allocated_to:select-change",
+      "allocated_to:focus",
+      "allocated_to:awesomplete-open"
+     ],
+     "fallbacks": [],
+     "requests": [
+      {
+       "method": "search_link",
+       "http": "GET",
+       "doctype": "User",
+       "txt": "",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "ToDo",
+       "link_fieldname": "allocated_to"
+      }
+     ],
+     "errors": [],
+     "ms": 1286
+    },
+    {
+     "name": "link-type-filters-list",
+     "obs": {
+      "count": 3,
+      "rows": [
+       "frappe@example.com Frappe",
+       "Create a new User",
+       "Advanced Search"
+      ],
+      "create_new": true,
+      "advanced_search": true,
+      "filtered_by": null,
+      "active": "frappe@example.com Frappe"
+     },
+     "events": [
+      "allocated_to:input",
+      "allocated_to:awesomplete-open",
+      "allocated_to:input",
+      "allocated_to:awesomplete-open",
+      "allocated_to:input",
+      "allocated_to:awesomplete-open",
+      "allocated_to:input",
+      "allocated_to:awesomplete-open",
+      "allocated_to:input",
+      "allocated_to:awesomplete-open",
+      "allocated_to:input",
+      "allocated_to:awesomplete-open",
+      "allocated_to:input",
+      "allocated_to:awesomplete-open",
+      "allocated_to:awesomplete-open"
+     ],
+     "fallbacks": [],
+     "requests": [
+      {
+       "method": "search_link",
+       "http": "POST",
+       "doctype": "User",
+       "txt": "frappe@",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "ToDo",
+       "link_fieldname": "allocated_to"
+      }
+     ],
+     "errors": [],
+     "ms": 1583
+    },
+    {
+     "name": "link-enter-picks-first",
+     "obs": {
+      "state": {
+       "get_value": "frappe@example.com",
+       "model": "frappe@example.com",
+       "input_value": "frappe@example.com",
+       "input_visible": true,
+       "input_disabled": false,
+       "wrapper_visible": true,
+       "disp_visible": false,
+       "disp_text": null,
+       "disp_href": "/desk/user/frappe%40example.com",
+       "label": "Allocated To"
+      },
+      "listbox_open": false
+     },
+     "events": [
+      "allocated_to:awesomplete-select",
+      "allocated_to:awesomplete-close",
+      "allocated_to:awesomplete-selectcomplete",
+      "allocated_to:select-change",
+      "allocated_to:select-change",
+      "frm:allocated_to"
+     ],
+     "fallbacks": [],
+     "requests": [
+      {
+       "method": "validate_link_and_fetch",
+       "http": "GET",
+       "doctype": "User",
+       "txt": "frappe@example.com",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "ToDo",
+       "link_fieldname": "allocated_to"
+      }
+     ],
+     "errors": [],
+     "ms": 1181
+    },
+    {
+     "name": "link-blur-keeps-value",
+     "obs": {
+      "state": {
+       "get_value": "frappe@example.com",
+       "model": "frappe@example.com",
+       "input_value": "frappe@example.com",
+       "input_visible": true,
+       "input_disabled": false,
+       "wrapper_visible": true,
+       "disp_visible": false,
+       "disp_text": null,
+       "disp_href": "/desk/user/frappe%40example.com",
+       "label": "Allocated To"
+      },
+      "doc": {
+       "allocated_to": "frappe@example.com"
+      }
+     },
+     "events": [
+      "allocated_to:select-change",
+      "allocated_to:select-change",
+      "allocated_to:change",
+      "allocated_to:blur"
+     ],
+     "fallbacks": [],
+     "requests": [],
+     "errors": [],
+     "ms": 919
+    },
+    {
+     "name": "set_query-filters",
+     "obs": {
+      "count": 6,
+      "rows": [
+       "test_report_child_group_by@example.com Frappe",
+       "test_report_group_by@example.com Frappe",
+       "test_report_permission@example.com Frappe",
+       "Filtered by: Name contains \"%test_report%\".",
+       "Create a new User",
+       "Advanced Search"
+      ],
+      "create_new": true,
+      "advanced_search": true,
+      "filtered_by": "Filtered by: Name contains \"%test_report%\".",
+      "active": "test_report_child_group_by@example.com Frappe"
+     },
+     "events": [
+      "allocated_to:select-change",
+      "frm:allocated_to",
+      "allocated_to:select-change",
+      "allocated_to:awesomplete-open",
+      "allocated_to:focus",
+      "allocated_to:input",
+      "allocated_to:awesomplete-open",
+      "allocated_to:awesomplete-open",
+      "allocated_to:input",
+      "allocated_to:awesomplete-open",
+      "allocated_to:input",
+      "allocated_to:awesomplete-open",
+      "allocated_to:input",
+      "allocated_to:awesomplete-open",
+      "allocated_to:awesomplete-open",
+      "allocated_to:awesomplete-close",
+      "allocated_to:change",
+      "allocated_to:select-change",
+      "allocated_to:select-change",
+      "allocated_to:blur"
+     ],
+     "fallbacks": [],
+     "requests": [
+      {
+       "method": "search_link",
+       "http": "GET",
+       "doctype": "User",
+       "txt": "",
+       "query": null,
+       "filters": {
+        "name": [
+         "like",
+         "%test_report%"
+        ]
+       },
+       "reference_doctype": "ToDo",
+       "link_fieldname": "allocated_to"
+      },
+      {
+       "method": "search_link",
+       "http": "POST",
+       "doctype": "User",
+       "txt": "test",
+       "query": null,
+       "filters": {
+        "name": [
+         "like",
+         "%test_report%"
+        ]
+       },
+       "reference_doctype": "ToDo",
+       "link_fieldname": "allocated_to"
+      },
+      {
+       "method": "validate_link_and_fetch",
+       "http": "GET",
+       "doctype": "User",
+       "txt": "test",
+       "query": null,
+       "filters": {
+        "name": [
+         "like",
+         "%test_report%"
+        ]
+       },
+       "reference_doctype": "ToDo",
+       "link_fieldname": "allocated_to"
+      }
+     ],
+     "errors": [],
+     "ms": 1537
+    },
+    {
+     "name": "get_query-assign",
+     "obs": {
+      "count": 4,
+      "rows": [
+       "Administrator",
+       "Filtered by: Name equals \"Administrator\".",
+       "Create a new User",
+       "Advanced Search"
+      ],
+      "create_new": true,
+      "advanced_search": true,
+      "filtered_by": "Filtered by: Name equals \"Administrator\".",
+      "active": "Administrator"
+     },
+     "events": [
+      "allocated_to:select-change",
+      "frm:allocated_to",
+      "allocated_to:select-change",
+      "allocated_to:awesomplete-open",
+      "allocated_to:focus",
+      "allocated_to:awesomplete-open",
+      "allocated_to:awesomplete-close",
+      "allocated_to:blur"
+     ],
+     "fallbacks": [],
+     "requests": [
+      {
+       "method": "search_link",
+       "http": "GET",
+       "doctype": "User",
+       "txt": "",
+       "query": null,
+       "filters": {
+        "name": "Administrator"
+       },
+       "reference_doctype": "ToDo",
+       "link_fieldname": "allocated_to"
+      }
+     ],
+     "errors": [],
+     "ms": 1298
+    },
+    {
+     "name": "fetch_from",
+     "obs": {
+      "doc": {
+       "assigned_by": "Administrator",
+       "assigned_by_full_name": "Administrator"
+      },
+      "fetched": {
+       "get_value": "Administrator",
+       "model": "Administrator",
+       "input_value": null,
+       "input_visible": false,
+       "input_disabled": false,
+       "wrapper_visible": true,
+       "disp_visible": true,
+       "disp_text": "Administrator",
+       "disp_href": null,
+       "label": "Assigned By Full Name"
+      }
+     },
+     "events": [
+      "assigned_by:select-change",
+      "assigned_by:focus",
+      "assigned_by:input",
+      "assigned_by:awesomplete-open",
+      "assigned_by:input",
+      "assigned_by:awesomplete-open",
+      "assigned_by:input",
+      "assigned_by:awesomplete-open",
+      "assigned_by:input",
+      "assigned_by:awesomplete-open",
+      "assigned_by:input",
+      "assigned_by:awesomplete-open",
+      "assigned_by:input",
+      "assigned_by:awesomplete-open",
+      "assigned_by:input",
+      "assigned_by:awesomplete-open",
+      "assigned_by:input",
+      "assigned_by:awesomplete-open",
+      "assigned_by:input",
+      "assigned_by:awesomplete-open",
+      "assigned_by:input",
+      "assigned_by:awesomplete-open",
+      "assigned_by:input",
+      "assigned_by:awesomplete-open",
+      "assigned_by:input",
+      "assigned_by:awesomplete-open",
+      "assigned_by:input",
+      "assigned_by:awesomplete-open",
+      "assigned_by:awesomplete-open",
+      "assigned_by:awesomplete-select",
+      "assigned_by:awesomplete-close",
+      "assigned_by:awesomplete-selectcomplete",
+      "assigned_by:select-change",
+      "assigned_by:select-change",
+      "frm:assigned_by"
+     ],
+     "fallbacks": [],
+     "requests": [
+      {
+       "method": "search_link",
+       "http": "GET",
+       "doctype": "User",
+       "txt": "",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "ToDo",
+       "link_fieldname": "assigned_by"
+      },
+      {
+       "method": "search_link",
+       "http": "POST",
+       "doctype": "User",
+       "txt": "Administrator",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "ToDo",
+       "link_fieldname": "assigned_by"
+      },
+      {
+       "method": "validate_link_and_fetch",
+       "http": "POST",
+       "doctype": "User",
+       "txt": "Administrator",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "ToDo",
+       "link_fieldname": "assigned_by"
+      }
+     ],
+     "errors": [],
+     "ms": 3863
+    },
+    {
+     "name": "set_value-from-code",
+     "obs": {
+      "returns_promise": true,
+      "state": {
+       "get_value": "Administrator",
+       "model": "Administrator",
+       "input_value": "Administrator",
+       "input_visible": true,
+       "input_disabled": false,
+       "wrapper_visible": true,
+       "disp_visible": false,
+       "disp_text": null,
+       "disp_href": "/desk/user/Administrator",
+       "label": "Allocated To"
+      }
+     },
+     "events": [
+      "allocated_to:select-change",
+      "allocated_to:select-change",
+      "frm:allocated_to"
+     ],
+     "fallbacks": [],
+     "requests": [
+      {
+       "method": "validate_link_and_fetch",
+       "http": "GET",
+       "doctype": "User",
+       "txt": "Administrator",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "ToDo",
+       "link_fieldname": "allocated_to"
+      }
+     ],
+     "errors": [],
+     "ms": 439
+    },
+    {
+     "name": "control-set_value-get_value",
+     "obs": {
+      "promise": true,
+      "get_value": "frappe@example.com",
+      "doc": "frappe@example.com",
+      "state": {
+       "get_value": "frappe@example.com",
+       "model": "frappe@example.com",
+       "input_value": "frappe@example.com",
+       "input_visible": true,
+       "input_disabled": false,
+       "wrapper_visible": true,
+       "disp_visible": false,
+       "disp_text": null,
+       "disp_href": "/desk/user/frappe%40example.com",
+       "label": "Allocated To"
+      }
+     },
+     "events": [
+      "allocated_to:select-change",
+      "allocated_to:select-change",
+      "frm:allocated_to"
+     ],
+     "fallbacks": [],
+     "requests": [
+      {
+       "method": "validate_link_and_fetch",
+       "http": "GET",
+       "doctype": "User",
+       "txt": "frappe@example.com",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "ToDo",
+       "link_fieldname": "allocated_to"
+      }
+     ],
+     "errors": [],
+     "ms": 58
+    },
+    {
+     "name": "invalid-value-on-blur",
+     "obs": {
+      "state": {
+       "get_value": "",
+       "model": null,
+       "input_value": "",
+       "input_visible": true,
+       "input_disabled": false,
+       "wrapper_visible": true,
+       "disp_visible": false,
+       "disp_text": null,
+       "disp_href": null,
+       "label": "Allocated To"
+      },
+      "alerts": []
+     },
+     "events": [
+      "allocated_to:select-change",
+      "frm:allocated_to",
+      "assigned_by:select-change",
+      "assigned_by:select-change",
+      "assigned_by:change",
+      "assigned_by:blur",
+      "allocated_to:select-change",
+      "allocated_to:awesomplete-open",
+      "allocated_to:focus",
+      "allocated_to:awesomplete-open",
+      "allocated_to:input",
+      "allocated_to:awesomplete-open",
+      "allocated_to:input",
+      "allocated_to:awesomplete-open",
+      "allocated_to:input",
+      "allocated_to:awesomplete-open",
+      "allocated_to:input",
+      "allocated_to:awesomplete-open",
+      "allocated_to:input",
+      "allocated_to:awesomplete-open",
+      "allocated_to:input",
+      "allocated_to:awesomplete-open",
+      "allocated_to:input",
+      "allocated_to:awesomplete-open",
+      "allocated_to:input",
+      "allocated_to:awesomplete-open",
+      "allocated_to:input",
+      "allocated_to:awesomplete-open",
+      "allocated_to:input",
+      "allocated_to:awesomplete-open",
+      "allocated_to:input",
+      "allocated_to:awesomplete-open",
+      "allocated_to:input",
+      "allocated_to:awesomplete-open",
+      "allocated_to:input",
+      "allocated_to:awesomplete-open",
+      "allocated_to:input",
+      "allocated_to:awesomplete-open",
+      "allocated_to:input",
+      "allocated_to:awesomplete-open",
+      "allocated_to:input",
+      "allocated_to:awesomplete-open",
+      "allocated_to:awesomplete-open",
+      "allocated_to:awesomplete-close",
+      "allocated_to:change",
+      "allocated_to:select-change",
+      "allocated_to:select-change",
+      "allocated_to:blur",
+      "allocated_to:select-change",
+      "frm:allocated_to"
+     ],
+     "fallbacks": [],
+     "requests": [
+      {
+       "method": "search_link",
+       "http": "GET",
+       "doctype": "User",
+       "txt": "",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "ToDo",
+       "link_fieldname": "allocated_to"
+      },
+      {
+       "method": "search_link",
+       "http": "POST",
+       "doctype": "User",
+       "txt": "no-such-user-xyz",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "ToDo",
+       "link_fieldname": "allocated_to"
+      },
+      {
+       "method": "validate_link_and_fetch",
+       "http": "GET",
+       "doctype": "User",
+       "txt": "no-such-user-xyz",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "ToDo",
+       "link_fieldname": "allocated_to"
+      }
+     ],
+     "errors": [],
+     "ms": 3761
+    },
+    {
+     "name": "clear-by-typing",
+     "obs": {
+      "get_value": "",
+      "model": "",
+      "input_value": "",
+      "input_visible": true,
+      "input_disabled": false,
+      "wrapper_visible": true,
+      "disp_visible": false,
+      "disp_text": null,
+      "disp_href": null,
+      "label": "Allocated To"
+     },
+     "events": [
+      "allocated_to:select-change",
+      "allocated_to:select-change",
+      "frm:allocated_to",
+      "allocated_to:focus",
+      "allocated_to:input",
+      "allocated_to:awesomplete-open",
+      "allocated_to:awesomplete-open",
+      "allocated_to:awesomplete-open",
+      "allocated_to:awesomplete-close",
+      "allocated_to:change",
+      "allocated_to:blur",
+      "allocated_to:select-change",
+      "allocated_to:select-change",
+      "frm:allocated_to",
+      "frm:allocated_to"
+     ],
+     "fallbacks": [],
+     "requests": [
+      {
+       "method": "validate_link_and_fetch",
+       "http": "GET",
+       "doctype": "User",
+       "txt": "Administrator",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "ToDo",
+       "link_fieldname": "allocated_to"
+      },
+      {
+       "method": "search_link",
+       "http": "GET",
+       "doctype": "User",
+       "txt": "",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "ToDo",
+       "link_fieldname": "allocated_to"
+      }
+     ],
+     "errors": [],
+     "ms": 2321
+    },
+    {
+     "name": "read-only-display",
+     "obs": {
+      "read_only": {
+       "get_value": "Administrator",
+       "model": "Administrator",
+       "input_value": "Administrator",
+       "input_visible": false,
+       "input_disabled": true,
+       "wrapper_visible": true,
+       "disp_visible": true,
+       "disp_text": "Administrator",
+       "disp_href": "/desk/user/Administrator",
+       "label": "Allocated To"
+      },
+      "editable_again": {
+       "get_value": "Administrator",
+       "model": "Administrator",
+       "input_value": "Administrator",
+       "input_visible": true,
+       "input_disabled": false,
+       "wrapper_visible": true,
+       "disp_visible": false,
+       "disp_text": null,
+       "disp_href": "/desk/user/Administrator",
+       "label": "Allocated To"
+      }
+     },
+     "events": [
+      "allocated_to:select-change",
+      "allocated_to:select-change",
+      "frm:allocated_to",
+      "allocated_to:select-change",
+      "allocated_to:select-change"
+     ],
+     "fallbacks": [],
+     "requests": [
+      {
+       "method": "validate_link_and_fetch",
+       "http": "GET",
+       "doctype": "User",
+       "txt": "Administrator",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "ToDo",
+       "link_fieldname": "allocated_to"
+      }
+     ],
+     "errors": [],
+     "ms": 849
+    },
+    {
+     "name": "keyboard-arrows-escape",
+     "obs": {
+      "first": "Administrator",
+      "second": "frappe@example.com Frappe",
+      "back": "Administrator",
+      "open_after_escape": false,
+      "state": {
+       "get_value": "",
+       "model": "",
+       "input_value": "",
+       "input_visible": true,
+       "input_disabled": false,
+       "wrapper_visible": true,
+       "disp_visible": false,
+       "disp_text": null,
+       "disp_href": null,
+       "label": "Allocated To"
+      }
+     },
+     "events": [
+      "allocated_to:select-change",
+      "frm:allocated_to",
+      "allocated_to:select-change",
+      "allocated_to:awesomplete-open",
+      "allocated_to:focus",
+      "allocated_to:awesomplete-open",
+      "allocated_to:awesomplete-close",
+      "allocated_to:blur"
+     ],
+     "fallbacks": [],
+     "requests": [
+      {
+       "method": "search_link",
+       "http": "GET",
+       "doctype": "User",
+       "txt": "",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "ToDo",
+       "link_fieldname": "allocated_to"
+      }
+     ],
+     "errors": [],
+     "ms": 1538
+    },
+    {
+     "name": "keyboard-arrow-enter-picks-second",
+     "obs": {
+      "state": {
+       "get_value": "frappe@example.com",
+       "model": "frappe@example.com",
+       "input_value": "frappe@example.com",
+       "input_visible": true,
+       "input_disabled": false,
+       "wrapper_visible": true,
+       "disp_visible": false,
+       "disp_text": null,
+       "disp_href": "/desk/user/frappe%40example.com",
+       "label": "Allocated To"
+      },
+      "listbox_open": false
+     },
+     "events": [
+      "allocated_to:select-change",
+      "allocated_to:awesomplete-open",
+      "allocated_to:focus",
+      "allocated_to:awesomplete-open",
+      "allocated_to:awesomplete-select",
+      "allocated_to:awesomplete-close",
+      "allocated_to:awesomplete-selectcomplete",
+      "allocated_to:select-change",
+      "allocated_to:select-change",
+      "frm:allocated_to"
+     ],
+     "fallbacks": [],
+     "requests": [
+      {
+       "method": "search_link",
+       "http": "GET",
+       "doctype": "User",
+       "txt": "",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "ToDo",
+       "link_fieldname": "allocated_to"
+      },
+      {
+       "method": "validate_link_and_fetch",
+       "http": "GET",
+       "doctype": "User",
+       "txt": "frappe@example.com",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "ToDo",
+       "link_fieldname": "allocated_to"
+      }
+     ],
+     "errors": [],
+     "ms": 2409
+    },
+    {
+     "name": "select-options",
+     "obs": {
+      "status": {
+       "get_value": "Open",
+       "model": "Open",
+       "input_value": "Open",
+       "input_visible": true,
+       "input_disabled": false,
+       "wrapper_visible": true,
+       "disp_visible": false,
+       "disp_text": null,
+       "disp_href": null,
+       "label": "Status",
+       "select_options": [
+        [
+         "Open",
+         "Open"
+        ],
+        [
+         "Closed",
+         "Closed"
+        ],
+        [
+         "Cancelled",
+         "Cancelled"
+        ]
+       ],
+       "selected_text": "Open"
+      },
+      "priority": {
+       "get_value": "Medium",
+       "model": "Medium",
+       "input_value": "Medium",
+       "input_visible": true,
+       "input_disabled": false,
+       "wrapper_visible": true,
+       "disp_visible": false,
+       "disp_text": null,
+       "disp_href": null,
+       "label": "Priority",
+       "select_options": [
+        [
+         "High",
+         "High"
+        ],
+        [
+         "Medium",
+         "Medium"
+        ],
+        [
+         "Low",
+         "Low"
+        ]
+       ],
+       "selected_text": "Medium"
+      }
+     },
+     "events": [],
+     "fallbacks": [],
+     "requests": [],
+     "errors": [],
+     "ms": 4
+    },
+    {
+     "name": "select-pick",
+     "obs": {
+      "state": {
+       "get_value": "Closed",
+       "model": "Closed",
+       "input_value": "Closed",
+       "input_visible": true,
+       "input_disabled": false,
+       "wrapper_visible": true,
+       "disp_visible": false,
+       "disp_text": null,
+       "disp_href": null,
+       "label": "Status",
+       "select_options": [
+        [
+         "Open",
+         "Open"
+        ],
+        [
+         "Closed",
+         "Closed"
+        ],
+        [
+         "Cancelled",
+         "Cancelled"
+        ]
+       ],
+       "selected_text": "Closed"
+      },
+      "doc": {
+       "status": "Closed"
+      }
+     },
+     "events": [
+      "status:input",
+      "status:change",
+      "status:select-change",
+      "frm:status"
+     ],
+     "fallbacks": [],
+     "requests": [],
+     "errors": [],
+     "ms": 420
+    },
+    {
+     "name": "select-set_value",
+     "obs": {
+      "state": {
+       "get_value": "Cancelled",
+       "model": "Cancelled",
+       "input_value": "Cancelled",
+       "input_visible": true,
+       "input_disabled": false,
+       "wrapper_visible": true,
+       "disp_visible": false,
+       "disp_text": null,
+       "disp_href": null,
+       "label": "Status",
+       "select_options": [
+        [
+         "Open",
+         "Open"
+        ],
+        [
+         "Closed",
+         "Closed"
+        ],
+        [
+         "Cancelled",
+         "Cancelled"
+        ]
+       ],
+       "selected_text": "Cancelled"
+      },
+      "doc": {
+       "status": "Cancelled"
+      }
+     },
+     "events": [
+      "status:select-change",
+      "frm:status"
+     ],
+     "fallbacks": [],
+     "requests": [],
+     "errors": [],
+     "ms": 319
+    },
+    {
+     "name": "select-set_df_property-options",
+     "obs": {
+      "after": {
+       "get_value": null,
+       "model": "Medium",
+       "input_value": null,
+       "input_visible": true,
+       "input_disabled": false,
+       "wrapper_visible": true,
+       "disp_visible": false,
+       "disp_text": null,
+       "disp_href": null,
+       "label": "Priority",
+       "select_options": [
+        [
+         "Low",
+         "Low"
+        ],
+        [
+         "High",
+         "High"
+        ]
+       ],
+       "selected_text": null
+      },
+      "set_missing_option": {
+       "get_value": null,
+       "model": "Medium",
+       "input_value": null,
+       "input_visible": true,
+       "input_disabled": false,
+       "wrapper_visible": true,
+       "disp_visible": false,
+       "disp_text": null,
+       "disp_href": null,
+       "label": "Priority",
+       "select_options": [
+        [
+         "Low",
+         "Low"
+        ],
+        [
+         "High",
+         "High"
+        ]
+       ],
+       "selected_text": null
+      },
+      "doc": {
+       "priority": "Medium"
+      }
+     },
+     "events": [
+      "priority:select-change",
+      "priority:select-change"
+     ],
+     "fallbacks": [],
+     "requests": [],
+     "errors": [],
+     "ms": 731
+    },
+    {
+     "name": "dynamic-link",
+     "obs": {
+      "options": {
+       "count": 3,
+       "rows": [
+        "Administrator",
+        "Create a new User",
+        "Advanced Search"
+       ],
+       "create_new": true,
+       "advanced_search": true,
+       "filtered_by": null,
+       "active": "Administrator"
+      },
+      "picked": {
+       "state": {
+        "get_value": "Administrator",
+        "model": "Administrator",
+        "input_value": "Administrator",
+        "input_visible": true,
+        "input_disabled": false,
+        "wrapper_visible": true,
+        "disp_visible": false,
+        "disp_text": null,
+        "disp_href": "/desk/user/Administrator",
+        "label": "Reference Name"
+       },
+       "listbox_open": false
+      },
+      "doc": {
+       "reference_type": "User",
+       "reference_name": "Administrator"
+      }
+     },
+     "events": [
+      "reference_type:select-change",
+      "reference_type:select-change",
+      "allocated_to:blur",
+      "reference_name:select-change",
+      "reference_name:focus",
+      "reference_name:input",
+      "reference_name:awesomplete-open",
+      "reference_name:input",
+      "reference_name:awesomplete-open",
+      "reference_name:input",
+      "reference_name:awesomplete-open",
+      "reference_name:input",
+      "reference_name:awesomplete-open",
+      "reference_name:input",
+      "reference_name:awesomplete-open",
+      "reference_name:awesomplete-open",
+      "reference_name:awesomplete-select",
+      "reference_name:awesomplete-close",
+      "reference_name:awesomplete-selectcomplete",
+      "reference_name:select-change",
+      "reference_name:select-change",
+      "frm:reference_name"
+     ],
+     "fallbacks": [],
+     "requests": [
+      {
+       "method": "validate_link_and_fetch",
+       "http": "GET",
+       "doctype": "DocType",
+       "txt": "User",
+       "query": null,
+       "filters": {
+        "issingle": 0
+       },
+       "reference_doctype": "ToDo",
+       "link_fieldname": "reference_type"
+      },
+      {
+       "method": "search_link",
+       "http": "GET",
+       "doctype": "User",
+       "txt": "",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "ToDo",
+       "link_fieldname": "reference_name"
+      },
+      {
+       "method": "search_link",
+       "http": "POST",
+       "doctype": "User",
+       "txt": "Admin",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "ToDo",
+       "link_fieldname": "reference_name"
+      },
+      {
+       "method": "validate_link_and_fetch",
+       "http": "GET",
+       "doctype": "User",
+       "txt": "Administrator",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "ToDo",
+       "link_fieldname": "reference_name"
+      }
+     ],
+     "errors": [],
+     "ms": 3135
+    },
+    {
+     "name": "enter-on-action-row-with-unmatched-text",
+     "obs": {
+      "row": "Advanced Search",
+      "dialogs": [],
+      "list_open": true,
+      "state": {
+       "get_value": "adm",
+       "model": "",
+       "input_value": "adm",
+       "input_visible": true,
+       "input_disabled": false,
+       "wrapper_visible": true,
+       "disp_visible": false,
+       "disp_text": null,
+       "disp_href": null,
+       "label": "Allocated To"
+      }
+     },
+     "events": [
+      "allocated_to:select-change",
+      "frm:allocated_to",
+      "reference_name:select-change",
+      "reference_name:select-change",
+      "reference_name:change",
+      "reference_name:blur",
+      "allocated_to:select-change",
+      "allocated_to:awesomplete-open",
+      "allocated_to:focus",
+      "allocated_to:awesomplete-open",
+      "allocated_to:input",
+      "allocated_to:awesomplete-open",
+      "allocated_to:input",
+      "allocated_to:awesomplete-open",
+      "allocated_to:input",
+      "allocated_to:awesomplete-open",
+      "allocated_to:awesomplete-open",
+      "allocated_to:awesomplete-select",
+      "allocated_to:awesomplete-close",
+      "allocated_to:change",
+      "allocated_to:select-change",
+      "allocated_to:select-change",
+      "allocated_to:blur"
+     ],
+     "fallbacks": [],
+     "requests": [
+      {
+       "method": "search_link",
+       "http": "GET",
+       "doctype": "User",
+       "txt": "",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "ToDo",
+       "link_fieldname": "allocated_to"
+      },
+      {
+       "method": "search_link",
+       "http": "POST",
+       "doctype": "User",
+       "txt": "adm",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "ToDo",
+       "link_fieldname": "allocated_to"
+      },
+      {
+       "method": "validate_link_and_fetch",
+       "http": "GET",
+       "doctype": "User",
+       "txt": "adm",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "ToDo",
+       "link_fieldname": "allocated_to"
+      }
+     ],
+     "errors": [],
+     "ms": 2873
+    },
+    {
+     "name": "advanced-search",
+     "obs": {
+      "dialogs": [
+       "Select User"
+      ]
+     },
+     "events": [
+      "allocated_to:select-change",
+      "frm:allocated_to",
+      "allocated_to:select-change",
+      "frm:allocated_to",
+      "allocated_to:select-change",
+      "allocated_to:awesomplete-open",
+      "allocated_to:focus",
+      "allocated_to:awesomplete-open",
+      "allocated_to:input",
+      "allocated_to:awesomplete-open",
+      "allocated_to:input",
+      "allocated_to:awesomplete-open",
+      "allocated_to:input",
+      "allocated_to:awesomplete-open",
+      "allocated_to:awesomplete-open",
+      "allocated_to:awesomplete-open",
+      "allocated_to:select-change",
+      "allocated_to:awesomplete-select",
+      "allocated_to:awesomplete-close",
+      "allocated_to:select-change",
+      "allocated_to:awesomplete-selectcomplete",
+      "allocated_to:blur"
+     ],
+     "fallbacks": [],
+     "requests": [
+      {
+       "method": "search_link",
+       "http": "GET",
+       "doctype": "User",
+       "txt": "",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "ToDo",
+       "link_fieldname": "allocated_to"
+      },
+      {
+       "method": "search_link",
+       "http": "POST",
+       "doctype": "User",
+       "txt": "adm",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "ToDo",
+       "link_fieldname": "allocated_to"
+      },
+      {
+       "method": "search_widget",
+       "http": "GET",
+       "doctype": "User",
+       "txt": "adm",
+       "query": null,
+       "filters": null,
+       "reference_doctype": null,
+       "link_fieldname": null
+      }
+     ],
+     "errors": [],
+     "ms": 3506
+    },
+    {
+     "name": "create-new",
+     "obs": {
+      "route": [
+       "Form",
+       "ToDo"
+      ],
+      "dialogs": [
+       "New User"
+      ],
+      "from_link": "allocated_to",
+      "route_options": null
+     },
+     "events": [
+      "allocated_to:select-change",
+      "allocated_to:awesomplete-open",
+      "allocated_to:focus",
+      "allocated_to:awesomplete-open",
+      "allocated_to:input",
+      "allocated_to:awesomplete-open",
+      "allocated_to:input",
+      "allocated_to:awesomplete-open",
+      "allocated_to:input",
+      "allocated_to:awesomplete-open",
+      "allocated_to:input",
+      "allocated_to:awesomplete-open",
+      "allocated_to:input",
+      "allocated_to:awesomplete-open",
+      "allocated_to:input",
+      "allocated_to:awesomplete-open",
+      "allocated_to:input",
+      "allocated_to:awesomplete-open",
+      "allocated_to:input",
+      "allocated_to:awesomplete-open",
+      "allocated_to:input",
+      "allocated_to:awesomplete-open",
+      "allocated_to:input",
+      "allocated_to:awesomplete-open",
+      "allocated_to:input",
+      "allocated_to:awesomplete-open",
+      "allocated_to:awesomplete-open",
+      "allocated_to:select-change",
+      "allocated_to:awesomplete-select",
+      "allocated_to:awesomplete-close",
+      "allocated_to:select-change",
+      "allocated_to:awesomplete-selectcomplete",
+      "allocated_to:blur"
+     ],
+     "fallbacks": [],
+     "requests": [
+      {
+       "method": "search_link",
+       "http": "GET",
+       "doctype": "User",
+       "txt": "",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "ToDo",
+       "link_fieldname": "allocated_to"
+      },
+      {
+       "method": "search_link",
+       "http": "POST",
+       "doctype": "User",
+       "txt": "tw-new-user",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "ToDo",
+       "link_fieldname": "allocated_to"
+      }
+     ],
+     "errors": [],
+     "ms": 4560
+    }
+   ],
+   "late_errors": []
+  },
+  "v5.form_user_titles": {
+   "ms": 7965,
+   "fatal": null,
+   "steps": [
+    {
+     "name": "api",
+     "obs": {
+      "language": {
+       "api": {
+        "chain": [
+         "ControlLink",
+         "ControlReadOnly",
+         "ControlInput",
+         "Control",
+         "er"
+        ],
+        "methods": [
+         "set_value",
+         "get_value",
+         "refresh",
+         "refresh_input",
+         "set_input",
+         "set_focus",
+         "toggle_label",
+         "toggle_description",
+         "set_label",
+         "set_description",
+         "get_input_value",
+         "get_label_value",
+         "set_formatted_input",
+         "validate",
+         "parse",
+         "format_for_input",
+         "new_doc",
+         "open_advanced_search",
+         "get_options",
+         "set_custom_query",
+         "get_search_args",
+         "set_link_title",
+         "is_translatable",
+         "is_title_link",
+         "toggle",
+         "set_mandatory",
+         "set_invalid"
+        ],
+        "$input": true,
+        "input_el": true,
+        "input_is_$input": true,
+        "input_tag": "input:text",
+        "$wrapper": true,
+        "wrapper_el": true,
+        "wrapper_fieldobj": true,
+        "disp_area_el": true,
+        "input_area_el": true,
+        "awesomplete": true,
+        "awesomplete_ul_el": true,
+        "awesomplete_close_fn": true,
+        "awesomplete_list_prop": true,
+        "awesomplete_isOpened_prop": true,
+        "$link": true,
+        "$link_open": true,
+        "df_is_object": true,
+        "data_target": "Language",
+        "data_fieldname": "language"
+       },
+       "structure": {
+        "frappe_control": true,
+        "data_fieldtype": "Link",
+        "data_fieldname": "language",
+        "control_input": 1,
+        "control_value": 1,
+        "link_field": 1,
+        "link_btn": 1,
+        "btn_open": 1,
+        "btn_clear": 1,
+        "awesomplete_div": 1,
+        "select_el": 0,
+        "select_icon": 0,
+        "input_with_feedback": 1
+       }
+      },
+      "desk_theme": {
+       "api": {
+        "chain": [
+         "ControlSelect",
+         "ControlReadOnly",
+         "ControlInput",
+         "Control",
+         "er"
+        ],
+        "methods": [
+         "set_value",
+         "get_value",
+         "refresh",
+         "refresh_input",
+         "set_input",
+         "set_focus",
+         "toggle_label",
+         "toggle_description",
+         "set_label",
+         "set_description",
+         "get_input_value",
+         "set_formatted_input",
+         "validate",
+         "parse",
+         "format_for_input",
+         "set_options",
+         "toggle",
+         "set_mandatory",
+         "set_invalid"
+        ],
+        "$input": true,
+        "input_el": true,
+        "input_is_$input": true,
+        "input_tag": "select:select-one",
+        "$wrapper": true,
+        "wrapper_el": true,
+        "wrapper_fieldobj": true,
+        "disp_area_el": true,
+        "input_area_el": true,
+        "awesomplete": false,
+        "awesomplete_ul_el": false,
+        "awesomplete_close_fn": false,
+        "awesomplete_list_prop": false,
+        "awesomplete_isOpened_prop": false,
+        "$link": false,
+        "$link_open": false,
+        "df_is_object": true,
+        "data_target": null,
+        "data_fieldname": "desk_theme"
+       },
+       "structure": {
+        "frappe_control": true,
+        "data_fieldtype": "Select",
+        "data_fieldname": "desk_theme",
+        "control_input": 1,
+        "control_value": 1,
+        "link_field": 0,
+        "link_btn": 0,
+        "btn_open": 0,
+        "btn_clear": 0,
+        "awesomplete_div": 0,
+        "select_el": 1,
+        "select_icon": 0,
+        "input_with_feedback": 1
+       }
+      }
+     },
+     "events": [
+      "language:awesomplete-open"
+     ],
+     "fallbacks": [],
+     "requests": [],
+     "errors": [],
+     "ms": 99
+    },
+    {
+     "name": "title-link-initial",
+     "obs": {
+      "language": {
+       "get_value": "",
+       "model": null,
+       "input_value": "",
+       "input_visible": true,
+       "input_disabled": false,
+       "wrapper_visible": true,
+       "disp_visible": false,
+       "disp_text": null,
+       "disp_href": null,
+       "label": "Language"
+      },
+      "is_title_link": true
+     },
+     "events": [],
+     "fallbacks": [],
+     "requests": [],
+     "errors": [],
+     "ms": 10
+    },
+    {
+     "name": "title-link-search",
+     "obs": {
+      "count": 2,
+      "rows": [
+       "Deutsch de",
+       "Advanced Search"
+      ],
+      "create_new": false,
+      "advanced_search": true,
+      "filtered_by": null,
+      "active": "Deutsch de"
+     },
+     "events": [
+      "language:blur",
+      "language:awesomplete-close",
+      "language:select-change",
+      "language:awesomplete-open",
+      "language:focus",
+      "language:awesomplete-open",
+      "language:input",
+      "language:awesomplete-open",
+      "language:input",
+      "language:awesomplete-open",
+      "language:input",
+      "language:awesomplete-open",
+      "language:input",
+      "language:awesomplete-open",
+      "language:input",
+      "language:awesomplete-open",
+      "language:input",
+      "language:awesomplete-open",
+      "language:input",
+      "language:awesomplete-open",
+      "language:awesomplete-open"
+     ],
+     "fallbacks": [],
+     "requests": [
+      {
+       "method": "search_link",
+       "http": "GET",
+       "doctype": "Language",
+       "txt": "",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "User",
+       "link_fieldname": "language"
+      },
+      {
+       "method": "search_link",
+       "http": "POST",
+       "doctype": "Language",
+       "txt": "Deutsch",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "User",
+       "link_fieldname": "language"
+      }
+     ],
+     "errors": [],
+     "ms": 2207
+    },
+    {
+     "name": "title-link-pick",
+     "obs": {
+      "state": {
+       "get_value": "de",
+       "model": "de",
+       "input_value": "Deutsch",
+       "input_visible": true,
+       "input_disabled": false,
+       "wrapper_visible": true,
+       "disp_visible": false,
+       "disp_text": null,
+       "disp_href": "/desk/language/de",
+       "label": "Language"
+      },
+      "listbox_open": false,
+      "doc": {
+       "language": "de"
+      }
+     },
+     "events": [
+      "language:awesomplete-select",
+      "language:awesomplete-close",
+      "language:awesomplete-selectcomplete",
+      "language:select-change",
+      "language:select-change"
+     ],
+     "fallbacks": [],
+     "requests": [
+      {
+       "method": "validate_link_and_fetch",
+       "http": "GET",
+       "doctype": "Language",
+       "txt": "de",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "User",
+       "link_fieldname": "language"
+      }
+     ],
+     "errors": [],
+     "ms": 1568
+    },
+    {
+     "name": "title-link-set_value",
+     "obs": {
+      "state": {
+       "get_value": "fr",
+       "model": "fr",
+       "input_value": "Français",
+       "input_visible": true,
+       "input_disabled": false,
+       "wrapper_visible": true,
+       "disp_visible": false,
+       "disp_text": null,
+       "disp_href": "/desk/language/fr",
+       "label": "Language"
+      },
+      "doc": {
+       "language": "fr"
+      }
+     },
+     "events": [
+      "language:select-change",
+      "language:select-change"
+     ],
+     "fallbacks": [],
+     "requests": [
+      {
+       "method": "get_link_title",
+       "http": "POST",
+       "doctype": "Language",
+       "txt": "fr",
+       "query": null,
+       "filters": null,
+       "reference_doctype": null,
+       "link_fieldname": null
+      },
+      {
+       "method": "validate_link_and_fetch",
+       "http": "GET",
+       "doctype": "Language",
+       "txt": "fr",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "User",
+       "link_fieldname": "language"
+      }
+     ],
+     "errors": [],
+     "ms": 1221
+    },
+    {
+     "name": "translated-doctype-link",
+     "obs": {
+      "state": {
+       "get_value": "Female",
+       "model": "Female",
+       "input_value": "Female",
+       "input_visible": false,
+       "input_disabled": false,
+       "wrapper_visible": false,
+       "disp_visible": false,
+       "disp_text": null,
+       "disp_href": "/desk/gender/Female",
+       "label": "Gender"
+      },
+      "translatable": true
+     },
+     "events": [
+      "gender:select-change",
+      "gender:select-change"
+     ],
+     "fallbacks": [],
+     "requests": [
+      {
+       "method": "validate_link_and_fetch",
+       "http": "GET",
+       "doctype": "Gender",
+       "txt": "Female",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "User",
+       "link_fieldname": "gender"
+      }
+     ],
+     "errors": [],
+     "ms": 822
+    },
+    {
+     "name": "select-in-form",
+     "obs": {
+      "desk_theme": {
+       "get_value": "Light",
+       "model": "Light",
+       "input_value": "Light",
+       "input_visible": false,
+       "input_disabled": false,
+       "wrapper_visible": false,
+       "disp_visible": false,
+       "disp_text": null,
+       "disp_href": null,
+       "label": "Desk Theme",
+       "select_options": [
+        [
+         "Light",
+         "Light"
+        ],
+        [
+         "Dark",
+         "Dark"
+        ],
+        [
+         "Automatic",
+         "Automatic"
+        ]
+       ],
+       "selected_text": "Light"
+      }
+     },
+     "events": [],
+     "fallbacks": [],
+     "requests": [],
+     "errors": [],
+     "ms": 6
+    }
+   ],
+   "late_errors": []
+  },
+  "v5.dialog": {
+   "ms": 18170,
+   "fatal": null,
+   "steps": [
+    {
+     "name": "make-dialog",
+     "obs": {
+      "dialogs": [
+       "TW Dialog"
+      ],
+      "values": {
+       "kind": "b"
+      }
+     },
+     "events": [
+      "df:kind.onchange"
+     ],
+     "fallbacks": [],
+     "requests": [
+      {
+       "method": "search_link",
+       "http": "GET",
+       "doctype": "User",
+       "txt": "",
+       "query": null,
+       "filters": {
+        "name": [
+         "like",
+         "%example.com"
+        ]
+       },
+       "reference_doctype": "ToDo",
+       "link_fieldname": "user"
+      }
+     ],
+     "errors": [],
+     "ms": 928
+    },
+    {
+     "name": "api",
+     "obs": {
+      "user": {
+       "api": {
+        "chain": [
+         "ControlLink",
+         "ControlReadOnly",
+         "ControlInput",
+         "Control",
+         "er"
+        ],
+        "methods": [
+         "set_value",
+         "get_value",
+         "refresh",
+         "refresh_input",
+         "set_input",
+         "set_focus",
+         "toggle_label",
+         "toggle_description",
+         "set_label",
+         "set_description",
+         "get_input_value",
+         "get_label_value",
+         "set_formatted_input",
+         "validate",
+         "parse",
+         "format_for_input",
+         "new_doc",
+         "open_advanced_search",
+         "get_options",
+         "set_custom_query",
+         "get_search_args",
+         "set_link_title",
+         "is_translatable",
+         "is_title_link",
+         "toggle",
+         "set_mandatory",
+         "set_invalid"
+        ],
+        "$input": true,
+        "input_el": true,
+        "input_is_$input": true,
+        "input_tag": "input:text",
+        "$wrapper": true,
+        "wrapper_el": true,
+        "wrapper_fieldobj": true,
+        "disp_area_el": true,
+        "input_area_el": true,
+        "awesomplete": true,
+        "awesomplete_ul_el": true,
+        "awesomplete_close_fn": true,
+        "awesomplete_list_prop": true,
+        "awesomplete_isOpened_prop": true,
+        "$link": true,
+        "$link_open": true,
+        "df_is_object": true,
+        "data_target": "User",
+        "data_fieldname": "user"
+       },
+       "structure": {
+        "frappe_control": true,
+        "data_fieldtype": "Link",
+        "data_fieldname": "user",
+        "control_input": 1,
+        "control_value": 1,
+        "link_field": 1,
+        "link_btn": 1,
+        "btn_open": 1,
+        "btn_clear": 1,
+        "awesomplete_div": 1,
+        "select_el": 0,
+        "select_icon": 0,
+        "input_with_feedback": 1
+       }
+      },
+      "dn": {
+       "api": {
+        "chain": [
+         "ControlDynamicLink",
+         "ControlLink",
+         "ControlReadOnly",
+         "ControlInput",
+         "Control",
+         "er"
+        ],
+        "methods": [
+         "set_value",
+         "get_value",
+         "refresh",
+         "refresh_input",
+         "set_input",
+         "set_focus",
+         "toggle_label",
+         "toggle_description",
+         "set_label",
+         "set_description",
+         "get_input_value",
+         "get_label_value",
+         "set_formatted_input",
+         "validate",
+         "parse",
+         "format_for_input",
+         "new_doc",
+         "open_advanced_search",
+         "get_options",
+         "set_custom_query",
+         "get_search_args",
+         "set_link_title",
+         "is_translatable",
+         "is_title_link",
+         "toggle",
+         "set_mandatory",
+         "set_invalid"
+        ],
+        "$input": true,
+        "input_el": true,
+        "input_is_$input": true,
+        "input_tag": "input:text",
+        "$wrapper": true,
+        "wrapper_el": true,
+        "wrapper_fieldobj": true,
+        "disp_area_el": true,
+        "input_area_el": true,
+        "awesomplete": true,
+        "awesomplete_ul_el": true,
+        "awesomplete_close_fn": true,
+        "awesomplete_list_prop": true,
+        "awesomplete_isOpened_prop": true,
+        "$link": true,
+        "$link_open": true,
+        "df_is_object": true,
+        "data_target": "dt",
+        "data_fieldname": "dn"
+       },
+       "structure": {
+        "frappe_control": true,
+        "data_fieldtype": "Dynamic Link",
+        "data_fieldname": "dn",
+        "control_input": 1,
+        "control_value": 1,
+        "link_field": 1,
+        "link_btn": 1,
+        "btn_open": 1,
+        "btn_clear": 1,
+        "awesomplete_div": 1,
+        "select_el": 0,
+        "select_icon": 0,
+        "input_with_feedback": 1
+       }
+      },
+      "kind": {
+       "api": {
+        "chain": [
+         "ControlSelect",
+         "ControlReadOnly",
+         "ControlInput",
+         "Control",
+         "er"
+        ],
+        "methods": [
+         "set_value",
+         "get_value",
+         "refresh",
+         "refresh_input",
+         "set_input",
+         "set_focus",
+         "toggle_label",
+         "toggle_description",
+         "set_label",
+         "set_description",
+         "get_input_value",
+         "set_formatted_input",
+         "validate",
+         "parse",
+         "format_for_input",
+         "set_options",
+         "toggle",
+         "set_mandatory",
+         "set_invalid"
+        ],
+        "$input": true,
+        "input_el": true,
+        "input_is_$input": true,
+        "input_tag": "select:select-one",
+        "$wrapper": true,
+        "wrapper_el": true,
+        "wrapper_fieldobj": true,
+        "disp_area_el": true,
+        "input_area_el": true,
+        "awesomplete": false,
+        "awesomplete_ul_el": false,
+        "awesomplete_close_fn": false,
+        "awesomplete_list_prop": false,
+        "awesomplete_isOpened_prop": false,
+        "$link": false,
+        "$link_open": false,
+        "df_is_object": true,
+        "data_target": null,
+        "data_fieldname": "kind"
+       },
+       "structure": {
+        "frappe_control": true,
+        "data_fieldtype": "Select",
+        "data_fieldname": "kind",
+        "control_input": 1,
+        "control_value": 1,
+        "link_field": 0,
+        "link_btn": 0,
+        "btn_open": 0,
+        "btn_clear": 0,
+        "awesomplete_div": 0,
+        "select_el": 1,
+        "select_icon": 0,
+        "input_with_feedback": 1
+       }
+      }
+     },
+     "events": [],
+     "fallbacks": [],
+     "requests": [],
+     "errors": [],
+     "ms": 11
+    },
+    {
+     "name": "link-get_query-in-df",
+     "obs": {
+      "count": 9,
+      "rows": [
+       "frappe@example.com Frappe",
+       "test_list_col_width@example.com Frappe",
+       "test_print_view@example.com Frappe",
+       "test_report_child_group_by@example.com Frappe",
+       "test_report_group_by@example.com Frappe",
+       "test_report_permission@example.com Frappe",
+       "Filtered by: Name contains \"%example.com\".",
+       "Create a new User",
+       "Advanced Search"
+      ],
+      "create_new": true,
+      "advanced_search": true,
+      "filtered_by": "Filtered by: Name contains \"%example.com\".",
+      "active": "frappe@example.com Frappe"
+     },
+     "events": [
+      "user:blur",
+      "user:awesomplete-close",
+      "user:select-change",
+      "user:awesomplete-open",
+      "user:focus",
+      "user:awesomplete-open"
+     ],
+     "fallbacks": [],
+     "requests": [
+      {
+       "method": "search_link",
+       "http": "GET",
+       "doctype": "User",
+       "txt": "",
+       "query": null,
+       "filters": {
+        "name": [
+         "like",
+         "%example.com"
+        ]
+       },
+       "reference_doctype": "ToDo",
+       "link_fieldname": "user"
+      }
+     ],
+     "errors": [],
+     "ms": 1741
+    },
+    {
+     "name": "link-pick",
+     "obs": {
+      "state": {
+       "get_value": "frappe@example.com",
+       "model": "<no doc>",
+       "input_value": "frappe@example.com",
+       "input_visible": true,
+       "input_disabled": false,
+       "wrapper_visible": true,
+       "disp_visible": false,
+       "disp_text": null,
+       "disp_href": "/desk/user/frappe%40example.com",
+       "label": "User"
+      },
+      "listbox_open": false,
+      "value": "frappe@example.com"
+     },
+     "events": [
+      "user:awesomplete-select",
+      "user:awesomplete-close",
+      "user:awesomplete-selectcomplete",
+      "user:select-change",
+      "user:select-change",
+      "df:user.onchange"
+     ],
+     "fallbacks": [],
+     "requests": [
+      {
+       "method": "validate_link_and_fetch",
+       "http": "GET",
+       "doctype": "User",
+       "txt": "frappe@example.com",
+       "query": null,
+       "filters": {
+        "name": [
+         "like",
+         "%example.com"
+        ]
+       },
+       "reference_doctype": "ToDo",
+       "link_fieldname": "user"
+      }
+     ],
+     "errors": [],
+     "ms": 1194
+    },
+    {
+     "name": "only_select-and-df.filters",
+     "obs": {
+      "count": 2,
+      "rows": [
+       "System Manager",
+       "Filtered by: is enabled."
+      ],
+      "create_new": false,
+      "advanced_search": false,
+      "filtered_by": "Filtered by: is enabled.",
+      "active": "System Manager"
+     },
+     "events": [
+      "user:blur",
+      "role:select-change",
+      "role:focus",
+      "role:input",
+      "role:awesomplete-open",
+      "role:input",
+      "role:awesomplete-open",
+      "role:input",
+      "role:awesomplete-open",
+      "role:awesomplete-open",
+      "role:awesomplete-close"
+     ],
+     "fallbacks": [],
+     "requests": [
+      {
+       "method": "search_link",
+       "http": "GET",
+       "doctype": "Role",
+       "txt": "",
+       "query": null,
+       "filters": {
+        "disabled": 0
+       },
+       "reference_doctype": "ToDo",
+       "link_fieldname": "role"
+      },
+      {
+       "method": "search_link",
+       "http": "POST",
+       "doctype": "Role",
+       "txt": "Sys",
+       "query": null,
+       "filters": {
+        "disabled": 0
+       },
+       "reference_doctype": "ToDo",
+       "link_fieldname": "role"
+      }
+     ],
+     "errors": [],
+     "ms": 1447
+    },
+    {
+     "name": "escape-closes-list-not-dialog",
+     "obs": {
+      "list_open": false,
+      "dialogs": [
+       "TW Dialog"
+      ]
+     },
+     "events": [
+      "role:input",
+      "role:awesomplete-open",
+      "role:awesomplete-open",
+      "role:awesomplete-open",
+      "role:awesomplete-close"
+     ],
+     "fallbacks": [],
+     "requests": [
+      {
+       "method": "search_link",
+       "http": "GET",
+       "doctype": "Role",
+       "txt": "",
+       "query": null,
+       "filters": {
+        "disabled": 0
+       },
+       "reference_doctype": "ToDo",
+       "link_fieldname": "role"
+      }
+     ],
+     "errors": [],
+     "ms": 1609
+    },
+    {
+     "name": "dynamic-link-in-dialog",
+     "obs": {
+      "options": {
+       "count": 3,
+       "rows": [
+        "Guest",
+        "Create a new Role",
+        "Advanced Search"
+       ],
+       "create_new": true,
+       "advanced_search": true,
+       "filtered_by": null,
+       "active": "Guest"
+      },
+      "picked": {
+       "state": {
+        "get_value": "Guest",
+        "model": "<no doc>",
+        "input_value": "Guest",
+        "input_visible": true,
+        "input_disabled": false,
+        "wrapper_visible": true,
+        "disp_visible": false,
+        "disp_text": null,
+        "disp_href": null,
+        "label": "Doc Name"
+       },
+       "listbox_open": false
+      },
+      "value": "Guest"
+     },
+     "events": [
+      "role:blur",
+      "dn:select-change",
+      "dn:focus",
+      "dn:awesomplete-open",
+      "dn:input",
+      "dn:awesomplete-open",
+      "dn:input",
+      "dn:awesomplete-open",
+      "dn:input",
+      "dn:awesomplete-open",
+      "dn:input",
+      "dn:awesomplete-open",
+      "dn:input",
+      "dn:awesomplete-open",
+      "dn:awesomplete-open",
+      "dn:awesomplete-select",
+      "dn:awesomplete-close",
+      "dn:awesomplete-selectcomplete",
+      "dn:select-change",
+      "dn:select-change"
+     ],
+     "fallbacks": [],
+     "requests": [
+      {
+       "method": "validate_link_and_fetch",
+       "http": "GET",
+       "doctype": "DocType",
+       "txt": "Role",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "ToDo",
+       "link_fieldname": "dt"
+      },
+      {
+       "method": "search_link",
+       "http": "GET",
+       "doctype": "Role",
+       "txt": "",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "ToDo",
+       "link_fieldname": "dn"
+      },
+      {
+       "method": "search_link",
+       "http": "POST",
+       "doctype": "Role",
+       "txt": "Guest",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "ToDo",
+       "link_fieldname": "dn"
+      },
+      {
+       "method": "validate_link_and_fetch",
+       "http": "GET",
+       "doctype": "Role",
+       "txt": "Guest",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "ToDo",
+       "link_fieldname": "dn"
+      }
+     ],
+     "errors": [],
+     "ms": 3301
+    },
+    {
+     "name": "select-label-value",
+     "obs": {
+      "before": {
+       "get_value": "b",
+       "model": "<no doc>",
+       "input_value": "b",
+       "input_visible": true,
+       "input_disabled": false,
+       "wrapper_visible": true,
+       "disp_visible": false,
+       "disp_text": null,
+       "disp_href": null,
+       "label": "Kind",
+       "select_options": [
+        [
+         "a",
+         "Alpha"
+        ],
+        [
+         "b",
+         "Beta"
+        ]
+       ],
+       "selected_text": "Beta"
+      },
+      "after": {
+       "get_value": "a",
+       "model": "<no doc>",
+       "input_value": "a",
+       "input_visible": true,
+       "input_disabled": false,
+       "wrapper_visible": true,
+       "disp_visible": false,
+       "disp_text": null,
+       "disp_href": null,
+       "label": "Kind",
+       "select_options": [
+        [
+         "a",
+         "Alpha"
+        ],
+        [
+         "b",
+         "Beta"
+        ]
+       ],
+       "selected_text": "Alpha"
+      },
+      "value": "a"
+     },
+     "events": [
+      "kind:input",
+      "kind:change",
+      "kind:select-change",
+      "df:kind.onchange"
+     ],
+     "fallbacks": [],
+     "requests": [],
+     "errors": [],
+     "ms": 442
+    },
+    {
+     "name": "select-set_value-and-options",
+     "obs": {
+      "after_set_value": {
+       "get_value": "Two",
+       "model": "<no doc>",
+       "input_value": "Two",
+       "input_visible": true,
+       "input_disabled": false,
+       "wrapper_visible": true,
+       "disp_visible": false,
+       "disp_text": null,
+       "disp_href": null,
+       "label": "Plain",
+       "select_options": [
+        [
+         "",
+         ""
+        ],
+        [
+         "One",
+         "One"
+        ],
+        [
+         "Two",
+         "Two"
+        ]
+       ],
+       "selected_text": "Two"
+      },
+      "after_options": {
+       "get_value": null,
+       "model": "<no doc>",
+       "input_value": null,
+       "input_visible": true,
+       "input_disabled": false,
+       "wrapper_visible": true,
+       "disp_visible": false,
+       "disp_text": null,
+       "disp_href": null,
+       "label": "Plain",
+       "select_options": [
+        [
+         "X",
+         "X"
+        ],
+        [
+         "Y",
+         "Y"
+        ]
+       ],
+       "selected_text": null
+      },
+      "value": null
+     },
+     "events": [],
+     "fallbacks": [],
+     "requests": [],
+     "errors": [],
+     "ms": 637
+    },
+    {
+     "name": "create-new-quick-entry",
+     "obs": {
+      "dialogs": [
+       "TW Dialog",
+       "New Note"
+      ],
+      "quick_entry_values": {
+       "title": "TW quick note"
+      }
+     },
+     "events": [
+      "dn:change",
+      "dn:blur",
+      "dn:select-change",
+      "dn:select-change"
+     ],
+     "fallbacks": [],
+     "requests": [
+      {
+       "method": "validate_link_and_fetch",
+       "http": "GET",
+       "doctype": "Role",
+       "txt": "Guest",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "ToDo",
+       "link_fieldname": "dn"
+      },
+      {
+       "method": "search_link",
+       "http": "GET",
+       "doctype": "Note",
+       "txt": "",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "ToDo",
+       "link_fieldname": "note"
+      },
+      {
+       "method": "search_link",
+       "http": "POST",
+       "doctype": "Note",
+       "txt": "TW quick note",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "ToDo",
+       "link_fieldname": "note"
+      }
+     ],
+     "errors": [],
+     "ms": 5182
+    },
+    {
+     "name": "dialog-values",
+     "obs": {
+      "user": "frappe@example.com",
+      "dt": "Role",
+      "dn": "Guest",
+      "kind": "a"
+     },
+     "events": [],
+     "fallbacks": [],
+     "requests": [],
+     "errors": [],
+     "ms": 30
+    }
+   ],
+   "late_errors": []
+  },
+  "v5.grid_workflow": {
+   "ms": 11686,
+   "fatal": null,
+   "steps": [
+    {
+     "name": "add-row-and-open-cell",
+     "obs": {
+      "has_control": true,
+      "api": {
+       "chain": [
+        "ControlLink",
+        "ControlReadOnly",
+        "ControlInput",
+        "Control",
+        "er"
+       ],
+       "methods": [
+        "set_value",
+        "get_value",
+        "refresh",
+        "refresh_input",
+        "set_input",
+        "set_focus",
+        "toggle_label",
+        "toggle_description",
+        "set_label",
+        "set_description",
+        "get_input_value",
+        "get_label_value",
+        "set_formatted_input",
+        "validate",
+        "parse",
+        "format_for_input",
+        "new_doc",
+        "open_advanced_search",
+        "get_options",
+        "set_custom_query",
+        "get_search_args",
+        "set_link_title",
+        "is_translatable",
+        "is_title_link",
+        "toggle",
+        "set_mandatory",
+        "set_invalid"
+       ],
+       "$input": true,
+       "input_el": true,
+       "input_is_$input": true,
+       "input_tag": "input:text",
+       "$wrapper": true,
+       "wrapper_el": true,
+       "wrapper_fieldobj": true,
+       "disp_area_el": false,
+       "input_area_el": true,
+       "awesomplete": true,
+       "awesomplete_ul_el": true,
+       "awesomplete_close_fn": true,
+       "awesomplete_list_prop": true,
+       "awesomplete_isOpened_prop": true,
+       "$link": true,
+       "$link_open": true,
+       "df_is_object": true,
+       "data_target": "Workflow State",
+       "data_fieldname": "state"
+      },
+      "focused": true
+     },
+     "events": [],
+     "fallbacks": [],
+     "requests": [
+      {
+       "method": "search_link",
+       "http": "GET",
+       "doctype": "Workflow State",
+       "txt": "",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "Workflow Document State",
+       "link_fieldname": "state"
+      }
+     ],
+     "errors": [],
+     "ms": 1401
+    },
+    {
+     "name": "grid-link-search",
+     "obs": {
+      "count": 3,
+      "rows": [
+       "Approved",
+       "Create a new Workflow State",
+       "Advanced Search"
+      ],
+      "create_new": true,
+      "advanced_search": true,
+      "filtered_by": null,
+      "active": "Approved"
+     },
+     "events": [
+      "state:blur",
+      "state:awesomplete-close",
+      "state:select-change",
+      "state:awesomplete-open",
+      "state:focus",
+      "state:awesomplete-open",
+      "state:input",
+      "state:awesomplete-open",
+      "state:input",
+      "state:awesomplete-open",
+      "state:input",
+      "state:awesomplete-open",
+      "state:input",
+      "state:awesomplete-open",
+      "state:awesomplete-open"
+     ],
+     "fallbacks": [],
+     "requests": [
+      {
+       "method": "search_link",
+       "http": "GET",
+       "doctype": "Workflow State",
+       "txt": "",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "Workflow Document State",
+       "link_fieldname": "state"
+      },
+      {
+       "method": "search_link",
+       "http": "POST",
+       "doctype": "Workflow State",
+       "txt": "Appr",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "Workflow Document State",
+       "link_fieldname": "state"
+      }
+     ],
+     "errors": [],
+     "ms": 1950
+    },
+    {
+     "name": "grid-link-pick",
+     "obs": {
+      "state": {
+       "get_value": "Approved",
+       "model": "Approved",
+       "input_value": "Approved",
+       "input_visible": true,
+       "input_disabled": false,
+       "wrapper_visible": true,
+       "disp_visible": false,
+       "disp_text": null,
+       "disp_href": null,
+       "label": null
+      },
+      "listbox_open": false,
+      "row": {
+       "state": "Approved"
+      }
+     },
+     "events": [
+      "state:awesomplete-select",
+      "state:awesomplete-close",
+      "state:awesomplete-selectcomplete",
+      "state:select-change",
+      "state:select-change",
+      "state:select-change",
+      "state:select-change"
+     ],
+     "fallbacks": [],
+     "requests": [
+      {
+       "method": "validate_link_and_fetch",
+       "http": "GET",
+       "doctype": "Workflow State",
+       "txt": "Approved",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "Workflow Document State",
+       "link_fieldname": "state"
+      }
+     ],
+     "errors": [],
+     "ms": 1195
+    },
+    {
+     "name": "grid-get_field-get_query",
+     "obs": {
+      "options": {
+       "count": 12,
+       "rows": [
+        "Blogger",
+        "Report Child Group By Test Role",
+        "Report Group By Test Role",
+        "Report Permission Test Role",
+        "Flow User",
+        "Studio User",
+        "Maintenance Manager",
+        "Maintenance User",
+        "Purchase Manager",
+        "Sales Master Manager",
+        "Create a new Role",
+        "Advanced Search"
+       ],
+       "create_new": true,
+       "advanced_search": true,
+       "filtered_by": null,
+       "active": "Blogger"
+      },
+      "picked": {
+       "state": {
+        "get_value": "Blogger",
+        "model": "Blogger",
+        "input_value": "Blogger",
+        "input_visible": true,
+        "input_disabled": false,
+        "wrapper_visible": true,
+        "disp_visible": false,
+        "disp_text": null,
+        "disp_href": null,
+        "label": null
+       },
+       "listbox_open": false
+      },
+      "row": "Blogger"
+     },
+     "events": [
+      "state:select-change",
+      "state:select-change",
+      "state:change",
+      "state:blur",
+      "allow_edit:select-change",
+      "allow_edit:focus",
+      "allow_edit:awesomplete-open",
+      "allow_edit:awesomplete-select",
+      "allow_edit:awesomplete-close",
+      "allow_edit:awesomplete-selectcomplete",
+      "allow_edit:select-change",
+      "allow_edit:select-change",
+      "allow_edit:select-change",
+      "allow_edit:select-change"
+     ],
+     "fallbacks": [],
+     "requests": [
+      {
+       "method": "search_link",
+       "http": "GET",
+       "doctype": "Role",
+       "txt": "",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "Workflow Document State",
+       "link_fieldname": "allow_edit"
+      },
+      {
+       "method": "validate_link_and_fetch",
+       "http": "GET",
+       "doctype": "Role",
+       "txt": "Blogger",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "Workflow Document State",
+       "link_fieldname": "allow_edit"
+      }
+     ],
+     "errors": [],
+     "ms": 2450
+    },
+    {
+     "name": "grid-select",
+     "obs": {
+      "before": {
+       "get_value": "0",
+       "model": "0",
+       "input_value": "0",
+       "input_visible": true,
+       "input_disabled": false,
+       "wrapper_visible": true,
+       "disp_visible": false,
+       "disp_text": null,
+       "disp_href": null,
+       "label": null,
+       "select_options": [
+        [
+         "0",
+         "0"
+        ],
+        [
+         "1",
+         "1"
+        ],
+        [
+         "2",
+         "2"
+        ]
+       ],
+       "selected_text": "0"
+      },
+      "after": {
+       "get_value": "1",
+       "model": "1",
+       "input_value": "1",
+       "input_visible": true,
+       "input_disabled": false,
+       "wrapper_visible": true,
+       "disp_visible": false,
+       "disp_text": null,
+       "disp_href": null,
+       "label": null,
+       "select_options": [
+        [
+         "0",
+         "0"
+        ],
+        [
+         "1",
+         "1"
+        ],
+        [
+         "2",
+         "2"
+        ]
+       ],
+       "selected_text": "1"
+      },
+      "row": "1"
+     },
+     "events": [
+      "doc_status:input",
+      "doc_status:change",
+      "doc_status:select-change",
+      "doc_status:select-change"
+     ],
+     "fallbacks": [],
+     "requests": [],
+     "errors": [],
+     "ms": 428
+    },
+    {
+     "name": "grid-arrow-keys-while-list-open",
+     "obs": {
+      "before": "Rejected",
+      "after": "Approved",
+      "focused_row_is_first": true
+     },
+     "events": [
+      "state:select-change",
+      "state:select-change",
+      "doc_status:select-change",
+      "allow_edit:select-change",
+      "allow_edit:select-change",
+      "allow_edit:blur",
+      "state:focus",
+      "state:input",
+      "state:awesomplete-open",
+      "state:awesomplete-open",
+      "state:awesomplete-open",
+      "state:awesomplete-close"
+     ],
+     "fallbacks": [],
+     "requests": [
+      {
+       "method": "search_link",
+       "http": "GET",
+       "doctype": "Workflow State",
+       "txt": "",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "Workflow Document State",
+       "link_fieldname": "state"
+      }
+     ],
+     "errors": [],
+     "ms": 1727
+    },
+    {
+     "name": "grid-update_docfield_property-read_only",
+     "obs": {
+      "static_text": "Blogger"
+     },
+     "events": [
+      "state:select-change",
+      "state:select-change",
+      "doc_status:select-change",
+      "allow_edit:select-change",
+      "allow_edit:select-change",
+      "state:select-change",
+      "state:select-change",
+      "doc_status:select-change",
+      "allow_edit:select-change",
+      "allow_edit:select-change"
+     ],
+     "fallbacks": [],
+     "requests": [],
+     "errors": [],
+     "ms": 526
+    },
+    {
+     "name": "grid-set_value-from-code",
+     "obs": {
+      "row": "Rejected",
+      "static_text": "Rejected"
+     },
+     "events": [
+      "state:select-change",
+      "state:select-change"
+     ],
+     "fallbacks": [],
+     "requests": [],
+     "errors": [],
+     "ms": 615
+    }
+   ],
+   "late_errors": []
+  },
+  "v5.quick_entry": {
+   "ms": 6028,
+   "fatal": null,
+   "steps": [
+    {
+     "name": "open",
+     "obs": {
+      "dialogs": [
+       "New Address"
+      ],
+      "fields": [
+       "address_type",
+       "country"
+      ]
+     },
+     "events": [],
+     "fallbacks": [],
+     "requests": [],
+     "errors": [],
+     "ms": 1074
+    },
+    {
+     "name": "api",
+     "obs": {
+      "country": {
+       "api": {
+        "chain": [
+         "ControlLink",
+         "ControlReadOnly",
+         "ControlInput",
+         "Control",
+         "er"
+        ],
+        "methods": [
+         "set_value",
+         "get_value",
+         "refresh",
+         "refresh_input",
+         "set_input",
+         "set_focus",
+         "toggle_label",
+         "toggle_description",
+         "set_label",
+         "set_description",
+         "get_input_value",
+         "get_label_value",
+         "set_formatted_input",
+         "validate",
+         "parse",
+         "format_for_input",
+         "new_doc",
+         "open_advanced_search",
+         "get_options",
+         "set_custom_query",
+         "get_search_args",
+         "set_link_title",
+         "is_translatable",
+         "is_title_link",
+         "toggle",
+         "set_mandatory",
+         "set_invalid"
+        ],
+        "$input": true,
+        "input_el": true,
+        "input_is_$input": true,
+        "input_tag": "input:text",
+        "$wrapper": true,
+        "wrapper_el": true,
+        "wrapper_fieldobj": true,
+        "disp_area_el": true,
+        "input_area_el": true,
+        "awesomplete": true,
+        "awesomplete_ul_el": true,
+        "awesomplete_close_fn": true,
+        "awesomplete_list_prop": true,
+        "awesomplete_isOpened_prop": true,
+        "$link": true,
+        "$link_open": true,
+        "df_is_object": true,
+        "data_target": "Country",
+        "data_fieldname": "country"
+       },
+       "structure": {
+        "frappe_control": true,
+        "data_fieldtype": "Link",
+        "data_fieldname": "country",
+        "control_input": 1,
+        "control_value": 1,
+        "link_field": 1,
+        "link_btn": 1,
+        "btn_open": 1,
+        "btn_clear": 1,
+        "awesomplete_div": 1,
+        "select_el": 0,
+        "select_icon": 0,
+        "input_with_feedback": 1
+       }
+      },
+      "address_type": {
+       "api": {
+        "chain": [
+         "ControlSelect",
+         "ControlReadOnly",
+         "ControlInput",
+         "Control",
+         "er"
+        ],
+        "methods": [
+         "set_value",
+         "get_value",
+         "refresh",
+         "refresh_input",
+         "set_input",
+         "set_focus",
+         "toggle_label",
+         "toggle_description",
+         "set_label",
+         "set_description",
+         "get_input_value",
+         "set_formatted_input",
+         "validate",
+         "parse",
+         "format_for_input",
+         "set_options",
+         "toggle",
+         "set_mandatory",
+         "set_invalid"
+        ],
+        "$input": true,
+        "input_el": true,
+        "input_is_$input": true,
+        "input_tag": "select:select-one",
+        "$wrapper": true,
+        "wrapper_el": true,
+        "wrapper_fieldobj": true,
+        "disp_area_el": true,
+        "input_area_el": true,
+        "awesomplete": false,
+        "awesomplete_ul_el": false,
+        "awesomplete_close_fn": false,
+        "awesomplete_list_prop": false,
+        "awesomplete_isOpened_prop": false,
+        "$link": false,
+        "$link_open": false,
+        "df_is_object": true,
+        "data_target": null,
+        "data_fieldname": "address_type"
+       },
+       "structure": {
+        "frappe_control": true,
+        "data_fieldtype": "Select",
+        "data_fieldname": "address_type",
+        "control_input": 1,
+        "control_value": 1,
+        "link_field": 0,
+        "link_btn": 0,
+        "btn_open": 0,
+        "btn_clear": 0,
+        "awesomplete_div": 0,
+        "select_el": 1,
+        "select_icon": 0,
+        "input_with_feedback": 1
+       }
+      }
+     },
+     "events": [],
+     "fallbacks": [],
+     "requests": [],
+     "errors": [],
+     "ms": 10
+    },
+    {
+     "name": "select",
+     "obs": {
+      "before": {
+       "get_value": "Billing",
+       "model": "Billing",
+       "input_value": "Billing",
+       "input_visible": true,
+       "input_disabled": false,
+       "wrapper_visible": true,
+       "disp_visible": false,
+       "disp_text": null,
+       "disp_href": null,
+       "label": "Address Type",
+       "select_options": [
+        [
+         "Billing",
+         "Billing"
+        ],
+        [
+         "Shipping",
+         "Shipping"
+        ],
+        [
+         "Office",
+         "Office"
+        ],
+        [
+         "Personal",
+         "Personal"
+        ],
+        [
+         "Plant",
+         "Plant"
+        ],
+        [
+         "Postal",
+         "Postal"
+        ],
+        [
+         "Shop",
+         "Shop"
+        ],
+        [
+         "Subsidiary",
+         "Subsidiary"
+        ],
+        [
+         "Warehouse",
+         "Warehouse"
+        ],
+        [
+         "Current",
+         "Current"
+        ],
+        [
+         "Permanent",
+         "Permanent"
+        ],
+        [
+         "Other",
+         "Other"
+        ]
+       ],
+       "selected_text": "Billing"
+      },
+      "after": {
+       "get_value": "Office",
+       "model": "Office",
+       "input_value": "Office",
+       "input_visible": true,
+       "input_disabled": false,
+       "wrapper_visible": true,
+       "disp_visible": false,
+       "disp_text": null,
+       "disp_href": null,
+       "label": "Address Type",
+       "select_options": [
+        [
+         "Billing",
+         "Billing"
+        ],
+        [
+         "Shipping",
+         "Shipping"
+        ],
+        [
+         "Office",
+         "Office"
+        ],
+        [
+         "Personal",
+         "Personal"
+        ],
+        [
+         "Plant",
+         "Plant"
+        ],
+        [
+         "Postal",
+         "Postal"
+        ],
+        [
+         "Shop",
+         "Shop"
+        ],
+        [
+         "Subsidiary",
+         "Subsidiary"
+        ],
+        [
+         "Warehouse",
+         "Warehouse"
+        ],
+        [
+         "Current",
+         "Current"
+        ],
+        [
+         "Permanent",
+         "Permanent"
+        ],
+        [
+         "Other",
+         "Other"
+        ]
+       ],
+       "selected_text": "Office"
+      }
+     },
+     "events": [
+      "address_type:input",
+      "address_type:change",
+      "address_type:select-change"
+     ],
+     "fallbacks": [],
+     "requests": [],
+     "errors": [],
+     "ms": 476
+    },
+    {
+     "name": "link-search",
+     "obs": {
+      "count": 3,
+      "rows": [
+       "Germany",
+       "Create a new Country",
+       "Advanced Search"
+      ],
+      "create_new": true,
+      "advanced_search": true,
+      "filtered_by": null,
+      "active": "Germany"
+     },
+     "events": [
+      "country:select-change",
+      "country:focus",
+      "country:input",
+      "country:awesomplete-open",
+      "country:input",
+      "country:awesomplete-open",
+      "country:input",
+      "country:awesomplete-open",
+      "country:input",
+      "country:awesomplete-open",
+      "country:awesomplete-open"
+     ],
+     "fallbacks": [],
+     "requests": [
+      {
+       "method": "search_link",
+       "http": "GET",
+       "doctype": "Country",
+       "txt": "",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "Address",
+       "link_fieldname": "country"
+      },
+      {
+       "method": "search_link",
+       "http": "POST",
+       "doctype": "Country",
+       "txt": "Germ",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "Address",
+       "link_fieldname": "country"
+      }
+     ],
+     "errors": [],
+     "ms": 1500
+    },
+    {
+     "name": "link-pick",
+     "obs": {
+      "state": {
+       "get_value": "Germany",
+       "model": "Germany",
+       "input_value": "Germany",
+       "input_visible": true,
+       "input_disabled": false,
+       "wrapper_visible": true,
+       "disp_visible": false,
+       "disp_text": null,
+       "disp_href": "/desk/country/Germany",
+       "label": "Country"
+      },
+      "listbox_open": false,
+      "values": {
+       "country": "Germany",
+       "address_type": "Office"
+      }
+     },
+     "events": [
+      "country:awesomplete-select",
+      "country:awesomplete-close",
+      "country:awesomplete-selectcomplete",
+      "country:select-change",
+      "country:select-change"
+     ],
+     "fallbacks": [],
+     "requests": [
+      {
+       "method": "validate_link_and_fetch",
+       "http": "GET",
+       "doctype": "Country",
+       "txt": "Germany",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "Address",
+       "link_fieldname": "country"
+      }
+     ],
+     "errors": [],
+     "ms": 1194
+    }
+   ],
+   "late_errors": []
+  },
+  "v5.standalone": {
+   "ms": 5951,
+   "fatal": null,
+   "steps": [
+    {
+     "name": "make_control-only_input",
+     "obs": {
+      "state": {
+       "get_value": "Administrator",
+       "model": "<no doc>",
+       "input_value": "Administrator",
+       "input_visible": true,
+       "input_disabled": false,
+       "wrapper_visible": true,
+       "disp_visible": false,
+       "disp_text": null,
+       "disp_href": null,
+       "label": null
+      },
+      "api": {
+       "chain": [
+        "ControlLink",
+        "ControlReadOnly",
+        "ControlInput",
+        "Control",
+        "er"
+       ],
+       "methods": [
+        "set_value",
+        "get_value",
+        "refresh",
+        "refresh_input",
+        "set_input",
+        "set_focus",
+        "toggle_label",
+        "toggle_description",
+        "set_label",
+        "set_description",
+        "get_input_value",
+        "get_label_value",
+        "set_formatted_input",
+        "validate",
+        "parse",
+        "format_for_input",
+        "new_doc",
+        "open_advanced_search",
+        "get_options",
+        "set_custom_query",
+        "get_search_args",
+        "set_link_title",
+        "is_translatable",
+        "is_title_link",
+        "toggle",
+        "set_mandatory",
+        "set_invalid"
+       ],
+       "$input": true,
+       "input_el": true,
+       "input_is_$input": true,
+       "input_tag": "input:text",
+       "$wrapper": true,
+       "wrapper_el": true,
+       "wrapper_fieldobj": true,
+       "disp_area_el": false,
+       "input_area_el": true,
+       "awesomplete": true,
+       "awesomplete_ul_el": true,
+       "awesomplete_close_fn": true,
+       "awesomplete_list_prop": true,
+       "awesomplete_isOpened_prop": true,
+       "$link": true,
+       "$link_open": true,
+       "df_is_object": true,
+       "data_target": "User",
+       "data_fieldname": "user"
+      },
+      "structure": {
+       "frappe_control": true,
+       "data_fieldtype": "Link",
+       "data_fieldname": "user",
+       "control_input": 0,
+       "control_value": 0,
+       "link_field": 1,
+       "link_btn": 0,
+       "btn_open": 0,
+       "btn_clear": 0,
+       "awesomplete_div": 1,
+       "select_el": 0,
+       "select_icon": 0,
+       "input_with_feedback": 1
+      },
+      "style_ok": true
+     },
+     "events": [],
+     "fallbacks": [],
+     "requests": [],
+     "errors": [],
+     "ms": 29
+    },
+    {
+     "name": "only_input-search-pick",
+     "obs": {
+      "options": {
+       "count": 8,
+       "rows": [
+        "frappe@example.com Frappe",
+        "test_list_col_width@example.com Frappe",
+        "test_print_view@example.com Frappe",
+        "test_report_child_group_by@example.com Frappe",
+        "test_report_group_by@example.com Frappe",
+        "test_report_permission@example.com Frappe",
+        "Create a new User",
+        "Advanced Search"
+       ],
+       "create_new": true,
+       "advanced_search": true,
+       "filtered_by": null,
+       "active": "frappe@example.com Frappe"
+      },
+      "picked": {
+       "state": {
+        "get_value": "frappe@example.com",
+        "model": "<no doc>",
+        "input_value": "frappe@example.com",
+        "input_visible": true,
+        "input_disabled": false,
+        "wrapper_visible": true,
+        "disp_visible": false,
+        "disp_text": null,
+        "disp_href": null,
+        "label": null
+       },
+       "listbox_open": false
+      }
+     },
+     "events": [
+      "standalone:focus",
+      "standalone:input",
+      "standalone:input",
+      "standalone:input",
+      "standalone:input",
+      "standalone:input",
+      "standalone:input",
+      "standalone:input",
+      "standalone:awesomplete-open",
+      "standalone:awesomplete-select",
+      "standalone:awesomplete-close",
+      "standalone:awesomplete-selectcomplete",
+      "standalone:select-change",
+      "standalone:select-change",
+      "df:onchange:frappe@example.com"
+     ],
+     "fallbacks": [],
+     "requests": [
+      {
+       "method": "search_link",
+       "http": "POST",
+       "doctype": "User",
+       "txt": "frappe",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "ToDo",
+       "link_fieldname": "user"
+      },
+      {
+       "method": "validate_link_and_fetch",
+       "http": "GET",
+       "doctype": "User",
+       "txt": "frappe@example.com",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "ToDo",
+       "link_fieldname": "user"
+      }
+     ],
+     "errors": [],
+     "ms": 2757
+    },
+    {
+     "name": "make_control-only_select",
+     "obs": {
+      "count": 10,
+      "rows": [
+       "Blogger",
+       "Report Child Group By Test Role",
+       "Report Group By Test Role",
+       "Report Permission Test Role",
+       "Flow User",
+       "Studio User",
+       "Maintenance Manager",
+       "Maintenance User",
+       "Purchase Manager",
+       "Sales Master Manager"
+      ],
+      "create_new": false,
+      "advanced_search": false,
+      "filtered_by": null,
+      "active": "Blogger"
+     },
+     "events": [
+      "standalone:change",
+      "standalone:blur",
+      "standalone:select-change",
+      "standalone:select-change",
+      "df:onchange:frappe@example.com"
+     ],
+     "fallbacks": [],
+     "requests": [
+      {
+       "method": "validate_link_and_fetch",
+       "http": "GET",
+       "doctype": "User",
+       "txt": "frappe@example.com",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "ToDo",
+       "link_fieldname": "user"
+      },
+      {
+       "method": "search_link",
+       "http": "GET",
+       "doctype": "Role",
+       "txt": "",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "ToDo",
+       "link_fieldname": "role"
+      }
+     ],
+     "errors": [],
+     "ms": 1344
+    },
+    {
+     "name": "make_control-select",
+     "obs": {
+      "state": {
+       "get_value": "",
+       "model": "<no doc>",
+       "input_value": "",
+       "input_visible": true,
+       "input_disabled": false,
+       "wrapper_visible": true,
+       "disp_visible": false,
+       "disp_text": null,
+       "disp_href": null,
+       "label": "Status",
+       "select_options": [
+        [
+         "",
+         ""
+        ],
+        [
+         "Open",
+         "Open"
+        ],
+        [
+         "Closed",
+         "Closed"
+        ]
+       ],
+       "selected_text": ""
+      },
+      "api": {
+       "chain": [
+        "ControlSelect",
+        "ControlReadOnly",
+        "ControlInput",
+        "Control",
+        "er"
+       ],
+       "methods": [
+        "set_value",
+        "get_value",
+        "refresh",
+        "refresh_input",
+        "set_input",
+        "set_focus",
+        "toggle_label",
+        "toggle_description",
+        "set_label",
+        "set_description",
+        "get_input_value",
+        "set_formatted_input",
+        "validate",
+        "parse",
+        "format_for_input",
+        "set_options",
+        "toggle",
+        "set_mandatory",
+        "set_invalid"
+       ],
+       "$input": true,
+       "input_el": true,
+       "input_is_$input": true,
+       "input_tag": "select:select-one",
+       "$wrapper": true,
+       "wrapper_el": true,
+       "wrapper_fieldobj": true,
+       "disp_area_el": true,
+       "input_area_el": true,
+       "awesomplete": false,
+       "awesomplete_ul_el": false,
+       "awesomplete_close_fn": false,
+       "awesomplete_list_prop": false,
+       "awesomplete_isOpened_prop": false,
+       "$link": false,
+       "$link_open": false,
+       "df_is_object": true,
+       "data_target": null,
+       "data_fieldname": "st"
+      },
+      "structure": {
+       "frappe_control": true,
+       "data_fieldtype": "Select",
+       "data_fieldname": "st",
+       "control_input": 1,
+       "control_value": 1,
+       "link_field": 0,
+       "link_btn": 0,
+       "btn_open": 0,
+       "btn_clear": 0,
+       "awesomplete_div": 0,
+       "select_el": 1,
+       "select_icon": 0,
+       "input_with_feedback": 1
+      }
+     },
+     "events": [],
+     "fallbacks": [],
+     "requests": [],
+     "errors": [],
+     "ms": 37
+    }
+   ],
+   "late_errors": []
+  },
+  "v5.translation": {
+   "ms": 5304,
+   "fatal": null,
+   "steps": [
+    {
+     "name": "select-option-labels-translated",
+     "obs": {
+      "initial": {
+       "get_value": null,
+       "model": "<no doc>",
+       "input_value": null,
+       "input_visible": true,
+       "input_disabled": false,
+       "wrapper_visible": true,
+       "disp_visible": false,
+       "disp_text": null,
+       "disp_href": null,
+       "label": "Status",
+       "select_options": [
+        [
+         "Open",
+         "Offen-tw"
+        ],
+        [
+         "Closed",
+         "Geschlossen-tw"
+        ]
+       ],
+       "selected_text": null
+      },
+      "after_set": {
+       "get_value": null,
+       "model": "<no doc>",
+       "input_value": null,
+       "input_visible": true,
+       "input_disabled": false,
+       "wrapper_visible": true,
+       "disp_visible": false,
+       "disp_text": null,
+       "disp_href": null,
+       "label": "Status",
+       "select_options": [
+        [
+         "Open",
+         "Offen-tw"
+        ],
+        [
+         "Closed",
+         "Geschlossen-tw"
+        ]
+       ],
+       "selected_text": null
+      }
+     },
+     "events": [],
+     "fallbacks": [],
+     "requests": [],
+     "errors": [],
+     "ms": 48
+    },
+    {
+     "name": "translated-link-value",
+     "obs": {
+      "get_value": "Guest",
+      "model": "<no doc>",
+      "input_value": "Gast-tw",
+      "input_visible": true,
+      "input_disabled": false,
+      "wrapper_visible": true,
+      "disp_visible": false,
+      "disp_text": null,
+      "disp_href": "/desk/role/Guest",
+      "label": "Role"
+     },
+     "events": [],
+     "fallbacks": [],
+     "requests": [
+      {
+       "method": "validate_link_and_fetch",
+       "http": "GET",
+       "doctype": "Role",
+       "txt": "Guest",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "ToDo",
+       "link_fieldname": "role"
+      }
+     ],
+     "errors": [],
+     "ms": 541
+    },
+    {
+     "name": "translated-link-options",
+     "obs": {
+      "options": {
+       "count": 3,
+       "rows": [
+        "Systemverwalter-tw",
+        "Create a new Role",
+        "Advanced Search"
+       ],
+       "create_new": true,
+       "advanced_search": true,
+       "filtered_by": null,
+       "active": "Systemverwalter-tw"
+      },
+      "picked": {
+       "state": {
+        "get_value": "System Manager",
+        "model": "<no doc>",
+        "input_value": "Systemverwalter-tw",
+        "input_visible": true,
+        "input_disabled": false,
+        "wrapper_visible": true,
+        "disp_visible": false,
+        "disp_text": null,
+        "disp_href": "/desk/role/System%20Manager",
+        "label": "Role"
+       },
+       "listbox_open": false
+      }
+     },
+     "events": [],
+     "fallbacks": [],
+     "requests": [
+      {
+       "method": "search_link",
+       "http": "POST",
+       "doctype": "Role",
+       "txt": "System Man",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "ToDo",
+       "link_fieldname": "role"
+      },
+      {
+       "method": "validate_link_and_fetch",
+       "http": "GET",
+       "doctype": "Role",
+       "txt": "System Manager",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "ToDo",
+       "link_fieldname": "role"
+      }
+     ],
+     "errors": [],
+     "ms": 2927
+    }
+   ],
+   "late_errors": []
+  },
+  "v5.web_form": {
+   "ms": 5964,
+   "fatal": null,
+   "steps": [
+    {
+     "name": "api",
+     "obs": {
+      "language": {
+       "api": {
+        "chain": [
+         "ControlAutocomplete",
+         "ControlReadOnly",
+         "ControlInput",
+         "Control",
+         "la"
+        ],
+        "methods": [
+         "set_value",
+         "get_value",
+         "refresh",
+         "refresh_input",
+         "set_input",
+         "set_focus",
+         "toggle_label",
+         "toggle_description",
+         "set_label",
+         "set_description",
+         "get_input_value",
+         "set_formatted_input",
+         "validate",
+         "parse",
+         "format_for_input",
+         "set_options",
+         "toggle",
+         "set_mandatory",
+         "set_invalid"
+        ],
+        "$input": true,
+        "input_el": true,
+        "input_is_$input": true,
+        "input_tag": "input:text",
+        "$wrapper": true,
+        "wrapper_el": true,
+        "wrapper_fieldobj": true,
+        "disp_area_el": true,
+        "input_area_el": true,
+        "awesomplete": true,
+        "awesomplete_ul_el": true,
+        "awesomplete_close_fn": true,
+        "awesomplete_list_prop": true,
+        "awesomplete_isOpened_prop": true,
+        "$link": false,
+        "$link_open": false,
+        "df_is_object": true,
+        "data_target": null,
+        "data_fieldname": "language"
+       },
+       "structure": {
+        "frappe_control": true,
+        "data_fieldtype": "Autocomplete",
+        "data_fieldname": "language",
+        "control_input": 1,
+        "control_value": 1,
+        "link_field": 0,
+        "link_btn": 0,
+        "btn_open": 0,
+        "btn_clear": 0,
+        "awesomplete_div": 1,
+        "select_el": 0,
+        "select_icon": 0,
+        "input_with_feedback": 1
+       }
+      },
+      "time_zone": {
+       "api": {
+        "chain": [
+         "ControlSelect",
+         "ControlReadOnly",
+         "ControlInput",
+         "Control",
+         "la"
+        ],
+        "methods": [
+         "set_value",
+         "get_value",
+         "refresh",
+         "refresh_input",
+         "set_input",
+         "set_focus",
+         "toggle_label",
+         "toggle_description",
+         "set_label",
+         "set_description",
+         "get_input_value",
+         "set_formatted_input",
+         "validate",
+         "parse",
+         "format_for_input",
+         "set_options",
+         "toggle",
+         "set_mandatory",
+         "set_invalid"
+        ],
+        "$input": true,
+        "input_el": true,
+        "input_is_$input": true,
+        "input_tag": "select:select-one",
+        "$wrapper": true,
+        "wrapper_el": true,
+        "wrapper_fieldobj": true,
+        "disp_area_el": true,
+        "input_area_el": true,
+        "awesomplete": false,
+        "awesomplete_ul_el": false,
+        "awesomplete_close_fn": false,
+        "awesomplete_list_prop": false,
+        "awesomplete_isOpened_prop": false,
+        "$link": false,
+        "$link_open": false,
+        "df_is_object": true,
+        "data_target": null,
+        "data_fieldname": "time_zone"
+       },
+       "structure": {
+        "frappe_control": true,
+        "data_fieldtype": "Select",
+        "data_fieldname": "time_zone",
+        "control_input": 1,
+        "control_value": 1,
+        "link_field": 0,
+        "link_btn": 0,
+        "btn_open": 0,
+        "btn_clear": 0,
+        "awesomplete_div": 0,
+        "select_el": 1,
+        "select_icon": 0,
+        "input_with_feedback": 1
+       }
+      }
+     },
+     "events": [],
+     "fallbacks": [],
+     "requests": [],
+     "errors": [],
+     "ms": 13
+    },
+    {
+     "name": "initial",
+     "obs": {
+      "language": {
+       "get_value": "",
+       "model": null,
+       "input_value": "",
+       "input_visible": true,
+       "input_disabled": false,
+       "wrapper_visible": true,
+       "disp_visible": false,
+       "disp_text": null,
+       "disp_href": null,
+       "label": "Language"
+      },
+      "tz": "Asia/Kolkata"
+     },
+     "events": [],
+     "fallbacks": [],
+     "requests": [],
+     "errors": [],
+     "ms": 9
+    },
+    {
+     "name": "link-search",
+     "obs": {
+      "count": 1,
+      "rows": [
+       "Deutsch"
+      ],
+      "create_new": false,
+      "advanced_search": false,
+      "filtered_by": null,
+      "active": "Deutsch"
+     },
+     "events": [
+      "language:select-change",
+      "language:awesomplete-open",
+      "language:input",
+      "language:focus",
+      "language:awesomplete-open",
+      "language:awesomplete-open",
+      "language:input",
+      "language:awesomplete-open",
+      "language:awesomplete-open",
+      "language:input",
+      "language:awesomplete-open",
+      "language:awesomplete-open",
+      "language:input",
+      "language:awesomplete-open",
+      "language:awesomplete-open",
+      "language:input"
+     ],
+     "fallbacks": [],
+     "requests": [],
+     "errors": [],
+     "ms": 1476
+    },
+    {
+     "name": "link-pick",
+     "obs": {
+      "state": {
+       "get_value": "de",
+       "model": "de",
+       "input_value": "Deutsch",
+       "input_visible": true,
+       "input_disabled": false,
+       "wrapper_visible": true,
+       "disp_visible": false,
+       "disp_text": null,
+       "disp_href": null,
+       "label": "Language"
+      },
+      "listbox_open": false,
+      "value": "de"
+     },
+     "events": [
+      "language:awesomplete-select",
+      "language:awesomplete-close",
+      "language:change",
+      "language:awesomplete-selectcomplete",
+      "language:select-change"
+     ],
+     "fallbacks": [],
+     "requests": [],
+     "errors": [],
+     "ms": 1145
+    },
+    {
+     "name": "select-pick",
+     "obs": {
+      "input_value": "Europe/Berlin",
+      "value": "Europe/Berlin"
+     },
+     "events": [
+      "time_zone:input",
+      "time_zone:change",
+      "time_zone:select-change"
+     ],
+     "fallbacks": [],
+     "requests": [],
+     "errors": [],
+     "ms": 982
+    }
+   ],
+   "late_errors": []
+  },
+  "erp.sales_invoice": {
+   "ms": 20076,
+   "fatal": null,
+   "steps": [
+    {
+     "name": "api",
+     "obs": {
+      "customer": {
+       "api": {
+        "chain": [
+         "ControlLink",
+         "ControlReadOnly",
+         "ControlInput",
+         "Control",
+         "er"
+        ],
+        "methods": [
+         "set_value",
+         "get_value",
+         "refresh",
+         "refresh_input",
+         "set_input",
+         "set_focus",
+         "toggle_label",
+         "toggle_description",
+         "set_label",
+         "set_description",
+         "get_input_value",
+         "get_label_value",
+         "set_formatted_input",
+         "validate",
+         "parse",
+         "format_for_input",
+         "new_doc",
+         "open_advanced_search",
+         "get_options",
+         "set_custom_query",
+         "get_search_args",
+         "set_link_title",
+         "is_translatable",
+         "is_title_link",
+         "toggle",
+         "set_mandatory",
+         "set_invalid"
+        ],
+        "$input": true,
+        "input_el": true,
+        "input_is_$input": true,
+        "input_tag": "input:text",
+        "$wrapper": true,
+        "wrapper_el": true,
+        "wrapper_fieldobj": true,
+        "disp_area_el": true,
+        "input_area_el": true,
+        "awesomplete": true,
+        "awesomplete_ul_el": true,
+        "awesomplete_close_fn": true,
+        "awesomplete_list_prop": true,
+        "awesomplete_isOpened_prop": true,
+        "$link": true,
+        "$link_open": true,
+        "df_is_object": true,
+        "data_target": "Customer",
+        "data_fieldname": "customer"
+       },
+       "structure": {
+        "frappe_control": true,
+        "data_fieldtype": "Link",
+        "data_fieldname": "customer",
+        "control_input": 1,
+        "control_value": 1,
+        "link_field": 1,
+        "link_btn": 1,
+        "btn_open": 1,
+        "btn_clear": 1,
+        "awesomplete_div": 1,
+        "select_el": 0,
+        "select_icon": 0,
+        "input_with_feedback": 1
+       }
+      },
+      "naming_series": {
+       "api": {
+        "chain": [
+         "ControlSelect",
+         "ControlReadOnly",
+         "ControlInput",
+         "Control",
+         "er"
+        ],
+        "methods": [
+         "set_value",
+         "get_value",
+         "refresh",
+         "refresh_input",
+         "set_input",
+         "set_focus",
+         "toggle_label",
+         "toggle_description",
+         "set_label",
+         "set_description",
+         "get_input_value",
+         "set_formatted_input",
+         "validate",
+         "parse",
+         "format_for_input",
+         "set_options",
+         "toggle",
+         "set_mandatory",
+         "set_invalid"
+        ],
+        "$input": true,
+        "input_el": true,
+        "input_is_$input": true,
+        "input_tag": "select:select-one",
+        "$wrapper": true,
+        "wrapper_el": true,
+        "wrapper_fieldobj": true,
+        "disp_area_el": true,
+        "input_area_el": true,
+        "awesomplete": false,
+        "awesomplete_ul_el": false,
+        "awesomplete_close_fn": false,
+        "awesomplete_list_prop": false,
+        "awesomplete_isOpened_prop": false,
+        "$link": false,
+        "$link_open": false,
+        "df_is_object": true,
+        "data_target": null,
+        "data_fieldname": "naming_series"
+       },
+       "structure": {
+        "frappe_control": true,
+        "data_fieldtype": "Select",
+        "data_fieldname": "naming_series",
+        "control_input": 1,
+        "control_value": 1,
+        "link_field": 0,
+        "link_btn": 0,
+        "btn_open": 0,
+        "btn_clear": 0,
+        "awesomplete_div": 0,
+        "select_el": 1,
+        "select_icon": 0,
+        "input_with_feedback": 1
+       }
+      }
+     },
+     "events": [],
+     "fallbacks": [],
+     "requests": [],
+     "errors": [],
+     "ms": 34
+    },
+    {
+     "name": "customer-search",
+     "obs": {
+      "count": 6,
+      "rows": [
+       "TW Cust Alpha TW Cust Alpha, Commercial, India",
+       "TW Cust Beta TW Cust Beta, Commercial, India",
+       "TW Cust Gamma TW Cust Gamma, Commercial, India",
+       "Filtered by: is enabled and Company equals \"Compat Test Co\".",
+       "Create a new Customer",
+       "Advanced Search"
+      ],
+      "create_new": true,
+      "advanced_search": true,
+      "filtered_by": "Filtered by: is enabled and Company equals \"Compat Test Co\".",
+      "active": "TW Cust Alpha TW Cust Alpha, Commercial, India"
+     },
+     "events": [
+      "customer:select-change",
+      "customer:focus",
+      "customer:awesomplete-open"
+     ],
+     "fallbacks": [],
+     "requests": [
+      {
+       "method": "search_link",
+       "http": "GET",
+       "doctype": "Customer",
+       "txt": "",
+       "query": "erpnext.controllers.queries.party_query",
+       "filters": {
+        "disabled": 0,
+        "company": "Compat Test Co"
+       },
+       "reference_doctype": "Sales Invoice",
+       "link_fieldname": "customer"
+      }
+     ],
+     "errors": [],
+     "ms": 1282
+    },
+    {
+     "name": "customer-type-pick",
+     "obs": {
+      "state": {
+       "get_value": "TW Cust Beta",
+       "model": "TW Cust Beta",
+       "input_value": "TW Cust Beta",
+       "input_visible": true,
+       "input_disabled": false,
+       "wrapper_visible": true,
+       "disp_visible": false,
+       "disp_text": null,
+       "disp_href": "/desk/customer/TW%20Cust%20Beta",
+       "label": "Customer"
+      },
+      "listbox_open": false,
+      "doc": {
+       "customer": "TW Cust Beta",
+       "customer_name": "TW Cust Beta",
+       "company": "Compat Test Co",
+       "currency": "INR",
+       "selling_price_list": "Standard Selling"
+      }
+     },
+     "events": [
+      "customer:input",
+      "customer:awesomplete-open",
+      "customer:input",
+      "customer:awesomplete-open",
+      "customer:input",
+      "customer:awesomplete-open",
+      "customer:input",
+      "customer:awesomplete-open",
+      "customer:awesomplete-open",
+      "customer:awesomplete-select",
+      "customer:awesomplete-close",
+      "customer:awesomplete-selectcomplete",
+      "customer:select-change",
+      "customer:select-change",
+      "naming_series:select-change",
+      "customer:select-change",
+      "customer:select-change",
+      "naming_series:select-change",
+      "customer:select-change",
+      "customer:select-change",
+      "naming_series:select-change",
+      "customer:select-change",
+      "customer:select-change"
+     ],
+     "fallbacks": [],
+     "requests": [
+      {
+       "method": "search_link",
+       "http": "POST",
+       "doctype": "Customer",
+       "txt": "Beta",
+       "query": "erpnext.controllers.queries.party_query",
+       "filters": {
+        "disabled": 0,
+        "company": "Compat Test Co"
+       },
+       "reference_doctype": "Sales Invoice",
+       "link_fieldname": "customer"
+      },
+      {
+       "method": "validate_link_and_fetch",
+       "http": "POST",
+       "doctype": "Customer",
+       "txt": "TW Cust Beta",
+       "query": "erpnext.controllers.queries.party_query",
+       "filters": {
+        "disabled": 0,
+        "company": "Compat Test Co"
+       },
+       "reference_doctype": "Sales Invoice",
+       "link_fieldname": "customer"
+      },
+      {
+       "method": "validate_link_and_fetch",
+       "http": "GET",
+       "doctype": "Language",
+       "txt": "en",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "Sales Invoice",
+       "link_fieldname": "language"
+      },
+      {
+       "method": "validate_link_and_fetch",
+       "http": "GET",
+       "doctype": "Account",
+       "txt": "Debtors - CTC",
+       "query": null,
+       "filters": {
+        "account_type": "Receivable",
+        "is_group": 0,
+        "company": "Compat Test Co"
+       },
+       "reference_doctype": "Sales Invoice",
+       "link_fieldname": "debit_to"
+      },
+      {
+       "method": "validate_link_and_fetch",
+       "http": "GET",
+       "doctype": "Currency",
+       "txt": "INR",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "Sales Invoice",
+       "link_fieldname": "party_account_currency"
+      },
+      {
+       "method": "validate_link_and_fetch",
+       "http": "GET",
+       "doctype": "Customer Group",
+       "txt": "Commercial",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "Sales Invoice",
+       "link_fieldname": "customer_group"
+      },
+      {
+       "method": "validate_link_and_fetch",
+       "http": "GET",
+       "doctype": "Territory",
+       "txt": "India",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "Sales Invoice",
+       "link_fieldname": "territory"
+      }
+     ],
+     "errors": [],
+     "ms": 4777
+    },
+    {
+     "name": "naming-series-select",
+     "obs": {
+      "state": {
+       "get_value": "ACC-SINV-.YYYY.-",
+       "model": "ACC-SINV-.YYYY.-",
+       "input_value": "ACC-SINV-.YYYY.-",
+       "input_visible": true,
+       "input_disabled": false,
+       "wrapper_visible": true,
+       "disp_visible": false,
+       "disp_text": null,
+       "disp_href": null,
+       "label": "Series",
+       "select_options": [
+        [
+         "ACC-SINV-.YYYY.-",
+         "ACC-SINV-.YYYY.-"
+        ],
+        [
+         "ACC-SINV-RET-.YYYY.-",
+         "ACC-SINV-RET-.YYYY.-"
+        ]
+       ],
+       "selected_text": "ACC-SINV-.YYYY.-"
+      }
+     },
+     "events": [],
+     "fallbacks": [],
+     "requests": [],
+     "errors": [],
+     "ms": 9
+    },
+    {
+     "name": "items-grid-open",
+     "obs": {
+      "has_control": true,
+      "api": {
+       "chain": [
+        "ControlLink",
+        "ControlReadOnly",
+        "ControlInput",
+        "Control",
+        "er"
+       ],
+       "methods": [
+        "set_value",
+        "get_value",
+        "refresh",
+        "refresh_input",
+        "set_input",
+        "set_focus",
+        "toggle_label",
+        "toggle_description",
+        "set_label",
+        "set_description",
+        "get_input_value",
+        "get_label_value",
+        "set_formatted_input",
+        "validate",
+        "parse",
+        "format_for_input",
+        "new_doc",
+        "open_advanced_search",
+        "get_options",
+        "set_custom_query",
+        "get_search_args",
+        "set_link_title",
+        "is_translatable",
+        "is_title_link",
+        "toggle",
+        "set_mandatory",
+        "set_invalid"
+       ],
+       "$input": true,
+       "input_el": true,
+       "input_is_$input": true,
+       "input_tag": "input:text",
+       "$wrapper": true,
+       "wrapper_el": true,
+       "wrapper_fieldobj": true,
+       "disp_area_el": false,
+       "input_area_el": true,
+       "awesomplete": true,
+       "awesomplete_ul_el": true,
+       "awesomplete_close_fn": true,
+       "awesomplete_list_prop": true,
+       "awesomplete_isOpened_prop": true,
+       "$link": true,
+       "$link_open": true,
+       "df_is_object": true,
+       "data_target": "Item",
+       "data_fieldname": "item_code"
+      }
+     },
+     "events": [
+      "customer:select-change",
+      "customer:select-change",
+      "customer:change",
+      "customer:blur"
+     ],
+     "fallbacks": [],
+     "requests": [
+      {
+       "method": "search_link",
+       "http": "GET",
+       "doctype": "Item",
+       "txt": "",
+       "query": "erpnext.controllers.queries.item_query",
+       "filters": {
+        "is_sales_item": 1,
+        "customer": "TW Cust Beta",
+        "has_variants": 0,
+        "company": "Compat Test Co"
+       },
+       "reference_doctype": "Sales Invoice Item",
+       "link_fieldname": "item_code"
+      }
+     ],
+     "errors": [],
+     "ms": 997
+    },
+    {
+     "name": "items-grid-search",
+     "obs": {
+      "count": 4,
+      "rows": [
+       "TW-ITEM-002 Three Ways Widget 2, Products",
+       "Filtered by: Allow Sales is enabled, Customer equals \"TW Cust Beta\", Has Variants is disabled and Company equals \"Compat Test Co\".",
+       "Create a new Item",
+       "Advanced Search"
+      ],
+      "create_new": true,
+      "advanced_search": true,
+      "filtered_by": "Filtered by: Allow Sales is enabled, Customer equals \"TW Cust Beta\", Has Variants is disabled and Company equals \"Compat Test Co\".",
+      "active": "TW-ITEM-002 Three Ways Widget 2, Products"
+     },
+     "events": [],
+     "fallbacks": [],
+     "requests": [
+      {
+       "method": "search_link",
+       "http": "GET",
+       "doctype": "Item",
+       "txt": "",
+       "query": "erpnext.controllers.queries.item_query",
+       "filters": {
+        "is_sales_item": 1,
+        "customer": "TW Cust Beta",
+        "has_variants": 0,
+        "company": "Compat Test Co"
+       },
+       "reference_doctype": "Sales Invoice Item",
+       "link_fieldname": "item_code"
+      },
+      {
+       "method": "search_link",
+       "http": "POST",
+       "doctype": "Item",
+       "txt": "Widget 2",
+       "query": "erpnext.controllers.queries.item_query",
+       "filters": {
+        "is_sales_item": 1,
+        "customer": "TW Cust Beta",
+        "has_variants": 0,
+        "company": "Compat Test Co"
+       },
+       "reference_doctype": "Sales Invoice Item",
+       "link_fieldname": "item_code"
+      }
+     ],
+     "errors": [],
+     "ms": 2182
+    },
+    {
+     "name": "items-grid-pick",
+     "obs": {
+      "item_code": "TW-ITEM-002",
+      "item_name": "Three Ways Widget 2",
+      "uom": "Nos",
+      "qty": 1
+     },
+     "events": [
+      "naming_series:select-change",
+      "customer:select-change",
+      "customer:select-change"
+     ],
+     "fallbacks": [],
+     "requests": [
+      {
+       "method": "validate_link_and_fetch",
+       "http": "POST",
+       "doctype": "Item",
+       "txt": "TW-ITEM-002",
+       "query": "erpnext.controllers.queries.item_query",
+       "filters": {
+        "is_sales_item": 1,
+        "customer": "TW Cust Beta",
+        "has_variants": 0,
+        "company": "Compat Test Co"
+       },
+       "reference_doctype": "Sales Invoice Item",
+       "link_fieldname": "item_code"
+      }
+     ],
+     "errors": [],
+     "ms": 3893
+    },
+    {
+     "name": "read-only-display",
+     "obs": {
+      "get_value": "TW Cust Beta",
+      "model": "TW Cust Beta",
+      "input_value": "TW Cust Beta",
+      "input_visible": false,
+      "input_disabled": true,
+      "wrapper_visible": true,
+      "disp_visible": true,
+      "disp_text": "TW Cust Beta",
+      "disp_href": "/desk/customer/TW%20Cust%20Beta",
+      "label": "Customer"
+     },
+     "events": [
+      "customer:select-change",
+      "customer:select-change"
+     ],
+     "fallbacks": [],
+     "requests": [],
+     "errors": [],
+     "ms": 416
+    },
+    {
+     "name": "set_value-from-code",
+     "obs": {
+      "state": {
+       "get_value": "TW Cust Gamma",
+       "model": "TW Cust Gamma",
+       "input_value": "TW Cust Gamma",
+       "input_visible": true,
+       "input_disabled": false,
+       "wrapper_visible": true,
+       "disp_visible": false,
+       "disp_text": null,
+       "disp_href": "/desk/customer/TW%20Cust%20Gamma",
+       "label": "Customer"
+      },
+      "doc": {
+       "customer": "TW Cust Gamma",
+       "customer_name": "TW Cust Gamma"
+      }
+     },
+     "events": [
+      "customer:select-change",
+      "customer:select-change",
+      "naming_series:select-change",
+      "customer:select-change",
+      "customer:select-change",
+      "naming_series:select-change",
+      "customer:select-change",
+      "customer:select-change"
+     ],
+     "fallbacks": [],
+     "requests": [
+      {
+       "method": "validate_link_and_fetch",
+       "http": "POST",
+       "doctype": "Customer",
+       "txt": "TW Cust Gamma",
+       "query": "erpnext.controllers.queries.party_query",
+       "filters": {
+        "disabled": 0,
+        "company": "Compat Test Co"
+       },
+       "reference_doctype": "Sales Invoice",
+       "link_fieldname": "customer"
+      },
+      {
+       "method": "validate_link_and_fetch",
+       "http": "GET",
+       "doctype": "Language",
+       "txt": "en",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "Sales Invoice",
+       "link_fieldname": "language"
+      }
+     ],
+     "errors": [],
+     "ms": 3099
+    }
+   ],
+   "late_errors": []
+  },
+  "erp.stock_entry": {
+   "ms": 17213,
+   "fatal": null,
+   "steps": [
+    {
+     "name": "api",
+     "obs": {
+      "stock_entry_type": {
+       "api": {
+        "chain": [
+         "ControlLink",
+         "ControlReadOnly",
+         "ControlInput",
+         "Control",
+         "er"
+        ],
+        "methods": [
+         "set_value",
+         "get_value",
+         "refresh",
+         "refresh_input",
+         "set_input",
+         "set_focus",
+         "toggle_label",
+         "toggle_description",
+         "set_label",
+         "set_description",
+         "get_input_value",
+         "get_label_value",
+         "set_formatted_input",
+         "validate",
+         "parse",
+         "format_for_input",
+         "new_doc",
+         "open_advanced_search",
+         "get_options",
+         "set_custom_query",
+         "get_search_args",
+         "set_link_title",
+         "is_translatable",
+         "is_title_link",
+         "toggle",
+         "set_mandatory",
+         "set_invalid"
+        ],
+        "$input": true,
+        "input_el": true,
+        "input_is_$input": true,
+        "input_tag": "input:text",
+        "$wrapper": true,
+        "wrapper_el": true,
+        "wrapper_fieldobj": true,
+        "disp_area_el": true,
+        "input_area_el": true,
+        "awesomplete": true,
+        "awesomplete_ul_el": true,
+        "awesomplete_close_fn": true,
+        "awesomplete_list_prop": true,
+        "awesomplete_isOpened_prop": true,
+        "$link": true,
+        "$link_open": true,
+        "df_is_object": true,
+        "data_target": "Stock Entry Type",
+        "data_fieldname": "stock_entry_type"
+       },
+       "structure": {
+        "frappe_control": true,
+        "data_fieldtype": "Link",
+        "data_fieldname": "stock_entry_type",
+        "control_input": 1,
+        "control_value": 1,
+        "link_field": 1,
+        "link_btn": 1,
+        "btn_open": 1,
+        "btn_clear": 1,
+        "awesomplete_div": 1,
+        "select_el": 0,
+        "select_icon": 0,
+        "input_with_feedback": 1
+       }
+      },
+      "purpose": {
+       "api": {
+        "chain": [
+         "ControlSelect",
+         "ControlReadOnly",
+         "ControlInput",
+         "Control",
+         "er"
+        ],
+        "methods": [
+         "set_value",
+         "get_value",
+         "refresh",
+         "refresh_input",
+         "set_input",
+         "set_focus",
+         "toggle_label",
+         "toggle_description",
+         "set_label",
+         "set_description",
+         "get_input_value",
+         "set_formatted_input",
+         "validate",
+         "parse",
+         "format_for_input",
+         "set_options",
+         "toggle",
+         "set_mandatory",
+         "set_invalid"
+        ],
+        "$input": false,
+        "input_el": false,
+        "input_is_$input": false,
+        "input_tag": null,
+        "$wrapper": true,
+        "wrapper_el": true,
+        "wrapper_fieldobj": true,
+        "disp_area_el": true,
+        "input_area_el": true,
+        "awesomplete": false,
+        "awesomplete_ul_el": false,
+        "awesomplete_close_fn": false,
+        "awesomplete_list_prop": false,
+        "awesomplete_isOpened_prop": false,
+        "$link": false,
+        "$link_open": false,
+        "df_is_object": true,
+        "data_target": null,
+        "data_fieldname": null
+       },
+       "structure": {
+        "frappe_control": true,
+        "data_fieldtype": "Select",
+        "data_fieldname": "purpose",
+        "control_input": 1,
+        "control_value": 1,
+        "link_field": 0,
+        "link_btn": 0,
+        "btn_open": 0,
+        "btn_clear": 0,
+        "awesomplete_div": 0,
+        "select_el": 0,
+        "select_icon": 0,
+        "input_with_feedback": 0
+       }
+      }
+     },
+     "events": [],
+     "fallbacks": [],
+     "requests": [],
+     "errors": [],
+     "ms": 29
+    },
+    {
+     "name": "type-search",
+     "obs": {
+      "count": 5,
+      "rows": [
+       "Material Transfer",
+       "Material Transfer for Manufacture",
+       "Filtered by: Purpose is not one of \"Receive from Customer\", \"Return Raw Material to Customer\", \"Subcontracting Delivery\", \"Subcontracting Return\".",
+       "Create a new Stock Entry Type",
+       "Advanced Search"
+      ],
+      "create_new": true,
+      "advanced_search": true,
+      "filtered_by": "Filtered by: Purpose is not one of \"Receive from Customer\", \"Return Raw Material to Customer\", \"Subcontracting Delivery\", \"Subcontracting Return\".",
+      "active": "Material Transfer"
+     },
+     "events": [
+      "stock_entry_type:select-change",
+      "stock_entry_type:focus",
+      "stock_entry_type:input",
+      "stock_entry_type:awesomplete-open",
+      "stock_entry_type:input",
+      "stock_entry_type:awesomplete-open",
+      "stock_entry_type:input",
+      "stock_entry_type:awesomplete-open",
+      "stock_entry_type:input",
+      "stock_entry_type:awesomplete-open",
+      "stock_entry_type:input",
+      "stock_entry_type:awesomplete-open",
+      "stock_entry_type:input",
+      "stock_entry_type:awesomplete-open",
+      "stock_entry_type:input",
+      "stock_entry_type:awesomplete-open",
+      "stock_entry_type:input",
+      "stock_entry_type:awesomplete-open",
+      "stock_entry_type:awesomplete-open"
+     ],
+     "fallbacks": [],
+     "requests": [
+      {
+       "method": "search_link",
+       "http": "GET",
+       "doctype": "Stock Entry Type",
+       "txt": "",
+       "query": null,
+       "filters": {
+        "purpose": [
+         "not in",
+         [
+          "Receive from Customer",
+          "Return Raw Material to Customer",
+          "Subcontracting Delivery",
+          "Subcontracting Return"
+         ]
+        ]
+       },
+       "reference_doctype": "Stock Entry",
+       "link_fieldname": "stock_entry_type"
+      },
+      {
+       "method": "search_link",
+       "http": "POST",
+       "doctype": "Stock Entry Type",
+       "txt": "Transfer",
+       "query": null,
+       "filters": {
+        "purpose": [
+         "not in",
+         [
+          "Receive from Customer",
+          "Return Raw Material to Customer",
+          "Subcontracting Delivery",
+          "Subcontracting Return"
+         ]
+        ]
+       },
+       "reference_doctype": "Stock Entry",
+       "link_fieldname": "stock_entry_type"
+      }
+     ],
+     "errors": [],
+     "ms": 1801
+    },
+    {
+     "name": "type-pick-fetches-purpose",
+     "obs": {
+      "state": {
+       "get_value": "Material Transfer",
+       "model": "Material Transfer",
+       "input_value": "Material Transfer",
+       "input_visible": true,
+       "input_disabled": false,
+       "wrapper_visible": true,
+       "disp_visible": false,
+       "disp_text": null,
+       "disp_href": "/desk/stock-entry-type/Material%20Transfer",
+       "label": "Stock Entry Type"
+      },
+      "listbox_open": false,
+      "doc": {
+       "stock_entry_type": "Material Transfer",
+       "purpose": "Material Transfer"
+      },
+      "purpose": {
+       "get_value": "<undefined>",
+       "model": "Material Transfer",
+       "input_value": null,
+       "input_visible": false,
+       "input_disabled": false,
+       "wrapper_visible": false,
+       "disp_visible": false,
+       "disp_text": null,
+       "disp_href": null,
+       "label": ""
+      }
+     },
+     "events": [
+      "stock_entry_type:awesomplete-select",
+      "stock_entry_type:awesomplete-close",
+      "stock_entry_type:awesomplete-selectcomplete",
+      "stock_entry_type:select-change",
+      "stock_entry_type:select-change"
+     ],
+     "fallbacks": [],
+     "requests": [
+      {
+       "method": "validate_link_and_fetch",
+       "http": "POST",
+       "doctype": "Stock Entry Type",
+       "txt": "Material Transfer",
+       "query": null,
+       "filters": {
+        "purpose": [
+         "not in",
+         [
+          "Receive from Customer",
+          "Return Raw Material to Customer",
+          "Subcontracting Delivery",
+          "Subcontracting Return"
+         ]
+        ]
+       },
+       "reference_doctype": "Stock Entry",
+       "link_fieldname": "stock_entry_type"
+      }
+     ],
+     "errors": [],
+     "ms": 2892
+    },
+    {
+     "name": "warehouse-get_query",
+     "obs": {
+      "count": 7,
+      "rows": [
+       "Goods In Transit - CTC",
+       "Finished Goods - CTC",
+       "Work In Progress - CTC",
+       "Stores - CTC",
+       "Filtered by: Company is one of \"Compat Test Co\" and Is Group Warehouse is disabled.",
+       "Create a new Warehouse",
+       "Advanced Search"
+      ],
+      "create_new": true,
+      "advanced_search": true,
+      "filtered_by": "Filtered by: Company is one of \"Compat Test Co\" and Is Group Warehouse is disabled.",
+      "active": "Goods In Transit - CTC"
+     },
+     "events": [
+      "stock_entry_type:select-change",
+      "stock_entry_type:select-change",
+      "stock_entry_type:change",
+      "stock_entry_type:blur",
+      "from_warehouse:select-change",
+      "from_warehouse:focus",
+      "from_warehouse:awesomplete-open"
+     ],
+     "fallbacks": [],
+     "requests": [
+      {
+       "method": "search_link",
+       "http": "GET",
+       "doctype": "Warehouse",
+       "txt": "",
+       "query": null,
+       "filters": [
+        [
+         "Warehouse",
+         "company",
+         "in",
+         [
+          "",
+          "Compat Test Co"
+         ]
+        ],
+        [
+         "Warehouse",
+         "is_group",
+         "=",
+         0
+        ]
+       ],
+       "reference_doctype": "Stock Entry",
+       "link_fieldname": "from_warehouse"
+      }
+     ],
+     "errors": [],
+     "ms": 1908
+    },
+    {
+     "name": "warehouse-pick",
+     "obs": {
+      "state": {
+       "get_value": "Goods In Transit - CTC",
+       "model": "Goods In Transit - CTC",
+       "input_value": "Goods In Transit - CTC",
+       "input_visible": true,
+       "input_disabled": false,
+       "wrapper_visible": true,
+       "disp_visible": false,
+       "disp_text": null,
+       "disp_href": "/desk/warehouse/Goods%20In%20Transit%20-%20CTC",
+       "label": "Default Source Warehouse"
+      },
+      "listbox_open": false,
+      "doc": {
+       "from_warehouse": "Goods In Transit - CTC"
+      },
+      "row_s_wh": "Goods In Transit - CTC"
+     },
+     "events": [
+      "from_warehouse:awesomplete-select",
+      "from_warehouse:awesomplete-close",
+      "from_warehouse:awesomplete-selectcomplete",
+      "from_warehouse:select-change",
+      "from_warehouse:select-change"
+     ],
+     "fallbacks": [],
+     "requests": [
+      {
+       "method": "validate_link_and_fetch",
+       "http": "GET",
+       "doctype": "Warehouse",
+       "txt": "Goods In Transit - CTC",
+       "query": null,
+       "filters": [
+        [
+         "Warehouse",
+         "company",
+         "in",
+         [
+          "",
+          "Compat Test Co"
+         ]
+        ],
+        [
+         "Warehouse",
+         "is_group",
+         "=",
+         0
+        ]
+       ],
+       "reference_doctype": "Stock Entry",
+       "link_fieldname": "from_warehouse"
+      }
+     ],
+     "errors": [],
+     "ms": 2392
+    },
+    {
+     "name": "items-grid-item",
+     "obs": {
+      "options": {
+       "count": 4,
+       "rows": [
+        "TW-ITEM-001 Three Ways Widget 1, Products",
+        "Filtered by: Maintain Stock is enabled and Company equals \"Compat Test Co\".",
+        "Create a new Item",
+        "Advanced Search"
+       ],
+       "create_new": true,
+       "advanced_search": true,
+       "filtered_by": "Filtered by: Maintain Stock is enabled and Company equals \"Compat Test Co\".",
+       "active": "TW-ITEM-001 Three Ways Widget 1, Products"
+      },
+      "row": {
+       "item_code": "TW-ITEM-001",
+       "s_warehouse": "Goods In Transit - CTC",
+       "uom": "Nos"
+      }
+     },
+     "events": [
+      "from_warehouse:blur"
+     ],
+     "fallbacks": [],
+     "requests": [
+      {
+       "method": "search_link",
+       "http": "GET",
+       "doctype": "Item",
+       "txt": "",
+       "query": "erpnext.controllers.queries.item_query",
+       "filters": {
+        "is_stock_item": 1,
+        "company": "Compat Test Co"
+       },
+       "reference_doctype": "Stock Entry Detail",
+       "link_fieldname": "item_code"
+      },
+      {
+       "method": "search_link",
+       "http": "GET",
+       "doctype": "Item",
+       "txt": "",
+       "query": "erpnext.controllers.queries.item_query",
+       "filters": {
+        "is_stock_item": 1,
+        "company": "Compat Test Co"
+       },
+       "reference_doctype": "Stock Entry Detail",
+       "link_fieldname": "item_code"
+      },
+      {
+       "method": "search_link",
+       "http": "POST",
+       "doctype": "Item",
+       "txt": "Widget 1",
+       "query": "erpnext.controllers.queries.item_query",
+       "filters": {
+        "is_stock_item": 1,
+        "company": "Compat Test Co"
+       },
+       "reference_doctype": "Stock Entry Detail",
+       "link_fieldname": "item_code"
+      },
+      {
+       "method": "validate_link_and_fetch",
+       "http": "POST",
+       "doctype": "Item",
+       "txt": "TW-ITEM-001",
+       "query": "erpnext.controllers.queries.item_query",
+       "filters": {
+        "is_stock_item": 1,
+        "company": "Compat Test Co"
+       },
+       "reference_doctype": "Stock Entry Detail",
+       "link_fieldname": "item_code"
+      }
+     ],
+     "errors": [],
+     "ms": 6507
+    }
+   ],
+   "late_errors": []
+  }
+ }
+}

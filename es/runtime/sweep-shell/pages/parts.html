@@ -1,0 +1,39 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="/dist/es-ui.css">
+<script src="/jquery.js"></script>
+<script src="/dist/es-ui.iife.js"></script>
+</head><body class="p-4">
+<!-- jQuery port of wc/sweep/shell/pages/parts.html: PageHeaderTarget registry + PageHeaderBase / PageHeader outside any shell -->
+<div id="app" class="space-y-4"></div>
+<script>
+$(function () {
+  const S = window.S = { name: 'Ada', show: true, log: [] }
+  const push = (m) => S.log.push(m)
+  const rename = (v) => { S.name = v; $('.nm').text(v) }
+  const lines = []
+  for (let i = 1; i <= 30; i++) lines.push(`<div>Line ${i}</div>`)
+  $('#app').append(`
+  <p id="state"></p>
+  <div id="tgt-wrap" class="border"><es-page-header-target id="tgt"></es-page-header-target></div>
+  <div id="decl" class="h-40 overflow-auto border">
+    <es-page-header-base id="phb" class="flex h-10 items-center bg-surface-gray-2 px-2">
+      <span id="phb-slot">Base header for <span class="nm">Ada</span></span>
+      <es-button id="phb-btn" label="Rename"></es-button>
+    </es-page-header-base>
+    ${lines.join('')}
+  </div>
+  <div id="vif-wrap">
+    <es-page-header id="ph2"><es-page-header-title id="ph2t"><b id="ph2t-slot">Slot title <span class="nm">Ada</span></b></es-page-header-title></es-page-header>
+  </div>
+  <es-button id="hide" label="Hide header"></es-button>
+  <es-page-header-mobile-title id="sa-mt" title="Standalone mobile title"></es-page-header-mobile-title>
+  <es-page-header-title id="sa-t">Slot only <span class="nm">Ada</span></es-page-header-title>
+  <es-page-header-back-button id="sa-back"></es-page-header-back-button>
+  <div id="desk" class="border-t pt-2"></div>`)
+  $('#phb-btn').on('click', () => { rename('Grace'); push('rename') })
+  // v-if="show" -> jQuery .remove() of the wrapper
+  $('#hide').on('click', () => { S.show = false; $('#vif-wrap').remove() })
+  window.READY = true
+})
+</script>
+</body></html>

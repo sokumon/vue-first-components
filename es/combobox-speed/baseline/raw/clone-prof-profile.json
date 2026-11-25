@@ -1,0 +1,52 @@
+{
+ "meta": {
+  "tag": "clone-prof",
+  "suite": "profile",
+  "runs": 5,
+  "date": "2026-11-25T07:50:28.345Z",
+  "seconds": 3.029,
+  "ua": "/home/claude/.cache/ms-playwright/chromium-1194/chrome-linux/chrome"
+ },
+ "data": [
+  {
+   "file": "clone-prof-mount100-run0.cpuprofile",
+   "timing": {
+    "sync": 224.09999990463257,
+    "tick": 296.09999990463257,
+    "painted": 327.09999990463257
+   }
+  },
+  {
+   "file": "clone-prof-mount100-run1.cpuprofile",
+   "timing": {
+    "sync": 217.10000038146973,
+    "tick": 291.40000009536743,
+    "painted": 312.6000003814697
+   }
+  },
+  {
+   "file": "clone-prof-mount100-run2.cpuprofile",
+   "timing": {
+    "sync": 220.5,
+    "tick": 295.30000019073486,
+    "painted": 318.09999990463257
+   }
+  },
+  {
+   "file": "clone-prof-mount100-run3.cpuprofile",
+   "timing": {
+    "sync": 211,
+    "tick": 281.7000002861023,
+    "painted": 302.30000019073486
+   }
+  },
+  {
+   "file": "clone-prof-mount100-run4.cpuprofile",
+   "timing": {
+    "sync": 224.2999997138977,
+    "tick": 302.7999997138977,
+    "painted": 330.5
+   }
+  }
+ ]
+}

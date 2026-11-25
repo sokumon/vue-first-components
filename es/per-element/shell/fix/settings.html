@@ -1,0 +1,62 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="es-wc-spike.css">
+<script defer src="es-components.js"></script>
+<script defer src="petite-vue.iife.js"></script>
+</head><body class="p-4">
+<div id="app" v-scope="{ open: false, tab: 'profile', digest: false, sounds: true, name: 'Ada', unread: 3, logs: [], log(m) { this.logs.push(m) } }" class="space-y-3">
+  <p id="state">open={{ open }}|tab={{ tab }}|digest={{ digest }}|sounds={{ sounds }}|name={{ name }}</p>
+  <p id="log">{{ logs.join(',') }}</p>
+  <input id="outside-input" placeholder="focus here">
+  <es-button id="open" label="Open settings" @click="open = true"></es-button>
+  <es-settings-dialog id="sd" :open="open" @update:open="open = $event.detail[0]" :tab="tab" @update:tab="tab = $event.detail[0]" size="3xl">
+    <span slot="title" id="sd-title">App settings for {{ name }}</span>
+    <span slot="description" id="sd-desc">Change how the app behaves</span>
+    <es-settings-sidebar id="ssb">
+      <es-settings-nav-group id="g1" label="User settings">
+        <es-settings-nav-item id="ni-profile" value="profile">
+          <es-avatar slot="prefix" id="ni-profile-av" size="xs" :label="name"></es-avatar>
+          Profile
+        </es-settings-nav-item>
+        <es-settings-nav-item id="ni-notif" value="notifications">
+          Notifications
+          <es-badge slot="suffix" id="ni-notif-badge" :label="String(unread)"></es-badge>
+        </es-settings-nav-item>
+      </es-settings-nav-group>
+      <es-settings-nav-group id="g2">
+        <span slot="label" id="g2-label">Workspace <i>(admin)</i></span>
+        <es-settings-nav-item id="ni-members" value="members">Members</es-settings-nav-item>
+      </es-settings-nav-group>
+    </es-settings-sidebar>
+    <es-settings-content id="sc">
+      <es-settings-panel id="p-profile" value="profile">
+        <es-settings-header id="h-profile" title="Profile" description="Your public identity">
+          <es-button slot="actions" id="h-profile-act" label="Save" variant="solid" @click="log('save')"></es-button>
+        </es-settings-header>
+        <es-settings-body id="b-profile">
+          <es-settings-row id="row-name" title="Display name" description="Shown to teammates">
+            <es-text-input id="name-input" :model-value="name" @update:model-value="name = $event.detail[0]"></es-text-input>
+          </es-settings-row>
+        </es-settings-body>
+      </es-settings-panel>
+      <es-settings-panel id="p-notif" value="notifications">
+        <es-settings-header id="h-notif" title="Notifications"></es-settings-header>
+        <es-settings-body id="b-notif">
+          <es-settings-row id="row-digest" title="Email digests" description="A summary of missed activity.">
+            <es-switch id="sw-digest" :model-value="digest" @update:model-value="digest = $event.detail[0]"></es-switch>
+          </es-settings-row>
+          <es-settings-row id="row-sounds" title="Sounds">
+            <span slot="description" id="row-sounds-desc">Play a sound. <a href="#learn" id="learn">Learn more</a></span>
+            <es-switch id="sw-sounds" :model-value="sounds" @update:model-value="sounds = $event.detail[0]"></es-switch>
+          </es-settings-row>
+          <div v-for="i in 30" class="py-3 border-b">Filler {{ i }}</div>
+        </es-settings-body>
+      </es-settings-panel>
+      <es-settings-panel id="p-members" value="members">
+        <es-settings-header id="h-members"><div id="h-members-custom" class="px-0 text-lg">Custom header ({{ unread }})</div></es-settings-header>
+        <es-settings-body id="b-members"><p id="members-body">Members list</p></es-settings-body>
+      </es-settings-panel>
+    </es-settings-content>
+  </es-settings-dialog>
+</div>
+<script>addEventListener('DOMContentLoaded', () => PetiteVue.createApp().mount('#app'))</script>
+</body></html>

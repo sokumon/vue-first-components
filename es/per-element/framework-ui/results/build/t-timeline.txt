@@ -1,0 +1,20 @@
+PASS timeline renders every activity type in order :: log,version,comment,email,attachment_log
+PASS timeline rows show content :: Older activity L created this 4 days ago Ada Lovelace changed Open → Closed 4 days ago A Ada Lovelace 4 days ago Looks good notes.txt A Ada Lovelace 4 days ago To:grace@example.com Subject:Re: bug Ada Lovelace attached spec.pdf 4 days ago
+PASS #icon-log named slot lands in the log row gutter
+PASS paginate.fetchNextPage fn prop called by Load More :: 1
+PASS #empty slot bound + reactive :: Quiet here (1)
+FAIL exposed scrollToLatest/scrollToRow reachable on element :: undefined/ exposedProxyHas=function
+FAIL scoped #item-comment <template> gets {activity} :: []
+PASS TimelineContainer default slot
+PASS CommentItem actions slot visible
+PASS CommentItem editable -> Save/Discard :: Ada Lovelace / 4 days ago /  / Looks good /  / Discard / Save
+PASS CommentItem editor becomes contenteditable
+PASS Ctrl+Enter -> save event with edited html :: "<p>Looks <strong>good indeed</strong><br></p>"
+PASS Discard -> discard event :: {"n":3,"editing":false,"saved":"<p>Looks <strong>good indeed</strong><br></p>","discards":1,"more":1}
+PASS EmailItem header + footer slot bound :: Ada Lovelace 4 days ago To:grace@example.com Subject:Re: bug Reply to ada@example.com
+PASS EmailItem body content visible :: Ada Lovelace 4 days ago To:grace@example.com Subject:Re: bug Reply to ada@example.com
+PASS LogItem / VersionItem standalone :: created this / 4 days ago / Ada Lovelace / changed / Open / → / Closed / 4 days ago
+PASS AttachmentChip opens preview dialog with fetched markdown :: readme.md / Hello from readme /  / Some text.
+PASS Escape closes preview
+console errors/warnings: 0
+2 FAILED

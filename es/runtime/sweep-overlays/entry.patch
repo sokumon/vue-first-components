@@ -1,0 +1,11 @@
+--- ../src/entry.js	2026-11-24 00:39:11.799324528 +0000
++++ src/entry.js (proto, glob path as in wc/jq)
+@@ -54,7 +54,7 @@
+ // frappe-ui resources talk to a Frappe backend.
+ FUI.setConfig('resourceFetcher', FUI.frappeRequest)
+ ES.configure((app) => app.provide(FUI.portalTargetKey, ES.portal))
+-ES.addRoot(FUI.ToastProvider)
++ES.addRoot(FUI.ToastProvider, { unless: ['es-toast-provider', 'es-frappe-ui-provider'] }) // a second <Toaster> shows every toast twice (Dialogs dedups itself)
+ ES.addRoot(FUI.Dialogs)
+ 
+ ES.version = Vue.version

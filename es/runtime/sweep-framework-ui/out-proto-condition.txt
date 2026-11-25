@@ -1,0 +1,21 @@
+PASS es-fw-condition-builder | label + description props
+PASS es-fw-condition-builder | #empty slot rendered inside the empty button, jQuery-filled
+PASS es-fw-condition-builder | empty click -> v-model gets a blank condition :: {"conjunction":"and","conditions":[{"fieldname":"","operator":"equals","value":""}]}
+PASS es-fw-condition-builder | field picker lists meta fields (doctype attr) :: Name|Created By|Last Updated By|Tags|Like|Assigned To|Created On|Last Updated On|Status|Priority|Due Date|Allocated To|Description|Hours|Done
+PASS es-fw-condition-builder | pick field -> condition.fieldname :: {"fieldname":"priority","operator":"equals","value":"Low"}
+PASS es-fw-condition-builder | value -> v-model + update:expression (no second flush needed) :: {"fieldname":"priority","operator":"equals","value":"High"} expr=priority == "High"
+PASS es-fw-condition-builder | Add Condition dropdown (teleported menu) offers condition + group :: Add Condition|Add Condition Group
+PASS es-fw-condition-builder | Add Condition via keyboard (ArrowDown, Enter) appends :: 2
+PASS es-fw-condition-builder | conjunction switch -> or :: or
+PASS es-fw-condition-builder | actions menu Remove :: 1
+PASS es-fw-condition-builder | readonly builder (.prop fields/modelValue/labels) draws value, no add button :: Where Status Equals Open Field Operator Value Status
+PASS es-fw-condition-builder | readonly builder configured only by JSON attributes in an HTML string :: Where Status Equals Open Field Operator Value Status :: modelValue type=object
+PASS es-fw-condition-builder | no page errors in core scenarios :: 
+PASS es-fw-condition-builder | .detach().appendTo() keeps the tree :: 1
+PASS es-fw-condition-builder | dropdown still anchors to its trigger after the move
+PASS es-fw-condition-builder | .prop(modelValue) from the page redraws rows :: Conditions When should this run? Condition removed. 1 remaining. Match all of the following Where Status Equals Closed Field Operator Value Condition actions Status and Changes how every condition in this group is joined Priority Equals Low
+PASS es-fw-condition-builder | .html(<b slot=empty>) on the host: remount shows the new empty slot inside the button
+PASS es-fw-condition-builder | .clone() of the attribute-configured builder renders the same :: Where Status Equals Open Field Operator Value Status
+PASS es-fw-condition-builder | .remove() both; no errors :: 
+console errors/warnings: 0
+ALL PASS (19)

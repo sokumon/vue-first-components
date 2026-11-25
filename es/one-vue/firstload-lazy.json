@@ -1,0 +1,114 @@
+{
+ "label": "lazy",
+ "route": "/desk/todo",
+ "state": {
+  "vue": true,
+  "uploader_class": "function",
+  "uploader_loaded": false
+ },
+ "js": {
+  "files": 14,
+  "raw": 5085442,
+  "gz": 1499523
+ },
+ "all": {
+  "files": 17,
+  "raw": 6225077,
+  "gz": 1668885
+ },
+ "vue_bundle": [
+  {
+   "file": "vue.bundle.MHKP3RF3.js",
+   "raw": 130926,
+   "gz": 51568
+  }
+ ],
+ "file_uploader": [],
+ "assets": [
+  {
+   "file": "billing.bundle.PZG6FW7H.js",
+   "raw": 3178,
+   "gz": 1632
+  },
+  {
+   "file": "build_events.bundle.GJZL3WGJ.js",
+   "raw": 5141,
+   "gz": 2408
+  },
+  {
+   "file": "controls.bundle.QMZHWNV3.js",
+   "raw": 925463,
+   "gz": 254649
+  },
+  {
+   "file": "desk.bundle.RKOM7B77.css",
+   "raw": 870002,
+   "gz": 129923
+  },
+  {
+   "file": "desk.bundle.ZWDK3RA7.js",
+   "raw": 1452728,
+   "gz": 418020
+  },
+  {
+   "file": "flow_launcher.bundle.LS2FQJOT.js",
+   "raw": 12592,
+   "gz": 4843
+  },
+  {
+   "file": "form.bundle.NQFQQTXX.js",
+   "raw": 217427,
+   "gz": 60377
+  },
+  {
+   "file": "frappe.flow.chat.island.CUIoawU5.js",
+   "raw": 1194289,
+   "gz": 362869
+  },
+  {
+   "file": "frappe.island.C9jOT2gw.css",
+   "raw": 263595,
+   "gz": 37761
+  },
+  {
+   "file": "libs.bundle.MRDOEXQW.js",
+   "raw": 344748,
+   "gz": 108047
+  },
+  {
+   "file": "list_filter.bundle.5DFW7I5V.js",
+   "raw": 28586,
+   "gz": 8060
+  },
+  {
+   "file": "list.bundle.GT2CWRNF.js",
+   "raw": 287530,
+   "gz": 82984
+  },
+  {
+   "file": "report.bundle.CZ6F24IA.css",
+   "raw": 6038,
+   "gz": 1678
+  },
+  {
+   "file": "report.bundle.FVH5PSRL.js",
+   "raw": 233092,
+   "gz": 69622
+  },
+  {
+   "file": "telemetry.bundle.CHFVMD5G.js",
+   "raw": 1662,
+   "gz": 726
+  },
+  {
+   "file": "vue_first8.bundle.ZNJKQH2Z.js",
+   "raw": 248080,
+   "gz": 73718
+  },
+  {
+   "file": "vue.bundle.MHKP3RF3.js",
+   "raw": 130926,
+   "gz": 51568
+  }
+ ]
+}

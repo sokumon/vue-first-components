@@ -1,0 +1,53 @@
+<!doctype html><html><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/dist/es-ui.css">
+<script src="/jquery.js"></script>
+<script src="/dist/es-ui.iife.js"></script>
+</head><body>
+<!-- jQuery port of wc/sweep/shell/pages/mobile.html: MobileShell + PageHeaderMobile(+Title, BackButton) + MobileNav(+Item) -->
+<p id="state" class="fixed top-14 right-0 z-50 bg-white text-xs"></p>
+<div id="app"></div>
+<script>
+$(function () {
+  const S = window.S = { tab: 'home', title: 'Inbox', log: [] }
+  const push = (m) => S.log.push(m)
+  const items = []
+  for (let i = 1; i <= 60; i++) items.push(`<div class="py-3 border-b">Item ${i}</div>`)
+  $('#app').html(`
+  <es-mobile-shell id="ms">
+    <es-page-header-mobile id="phm">
+      <es-page-header-back-button slot="prefix" id="back" label="Back" fallback-route="/home"></es-page-header-back-button>
+      <es-page-header-mobile-title id="phmt">
+        <span slot="prefix" id="phmt-prefix" class="lucide-inbox size-4"></span>
+      </es-page-header-mobile-title>
+      <es-button slot="suffix" id="phm-act" icon="lucide-plus" variant="ghost"></es-button>
+    </es-page-header-mobile>
+    <div id="mcontent" class="p-4">
+      <p>Mobile content <span class="tab">home</span></p>
+      ${items.join('')}
+    </div>
+    <es-mobile-nav slot="nav" id="nav">
+      <es-mobile-nav-item id="mn-home" label="Home" icon="lucide-home" data-tab="home"></es-mobile-nav-item>
+      <es-mobile-nav-item id="mn-search" label="Search" icon="lucide-search" data-tab="search"></es-mobile-nav-item>
+      <es-mobile-nav-item id="mn-me" label="Me" data-tab="me"><span id="mn-me-slot" class="size-6 rounded-full bg-surface-gray-4 text-xs">AL</span></es-mobile-nav-item>
+      <es-mobile-nav-item id="mn-link" label="Docs" icon="lucide-book" href="https://example.com/docs"></es-mobile-nav-item>
+    </es-mobile-nav>
+  </es-mobile-shell>`)
+  // Desk style: one delegated handler for all nav items
+  $('#nav').on('click', 'es-mobile-nav-item[data-tab]', function (e) {
+    if (e.target !== this) return // the item's own click emit (native click stops at the host)
+    S.tab = $(this).data('tab'); push(S.tab); sync()
+  })
+  $('#phm-act').on('click', () => { push('plus'); S.title = 'Drafts'; sync() })
+  function sync() {
+    $('#phmt').prop('title', S.title + ' (' + S.tab + ')')
+    $('#nav es-mobile-nav-item[data-tab]').each(function () { $(this).prop('active', $(this).data('tab') === S.tab) })
+    $('.tab').text(S.tab)
+    $('#state').text('tab=' + S.tab + '|title=' + S.title)
+  }
+  sync()
+  window.sync = sync
+  window.READY = true
+})
+</script>
+</body></html>

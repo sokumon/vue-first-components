@@ -1,0 +1,149 @@
+--- ../../src/define-es.js	2026-11-23 22:07:45.862767224 +0000
++++ src/define-es.js	2026-11-23 22:39:37.248998951 +0000
+@@ -40,24 +40,103 @@
+ //     on nextTick); teleported content goes with it.
+ import {
+   defineCustomElement, defineComponent, getCurrentInstance, h, ref, shallowRef,
+-  onMounted, onBeforeUnmount, camelize, capitalize,
++  onMounted, onBeforeUnmount, camelize, capitalize, watch,
+ } from 'vue'
+ 
+ const hyphenate = (s) => s.replace(/\B([A-Z])/g, '-$1').toLowerCase()
+ 
+ const SKIP = /^(@|:|v-|#|x-)|^(id|class|style|slot)$/
+ 
++// Nested es-* hosts inside slot content get the slot's component instance as
++// their provide/inject parent, so <es-tab-list> inside <es-tabs> sees TabsRoot.
++// Vue's own CE parent link (_setParent) only reaches the outer host's root
++// instance, never the providers the outer component renders around its slot.
++const placeNested = (nodes, inst) => {
++  for (const n of nodes) {
++    if (n.nodeType !== 1) continue
++    for (const e of [n, ...n.querySelectorAll('*')])
++      if (e._esPlace && !e.parentElement.closest('es-slots')) e._esPlace(inst)
++  }
++}
++
++// True while the host is light-DOM content of an ancestor es-* element: parked
++// in its holder, or under it before it upgraded (customElements.define
++// upgrades in registration order, so <es-tab-list> can mount before <es-tabs>).
++const awaitsParent = (host) => {
++  for (let e = host.parentElement; e; e = e.parentElement) {
++    const n = e.localName
++    if (n === 'es-slot') return false
++    if (n === 'es-slots' || n.startsWith('es-')) return true
++  }
++  return false
++}
++
+ const DomSlot = defineComponent({
+   name: 'EsSlot',
+   props: { nodes: Array, holder: Object },
+   setup(props) {
+     const el = ref()
+-    onMounted(() => props.nodes.forEach((n) => el.value.appendChild(n)))
+-    onBeforeUnmount(() => props.nodes.forEach((n) => props.holder.appendChild(n)))
++    const inst = getCurrentInstance()
++    onMounted(() => { props.nodes.forEach((n) => el.value.appendChild(n)); placeNested(props.nodes, inst) })
++    // Only take back nodes this outlet still owns: when the same slot is
++    // rendered by a newer outlet (tab panel switch, re-render) the old one
++    // unmounting must not pull the nodes out of the new one.
++    onBeforeUnmount(() => props.nodes.forEach((n) => n.parentNode === el.value && props.holder.appendChild(n)))
+     return () => h('es-slot', { ref: el, style: 'display:contents' })
+   },
+ })
+ 
++// <es-slot> is display:contents, so when a component renders the slot
++// `as-child` (reka PopoverTrigger, DropdownMenuTrigger, HoverCardTrigger...)
++// the trigger element reka measures, focuses and stamps aria-* on is a box-less
++// wrapper. It answers for its content: rects are the union of its children,
++// focus() goes to the first focusable descendant, and aria-*/role/data-state
++// set on it are mirrored onto that descendant, and focus/blur of the content
++// are re-dispatched on the wrapper.
++const FOCUSABLE = 'button:not([disabled]),[href],input:not([disabled]),select,textarea,[tabindex]:not([tabindex="-1"]),[contenteditable=""],[contenteditable=true]'
++const MIRROR = /^(aria-|role$|data-state$)/
++class EsSlotElement extends HTMLElement {
++  _esTarget() {
++    for (const e of this.querySelectorAll(FOCUSABLE)) if (!e.closest('es-slots')) return e
++    return null
++  }
++  getBoundingClientRect() {
++    const rs = [...this.children].filter((c) => c.nodeName !== 'ES-SLOTS').map((c) => c.getBoundingClientRect()).filter((r) => r.width || r.height)
++    if (!rs.length) return super.getBoundingClientRect()
++    const l = Math.min(...rs.map((r) => r.left)), t = Math.min(...rs.map((r) => r.top))
++    return new DOMRect(l, t, Math.max(...rs.map((r) => r.right)) - l, Math.max(...rs.map((r) => r.bottom)) - t)
++  }
++  getClientRects() { return [this.getBoundingClientRect()] }
++  focus(o) { const t = this._esTarget(); t ? t.focus(o) : super.focus(o) }
++  connectedCallback() {
++    if (this._esOb || ![...this.attributes].some((a) => MIRROR.test(a.name))) return
++    this._esMirrored = new Set()
++    this._esOb = new MutationObserver(() => this._esSync())
++    this._esOb.observe(this, { attributes: true, childList: true, subtree: true })
++    this._esSync()
++    // focus/blur do not bubble, so a trigger's onFocus/onBlur (HoverCard,
++    // Tooltip) bound on this wrapper never fires; re-dispatch from focusin/out.
++    if (!this._esFocus) {
++      this._esFocus = true
++      const relay = (type) => (e) => {
++        if (e.target === this || this.contains(e.relatedTarget)) return
++        this.dispatchEvent(new FocusEvent(type, { relatedTarget: e.relatedTarget }))
++      }
++      this.addEventListener('focusin', relay('focus'))
++      this.addEventListener('focusout', relay('blur'))
++    }
++  }
++  disconnectedCallback() { this._esOb?.disconnect(); this._esOb = null }
++  _esSync() {
++    const t = this._esTarget()
++    if (!t) return
++    if (t !== this._esLast) { this._esMirrored.clear(); this._esLast = t }
++    for (const a of this.attributes) if (MIRROR.test(a.name) && t.getAttribute(a.name) !== a.value) { t.setAttribute(a.name, a.value); this._esMirrored.add(a.name) }
++    for (const n of this._esMirrored) if (!this.hasAttribute(n)) { t.removeAttribute(n); this._esMirrored.delete(n) }
++  }
++}
++if (!customElements.get('es-slot')) customElements.define('es-slot', EsSlotElement)
++
+ const emitNames = (e) => (Array.isArray(e) ? e : e ? Object.keys(e) : [])
+ const propKeys = (p) => (Array.isArray(p) ? p : Object.keys(p || {})).map(camelize)
+ const DIRECTIVE = /^(@|:|v-)/
+@@ -103,15 +182,38 @@
+         ob.observe(host, { attributes: true })
+         onBeforeUnmount(() => ob.disconnect())
+       }
++      // Context bridge (see placeNested).
++      const placedBy = shallowRef(null)
++      if (host) host._esPlace = (slotInst) => {
++        if (placedBy.value === slotInst) return
++        placedBy.value = slotInst
++        instance.provides = slotInst.provides
++      }
++      // Inner exposed members (Popover close(), ScrollArea viewportElement...)
++      // become element properties once the inner component exists. Vue's CE
++      // copies `exposed` keys only at mount, before the deferred inner render.
++      if (host) watch(inner, (v) => {
++        if (!v) return
++        for (const k of Object.keys(v)) {
++          if (k[0] === '$' || k[0] === '_' || k in host) continue
++          Object.defineProperty(host, k, { get: () => inner.value?.[k], configurable: true })
++        }
++      }, { flush: 'post' })
+       const on = Object.fromEntries(names.map((n) => ['on' + capitalize(camelize(n)), (...a) => emit(n, ...a)]))
+       expose(new Proxy({}, { get: (_, k) => inner.value?.[k] }))
+       return () => {
+         host && host._esTick.value // re-render on every host update (a prop set to its cast value)
+         if (!noDirs.value || !loaded.value) return null
++        // Parked in an ancestor es-*'s slot holder: render once that slot is
++        // rendered, so injections resolve against the real parent tree.
++        if (host && !placedBy.value && awaitsParent(host)) return null
++        const p = placedBy.value
+         const raw = (host ? host._props : instance.vnode.props) || {}
+         const set = {}
+         for (const k of keys) if (k in raw) set[k] = props[k]
+-        return h(comp, { ...attrs, ...set, ...on, ref: inner }, slots)
++        // Re-placed under a new slot instance after the old one unmounted:
++        // re-create the inner component so its injections are current.
++        return h(comp, { ...attrs, ...set, ...on, ref: inner, key: p && p.uid }, slots)
+       }
+     },
+   })

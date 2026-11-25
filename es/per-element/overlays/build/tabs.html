@@ -1,0 +1,40 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="es-wc-spike.css">
+<script defer src="es-components.js"></script>
+<script defer src="petite-vue.iife.js"></script>
+</head><body class="p-6">
+<div id="app" v-scope="{ tab: 'two', short: 'b', tb: 'week', count: 3, log: [], push(e) { this.log.push(e) } }" class="space-y-6">
+  <p id="state">tab={{ tab }}|short={{ short }}|tb={{ tb }}</p>
+  <p id="log">{{ log.join(',') }}</p>
+
+  <!-- Composed: es-tabs > es-tab-list > es-tab-trigger + es-tab-panel -->
+  <es-tabs id="ct" :model-value="tab" @update:model-value="tab = $event.detail[0]">
+    <es-tab-list>
+      <es-tab-trigger value="one" label="One"></es-tab-trigger>
+      <es-tab-trigger value="two" label="Two">
+        <span slot="suffix" id="ct-count" class="ml-1 text-xs">({{ count }})</span>
+      </es-tab-trigger>
+      <es-tab-trigger value="three" label="Three" :disabled="true"></es-tab-trigger>
+    </es-tab-list>
+    <es-tab-panel value="one"><p id="ct-p1">Panel one</p></es-tab-panel>
+    <es-tab-panel value="two"><p id="ct-p2">Panel two, count={{ count }}</p></es-tab-panel>
+    <es-tab-panel value="three"><p id="ct-p3">Panel three</p></es-tab-panel>
+  </es-tabs>
+
+  <!-- Shorthand: tabs prop + tab-panel slot (scoped, rendered once per tab) -->
+  <es-tabs id="st" :tabs="[{ value: 'a', label: 'Alpha' }, { value: 'b', label: 'Beta' }, { value: 'c', label: 'Gamma', condition: () => count > 2 }]"
+     :model-value="short" @update:model-value="short = $event.detail[0]" variant="subtle">
+    <div slot="tab-panel" class="st-panel">Shared panel body (short={{ short }})</div>
+  </es-tabs>
+
+  <!-- TabButtons -->
+  <es-tab-buttons id="tb" :options="[{ value: 'day', label: 'Day' }, { value: 'week', label: 'Week' }, { value: 'month', label: 'Month', onClick: () => push('month-click') }]"
+     :model-value="tb" @update:model-value="tb = $event.detail[0]">
+  </es-tab-buttons>
+
+  <!-- standalone parts outside es-tabs (not meaningful alone; should not crash the page) -->
+  <es-tab-trigger id="lone-trigger" value="x" label="Lone"></es-tab-trigger>
+  <button id="inc" class="border px-2" @click="count++">inc</button>
+</div>
+<script>addEventListener('DOMContentLoaded', () => PetiteVue.createApp().mount('#app'))</script>
+</body></html>

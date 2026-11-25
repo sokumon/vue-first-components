@@ -1,0 +1,58 @@
+{
+ "results": [
+  {
+   "k": "closed: no dialog, panels not rendered",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "open via petite :open",
+   "pass": true,
+   "info": "open=true|tab=profile|digest=false|sounds=true|name=Ada"
+  },
+  {
+   "k": "title slot -> dialog accessible name (aria-labelledby)",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "description slot -> aria-describedby",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "sidebar: tablist with 3 tabs (nav items get TabsRoot context)",
+   "pass": false,
+   "info": "[]"
+  },
+  {
+   "k": "v-model:tab initial value selects Profile",
+   "pass": false,
+   "info": ""
+  },
+  {
+   "k": "nav-group label prop + label slot",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "nav-item prefix slot (avatar) inside the tab",
+   "pass": false,
+   "info": ""
+  },
+  {
+   "k": "nav-item suffix slot (badge) inside the tab",
+   "pass": false,
+   "info": ""
+  }
+ ],
+ "errs": [
+  "error: Error: Injection `Symbol(TabsRootContext)` not found. Component must be used within `TabsRoot`\n    at file:///home/claude/vue-first-components/wc/sweep/shell/base/es-components.js:22:5731\n    at setup (file:///home/claude/vue-first-components/wc/sweep/shell/base/es-components.js:29:53265)\n    at aa ",
+  "error: Error: Injection `Symbol(TabsRootContext)` not found. Component must be used within `TabsRoot`\n    at file:///home/claude/vue-first-components/wc/sweep/shell/base/es-components.js:22:5731\n    at setup (file:///home/claude/vue-first-components/wc/sweep/shell/base/es-components.js:29:53265)\n    at aa ",
+  "error: Error: Injection `Symbol(TabsRootContext)` not found. Component must be used within `TabsRoot`\n    at file:///home/claude/vue-first-components/wc/sweep/shell/base/es-components.js:22:5731\n    at setup (file:///home/claude/vue-first-components/wc/sweep/shell/base/es-components.js:29:53265)\n    at aa ",
+  "error: Error: Injection `Symbol(TabsRootContext)` not found. Component must be used within `TabsRoot`\n    at file:///home/claude/vue-first-components/wc/sweep/shell/base/es-components.js:22:5731\n    at setup (file:///home/claude/vue-first-components/wc/sweep/shell/base/es-components.js:29:50482)\n    at aa ",
+  "error: Error: Injection `Symbol(TabsRootContext)` not found. Component must be used within `TabsRoot`\n    at file:///home/claude/vue-first-components/wc/sweep/shell/base/es-components.js:22:5731\n    at setup (file:///home/claude/vue-first-components/wc/sweep/shell/base/es-components.js:29:50482)\n    at aa ",
+  "error: Error: Injection `Symbol(TabsRootContext)` not found. Component must be used within `TabsRoot`\n    at file:///home/claude/vue-first-components/wc/sweep/shell/base/es-components.js:22:5731\n    at setup (file:///home/claude/vue-first-components/wc/sweep/shell/base/es-components.js:29:50482)\n    at aa ",
+  "error: Error: Injection `Symbol(TabsRootContext)` not found. Component must be used within `TabsRoot`\n    at file:///home/claude/vue-first-components/wc/sweep/shell/base/es-components.js:22:5731\n    at setup (file:///home/claude/vue-first-components/wc/sweep/shell/base/es-components.js:29:52642)\n    at aa "
+ ]
+}

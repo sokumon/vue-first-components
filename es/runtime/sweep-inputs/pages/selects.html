@@ -1,0 +1,49 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="/dist/es-ui.css">
+<script src="/jquery.js"></script>
+<script src="/dist/es-ui.iife.js"></script>
+</head><body class="p-6">
+<div id="app" class="space-y-4 max-w-md"></div>
+<script>
+// jQuery port of wc/sweep/inputs/pages/selects.html
+$(function () {
+  const S = window.S = { color: 'red', selOpen: false, ctlOpen: false, footerHits: 0, plain: null, fruit: null, query: '', cbOpen: false, tags: ['a'], msOpen: false, who: 'Ada', custom: null }
+  const colors = [{ label: 'Red', value: 'red' }, { label: 'Blue', value: 'blue', description: 'cool' }, { label: 'Green', value: 'green', disabled: true }]
+  const fruits = [{ group: 'Fruit', options: [{ label: 'Apple', value: 'apple' }, { label: 'Banana', value: 'banana' }, { label: 'Blueberry', value: 'blueberry', slots: { label: (p) => 'BB:' + p.item.label } }] },
+    { group: 'Actions', options: [{ type: 'custom', key: 'create', label: 'Create new', onClick(ctx) { S.custom = 'create:' + ctx.query } }] }]
+  const tagOpts = [{ label: 'Alpha', value: 'a' }, { label: 'Beta', value: 'b' }, { label: 'Gamma', value: 'c' }]
+  const on = ($el, ev, key, after) => $el.on(ev, (e) => { if (e.target !== e.currentTarget) return; S[key] = e.originalEvent.detail; after && after(S[key]) })
+  const $app = $('#app')
+  const sync = (k, sel) => (v) => $(sel).prop('modelValue', v)
+
+  const $sel = $(`<es-select id="sel" label="Colour" placeholder="Pick">
+      <div slot="footer" id="sel-footer"><button id="sel-footer-btn">Footer for <b class="who">Ada</b></button></div>
+      <span slot="item-prefix" class="sel-ip">*</span>
+    </es-select>`).prop({ options: colors, modelValue: S.color })
+  on(on($sel, 'update:modelValue', 'color', sync('color', '#sel-ctl')), 'update:open', 'selOpen').appendTo($app)
+  $('#sel-footer-btn').on('click', () => S.footerHits++)
+  on($('<es-select id="sel-str" placeholder="Pick a number">').prop({ options: ['One', 'Two', 'Three'], modelValue: null }), 'update:modelValue', 'plain').appendTo($app)
+  $('<es-select id="sel-empty"><span slot="empty" id="sel-empty-slot">Nothing here, <b class="who">Ada</b></span></es-select>').attr('options', '[]').prop('modelValue', null).appendTo($app)
+  on(on($('<es-select id="sel-ctl">').prop({ options: colors, open: false, modelValue: S.color }), 'update:open', 'ctlOpen'), 'update:modelValue', 'color', sync('color', '#sel')).appendTo($app)
+  $('<button id="open-ctl">open controlled select</button>').on('click', () => $('#sel-ctl').prop('open', true)).appendTo($app)
+
+  const $cb = $(`<es-combobox id="cb" label="Fruit" placeholder="Search fruit">
+      <span slot="empty" id="cb-empty">No fruit for "<i class="q"></i>"</span>
+      <div slot="footer" id="cb-footer">cb footer</div>
+    </es-combobox>`).prop({ options: fruits, modelValue: null })
+  on(on(on($cb, 'update:modelValue', 'fruit', sync('fruit', '#cb-btn')), 'update:query', 'query', (q) => $('.q').text(q)), 'update:open', 'cbOpen').appendTo($app)
+  on($('<es-combobox id="cb-btn" trigger="button" placeholder="Button combobox">').prop({ options: fruits, modelValue: null }), 'update:modelValue', 'fruit', sync('fruit', '#cb')).appendTo($app)
+
+  on(on($('<es-multi-select id="ms" label="Tags" placeholder="Tags"><div slot="footer" id="ms-footer">ms footer</div></es-multi-select>').prop({ options: tagOpts, modelValue: S.tags }),
+    'update:modelValue', 'tags', (v) => { $('#ms-sum').prop('modelValue', v); $('#ms-n').text(v.length) }), 'update:open', 'msOpen').appendTo($app)
+  on($('<es-multi-select id="ms-sum"><span slot="summary" id="ms-summary"><i id="ms-n">1</i> tags</span></es-multi-select>').prop({ options: tagOpts, modelValue: S.tags }),
+    'update:modelValue', 'tags', (v) => { $('#ms').prop('modelValue', v); $('#ms-n').text(v.length) }).appendTo($app)
+  $('<button id="who">who</button>').on('click', () => { S.who = 'Linus'; $('.who').text('Linus') }).appendTo($app)
+  $('<button id="sel2-toggle">toggle sel2</button>').on('click', () => {
+    if ($('#sel2').length) return $('#sel2').remove()
+    on($(`<es-select id="sel2"><div slot="footer" id="sel2-footer">sel2 footer ${S.who}</div></es-select>`).prop({ options: colors, modelValue: S.color }), 'update:modelValue', 'color').insertAfter('#sel2-toggle')
+  }).appendTo($app)
+  window.READY = true
+})
+</script>
+</body></html>

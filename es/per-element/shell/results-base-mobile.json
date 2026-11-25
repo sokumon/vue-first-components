@@ -1,0 +1,112 @@
+{
+ "results": [
+  {
+   "k": "mobile-shell fills the viewport (fixed inset-0)",
+   "pass": true,
+   "info": "{\"x\":0,\"y\":0,\"w\":390,\"h\":800}"
+  },
+  {
+   "k": "header on top, scroll region in the middle, nav slot at the bottom",
+   "pass": true,
+   "info": "{\"hdr\":{\"x\":0,\"y\":0,\"w\":390,\"h\":52},\"sc\":{\"x\":0,\"y\":52,\"w\":390,\"h\":689},\"nav\":{\"x\":0,\"y\":741,\"w\":390,\"h\":59}}"
+  },
+  {
+   "k": "page-header-mobile teleported into MobileShell header target",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "mobile nav is inside the shell (nav slot)",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "content default slot inside the native scroll region",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "prefix slot: back button inside the absolutely placed prefix box",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "suffix slot: action inside suffix box",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "default slot: mobile title inside <h1>, with its own prefix slot",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "mobile title text from :title binding",
+   "pass": true,
+   "info": "Inbox (home)"
+  },
+  {
+   "k": "title centred and inset past the prefix control",
+   "pass": true,
+   "info": "{\"t\":{\"x\":60,\"y\":14,\"w\":270,\"h\":24},\"pre\":{\"x\":12,\"y\":10,\"w\":32,\"h\":32}}"
+  },
+  {
+   "k": "suffix button click -> petite, title reactive",
+   "pass": true,
+   "info": "plus / Drafts (home)"
+  },
+  {
+   "k": "nav items: equal columns",
+   "pass": false,
+   "info": ""
+  },
+  {
+   "k": "host-page CSS es-mobile-nav-item{display:contents} -> buttons fill equal columns",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "nav item :active from petite",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "nav item icon rendered (lucide class)",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "nav item click -> petite (exactly once), active moves",
+   "pass": false,
+   "info": "tab=search|title=Drafts / plus,search,search"
+  },
+  {
+   "k": "nav item default slot (custom glyph) replaces icon, label kept",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "nav item href -> <a href>",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "keyboard Enter on nav item activates it",
+   "pass": true,
+   "info": "tab=me|title=Drafts"
+  },
+  {
+   "k": "shell scroll region scrolls, header stays",
+   "pass": true,
+   "info": "500"
+  },
+  {
+   "k": "page-header-back-button works without vue-router (no throw / navigates)",
+   "pass": false,
+   "info": "Cannot read properties of undefined (reading 'options') url=file:///home/claude/vue-first-components/wc/sweep/shell/base/mobile.html"
+  }
+ ],
+ "errs": [
+  "pageerror: Cannot read properties of undefined (reading 'options')"
+ ]
+}

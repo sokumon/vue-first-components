@@ -1,0 +1,40 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="/build/fw-sweep.css">
+<script defer src="/build/es-components.js"></script>
+<script defer src="/petite-vue.iife.js"></script>
+</head><body class="p-6">
+<div id="app" v-scope="{ n: 0,
+  inv: { roles: [{ label: 'System Manager', value: 'System Manager' }, { label: 'Guest', value: 'Guest' }], users: [{ label: 'Grace Hopper', value: 'grace@example.com' }], usersLoading: false, inviting: false, error: null,
+         invite(emails, roles) { window.__invite = [emails, roles]; return Promise.resolve({ invited_emails: emails.split(', '), disabled_user_emails: [], pending_invite_emails: [], accepted_invite_emails: [] }) },
+         searchUsers(q) { window.__search = q }, load() { window.__loaded = (window.__loaded || 0) + 1 } },
+  invited: [],
+  notes: [{ name: 'N1', subject: 'Ada mentioned you', read: 0, from_user: 'ada@example.com', creation: '2026-11-22 10:00:00' }, { name: 'N2', subject: 'Task assigned', read: 1, from_user: 'grace@example.com', creation: '2026-11-21 10:00:00' }],
+  tabs: [{ label: 'All', value: 'all' }, { label: 'Unread', value: 'unread', filter: (x) => !x.read, count: 'unread' }],
+  tab: undefined, markRead: [], allRead: 0, closed: 0, itemClicks: [],
+  link: null, linkCreate: '', linkOpen: false,
+  nodes: [{ id: 'start', position: { x: 0, y: 0 }, data: { kicker: 'When', label: 'Ticket created', start: true, tone: 'blue' } }, { id: 'n2', position: { x: 0, y: 160 }, data: { kicker: 'Then', label: 'Send email', tone: 'green', terminal: true } }],
+  edges: [{ id: 'e1', source: 'start', target: 'n2' }], selected: '', cevents: [],
+  blockOptions: [{ group: 'Actions', options: [{ value: 'email', label: 'Send email' }, { value: 'assign', label: 'Assign to' }] }],
+}">
+  <pre id="state" class="text-xs">{{ JSON.stringify({ n, invited, tab, markRead, allRead, closed, itemClicks, link, linkCreate, linkOpen, selected, cevents }) }}</pre>
+  <button id="poke" @click="n++">poke</button>
+  <es-fw-invite-user id="c-inv" v-bind="inv" :show-result-toasts="false" @invited="invited = $event.detail[0].invited_emails"></es-fw-invite-user>
+
+  <es-fw-notification-panel id="c-np-tpl" class="block h-40 w-96 border" :notifications="notes" :has-next-page="false" @mark-as-read="markRead.push('tpl:' + $event.detail[0].name)">
+    <template slot="item"><div class="tplnote" @click="markAsRead(notification)">{{ notification.subject }}</div></template>
+  </es-fw-notification-panel>
+  <es-fw-notification-panel id="c-np" class="block h-72 w-96 border" :notifications="notes" :unread-count="1" :has-next-page="true" :tabs="tabs"
+    :active-tab="tab" @update:active-tab="tab = $event.detail[0]"
+    @mark-as-read="markRead.push($event.detail[0].name)" @mark-all-as-read="allRead++" @close="closed++"></es-fw-notification-panel>
+  <es-fw-notification-item id="c-ni" :notification="notes[0]" @click="itemClicks.push($event instanceof CustomEvent ? 'custom:' + $event.detail[0].name : 'native:' + $event.type)"></es-fw-notification-item>
+
+  <es-fw-link id="c-link" doctype="User" label="Assigned user" :model-value="link" @update:model-value="link = $event.detail[0]"
+     :creatable="true" @create="linkCreate = $event.detail[0]" :open="linkOpen" @update:open="linkOpen = $event.detail[0]"></es-fw-link>
+
+  <es-fw-automation-canvas id="c-canvas" class="block h-96 w-[48rem] border" :nodes="nodes" :edges="edges" :selected-id="selected" :block-options="blockOptions"
+     @select="selected = $event.detail[0]; cevents.push('select:' + $event.detail[0])" @add-node="cevents.push('add:' + $event.detail[0].value)" @move="cevents.push('move:' + $event.detail[0].nodeId)">
+    <button slot="toolbar" id="canvas-tool">Tool {{ selected }}</button>
+  </es-fw-automation-canvas>
+</div>
+<script>window.EsBindSlot = (el, p) => { const s = PetiteVue.reactive(p), app = PetiteVue.createApp(s).mount(el); return { update: (n) => Object.assign(s, n), unmount: () => app.unmount() } }; addEventListener('DOMContentLoaded', () => PetiteVue.createApp().mount('#app'))</script>
+</body></html>

@@ -1,0 +1,42 @@
+PASS es-fw-list | List renders header + 3 rows :: ID Status Hours T-1 Open 2 T-2 Closed 5 T-3 Open 1
+PASS es-fw-list | List row checkbox -> v-model:selection :: ["T-2"]
+PASS es-fw-list-bulk-bar | BulkBar appears with count :: 1 selected Archive
+PASS es-fw-list-bulk-bar | BulkBar action fn prop gets selection :: ["T-2"]
+PASS es-fw-list | List keyboard Space toggles row :: ["T-2","T-3"]
+PASS es-fw-list-bulk-bar | BulkBar clear -> selection [] :: []
+PASS es-fw-list | List select all :: ["T-1","T-2","T-3"]
+PASS es-fw-list | List header click -> v-model:sort :: [{"fieldname":"status","direction":"asc"}]
+PASS es-fw-list | List column-resize event (kebab emit name) :: [{"fieldname":"name","width":"641px"}]
+PASS es-fw-list | List #cell slot rendered in every cell (9) :: light-DOM cell slot nodes found in 9 cell(s); rows text: ID Status Hours CELL CELL CELL CELL CELL CELL CELL CELL CELL
+PASS es-fw-list | scoped #cell <template> stamped per cell with slot props :: ["name=T-1","status=Open","hours=2","name=T-2","status=Closed","hours=5","name=T-3","status=Open","hours=1"]
+PASS es-fw-list | List #empty slot bound
+PASS es-fw-list | List rowLink (RouterLink) renders the row (needs an installed router) :: ID Status Hours T-1 Open 2
+PASS es-fw-list | rowLink row is a link to the route :: /todo/T-1
+PASS es-fw-list-footer | Footer counts
+PASS es-fw-list-footer | Footer page size -> v-model:pageSize :: 100
+PASS es-fw-list-footer | Footer load-more (kebab event) :: 1
+PASS es-fw-group-by-table | GroupByTable rows + aggregates + totals :: Status Count Sum of Hours Open 2 3 Closed 1 5 Total 3 8
+PASS es-fw-group-by-table | GroupByTable header sort -> update:groupBy :: [{"fieldname":"count:","direction":"asc"}]
+PASS es-fw-grid | Grid renders label, reqd marker, rows :: Items # Item * Qty 1 Apple 1 2 Pear 2 Add Row
+PASS es-fw-grid | Grid Add Row uses newRow fn prop, emits add+change, v-model :: [{"item":"Apple","qty":1},{"item":"Pear","qty":2},{"item":"New","qty":0,"__row_id":"row-1"}] add,change
+PASS es-fw-grid | Grid cellError fn marks invalid cell :: 1
+PASS es-fw-grid | Grid select + Delete -> remove event, v-model :: ["Pear","New"] add,change,remove:1,change
+PASS es-fw-grid | Grid scoped #cell editor stamped per cell :: 4
+PASS es-fw-grid | Grid editor keeps focus while typing (slot scope updated in place) :: INPUT Banana
+PASS es-fw-grid | Grid editor update() -> v-model, commit() -> commit event :: ["Banana","New"] add,change,remove:1,change,commit:item
+PASS es-fw-grid | Grid ArrowDown moves to the editor below :: 2:gcell w-full px-2
+PASS page | no page errors in core scenarios :: 
+PASS es-fw-list | .prop(rows, more) adds a row
+PASS es-fw-list | .detach().appendTo() of the list box keeps selection :: 1 selected Archive
+PASS es-fw-list | .html(<template slot=cell>) on the host swaps the per-cell template :: ["T-1","Open","2","T-2","Closed","5","T-3","Open","1"]
+PASS es-fw-list | .clone() + .prop(columns/rows): cell slot copied into each cell :: 6
+PASS es-fw-list | .remove() of the clone
+PASS es-fw-list | second rowLink list (router from ES.configure) links its row
+PASS es-fw-grid | .prop(modelValue) with a new row redraws both grids :: 6
+PASS es-fw-grid | after detach/append the per-cell editors still update + commit :: [{"item":"Fig","qty":"4"}] add,change,remove:1,change,commit:item,commit:qty
+PASS es-fw-grid | .remove() grid :: 
+PASS es-fw-list-footer | .attr(total-count) shows :: 20 100 500 2500 Load More 4 of 50
+PASS es-fw-list-footer | .attr(row-count/total-count) strings become Number props (needs runtime prop types) :: ["number","number","function Number() { [native code] }"]
+PASS page | no page errors in Desk operations :: 
+console errors/warnings: 0
+ALL PASS (40)

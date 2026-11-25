@@ -1,0 +1,52 @@
+{
+ "page": "toast.html",
+ "fails": 2,
+ "n": 8,
+ "results": [
+  {
+   "tag": "es-toast-provider",
+   "k": "standalone es-toast-provider: toast.error with action shows once",
+   "ok": false,
+   "extra": "[\"Failed / Retry\",\"Failed / Retry\"]"
+  },
+  {
+   "tag": "es-toast-provider",
+   "k": "error toast has an icon",
+   "ok": true
+  },
+  {
+   "tag": "es-toast-provider",
+   "k": "core (threw)",
+   "ok": false,
+   "extra": "page.click: Timeout 5000ms exceeded. @line 9"
+  },
+  {
+   "tag": "es-dialogs",
+   "k": "renders dialog.danger() once",
+   "ok": true,
+   "extra": "1"
+  },
+  {
+   "tag": "es-dialogs",
+   "k": "async onConfirm runs, closes",
+   "ok": true
+  },
+  {
+   "tag": "es-dialogs",
+   "k": "imperative dialog Escape closes",
+   "ok": true
+  },
+  {
+   "tag": "es-toast-provider",
+   "k": ".remove() of the page's provider: the root toaster takes over (toasts still show)",
+   "ok": true,
+   "extra": "1"
+  },
+  {
+   "tag": "es-dialogs",
+   "k": ".remove() of the page's es-dialogs: root Dialogs takes over",
+   "ok": true
+  }
+ ],
+ "errs": []
+}

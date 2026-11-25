@@ -1,0 +1,4 @@
+-rw-rw-r-- 1 claude claude   94417 Nov 24 16:30 es_link.bundle.GTJXHKCV.css
+-rw-rw-r-- 1 claude claude  183959 Nov 24 16:30 es_link.bundle.CE6HJYN3.js
+/home/claude/fb/frappe-bench/sites/assets/frappe/dist/js/es_link.bundle.CE6HJYN3.js 183959 gz=57239
+/home/claude/fb/frappe-bench/sites/assets/frappe/dist/css/es_link.bundle.GTJXHKCV.css 94417 gz=16772

@@ -1,0 +1,34 @@
+--- ../vite.config.mjs	2026-11-24 00:47:59.132266575 +0000
++++ proto/vite.config.mjs	2026-11-24 01:13:04.166059362 +0000
+@@ -9,9 +9,9 @@
+ import autoprefixer from 'autoprefixer'
+ import { lucideIconsPlugin } from 'frappe-ui/vite/lucideIconsPlugin'
+ const here = (p) => fileURLToPath(new URL(p, import.meta.url))
+-const WC = here('../')
+-const FW = here('../../frappe/ui/')
+-const SWEEP = here('../sweep/framework-ui/') // its node_modules holds the deps @framework/ui needs beyond wc/ (read only)
++const WC = here('../../../')
++const FW = here('../../../../frappe/ui/')
++const SWEEP = here('../../../sweep/framework-ui/') // its node_modules holds the deps @framework/ui needs beyond wc/ (read only)
+ const MODE = process.env.MODE || 'iife'
+ 
+ const fwExports = {
+@@ -38,10 +38,16 @@
+   },
+ }
+ const vueAlias = MODE === 'iife' ? [{ find: /^vue$/, replacement: WC + 'node_modules/vue' }] : []
++// Generic build fix: plugin-vue copies config.isProduction into its options, and a production
++// compileScript drops every runtime prop type except Boolean/Function. frappe-ui declares
++// props with TypeScript, so attributes (strings) could not be converted to Number/Array/Object.
++// Keeping the dev-mode prop types lets the runtime convert .attr('max','4') to 4.
++const vuePlugin = vue({ customElement: false })
++const keepPropTypes = { name: 'keep-prop-types', configResolved() { if (process.env.KEEP_PROP_TYPES) vuePlugin.api.options = { ...vuePlugin.api.options, isProduction: false } } }
+ export default defineConfig({
+   root: here('.'),
+-  plugins: [{ ...lucideIconsPlugin(), enforce: 'pre' }, fwExports, redirect, vue({ customElement: false })],
+-  css: { postcss: { plugins: [tailwind({ config: here('tailwind.config.js') }), autoprefixer()] } },
++  plugins: [{ ...lucideIconsPlugin(), enforce: 'pre' }, fwExports, redirect, vuePlugin, keepPropTypes],
++  css: { postcss: { plugins: [tailwind({ config: here('../../tailwind.config.js') }), autoprefixer()] } },
+   resolve: { alias: vueAlias, dedupe: ['vue'] },
+   define: { 'process.env.NODE_ENV': '"production"', 'import.meta.env.DEV': 'false', __VUE_OPTIONS_API__: 'true', __VUE_PROD_DEVTOOLS__: 'false', __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: 'false' },
+   publicDir: false,

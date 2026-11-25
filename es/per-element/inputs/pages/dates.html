@@ -1,0 +1,32 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../build/es-wc-spike.css">
+<script defer src="../build/es-components.js"></script>
+<script defer src="../build/petite-vue.iife.js"></script>
+</head><body class="p-6">
+<div id="app" v-scope="{
+  d: '2024-03-15', dOpen: false, changed: '', range: ['2024-03-01', '2024-03-05'], dt: '2024-03-15 10:30:00', t: '09:00', tOpen: false, d2: '2024-03-13', ctlOpen: false,
+  noWeekends: (d) => d.day() === 0 || d.day() === 6,
+  dump() { return JSON.stringify({d:this.d,dOpen:this.dOpen,changed:this.changed,range:this.range,dt:this.dt,t:this.t,tOpen:this.tOpen,d2:this.d2,ctlOpen:this.ctlOpen}) } }" class="space-y-4 max-w-md">
+  <pre id="state">{{ dump() }}</pre>
+
+  <es-date-picker id="dp" label="Due date" :model-value="d" @update:model-value="d = $event.detail[0]"
+    @update:open="dOpen = $event.detail[0]" @change="if ($event instanceof CustomEvent) changed = $event.detail[0]">
+    <span slot="prefix" id="dp-prefix">DUE</span>
+    <div slot="actions" id="dp-actions"><button id="dp-preset" @click="d = '2024-12-25'">Christmas</button></div>
+  </es-date-picker>
+  <es-date-picker id="dp-fn" format="DD/MM/YYYY" min="2024-03-10" max="2024-03-20" :is-date-unavailable="noWeekends" :model-value="d2" @update:model-value="d2 = $event.detail[0]" placeholder="no weekends"></es-date-picker>
+  <es-date-picker id="dp-ctl" :open="ctlOpen" @update:open="ctlOpen = $event.detail[0]" :model-value="d" @update:model-value="d = $event.detail[0]">
+    <button slot="trigger" id="dp-trigger" @click="ctlOpen = !ctlOpen">Custom trigger: {{ d }}</button>
+  </es-date-picker>
+
+  <es-date-range-picker id="drp" label="Range" :model-value="range" @update:model-value="range = $event.detail[0]"></es-date-range-picker>
+
+  <es-date-time-picker id="dtp" label="When" :model-value="dt" @update:model-value="dt = $event.detail[0]"></es-date-time-picker>
+
+  <es-time-picker id="tp" label="Time" :interval="30" :model-value="t" @update:model-value="t = $event.detail[0]" @update:open="tOpen = $event.detail[0]">
+    <span slot="prefix" id="tp-prefix">AT</span>
+  </es-time-picker>
+  <es-time-picker id="tp-opts" :options="[{value:'08:00',label:'Breakfast'},{value:'12:30',label:'Lunch'}]" :model-value="t" @update:model-value="t = $event.detail[0]"></es-time-picker>
+</div>
+<script>addEventListener('DOMContentLoaded', () => PetiteVue.createApp().mount('#app'))</script>
+</body></html>

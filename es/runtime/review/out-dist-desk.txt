@@ -1,0 +1,40 @@
+PASS render_template refresh x25 of 200 es-* elements: all rendered, no leaked entries, delegated clicks once :: {"els":280,"rendered":40,"top":200,"buckets":25,"groups":2,"clicks":2,"first":137,"avg":59}
+PASS   no errors during refreshes :: []
+PASS two routes swapping .html() into the same container 30x :: {"ok":true,"res":[2,1,2,1,2,1],"dup":[],"top":3,"children":3}
+PASS   no errors :: []
+PASS moving a subtree / single elements between containers keeps state :: {"kept":19,"single":"v0","top":21}
+PASS created detached (in and out of a detached div), inserted 2 s later :: {"sel":"Two","btn":"Later2","cb":1,"LATER":1}
+PASS teardown: $.cleanData unmounts at once; native innerHTML after a frame :: {"s1":50,"s2":0,"s3":50,"s4":0,"s5":0}
+PASS Bootstrap modal: es-* inside render and focus :: {"shown":true,"inputs":2,"focusable":true}
+PASS Bootstrap modal: dropdown menu from inside the modal is on top and clickable :: {"item":true,"inPortal":true,"onTop":true,"topIs":"truncate leading-tighter text-ink-gray-7","z":"100","modalZ":"1050","active":"dd inline-flex items-center ju"}
+FAIL Bootstrap modal: keyboard focus stays in the menu (Bootstrap enforceFocus does not steal it) :: {"open":true,"active":"BUTTON","inModal":true}
+FAIL Bootstrap modal: Esc closes the menu only, not the modal too :: {"menu":true,"modal":false}
+FAIL Bootstrap modal: mouse click on a dropdown item still works
+PASS Bootstrap modal: typing into es-combobox inside modal filters options :: {"val":"Ban","opts":["Banana"],"active":"INPUT","shown":true}
+PASS Bootstrap modal hide + show: elements still rendered :: {"shown":true,"rendered":1,"ddBtn":1,"portalLeft":1}
+FAIL Bootstrap modal: es-select opens and keyboard-selects inside a modal :: {"m7":{"opts":2,"active":"dialog"},"m8":{"open":true}}
+FAIL   errors during modal checks :: ["pageerror: Maximum call stack size exceeded.","pageerror: Maximum call stack size exceeded.","pageerror: Maximum call stack size exceeded.","pageerror: Maximum call stack size exceeded."]
+PASS [es-portal-aware enforceFocus] Bootstrap modal: es-* inside render and focus :: {"shown":true,"inputs":2,"focusable":true}
+PASS [es-portal-aware enforceFocus] Bootstrap modal: dropdown menu from inside the modal is on top and clickable :: {"item":true,"inPortal":true,"onTop":true,"topIs":"truncate leading-tighter text-ink-gray-7","z":"100","modalZ":"1050","active":"menu"}
+PASS [es-portal-aware enforceFocus] Bootstrap modal: keyboard focus stays in the menu (Bootstrap enforceFocus does not steal it) :: {"open":true,"active":"menuitem","inModal":false}
+PASS [es-portal-aware enforceFocus] Bootstrap modal: Esc closes the menu only, not the modal too :: {"menu":false,"modal":true}
+PASS [es-portal-aware enforceFocus] Bootstrap modal: mouse click on a dropdown item still works :: 1
+PASS [es-portal-aware enforceFocus] Bootstrap modal: typing into es-combobox inside modal filters options :: {"val":"Ban","opts":["Banana"],"active":"INPUT","shown":true}
+PASS [es-portal-aware enforceFocus] Bootstrap modal hide + show: elements still rendered :: {"shown":true,"rendered":1,"ddBtn":1,"portalLeft":1}
+PASS [es-portal-aware enforceFocus] Bootstrap modal: es-select opens and keyboard-selects inside a modal :: {"m7":{"opts":2,"active":"option"},"m8":{"mv":"b","open":false}}
+PASS [es-portal-aware enforceFocus]   errors during modal checks :: []
+PASS   with Bootstrap _enforceFocus disabled, keyboard reaches the menu :: {"active":"menuitem"}
+console/page errors: 12
+  pageerror: Maximum call stack size exceeded.
+  pageerror: Maximum call stack size exceeded.
+  pageerror: Maximum call stack size exceeded.
+  pageerror: Maximum call stack size exceeded.
+  pageerror: Maximum call stack size exceeded.
+  pageerror: Maximum call stack size exceeded.
+  pageerror: Maximum call stack size exceeded.
+  pageerror: Maximum call stack size exceeded.
+  pageerror: Maximum call stack size exceeded.
+  pageerror: Maximum call stack size exceeded.
+  pageerror: Maximum call stack size exceeded.
+  pageerror: Maximum call stack size exceeded.
+5 FAILED of 26

@@ -1,0 +1,26 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../../dist/es-wc-spike.css">
+<script defer src="../../dist/es-components.js"></script>
+<script defer src="../../dist/petite-vue.iife.js"></script>
+</head><body class="p-6">
+<div id="app" v-scope="{ rows: [{id:'a',label:'Alpha',on:false},{id:'b',label:'Beta',on:true},{id:'c',label:'Gamma',on:false}],
+  show: true, showSel: false, colors: [{label:'Red',value:'red'},{label:'Blue',value:'blue'}], color: 'red', evil: '{{ 6*7 }}',
+  rev() { this.rows = this.rows.slice().reverse() } }">
+  <p id="state">{{ rows.map(r => r.id + ':' + r.on).join(',') }}|{{ color }}</p>
+  <button id="rev" @click="rev()">rev</button>
+  <button id="tog" @click="show = !show">tog</button>
+  <button id="togsel" @click="showSel = !showSel">togsel</button>
+  <ul id="list">
+    <li v-for="row in rows" :key="row.id" :data-row="row.id">
+      <es-checkbox :data-id="row.id" :label="row.label" :model-value="row.on" @update:model-value="row.on = $event.detail[0]"></es-checkbox>
+      <es-text-input :data-id="row.id" placeholder="type"></es-text-input>
+      <es-button :data-id="row.id">Btn {{ row.label }}</es-button>
+    </li>
+  </ul>
+  <div id="vif" v-if="show"><es-badge id="vif-badge" :label="'shown ' + rows.length"></es-badge><es-button id="vif-btn">Slot {{ rows[0].label }}</es-button></div>
+  <div id="vsel" v-if="showSel"><es-select id="sel2" :options="colors" :model-value="color" @update:model-value="color = $event.detail[0]"></es-select></div>
+  <es-badge id="static-badge" label="Literal {{ 6*7 }} from server"></es-badge>
+  <es-badge id="bound-badge" :label="evil"></es-badge>
+</div>
+<script>addEventListener('DOMContentLoaded', () => PetiteVue.createApp().mount('#app'))</script>
+</body></html>

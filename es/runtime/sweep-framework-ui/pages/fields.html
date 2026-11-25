@@ -1,0 +1,97 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="/dist/es-ui.css">
+<link rel="stylesheet" href="page.css">
+<script src="/jquery.js"></script>
+<script src="/dist/es-ui.iife.js"></script>
+</head><body class="p-6">
+<!-- jQuery port of wc/sweep/framework-ui/pages/fields.html: every Fields/*.vue as es-fw-*-field, driven with jQuery only. -->
+<pre id="state" class="text-xs"></pre>
+<pre id="changes" class="text-xs"></pre>
+<div id="app" class="grid grid-cols-3 gap-4"></div>
+<div id="desk" class="grid grid-cols-3 gap-4 border-t mt-4 pt-4"></div>
+<script>
+$(function () {
+  const S = window.S = {
+    doc: { data: 'Ada', notes: 'line1', pw: '', phone: '', hours: 1.5, qty: 3, amt: 10, done: 0, status: 'Open', fruit: '', user: null,
+      ref_dt: 'User', ref_name: null, due: '2026-11-20', at: '2026-11-20 10:30:00', tm: '09:15:00', dur: 3600, stars: 0.4, color: '#ff0000',
+      img: 'http://jq.test/dist/none.png', att: null, json: '{"a": 1}', loc: '{"type":"FeatureCollection","features":[{"type":"Feature","properties":{},"geometry":{"type":"Point","coordinates":[77.59,12.97]}}]}', tags: [], rows: [] },
+    changes: [], log: [],
+  }
+  const F = window.F = {
+    data: { fieldname: 'data', fieldtype: 'Data', label: 'Data field', description: 'Plain text' },
+    notes: { fieldname: 'notes', fieldtype: 'Small Text', label: 'Notes' },
+    pw: { fieldname: 'pw', fieldtype: 'Password', label: 'Secret' },
+    phone: { fieldname: 'phone', fieldtype: 'Phone', label: 'Phone' },
+    hours: { fieldname: 'hours', fieldtype: 'Float', label: 'Hours', precision: 2 },
+    qty: { fieldname: 'qty', fieldtype: 'Int', label: 'Qty' },
+    amt: { fieldname: 'amt', fieldtype: 'Currency', label: 'Amount', options: 'USD' },
+    done: { fieldname: 'done', fieldtype: 'Check', label: 'Done' },
+    status: { fieldname: 'status', fieldtype: 'Select', label: 'Status', options: 'Open\nClosed\nCancelled' },
+    fruit: { fieldname: 'fruit', fieldtype: 'Autocomplete', label: 'Fruit', options: 'Apple\nBanana\nCherry' },
+    user: { fieldname: 'user', fieldtype: 'Link', label: 'User', options: 'User' },
+    ref_name: { fieldname: 'ref_name', fieldtype: 'Dynamic Link', label: 'Reference', options: 'ref_dt' },
+    due: { fieldname: 'due', fieldtype: 'Date', label: 'Due' },
+    at: { fieldname: 'at', fieldtype: 'Datetime', label: 'At' },
+    tm: { fieldname: 'tm', fieldtype: 'Time', label: 'Time' },
+    dur: { fieldname: 'dur', fieldtype: 'Duration', label: 'Duration' },
+    stars: { fieldname: 'stars', fieldtype: 'Rating', label: 'Stars', options: '5' },
+    color: { fieldname: 'color', fieldtype: 'Color', label: 'Colour' },
+    heading: { fieldname: 'heading', fieldtype: 'Heading', label: 'Section heading' },
+    html: { fieldname: 'html', fieldtype: 'HTML', options: '<p id="html-p">Hello <b>bold</b></p><img src=x onerror="window.__xss=1">' },
+    btn: { fieldname: 'btn', fieldtype: 'Button', label: 'Press me' },
+    img: { fieldname: 'img', fieldtype: 'Image', label: 'Picture' },
+    att: { fieldname: 'att', fieldtype: 'Attach', label: 'Attachment' },
+    json: { fieldname: 'json', fieldtype: 'JSON', label: 'Payload' },
+    loc: { fieldname: 'loc', fieldtype: 'Geolocation', label: 'Location' },
+    tags: { fieldname: 'tags', fieldtype: 'Table MultiSelect', label: 'Tags', options: 'ToDo Tag', childFields: [{ fieldname: 'tag', fieldtype: 'Link', options: 'User', label: 'Tag' }] },
+    rows: { fieldname: 'rows', fieldtype: 'Table', label: 'Rows', options: 'ToDo Row', childFields: [{ fieldname: 'item', fieldtype: 'Data', label: 'Item', in_list_view: 1 }] },
+  }
+  const show = () => { $('#state').text(JSON.stringify(S.doc)); $('#changes').text(S.changes.join(';')) }
+  const own = ($el, ev, fn) => $el.on(ev, function (e) { if (e.target === e.currentTarget) { fn(e.originalEvent.detail, e); show() } })
+  // Desk-style control: one element per field, value pushed with .prop, model read back from update:modelValue
+  const field = (tag, id, key, f, opts = {}) => {
+    const $el = $('<' + tag + '>').attr('id', id).prop('field', f)
+    if (key) $el.prop('modelValue', S.doc[key])
+    if (key && !opts.noModel) own($el, 'update:modelValue', (v) => { S.doc[key] = v })
+    if (opts.change) own($el, 'change', (v) => S.changes.push(key + '=' + JSON.stringify(v)))
+    if (opts.cls) $el.addClass(opts.cls)
+    return $el.appendTo('#app')
+  }
+  // ResolveFieldKey for TableField outside FormLayout: only reachable if the bundle exposes it (generic, package-wide)
+  if (ES.frameworkUI && ES.frameworkUI.ResolveFieldKey) ES.configure((app) => app.provide(ES.frameworkUI.ResolveFieldKey, ES.frameworkUI.getFieldComponent))
+  ES.batch(() => {
+    field('es-fw-text-field', 'f-data', 'data', F.data, { change: 1 })
+    field('es-fw-textarea-field', 'f-notes', 'notes', F.notes)
+    field('es-fw-password-field', 'f-pw', 'pw', F.pw)
+    field('es-fw-phone-field', 'f-phone', 'phone', F.phone)
+    field('es-fw-number-field', 'f-hours', 'hours', F.hours, { change: 1 })
+    field('es-fw-number-field', 'f-qty', 'qty', F.qty)
+    field('es-fw-number-field', 'f-amt', 'amt', F.amt)
+    field('es-fw-check-field', 'f-done', 'done', F.done, { change: 1 })
+    field('es-fw-select-field', 'f-status', 'status', F.status)
+    field('es-fw-autocomplete-field', 'f-fruit', 'fruit', F.fruit)
+    field('es-fw-link-field', 'f-user', 'user', F.user, { change: 1 })
+    field('es-fw-dynamic-link-field', 'f-dyn', 'ref_name', F.ref_name).prop('row', S.doc)
+    field('es-fw-dynamic-link-field', 'f-dyn-norow', 'ref_name', F.ref_name, { noModel: 1 })
+    field('es-fw-date-field', 'f-due', 'due', F.due)
+    field('es-fw-datetime-field', 'f-at', 'at', F.at)
+    field('es-fw-time-field', 'f-tm', 'tm', F.tm)
+    field('es-fw-duration-field', 'f-dur', 'dur', F.dur)
+    field('es-fw-rating-field', 'f-stars', 'stars', F.stars)
+    field('es-fw-color-field', 'f-color', 'color', F.color, { change: 1 })
+    field('es-fw-heading-field', 'f-heading', null, F.heading)
+    field('es-fw-html-field', 'f-html', null, F.html)
+    field('es-fw-button-field', 'f-btn', null, F.btn).on('click', () => { S.changes.push('btn=1'); show() })
+    field('es-fw-image-field', 'f-img', 'img', F.img, { noModel: 1 })
+    field('es-fw-attach-field', 'f-att', 'att', F.att)
+    field('es-fw-code-editor-field', 'f-json', 'json', F.json, { change: 1 })
+    field('es-fw-geolocation-field', 'f-loc', 'loc', F.loc, { cls: 'col-span-3' })
+    field('es-fw-table-multi-select-field', 'f-tags', 'tags', F.tags)
+    field('es-fw-table-field', 'f-rows', 'rows', F.rows, { cls: 'col-span-3' })
+  })
+  show()
+  window.show = show; window.own = own
+  window.READY = true
+})
+</script>
+</body></html>

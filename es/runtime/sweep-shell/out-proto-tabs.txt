@@ -1,0 +1,39 @@
+PASS es-tab-list | composed: 3 triggers inside a tablist :: ["One:inactive","Two (3):active","Three:inactive:dis"]
+PASS es-tabs | composed: model-value "two" is the active trigger :: ["One:inactive","Two (3):active","Three:inactive:dis"]
+PASS es-tab-trigger | suffix slot inside trigger
+PASS es-tab-trigger | disabled boolean attribute :: Three:inactive:dis
+PASS es-tab-panel | only panel two visible
+PASS es-tab-panel | panel content inside [role=tabpanel]
+PASS es-tabs | click One -> update:modelValue on host + panel one shown
+PASS es-tabs | ArrowRight activates Two (automatic activation)
+PASS es-tabs | disabled Three is skipped
+PASS es-tabs | jQuery-written slot text stays live
+PASS es-tabs | shorthand: .prop("tabs") renders triggers (condition fn honoured) :: ["Alpha:inactive","Beta:active","Gamma:inactive"]
+PASS es-tabs | shorthand: <template slot="tab-panel"> stamped, data-es-text bound to tab.value :: 1 / Shared panel body (short=b)
+PASS es-tabs | shorthand: click Gamma -> state, panel follows :: Shared panel body (short=c)
+PASS es-tabs | shorthand: back to an EARLIER tab keeps the slot :: Shared panel body (short=a)
+PASS es-tab-buttons | options (.prop) render, Week checked :: ["Day:inactive","Week:active","Month:inactive"]
+PASS es-tab-buttons | click Month -> update:modelValue + option onClick
+PASS es-tab-buttons | ArrowLeft moves focus to Week, Space selects :: Week week
+PASS es-tab-buttons | sliding indicator sits on the active button :: 0
+PASS es-tab-trigger | lone trigger outside es-tabs does not kill the page (logs an error, renders nothing) :: <!---->
+PASS es-tab-trigger | .append() trigger + panel from strings: 4 triggers :: ["One:active","Two (4):inactive","Three:inactive:dis","Four:inactive"]
+PASS es-tab-panel | appended panel shows on its trigger
+PASS es-tabs | .prop("modelValue") from jQuery switches the panel
+PASS es-tab-trigger | reorder: .detach() + .append() to same tab-list (same task): One last, still active, no error :: {"order":["Two (4):inactive","Three:inactive:dis","Four:inactive","One:active"],"e":[]}
+PASS es-tab-trigger | .remove(): 3 triggers
+PASS es-tabs | .clone() of composed tabs: own TabsRoot, 3 triggers, own selection :: ["Two (4):active","Three:inactive:dis","One:inactive"]
+PASS es-tabs | clone starts from the copied model-value attribute (two), not the .prop value :: Panel two, count=4
+PASS es-tabs | clone switches independently of the original :: Panel one / Panel two, count=4
+PASS es-tabs | created inside a larger jQuery template: 2 triggers, nested es-text-input in panel
+PASS es-tabs | panel switch away and back: input value (Desk sets it via jQuery) -- unmounted panels lose DOM state :: value after switch back=kept
+PASS es-tabs | .empty() on es-tabs: no triggers, no error
+PASS es-tab-buttons | replace options + modelValue with .prop :: ["Quarter:inactive","Year:active"]
+PASS es-tab-buttons | .detach() + .prepend() keeps state
+console errors/warnings: 1
+  console: Error: Injection `Symbol(TabsRootContext)` not found. Component must be used within `TabsRoot`
+    at injectContext (http://jq.test/dist/es-ui.iife.js:13332:13)
+    at setup (http://jq.test/dist/es-ui.iife.js:30098:27)
+    at callWithErrorHandling (http://jq.test/dist/es-ui.iife.js:2619:21)
+    at s
+ALL PASS (32)

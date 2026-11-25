@@ -1,0 +1,106 @@
+PASS es-fw-text-field | initial value from .prop(modelValue)
+PASS es-fw-text-field | label + description from .prop(field) :: Data field Plain text
+PASS es-fw-text-field | typing -> update:modelValue :: Grace
+PASS es-fw-text-field | change on commit (component event, exactly once) :: data="Grace"
+PASS es-fw-text-field | element keeps v-model value (el.modelValue)
+PASS es-fw-textarea-field | v-model
+PASS es-fw-password-field | v-model
+PASS es-fw-password-field | masked
+PASS es-fw-phone-field | v-model
+PASS es-fw-number-field | Float formatted :: 1.50
+PASS es-fw-number-field | Float parses to number + change :: 12.345 data="Grace";hours=12.345
+PASS es-fw-number-field | Int initial :: 3
+PASS es-fw-number-field | Int v-model number :: 7
+PASS es-fw-number-field | Currency shows value :: 10
+PASS es-fw-check-field | starts unchecked
+PASS es-fw-check-field | click -> 1 + change :: 1 data="Grace";hours=12.345;done=1
+PASS es-fw-check-field | keyboard Space -> 0 :: 0
+PASS es-fw-select-field | picks option :: Closed
+PASS es-fw-select-field | trigger shows value
+PASS es-fw-select-field | keyboard Enter/ArrowDown/Enter picks next :: Cancelled
+PASS es-fw-autocomplete-field | lists options on click :: Apple,Banana,Cherry
+PASS es-fw-autocomplete-field | pick :: Banana
+PASS es-fw-link-field | fetches search_link with txt
+PASS es-fw-link-field | shows options :: Grace Hopper
+PASS es-fw-link-field | keyboard select -> v-model + change :: grace@example.com data="Grace";hours=12.345;done=1;done=0;user="grace@example.com"
+PASS es-fw-dynamic-link-field | .prop(row, doc) -> enabled
+PASS es-fw-dynamic-link-field | without row/DocKey disabled
+PASS es-fw-date-field | displays value :: 2026-11-20
+PASS es-fw-date-field | picker picks a day :: 2026-11-25
+PASS es-fw-datetime-field | displays value :: 2026-11-20 10:30:00
+PASS es-fw-time-field | displays value :: 09:15
+PASS es-fw-duration-field | displays value :: Duration / 1h
+PASS es-fw-rating-field | 5 stars, 0.4 -> 2 filled :: 5 filled,filled,empty,empty,empty
+PASS es-fw-rating-field | click 4th star -> 0.8 :: 0.8 filled,filled,filled,filled,empty
+PASS es-fw-color-field | hex shown :: #ff0000
+PASS es-fw-color-field | swatch teleported into the field row
+PASS es-fw-color-field | pick -> change :: data="Grace";hours=12.345;done=1;done=0;user="grace@example.com";color="#7c7c7c"
+PASS es-fw-heading-field | renders label
+PASS es-fw-html-field | sanitized :: <es-slots hidden=""></es-slots><div class="prose prose-sm max-w-none text-ink-gray-8"><p id="html-p">Hello <b>bold</b></p><img src="x"></div>
+PASS es-fw-button-field | native click bubbles to host .on(click), once :: data="Grace";hours=12.345;done=1;done=0;user="grace@example.com";color="#7c7c7c";btn=1
+PASS es-fw-button-field | keyboard Enter clicks :: data="Grace";hours=12.345;done=1;done=0;user="grace@example.com";color="#7c7c7c";btn=1;btn=1
+PASS es-fw-image-field | uses modelValue
+PASS es-fw-code-editor-field | renders codemirror
+PASS es-fw-code-editor-field | typing -> v-model :: "{\"a\": 1} "
+PASS es-fw-geolocation-field | summary of initial point :: 12.97000°N, 77.59000°E
+PASS es-fw-geolocation-field | dialog with leaflet map + marker
+PASS es-fw-geolocation-field | Save -> geojson v-model, dialog closed :: {"type":"FeatureCollection","features":[{"type":"Feature","properties":{},"geometry":{"type":"Point"
+PASS es-fw-table-multi-select-field | options from search_link :: Ada Lovelace|Grace Hopper|Linus T
+PASS es-fw-table-multi-select-field | -> child rows :: [{"tag":"ada@example.com","__row_id":"row-1"}]
+PASS es-fw-table-field | add row -> v-model :: [{"item":"","__row_id":"row-2"}]
+PASS es-fw-table-field | row drawn with an editor (standalone, no FormLayout; needs ResolveFieldKey provided app-wide) :: [1] frameworkUI exposed=true
+PASS es-fw-table-field | no render errors drawing the row :: 
+PASS es-fw-attach-field | opens upload dialog
+PASS es-fw-attach-field | upload -> file_url v-model :: "/files/hello.txt"
+PASS page | no page errors in core scenarios apart from TableField (native change never reaches .on(change) handlers) :: 
+PASS es-fw-text-field | created from HTML string in a template, JSON field attr -> label + value :: From template
+PASS es-fw-text-field | template appended BEFORE .prop(field): no crash, renders once props arrive :: {"ok1":1,"errs":[]} Late props
+FAIL es-fw-text-field | no console error while the element sat connected without its required field prop :: error: TypeError: Cannot read properties of undefined (reading 'label') /     at Proxy.<anonymous> (http://jq.test/dist/es-ui.iife.js:194:12483) /     at xS (http://jq.test/dist/es-ui.iife.js:19:19969) /     at Yg.Me [as fn] (http://jq.test
+PASS es-fw-text-field | same order inside ES.batch(): renders once with props, no console error :: 
+PASS es-fw-text-field | .prop(modelValue) after mount updates the input
+PASS es-fw-text-field | .prop(field, new object) relabels :: Relabelled * (required) Plain text
+PASS es-fw-text-field | in-place mutation of the field object + .prop(field, sameRef) re-renders :: Mutated * (required) Plain text
+PASS es-fw-text-field | props of the field element (for reference) :: field,modelValue,row,error
+PASS es-fw-text-field | .detach().appendTo() keeps value and stays live
+PASS es-fw-text-field | events still reach the page after the move :: after move
+PASS es-fw-text-field | .empty() on host remounts with props kept :: after move
+PASS es-fw-text-field | listeners kept after .empty()
+PASS es-fw-text-field | .html(x) on host: component still rendered :: <es-slots hidden=""><span id="junk">junk</span></es-slots><div class="space-y-1.5"><label id="frappe-ui-es-93-label" for="frappe-ui-es-93" data-slot="label" class="block text-sm leading-tighter text-i
+PASS es-fw-text-field | .clone() of attr-configured field renders independently
+PASS es-fw-text-field | clone has its own state
+FAIL es-fw-text-field | .clone() of a .prop-configured field: props are not copied (contract) - renders without crash :: {"html":38} error: TypeError: Cannot read properties of undefined (reading 'label') /     at Proxy.<anonymous> (http://jq.test/dist/es-ui.iife.js:160:16811) /     at xS (http://jq.test/dist/es-ui.iife.js:19:19969) /     at Yg.Me [as fn] (ht
+PASS es-fw-text-field | .remove() unmounts (no leftover rendered nodes)
+PASS es-fw-select-field | after .detach().appendTo(): dropdown still positions + picks :: Open
+PASS es-fw-select-field | .prop(field) with new options -> menu shows them :: Open,Closed,Cancelled,On Hold
+PASS es-fw-select-field | .remove() closes cleanly (no orphan listbox) :: 
+PASS es-fw-check-field | .prop(modelValue,1) checks without emitting change
+PASS es-fw-check-field | detach/append keeps checked
+PASS es-fw-link-field | built in a fragment with .find().prop() then appended: opens + lists :: Ada Lovelace|Grace Hopper|Linus T
+PASS es-fw-link-field | .remove() of the wrapper unmounts the field
+PASS es-fw-date-field | .prop(modelValue) shows new date :: 2026-01-02
+PASS es-fw-date-field | after move: picker opens anchored under the input :: [{"x":856,"y":557,"width":224,"height":262},{"x":856,"y":822.796875,"width":400,"height":28,"top":822.796875,"right":1256,"bottom":850.796875,"left":856}]
+PASS es-fw-table-field | .prop(modelValue, rows) redraws rows
+PASS es-fw-table-field | detach/append keeps rows
+PASS es-fw-geolocation-field | after move: dialog + leaflet map
+PASS es-fw-geolocation-field | .remove() no errors :: 
+PASS es-fw-code-editor-field | .prop(modelValue) updates codemirror :: {"b": 2}
+PASS es-fw-code-editor-field | detach/append keeps the editor content
+PASS es-fw-rating-field | .prop(modelValue,1) -> 5 filled :: filled,filled,filled,filled,filled model=1
+PASS es-fw-rating-field | clone + .prop renders its own value
+PASS page | page errors during Desk operations (all) :: error: TypeError: Cannot read properties of undefined (reading 'label') /     at Proxy.<anonymous> (http://jq.test/dist/es-ui.iife.js:194:12483) /     at xS (http://jq.test/dist/es-ui.iife.js:19:19969) /     at Yg.Me [as fn] (http://jq.test
+console errors/warnings: 6
+  http 404 http://jq.test/sweep-framework-ui/pages/x
+  error: Failed to load resource: the server responded with a status of 404 (Not Found)
+  http 404 http://jq.test/dist/none.png
+  error: Failed to load resource: the server responded with a status of 404 (Not Found)
+  error: TypeError: Cannot read properties of undefined (reading 'label')
+    at Proxy.<anonymous> (http://jq.test/dist/es-ui.iife.js:194:12483)
+    at xS (http://jq.test/dist/es-ui.iife.js:19:19969)
+    at Yg.Me [as fn] (http://jq.test/dist/es-ui.iife.js:19:30859)
+    at Yg.run (http://jq.test/dist/es-ui.ii
+  error: TypeError: Cannot read properties of undefined (reading 'label')
+    at Proxy.<anonymous> (http://jq.test/dist/es-ui.iife.js:160:16811)
+    at xS (http://jq.test/dist/es-ui.iife.js:19:19969)
+    at Yg.Me [as fn] (http://jq.test/dist/es-ui.iife.js:19:30859)
+    at Yg.run (http://jq.test/dist/es-ui.ii
+2 FAILED of 90

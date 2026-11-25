@@ -1,0 +1,24 @@
+PASS es-fw-file-upload-dialog | closed dialog renders nothing
+PASS es-fw-file-upload-dialog | title attribute became the prop (no native tooltip on host)
+PASS es-fw-file-upload-dialog | .prop(open,true) opens dialog (teleported into es-portal) :: Upload from device Embed a link or drop files to upload
+PASS es-fw-file-upload-dialog | restrictions object prop enforced client-side (size + type) :: 1 file All private a.txt 2 B "big.txt" was skipped — exceeds 1000 B. "x.png" was skipped — file type not allowed. Add more Upload from device Embed a link or drop files to upload Cancel Upload
+PASS es-fw-file-upload-dialog | Upload -> default transport POST /api/method/upload_file :: upload_file
+PASS es-fw-file-upload-dialog | committed event with file_url, uploading true/false events :: {"n":0,"open":false,"committed":["/files/a.txt"],"files":[],"uploading":[true,false],"log":[]}
+PASS es-fw-file-upload-dialog | dialog closed after commit (update:open) :: [false]
+PASS es-fw-file-upload-dialog | keyboard Escape closes -> update:open false :: false
+PASS es-fw-attachments-list | empty state
+PASS es-fw-attachments-list | uses transport fn prop (.prop(transport, () => fn)) + v-model :: [{"file_url":"/files/custom-b.md","file_name":"b.md","is_private":true}] tx=1
+PASS es-fw-attachments-list | renders the file row
+PASS es-fw-upload-tray | shows the tray-mode batch (b.md) :: "Uploading 0/1Uploading filesb.md100% "
+PASS es-fw-attachments-list | remove -> v-model [] :: []
+PASS page | no page errors in core scenarios :: 
+PASS es-fw-file-upload-dialog | .detach().appendTo() while open keeps the dialog open
+PASS es-fw-file-upload-dialog | .remove() while open: dialog and overlay gone, page not inert :: 
+PASS es-fw-file-upload-dialog | open="" attribute opens a dialog created from an HTML string :: Upload from device Embed a link or drop files to upload
+PASS es-fw-file-upload-dialog | Cancel -> update:open false, the page removes the attribute, dialog closed
+PASS es-fw-file-upload-dialog | .attr(open, "") reopens
+PASS es-fw-attachments-list | .prop(modelValue) shows rows
+PASS es-fw-attachments-list | detach/append keeps rows
+PASS es-fw-attachments-list | .remove() no errors :: 
+console errors/warnings: 0
+ALL PASS (22)

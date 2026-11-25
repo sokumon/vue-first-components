@@ -1,0 +1,59 @@
+{
+ "page": "toast.html",
+ "fails": 3,
+ "n": 9,
+ "results": [
+  {
+   "tag": "es-toast-provider",
+   "k": "standalone provider shows ES.toast.error with action, exactly once",
+   "ok": false,
+   "extra": "{\"tt\":[\"Failed / Retry\",\"Failed / Retry\"],\"toasters\":2}"
+  },
+  {
+   "tag": "es-toast-provider",
+   "k": "error toast has an icon",
+   "ok": true
+  },
+  {
+   "tag": "es-toast-provider",
+   "k": "core (threw)",
+   "ok": false,
+   "extra": "locator.click: Timeout 4000ms exceeded."
+  },
+  {
+   "tag": "es-dialogs",
+   "k": "standalone es-dialogs renders dialog.danger() exactly once",
+   "ok": true,
+   "extra": "1"
+  },
+  {
+   "tag": "es-dialogs",
+   "k": "async onConfirm runs and closes",
+   "ok": true,
+   "extra": "deleted"
+  },
+  {
+   "tag": "es-dialogs",
+   "k": "imperative dialog Escape closes",
+   "ok": true
+  },
+  {
+   "tag": "es-toast-provider",
+   "k": ".detach() + .append() (same task): toast shown, one toaster",
+   "ok": false,
+   "extra": "{\"n\":2,\"e\":[]}"
+  },
+  {
+   "tag": "es-toast-provider",
+   "k": "after .remove(): ES.toast still shows (one toaster)",
+   "ok": true,
+   "extra": "1"
+  },
+  {
+   "tag": "es-dialogs",
+   "k": "after .remove(): ES.dialog still renders once (root Dialogs)",
+   "ok": true
+  }
+ ],
+ "errs": []
+}

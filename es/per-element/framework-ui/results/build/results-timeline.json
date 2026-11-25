@@ -1,0 +1,90 @@
+{
+ "results": [
+  {
+   "k": "timeline renders every activity type in order",
+   "ok": true,
+   "extra": "log,version,comment,email,attachment_log"
+  },
+  {
+   "k": "timeline rows show content",
+   "ok": true,
+   "extra": "Older activity L created this 4 days ago Ada Lovelace changed Open → Closed 4 days ago A Ada Lovelace 4 days ago Looks good notes.txt A Ada Lovelace 4 days ago To:grace@example.com Subject:Re: bug Ada Lovelace attached spec.pdf 4 days ago"
+  },
+  {
+   "k": "#icon-log named slot lands in the log row gutter",
+   "ok": true
+  },
+  {
+   "k": "paginate.fetchNextPage fn prop called by Load More",
+   "ok": true,
+   "extra": "1"
+  },
+  {
+   "k": "#empty slot bound + reactive",
+   "ok": true,
+   "extra": "Quiet here (1)"
+  },
+  {
+   "k": "exposed scrollToLatest/scrollToRow reachable on element",
+   "ok": false,
+   "extra": "undefined/ exposedProxyHas=function"
+  },
+  {
+   "k": "scoped #item-comment <template> gets {activity}",
+   "ok": false,
+   "extra": "[]"
+  },
+  {
+   "k": "TimelineContainer default slot",
+   "ok": true
+  },
+  {
+   "k": "CommentItem actions slot visible",
+   "ok": true
+  },
+  {
+   "k": "CommentItem editable -> Save/Discard",
+   "ok": true,
+   "extra": "Ada Lovelace\n4 days ago\n\nLooks good\n\nDiscard\nSave"
+  },
+  {
+   "k": "CommentItem editor becomes contenteditable",
+   "ok": true
+  },
+  {
+   "k": "Ctrl+Enter -> save event with edited html",
+   "ok": true,
+   "extra": "\"<p>Looks <strong>good indeed</strong><br></p>\""
+  },
+  {
+   "k": "Discard -> discard event",
+   "ok": true,
+   "extra": "{\"n\":3,\"editing\":false,\"saved\":\"<p>Looks <strong>good indeed</strong><br></p>\",\"discards\":1,\"more\":1}"
+  },
+  {
+   "k": "EmailItem header + footer slot bound",
+   "ok": true,
+   "extra": "Ada Lovelace 4 days ago To:grace@example.com Subject:Re: bug Reply to ada@example.com"
+  },
+  {
+   "k": "EmailItem body content visible",
+   "ok": true,
+   "extra": "Ada Lovelace 4 days ago To:grace@example.com Subject:Re: bug Reply to ada@example.com"
+  },
+  {
+   "k": "LogItem / VersionItem standalone",
+   "ok": true,
+   "extra": "created this\n4 days ago / Ada Lovelace\nchanged\nOpen\n→\nClosed\n4 days ago"
+  },
+  {
+   "k": "AttachmentChip opens preview dialog with fetched markdown",
+   "ok": true,
+   "extra": "readme.md\nHello from readme\n\nSome text."
+  },
+  {
+   "k": "Escape closes preview",
+   "ok": true
+  }
+ ],
+ "errs": []
+}

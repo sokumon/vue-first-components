@@ -1,0 +1,121 @@
+{
+ "page": "condition.html",
+ "fails": 3,
+ "n": 19,
+ "results": [
+  {
+   "tag": "es-fw-condition-builder",
+   "k": "label + description props",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-condition-builder",
+   "k": "#empty slot rendered inside the empty button, jQuery-filled",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-condition-builder",
+   "k": "empty click -> v-model gets a blank condition",
+   "ok": true,
+   "extra": "{\"conjunction\":\"and\",\"conditions\":[{\"fieldname\":\"\",\"operator\":\"equals\",\"value\":\"\"}]}"
+  },
+  {
+   "tag": "es-fw-condition-builder",
+   "k": "field picker lists meta fields (doctype attr)",
+   "ok": true,
+   "extra": "Name|Created By|Last Updated By|Tags|Like|Assigned To|Created On|Last Updated On|Status|Priority|Due Date|Allocated To|Description|Hours|Done"
+  },
+  {
+   "tag": "es-fw-condition-builder",
+   "k": "pick field -> condition.fieldname",
+   "ok": true,
+   "extra": "{\"fieldname\":\"priority\",\"operator\":\"equals\",\"value\":\"Low\"}"
+  },
+  {
+   "tag": "es-fw-condition-builder",
+   "k": "value -> v-model + update:expression (no second flush needed)",
+   "ok": true,
+   "extra": "{\"fieldname\":\"priority\",\"operator\":\"equals\",\"value\":\"High\"} expr=priority == \"High\""
+  },
+  {
+   "tag": "es-fw-condition-builder",
+   "k": "Add Condition dropdown (teleported menu) offers condition + group",
+   "ok": true,
+   "extra": "Add Condition|Add Condition Group"
+  },
+  {
+   "tag": "es-fw-condition-builder",
+   "k": "Add Condition via keyboard (ArrowDown, Enter) appends",
+   "ok": true,
+   "extra": "2"
+  },
+  {
+   "tag": "es-fw-condition-builder",
+   "k": "conjunction switch -> or",
+   "ok": true,
+   "extra": "or"
+  },
+  {
+   "tag": "es-fw-condition-builder",
+   "k": "actions menu Remove",
+   "ok": true,
+   "extra": "1"
+  },
+  {
+   "tag": "es-fw-condition-builder",
+   "k": "readonly builder (.prop fields/modelValue/labels) draws value, no add button",
+   "ok": true,
+   "extra": "Where Status Equals Open Field Operator Value Status"
+  },
+  {
+   "tag": "es-fw-condition-builder",
+   "k": "readonly builder configured only by JSON attributes in an HTML string",
+   "ok": false,
+   "extra": " :: modelValue type=string"
+  },
+  {
+   "tag": "es-fw-condition-builder",
+   "k": "no page errors in core scenarios",
+   "ok": false,
+   "extra": "error: TypeError: Cannot read properties of undefined (reading 'forEach')\n    at Y4 (http://jq.test/dist/es-ui.iife.js:622:5361)\n    at Rpe (http://jq.test/dist/es-ui.iife.js:622:5545)\n    at Ibe.fn (http://jq.test/dist/es-ui.iife.js:623:13887)\n    at GV (http://jq.test/dist/es-ui.iife.js:10:3583)\n "
+  },
+  {
+   "tag": "es-fw-condition-builder",
+   "k": ".detach().appendTo() keeps the tree",
+   "ok": true,
+   "extra": "1"
+  },
+  {
+   "tag": "es-fw-condition-builder",
+   "k": "dropdown still anchors to its trigger after the move",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-condition-builder",
+   "k": ".prop(modelValue) from the page redraws rows",
+   "ok": true,
+   "extra": "Conditions When should this run? Condition removed. 1 remaining. Match all of the following Where Status Equals Closed Field Operator Value Condition actions Status and Changes how every condition in this group is joined Priority Equals Low Field Operator Value Condition actions Priority Add Conditi"
+  },
+  {
+   "tag": "es-fw-condition-builder",
+   "k": ".html(<b slot=empty>) on the host: remount shows the new empty slot inside the button",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-condition-builder",
+   "k": ".clone() of the attribute-configured builder renders the same",
+   "ok": true,
+   "extra": ""
+  },
+  {
+   "tag": "es-fw-condition-builder",
+   "k": ".remove() both; no errors",
+   "ok": false,
+   "extra": "error: TypeError: Cannot read properties of undefined (reading 'forEach')\n    at Y4 (http://jq.test/dist/es-ui.iife.js:622:5361)\n    at Rpe (http://jq.test/dist/es-ui.iife.js:622:5545)\n    at Ibe.fn (http://jq.test/dist/es-ui.iife.js:623:13887)\n    at GV (http://jq.test/dist/es-ui.iife.js:10:3583)\n "
+  }
+ ],
+ "errs": [
+  "error: TypeError: Cannot read properties of undefined (reading 'forEach')\n    at Y4 (http://jq.test/dist/es-ui.iife.js:622:5361)\n    at Rpe (http://jq.test/dist/es-ui.iife.js:622:5545)\n    at Ibe.fn (http://jq.test/dist/es-ui.iife.js:623:13887)\n    at GV (http://jq.test/dist/es-ui.iife.js:10:3583)\n    at g",
+  "error: TypeError: Cannot read properties of undefined (reading 'forEach')\n    at Y4 (http://jq.test/dist/es-ui.iife.js:622:5361)\n    at Rpe (http://jq.test/dist/es-ui.iife.js:622:5545)\n    at Ibe.fn (http://jq.test/dist/es-ui.iife.js:623:13887)\n    at GV (http://jq.test/dist/es-ui.iife.js:10:3583)\n    at g"
+ ]
+}

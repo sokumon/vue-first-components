@@ -1,0 +1,115 @@
+{
+ "results": [
+  {
+   "k": "provider renders its slot (app bound inside)",
+   "pass": true,
+   "info": "k=false|n=0"
+  },
+  {
+   "k": "provider app slot is not hidden in es-slots",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "toast.success shows a toast with title + description",
+   "pass": true,
+   "info": "[\"Saved #1 / desc 1\"]"
+  },
+  {
+   "k": "toast rendered once (provider includes one Toaster)",
+   "pass": true,
+   "info": "1 toasts, 1 toasters"
+  },
+  {
+   "k": "toast has <b> from sanitised HTML",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "toast sits bottom-right",
+   "pass": true,
+   "info": "{\"x\":816,\"y\":814,\"w\":360,\"h\":62}"
+  },
+  {
+   "k": "toast action onClick fires",
+   "pass": true,
+   "info": "undo"
+  },
+  {
+   "k": "dialog.confirm() renders via a <Dialogs> host (exactly once)",
+   "pass": true,
+   "info": "1"
+  },
+  {
+   "k": "confirm onConfirm fires and dialog closes",
+   "pass": true,
+   "info": "undo,confirmed"
+  },
+  {
+   "k": "useKeyboardShortcut registration (via host bridge) handles Mod+S",
+   "pass": true,
+   "info": "1"
+  },
+  {
+   "k": "keyboard shortcuts dialog opens with title prop",
+   "pass": true,
+   "info": "Shortcuts here\nFile\nSave doc\nCtrl\nS\nOpen doc\nCtrl\nO\nNav\nGo home\nCtrl\nK\nShow shortcuts\nShift\n?"
+  },
+  {
+   "k": "dialog lists the registered groups/shortcuts",
+   "pass": true,
+   "info": "Shortcuts here | File | Save doc | Ctrl | S | Open doc | Ctrl | O | Nav | Go home | Ctrl | K | Show shortcuts | Shift | ?"
+  },
+  {
+   "k": "search shown above threshold",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "search filters to \"Open doc\"",
+   "pass": true,
+   "info": "Shortcuts here | File | Open doc | Ctrl | O"
+  },
+  {
+   "k": "kbd dialog Escape -> update:open false",
+   "pass": true,
+   "info": "k=false|n=1"
+  },
+  {
+   "k": "scroll area: host class h-40 constrains the viewport",
+   "pass": false,
+   "info": "{\"sa\":{\"x\":24,\"y\":322,\"w\":240,\"h\":160},\"vp\":{\"x\":25,\"y\":323,\"w\":238,\"h\":960}}"
+  },
+  {
+   "k": "scroll area: slot rows inside viewport",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "scroll area scrolls on wheel",
+   "pass": false,
+   "info": "0"
+  },
+  {
+   "k": "host convention (CSS: host > [data-slot=scroll-area] {height:100%}): viewport constrained, scrolls, scrollbar shows",
+   "pass": true,
+   "info": "{\"vp2\":{\"x\":25,\"y\":-153,\"w\":238,\"h\":158},\"st2\":300}"
+  },
+  {
+   "k": "scroll area: custom vertical scrollbar shown",
+   "pass": false,
+   "info": ""
+  },
+  {
+   "k": "viewport-class prop applied",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "exposed viewportElement readable on element",
+   "pass": false,
+   "info": ""
+  }
+ ],
+ "errs": []
+}

@@ -1,0 +1,11 @@
+PASS es-select mouse pick sets the model and the <select> :: {"doc":"High","sel":"High","shown":"High"}
+PASS es-select keyboard pick (Enter, ArrowDown, Enter) :: {"doc":"Medium","active":"trigger"}
+PASS jQuery add_options / set_df_property options mirror into es-select :: {"after_add_options":["X1","X2"],"after_set_df":["Low","Medium","High"],"shown":"Medium"}
+PASS Link $input.val(x) survives a re-render of the Combobox :: "typed by jquery"
+locator.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator('es-portal [role=option]:visible').filter({ hasText: 'Guest' }).first()
+
+    at /home/claude/vue-first-components/wc/three-ways/B-es-tags/check/b-ui.cjs:42:86 {
+  name: 'TimeoutError'
+}

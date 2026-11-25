@@ -1,0 +1,15 @@
+/* Variant B glue: Desk layout around the es-* inputs (the frappe-ui styles above stay scoped to es-* elements). */
+.es-link-field > .awesomplete { display: block; width: 100%; }
+.es-link-field .link-btn { z-index: 2; }
+/* the legacy <select> stays $input (apps read and rebuild its <option>s) but <es-select> is what shows */
+.es-select-control select.es-select-native {
+	position: absolute !important; width: 1px !important; height: 1px !important; padding: 0 !important;
+	margin: 0 !important; opacity: 0 !important; pointer-events: none !important; overflow: hidden; border: 0 !important;
+}
+.es-select-control .select-icon { display: none !important; }
+/* Desk's own placeholder (toggled by select.js) stays over the trigger, as it sat over the <select> */
+.es-select-control .control-input > .placeholder { z-index: 1; }
+/* overlays render in <es-portal> at the end of <body>: above Bootstrap modals (1050) and Desk dropdowns */
+es-portal > *, es-portal [data-reka-popper-content-wrapper] { z-index: 1060 !important; }
+/* a Link's list renders next to its input (portalTo), as Awesomplete's <ul> did */
+.es-link-field [data-reka-popper-content-wrapper] { z-index: 1060 !important; }

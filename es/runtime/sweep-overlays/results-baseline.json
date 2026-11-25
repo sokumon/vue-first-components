@@ -1,0 +1,122 @@
+{
+ "page": "baseline.html",
+ "fails": 0,
+ "n": 22,
+ "results": [
+  {
+   "tag": "es-button",
+   "k": "label prop renders",
+   "ok": true
+  },
+  {
+   "tag": "es-button",
+   "k": "default slot renders",
+   "ok": true
+  },
+  {
+   "tag": "es-button",
+   "k": "tailwind applied",
+   "ok": true
+  },
+  {
+   "tag": "es-button",
+   "k": ".attr(\"loading\", \"\") from a jQuery click -> disabled spinner",
+   "ok": true
+  },
+  {
+   "tag": "es-text-input",
+   "k": "update:modelValue -> page state",
+   "ok": true,
+   "extra": "Grace|false|false|red|false|0"
+  },
+  {
+   "tag": "es-checkbox",
+   "k": "starts unchecked (prop false)",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-check-field",
+   "k": "starts unchecked (model 0)",
+   "ok": true
+  },
+  {
+   "tag": "es-checkbox",
+   "k": "v-model",
+   "ok": true
+  },
+  {
+   "tag": "es-switch",
+   "k": "v-model",
+   "ok": true
+  },
+  {
+   "tag": "es-select",
+   "k": "options prop + v-model",
+   "ok": true,
+   "extra": "Grace|true|true|blue|false|0"
+  },
+  {
+   "tag": "es-badge",
+   "k": "renders",
+   "ok": true
+  },
+  {
+   "tag": "es-avatar",
+   "k": "renders",
+   "ok": true
+  },
+  {
+   "tag": "es-dropdown",
+   "k": "function in options fires",
+   "ok": true
+  },
+  {
+   "tag": "es-dialog",
+   "k": "opens via .prop from es-button click",
+   "ok": true
+  },
+  {
+   "tag": "es-dialog",
+   "k": "title prop",
+   "ok": true
+  },
+  {
+   "tag": "es-dialog",
+   "k": "body slot inside teleported dialog, text current",
+   "ok": true
+  },
+  {
+   "tag": "es-dialog",
+   "k": "nested es-button in slot drives page state",
+   "ok": true
+  },
+  {
+   "tag": "es-button",
+   "k": "slot text updated by jQuery",
+   "ok": true
+  },
+  {
+   "tag": "es-dialog",
+   "k": "Escape -> update:open -> page state",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-check-field",
+   "k": "(0|1) v-model",
+   "ok": true,
+   "extra": "Linus|true|true|blue|false|1"
+  },
+  {
+   "tag": "es-dialog",
+   "k": "created open from an HTML string (open attribute), slot current",
+   "ok": true
+  },
+  {
+   "tag": "es-dialog",
+   "k": "$d2.remove() from its own nested button: unmounted, no leaked teleport, body interactive",
+   "ok": true,
+   "extra": "{\"before\":{\"body\":5,\"dialogs\":0},\"after\":{\"host\":false,\"body\":5,\"dialogs\":0,\"kill\":false,\"pe\":\"auto\"}}"
+  }
+ ],
+ "errs": []
+}

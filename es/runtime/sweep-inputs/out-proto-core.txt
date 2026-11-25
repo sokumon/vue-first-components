@@ -1,0 +1,27 @@
+PASS button label prop renders :: Label prop
+PASS button default slot (child text) renders :: Slot text
+PASS tailwind applied to button
+PASS jQuery click handler -> .attr(loading,true) disables button
+PASS text-input update:modelValue -> state :: Grace|false|false|red|false|0
+PASS checkbox starts unchecked (prop false)
+PASS CheckField starts unchecked (prop 0)
+PASS checkbox model :: Grace|true|false|red|false|0
+PASS switch model :: Grace|true|true|red|false|0
+PASS select options prop + model :: Grace|true|true|blue|false|0
+PASS badge
+PASS avatar renders
+PASS dropdown (function in options via .prop) :: Delete
+PASS dialog opens via .prop(open,true)
+PASS dialog title prop (title attr -> prop, no native tooltip on host) :: Hello from es-dialog /  / Dialog body via slot, name=Grace /  / Rename
+PASS dialog body slot inside teleported dialog, inside <es-portal>
+PASS slot content updated by jQuery while closed shows on open :: Hello from es-dialog /  / Dialog body via slot, name=Grace /  / Rename
+PASS nested es-button in teleported dialog: jQuery handler fires :: Dialog body via slot, name=Linus | Linus|true|true|blue|false|0
+PASS button slot updated by jQuery :: Hi Linus
+PASS dialog Escape -> update:open false :: Linus|true|true|blue|false|0
+PASS closed dialog body still findable by $(#id) (in <es-slots> inside host)
+PASS @framework/ui CheckField (0|1) model :: Linus|true|true|blue|false|1
+PASS $(`<es-dialog open>`) from a template string mounts open
+PASS .remove() from inside its own dialog: unmounted, no leaked teleport :: {"before":{"body":4,"dialogs":0,"portal":2},"after":{"host":false,"body":4,"dialogs":0,"kill":false,"portal":2}}
+PASS dialog reopens, body slot still live node with handler
+console errors/warnings: 0
+ALL PASS (25)

@@ -1,0 +1,41 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="/build/fw-sweep.css">
+<script defer src="/build/es-components.js"></script>
+<script defer src="/petite-vue.iife.js"></script>
+</head><body class="p-6">
+<div id="app" v-scope="{
+  n: 0, editing: false, saved: '', discards: 0, more: 0,
+  ada: { fullname: 'Ada Lovelace', email: 'ada@example.com', name: 'ada@example.com' },
+  get acts() { return [
+    { type: 'log', key: 'l1', timestamp: '2026-11-20 10:00:00', author: this.ada, data: { name: 'l1', subtype: 'created', text: 'created this' } },
+    { type: 'version', key: 'v1', timestamp: '2026-11-20 10:05:00', author: this.ada, data: { name: 'v1', type: 'diff', prefix: 'changed', fieldname: 'status', from: 'Open', to: 'Closed' } },
+    { type: 'comment', key: 'c1', timestamp: '2026-11-20 10:10:00', author: this.ada, data: { name: 'c1', content: '<p>Looks <b>good</b></p>', attachments: [{ file_url: '/files/notes.txt', file_name: 'notes.txt' }] } },
+    { type: 'email', key: 'e1', timestamp: '2026-11-20 10:20:00', author: this.ada, data: { name: 'e1', subject: 'Re: bug', sender: 'ada@example.com', to: 'grace@example.com', content: '<p>Email body here</p>' } },
+    { type: 'attachment_log', key: 'a1', timestamp: '2026-11-20 10:30:00', author: this.ada, data: { name: 'a1', action: 'added', fileName: 'spec.pdf', isPrivate: false } },
+  ] },
+  get paginate() { const s = this; return { hasNextPage: true, isFetchingNextPage: false, fetchNextPage() { s.more++ }, loadMore: { position: 'top', label: 'Older activity' } } },
+}">
+  <pre id="state" class="text-xs">{{ JSON.stringify({ n, editing, saved, discards, more }) }}</pre>
+  <button id="poke" @click="n++">poke</button>
+  <es-fw-activity-timeline id="c-tl" class="block h-[28rem]" :activities="acts" :paginate="paginate">
+    <span slot="icon-log" class="logicon">L</span>
+  </es-fw-activity-timeline>
+  <es-fw-activity-timeline id="c-tl-empty" :activities="[]">
+    <div slot="empty" id="tl-empty">Quiet here ({{ more }})</div>
+  </es-fw-activity-timeline>
+  <es-fw-activity-timeline id="c-tl-tpl" :activities="acts">
+    <template slot="item-comment"><div class="tplcomment">Comment {{ activity.key }} by {{ activity.author.fullname }}</div></template>
+  </es-fw-activity-timeline>
+  <es-fw-timeline-container id="c-tc"><p id="tc-child">container child {{ n }}</p></es-fw-timeline-container>
+  <es-fw-comment-item id="c-comment" :comment="acts[2]" :editable="editing" @save="saved = $event.detail[0]; editing = false" @discard="discards++; editing = false">
+    <button slot="actions" id="edit-btn" @click="editing = true">Edit</button>
+  </es-fw-comment-item>
+  <es-fw-email-item id="c-email" :email="acts[3]">
+    <div slot="footer" id="email-footer">Reply to {{ acts[3].data.sender }}</div>
+  </es-fw-email-item>
+  <es-fw-log-item id="c-log" :activity="acts[0]"></es-fw-log-item>
+  <es-fw-version-item id="c-version" :activity="acts[1]"></es-fw-version-item>
+  <es-fw-attachment-chip id="c-chip" label="readme.md" url="/files/readme.md"></es-fw-attachment-chip>
+</div>
+<script>window.EsBindSlot = (el, p) => { const s = PetiteVue.reactive(p), app = PetiteVue.createApp(s).mount(el); return { update: (n) => Object.assign(s, n), unmount: () => app.unmount() } }; addEventListener('DOMContentLoaded', () => PetiteVue.createApp().mount('#app'))</script>
+</body></html>

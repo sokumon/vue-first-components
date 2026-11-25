@@ -1,0 +1,43 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="/dist/es-ui.css">
+<script src="/jquery.js"></script>
+<script src="/dist/es-ui.iife.js"></script>
+</head><body class="p-6">
+<!-- jQuery port of wc/sweep/shell/xo/pages/tabs.html: Tabs (composed + shorthand), TabButtons, lone TabTrigger -->
+<div id="app" class="space-y-6"></div>
+<script>
+$(function () {
+  const S = window.S = { tab: 'two', short: 'b', tb: 'week', count: 3, log: [] }
+  const push = (m) => S.log.push(m)
+  const own = ($el, ev, fn) => $el.on(ev, function (e) { if (e.target === e.currentTarget) fn(e.originalEvent.detail, e) })
+  $('#app').append(`
+  <p id="state"></p>
+  <es-tabs id="ct" model-value="two">
+    <es-tab-list>
+      <es-tab-trigger value="one" label="One"></es-tab-trigger>
+      <es-tab-trigger value="two" label="Two"><span slot="suffix" id="ct-count" class="ml-1 text-xs">(<span class="count">3</span>)</span></es-tab-trigger>
+      <es-tab-trigger value="three" label="Three" disabled></es-tab-trigger>
+    </es-tab-list>
+    <es-tab-panel value="one"><p id="ct-p1">Panel one</p></es-tab-panel>
+    <es-tab-panel value="two"><p id="ct-p2">Panel two, count=<span class="count">3</span></p></es-tab-panel>
+    <es-tab-panel value="three"><p id="ct-p3">Panel three</p></es-tab-panel>
+  </es-tabs>
+  <!-- shorthand: tabs prop + tab-panel slot rendered per tab -> <template slot> stamped per call -->
+  <es-tabs id="st" model-value="b" variant="subtle">
+    <template slot="tab-panel"><div class="st-panel">Shared panel body (short=<span data-es-text="tab.value"></span>)</div></template>
+  </es-tabs>
+  <es-tab-buttons id="tb" model-value="week"></es-tab-buttons>
+  <es-tab-trigger id="lone-trigger" value="x" label="Lone"></es-tab-trigger>
+  <button id="inc" class="border px-2">inc</button>`)
+  $('#st').prop('tabs', [{ value: 'a', label: 'Alpha' }, { value: 'b', label: 'Beta' }, { value: 'c', label: 'Gamma', condition: () => S.count > 2 }])
+  $('#tb').prop('options', [{ value: 'day', label: 'Day' }, { value: 'week', label: 'Week' }, { value: 'month', label: 'Month', onClick: () => push('month-click') }])
+  own($('#ct'), 'update:modelValue', (v) => { S.tab = v; state() })
+  own($('#st'), 'update:modelValue', (v) => { S.short = v; state() })
+  own($('#tb'), 'update:modelValue', (v) => { S.tb = v; state() })
+  $('#inc').on('click', () => { S.count++; $('.count').text(S.count) })
+  const state = () => $('#state').text('tab=' + S.tab + '|short=' + S.short + '|tb=' + S.tb)
+  state()
+  window.READY = true
+})
+</script>
+</body></html>

@@ -1,0 +1,30 @@
+PASS es-frappe-ui-provider | provider renders its slot (jQuery-built app inside)
+PASS es-frappe-ui-provider | provider slot is not hidden in es-slots
+PASS es-frappe-ui-provider | jQuery appended into #app after mount (provider slot): visible
+PASS toast (ES.toast) | toast.success shows title + description :: ["Saved #1 / desc 1"]
+PASS toast (ES.toast) | toast rendered once (app root ToastProvider + provider's own) :: 1 toasts, 1 toasters
+PASS toast (ES.toast) | toast has <b> from sanitised HTML
+PASS toast (ES.toast) | toast sits bottom-right :: {"x":896,"y":814,"w":360,"h":62}
+PASS toast (ES.toast) | toast action onClick fires
+PASS dialog.confirm (ES.dialog) | renders exactly once :: 1
+PASS dialog.confirm (ES.dialog) | onConfirm fires, dialog closes
+PASS es-keyboard-shortcuts-dialog | useKeyboardShortcut via ES.addRoot component handles Mod+S :: 1
+PASS es-keyboard-shortcuts-dialog | opens with title prop
+PASS es-keyboard-shortcuts-dialog | lists the registered groups/shortcuts :: Shortcuts here / File / Save doc / Ctrl / S / Open doc / Ctrl / O / Nav / Go home / Ctrl / K / Show shortcuts / Shift / ?
+PASS es-keyboard-shortcuts-dialog | search shown above threshold (search-threshold="3" -> Number)
+PASS es-keyboard-shortcuts-dialog | search filters to "Open doc" :: Shortcuts here / File / Open doc / Ctrl / O
+PASS es-keyboard-shortcuts-dialog | Escape -> update:open false
+PASS es-scroll-area | class="h-40" on the host reaches the root and constrains the viewport :: {"sa":{"x":24,"y":66,"w":240,"h":160},"vp":{"x":25,"y":67,"w":238,"h":158}}
+PASS es-scroll-area | slot rows inside viewport
+PASS es-scroll-area | scrolls on wheel :: 802
+PASS es-scroll-area | custom vertical scrollbar shown
+PASS es-scroll-area | viewport-class prop applied
+PASS es-scroll-area | exposed viewportElement readable on element
+PASS es-scroll-area | class="h-full" inside a sized jQuery wrapper (display:contents host) :: {"x":25,"y":243,"w":238,"h":158}
+PASS es-scroll-area | jQuery .append() into the content: new row inside viewport
+PASS es-scroll-area | .html() on the host: new content inside the viewport, still scrolls
+PASS es-scroll-area | .detach().prependTo(): component kept; scrollTop behaves like a native scroller (native resets to 0) :: {"kept":0,"native":0}
+PASS es-scroll-area | .clone(): one viewport, content once
+PASS es-frappe-ui-provider | .html() inside the provider slot: page keeps working, toast shows
+console errors/warnings: 0
+ALL PASS (28)

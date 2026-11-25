@@ -1,0 +1,65 @@
+PASS Data initial value
+PASS Data v-model typing :: Grace
+PASS Data change on commit :: data="Grace"
+PASS Textarea v-model
+PASS Password v-model
+PASS Password masked
+PASS Phone v-model
+PASS Float formatted :: 1.50
+PASS Float parses to number :: 12.345 changes=data="Grace";hours=12.345
+PASS Int initial :: 3
+PASS Int v-model number :: 7
+PASS Currency shows value :: 10
+PASS Check starts unchecked
+PASS Check -> 1 + change :: 1 data="Grace";hours=12.345;done=1
+PASS Select picks option :: Closed
+PASS Select trigger shows value
+PASS Autocomplete lists options on click :: Apple,Banana,Cherry
+PASS Autocomplete pick :: Banana
+PASS Link fetches search_link with txt :: [{"txt":"","doctype":"User","filters":{}},{"txt":"","doctype":"User","filters":{}},{"txt":"","doctype":"User","filters":{}},{"txt":"","doctype":"User","filters":{}},{"txt":"grace","doctype":"User","filters":{}}]
+PASS Link shows options :: Grace Hopper
+PASS Link keyboard select -> v-model + change :: grace@example.com data="Grace";hours=12.345;done=1;user="grace@example.com"
+PASS DynamicLink with :row enabled
+PASS DynamicLink without row/DocKey disabled
+PASS Date displays value :: 2026-11-20
+PASS Date picker picks a day :: 2026-11-25
+PASS Datetime displays value :: 2026-11-20 10:30:00
+PASS Time displays value :: 09:15
+PASS Duration displays value :: Duration / 1h
+PASS Rating 5 stars, 0.4 -> 2 filled :: 5 filled,filled,empty,empty,empty
+PASS Rating click 4th star -> 0.8 :: 0.8 filled,filled,filled,filled,empty
+PASS Color hex shown :: #ff0000
+PASS Color swatch teleported into the field row
+PASS Color pick -> change :: data="Grace";hours=12.345;done=1;user="grace@example.com";color="#7c7c7c"
+PASS Heading
+PASS HTML sanitized :: <es-slots hidden=""></es-slots><div class="prose prose-sm max-w-none text-ink-gray-8" aria-hidden=""><p id="html-p">Hello <b>bold</b></p><img src="x"></div>
+PASS Button field native click bubbles to host :: data="Grace";hours=12.345;done=1;user="grace@example.com";color="#7c7c7c";btn=1
+PASS Image field uses modelValue
+PASS CodeEditor renders codemirror
+PASS CodeEditor typing -> v-model :: "{\"a\": 1} "
+PASS Geolocation summary of initial point :: 12.97000°N, 77.59000°E
+PASS Geolocation dialog with leaflet map + marker :: Set Location / + / − / Draw a polyline / Draw a polygon / Draw a rectangle / Draw a circle / Draw a marker / Draw a circlemarker / Edit la
+PASS Geolocation Save -> geojson v-model :: {"type":"FeatureCollection","features":[{"type":"Feature","properties":{},"geometry":{"type":"Point"
+PASS TableMultiSelect options from search_link :: Ada Lovelace|Grace Hopper|Linus T
+PASS TableMultiSelect -> child rows :: [{"tag":"ada@example.com","__row_id":"row-1"}]
+PASS Table add row :: [{"item":"","__row_id":"row-2"}]
+FAIL Table row drawn with an editor (standalone, no FormLayout provider) :: [0]
+PASS Attach opens upload dialog :: Upload from device Embed a link or drop files to upload
+PASS Attach upload -> file_url v-model :: "/files/hello.txt" calls=frappe.desk.search.search_link,frappe.desk.search.search_link,frappe.desk.search.search_link,frappe.desk.search.search_link,frappe.desk.search.search_link,frappe.desk.search.search_link,frappe.desk.search.search_lin
+FAIL host @change handlers see only component change events (no native change bubbling in) :: pageerror: Cannot read properties of undefined (reading '0') | pageerror: Cannot read properties of undefined (reading '0') | pageerror: Cannot read properties of undefined (reading '0') | pageerror: Cannot read properties of undefined (rea
+console errors/warnings: 9
+  http 404 http://fw.test/x
+  error: Failed to load resource: the server responded with a status of 404 (Not Found)
+  http 404 http://fw.test/build/none.png
+  error: Failed to load resource: the server responded with a status of 404 (Not Found)
+  pageerror: Cannot read properties of undefined (reading '0')
+  pageerror: Cannot read properties of undefined (reading '0')
+  pageerror: Cannot read properties of undefined (reading '0')
+  pageerror: Cannot read properties of undefined (reading '0')
+  error: TypeError: resolveField is not a function
+    at isTextarea (http://fw.test/build/es-components.js:97547:72)
+    at http://fw.test/build/es-components.js:97681:27
+    at renderList (http://fw.test/build/es-components.js:5224:19)
+    at http://fw.test/build/es-components.js:97663:70
+    at renderFnWi
+2 FAILED

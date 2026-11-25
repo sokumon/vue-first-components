@@ -1,0 +1,32 @@
+{
+ "name": "big",
+ "fails": 0,
+ "n": 1,
+ "results": [
+  {
+   "k": "3000 es-* via one .html() string (x3 refresh), single update and append stay fast",
+   "ok": true,
+   "info": {
+    "refreshMs": [
+     1061,
+     918,
+     1231
+    ],
+    "rendered": 1000,
+    "badges": 1000,
+    "cbs": 1000,
+    "emptyBadges": [],
+    "changed": "changed",
+    "updMs": 1.2,
+    "addMs": 4.3,
+    "clearMs": 249,
+    "stats": {
+     "groups": 24,
+     "buckets": 375,
+     "top": 1
+    }
+   }
+  }
+ ],
+ "errs": []
+}

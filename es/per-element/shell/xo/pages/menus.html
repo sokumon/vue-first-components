@@ -1,0 +1,50 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="es-wc-spike.css">
+<script defer src="es-components.js"></script>
+<script defer src="petite-vue.iife.js"></script>
+</head><body class="p-6">
+<div id="app" v-scope="{ log: [], ddOpen: false, cmOpen: false, notify: true, push(e) { this.log.push(e) } }" class="space-y-4">
+  <p id="state">dd={{ ddOpen }}|cm={{ cmOpen }}|notify={{ notify }}</p>
+  <p id="log">{{ log.join(',') }}</p>
+
+  <button id="dd-open" class="border px-2" @click="ddOpen = true">open dd from state</button>
+  <div style="margin-left:300px; margin-top:80px">
+  <!-- Dropdown: es-button in default slot as trigger, grouped options, submenu, switch, per-item slot via option.slot, item-suffix slot (rendered per item) -->
+  <es-dropdown id="dd" :open="ddOpen" @update:open="ddOpen = $event.detail[0]" :options="[
+      { group: 'Actions', options: [
+        { label: 'Edit', icon: 'lucide-pencil', onClick: () => push('edit') },
+        { label: 'Share', submenu: [ { label: 'Email', onClick: () => push('email') }, { label: 'Link', onClick: () => push('link') } ] },
+        { label: 'Notify', switch: true, switchValue: notify, onClick: (v) => { notify = v; push('notify-' + v) } },
+      ] },
+      { group: 'Danger', options: [ { label: 'Delete', theme: 'red', slot: 'danger', onClick: () => push('delete') } ] },
+    ]">
+    <es-button id="dd-trigger" label="Menu" icon-right="lucide-chevron-down"></es-button>
+    <span slot="item-danger" id="dd-danger" class="text-ink-red-6">Delete forever ({{ log.length }})</span>
+  </es-dropdown>
+  </div>
+  <div style="margin-left:300px">
+  <es-dropdown id="dd3" :button="{ label: 'Suffix menu' }" :options="[{ label: 'One' }, { label: 'Two' }, { label: 'Three' }]">
+    <span slot="item-suffix" class="dd-suffix">⌘{{ log.length }}</span>
+  </es-dropdown>
+  </div>
+
+  <!-- Dropdown with no options: empty slot; slot="trigger" plain button -->
+  <div style="margin-left:300px">
+  <es-dropdown id="dd2" :options="[]">
+    <button slot="trigger" id="dd2-trigger" class="border px-2">Empty menu</button>
+    <div slot="empty" id="dd2-empty">Nothing here</div>
+  </es-dropdown>
+  </div>
+
+  <!-- ContextMenu: default slot is the right-clickable region -->
+  <es-context-menu id="cm" @update:open="cmOpen = $event.detail[0]" :options="[
+      { label: 'Copy', onClick: () => push('copy') },
+      { label: 'Paste', disabled: true, onClick: () => push('paste') },
+      { label: 'More', submenu: [ { label: 'Deep', onClick: () => push('deep') } ] },
+    ]">
+    <div id="cm-area" class="border p-10 w-80">Right click here ({{ log.length }})</div>
+  </es-context-menu>
+  <div style="height:300px"></div>
+</div>
+<script>addEventListener('DOMContentLoaded', () => PetiteVue.createApp().mount('#app'))</script>
+</body></html>

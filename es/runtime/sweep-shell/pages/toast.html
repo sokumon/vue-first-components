@@ -1,0 +1,22 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="/dist/es-ui.css">
+<script src="/jquery.js"></script>
+<script src="/dist/es-ui.iife.js"></script>
+</head><body class="p-6">
+<!-- jQuery port of wc/sweep/shell/xo/pages/toast.html: standalone ToastProvider and Dialogs hosts (parser-created), no FrappeUIProvider -->
+<es-toast-provider id="tp"></es-toast-provider>
+<es-dialogs id="dl"></es-dialogs>
+<div id="app">
+  <button id="btn-toast" class="border px-2">toast</button>
+  <button id="btn-danger" class="border px-2">danger</button>
+</div>
+<script>
+$(function () {
+  const S = window.S = { log: [] }
+  const push = (m) => S.log.push(m)
+  $('#btn-toast').on('click', () => ES.toast.error('Failed', { action: { label: 'Retry', onClick: () => push('retry') } }))
+  $('#btn-danger').on('click', () => ES.dialog.danger({ title: 'Delete it?', message: 'Gone forever', onConfirm: async () => { push('deleted') } }))
+  window.READY = true
+})
+</script>
+</body></html>

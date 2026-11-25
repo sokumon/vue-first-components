@@ -1,0 +1,101 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="/dist/es-ui.css">
+<script src="/jquery.js"></script>
+<script src="/dist/es-ui.iife.js"></script>
+</head><body>
+<!-- jQuery port of wc/sweep/shell/pages/shell.html: DesktopShell + SidebarRail(+Item) + Sidebar family + PageHeader(+Title) -->
+<div id="app"></div>
+<script>
+$(function () {
+  const S = window.S = { cur: 'inbox', collapsed: false, sec: false, card: true, n: 3, log: [] }
+  const push = (m) => S.log.push(m)
+  const own = ($el, ev, fn) => $el.on(ev, function (e) { if (e.target === e.currentTarget) fn(e.originalEvent.detail, e) })
+  window.__ws = null; window.__up = 0; window.__fn = null
+
+  // One Desk-style HTML string for the whole shell; state is pushed in with .prop() by sync().
+  const $shell = $(`
+  <es-desktop-shell id="shell" class="block h-screen">
+    <es-sidebar-rail slot="rail" id="rail">
+      <es-sidebar-rail-item id="ri-home" label="Home" icon="lucide-home"></es-sidebar-rail-item>
+      <es-sidebar-rail-item id="ri-bell" label="Notifications" icon="lucide-bell"></es-sidebar-rail-item>
+      <es-sidebar-rail-item id="ri-dot" label="Mentions" icon="lucide-at-sign" badge="2" badge-style="dot" variant="ghost"></es-sidebar-rail-item>
+      <es-sidebar-rail-item id="ri-custom" label="Profile" href="https://example.com/p"><span id="ri-custom-slot" class="text-xs">AL</span></es-sidebar-rail-item>
+    </es-sidebar-rail>
+
+    <es-sidebar slot="sidebar" id="sb" aria-label="Main nav">
+      <es-sidebar-header id="sh" title="Acme" subtitle="ada@acme.io"></es-sidebar-header>
+      <es-sidebar-item id="si-inbox" label="Inbox" icon="lucide-inbox" suffix="12"></es-sidebar-item>
+      <es-sidebar-item id="si-drafts" icon="lucide-file">
+        <span slot="prefix" id="si-drafts-prefix" class="lucide-pencil size-4"></span>
+        <span id="si-drafts-label">Drafts (<span class="n">3</span>)</span>
+        <es-badge slot="suffix" id="si-drafts-suffix" label="new"></es-badge>
+      </es-sidebar-item>
+      <es-sidebar-item id="si-link" label="Docs" icon="lucide-book" href="https://example.com/docs"></es-sidebar-item>
+      <es-sidebar-label id="sl" divider>Projects</es-sidebar-label>
+      <es-sidebar-section id="ss" label="Teams" collapsible>
+        <es-sidebar-item id="si-team-a" label="Team A" icon="lucide-users"></es-sidebar-item>
+        <es-sidebar-item id="si-team-b" label="Team B" icon="lucide-users"></es-sidebar-item>
+      </es-sidebar-section>
+      <div class="flex-1"></div>
+      <div class="p-2" id="card-wrap">
+        <es-sidebar-card id="card" title="Trial ends soon" description="5 days left" theme="amber" dismissible></es-sidebar-card>
+      </div>
+      <div class="p-2">
+        <es-sidebar-card id="card2" theme="blue">
+          <span slot="title" id="card2-title">Slot title <span class="n">3</span></span>
+          <span slot="description" id="card2-desc">Slot description</span>
+          <es-button slot="actions" id="card2-act" label="Act"></es-button>
+        </es-sidebar-card>
+      </div>
+      <es-sidebar-collapse-toggle id="toggle"></es-sidebar-collapse-toggle>
+    </es-sidebar>
+
+    <es-page-header id="ph">
+      <es-page-header-title id="pht"></es-page-header-title>
+      <es-button id="ph-act" label="New" variant="solid"></es-button>
+    </es-page-header>
+    <div id="content" class="p-5">
+      <p id="content-first">Content for <span class="cur">inbox</span></p>
+    </div>
+  </es-desktop-shell>`)
+  const rows = []
+  for (let i = 1; i <= 80; i++) rows.push(`<div class="py-2 border-b">Row ${i}</div>`)
+  $shell.find('#content').append(rows.join(''))
+
+  // props that are objects/functions/numbers
+  $shell.find('#sh').prop('menuItems', [
+    { label: 'Switch workspace', onClick() { window.__ws = 'switch' } },
+    { label: 'Log out', onClick() { window.__ws = 'logout' } }])
+  $shell.find('#card').prop('action', { label: 'Upgrade now', onClick() { window.__up++ } })
+  // jQuery's .prop(name, fn) CALLS fn (value-from-function form), so a function prop is passed wrapped
+  $shell.find('#si-drafts').prop('onClick', () => (e) => { window.__fn = e && e.type })
+
+  // events
+  $shell.find('#ri-home').on('click', () => { S.cur = 'inbox'; push('rail-home'); sync() })
+  $shell.find('#ri-bell').on('click', () => push('rail-bell'))
+  $shell.find('#si-inbox').on('click', () => { S.cur = 'inbox'; sync() })
+  $shell.find('#si-drafts').on('click', () => { S.cur = 'drafts'; sync() })
+  $shell.find('#si-team-a').on('click', () => { S.cur = 'a'; sync() })
+  $shell.find('#si-team-b').on('click', () => { S.cur = 'b'; sync() })
+  own($shell.find('#sb'), 'update:collapsed', (v) => { S.collapsed = v })
+  own($shell.find('#ss'), 'update:collapsed', (v) => { S.sec = v })
+  own($shell.find('#card'), 'dismiss', () => { S.card = false; push('dismiss'); $('#card-wrap').remove() })
+  $shell.find('#card2-act').on('click', () => { S.n++; sync() })
+  $shell.find('#ph-act').on('click', () => push('new'))
+
+  function sync() {
+    $('#ri-home').prop('active', S.cur === 'inbox')
+    $('#ri-bell').prop('badge', S.n)
+    $('#si-inbox').prop('active', S.cur === 'inbox')
+    $('#si-drafts').prop('active', S.cur === 'drafts')
+    $('.n').text(S.n)
+    $('.cur').text(S.cur)
+    $('#pht').prop('title', 'Page ' + S.cur)
+  }
+  $shell.appendTo('#app')
+  sync()
+  window.sync = sync
+  window.READY = true
+})
+</script>
+</body></html>

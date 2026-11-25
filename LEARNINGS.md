@@ -37,8 +37,19 @@ What the spikes from v5 to v8 taught us, measured on a real desk (frappe develop
 - **The baseline must be run on the same bench.** These failures come from the environment, not the port: the dashboard specs, and "Queue Overloaded" because the bench has no RQ workers (drain with `bench worker --burst` before suite runs).
 - **Apps are the real contract.** `compat/sweep-*.md` lists every way frappe and ERPNext reach into Page, Form, controls, grid and DOM. The checklists in `compat/CONTRACT.md` (24 for Page, 29 for Form) are what each port has to pass.
 
+## frappe-ui as `<es-*>` tags in jQuery Desk (`es/`)
+
+- **petite-vue cannot run these components.** It has no components, slots, render functions, provide/inject or Teleport; 14 of 319 render the same as on Vue. Shims would mean re-implementing Vue.
+- **One Vue across all bundles is the clearest win.** An esbuild plugin points every `vue` import at `frappe.Vue`, and `assets.json` records which bundles require `vue.bundle.js`. The 7 Vue bundles go from 699 to 417 KB gz. It also removes the "one shared Vue" blocker listed under Next.
+- **jQuery-driven tags need a little more than `defineCustomElement`:** Desk builds controls detached and reads `$input` straight away, child content never reaches the component as a slot, and attributes arrive as strings. A shared runtime solves it with one app for all tags; for Link and Select, `defineCustomElement` from `frappe.Vue` plus a little glue (the `<frappe-mobile-nav>` approach) would also do.
+- **For existing controls, keep the class and swap only the input.** Variant B (legacy class, `make_input` creates `<es-combobox>`) matched legacy with no Desk code copied. Variant A (a `.vue` port) matched too, but had to copy about 860 lines of `link.js`.
+- **frappe-ui is the cost, not the wrapper.** A closed Combobox is 20 Vue instances (17 from reka-ui), 40 effects and about 118 KB. The wrapper adds about 0.1 ms per element. Vue charges per instance, so the fix is to build fewer: mount on screen or on intent.
+- **Measure against a clean baseline.** B's scoped CSS slowed style recalculation for the whole page, legacy controls included, and hid itself in the same-build baseline. ERPNext's Sales Invoice doesn't render on this bench (an arrow function in `depends_on`), and an early "+92%" was measured on that broken form.
+- **Independent verification keeps paying.** It caught a CSS cost, an overstated speed claim, a `#trigger` regression in the Combobox patch, and agents killing bench processes. Each was found by a separate agent, not by the one that made the change.
+
 ## Next
 
 1. Bring the Page port back to the contract rule (one component per item inside handed-out containers), and delete each compensation whose removal breaks no test.
 2. Run the differential tests on ERPNext flows (Sales Invoice, Stock Entry, the reports), comparing legacy and v8.
-3. Use Frappe UI components inside the templates. Known blockers: one shared Vue across bundles, and the desk build compiling frappe-ui.
+3. Use Frappe UI components inside the templates. One shared Vue across bundles is solved in `es/one-vue/`. Still open: the desk build compiling frappe-ui (`es/` prebuilds it with Vite).
+4. For existing controls: `es-*` tags with mount-on-intent, the frappe-ui Combobox patch with its trigger fix, and reka-ui R1 (see `es/README.md` §8).

@@ -1,0 +1,45 @@
+diff -ru a/frappe/hooks.py b/frappe/hooks.py
+--- a/frappe/hooks.py	2026-11-24 13:44:52.535143481 +0000
++++ b/frappe/hooks.py	2026-11-24 13:44:52.535346080 +0000
+@@ -44,10 +44,10 @@
+ 	"desk.bundle.js",
+ 	"list.bundle.js",
+ 	"form.bundle.js",
++	"tw_a.bundle.js",
+ 	"controls.bundle.js",
+ 	"report.bundle.js",
+ 	"telemetry.bundle.js",
+-	"vue_first.bundle.js",
+ ]
+ 
+ app_include_css = [
+diff -ru a/frappe/public/js/frappe/form/controls/control.js b/frappe/public/js/frappe/form/controls/control.js
+--- a/frappe/public/js/frappe/form/controls/control.js	2026-11-24 13:44:52.507037769 +0000
++++ b/frappe/public/js/frappe/form/controls/control.js	2026-11-24 13:44:52.535568025 +0000
+@@ -1,6 +1,5 @@
+-import "./base_control";
+-import "./base_input";
+-import "./data";
++// variant A (wc/three-ways): Control, ControlInput, ControlData, ControlSelect and ControlLink come from
++// tw_a.bundle.js, loaded before this bundle
+ import "./int";
+ import "./float";
+ import "./percent";
+@@ -9,8 +8,7 @@
+ import "./time";
+ import "./datetime";
+ import "./date_range";
+-import "./select";
+-import "./link";
++import "./link_globals";
+ import "./dynamic_link";
+ import "./link_combobox";
+ import "./dynamic_link_combobox";
+diff -ru a/frappe/public/js/web_form.bundle.js b/frappe/public/js/web_form.bundle.js
+--- a/frappe/public/js/web_form.bundle.js	2026-11-24 13:44:52.515356685 +0000
++++ b/frappe/public/js/web_form.bundle.js	2026-11-24 13:44:52.535702958 +0000
+@@ -1,3 +1,4 @@
++import "./tw_a.bundle.js";
+ import "./controls.bundle.js";
+ import "./dialog.bundle.js";
+ import "./lib/moment.js";

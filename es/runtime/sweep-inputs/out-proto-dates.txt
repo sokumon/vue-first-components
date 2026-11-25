@@ -1,0 +1,34 @@
+PASS date-picker shows model in input :: 2024-03-15
+PASS date-picker prefix slot inside trigger
+PASS date-picker opens popover, update:open :: {"d":"2024-03-15","dOpen":true,"changed":"","changeEvents":0,"range":["2024-03-01","2024-03-05"],"dt":"2024-03-15 10:30:00","t":"09:00","tOpen":false,"d2":"2024-03-13","ctlOpen":false,"scoped":null,"scopeKeys":["selected","setDate","clear",
+PASS date-picker <template slot=actions> stamped inside popover
+PASS es-slot event carries the scoped slot props (setDate, close...) :: ["selected","setDate","clear","close","open","disabled","setOpen"]
+PASS selected cell aria-selected
+PASS click cell -> model + change event + closes :: {"d":"2024-03-20","dOpen":false,"changed":"2024-03-20","changeEvents":1,"range":["2024-03-01","2024-03-05"],"dt":"2024-03-15 10:30:00","t":"09:00","tOpen":false,"d2":"2024-03-13","ctlOpen":false,"scoped":null,"scopeKeys":["selected","setDat
+PASS actions slot button (jQuery sets model) -> 2024-12-25 :: {"d":"2024-12-25","dOpen":true,"changed":"2024-03-20","changeEvents":1,"range":["2024-03-01","2024-03-05"],"dt":"2024-03-15 10:30:00","t":"09:00","tOpen":false,"d2":"2024-03-13","ctlOpen":false,"scoped":null,"scopeKeys":["selected","setDate
+PASS calendar follows model change while open
+PASS Escape closes date-picker
+PASS [component, same in plain Vue] input shows host-set model after close :: 2024-03-20
+PASS scoped setDate() from es-slot detail works (was unreachable per-element) :: {"d":"2024-11-11","scoped":"clicked"}
+PASS typing a date + Enter commits :: {"d":"2024-07-04","dOpen":false,"changed":"2024-07-04","changeEvents":3,"range":["2024-03-01","2024-03-05"],"dt":"2024-03-15 10:30:00","t":"09:00","tOpen":false,"d2":"2024-03-13","ctlOpen":false,"scoped":"clicked","scopeKeys":["selected","s
+PASS min/max attrs + isDateUnavailable fn via .prop disable cells :: {"2024-03-09":true,"2024-03-11":false,"2024-03-16":true,"2024-03-21":true}
+PASS format=DD/MM/YYYY display, model ISO :: 12/03/2024 2024-03-12
+PASS custom slot=trigger replaces input
+PASS custom trigger opens via .prop(open) :: {"d":"2024-07-04","dOpen":false,"changed":"2024-07-04","changeEvents":3,"range":["2024-03-01","2024-03-05"],"dt":"2024-03-15 10:30:00","t":"09:00","tOpen":false,"d2":"2024-03-12","ctlOpen":true,"scoped":"clicked","scopeKeys":["selected","se
+PASS controlled picker selection -> model, closes, trigger text by jQuery :: {"d":"2024-07-10","dOpen":false,"changed":"2024-07-04","changeEvents":3,"range":["2024-03-01","2024-03-05"],"dt":"2024-03-15 10:30:00","t":"09:00","tOpen":false,"d2":"2024-03-12","ctlOpen":false,"scoped":"clicked","scopeKeys":["selected","s
+PASS exposed focus() on date-picker host focuses its input
+PASS [caveat] exposed open() shadowed by the `open` prop accessor :: typeof el.open = boolean
+PASS .on(change) gets exactly one event (component emit), not the native input change :: {"n":1,"v":"2024-08-01"}
+PASS range picker displays array model :: 2024-03-01 to 2024-03-05
+PASS range picker two clicks -> [from,to] :: ["2024-03-10","2024-03-14"]
+PASS datetime picker shows model :: 2024-03-15 10:30:00
+PASS datetime picker cell click :: 2024-03-18 10:30:00
+PASS datetime typed value commits :: 2024-05-01 14:45:00
+PASS time-picker prefix slot + model :: 09:00
+PASS time-picker interval="30" attr -> 30-min options :: 00:00,00:30,01:00,01:30 n=48
+PASS time-picker option click -> model 10:30, closes :: {"d":"2024-08-01","dOpen":false,"changed":"2024-08-01","changeEvents":1,"range":["2024-03-10","2024-03-14"],"dt":"2024-05-01 14:45:00","t":"10:30","tOpen":false,"d2":"2024-03-12","ctlOpen":false,"scoped":"clicked","scopeKeys":["selected","s
+PASS time-picker typed "3pm" -> 15:00 :: 15:00
+PASS time-picker options prop (array of objects) :: Breakfast,Lunch
+PASS time-picker options select -> 12:30 :: 12:30
+console errors/warnings: 0
+ALL PASS (32)

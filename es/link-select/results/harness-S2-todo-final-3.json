@@ -1,0 +1,1583 @@
+{
+ "label": "S2-todo-final-3",
+ "started": "2026-11-24T22:18:37.969Z",
+ "meta": {
+  "bench_mode": "legacy",
+  "v5": {
+   "vue": "3.5.43",
+   "combobox_link": false,
+   "link_class": "Ta",
+   "select_class": "Lo",
+   "lang": "en"
+  }
+ },
+ "flows": {
+  "v5.form_todo": {
+   "ms": 40182,
+   "fatal": null,
+   "steps": [
+    {
+     "name": "api",
+     "obs": {
+      "allocated_to": {
+       "api": {
+        "chain": [
+         "ControlLink",
+         "ControlReadOnly",
+         "ControlInput",
+         "Control"
+        ],
+        "methods": [
+         "set_value",
+         "get_value",
+         "refresh",
+         "refresh_input",
+         "set_input",
+         "set_focus",
+         "toggle_label",
+         "toggle_description",
+         "set_label",
+         "set_description",
+         "get_input_value",
+         "get_label_value",
+         "set_formatted_input",
+         "validate",
+         "parse",
+         "format_for_input",
+         "new_doc",
+         "open_advanced_search",
+         "get_options",
+         "set_custom_query",
+         "get_search_args",
+         "set_link_title",
+         "is_translatable",
+         "is_title_link",
+         "toggle",
+         "set_mandatory",
+         "set_invalid"
+        ],
+        "$input": true,
+        "input_el": true,
+        "input_is_$input": true,
+        "input_tag": "input:text",
+        "$wrapper": true,
+        "wrapper_el": true,
+        "wrapper_fieldobj": true,
+        "disp_area_el": true,
+        "input_area_el": true,
+        "awesomplete": true,
+        "awesomplete_ul_el": true,
+        "awesomplete_close_fn": true,
+        "awesomplete_list_prop": true,
+        "awesomplete_isOpened_prop": true,
+        "$link": true,
+        "$link_open": true,
+        "df_is_object": true,
+        "data_target": "User",
+        "data_fieldname": "allocated_to"
+       },
+       "structure": {
+        "frappe_control": true,
+        "data_fieldtype": "Link",
+        "data_fieldname": "allocated_to",
+        "control_input": 1,
+        "control_value": 1,
+        "link_field": 1,
+        "link_btn": 1,
+        "btn_open": 1,
+        "btn_clear": 1,
+        "awesomplete_div": 1,
+        "select_el": 0,
+        "select_icon": 0,
+        "input_with_feedback": 1
+       }
+      },
+      "status": {
+       "api": {
+        "chain": [
+         "ControlSelect",
+         "ControlReadOnly",
+         "ControlInput",
+         "Control"
+        ],
+        "methods": [
+         "set_value",
+         "get_value",
+         "refresh",
+         "refresh_input",
+         "set_input",
+         "set_focus",
+         "toggle_label",
+         "toggle_description",
+         "set_label",
+         "set_description",
+         "get_input_value",
+         "set_formatted_input",
+         "validate",
+         "parse",
+         "format_for_input",
+         "set_options",
+         "toggle",
+         "set_mandatory",
+         "set_invalid"
+        ],
+        "$input": true,
+        "input_el": true,
+        "input_is_$input": true,
+        "input_tag": "select:select-one",
+        "$wrapper": true,
+        "wrapper_el": true,
+        "wrapper_fieldobj": true,
+        "disp_area_el": true,
+        "input_area_el": true,
+        "awesomplete": false,
+        "awesomplete_ul_el": false,
+        "awesomplete_close_fn": false,
+        "awesomplete_list_prop": false,
+        "awesomplete_isOpened_prop": false,
+        "$link": false,
+        "$link_open": false,
+        "df_is_object": true,
+        "data_target": null,
+        "data_fieldname": "status"
+       },
+       "structure": {
+        "frappe_control": true,
+        "data_fieldtype": "Select",
+        "data_fieldname": "status",
+        "control_input": 1,
+        "control_value": 1,
+        "link_field": 0,
+        "link_btn": 0,
+        "btn_open": 0,
+        "btn_clear": 0,
+        "awesomplete_div": 0,
+        "select_el": 1,
+        "select_icon": 1,
+        "input_with_feedback": 1
+       }
+      },
+      "reference_name": {
+       "api": {
+        "chain": [
+         "ControlDynamicLink",
+         "ControlLink",
+         "ControlReadOnly",
+         "ControlInput",
+         "Control"
+        ],
+        "methods": [
+         "set_value",
+         "get_value",
+         "refresh",
+         "refresh_input",
+         "set_input",
+         "set_focus",
+         "toggle_label",
+         "toggle_description",
+         "set_label",
+         "set_description",
+         "get_input_value",
+         "get_label_value",
+         "set_formatted_input",
+         "validate",
+         "parse",
+         "format_for_input",
+         "new_doc",
+         "open_advanced_search",
+         "get_options",
+         "set_custom_query",
+         "get_search_args",
+         "set_link_title",
+         "is_translatable",
+         "is_title_link",
+         "toggle",
+         "set_mandatory",
+         "set_invalid"
+        ],
+        "$input": true,
+        "input_el": true,
+        "input_is_$input": true,
+        "input_tag": "input:text",
+        "$wrapper": true,
+        "wrapper_el": true,
+        "wrapper_fieldobj": true,
+        "disp_area_el": true,
+        "input_area_el": true,
+        "awesomplete": true,
+        "awesomplete_ul_el": true,
+        "awesomplete_close_fn": true,
+        "awesomplete_list_prop": true,
+        "awesomplete_isOpened_prop": true,
+        "$link": true,
+        "$link_open": true,
+        "df_is_object": true,
+        "data_target": "reference_type",
+        "data_fieldname": "reference_name"
+       },
+       "structure": {
+        "frappe_control": true,
+        "data_fieldtype": "Dynamic Link",
+        "data_fieldname": "reference_name",
+        "control_input": 1,
+        "control_value": 1,
+        "link_field": 1,
+        "link_btn": 1,
+        "btn_open": 1,
+        "btn_clear": 1,
+        "awesomplete_div": 1,
+        "select_el": 0,
+        "select_icon": 0,
+        "input_with_feedback": 1
+       }
+      },
+      "df_live": true
+     },
+     "events": [],
+     "fallbacks": [],
+     "requests": [],
+     "errors": [],
+     "ms": 16
+    },
+    {
+     "name": "initial-state",
+     "obs": {
+      "allocated_to": {
+       "get_value": "",
+       "model": null,
+       "input_value": "",
+       "input_visible": true,
+       "input_disabled": false,
+       "wrapper_visible": true,
+       "disp_visible": false,
+       "disp_text": null,
+       "disp_href": null,
+       "label": "Allocated To"
+      },
+      "status": {
+       "get_value": "Open",
+       "model": "Open",
+       "input_value": "Open",
+       "input_visible": true,
+       "input_disabled": false,
+       "wrapper_visible": true,
+       "disp_visible": false,
+       "disp_text": null,
+       "disp_href": null,
+       "label": "Status",
+       "select_options": [
+        [
+         "Open",
+         "Open"
+        ],
+        [
+         "Closed",
+         "Closed"
+        ],
+        [
+         "Cancelled",
+         "Cancelled"
+        ]
+       ],
+       "selected_text": "Open"
+      },
+      "priority": {
+       "get_value": "Medium",
+       "model": "Medium",
+       "input_value": "Medium",
+       "input_visible": true,
+       "input_disabled": false,
+       "wrapper_visible": true,
+       "disp_visible": false,
+       "disp_text": null,
+       "disp_href": null,
+       "label": "Priority",
+       "select_options": [
+        [
+         "High",
+         "High"
+        ],
+        [
+         "Medium",
+         "Medium"
+        ],
+        [
+         "Low",
+         "Low"
+        ]
+       ],
+       "selected_text": "Medium"
+      }
+     },
+     "events": [],
+     "fallbacks": [],
+     "requests": [],
+     "errors": [],
+     "ms": 13
+    },
+    {
+     "name": "link-focus-opens-list",
+     "obs": {
+      "count": 10,
+      "rows": [
+       "Administrator",
+       "frappe@example.com Frappe",
+       "Guest",
+       "test_list_col_width@example.com Frappe",
+       "test_print_view@example.com Frappe",
+       "test_report_child_group_by@example.com Frappe",
+       "test_report_group_by@example.com Frappe",
+       "test_report_permission@example.com Frappe",
+       "Create a new User",
+       "Advanced Search"
+      ],
+      "create_new": true,
+      "advanced_search": true,
+      "filtered_by": null,
+      "active": "Administrator"
+     },
+     "events": [
+      "status:blur",
+      "allocated_to:select-change",
+      "allocated_to:focus",
+      "allocated_to:awesomplete-open"
+     ],
+     "fallbacks": [],
+     "requests": [
+      {
+       "method": "search_link",
+       "http": "GET",
+       "doctype": "User",
+       "txt": "",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "ToDo",
+       "link_fieldname": "allocated_to"
+      }
+     ],
+     "errors": [],
+     "ms": 1369
+    },
+    {
+     "name": "link-type-filters-list",
+     "obs": {
+      "count": 3,
+      "rows": [
+       "frappe@example.com Frappe",
+       "Create a new User",
+       "Advanced Search"
+      ],
+      "create_new": true,
+      "advanced_search": true,
+      "filtered_by": null,
+      "active": "frappe@example.com Frappe"
+     },
+     "events": [
+      "allocated_to:input",
+      "allocated_to:input",
+      "allocated_to:input",
+      "allocated_to:input",
+      "allocated_to:input",
+      "allocated_to:input",
+      "allocated_to:input",
+      "allocated_to:awesomplete-open"
+     ],
+     "fallbacks": [],
+     "requests": [
+      {
+       "method": "search_link",
+       "http": "POST",
+       "doctype": "User",
+       "txt": "frappe@",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "ToDo",
+       "link_fieldname": "allocated_to"
+      }
+     ],
+     "errors": [],
+     "ms": 1527
+    },
+    {
+     "name": "link-enter-picks-first",
+     "obs": {
+      "state": {
+       "get_value": "frappe@example.com",
+       "model": "frappe@example.com",
+       "input_value": "frappe@example.com",
+       "input_visible": true,
+       "input_disabled": false,
+       "wrapper_visible": true,
+       "disp_visible": false,
+       "disp_text": null,
+       "disp_href": "/desk/user/frappe%40example.com",
+       "label": "Allocated To"
+      },
+      "listbox_open": false
+     },
+     "events": [
+      "allocated_to:awesomplete-select",
+      "allocated_to:awesomplete-close",
+      "allocated_to:awesomplete-selectcomplete",
+      "allocated_to:select-change",
+      "allocated_to:select-change",
+      "frm:allocated_to"
+     ],
+     "fallbacks": [],
+     "requests": [
+      {
+       "method": "validate_link_and_fetch",
+       "http": "GET",
+       "doctype": "User",
+       "txt": "frappe@example.com",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "ToDo",
+       "link_fieldname": "allocated_to"
+      }
+     ],
+     "errors": [],
+     "ms": 1178
+    },
+    {
+     "name": "link-blur-keeps-value",
+     "obs": {
+      "state": {
+       "get_value": "frappe@example.com",
+       "model": "frappe@example.com",
+       "input_value": "frappe@example.com",
+       "input_visible": true,
+       "input_disabled": false,
+       "wrapper_visible": true,
+       "disp_visible": false,
+       "disp_text": null,
+       "disp_href": "/desk/user/frappe%40example.com",
+       "label": "Allocated To"
+      },
+      "doc": {
+       "allocated_to": "frappe@example.com"
+      }
+     },
+     "events": [
+      "allocated_to:select-change",
+      "allocated_to:select-change",
+      "allocated_to:change",
+      "allocated_to:blur"
+     ],
+     "fallbacks": [],
+     "requests": [],
+     "errors": [],
+     "ms": 913
+    },
+    {
+     "name": "set_query-filters",
+     "obs": {
+      "count": 6,
+      "rows": [
+       "test_report_child_group_by@example.com Frappe",
+       "test_report_group_by@example.com Frappe",
+       "test_report_permission@example.com Frappe",
+       "Filtered by: Name contains \"%test_report%\".",
+       "Create a new User",
+       "Advanced Search"
+      ],
+      "create_new": true,
+      "advanced_search": true,
+      "filtered_by": "Filtered by: Name contains \"%test_report%\".",
+      "active": "test_report_child_group_by@example.com Frappe"
+     },
+     "events": [
+      "allocated_to:select-change",
+      "frm:allocated_to",
+      "allocated_to:select-change",
+      "allocated_to:awesomplete-open",
+      "allocated_to:focus",
+      "allocated_to:input",
+      "allocated_to:awesomplete-open",
+      "allocated_to:input",
+      "allocated_to:input",
+      "allocated_to:input",
+      "allocated_to:awesomplete-open",
+      "allocated_to:awesomplete-close",
+      "allocated_to:change",
+      "allocated_to:select-change",
+      "allocated_to:select-change",
+      "allocated_to:blur"
+     ],
+     "fallbacks": [],
+     "requests": [
+      {
+       "method": "search_link",
+       "http": "GET",
+       "doctype": "User",
+       "txt": "",
+       "query": null,
+       "filters": {
+        "name": [
+         "like",
+         "%test_report%"
+        ]
+       },
+       "reference_doctype": "ToDo",
+       "link_fieldname": "allocated_to"
+      },
+      {
+       "method": "search_link",
+       "http": "POST",
+       "doctype": "User",
+       "txt": "test",
+       "query": null,
+       "filters": {
+        "name": [
+         "like",
+         "%test_report%"
+        ]
+       },
+       "reference_doctype": "ToDo",
+       "link_fieldname": "allocated_to"
+      },
+      {
+       "method": "validate_link_and_fetch",
+       "http": "GET",
+       "doctype": "User",
+       "txt": "test",
+       "query": null,
+       "filters": {
+        "name": [
+         "like",
+         "%test_report%"
+        ]
+       },
+       "reference_doctype": "ToDo",
+       "link_fieldname": "allocated_to"
+      }
+     ],
+     "errors": [],
+     "ms": 1509
+    },
+    {
+     "name": "get_query-assign",
+     "obs": {
+      "count": 4,
+      "rows": [
+       "Administrator",
+       "Filtered by: Name equals \"Administrator\".",
+       "Create a new User",
+       "Advanced Search"
+      ],
+      "create_new": true,
+      "advanced_search": true,
+      "filtered_by": "Filtered by: Name equals \"Administrator\".",
+      "active": "Administrator"
+     },
+     "events": [
+      "allocated_to:select-change",
+      "frm:allocated_to",
+      "allocated_to:select-change",
+      "allocated_to:awesomplete-open",
+      "allocated_to:focus",
+      "allocated_to:awesomplete-open",
+      "allocated_to:awesomplete-close",
+      "allocated_to:blur"
+     ],
+     "fallbacks": [],
+     "requests": [
+      {
+       "method": "search_link",
+       "http": "GET",
+       "doctype": "User",
+       "txt": "",
+       "query": null,
+       "filters": {
+        "name": "Administrator"
+       },
+       "reference_doctype": "ToDo",
+       "link_fieldname": "allocated_to"
+      }
+     ],
+     "errors": [],
+     "ms": 1330
+    },
+    {
+     "name": "fetch_from",
+     "obs": {
+      "doc": {
+       "assigned_by": "Administrator",
+       "assigned_by_full_name": "Administrator"
+      },
+      "fetched": {
+       "get_value": "Administrator",
+       "model": "Administrator",
+       "input_value": null,
+       "input_visible": false,
+       "input_disabled": false,
+       "wrapper_visible": true,
+       "disp_visible": true,
+       "disp_text": "Administrator",
+       "disp_href": null,
+       "label": "Assigned By Full Name"
+      }
+     },
+     "events": [
+      "assigned_by:select-change",
+      "assigned_by:focus",
+      "assigned_by:awesomplete-open",
+      "assigned_by:input",
+      "assigned_by:input",
+      "assigned_by:input",
+      "assigned_by:input",
+      "assigned_by:input",
+      "assigned_by:input",
+      "assigned_by:input",
+      "assigned_by:input",
+      "assigned_by:input",
+      "assigned_by:input",
+      "assigned_by:input",
+      "assigned_by:input",
+      "assigned_by:input",
+      "assigned_by:awesomplete-open",
+      "assigned_by:awesomplete-select",
+      "assigned_by:awesomplete-close",
+      "assigned_by:awesomplete-selectcomplete",
+      "assigned_by:select-change",
+      "assigned_by:select-change",
+      "frm:assigned_by"
+     ],
+     "fallbacks": [],
+     "requests": [
+      {
+       "method": "search_link",
+       "http": "GET",
+       "doctype": "User",
+       "txt": "",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "ToDo",
+       "link_fieldname": "assigned_by"
+      },
+      {
+       "method": "search_link",
+       "http": "POST",
+       "doctype": "User",
+       "txt": "Administrator",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "ToDo",
+       "link_fieldname": "assigned_by"
+      },
+      {
+       "method": "validate_link_and_fetch",
+       "http": "POST",
+       "doctype": "User",
+       "txt": "Administrator",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "ToDo",
+       "link_fieldname": "assigned_by"
+      }
+     ],
+     "errors": [],
+     "ms": 3855
+    },
+    {
+     "name": "set_value-from-code",
+     "obs": {
+      "returns_promise": true,
+      "state": {
+       "get_value": "Administrator",
+       "model": "Administrator",
+       "input_value": "Administrator",
+       "input_visible": true,
+       "input_disabled": false,
+       "wrapper_visible": true,
+       "disp_visible": false,
+       "disp_text": null,
+       "disp_href": "/desk/user/Administrator",
+       "label": "Allocated To"
+      }
+     },
+     "events": [
+      "allocated_to:select-change",
+      "allocated_to:select-change",
+      "frm:allocated_to"
+     ],
+     "fallbacks": [],
+     "requests": [
+      {
+       "method": "validate_link_and_fetch",
+       "http": "GET",
+       "doctype": "User",
+       "txt": "Administrator",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "ToDo",
+       "link_fieldname": "allocated_to"
+      }
+     ],
+     "errors": [],
+     "ms": 438
+    },
+    {
+     "name": "control-set_value-get_value",
+     "obs": {
+      "promise": true,
+      "get_value": "frappe@example.com",
+      "doc": "frappe@example.com",
+      "state": {
+       "get_value": "frappe@example.com",
+       "model": "frappe@example.com",
+       "input_value": "frappe@example.com",
+       "input_visible": true,
+       "input_disabled": false,
+       "wrapper_visible": true,
+       "disp_visible": false,
+       "disp_text": null,
+       "disp_href": "/desk/user/frappe%40example.com",
+       "label": "Allocated To"
+      }
+     },
+     "events": [
+      "allocated_to:select-change",
+      "allocated_to:select-change",
+      "frm:allocated_to"
+     ],
+     "fallbacks": [],
+     "requests": [
+      {
+       "method": "validate_link_and_fetch",
+       "http": "GET",
+       "doctype": "User",
+       "txt": "frappe@example.com",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "ToDo",
+       "link_fieldname": "allocated_to"
+      }
+     ],
+     "errors": [],
+     "ms": 44
+    },
+    {
+     "name": "invalid-value-on-blur",
+     "obs": {
+      "state": {
+       "get_value": "",
+       "model": null,
+       "input_value": "",
+       "input_visible": true,
+       "input_disabled": false,
+       "wrapper_visible": true,
+       "disp_visible": false,
+       "disp_text": null,
+       "disp_href": null,
+       "label": "Allocated To"
+      },
+      "alerts": []
+     },
+     "events": [
+      "allocated_to:select-change",
+      "frm:allocated_to",
+      "assigned_by:select-change",
+      "assigned_by:select-change",
+      "assigned_by:change",
+      "assigned_by:blur",
+      "allocated_to:select-change",
+      "allocated_to:awesomplete-open",
+      "allocated_to:focus",
+      "allocated_to:awesomplete-open",
+      "allocated_to:input",
+      "allocated_to:input",
+      "allocated_to:input",
+      "allocated_to:input",
+      "allocated_to:input",
+      "allocated_to:input",
+      "allocated_to:input",
+      "allocated_to:input",
+      "allocated_to:input",
+      "allocated_to:input",
+      "allocated_to:input",
+      "allocated_to:input",
+      "allocated_to:input",
+      "allocated_to:input",
+      "allocated_to:input",
+      "allocated_to:input",
+      "allocated_to:awesomplete-open",
+      "allocated_to:awesomplete-close",
+      "allocated_to:change",
+      "allocated_to:select-change",
+      "allocated_to:select-change",
+      "allocated_to:blur",
+      "allocated_to:select-change",
+      "frm:allocated_to"
+     ],
+     "fallbacks": [],
+     "requests": [
+      {
+       "method": "search_link",
+       "http": "GET",
+       "doctype": "User",
+       "txt": "",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "ToDo",
+       "link_fieldname": "allocated_to"
+      },
+      {
+       "method": "search_link",
+       "http": "POST",
+       "doctype": "User",
+       "txt": "no-such-user-xyz",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "ToDo",
+       "link_fieldname": "allocated_to"
+      },
+      {
+       "method": "validate_link_and_fetch",
+       "http": "GET",
+       "doctype": "User",
+       "txt": "no-such-user-xyz",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "ToDo",
+       "link_fieldname": "allocated_to"
+      }
+     ],
+     "errors": [],
+     "ms": 3691
+    },
+    {
+     "name": "clear-by-typing",
+     "obs": {
+      "get_value": "",
+      "model": "",
+      "input_value": "",
+      "input_visible": true,
+      "input_disabled": false,
+      "wrapper_visible": true,
+      "disp_visible": false,
+      "disp_text": null,
+      "disp_href": null,
+      "label": "Allocated To"
+     },
+     "events": [
+      "allocated_to:select-change",
+      "allocated_to:select-change",
+      "frm:allocated_to",
+      "allocated_to:focus",
+      "allocated_to:awesomplete-open",
+      "allocated_to:input",
+      "allocated_to:awesomplete-open",
+      "allocated_to:awesomplete-open",
+      "allocated_to:awesomplete-close",
+      "allocated_to:change",
+      "allocated_to:blur",
+      "allocated_to:select-change",
+      "allocated_to:select-change",
+      "frm:allocated_to",
+      "frm:allocated_to"
+     ],
+     "fallbacks": [],
+     "requests": [
+      {
+       "method": "validate_link_and_fetch",
+       "http": "GET",
+       "doctype": "User",
+       "txt": "Administrator",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "ToDo",
+       "link_fieldname": "allocated_to"
+      },
+      {
+       "method": "search_link",
+       "http": "GET",
+       "doctype": "User",
+       "txt": "",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "ToDo",
+       "link_fieldname": "allocated_to"
+      }
+     ],
+     "errors": [],
+     "ms": 2303
+    },
+    {
+     "name": "read-only-display",
+     "obs": {
+      "read_only": {
+       "get_value": "Administrator",
+       "model": "Administrator",
+       "input_value": "Administrator",
+       "input_visible": false,
+       "input_disabled": true,
+       "wrapper_visible": true,
+       "disp_visible": true,
+       "disp_text": "Administrator",
+       "disp_href": "/desk/user/Administrator",
+       "label": "Allocated To"
+      },
+      "editable_again": {
+       "get_value": "Administrator",
+       "model": "Administrator",
+       "input_value": "Administrator",
+       "input_visible": true,
+       "input_disabled": false,
+       "wrapper_visible": true,
+       "disp_visible": false,
+       "disp_text": null,
+       "disp_href": "/desk/user/Administrator",
+       "label": "Allocated To"
+      }
+     },
+     "events": [
+      "allocated_to:select-change",
+      "allocated_to:select-change",
+      "frm:allocated_to",
+      "allocated_to:select-change",
+      "allocated_to:select-change"
+     ],
+     "fallbacks": [],
+     "requests": [
+      {
+       "method": "validate_link_and_fetch",
+       "http": "GET",
+       "doctype": "User",
+       "txt": "Administrator",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "ToDo",
+       "link_fieldname": "allocated_to"
+      }
+     ],
+     "errors": [],
+     "ms": 841
+    },
+    {
+     "name": "keyboard-arrows-escape",
+     "obs": {
+      "first": "Administrator",
+      "second": "frappe@example.com Frappe",
+      "back": "Administrator",
+      "open_after_escape": false,
+      "state": {
+       "get_value": "",
+       "model": "",
+       "input_value": "",
+       "input_visible": true,
+       "input_disabled": false,
+       "wrapper_visible": true,
+       "disp_visible": false,
+       "disp_text": null,
+       "disp_href": null,
+       "label": "Allocated To"
+      }
+     },
+     "events": [
+      "allocated_to:select-change",
+      "frm:allocated_to",
+      "allocated_to:select-change",
+      "allocated_to:awesomplete-open",
+      "allocated_to:focus",
+      "allocated_to:awesomplete-open",
+      "allocated_to:awesomplete-close",
+      "allocated_to:blur"
+     ],
+     "fallbacks": [],
+     "requests": [
+      {
+       "method": "search_link",
+       "http": "GET",
+       "doctype": "User",
+       "txt": "",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "ToDo",
+       "link_fieldname": "allocated_to"
+      }
+     ],
+     "errors": [],
+     "ms": 1551
+    },
+    {
+     "name": "keyboard-arrow-enter-picks-second",
+     "obs": {
+      "state": {
+       "get_value": "frappe@example.com",
+       "model": "frappe@example.com",
+       "input_value": "frappe@example.com",
+       "input_visible": true,
+       "input_disabled": false,
+       "wrapper_visible": true,
+       "disp_visible": false,
+       "disp_text": null,
+       "disp_href": "/desk/user/frappe%40example.com",
+       "label": "Allocated To"
+      },
+      "listbox_open": false
+     },
+     "events": [
+      "allocated_to:select-change",
+      "allocated_to:awesomplete-open",
+      "allocated_to:focus",
+      "allocated_to:awesomplete-open",
+      "allocated_to:awesomplete-select",
+      "allocated_to:awesomplete-close",
+      "allocated_to:awesomplete-selectcomplete",
+      "allocated_to:select-change",
+      "allocated_to:select-change",
+      "frm:allocated_to"
+     ],
+     "fallbacks": [],
+     "requests": [
+      {
+       "method": "search_link",
+       "http": "GET",
+       "doctype": "User",
+       "txt": "",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "ToDo",
+       "link_fieldname": "allocated_to"
+      },
+      {
+       "method": "validate_link_and_fetch",
+       "http": "GET",
+       "doctype": "User",
+       "txt": "frappe@example.com",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "ToDo",
+       "link_fieldname": "allocated_to"
+      }
+     ],
+     "errors": [],
+     "ms": 2465
+    },
+    {
+     "name": "select-options",
+     "obs": {
+      "status": {
+       "get_value": "Open",
+       "model": "Open",
+       "input_value": "Open",
+       "input_visible": true,
+       "input_disabled": false,
+       "wrapper_visible": true,
+       "disp_visible": false,
+       "disp_text": null,
+       "disp_href": null,
+       "label": "Status",
+       "select_options": [
+        [
+         "Open",
+         "Open"
+        ],
+        [
+         "Closed",
+         "Closed"
+        ],
+        [
+         "Cancelled",
+         "Cancelled"
+        ]
+       ],
+       "selected_text": "Open"
+      },
+      "priority": {
+       "get_value": "Medium",
+       "model": "Medium",
+       "input_value": "Medium",
+       "input_visible": true,
+       "input_disabled": false,
+       "wrapper_visible": true,
+       "disp_visible": false,
+       "disp_text": null,
+       "disp_href": null,
+       "label": "Priority",
+       "select_options": [
+        [
+         "High",
+         "High"
+        ],
+        [
+         "Medium",
+         "Medium"
+        ],
+        [
+         "Low",
+         "Low"
+        ]
+       ],
+       "selected_text": "Medium"
+      }
+     },
+     "events": [],
+     "fallbacks": [],
+     "requests": [],
+     "errors": [],
+     "ms": 8
+    },
+    {
+     "name": "select-pick",
+     "obs": {
+      "state": {
+       "get_value": "Closed",
+       "model": "Closed",
+       "input_value": "Closed",
+       "input_visible": true,
+       "input_disabled": false,
+       "wrapper_visible": true,
+       "disp_visible": false,
+       "disp_text": null,
+       "disp_href": null,
+       "label": "Status",
+       "select_options": [
+        [
+         "Open",
+         "Open"
+        ],
+        [
+         "Closed",
+         "Closed"
+        ],
+        [
+         "Cancelled",
+         "Cancelled"
+        ]
+       ],
+       "selected_text": "Closed"
+      },
+      "doc": {
+       "status": "Closed"
+      }
+     },
+     "events": [
+      "status:input",
+      "status:change",
+      "status:select-change",
+      "frm:status"
+     ],
+     "fallbacks": [],
+     "requests": [],
+     "errors": [],
+     "ms": 434
+    },
+    {
+     "name": "select-set_value",
+     "obs": {
+      "state": {
+       "get_value": "Cancelled",
+       "model": "Cancelled",
+       "input_value": "Cancelled",
+       "input_visible": true,
+       "input_disabled": false,
+       "wrapper_visible": true,
+       "disp_visible": false,
+       "disp_text": null,
+       "disp_href": null,
+       "label": "Status",
+       "select_options": [
+        [
+         "Open",
+         "Open"
+        ],
+        [
+         "Closed",
+         "Closed"
+        ],
+        [
+         "Cancelled",
+         "Cancelled"
+        ]
+       ],
+       "selected_text": "Cancelled"
+      },
+      "doc": {
+       "status": "Cancelled"
+      }
+     },
+     "events": [
+      "status:select-change",
+      "frm:status"
+     ],
+     "fallbacks": [],
+     "requests": [],
+     "errors": [],
+     "ms": 320
+    },
+    {
+     "name": "select-set_df_property-options",
+     "obs": {
+      "after": {
+       "get_value": null,
+       "model": "Medium",
+       "input_value": null,
+       "input_visible": true,
+       "input_disabled": false,
+       "wrapper_visible": true,
+       "disp_visible": false,
+       "disp_text": null,
+       "disp_href": null,
+       "label": "Priority",
+       "select_options": [
+        [
+         "Low",
+         "Low"
+        ],
+        [
+         "High",
+         "High"
+        ]
+       ],
+       "selected_text": null
+      },
+      "set_missing_option": {
+       "get_value": null,
+       "model": "Medium",
+       "input_value": null,
+       "input_visible": true,
+       "input_disabled": false,
+       "wrapper_visible": true,
+       "disp_visible": false,
+       "disp_text": null,
+       "disp_href": null,
+       "label": "Priority",
+       "select_options": [
+        [
+         "Low",
+         "Low"
+        ],
+        [
+         "High",
+         "High"
+        ]
+       ],
+       "selected_text": null
+      },
+      "doc": {
+       "priority": "Medium"
+      }
+     },
+     "events": [
+      "priority:select-change",
+      "priority:select-change"
+     ],
+     "fallbacks": [],
+     "requests": [],
+     "errors": [],
+     "ms": 724
+    },
+    {
+     "name": "dynamic-link",
+     "obs": {
+      "options": {
+       "count": 3,
+       "rows": [
+        "Administrator",
+        "Create a new User",
+        "Advanced Search"
+       ],
+       "create_new": true,
+       "advanced_search": true,
+       "filtered_by": null,
+       "active": "Administrator"
+      },
+      "picked": {
+       "state": {
+        "get_value": "Administrator",
+        "model": "Administrator",
+        "input_value": "Administrator",
+        "input_visible": true,
+        "input_disabled": false,
+        "wrapper_visible": true,
+        "disp_visible": false,
+        "disp_text": null,
+        "disp_href": "/desk/user/Administrator",
+        "label": "Reference Name"
+       },
+       "listbox_open": false
+      },
+      "doc": {
+       "reference_type": "User",
+       "reference_name": "Administrator"
+      }
+     },
+     "events": [
+      "reference_type:select-change",
+      "reference_type:select-change",
+      "allocated_to:blur",
+      "reference_name:select-change",
+      "reference_name:focus",
+      "reference_name:input",
+      "reference_name:awesomplete-open",
+      "reference_name:input",
+      "reference_name:input",
+      "reference_name:input",
+      "reference_name:input",
+      "reference_name:awesomplete-open",
+      "reference_name:awesomplete-select",
+      "reference_name:awesomplete-close",
+      "reference_name:awesomplete-selectcomplete",
+      "reference_name:select-change",
+      "reference_name:select-change",
+      "frm:reference_name"
+     ],
+     "fallbacks": [],
+     "requests": [
+      {
+       "method": "validate_link_and_fetch",
+       "http": "GET",
+       "doctype": "DocType",
+       "txt": "User",
+       "query": null,
+       "filters": {
+        "issingle": 0
+       },
+       "reference_doctype": "ToDo",
+       "link_fieldname": "reference_type"
+      },
+      {
+       "method": "search_link",
+       "http": "GET",
+       "doctype": "User",
+       "txt": "",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "ToDo",
+       "link_fieldname": "reference_name"
+      },
+      {
+       "method": "search_link",
+       "http": "POST",
+       "doctype": "User",
+       "txt": "Admin",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "ToDo",
+       "link_fieldname": "reference_name"
+      },
+      {
+       "method": "validate_link_and_fetch",
+       "http": "GET",
+       "doctype": "User",
+       "txt": "Administrator",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "ToDo",
+       "link_fieldname": "reference_name"
+      }
+     ],
+     "errors": [],
+     "ms": 3172
+    },
+    {
+     "name": "enter-on-action-row-with-unmatched-text",
+     "obs": {
+      "row": "Advanced Search",
+      "dialogs": [],
+      "list_open": true,
+      "state": {
+       "get_value": "adm",
+       "model": "",
+       "input_value": "adm",
+       "input_visible": true,
+       "input_disabled": false,
+       "wrapper_visible": true,
+       "disp_visible": false,
+       "disp_text": null,
+       "disp_href": null,
+       "label": "Allocated To"
+      }
+     },
+     "events": [
+      "allocated_to:select-change",
+      "frm:allocated_to",
+      "reference_name:select-change",
+      "reference_name:select-change",
+      "reference_name:change",
+      "reference_name:blur",
+      "allocated_to:select-change",
+      "allocated_to:awesomplete-open",
+      "allocated_to:focus",
+      "allocated_to:awesomplete-open",
+      "allocated_to:input",
+      "allocated_to:input",
+      "allocated_to:input",
+      "allocated_to:awesomplete-open",
+      "allocated_to:awesomplete-select",
+      "allocated_to:awesomplete-close",
+      "allocated_to:change",
+      "allocated_to:select-change",
+      "allocated_to:select-change",
+      "allocated_to:blur"
+     ],
+     "fallbacks": [],
+     "requests": [
+      {
+       "method": "search_link",
+       "http": "GET",
+       "doctype": "User",
+       "txt": "",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "ToDo",
+       "link_fieldname": "allocated_to"
+      },
+      {
+       "method": "search_link",
+       "http": "POST",
+       "doctype": "User",
+       "txt": "adm",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "ToDo",
+       "link_fieldname": "allocated_to"
+      },
+      {
+       "method": "validate_link_and_fetch",
+       "http": "GET",
+       "doctype": "User",
+       "txt": "adm",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "ToDo",
+       "link_fieldname": "allocated_to"
+      }
+     ],
+     "errors": [],
+     "ms": 2876
+    },
+    {
+     "name": "advanced-search",
+     "obs": {
+      "dialogs": [
+       "Select User"
+      ]
+     },
+     "events": [
+      "allocated_to:select-change",
+      "frm:allocated_to",
+      "allocated_to:select-change",
+      "frm:allocated_to",
+      "allocated_to:select-change",
+      "allocated_to:awesomplete-open",
+      "allocated_to:focus",
+      "allocated_to:awesomplete-open",
+      "allocated_to:input",
+      "allocated_to:input",
+      "allocated_to:input",
+      "allocated_to:awesomplete-open",
+      "allocated_to:awesomplete-open",
+      "allocated_to:select-change",
+      "allocated_to:awesomplete-select",
+      "allocated_to:awesomplete-close",
+      "allocated_to:select-change",
+      "allocated_to:awesomplete-selectcomplete",
+      "allocated_to:blur"
+     ],
+     "fallbacks": [],
+     "requests": [
+      {
+       "method": "search_link",
+       "http": "GET",
+       "doctype": "User",
+       "txt": "",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "ToDo",
+       "link_fieldname": "allocated_to"
+      },
+      {
+       "method": "search_link",
+       "http": "POST",
+       "doctype": "User",
+       "txt": "adm",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "ToDo",
+       "link_fieldname": "allocated_to"
+      },
+      {
+       "method": "search_widget",
+       "http": "GET",
+       "doctype": "User",
+       "txt": "adm",
+       "query": null,
+       "filters": null,
+       "reference_doctype": null,
+       "link_fieldname": null
+      }
+     ],
+     "errors": [],
+     "ms": 3509
+    },
+    {
+     "name": "create-new",
+     "obs": {
+      "route": [
+       "Form",
+       "ToDo"
+      ],
+      "dialogs": [
+       "New User"
+      ],
+      "from_link": "allocated_to",
+      "route_options": null
+     },
+     "events": [
+      "allocated_to:select-change",
+      "allocated_to:awesomplete-open",
+      "allocated_to:focus",
+      "allocated_to:awesomplete-open",
+      "allocated_to:input",
+      "allocated_to:input",
+      "allocated_to:input",
+      "allocated_to:input",
+      "allocated_to:input",
+      "allocated_to:input",
+      "allocated_to:input",
+      "allocated_to:input",
+      "allocated_to:input",
+      "allocated_to:input",
+      "allocated_to:input",
+      "allocated_to:awesomplete-open",
+      "allocated_to:select-change",
+      "allocated_to:awesomplete-select",
+      "allocated_to:awesomplete-close",
+      "allocated_to:select-change",
+      "allocated_to:awesomplete-selectcomplete",
+      "allocated_to:blur"
+     ],
+     "fallbacks": [],
+     "requests": [
+      {
+       "method": "search_link",
+       "http": "GET",
+       "doctype": "User",
+       "txt": "",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "ToDo",
+       "link_fieldname": "allocated_to"
+      },
+      {
+       "method": "search_link",
+       "http": "POST",
+       "doctype": "User",
+       "txt": "tw-new-user",
+       "query": null,
+       "filters": null,
+       "reference_doctype": "ToDo",
+       "link_fieldname": "allocated_to"
+      }
+     ],
+     "errors": [],
+     "ms": 4486
+    }
+   ],
+   "late_errors": []
+  }
+ }
+}

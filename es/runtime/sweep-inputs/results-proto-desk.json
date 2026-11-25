@@ -1,0 +1,1158 @@
+{
+ "page": "desk.html",
+ "fails": 0,
+ "n": 230,
+ "results": [
+  {
+   "k": "es-button: create in template string renders synchronously",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"uid\":8,\"mark\":0,\"markVis\":false,\"visible\":true}"
+  },
+  {
+   "k": "es-button: detach+appendTo same task keeps instance",
+   "ok": true,
+   "extra": "{\"same\":true,\"rendered\":true}"
+  },
+  {
+   "k": "es-button: detach, re-append after a frame: remounts fresh, props kept",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"newInst\":true,\"mark\":0}"
+  },
+  {
+   "k": "es-button: clone renders independently, slot copied, original intact, no duplicate ids",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"other\":true,\"cmark\":0,\"omark\":true,\"dup\":0,\"stale\":true}"
+  },
+  {
+   "k": "es-button: .html(x) on host: remounts with x as slot content",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"remount\":true,\"mark2\":1,\"oldMark\":0}"
+  },
+  {
+   "k": "es-button: .empty() on host: still renders, no slot content",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"mark2\":0}"
+  },
+  {
+   "k": "es-button: .text() on host: still renders",
+   "ok": true,
+   "extra": "{\"rendered\":true}"
+  },
+  {
+   "k": "es-button: .remove() unmounts at once; ancestor .empty() unmounts all",
+   "ok": true,
+   "extra": "{\"t0\":0,\"t1\":2,\"t2\":1,\"t3\":0,\"nested\":0}"
+  },
+  {
+   "k": "es-button(slot): create in template string renders synchronously",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"uid\":8,\"mark\":1,\"markVis\":true,\"visible\":true}"
+  },
+  {
+   "k": "es-button(slot): slot child rendered",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"uid\":8,\"mark\":1,\"markVis\":true,\"visible\":true}"
+  },
+  {
+   "k": "es-button(slot): detach+appendTo same task keeps instance",
+   "ok": true,
+   "extra": "{\"same\":true,\"rendered\":true}"
+  },
+  {
+   "k": "es-button(slot): detach, re-append after a frame: remounts fresh, props kept",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"newInst\":true,\"mark\":1}"
+  },
+  {
+   "k": "es-button(slot): clone renders independently, slot copied, original intact, no duplicate ids",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"other\":true,\"cmark\":1,\"omark\":true,\"dup\":0,\"stale\":true}"
+  },
+  {
+   "k": "es-button(slot): .html(x) on host: remounts with x as slot content",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"remount\":true,\"mark2\":1,\"oldMark\":0}"
+  },
+  {
+   "k": "es-button(slot): .empty() on host: still renders, no slot content",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"mark2\":0}"
+  },
+  {
+   "k": "es-button(slot): .text() on host: still renders",
+   "ok": true,
+   "extra": "{\"rendered\":true}"
+  },
+  {
+   "k": "es-button(slot): .remove() unmounts at once; ancestor .empty() unmounts all",
+   "ok": true,
+   "extra": "{\"t0\":0,\"t1\":2,\"t2\":1,\"t3\":0,\"nested\":0}"
+  },
+  {
+   "k": "es-badge: create in template string renders synchronously",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"uid\":8,\"mark\":0,\"markVis\":false,\"visible\":true}"
+  },
+  {
+   "k": "es-badge: detach+appendTo same task keeps instance",
+   "ok": true,
+   "extra": "{\"same\":true,\"rendered\":true}"
+  },
+  {
+   "k": "es-badge: detach, re-append after a frame: remounts fresh, props kept",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"newInst\":true,\"mark\":0}"
+  },
+  {
+   "k": "es-badge: clone renders independently, slot copied, original intact, no duplicate ids",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"other\":true,\"cmark\":0,\"omark\":true,\"dup\":0,\"stale\":true}"
+  },
+  {
+   "k": "es-badge: .html(x) on host: remounts with x as slot content",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"remount\":true,\"mark2\":1,\"oldMark\":0}"
+  },
+  {
+   "k": "es-badge: .empty() on host: still renders, no slot content",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"mark2\":0}"
+  },
+  {
+   "k": "es-badge: .text() on host: still renders",
+   "ok": true,
+   "extra": "{\"rendered\":true}"
+  },
+  {
+   "k": "es-badge: .remove() unmounts at once; ancestor .empty() unmounts all",
+   "ok": true,
+   "extra": "{\"t0\":0,\"t1\":2,\"t2\":1,\"t3\":0,\"nested\":0}"
+  },
+  {
+   "k": "es-avatar: create in template string renders synchronously",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"uid\":8,\"mark\":0,\"markVis\":false,\"visible\":true}"
+  },
+  {
+   "k": "es-avatar: detach+appendTo same task keeps instance",
+   "ok": true,
+   "extra": "{\"same\":true,\"rendered\":true}"
+  },
+  {
+   "k": "es-avatar: detach, re-append after a frame: remounts fresh, props kept",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"newInst\":true,\"mark\":0}"
+  },
+  {
+   "k": "es-avatar: clone renders independently, slot copied, original intact, no duplicate ids",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"other\":true,\"cmark\":0,\"omark\":true,\"dup\":0,\"stale\":true}"
+  },
+  {
+   "k": "es-avatar: .html(x) on host: remounts with x as slot content",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"remount\":true,\"mark2\":1,\"oldMark\":0}"
+  },
+  {
+   "k": "es-avatar: .empty() on host: still renders, no slot content",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"mark2\":0}"
+  },
+  {
+   "k": "es-avatar: .text() on host: still renders",
+   "ok": true,
+   "extra": "{\"rendered\":true}"
+  },
+  {
+   "k": "es-avatar: .remove() unmounts at once; ancestor .empty() unmounts all",
+   "ok": true,
+   "extra": "{\"t0\":0,\"t1\":2,\"t2\":1,\"t3\":0,\"nested\":0}"
+  },
+  {
+   "k": "es-checkbox: create in template string renders synchronously",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"uid\":8,\"mark\":1,\"markVis\":true,\"visible\":true}"
+  },
+  {
+   "k": "es-checkbox: slot child rendered",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"uid\":8,\"mark\":1,\"markVis\":true,\"visible\":true}"
+  },
+  {
+   "k": "es-checkbox: detach+appendTo same task keeps instance",
+   "ok": true,
+   "extra": "{\"same\":true,\"rendered\":true}"
+  },
+  {
+   "k": "es-checkbox: detach, re-append after a frame: remounts fresh, props kept",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"newInst\":true,\"model\":\"false\",\"mark\":1}"
+  },
+  {
+   "k": "es-checkbox: clone renders independently, slot copied, original intact, no duplicate ids",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"other\":true,\"cmark\":1,\"omark\":true,\"dup\":0,\"stale\":true}"
+  },
+  {
+   "k": "es-checkbox: .html(x) on host: remounts with x as slot content",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"remount\":true,\"mark2\":1,\"oldMark\":0,\"model\":\"false\"}"
+  },
+  {
+   "k": "es-checkbox: .empty() on host: still renders, no slot content",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"mark2\":0}"
+  },
+  {
+   "k": "es-checkbox: .text() on host: still renders",
+   "ok": true,
+   "extra": "{\"rendered\":true}"
+  },
+  {
+   "k": "es-checkbox: .remove() unmounts at once; ancestor .empty() unmounts all",
+   "ok": true,
+   "extra": "{\"t0\":0,\"t1\":2,\"t2\":1,\"t3\":0,\"nested\":0}"
+  },
+  {
+   "k": "es-switch: create in template string renders synchronously",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"uid\":8,\"mark\":1,\"markVis\":true,\"visible\":true}"
+  },
+  {
+   "k": "es-switch: slot child rendered",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"uid\":8,\"mark\":1,\"markVis\":true,\"visible\":true}"
+  },
+  {
+   "k": "es-switch: detach+appendTo same task keeps instance",
+   "ok": true,
+   "extra": "{\"same\":true,\"rendered\":true}"
+  },
+  {
+   "k": "es-switch: detach, re-append after a frame: remounts fresh, props kept",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"newInst\":true,\"model\":\"false\",\"mark\":1}"
+  },
+  {
+   "k": "es-switch: clone renders independently, slot copied, original intact, no duplicate ids",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"other\":true,\"cmark\":1,\"omark\":true,\"dup\":0,\"stale\":true}"
+  },
+  {
+   "k": "es-switch: .html(x) on host: remounts with x as slot content",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"remount\":true,\"mark2\":1,\"oldMark\":0,\"model\":\"false\"}"
+  },
+  {
+   "k": "es-switch: .empty() on host: still renders, no slot content",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"mark2\":0}"
+  },
+  {
+   "k": "es-switch: .text() on host: still renders",
+   "ok": true,
+   "extra": "{\"rendered\":true}"
+  },
+  {
+   "k": "es-switch: .remove() unmounts at once; ancestor .empty() unmounts all",
+   "ok": true,
+   "extra": "{\"t0\":0,\"t1\":2,\"t2\":1,\"t3\":0,\"nested\":0}"
+  },
+  {
+   "k": "es-text-input: create in template string renders synchronously",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"uid\":8,\"mark\":1,\"markVis\":true,\"visible\":true}"
+  },
+  {
+   "k": "es-text-input: slot child rendered",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"uid\":8,\"mark\":1,\"markVis\":true,\"visible\":true}"
+  },
+  {
+   "k": "es-text-input: detach+appendTo same task keeps instance",
+   "ok": true,
+   "extra": "{\"same\":true,\"rendered\":true}"
+  },
+  {
+   "k": "es-text-input: detach, re-append after a frame: remounts fresh, props kept",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"newInst\":true,\"model\":\"\\\"Ada\\\"\",\"mark\":1}"
+  },
+  {
+   "k": "es-text-input: clone renders independently, slot copied, original intact, no duplicate ids",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"other\":true,\"cmark\":1,\"omark\":true,\"dup\":0,\"stale\":true}"
+  },
+  {
+   "k": "es-text-input: .html(x) on host: remounts with x as slot content",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"remount\":true,\"mark2\":1,\"oldMark\":0,\"model\":\"\\\"Ada\\\"\"}"
+  },
+  {
+   "k": "es-text-input: .empty() on host: still renders, no slot content",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"mark2\":0}"
+  },
+  {
+   "k": "es-text-input: .text() on host: still renders",
+   "ok": true,
+   "extra": "{\"rendered\":true}"
+  },
+  {
+   "k": "es-text-input: .remove() unmounts at once; ancestor .empty() unmounts all",
+   "ok": true,
+   "extra": "{\"t0\":0,\"t1\":2,\"t2\":1,\"t3\":0,\"nested\":0}"
+  },
+  {
+   "k": "es-textarea: create in template string renders synchronously",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"uid\":8,\"mark\":1,\"markVis\":true,\"visible\":true}"
+  },
+  {
+   "k": "es-textarea: slot child rendered",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"uid\":8,\"mark\":1,\"markVis\":true,\"visible\":true}"
+  },
+  {
+   "k": "es-textarea: detach+appendTo same task keeps instance",
+   "ok": true,
+   "extra": "{\"same\":true,\"rendered\":true}"
+  },
+  {
+   "k": "es-textarea: detach, re-append after a frame: remounts fresh, props kept",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"newInst\":true,\"model\":\"\\\"Hi\\\"\",\"mark\":1}"
+  },
+  {
+   "k": "es-textarea: clone renders independently, slot copied, original intact, no duplicate ids",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"other\":true,\"cmark\":1,\"omark\":true,\"dup\":0,\"stale\":true}"
+  },
+  {
+   "k": "es-textarea: .html(x) on host: remounts with x as slot content",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"remount\":true,\"mark2\":1,\"oldMark\":0,\"model\":\"\\\"Hi\\\"\"}"
+  },
+  {
+   "k": "es-textarea: .empty() on host: still renders, no slot content",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"mark2\":0}"
+  },
+  {
+   "k": "es-textarea: .text() on host: still renders",
+   "ok": true,
+   "extra": "{\"rendered\":true}"
+  },
+  {
+   "k": "es-textarea: .remove() unmounts at once; ancestor .empty() unmounts all",
+   "ok": true,
+   "extra": "{\"t0\":0,\"t1\":2,\"t2\":1,\"t3\":0,\"nested\":0}"
+  },
+  {
+   "k": "es-password: create in template string renders synchronously",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"uid\":8,\"mark\":1,\"markVis\":true,\"visible\":true}"
+  },
+  {
+   "k": "es-password: slot child rendered",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"uid\":8,\"mark\":1,\"markVis\":true,\"visible\":true}"
+  },
+  {
+   "k": "es-password: detach+appendTo same task keeps instance",
+   "ok": true,
+   "extra": "{\"same\":true,\"rendered\":true}"
+  },
+  {
+   "k": "es-password: detach, re-append after a frame: remounts fresh, props kept",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"newInst\":true,\"model\":\"\\\"secret\\\"\",\"mark\":1}"
+  },
+  {
+   "k": "es-password: clone renders independently, slot copied, original intact, no duplicate ids",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"other\":true,\"cmark\":1,\"omark\":true,\"dup\":0,\"stale\":true}"
+  },
+  {
+   "k": "es-password: .html(x) on host: remounts with x as slot content",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"remount\":true,\"mark2\":1,\"oldMark\":0,\"model\":\"\\\"secret\\\"\"}"
+  },
+  {
+   "k": "es-password: .empty() on host: still renders, no slot content",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"mark2\":0}"
+  },
+  {
+   "k": "es-password: .text() on host: still renders",
+   "ok": true,
+   "extra": "{\"rendered\":true}"
+  },
+  {
+   "k": "es-password: .remove() unmounts at once; ancestor .empty() unmounts all",
+   "ok": true,
+   "extra": "{\"t0\":0,\"t1\":2,\"t2\":1,\"t3\":0,\"nested\":0}"
+  },
+  {
+   "k": "es-radio-group: create in template string renders synchronously",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"uid\":8,\"mark\":2,\"markVis\":true,\"visible\":true}"
+  },
+  {
+   "k": "es-radio-group: slot child rendered",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"uid\":8,\"mark\":2,\"markVis\":true,\"visible\":true}"
+  },
+  {
+   "k": "es-radio-group: detach+appendTo same task keeps instance",
+   "ok": true,
+   "extra": "{\"same\":true,\"rendered\":true}"
+  },
+  {
+   "k": "es-radio-group: detach, re-append after a frame: remounts fresh, props kept",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"newInst\":true,\"model\":\"\\\"a\\\"\",\"mark\":2}"
+  },
+  {
+   "k": "es-radio-group: clone renders independently, slot copied, original intact, no duplicate ids",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"other\":true,\"cmark\":2,\"omark\":true,\"dup\":0,\"stale\":true}"
+  },
+  {
+   "k": "es-radio-group: .html(x) on host: remounts with x as slot content",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"remount\":true,\"mark2\":2,\"oldMark\":0,\"model\":\"\\\"a\\\"\"}"
+  },
+  {
+   "k": "es-radio-group: .empty() on host: still renders, no slot content",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"mark2\":0}"
+  },
+  {
+   "k": "es-radio-group: .text() on host: still renders",
+   "ok": true,
+   "extra": "{\"rendered\":true}"
+  },
+  {
+   "k": "es-radio-group: .remove() unmounts at once; ancestor .empty() unmounts all",
+   "ok": true,
+   "extra": "{\"t0\":0,\"t1\":2,\"t2\":1,\"t3\":0,\"nested\":0}"
+  },
+  {
+   "k": "es-rating: create in template string renders synchronously",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"uid\":8,\"mark\":0,\"markVis\":false,\"visible\":true}"
+  },
+  {
+   "k": "es-rating: detach+appendTo same task keeps instance",
+   "ok": true,
+   "extra": "{\"same\":true,\"rendered\":true}"
+  },
+  {
+   "k": "es-rating: detach, re-append after a frame: remounts fresh, props kept",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"newInst\":true,\"model\":\"2\",\"mark\":0}"
+  },
+  {
+   "k": "es-rating: clone renders independently, slot copied, original intact, no duplicate ids",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"other\":true,\"cmark\":0,\"omark\":true,\"dup\":0,\"stale\":true}"
+  },
+  {
+   "k": "es-rating: .html(x) on host: remounts with x as slot content",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"remount\":true,\"mark2\":1,\"oldMark\":0,\"model\":\"2\"}"
+  },
+  {
+   "k": "es-rating: .empty() on host: still renders, no slot content",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"mark2\":0}"
+  },
+  {
+   "k": "es-rating: .text() on host: still renders",
+   "ok": true,
+   "extra": "{\"rendered\":true}"
+  },
+  {
+   "k": "es-rating: .remove() unmounts at once; ancestor .empty() unmounts all",
+   "ok": true,
+   "extra": "{\"t0\":0,\"t1\":2,\"t2\":1,\"t3\":0,\"nested\":0}"
+  },
+  {
+   "k": "es-slider: create in template string renders synchronously",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"uid\":8,\"mark\":0,\"markVis\":false,\"visible\":true}"
+  },
+  {
+   "k": "es-slider: detach+appendTo same task keeps instance",
+   "ok": true,
+   "extra": "{\"same\":true,\"rendered\":true}"
+  },
+  {
+   "k": "es-slider: detach, re-append after a frame: remounts fresh, props kept",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"newInst\":true,\"model\":\"[30]\",\"mark\":0}"
+  },
+  {
+   "k": "es-slider: clone renders independently, slot copied, original intact, no duplicate ids",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"other\":true,\"cmark\":0,\"omark\":true,\"dup\":0,\"stale\":true}"
+  },
+  {
+   "k": "es-slider: .html(x) on host: remounts with x as slot content",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"remount\":true,\"mark2\":1,\"oldMark\":0,\"model\":\"[30]\"}"
+  },
+  {
+   "k": "es-slider: .empty() on host: still renders, no slot content",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"mark2\":0}"
+  },
+  {
+   "k": "es-slider: .text() on host: still renders",
+   "ok": true,
+   "extra": "{\"rendered\":true}"
+  },
+  {
+   "k": "es-slider: .remove() unmounts at once; ancestor .empty() unmounts all",
+   "ok": true,
+   "extra": "{\"t0\":0,\"t1\":2,\"t2\":1,\"t3\":0,\"nested\":0}"
+  },
+  {
+   "k": "es-duration: create in template string renders synchronously",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"uid\":8,\"mark\":0,\"markVis\":false,\"visible\":true}"
+  },
+  {
+   "k": "es-duration: detach+appendTo same task keeps instance",
+   "ok": true,
+   "extra": "{\"same\":true,\"rendered\":true}"
+  },
+  {
+   "k": "es-duration: detach, re-append after a frame: remounts fresh, props kept",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"newInst\":true,\"model\":\"5400\",\"mark\":0}"
+  },
+  {
+   "k": "es-duration: clone renders independently, slot copied, original intact, no duplicate ids",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"other\":true,\"cmark\":0,\"omark\":true,\"dup\":0,\"stale\":true}"
+  },
+  {
+   "k": "es-duration: .html(x) on host: remounts with x as slot content",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"remount\":true,\"mark2\":1,\"oldMark\":0,\"model\":\"5400\"}"
+  },
+  {
+   "k": "es-duration: .empty() on host: still renders, no slot content",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"mark2\":0}"
+  },
+  {
+   "k": "es-duration: .text() on host: still renders",
+   "ok": true,
+   "extra": "{\"rendered\":true}"
+  },
+  {
+   "k": "es-duration: .remove() unmounts at once; ancestor .empty() unmounts all",
+   "ok": true,
+   "extra": "{\"t0\":0,\"t1\":2,\"t2\":1,\"t3\":0,\"nested\":0}"
+  },
+  {
+   "k": "es-select: create in template string renders synchronously",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"uid\":8,\"mark\":1,\"markVis\":false,\"visible\":true}"
+  },
+  {
+   "k": "es-select: detach+appendTo same task keeps instance",
+   "ok": true,
+   "extra": "{\"same\":true,\"rendered\":true}"
+  },
+  {
+   "k": "es-select: detach, re-append after a frame: remounts fresh, props kept",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"newInst\":true,\"model\":\"\\\"red\\\"\",\"mark\":1}"
+  },
+  {
+   "k": "es-select: clone renders independently, slot copied, original intact, no duplicate ids",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"other\":true,\"cmark\":1,\"omark\":true,\"dup\":0,\"stale\":true}"
+  },
+  {
+   "k": "es-select: .html(x) on host: remounts with x as slot content",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"remount\":true,\"mark2\":1,\"oldMark\":0,\"model\":\"\\\"red\\\"\"}"
+  },
+  {
+   "k": "es-select: .empty() on host: still renders, no slot content",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"mark2\":0}"
+  },
+  {
+   "k": "es-select: .text() on host: still renders",
+   "ok": true,
+   "extra": "{\"rendered\":true}"
+  },
+  {
+   "k": "es-select: overlay opens into es-portal",
+   "ok": true,
+   "extra": "{\"portal\":1,\"open\":1,\"markInPortal\":true}"
+  },
+  {
+   "k": "es-select: .remove() while open: overlay, slot nodes and teleports gone",
+   "ok": true,
+   "extra": "{\"base\":{\"portal\":1,\"body\":4,\"top\":1,\"dialogs\":0},\"a\":{\"portal\":0,\"body\":4,\"open\":0,\"mark\":0,\"top\":0}}"
+  },
+  {
+   "k": "es-select: .remove() unmounts at once; ancestor .empty() unmounts all",
+   "ok": true,
+   "extra": "{\"t0\":0,\"t1\":2,\"t2\":1,\"t3\":0,\"nested\":0}"
+  },
+  {
+   "k": "es-combobox: create in template string renders synchronously",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"uid\":8,\"mark\":1,\"markVis\":false,\"visible\":false}"
+  },
+  {
+   "k": "es-combobox: detach+appendTo same task keeps instance",
+   "ok": true,
+   "extra": "{\"same\":true,\"rendered\":true}"
+  },
+  {
+   "k": "es-combobox: detach, re-append after a frame: remounts fresh, props kept",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"newInst\":true,\"model\":\"null\",\"mark\":1}"
+  },
+  {
+   "k": "es-combobox: clone renders independently, slot copied, original intact, no duplicate ids",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"other\":true,\"cmark\":1,\"omark\":true,\"dup\":0,\"stale\":true}"
+  },
+  {
+   "k": "es-combobox: .html(x) on host: remounts with x as slot content",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"remount\":true,\"mark2\":1,\"oldMark\":0,\"model\":\"null\"}"
+  },
+  {
+   "k": "es-combobox: .empty() on host: still renders, no slot content",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"mark2\":0}"
+  },
+  {
+   "k": "es-combobox: .text() on host: still renders",
+   "ok": true,
+   "extra": "{\"rendered\":true}"
+  },
+  {
+   "k": "es-combobox: overlay opens into es-portal",
+   "ok": true,
+   "extra": "{\"portal\":1,\"open\":1,\"markInPortal\":true}"
+  },
+  {
+   "k": "es-combobox: .remove() while open: overlay, slot nodes and teleports gone",
+   "ok": true,
+   "extra": "{\"base\":{\"portal\":0,\"body\":4,\"top\":1,\"dialogs\":0},\"a\":{\"portal\":0,\"body\":4,\"open\":0,\"mark\":0,\"top\":0}}"
+  },
+  {
+   "k": "es-combobox: .remove() unmounts at once; ancestor .empty() unmounts all",
+   "ok": true,
+   "extra": "{\"t0\":0,\"t1\":2,\"t2\":1,\"t3\":0,\"nested\":0}"
+  },
+  {
+   "k": "es-multi-select: create in template string renders synchronously",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"uid\":8,\"mark\":1,\"markVis\":false,\"visible\":true}"
+  },
+  {
+   "k": "es-multi-select: detach+appendTo same task keeps instance",
+   "ok": true,
+   "extra": "{\"same\":true,\"rendered\":true}"
+  },
+  {
+   "k": "es-multi-select: detach, re-append after a frame: remounts fresh, props kept",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"newInst\":true,\"model\":\"[\\\"red\\\"]\",\"mark\":1}"
+  },
+  {
+   "k": "es-multi-select: clone renders independently, slot copied, original intact, no duplicate ids",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"other\":true,\"cmark\":1,\"omark\":true,\"dup\":0,\"stale\":true}"
+  },
+  {
+   "k": "es-multi-select: .html(x) on host: remounts with x as slot content",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"remount\":true,\"mark2\":1,\"oldMark\":0,\"model\":\"[\\\"red\\\"]\"}"
+  },
+  {
+   "k": "es-multi-select: .empty() on host: still renders, no slot content",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"mark2\":0}"
+  },
+  {
+   "k": "es-multi-select: .text() on host: still renders",
+   "ok": true,
+   "extra": "{\"rendered\":true}"
+  },
+  {
+   "k": "es-multi-select: overlay opens into es-portal",
+   "ok": true,
+   "extra": "{\"portal\":1,\"open\":1,\"markInPortal\":true}"
+  },
+  {
+   "k": "es-multi-select: .remove() while open: overlay, slot nodes and teleports gone",
+   "ok": true,
+   "extra": "{\"base\":{\"portal\":0,\"body\":4,\"top\":1,\"dialogs\":0},\"a\":{\"portal\":0,\"body\":4,\"open\":0,\"mark\":0,\"top\":0}}"
+  },
+  {
+   "k": "es-multi-select: .remove() unmounts at once; ancestor .empty() unmounts all",
+   "ok": true,
+   "extra": "{\"t0\":0,\"t1\":2,\"t2\":1,\"t3\":0,\"nested\":0}"
+  },
+  {
+   "k": "es-date-picker: create in template string renders synchronously",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"uid\":8,\"mark\":1,\"markVis\":true,\"visible\":true}"
+  },
+  {
+   "k": "es-date-picker: slot child rendered",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"uid\":8,\"mark\":1,\"markVis\":true,\"visible\":true}"
+  },
+  {
+   "k": "es-date-picker: detach+appendTo same task keeps instance",
+   "ok": true,
+   "extra": "{\"same\":true,\"rendered\":true}"
+  },
+  {
+   "k": "es-date-picker: detach, re-append after a frame: remounts fresh, props kept",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"newInst\":true,\"model\":\"\\\"2024-03-15\\\"\",\"mark\":1}"
+  },
+  {
+   "k": "es-date-picker: clone renders independently, slot copied, original intact, no duplicate ids",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"other\":true,\"cmark\":1,\"omark\":true,\"dup\":0,\"stale\":true}"
+  },
+  {
+   "k": "es-date-picker: .html(x) on host: remounts with x as slot content",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"remount\":true,\"mark2\":1,\"oldMark\":0,\"model\":\"\\\"2024-03-15\\\"\"}"
+  },
+  {
+   "k": "es-date-picker: .empty() on host: still renders, no slot content",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"mark2\":0}"
+  },
+  {
+   "k": "es-date-picker: .text() on host: still renders",
+   "ok": true,
+   "extra": "{\"rendered\":true}"
+  },
+  {
+   "k": "es-date-picker: overlay opens into es-portal",
+   "ok": true,
+   "extra": "{\"portal\":1,\"open\":1,\"markInPortal\":false}"
+  },
+  {
+   "k": "es-date-picker: .remove() while open: overlay, slot nodes and teleports gone",
+   "ok": true,
+   "extra": "{\"base\":{\"portal\":0,\"body\":4,\"top\":1,\"dialogs\":0},\"a\":{\"portal\":0,\"body\":4,\"open\":0,\"mark\":0,\"top\":0}}"
+  },
+  {
+   "k": "es-date-picker: .remove() unmounts at once; ancestor .empty() unmounts all",
+   "ok": true,
+   "extra": "{\"t0\":0,\"t1\":2,\"t2\":1,\"t3\":0,\"nested\":0}"
+  },
+  {
+   "k": "es-date-range-picker: create in template string renders synchronously",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"uid\":8,\"mark\":0,\"markVis\":false,\"visible\":true}"
+  },
+  {
+   "k": "es-date-range-picker: detach+appendTo same task keeps instance",
+   "ok": true,
+   "extra": "{\"same\":true,\"rendered\":true}"
+  },
+  {
+   "k": "es-date-range-picker: detach, re-append after a frame: remounts fresh, props kept",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"newInst\":true,\"model\":\"[\\\"2024-03-01\\\",\\\"2024-03-05\\\"]\",\"mark\":0}"
+  },
+  {
+   "k": "es-date-range-picker: clone renders independently, slot copied, original intact, no duplicate ids",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"other\":true,\"cmark\":0,\"omark\":true,\"dup\":0,\"stale\":true}"
+  },
+  {
+   "k": "es-date-range-picker: .html(x) on host: remounts with x as slot content",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"remount\":true,\"mark2\":1,\"oldMark\":0,\"model\":\"[\\\"2024-03-01\\\",\\\"2024-03-05\\\"]\"}"
+  },
+  {
+   "k": "es-date-range-picker: .empty() on host: still renders, no slot content",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"mark2\":0}"
+  },
+  {
+   "k": "es-date-range-picker: .text() on host: still renders",
+   "ok": true,
+   "extra": "{\"rendered\":true}"
+  },
+  {
+   "k": "es-date-range-picker: overlay opens into es-portal",
+   "ok": true,
+   "extra": "{\"portal\":1,\"open\":1,\"markInPortal\":false}"
+  },
+  {
+   "k": "es-date-range-picker: .remove() while open: overlay, slot nodes and teleports gone",
+   "ok": true,
+   "extra": "{\"base\":{\"portal\":0,\"body\":4,\"top\":1,\"dialogs\":0},\"a\":{\"portal\":0,\"body\":4,\"open\":0,\"mark\":0,\"top\":0}}"
+  },
+  {
+   "k": "es-date-range-picker: .remove() unmounts at once; ancestor .empty() unmounts all",
+   "ok": true,
+   "extra": "{\"t0\":0,\"t1\":2,\"t2\":1,\"t3\":0,\"nested\":0}"
+  },
+  {
+   "k": "es-date-time-picker: create in template string renders synchronously",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"uid\":8,\"mark\":0,\"markVis\":false,\"visible\":true}"
+  },
+  {
+   "k": "es-date-time-picker: detach+appendTo same task keeps instance",
+   "ok": true,
+   "extra": "{\"same\":true,\"rendered\":true}"
+  },
+  {
+   "k": "es-date-time-picker: detach, re-append after a frame: remounts fresh, props kept",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"newInst\":true,\"model\":\"\\\"2024-03-15 10:30:00\\\"\",\"mark\":0}"
+  },
+  {
+   "k": "es-date-time-picker: clone renders independently, slot copied, original intact, no duplicate ids",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"other\":true,\"cmark\":0,\"omark\":true,\"dup\":0,\"stale\":true}"
+  },
+  {
+   "k": "es-date-time-picker: .html(x) on host: remounts with x as slot content",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"remount\":true,\"mark2\":1,\"oldMark\":0,\"model\":\"\\\"2024-03-15 10:30:00\\\"\"}"
+  },
+  {
+   "k": "es-date-time-picker: .empty() on host: still renders, no slot content",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"mark2\":0}"
+  },
+  {
+   "k": "es-date-time-picker: .text() on host: still renders",
+   "ok": true,
+   "extra": "{\"rendered\":true}"
+  },
+  {
+   "k": "es-date-time-picker: overlay opens into es-portal",
+   "ok": true,
+   "extra": "{\"portal\":1,\"open\":1,\"markInPortal\":false}"
+  },
+  {
+   "k": "es-date-time-picker: .remove() while open: overlay, slot nodes and teleports gone",
+   "ok": true,
+   "extra": "{\"base\":{\"portal\":0,\"body\":4,\"top\":1,\"dialogs\":0},\"a\":{\"portal\":0,\"body\":4,\"open\":0,\"mark\":0,\"top\":0}}"
+  },
+  {
+   "k": "es-date-time-picker: .remove() unmounts at once; ancestor .empty() unmounts all",
+   "ok": true,
+   "extra": "{\"t0\":0,\"t1\":2,\"t2\":1,\"t3\":0,\"nested\":0}"
+  },
+  {
+   "k": "es-time-picker: create in template string renders synchronously",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"uid\":8,\"mark\":1,\"markVis\":true,\"visible\":true}"
+  },
+  {
+   "k": "es-time-picker: slot child rendered",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"uid\":8,\"mark\":1,\"markVis\":true,\"visible\":true}"
+  },
+  {
+   "k": "es-time-picker: detach+appendTo same task keeps instance",
+   "ok": true,
+   "extra": "{\"same\":true,\"rendered\":true}"
+  },
+  {
+   "k": "es-time-picker: detach, re-append after a frame: remounts fresh, props kept",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"newInst\":true,\"model\":\"\\\"09:00\\\"\",\"mark\":1}"
+  },
+  {
+   "k": "es-time-picker: clone renders independently, slot copied, original intact, no duplicate ids",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"other\":true,\"cmark\":1,\"omark\":true,\"dup\":0,\"stale\":true}"
+  },
+  {
+   "k": "es-time-picker: .html(x) on host: remounts with x as slot content",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"remount\":true,\"mark2\":1,\"oldMark\":0,\"model\":\"\\\"09:00\\\"\"}"
+  },
+  {
+   "k": "es-time-picker: .empty() on host: still renders, no slot content",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"mark2\":0}"
+  },
+  {
+   "k": "es-time-picker: .text() on host: still renders",
+   "ok": true,
+   "extra": "{\"rendered\":true}"
+  },
+  {
+   "k": "es-time-picker: overlay opens into es-portal",
+   "ok": true,
+   "extra": "{\"portal\":1,\"open\":2,\"markInPortal\":false}"
+  },
+  {
+   "k": "es-time-picker: .remove() while open: overlay, slot nodes and teleports gone",
+   "ok": true,
+   "extra": "{\"base\":{\"portal\":0,\"body\":4,\"top\":1,\"dialogs\":0},\"a\":{\"portal\":0,\"body\":4,\"open\":0,\"mark\":0,\"top\":0}}"
+  },
+  {
+   "k": "es-time-picker: .remove() unmounts at once; ancestor .empty() unmounts all",
+   "ok": true,
+   "extra": "{\"t0\":0,\"t1\":2,\"t2\":1,\"t3\":0,\"nested\":0}"
+  },
+  {
+   "k": "es-file-uploader: create in template string renders synchronously",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"uid\":8,\"mark\":1,\"markVis\":true,\"visible\":true}"
+  },
+  {
+   "k": "es-file-uploader: slot child rendered",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"uid\":8,\"mark\":1,\"markVis\":true,\"visible\":true}"
+  },
+  {
+   "k": "es-file-uploader: detach+appendTo same task keeps instance",
+   "ok": true,
+   "extra": "{\"same\":true,\"rendered\":true}"
+  },
+  {
+   "k": "es-file-uploader: detach, re-append after a frame: remounts fresh, props kept",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"newInst\":true,\"mark\":1}"
+  },
+  {
+   "k": "es-file-uploader: clone renders independently, slot copied, original intact, no duplicate ids",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"other\":true,\"cmark\":1,\"omark\":true,\"dup\":0,\"stale\":true}"
+  },
+  {
+   "k": "es-file-uploader: .html(x) on host: remounts with x as slot content",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"remount\":true,\"mark2\":1,\"oldMark\":0}"
+  },
+  {
+   "k": "es-file-uploader: .empty() on host: still renders, no slot content",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"mark2\":0}"
+  },
+  {
+   "k": "es-file-uploader: .text() on host: still renders",
+   "ok": true,
+   "extra": "{\"rendered\":true}"
+  },
+  {
+   "k": "es-file-uploader: .remove() unmounts at once; ancestor .empty() unmounts all",
+   "ok": true,
+   "extra": "{\"t0\":0,\"t1\":2,\"t2\":1,\"t3\":0,\"nested\":0}"
+  },
+  {
+   "k": "es-form-control: create in template string renders synchronously",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"uid\":8,\"mark\":1,\"markVis\":true,\"visible\":true}"
+  },
+  {
+   "k": "es-form-control: slot child rendered",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"uid\":8,\"mark\":1,\"markVis\":true,\"visible\":true}"
+  },
+  {
+   "k": "es-form-control: detach+appendTo same task keeps instance",
+   "ok": true,
+   "extra": "{\"same\":true,\"rendered\":true}"
+  },
+  {
+   "k": "es-form-control: detach, re-append after a frame: remounts fresh, props kept",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"newInst\":true,\"mark\":1}"
+  },
+  {
+   "k": "es-form-control: clone renders independently, slot copied, original intact, no duplicate ids",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"other\":true,\"cmark\":1,\"omark\":true,\"dup\":0,\"stale\":true}"
+  },
+  {
+   "k": "es-form-control: .html(x) on host: remounts with x as slot content",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"remount\":true,\"mark2\":1,\"oldMark\":0}"
+  },
+  {
+   "k": "es-form-control: .empty() on host: still renders, no slot content",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"mark2\":0}"
+  },
+  {
+   "k": "es-form-control: .text() on host: still renders",
+   "ok": true,
+   "extra": "{\"rendered\":true}"
+  },
+  {
+   "k": "es-form-control: .remove() unmounts at once; ancestor .empty() unmounts all",
+   "ok": true,
+   "extra": "{\"t0\":0,\"t1\":2,\"t2\":1,\"t3\":0,\"nested\":0}"
+  },
+  {
+   "k": "es-fw-check-field: create in template string renders synchronously",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"uid\":8,\"mark\":0,\"markVis\":false,\"visible\":true}"
+  },
+  {
+   "k": "es-fw-check-field: detach+appendTo same task keeps instance",
+   "ok": true,
+   "extra": "{\"same\":true,\"rendered\":true}"
+  },
+  {
+   "k": "es-fw-check-field: detach, re-append after a frame: remounts fresh, props kept",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"newInst\":true,\"model\":\"0\",\"mark\":0}"
+  },
+  {
+   "k": "es-fw-check-field: clone renders independently, slot copied, original intact, no duplicate ids",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"other\":true,\"cmark\":0,\"omark\":true,\"dup\":0,\"stale\":true}"
+  },
+  {
+   "k": "es-fw-check-field: .html(x) on host: remounts with x as slot content",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"remount\":true,\"mark2\":1,\"oldMark\":0,\"model\":\"0\"}"
+  },
+  {
+   "k": "es-fw-check-field: .empty() on host: still renders, no slot content",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"mark2\":0}"
+  },
+  {
+   "k": "es-fw-check-field: .text() on host: still renders",
+   "ok": true,
+   "extra": "{\"rendered\":true}"
+  },
+  {
+   "k": "es-fw-check-field: .remove() unmounts at once; ancestor .empty() unmounts all",
+   "ok": true,
+   "extra": "{\"t0\":0,\"t1\":2,\"t2\":1,\"t3\":0,\"nested\":0}"
+  },
+  {
+   "k": "es-dropdown: create in template string renders synchronously",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"uid\":8,\"mark\":0,\"markVis\":false,\"visible\":true}"
+  },
+  {
+   "k": "es-dropdown: detach+appendTo same task keeps instance",
+   "ok": true,
+   "extra": "{\"same\":true,\"rendered\":true}"
+  },
+  {
+   "k": "es-dropdown: detach, re-append after a frame: remounts fresh, props kept",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"newInst\":true,\"mark\":0}"
+  },
+  {
+   "k": "es-dropdown: clone renders independently, slot copied, original intact, no duplicate ids",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"other\":true,\"cmark\":0,\"omark\":true,\"dup\":0,\"stale\":true}"
+  },
+  {
+   "k": "es-dropdown: .html(x) on host: remounts with x as slot content",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"remount\":true,\"mark2\":1,\"oldMark\":0}"
+  },
+  {
+   "k": "es-dropdown: .empty() on host: still renders, no slot content",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"mark2\":0}"
+  },
+  {
+   "k": "es-dropdown: .text() on host: still renders",
+   "ok": true,
+   "extra": "{\"rendered\":true}"
+  },
+  {
+   "k": "es-dropdown: overlay opens into es-portal",
+   "ok": true,
+   "extra": "{\"portal\":1,\"open\":1,\"markInPortal\":false}"
+  },
+  {
+   "k": "es-dropdown: .remove() while open: overlay, slot nodes and teleports gone",
+   "ok": true,
+   "extra": "{\"base\":{\"portal\":0,\"body\":4,\"top\":1,\"dialogs\":0},\"a\":{\"portal\":0,\"body\":4,\"open\":0,\"mark\":0,\"top\":0}}"
+  },
+  {
+   "k": "es-dropdown: .remove() unmounts at once; ancestor .empty() unmounts all",
+   "ok": true,
+   "extra": "{\"t0\":0,\"t1\":2,\"t2\":1,\"t3\":0,\"nested\":0}"
+  },
+  {
+   "k": "es-dialog: create in template string renders synchronously",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"uid\":8,\"mark\":1,\"markVis\":false,\"visible\":true}"
+  },
+  {
+   "k": "es-dialog: detach+appendTo same task keeps instance",
+   "ok": true,
+   "extra": "{\"same\":true,\"rendered\":true}"
+  },
+  {
+   "k": "es-dialog: detach, re-append after a frame: remounts fresh, props kept",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"newInst\":true,\"model\":\"false\",\"mark\":1}"
+  },
+  {
+   "k": "es-dialog: clone renders independently, slot copied, original intact, no duplicate ids",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"other\":true,\"cmark\":1,\"omark\":true,\"dup\":0,\"stale\":true}"
+  },
+  {
+   "k": "es-dialog: .html(x) on host: remounts with x as slot content",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"remount\":true,\"mark2\":1,\"oldMark\":0,\"model\":\"false\"}"
+  },
+  {
+   "k": "es-dialog: .empty() on host: still renders, no slot content",
+   "ok": true,
+   "extra": "{\"rendered\":true,\"mark2\":0}"
+  },
+  {
+   "k": "es-dialog: .text() on host: still renders",
+   "ok": true,
+   "extra": "{\"rendered\":true}"
+  },
+  {
+   "k": "es-dialog: overlay opens into es-portal",
+   "ok": true,
+   "extra": "{\"portal\":2,\"open\":1,\"markInPortal\":true}"
+  },
+  {
+   "k": "es-dialog: .remove() while open: overlay, slot nodes and teleports gone",
+   "ok": true,
+   "extra": "{\"base\":{\"portal\":1,\"body\":4,\"top\":1,\"dialogs\":0},\"a\":{\"portal\":0,\"body\":4,\"open\":0,\"mark\":0,\"top\":0}}"
+  },
+  {
+   "k": "es-dialog: .remove() unmounts at once; ancestor .empty() unmounts all",
+   "ok": true,
+   "extra": "{\"t0\":0,\"t1\":2,\"t2\":1,\"t3\":0,\"nested\":0}"
+  },
+  {
+   "k": "after the last spec: no top-level entries, portal empty",
+   "ok": true,
+   "extra": "{\"top\":0,\"portal\":0,\"portalHtml\":\"\",\"stage\":0}"
+  }
+ ],
+ "errs": []
+}

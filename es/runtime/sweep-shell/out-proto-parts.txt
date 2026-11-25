@@ -1,0 +1,24 @@
+PASS es-page-header-base | teleports into the registered es-page-header-target
+PASS es-page-header-base | class attribute lands on the teleported <header> :: flex h-10 items-center bg-surface-gray-2 px-2
+PASS es-page-header-base | anchor <span hidden> stays at declaration site
+PASS es-page-header-base | teleported slot stays live (jQuery handler + text) :: Base header for Grace
+PASS es-page-header-base | clicking header background scrolls its declaration scroll parent to top :: 0
+PASS es-page-header | second header (page-header) also teleported to the same target :: Slot title Grace
+PASS es-page-header-title | default slot overrides title
+PASS es-page-header | jQuery .remove() of the wrapper removes the teleported header :: 2 -> 1
+PASS es-page-header-mobile-title | standalone, title attribute :: Standalone mobile title
+PASS es-page-header-title | standalone slot-only :: Slot only Grace
+PASS es-page-header-back-button | icon-only ghost button, aria-label "Back" + chevron
+PASS es-page-header-base | .append() on host -> joins the teleported header slot
+PASS es-page-header-base | .html() on host -> header remounted with new slot, still one header in target :: 1
+PASS es-page-header-base | .empty() on host -> empty header stays (one), old nodes gone
+PASS es-page-header-base | .detach() + append elsewhere in same task: header stays in target, anchor moved :: []
+PASS es-page-header-base | .remove() takes its header out of the target
+PASS es-page-header | created inside a larger jQuery template: teleported into the target :: From template / Act
+PASS es-page-header-target | .detach() + re-append the target in same task keeps the header :: []
+PASS es-page-header-target | .remove() of the target: header falls back to its declaration site (Teleport disabled, component behaviour)
+PASS es-page-header-target | a new target from a string picks the existing header up :: From template / Act
+PASS es-page-header-target | .clone() of a target: no duplicate headers rendered from the clone :: 1
+PASS es-page-header-back-button | .clone() + .attr(label) -> aria-label "Go back"
+console errors/warnings: 0
+ALL PASS (22)

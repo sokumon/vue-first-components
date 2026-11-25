@@ -1,0 +1,81 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="/dist/es-ui.css">
+<script src="/jquery.js"></script>
+<script src="/dist/es-ui.iife.js"></script>
+</head><body class="p-4">
+<!-- jQuery port of wc/sweep/shell/pages/settings.html: SettingsDialog + reka Tabs context across 9 elements -->
+<div id="app" class="space-y-3"></div>
+<script>
+$(function () {
+  const S = window.S = { open: false, tab: 'profile', digest: false, sounds: true, name: 'Ada', unread: 3, log: [] }
+  const push = (m) => S.log.push(m)
+  const own = ($el, ev, fn) => $el.on(ev, function (e) { if (e.target === e.currentTarget) fn(e.originalEvent.detail, e) })
+  const fillers = []
+  for (let i = 1; i <= 30; i++) fillers.push(`<div class="py-3 border-b">Filler ${i}</div>`)
+  const $app = $('#app').append(`
+  <input id="outside-input" placeholder="focus here">
+  <es-button id="open" label="Open settings"></es-button>
+  <es-settings-dialog id="sd" size="3xl" tab="profile">
+    <span slot="title" id="sd-title">App settings for <span class="nm">Ada</span></span>
+    <span slot="description" id="sd-desc">Change how the app behaves</span>
+    <es-settings-sidebar id="ssb">
+      <es-settings-nav-group id="g1" label="User settings">
+        <es-settings-nav-item id="ni-profile" value="profile">
+          <es-avatar slot="prefix" id="ni-profile-av" size="xs" label="Ada"></es-avatar>
+          Profile
+        </es-settings-nav-item>
+        <es-settings-nav-item id="ni-notif" value="notifications">
+          Notifications
+          <es-badge slot="suffix" id="ni-notif-badge" label="3"></es-badge>
+        </es-settings-nav-item>
+      </es-settings-nav-group>
+      <es-settings-nav-group id="g2">
+        <span slot="label" id="g2-label">Workspace <i>(admin)</i></span>
+        <es-settings-nav-item id="ni-members" value="members">Members</es-settings-nav-item>
+      </es-settings-nav-group>
+    </es-settings-sidebar>
+    <es-settings-content id="sc">
+      <es-settings-panel id="p-profile" value="profile">
+        <es-settings-header id="h-profile" title="Profile" description="Your public identity">
+          <es-button slot="actions" id="h-profile-act" label="Save" variant="solid"></es-button>
+        </es-settings-header>
+        <es-settings-body id="b-profile">
+          <es-settings-row id="row-name" title="Display name" description="Shown to teammates">
+            <es-text-input id="name-input" model-value="Ada"></es-text-input>
+          </es-settings-row>
+        </es-settings-body>
+      </es-settings-panel>
+      <es-settings-panel id="p-notif" value="notifications">
+        <es-settings-header id="h-notif" title="Notifications"></es-settings-header>
+        <es-settings-body id="b-notif">
+          <es-settings-row id="row-digest" title="Email digests" description="A summary of missed activity.">
+            <es-switch id="sw-digest"></es-switch>
+          </es-settings-row>
+          <es-settings-row id="row-sounds" title="Sounds">
+            <span slot="description" id="row-sounds-desc">Play a sound. <a href="#learn" id="learn">Learn more</a></span>
+            <es-switch id="sw-sounds" model-value></es-switch>
+          </es-settings-row>
+          ${fillers.join('')}
+        </es-settings-body>
+      </es-settings-panel>
+      <es-settings-panel id="p-members" value="members">
+        <es-settings-header id="h-members"><div id="h-members-custom" class="px-0 text-lg">Custom header (<span class="unread">3</span>)</div></es-settings-header>
+        <es-settings-body id="b-members"><p id="members-body">Members list</p></es-settings-body>
+      </es-settings-panel>
+    </es-settings-content>
+  </es-settings-dialog>`)
+  $('#sw-digest').prop('modelValue', false)
+  $('#open').on('click', () => $('#sd').prop('open', true))
+  own($('#sd'), 'update:open', (v) => { S.open = v })
+  own($('#sd'), 'update:tab', (v) => { S.tab = v })
+  // delegated handlers (Desk style) on document; slot content is teleported to <es-portal> when open
+  $(document).on('update:modelValue', '#name-input', function (e) { S.name = e.originalEvent.detail; $('.nm').text(S.name); $('#ni-profile-av').attr('label', S.name) })
+  $(document).on('update:modelValue', '#sw-digest', (e) => { S.digest = e.originalEvent.detail })
+  $(document).on('update:modelValue', '#sw-sounds', (e) => { S.sounds = e.originalEvent.detail })
+  $(document).on('click', '#h-profile-act', () => push('save'))
+  // probe: does a handler delegated on the dialog HOST see events from its (teleported) slot content?
+  $('#sd').on('click', '#h-profile-act', () => { S.hostDelegated = true })
+  window.READY = true
+})
+</script>
+</body></html>

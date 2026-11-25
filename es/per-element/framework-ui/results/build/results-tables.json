@@ -1,0 +1,135 @@
+{
+ "results": [
+  {
+   "k": "List renders header + 3 rows",
+   "ok": true,
+   "extra": "ID Status Hours T-1 Open 2 T-2 Closed 5 T-3 Open 1"
+  },
+  {
+   "k": "List row checkbox -> v-model:selection",
+   "ok": true,
+   "extra": "[\"T-2\"]"
+  },
+  {
+   "k": "BulkBar appears with count",
+   "ok": true,
+   "extra": "1 selected\nArchive"
+  },
+  {
+   "k": "BulkBar action fn prop gets selection",
+   "ok": true,
+   "extra": "[\"T-2\"]"
+  },
+  {
+   "k": "List keyboard Space toggles row",
+   "ok": true,
+   "extra": "[\"T-2\",\"T-3\"]"
+  },
+  {
+   "k": "BulkBar clear -> selection []",
+   "ok": true,
+   "extra": "[]"
+  },
+  {
+   "k": "List select all",
+   "ok": true,
+   "extra": "[\"T-1\",\"T-2\",\"T-3\"]"
+  },
+  {
+   "k": "List header click -> v-model:sort",
+   "ok": true,
+   "extra": "[{\"fieldname\":\"status\",\"direction\":\"asc\"}]"
+  },
+  {
+   "k": "List column-resize event (kebab emit name)",
+   "ok": true,
+   "extra": "[{\"fieldname\":\"name\",\"width\":\"641px\"}]"
+  },
+  {
+   "k": "List #cell slot rendered in every cell (9)",
+   "ok": false,
+   "extra": "light-DOM cell slot nodes found in 1 cell(s); rows text: ID Status Hours CELL"
+  },
+  {
+   "k": "scoped #cell <template> stamped per cell with slot props",
+   "ok": false,
+   "extra": "[]"
+  },
+  {
+   "k": "List #empty slot bound",
+   "ok": true
+  },
+  {
+   "k": "List rowLink (RouterLink) renders the row (needs an installed router)",
+   "ok": false,
+   "extra": "ID Status Hours"
+  },
+  {
+   "k": "rowLink row is a link to the route",
+   "ok": false,
+   "extra": "null"
+  },
+  {
+   "k": "Footer counts",
+   "ok": true
+  },
+  {
+   "k": "Footer page size -> v-model:pageSize",
+   "ok": true,
+   "extra": "100"
+  },
+  {
+   "k": "Footer load-more (kebab event)",
+   "ok": true,
+   "extra": "1"
+  },
+  {
+   "k": "GroupByTable rows + aggregates + totals",
+   "ok": true,
+   "extra": "Status Count Sum of Hours Open 2 3 Closed 1 5 Total 3 8"
+  },
+  {
+   "k": "GroupByTable header sort -> update:groupBy",
+   "ok": true,
+   "extra": "[{\"fieldname\":\"count:\",\"direction\":\"asc\"}]"
+  },
+  {
+   "k": "Grid renders label, reqd marker, rows",
+   "ok": true,
+   "extra": "Items # Item * Qty 1 Apple 1 2 Pear 2 Add Row"
+  },
+  {
+   "k": "Grid Add Row uses newRow fn prop, emits add+change, v-model",
+   "ok": true,
+   "extra": "[{\"item\":\"Apple\",\"qty\":1},{\"item\":\"Pear\",\"qty\":2},{\"item\":\"New\",\"qty\":0,\"__row_id\":\"row-1\"}] add,change"
+  },
+  {
+   "k": "Grid cellError fn marks invalid cell",
+   "ok": true,
+   "extra": "1"
+  },
+  {
+   "k": "Grid select + Delete -> remove event, v-model",
+   "ok": true,
+   "extra": "[\"Pear\",\"New\"] add,change,change,remove:1,change"
+  },
+  {
+   "k": "Grid scoped #cell editor stamped per cell",
+   "ok": false,
+   "extra": "0"
+  },
+  {
+   "k": "Grid editor update() -> v-model, commit() -> commit event",
+   "ok": false,
+   "extra": "[\"Pear\",\"New\"] add,change,change,remove:1,change"
+  },
+  {
+   "k": "Grid ArrowDown moves to the editor below",
+   "ok": false,
+   "extra": "BODY"
+  }
+ ],
+ "errs": [
+  "error: TypeError: Cannot destructure property 'options' of 'inject(...)' as it is undefined.\n    at setup (http://fw.test/build/es-components.js:32583:15)\n    at callWithErrorHandling (http://fw.test/build/es-components.js:2619:21)\n    at setupStatefulComponent (http://fw.test/build/es-components.js:9466:2"
+ ]
+}

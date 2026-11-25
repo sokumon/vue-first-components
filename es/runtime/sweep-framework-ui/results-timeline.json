@@ -1,0 +1,199 @@
+{
+ "page": "timeline.html",
+ "fails": 1,
+ "n": 34,
+ "results": [
+  {
+   "tag": "es-fw-activity-timeline",
+   "k": "renders every activity type in order",
+   "ok": true,
+   "extra": "log,version,comment,email,attachment_log"
+  },
+  {
+   "tag": "es-fw-activity-timeline",
+   "k": "rows show content",
+   "ok": true,
+   "extra": "Older activity L created this 4 days ago Ada Lovelace changed Open → Closed 4 days ago A Ada Lovelace 4 days ago Looks good notes.txt A Ada Lovelace 4 days ago To:grace@example.com Subject:Re: bug Ada Lovelace attached spec.pdf 4 days ago"
+  },
+  {
+   "tag": "es-fw-activity-timeline",
+   "k": "#icon-log named slot lands in the log row gutter",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-activity-timeline",
+   "k": "paginate.fetchNextPage fn prop called by Load More",
+   "ok": true,
+   "extra": "1"
+  },
+  {
+   "tag": "es-fw-activity-timeline",
+   "k": "#empty slot jQuery-updated",
+   "ok": true,
+   "extra": "Quiet here (1)"
+  },
+  {
+   "tag": "es-fw-activity-timeline",
+   "k": "exposed scrollToLatest/scrollToRow reachable on element",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-activity-timeline",
+   "k": "el.scrollToLatest() callable",
+   "ok": true,
+   "extra": "true"
+  },
+  {
+   "tag": "es-fw-activity-timeline",
+   "k": "scoped #item-comment <template> gets {activity}",
+   "ok": true,
+   "extra": "[\"Comment c1 by Ada Lovelace\"]"
+  },
+  {
+   "tag": "es-fw-timeline-container",
+   "k": "default slot",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-comment-item",
+   "k": "actions slot visible",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-comment-item",
+   "k": ".prop(editable,true) from a jQuery click -> Save/Discard",
+   "ok": true,
+   "extra": "Ada Lovelace 4 days ago Looks good Discard Save"
+  },
+  {
+   "tag": "es-fw-comment-item",
+   "k": "editor becomes contenteditable",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-comment-item",
+   "k": "Ctrl+Enter -> save event with edited html",
+   "ok": true,
+   "extra": "\"<p>Looks <strong>good indeed</strong><br></p>\""
+  },
+  {
+   "tag": "es-fw-comment-item",
+   "k": "Discard -> discard event",
+   "ok": true,
+   "extra": "{\"n\":0,\"editing\":false,\"saved\":\"<p>Looks <strong>good indeed</strong><br></p>\",\"discards\":1,\"more\":1,\"log\":[]}"
+  },
+  {
+   "tag": "es-fw-email-item",
+   "k": "header + footer slot",
+   "ok": true,
+   "extra": "Ada Lovelace 4 days ago To:grace@example.com Subject:Re: bug Reply to ada@example.com"
+  },
+  {
+   "tag": "es-fw-email-item",
+   "k": "body content visible",
+   "ok": true,
+   "extra": "Ada Lovelace 4 days ago To:grace@example.com Subject:Re: bug Reply to ada@example.com"
+  },
+  {
+   "tag": "es-fw-log-item",
+   "k": "standalone",
+   "ok": true,
+   "extra": "created this 4 days ago"
+  },
+  {
+   "tag": "es-fw-version-item",
+   "k": "standalone",
+   "ok": true,
+   "extra": "Ada Lovelace changed Open → Closed 4 days ago"
+  },
+  {
+   "tag": "es-fw-attachment-chip",
+   "k": "opens preview dialog with fetched markdown",
+   "ok": true,
+   "extra": "readme.md\nHello from readme\n\nSome text."
+  },
+  {
+   "tag": "es-fw-attachment-chip",
+   "k": "Escape closes preview",
+   "ok": true
+  },
+  {
+   "tag": "page",
+   "k": "no page errors in core scenarios",
+   "ok": true,
+   "extra": ""
+  },
+  {
+   "tag": "es-fw-activity-timeline",
+   "k": "page pushes into its array + .prop(activities, sameArray) shows the new row",
+   "ok": false,
+   "extra": " good notes.txt A Ada Lovelace 4 days ago To:grace@example.com Subject:Re: bug Ada Lovelace attached spec.pdf 4 days ago"
+  },
+  {
+   "tag": "es-fw-activity-timeline",
+   "k": ".prop(activities, newArray) shows the new row",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-activity-timeline",
+   "k": ".detach().appendTo() keeps rows + slot",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-activity-timeline",
+   "k": ".html(<template>) on host swaps the scoped template (both comments, c2 was pushed into the shared array)",
+   "ok": true,
+   "extra": "[\"c1\",\"c2\"]"
+  },
+  {
+   "tag": "es-fw-activity-timeline",
+   "k": ".clone() of a slot-configured timeline (+ .prop) renders the copied empty slot",
+   "ok": true,
+   "extra": "Quiet here (1)"
+  },
+  {
+   "tag": "es-fw-activity-timeline",
+   "k": ".remove() no errors",
+   "ok": true,
+   "extra": ""
+  },
+  {
+   "tag": "es-fw-comment-item",
+   "k": "after move: jQuery handler on slot button still toggles editable",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-comment-item",
+   "k": "detach while editing keeps the editor open",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-comment-item",
+   "k": ".remove() no errors",
+   "ok": true,
+   "extra": ""
+  },
+  {
+   "tag": "es-fw-email-item",
+   "k": "jQuery writes into the footer slot node show in place",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-email-item",
+   "k": ".append() a second footer node joins the slot",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-attachment-chip",
+   "k": "chip from an HTML string opens preview",
+   "ok": true
+  },
+  {
+   "tag": "es-fw-attachment-chip",
+   "k": ".remove() of the wrapper while its dialog is open: dialog goes away",
+   "ok": true,
+   "extra": ""
+  }
+ ],
+ "errs": []
+}

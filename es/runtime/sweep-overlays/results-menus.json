@@ -1,0 +1,243 @@
+{
+ "page": "menus.html",
+ "fails": 5,
+ "n": 42,
+ "results": [
+  {
+   "tag": "es-dropdown",
+   "k": "trigger: es-button in default slot renders",
+   "ok": true,
+   "extra": "{\"x\":324,\"y\":130,\"w\":80,\"h\":28}"
+  },
+  {
+   "tag": "es-dropdown",
+   "k": "opens on click -> update:open",
+   "ok": true
+  },
+  {
+   "tag": "es-dropdown",
+   "k": "menu positioned under trigger",
+   "ok": true,
+   "extra": "{\"tr\":{\"x\":324,\"y\":130,\"w\":80,\"h\":28},\"mr\":{\"x\":324,\"y\":162,\"w\":160,\"h\":197}}"
+  },
+  {
+   "tag": "es-dropdown",
+   "k": "trigger button carries aria-expanded / data-state=open",
+   "ok": true
+  },
+  {
+   "tag": "es-dropdown",
+   "k": "group labels rendered",
+   "ok": true,
+   "extra": "Actions\nEdit\nShare\nNotify\nDanger\nDelete forever (0)"
+  },
+  {
+   "tag": "es-dropdown",
+   "k": "per-item named slot (option.slot -> slot=\"item-danger\") inside its row",
+   "ok": true
+  },
+  {
+   "tag": "es-dropdown",
+   "k": "ArrowDown moves focus into menu",
+   "ok": true,
+   "extra": "Edit"
+  },
+  {
+   "tag": "es-dropdown",
+   "k": "submenu opens on hover",
+   "ok": true
+  },
+  {
+   "tag": "es-dropdown",
+   "k": "submenu item onClick (fn via .prop) fires, menu closes",
+   "ok": true
+  },
+  {
+   "tag": "es-dropdown",
+   "k": "switch item toggles page state through onClick(value)",
+   "ok": true,
+   "extra": "email,notify-false"
+  },
+  {
+   "tag": "es-dropdown",
+   "k": "Escape closes",
+   "ok": true
+  },
+  {
+   "tag": "es-dropdown",
+   "k": "focus returns to trigger button after Escape",
+   "ok": true
+  },
+  {
+   "tag": "es-dropdown",
+   "k": "opens from keyboard (Enter)",
+   "ok": true
+  },
+  {
+   "tag": "es-dropdown",
+   "k": "opens from .prop(\"open\", true)",
+   "ok": true
+  },
+  {
+   "tag": "es-dropdown",
+   "k": "item with slot clicked -> onClick",
+   "ok": true
+  },
+  {
+   "tag": "es-dropdown",
+   "k": "slot node text kept live by jQuery (.logn)",
+   "ok": true,
+   "extra": "Delete forever (3)"
+  },
+  {
+   "tag": "es-dropdown",
+   "k": "slot=\"trigger\" plain button opens dropdown",
+   "ok": true
+  },
+  {
+   "tag": "es-dropdown",
+   "k": "slot=\"empty\" rendered in empty menu",
+   "ok": true
+  },
+  {
+   "tag": "es-dropdown",
+   "k": "empty menu positioned under slot trigger",
+   "ok": true,
+   "extra": "{\"t2\":{\"x\":324,\"y\":174,\"w\":120,\"h\":26},\"m2\":{\"x\":324,\"y\":204,\"w\":160,\"h\":31}}"
+  },
+  {
+   "tag": "es-dropdown",
+   "k": "button attribute as JSON (button='{\"label\":…}') renders the trigger label",
+   "ok": false,
+   "extra": ""
+  },
+  {
+   "tag": "es-dropdown",
+   "k": "item-suffix <template slot> (trigger missing)",
+   "ok": false
+  },
+  {
+   "tag": "es-dropdown",
+   "k": ".prop(\"button\", {...}) sets the trigger label",
+   "ok": true,
+   "extra": "Suffix via prop"
+  },
+  {
+   "tag": "es-context-menu",
+   "k": "opens on right click -> update:open",
+   "ok": true
+  },
+  {
+   "tag": "es-context-menu",
+   "k": "menu at pointer",
+   "ok": true,
+   "extra": "{\"a\":{\"x\":24,\"y\":244,\"w\":320,\"h\":26},\"cr\":{\"x\":67,\"y\":265,\"w\":160,\"h\":98}}"
+  },
+  {
+   "tag": "es-context-menu",
+   "k": "disabled option is disabled",
+   "ok": true
+  },
+  {
+   "tag": "es-context-menu",
+   "k": "keyboard select Copy",
+   "ok": true,
+   "extra": "email,notify-false,delete,copy"
+  },
+  {
+   "tag": "es-context-menu",
+   "k": "region slot text kept live by jQuery",
+   "ok": true,
+   "extra": "Right click here (4)"
+  },
+  {
+   "tag": "es-context-menu",
+   "k": "submenu item",
+   "ok": true,
+   "extra": "email,notify-false,delete,copy,deep"
+  },
+  {
+   "tag": "es-dropdown",
+   "k": "row dropdown from an HTML string template opens under its row trigger",
+   "ok": true,
+   "extra": "{\"rr\":{\"x\":387,\"y\":547,\"w\":30,\"h\":28},\"mm\":{\"x\":387,\"y\":579,\"w\":160,\"h\":69}}"
+  },
+  {
+   "tag": "es-dropdown",
+   "k": "row item onClick sees its closure row",
+   "ok": true
+  },
+  {
+   "tag": "es-dropdown",
+   "k": "row Delete item does $row.remove() from inside its own menu: row gone, menu gone, no error",
+   "ok": true
+  },
+  {
+   "tag": "es-dropdown",
+   "k": "body interactive after removal (pointer-events)",
+   "ok": true
+  },
+  {
+   "tag": "es-dropdown",
+   "k": ".prop(\"options\") while open re-renders the open menu",
+   "ok": true,
+   "extra": "Replaced"
+  },
+  {
+   "tag": "es-dropdown",
+   "k": "replaced item fires",
+   "ok": true
+  },
+  {
+   "tag": "es-dropdown",
+   "k": "layout shift above the open trigger: menu follows",
+   "ok": false,
+   "extra": "{\"tr1\":{\"x\":324,\"y\":246,\"w\":80,\"h\":28},\"m1\":{\"x\":324,\"y\":162,\"w\":160,\"h\":40}}"
+  },
+  {
+   "tag": "es-dropdown",
+   "k": ".detach().appendTo(): moved dropdown opens under its new place",
+   "ok": true,
+   "extra": "{\"tr2\":{\"x\":324,\"y\":531,\"w\":80,\"h\":28},\"m3\":{\"x\":324,\"y\":563,\"w\":160,\"h\":40}}"
+  },
+  {
+   "tag": "es-dropdown",
+   "k": ".remove() while open: menu gone, body interactive",
+   "ok": true
+  },
+  {
+   "tag": "es-dropdown",
+   "k": ".clone() + .prop(\"options\"): clone opens its own menu",
+   "ok": true,
+   "extra": "Clone item"
+  },
+  {
+   "tag": "es-dropdown",
+   "k": "clone item fires",
+   "ok": true
+  },
+  {
+   "tag": "es-dropdown",
+   "k": "desk ops (threw)",
+   "ok": false,
+   "extra": "page.click: Timeout 5000ms exceeded. @line 103"
+  },
+  {
+   "tag": "es-context-menu",
+   "k": "right-click on content jQuery appended into the region opens",
+   "ok": true
+  },
+  {
+   "tag": "es-context-menu",
+   "k": "desk ops (threw)",
+   "ok": false,
+   "extra": "page.click: Timeout 5000ms exceeded. @line 137"
+  }
+ ],
+ "errs": [
+  "pageerror: Failed to execute 'setAttribute' on 'Element': '0' is not a valid attribute name.",
+  "pageerror: Failed to execute 'setAttribute' on 'Element': '0' is not a valid attribute name.",
+  "pageerror: Cannot read properties of null (reading 'nextSibling')",
+  "pageerror: Cannot read properties of null (reading 'emitsOptions')"
+ ]
+}

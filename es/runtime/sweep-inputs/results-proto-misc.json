@@ -1,0 +1,107 @@
+{
+ "page": "misc.html",
+ "fails": 0,
+ "n": 21,
+ "results": [
+  {
+   "k": "file-uploader default Upload button + accept from JSON array attr",
+   "ok": true,
+   "extra": ".txt,.png"
+  },
+  {
+   "k": "file-uploader uploads and emits success with data",
+   "ok": true,
+   "extra": "{\"uploaded\":{\"file_url\":\"/files/small.txt\",\"name\":\"F-1\"},\"failed\":\"\",\"up2\":null,\"up3\":null,\"txt\":\"hello\",\"sel\":\"b\",\"chk\":false,\"area\":\"x\",\"who\":\"Ada\",\"progress\":[0]} reqs=1"
+  },
+  {
+   "k": "file-uploader data-state=success",
+   "ok": true
+  },
+  {
+   "k": "validateFile fn prop (.prop(name, () => fn)) -> failure event + error message",
+   "ok": true,
+   "extra": "\"Too big: tmp-big.txt\" / Upload File\nToo big: tmp-big.txt"
+  },
+  {
+   "k": "custom default slot replaces Upload button",
+   "ok": true,
+   "extra": "Attach for Ada"
+  },
+  {
+   "k": "custom slot opens file chooser via host-side input lookup (jQuery)",
+   "ok": true
+  },
+  {
+   "k": "custom slot upload emits success",
+   "ok": true,
+   "extra": "{\"file_url\":\"/files/small.txt\",\"name\":\"F-1\"}"
+  },
+  {
+   "k": "<template> default slot stamped with scope (data-es-text)",
+   "ok": true,
+   "extra": "Pick false 0"
+  },
+  {
+   "k": "scoped openFileSelector() from es-slot detail opens chooser (was unreachable per-element)",
+   "ok": true
+  },
+  {
+   "k": "template-slot upload emits success, progress seen via es-slot updates",
+   "ok": true,
+   "extra": "{\"up3\":{\"file_url\":\"/files/small.txt\",\"name\":\"F-1\"},\"progress\":[0,0,0,0]}"
+  },
+  {
+   "k": "form-control label + description render",
+   "ok": true,
+   "extra": "Text\nP\n\nfc desc"
+  },
+  {
+   "k": "form-control text: .prop(esAttrs,{modelValue}) reaches input",
+   "ok": true,
+   "extra": "hello"
+  },
+  {
+   "k": "form-control prefix slot forwarded",
+   "ok": true
+  },
+  {
+   "k": "form-control text: update:modelValue reaches host .on()",
+   "ok": true,
+   "extra": "{\"uploaded\":{\"file_url\":\"/files/small.txt\",\"name\":\"F-1\"},\"failed\":\"Too big: tmp-big.txt\",\"up2\":{\"file_url\":\"/files/small.txt\",\"name\":\"F-1\"},\"up3\":{\"file_url\":\"/files/small.txt\",\"name\":\"F-1\"},\"txt\":\"world\",\"sel\":\"b\",\"chk\":false,\"area\":\"x\",\"who\":\"Ada\",\"progress\":[0,0,0,0]}"
+  },
+  {
+   "k": "form-control select: options + model shown",
+   "ok": true,
+   "extra": "Select\nB"
+  },
+  {
+   "k": "form-control select: model",
+   "ok": true,
+   "extra": "{\"uploaded\":{\"file_url\":\"/files/small.txt\",\"name\":\"F-1\"},\"failed\":\"Too big: tmp-big.txt\",\"up2\":{\"file_url\":\"/files/small.txt\",\"name\":\"F-1\"},\"up3\":{\"file_url\":\"/files/small.txt\",\"name\":\"F-1\"},\"txt\":\"world\",\"sel\":\"a\",\"chk\":false,\"area\":\"x\",\"who\":\"Ada\",\"progress\":[0,0,0,0]}"
+  },
+  {
+   "k": "form-control checkbox starts unchecked",
+   "ok": true
+  },
+  {
+   "k": "form-control checkbox model",
+   "ok": true,
+   "extra": "{\"uploaded\":{\"file_url\":\"/files/small.txt\",\"name\":\"F-1\"},\"failed\":\"Too big: tmp-big.txt\",\"up2\":{\"file_url\":\"/files/small.txt\",\"name\":\"F-1\"},\"up3\":{\"file_url\":\"/files/small.txt\",\"name\":\"F-1\"},\"txt\":\"world\",\"sel\":\"a\",\"chk\":true,\"area\":\"x\",\"who\":\"Ada\",\"progress\":[0,0,0,0]}"
+  },
+  {
+   "k": "form-control textarea model",
+   "ok": true,
+   "extra": "{\"uploaded\":{\"file_url\":\"/files/small.txt\",\"name\":\"F-1\"},\"failed\":\"Too big: tmp-big.txt\",\"up2\":{\"file_url\":\"/files/small.txt\",\"name\":\"F-1\"},\"up3\":{\"file_url\":\"/files/small.txt\",\"name\":\"F-1\"},\"txt\":\"world\",\"sel\":\"a\",\"chk\":true,\"area\":\"zz\",\"who\":\"Ada\",\"progress\":[0,0,0,0]}"
+  },
+  {
+   "k": "[component] esAttrs set after mount is not forwarded by FormControl (untracked for..in over attrs; same in plain Vue)",
+   "ok": true,
+   "extra": "\"\""
+  },
+  {
+   "k": "form-control type=number passes through + placeholder attr",
+   "ok": true
+  }
+ ],
+ "errs": []
+}

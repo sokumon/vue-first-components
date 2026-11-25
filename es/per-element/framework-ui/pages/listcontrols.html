@@ -1,0 +1,30 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="/build/fw-sweep.css">
+<script defer src="/build/es-components.js"></script>
+<script defer src="/petite-vue.iife.js"></script>
+</head><body class="p-6">
+<div id="app" v-scope="{
+  filters: [], sort: [], columns: [{ fieldname: 'status', label: 'Status' }, { fieldname: 'priority', label: 'Priority' }], groupBy: null, customizing: false, done: 0, resets: 0,
+  qfields: undefined,
+}">
+  <pre id="state" class="text-xs">{{ JSON.stringify({ filters, sort, columns, groupBy, customizing, done, resets }) }}</pre>
+  <es-fw-list-view-shell id="c-shell" doctype="ToDo" class="h-96">
+    <div slot="toolbar" class="flex w-full items-start gap-2" id="toolbar-slot">
+      <es-fw-quick-filter id="c-quick" doctype="ToDo" :filters="filters" @update:filters="filters = $event.detail[0]"
+        :customizing="customizing" @update:customizing="customizing = $event.detail[0]" @done="done++"></es-fw-quick-filter>
+      <span class="flex-1"></span>
+      <es-fw-filter id="c-filter" doctype="ToDo" :model-value="filters" @update:model-value="filters = $event.detail[0]"></es-fw-filter>
+      <es-fw-sort-by id="c-sort" doctype="ToDo" :model-value="sort" @update:model-value="sort = $event.detail[0]"></es-fw-sort-by>
+      <es-fw-group-by id="c-group" doctype="ToDo" :model-value="groupBy" @update:model-value="groupBy = $event.detail[0]"></es-fw-group-by>
+      <es-fw-column-settings id="c-cols" doctype="ToDo" :model-value="columns" @update:model-value="columns = $event.detail[0]" can-reset @reset="resets++"></es-fw-column-settings>
+    </div>
+    <div slot="footer" id="footer-slot">{{ filters.length }} filters · {{ sort.length }} sorts</div>
+  </es-fw-list-view-shell>
+  <button id="customize" @click="customizing = true">customize quick filters</button>
+  <es-fw-list-view-shell id="c-shell2" doctype="ToDo" class="h-40 mt-4">
+    <div slot="table" id="custom-table">custom table for {{ columns.length }} columns</div>
+  </es-fw-list-view-shell>
+  <es-fw-list-view-shell id="c-shell-missing" doctype="Nope" class="h-40 mt-4"></es-fw-list-view-shell>
+</div>
+<script>window.EsBindSlot = (el, p) => { const s = PetiteVue.reactive(p), app = PetiteVue.createApp(s).mount(el); return { update: (n) => Object.assign(s, n), unmount: () => app.unmount() } }; addEventListener('DOMContentLoaded', () => PetiteVue.createApp().mount('#app'))</script>
+</body></html>

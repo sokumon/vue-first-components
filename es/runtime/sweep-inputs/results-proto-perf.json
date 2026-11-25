@@ -1,0 +1,13 @@
+{
+ "page": "desk.html",
+ "fails": 0,
+ "n": 1,
+ "results": [
+  {
+   "k": "200 elements per tag render (ms per mode)",
+   "ok": true,
+   "extra": "{\"es-checkbox:loop\":{\"ms\":171,\"rendered\":200},\"es-checkbox:batch\":{\"ms\":122,\"rendered\":200},\"es-text-input:loop\":{\"ms\":161,\"rendered\":200},\"es-text-input:batch\":{\"ms\":119,\"rendered\":200},\"es-select:loop\":{\"ms\":308,\"rendered\":200},\"es-select:batch\":{\"ms\":242,\"rendered\":200},\"es-date-picker:loop\":{\"ms"
+  }
+ ],
+ "errs": []
+}

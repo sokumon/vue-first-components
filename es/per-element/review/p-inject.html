@@ -1,0 +1,15 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../../dist/es-wc-spike.css">
+<script defer src="../../dist/es-components.js"></script>
+<script defer src="../../dist/petite-vue.iife.js"></script>
+</head><body class="p-6">
+<div id="app" v-scope="{ show: false }">
+  <!-- server-rendered, HTML-escaped user value in a plain attribute (no petite directive) -->
+  <es-badge id="b1" label="{{ (() => { window.__pwned = (window.__pwned||0) + 1; return 'x' })() }}"></es-badge>
+  <es-alert id="a1" title="Note" description="{{ (() => { window.__pwned2 = 1; return 'y' })() }}"></es-alert>
+  <button id="tog" @click="show = !show">tog</button>
+  <div v-if="show"><es-badge id="b2" label="{{ (() => { window.__pwned3 = (window.__pwned3||0) + 1; return 'z' })() }}"></es-badge></div>
+  <p id="plain">plain attr: <span data-x="{{ 1+1 }}">ok</span></p>
+</div>
+<script>addEventListener('DOMContentLoaded', () => PetiteVue.createApp().mount('#app'))</script>
+</body></html>

@@ -1,0 +1,408 @@
+{
+ "page": "shell.html",
+ "fails": 0,
+ "n": 72,
+ "results": [
+  {
+   "tag": "es-desktop-shell",
+   "k": "rail | sidebar | content side by side, full height",
+   "ok": true,
+   "extra": "{\"rail\":{\"x\":0,\"y\":0,\"w\":50,\"h\":900},\"sb\":{\"x\":50,\"y\":0,\"w\":240,\"h\":900},\"ct\":{\"x\":290,\"y\":0,\"w\":990,\"h\":900}}"
+  },
+  {
+   "tag": "es-desktop-shell",
+   "k": "rail and sidebar slots inside the shell",
+   "ok": true
+  },
+  {
+   "tag": "es-page-header",
+   "k": "teleported into DesktopShell header target (first child of content)",
+   "ok": true
+  },
+  {
+   "tag": "es-page-header-title",
+   "k": "title prop (.prop) renders inside header",
+   "ok": true,
+   "extra": "Page inbox\nNew"
+  },
+  {
+   "tag": "es-page-header",
+   "k": "default slot: nested es-button inside header",
+   "ok": true
+  },
+  {
+   "tag": "es-page-header",
+   "k": "action button click reaches the jQuery handler",
+   "ok": true,
+   "extra": "new"
+  },
+  {
+   "tag": "es-desktop-shell",
+   "k": "default slot sits in the scroll region; header stays pinned",
+   "ok": true,
+   "extra": "{\"scrolled\":{\"tag\":\"DIV\",\"top\":600,\"inShell\":true},\"h0\":{\"x\":290,\"y\":0,\"w\":990,\"h\":48},\"h1\":{\"x\":290,\"y\":0,\"w\":990,\"h\":48}}"
+  },
+  {
+   "tag": "es-sidebar-item",
+   "k": ":active from .prop (inbox active, drafts inactive)",
+   "ok": true
+  },
+  {
+   "tag": "es-sidebar-item",
+   "k": "suffix attr rendered in suffix zone",
+   "ok": true
+  },
+  {
+   "tag": "es-sidebar-item",
+   "k": "slot=\"prefix\" inside the button prefix box",
+   "ok": true
+  },
+  {
+   "tag": "es-sidebar-item",
+   "k": "default slot label inside button",
+   "ok": true,
+   "extra": "Drafts (3)"
+  },
+  {
+   "tag": "es-sidebar-item",
+   "k": "slot=\"suffix\" (nested es-badge) inside suffix zone",
+   "ok": true
+  },
+  {
+   "tag": "es-sidebar-item",
+   "k": "click -> jQuery state -> .prop(active) flips + header title",
+   "ok": true,
+   "extra": "drafts / Page drafts"
+  },
+  {
+   "tag": "es-sidebar-item",
+   "k": "onClick function prop (.prop) called with MouseEvent",
+   "ok": true,
+   "extra": "click"
+  },
+  {
+   "tag": "es-sidebar-item",
+   "k": "href renders <a href>",
+   "ok": true
+  },
+  {
+   "tag": "es-sidebar-item",
+   "k": "aria-label from slot text",
+   "ok": true,
+   "extra": "Drafts (3)"
+  },
+  {
+   "tag": "es-sidebar-label",
+   "k": "slot text rendered",
+   "ok": true,
+   "extra": "Projects"
+  },
+  {
+   "tag": "es-sidebar-section",
+   "k": "label + items visible",
+   "ok": true
+  },
+  {
+   "tag": "es-sidebar-section",
+   "k": "collapse button -> update:collapsed on host, body hidden",
+   "ok": true,
+   "extra": "{\"cur\":\"drafts\",\"collapsed\":false,\"sec\":true,\"card\":true,\"n\":3,\"log\":[\"new\"]}"
+  },
+  {
+   "tag": "es-sidebar-section",
+   "k": "element keeps collapsed=true (like an <input>)",
+   "ok": true
+  },
+  {
+   "tag": "es-sidebar-section",
+   "k": "expands again",
+   "ok": true
+  },
+  {
+   "tag": "es-sidebar-section",
+   "k": "nested item click -> state",
+   "ok": true
+  },
+  {
+   "tag": "es-sidebar-section",
+   "k": ".prop(\"collapsed\", true) from jQuery collapses",
+   "ok": true
+  },
+  {
+   "tag": "es-sidebar-section",
+   "k": ".prop(\"collapsed\", false) expands",
+   "ok": true
+  },
+  {
+   "tag": "es-sidebar-header",
+   "k": "title/subtitle rendered (title prop via attribute, no native tooltip)",
+   "ok": true,
+   "extra": "A\nAcme\nada@acme.io"
+  },
+  {
+   "tag": "es-sidebar-header",
+   "k": "menu opens (Dropdown with .prop menuItems)",
+   "ok": true
+  },
+  {
+   "tag": "es-sidebar-header",
+   "k": "menu positioned near its trigger",
+   "ok": true,
+   "extra": "{\"mr\":{\"x\":54,\"y\":48,\"w\":232,\"h\":69},\"br\":{\"x\":54,\"y\":4,\"w\":232,\"h\":40}}"
+  },
+  {
+   "tag": "es-sidebar-header",
+   "k": "menu item onClick fires, menu closes",
+   "ok": true,
+   "extra": "logout"
+  },
+  {
+   "tag": "es-sidebar-card",
+   "k": "title/description props",
+   "ok": true,
+   "extra": "Trial ends soon\n\n5 days left\n\nUpgrade now"
+  },
+  {
+   "tag": "es-sidebar-card",
+   "k": "action object (.prop with onClick fn)",
+   "ok": true,
+   "extra": "1"
+  },
+  {
+   "tag": "es-sidebar-card",
+   "k": "named slots title/description in their zones",
+   "ok": true
+  },
+  {
+   "tag": "es-sidebar-card",
+   "k": "actions slot (nested es-button) in actions zone",
+   "ok": true
+  },
+  {
+   "tag": "es-sidebar-card",
+   "k": "slot content written by jQuery stays live (card title, item label)",
+   "ok": true,
+   "extra": "Slot title 4 / Drafts (4)"
+  },
+  {
+   "tag": "es-sidebar-card",
+   "k": "dismiss event -> jQuery .remove() of the wrapper (unmounts)",
+   "ok": true,
+   "extra": "new,dismiss"
+  },
+  {
+   "tag": "es-sidebar-rail-item",
+   "k": "active indicator on Home",
+   "ok": true
+  },
+  {
+   "tag": "es-sidebar-rail-item",
+   "k": "aria-label folds badge count (.prop badge number)",
+   "ok": true,
+   "extra": "Notifications, 4 unread"
+  },
+  {
+   "tag": "es-sidebar-rail-item",
+   "k": "badge pill teleported + positioned next to its item",
+   "ok": true,
+   "extra": "{\"dx\":20,\"dy\":-8,\"vis\":true}"
+  },
+  {
+   "tag": "es-sidebar-rail-item",
+   "k": "dot badge from attribute badge=\"2\"",
+   "ok": true
+  },
+  {
+   "tag": "es-sidebar-rail-item",
+   "k": "custom default slot inside <a href>",
+   "ok": true
+  },
+  {
+   "tag": "es-sidebar-rail-item",
+   "k": "tooltip on hover shows label",
+   "ok": true,
+   "extra": "Notifications\nNotifications|Notifications"
+  },
+  {
+   "tag": "es-sidebar-rail-item",
+   "k": "click emit reaches .on(\"click\") exactly once",
+   "ok": true,
+   "extra": "new,dismiss,rail-home,rail-bell"
+  },
+  {
+   "tag": "es-sidebar-rail",
+   "k": "renders items in a column",
+   "ok": true
+  },
+  {
+   "tag": "es-sidebar-collapse-toggle",
+   "k": "label Collapse while expanded",
+   "ok": true,
+   "extra": "Collapse"
+  },
+  {
+   "tag": "es-sidebar",
+   "k": "toggle -> Sidebar update:collapsed on host",
+   "ok": true,
+   "extra": "{\"cur\":\"inbox\",\"collapsed\":true,\"sec\":false,\"card\":false,\"n\":4,\"log\":[\"new\",\"dismiss\",\"rail-home\",\"rail-bell\"]}"
+  },
+  {
+   "tag": "es-sidebar",
+   "k": "collapsed width (3rem) + data-state",
+   "ok": true,
+   "extra": "{\"x\":50,\"y\":0,\"w\":48,\"h\":900}"
+  },
+  {
+   "tag": "es-sidebar-item",
+   "k": "sees collapsed via inject (label hidden)",
+   "ok": true,
+   "extra": "0"
+  },
+  {
+   "tag": "es-sidebar-collapse-toggle",
+   "k": "label switches to Expand (inject)",
+   "ok": true
+  },
+  {
+   "tag": "es-sidebar-item",
+   "k": "collapsed: tooltip shows label",
+   "ok": true,
+   "extra": "Team A\nTeam A|Team A"
+  },
+  {
+   "tag": "es-sidebar-collapse-toggle",
+   "k": "toggle again expands",
+   "ok": true,
+   "extra": "{\"cur\":\"inbox\",\"collapsed\":false,\"sec\":false,\"card\":false,\"n\":4,\"log\":[\"new\",\"dismiss\",\"rail-home\",\"rail-bell\"]}"
+  },
+  {
+   "tag": "es-sidebar",
+   "k": ".prop(\"collapsed\", true) from jQuery collapses",
+   "ok": true
+  },
+  {
+   "tag": "es-sidebar",
+   "k": "aria-label attribute passes to the sidebar root",
+   "ok": true
+  },
+  {
+   "tag": "es-sidebar-item",
+   "k": "append a template with an item into a section: rendered inside the section body",
+   "ok": true
+  },
+  {
+   "tag": "es-sidebar-item",
+   "k": "delegated .on(\"click\", \"es-sidebar-item\") on the template fires",
+   "ok": true
+  },
+  {
+   "tag": "es-sidebar-item",
+   "k": "appended item sees sidebar collapsed via inject (same tree)",
+   "ok": true,
+   "extra": "0"
+  },
+  {
+   "tag": "es-sidebar-item",
+   "k": ".html() on host -> new default slot, href kept",
+   "ok": true,
+   "extra": "Docs v2"
+  },
+  {
+   "tag": "es-sidebar-item",
+   "k": ".text() on host -> slot text",
+   "ok": true,
+   "extra": "Docs v3"
+  },
+  {
+   "tag": "es-sidebar-item",
+   "k": ".empty() on host -> label prop again",
+   "ok": true,
+   "extra": "Docs"
+  },
+  {
+   "tag": "es-sidebar-item",
+   "k": ".clone() copies attributes + slot content (label + nested es-badge), renders once",
+   "ok": true,
+   "extra": "{\"btn\":true,\"label\":\"Drafts (4)\",\"badge\":true,\"n\":1}"
+  },
+  {
+   "tag": "es-sidebar-item",
+   "k": "clone does not carry .prop(active) (as native elements)",
+   "ok": true,
+   "extra": "inactive"
+  },
+  {
+   "tag": "es-sidebar-item",
+   "k": ".detach() + insertAfter (reorder) in same task: still rendered, state kept",
+   "ok": true
+  },
+  {
+   "tag": "es-sidebar-item",
+   "k": "moved item still clickable",
+   "ok": true
+  },
+  {
+   "tag": "es-sidebar-item",
+   "k": ".remove() unmounts it (one fewer sidebar-item)",
+   "ok": true
+  },
+  {
+   "tag": "es-sidebar-section",
+   "k": ".empty() on section: items gone, label stays",
+   "ok": true,
+   "extra": "Teams"
+  },
+  {
+   "tag": "es-sidebar-section",
+   "k": "append after .empty(): new item renders inside",
+   "ok": true
+  },
+  {
+   "tag": "es-page-header-title",
+   "k": ".text() on host: default slot overrides title prop, still in header",
+   "ok": true,
+   "extra": "Custom title\nNew"
+  },
+  {
+   "tag": "es-page-header",
+   "k": ".remove(): header gone from the shell target",
+   "ok": true
+  },
+  {
+   "tag": "es-page-header",
+   "k": "new header from an HTML string appended to the shell: teleported into the header target",
+   "ok": true,
+   "extra": "Second page\nGo"
+  },
+  {
+   "tag": "es-page-header",
+   "k": "detach + re-append to the same host in the same task keeps the header (same DOM, no error)",
+   "ok": true,
+   "extra": "[]"
+  },
+  {
+   "tag": "es-desktop-shell",
+   "k": "whole shell .detach() + .appendTo() in same task: still laid out, section state kept",
+   "ok": true
+  },
+  {
+   "tag": "es-desktop-shell",
+   "k": "no page errors from detach/re-append or .empty()",
+   "ok": true,
+   "extra": "[]"
+  },
+  {
+   "tag": "es-desktop-shell",
+   "k": "$(\"#app\").empty(): everything unmounts, no stray portal/tooltip content",
+   "ok": true,
+   "extra": ""
+  },
+  {
+   "tag": "es-desktop-shell",
+   "k": "ES.stats() back to 0 top-level elements",
+   "ok": true,
+   "extra": "{\"groups\":1,\"buckets\":1,\"top\":0}"
+  }
+ ],
+ "errs": []
+}

@@ -1,0 +1,45 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="/dist/es-ui.css">
+<script src="/jquery.js"></script>
+<script src="/dist/es-ui.iife.js"></script>
+</head><body class="p-6">
+<div id="app" class="space-y-4 max-w-md"></div>
+<script>
+// jQuery port of wc/sweep/inputs/pages/dates.html
+$(function () {
+  const S = window.S = { d: '2024-03-15', dOpen: false, changed: '', changeEvents: 0, range: ['2024-03-01', '2024-03-05'], dt: '2024-03-15 10:30:00', t: '09:00', tOpen: false, d2: '2024-03-13', ctlOpen: false, scoped: null }
+  const on = ($el, ev, key, after) => $el.on(ev, (e) => { if (e.target !== e.currentTarget) return; S[key] = e.originalEvent.detail; after && after(S[key]) })
+  const $app = $('#app')
+  const setD = (v) => { S.d = v; $('#dp, #dp-ctl').prop('modelValue', v); $('.dval').text(v) }
+
+  // actions slot as <template slot>: stamped with the slot props; jQuery wires setDate from the scope (es-slot event)
+  const $dp = $(`<es-date-picker id="dp" label="Due date">
+      <span slot="prefix" id="dp-prefix">DUE</span>
+      <template slot="actions"><div id="dp-actions"><button id="dp-preset">Christmas</button><button id="dp-scoped">Scoped setDate</button></div></template>
+    </es-date-picker>`).prop('modelValue', S.d)
+  on(on($dp, 'update:modelValue', 'd', setD), 'update:open', 'dOpen').on('change', (e) => { S.changed = e.originalEvent && e.originalEvent.detail; S.changeEvents++ })
+  $dp.on('es-slot', (e) => {
+    const d = e.originalEvent.detail
+    if (d.name !== 'actions') return
+    S.scopeKeys = Object.keys(d.scope || {})
+    $(d.nodes).find('#dp-preset').off('click').on('click', () => setD('2024-12-25'))
+    $(d.nodes).find('#dp-scoped').off('click').on('click', () => { S.scoped = 'clicked'; d.scope.setDate && d.scope.setDate(ES.Vue ? '2024-11-11' : null) })
+  })
+  $dp.appendTo($app)
+  on($('<es-date-picker id="dp-fn" format="DD/MM/YYYY" min="2024-03-10" max="2024-03-20" placeholder="no weekends">')
+    .prop('modelValue', S.d2)
+    // jQuery's .prop(name, fn) CALLS fn (value-callback form), so a function-valued prop is wrapped once
+    .prop('isDateUnavailable', () => (d) => d.day() === 0 || d.day() === 6), 'update:modelValue', 'd2').appendTo($app)
+  const $ctl = $('<es-date-picker id="dp-ctl"><button slot="trigger" id="dp-trigger">Custom trigger: <span class="dval">2024-03-15</span></button></es-date-picker>').prop({ open: false, modelValue: S.d })
+  on(on($ctl, 'update:open', 'ctlOpen'), 'update:modelValue', 'd', setD).appendTo($app)
+  $('#dp-trigger').on('click', () => { S.ctlOpen = !S.ctlOpen; $('#dp-ctl').prop('open', S.ctlOpen) })
+
+  on($('<es-date-range-picker id="drp" label="Range">').prop('modelValue', S.range), 'update:modelValue', 'range').appendTo($app)
+  on($('<es-date-time-picker id="dtp" label="When">').prop('modelValue', S.dt), 'update:modelValue', 'dt').appendTo($app)
+  on(on($('<es-time-picker id="tp" label="Time" interval="30"><span slot="prefix" id="tp-prefix">AT</span></es-time-picker>').prop('modelValue', S.t),
+    'update:modelValue', 't', (v) => $('#tp-opts').prop('modelValue', v)), 'update:open', 'tOpen').appendTo($app)
+  on($('<es-time-picker id="tp-opts">').prop({ options: [{ value: '08:00', label: 'Breakfast' }, { value: '12:30', label: 'Lunch' }], modelValue: S.t }), 'update:modelValue', 't').appendTo($app)
+  window.READY = true
+})
+</script>
+</body></html>

@@ -1,0 +1,17 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="es-wc-spike.css">
+<script defer src="es-components.js"></script>
+<script defer src="petite-vue.iife.js"></script>
+</head><body class="p-6">
+<!-- standalone ToastProvider and Dialogs hosts, no FrappeUIProvider -->
+<es-toast-provider id="tp"></es-toast-provider>
+<es-dialogs id="dl"></es-dialogs>
+<div id="app" v-scope="{ log: [], push(e) { this.log.push(e) },
+    toastAction() { const self = this; FUI.toast.error('Failed', { action: { label: 'Retry', onClick: () => self.push('retry') } }) },
+    danger() { const self = this; FUI.dialog.danger({ title: 'Delete it?', message: 'Gone forever', onConfirm: async ({ close }) => { self.push('deleted') } }) } }">
+  <p id="log">{{ log.join(',') }}</p>
+  <button id="btn-toast" class="border px-2" @click="toastAction()">toast</button>
+  <button id="btn-danger" class="border px-2" @click="danger()">danger</button>
+</div>
+<script>addEventListener('DOMContentLoaded', () => PetiteVue.createApp().mount('#app'))</script>
+</body></html>

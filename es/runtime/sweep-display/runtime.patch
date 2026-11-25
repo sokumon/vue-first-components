@@ -1,0 +1,70 @@
+--- runtime.orig.js	2026-11-24 01:13:12.045717782 +0000
++++ src/runtime.js	2026-11-24 01:17:57.453580238 +0000
+@@ -21,7 +21,7 @@
+ // and one public trick: render(h('i'), spare) flushes Vue's post-flush queue synchronously.
+ import {
+   createApp, render, defineComponent, h, Teleport, shallowReactive, shallowRef, markRaw,
+-  getCurrentInstance, withDirectives, camelize, capitalize, nextTick, toRaw,
++  getCurrentInstance, withDirectives, camelize, capitalize, nextTick, toRaw, Fragment,
+ } from 'vue'
+ 
+ const hyphenate = (s) => s.replace(/\B([A-Z])/g, '-$1').toLowerCase()
+@@ -57,6 +57,9 @@
+     if (v === '' || v === 'true' || v === name || v === hyphenate(name)) return true
+     if (v === 'false') return false
+   }
++  // FIX(sweep-display): props declared only through TypeScript types reach
++  // the runtime untyped; a JSON array/object attribute is parsed for them.
++  if (!types.length && /^\s*[[{]/.test(v)) { try { const j = JSON.parse(v); if (j && typeof j === 'object') return j } catch {} }
+   if (types.includes(String) || !types.length) return v
+   if (types.includes(Number) && v.trim() !== '' && !isNaN(+v)) return +v
+   if ((types.includes(Object) || types.includes(Array)) && /^\s*[[{]/.test(v)) {
+@@ -169,7 +172,13 @@
+   }
+   e.slots = shallowReactive({})
+   moving++
+-  try { addContent(e, content, false) } finally { moving-- }
++  try {
++    addContent(e, content, false)
++    // FIX(sweep-display): always leave the (possibly empty) holder in the host,
++    // so a .clone() of a host with no slot content is recognised as a clone and
++    // its stale render is dropped instead of becoming default-slot content.
++    holderOf(e)
++  } finally { moving-- }
+ }
+ function addContent(e, nodes, prepend) {
+   const list = prepend ? [...nodes].reverse() : nodes
+@@ -205,6 +214,14 @@
+       const vueNodes = new Set()
+       if (e.node.subTree) collectVue(e.node.subTree, vueNodes)
+       addContent(e, rest.filter((n) => !vueNodes.has(n)), false)
++      // FIX(sweep-display): Vue unmounts a Fragment root (renderless components
++      // such as TooltipProvider) by walking nextSibling from its start to its
++      // end anchor. jQuery took those nodes out, so the walk hit null and the
++      // crash left the whole app unable to render. Put the old render back
++      // between the Teleport anchors, in order, so Vue can unmount it cleanly.
++      const old = []
++      orderedVue(e.node.subTree, old)
++      el.append(start, ...old.filter((n) => n && n !== start && n !== end), end)
+     } finally { moving-- }
+     remount(e)
+     return
+@@ -226,6 +243,18 @@
+     dirty.add(e)
+   } finally { moving-- }
+ }
++function orderedVue(v, out) {
++  if (!v || typeof v !== 'object') return
++  if (v.component) return orderedVue(v.component.subTree, out)
++  if (v.type === Fragment) {
++    out.push(v.el)
++    if (Array.isArray(v.children)) v.children.forEach((c) => orderedVue(c, out))
++    out.push(v.anchor)
++    return
++  }
++  if (v.type === Teleport) { out.push(v.el, v.anchor); return }
++  if (v.el) out.push(v.el)
++}
+ function collectVue(vnode, out) {
+   if (!vnode) return
+   if (vnode.el) out.add(vnode.el)

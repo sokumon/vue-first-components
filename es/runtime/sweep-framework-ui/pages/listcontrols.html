@@ -1,0 +1,50 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="/dist/es-ui.css">
+<link rel="stylesheet" href="page.css">
+<script src="/jquery.js"></script>
+<script src="/dist/es-ui.iife.js"></script>
+</head><body class="p-6">
+<!-- jQuery port of wc/sweep/framework-ui/pages/listcontrols.html: ListViewShell with nested Filter/SortBy/GroupBy/ColumnSettings/QuickFilter in its toolbar slot -->
+<pre id="state" class="text-xs"></pre>
+<div id="app"></div>
+<div id="desk" class="border-t mt-4 pt-4"></div>
+<script>
+$(function () {
+  const S = window.S = { filters: [], sort: [], columns: [{ fieldname: 'status', label: 'Status' }, { fieldname: 'priority', label: 'Priority' }], groupBy: null, customizing: false, done: 0, resets: 0, log: [] }
+  const show = () => {
+    $('#state').text(JSON.stringify({ filters: S.filters, sort: S.sort, columns: S.columns, groupBy: S.groupBy, customizing: S.customizing, done: S.done, resets: S.resets }))
+    $('#footer-slot').text(S.filters.length + ' filters · ' + S.sort.length + ' sorts')
+    $('#custom-table .n').text(S.columns.length)
+  }
+  const own = ($el, ev, fn) => $el.on(ev, function (e) { if (e.target === e.currentTarget) { fn(e.originalEvent.detail, e); show() } })
+  window.own = own; window.show = show
+  // Desk-style: one HTML string for the whole list view, then wire it up with .find()
+  const $shell = $(`
+    <es-fw-list-view-shell id="c-shell" doctype="ToDo" class="h-96">
+      <div slot="toolbar" class="flex w-full items-start gap-2" id="toolbar-slot">
+        <es-fw-quick-filter id="c-quick" doctype="ToDo"></es-fw-quick-filter>
+        <span class="flex-1"></span>
+        <es-fw-filter id="c-filter" doctype="ToDo"></es-fw-filter>
+        <es-fw-sort-by id="c-sort" doctype="ToDo"></es-fw-sort-by>
+        <es-fw-group-by id="c-group" doctype="ToDo"></es-fw-group-by>
+        <es-fw-column-settings id="c-cols" doctype="ToDo" can-reset></es-fw-column-settings>
+      </div>
+      <div slot="footer" id="footer-slot"></div>
+    </es-fw-list-view-shell>`)
+  own($shell.find('#c-quick').prop('filters', S.filters).prop('customizing', false), 'update:filters', (v) => { S.filters = v; $('#c-filter').prop('modelValue', v) })
+  own($shell.find('#c-quick'), 'update:customizing', (v) => { S.customizing = v })
+  own($shell.find('#c-quick'), 'done', () => { S.done++ })
+  own($shell.find('#c-filter').prop('modelValue', S.filters), 'update:modelValue', (v) => { S.filters = v; $('#c-quick').prop('filters', v) })
+  own($shell.find('#c-sort').prop('modelValue', S.sort), 'update:modelValue', (v) => { S.sort = v })
+  own($shell.find('#c-group').prop('modelValue', S.groupBy), 'update:modelValue', (v) => { S.groupBy = v })
+  own($shell.find('#c-cols').prop('modelValue', S.columns), 'update:modelValue', (v) => { S.columns = v })
+  own($shell.find('#c-cols'), 'reset', () => { S.resets++ })
+  $shell.appendTo('#app')
+  $('<button id="customize" class="border px-2">customize quick filters</button>').on('click', () => { S.customizing = true; $('#c-quick').prop('customizing', true); show() }).appendTo('#app')
+  $(`<es-fw-list-view-shell id="c-shell2" doctype="ToDo" class="h-40 mt-4"><div slot="table" id="custom-table">custom table for <span class="n"></span> columns</div></es-fw-list-view-shell>`).appendTo('#app')
+  $('<es-fw-list-view-shell id="c-shell-missing" doctype="Nope" class="h-40 mt-4"></es-fw-list-view-shell>').appendTo('#app')
+  show()
+  window.READY = true
+})
+</script>
+</body></html>

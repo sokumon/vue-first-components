@@ -1,0 +1,130 @@
+{
+ "results": [
+  {
+   "k": "dropdown trigger: es-button in default slot renders",
+   "pass": true,
+   "info": "{\"x\":324,\"y\":186,\"w\":80,\"h\":28}"
+  },
+  {
+   "k": "dropdown opens on click -> update:open",
+   "pass": true,
+   "info": "dd=true|cm=false|notify=true"
+  },
+  {
+   "k": "dropdown menu positioned under trigger",
+   "pass": false,
+   "info": "{\"tr\":{\"x\":324,\"y\":186,\"w\":80,\"h\":28},\"mr\":{\"x\":0,\"y\":4,\"w\":160,\"h\":197}}"
+  },
+  {
+   "k": "trigger button carries aria-expanded / data-state=open",
+   "pass": false,
+   "info": ""
+  },
+  {
+   "k": "group labels rendered",
+   "pass": true,
+   "info": "Actions\nEdit\nShare\nNotify\nDanger\nDelete forever (0)"
+  },
+  {
+   "k": "per-item named slot (option.slot -> slot=\"item-danger\") rendered inside its row, bound",
+   "pass": true,
+   "info": "Delete forever (0)"
+  },
+  {
+   "k": "keyboard ArrowDown moves focus into menu",
+   "pass": true,
+   "info": "Edit"
+  },
+  {
+   "k": "submenu opens on hover",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "submenu item onClick (fn prop) fires and menu closes",
+   "pass": true,
+   "info": "email dd=false|cm=false|notify=true"
+  },
+  {
+   "k": "switch item toggles host state through onClick(value)",
+   "pass": true,
+   "info": "dd=true|cm=false|notify=false email,notify-false"
+  },
+  {
+   "k": "dropdown Escape closes",
+   "pass": true,
+   "info": "dd=false|cm=false|notify=false"
+  },
+  {
+   "k": "focus returns to trigger button after Escape",
+   "pass": false,
+   "info": "BODY"
+  },
+  {
+   "k": "dropdown opens from keyboard (Enter)",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "dropdown opens from host state (:open)",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "item with slot clicked -> onClick",
+   "pass": true,
+   "info": "email,notify-false,delete"
+  },
+  {
+   "k": "slot=\"trigger\" plain button opens dropdown",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "slot=\"empty\" rendered in empty menu",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "empty menu positioned under slot trigger",
+   "pass": false,
+   "info": "{\"t2\":{\"x\":324,\"y\":298,\"w\":120,\"h\":26},\"m2\":{\"x\":0,\"y\":4,\"w\":160,\"h\":31}}"
+  },
+  {
+   "k": "item-suffix slot appears on every row (one light-DOM slot rendered 3 times)",
+   "pass": false,
+   "info": "suffix nodes in menu=1 of 3 rows; One\nTwo\nThree\n⌘3"
+  },
+  {
+   "k": "context menu opens on right click -> update:open",
+   "pass": true,
+   "info": "dd=false|cm=true|notify=false"
+  },
+  {
+   "k": "context menu at pointer",
+   "pass": true,
+   "info": "{\"a\":{\"x\":24,\"y\":324,\"w\":320,\"h\":26},\"cr\":{\"x\":67,\"y\":345,\"w\":160,\"h\":98}}"
+  },
+  {
+   "k": "disabled option is disabled",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "keyboard select Copy",
+   "pass": true,
+   "info": "email,notify-false,delete,copy dd=false|cm=false|notify=false"
+  },
+  {
+   "k": "context-menu region slot still reactive",
+   "pass": true,
+   "info": "Right click here (4)"
+  },
+  {
+   "k": "context submenu item",
+   "pass": true,
+   "info": "email,notify-false,delete,copy,deep"
+  }
+ ],
+ "errs": []
+}

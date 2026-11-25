@@ -1,0 +1,273 @@
+{
+ "name": "desk",
+ "fails": 5,
+ "n": 26,
+ "results": [
+  {
+   "k": "render_template refresh x25 of 200 es-* elements: all rendered, no leaked entries, delegated clicks once",
+   "ok": true,
+   "info": {
+    "els": 280,
+    "rendered": 40,
+    "top": 200,
+    "buckets": 25,
+    "groups": 2,
+    "clicks": 2,
+    "first": 137,
+    "avg": 59
+   }
+  },
+  {
+   "k": "  no errors during refreshes",
+   "ok": true,
+   "info": []
+  },
+  {
+   "k": "two routes swapping .html() into the same container 30x",
+   "ok": true,
+   "info": {
+    "ok": true,
+    "res": [
+     2,
+     1,
+     2,
+     1,
+     2,
+     1
+    ],
+    "dup": [],
+    "top": 3,
+    "children": 3
+   }
+  },
+  {
+   "k": "  no errors",
+   "ok": true,
+   "info": []
+  },
+  {
+   "k": "moving a subtree / single elements between containers keeps state",
+   "ok": true,
+   "info": {
+    "kept": 19,
+    "single": "v0",
+    "top": 21
+   }
+  },
+  {
+   "k": "created detached (in and out of a detached div), inserted 2 s later",
+   "ok": true,
+   "info": {
+    "sel": "Two",
+    "btn": "Later2",
+    "cb": 1,
+    "LATER": 1
+   }
+  },
+  {
+   "k": "teardown: $.cleanData unmounts at once; native innerHTML after a frame",
+   "ok": true,
+   "info": {
+    "s1": 50,
+    "s2": 0,
+    "s3": 50,
+    "s4": 0,
+    "s5": 0
+   }
+  },
+  {
+   "k": "Bootstrap modal: es-* inside render and focus",
+   "ok": true,
+   "info": {
+    "shown": true,
+    "inputs": 2,
+    "focusable": true
+   }
+  },
+  {
+   "k": "Bootstrap modal: dropdown menu from inside the modal is on top and clickable",
+   "ok": true,
+   "info": {
+    "item": true,
+    "inPortal": true,
+    "onTop": true,
+    "topIs": "truncate leading-tighter text-ink-gray-7",
+    "z": "100",
+    "modalZ": "1050",
+    "active": "dd inline-flex items-center ju"
+   }
+  },
+  {
+   "k": "Bootstrap modal: keyboard focus stays in the menu (Bootstrap enforceFocus does not steal it)",
+   "ok": false,
+   "info": {
+    "open": true,
+    "active": "BUTTON",
+    "inModal": true
+   }
+  },
+  {
+   "k": "Bootstrap modal: Esc closes the menu only, not the modal too",
+   "ok": false,
+   "info": {
+    "menu": true,
+    "modal": false
+   }
+  },
+  {
+   "k": "Bootstrap modal: mouse click on a dropdown item still works",
+   "ok": false
+  },
+  {
+   "k": "Bootstrap modal: typing into es-combobox inside modal filters options",
+   "ok": true,
+   "info": {
+    "val": "Ban",
+    "opts": [
+     "Banana"
+    ],
+    "active": "INPUT",
+    "shown": true
+   }
+  },
+  {
+   "k": "Bootstrap modal hide + show: elements still rendered",
+   "ok": true,
+   "info": {
+    "shown": true,
+    "rendered": 1,
+    "ddBtn": 1,
+    "portalLeft": 1
+   }
+  },
+  {
+   "k": "Bootstrap modal: es-select opens and keyboard-selects inside a modal",
+   "ok": false,
+   "info": {
+    "m7": {
+     "opts": 2,
+     "active": "dialog"
+    },
+    "m8": {
+     "open": true
+    }
+   }
+  },
+  {
+   "k": "  errors during modal checks",
+   "ok": false,
+   "info": [
+    "pageerror: Maximum call stack size exceeded.",
+    "pageerror: Maximum call stack size exceeded.",
+    "pageerror: Maximum call stack size exceeded.",
+    "pageerror: Maximum call stack size exceeded."
+   ]
+  },
+  {
+   "k": "[es-portal-aware enforceFocus] Bootstrap modal: es-* inside render and focus",
+   "ok": true,
+   "info": {
+    "shown": true,
+    "inputs": 2,
+    "focusable": true
+   }
+  },
+  {
+   "k": "[es-portal-aware enforceFocus] Bootstrap modal: dropdown menu from inside the modal is on top and clickable",
+   "ok": true,
+   "info": {
+    "item": true,
+    "inPortal": true,
+    "onTop": true,
+    "topIs": "truncate leading-tighter text-ink-gray-7",
+    "z": "100",
+    "modalZ": "1050",
+    "active": "menu"
+   }
+  },
+  {
+   "k": "[es-portal-aware enforceFocus] Bootstrap modal: keyboard focus stays in the menu (Bootstrap enforceFocus does not steal it)",
+   "ok": true,
+   "info": {
+    "open": true,
+    "active": "menuitem",
+    "inModal": false
+   }
+  },
+  {
+   "k": "[es-portal-aware enforceFocus] Bootstrap modal: Esc closes the menu only, not the modal too",
+   "ok": true,
+   "info": {
+    "menu": false,
+    "modal": true
+   }
+  },
+  {
+   "k": "[es-portal-aware enforceFocus] Bootstrap modal: mouse click on a dropdown item still works",
+   "ok": true,
+   "info": 1
+  },
+  {
+   "k": "[es-portal-aware enforceFocus] Bootstrap modal: typing into es-combobox inside modal filters options",
+   "ok": true,
+   "info": {
+    "val": "Ban",
+    "opts": [
+     "Banana"
+    ],
+    "active": "INPUT",
+    "shown": true
+   }
+  },
+  {
+   "k": "[es-portal-aware enforceFocus] Bootstrap modal hide + show: elements still rendered",
+   "ok": true,
+   "info": {
+    "shown": true,
+    "rendered": 1,
+    "ddBtn": 1,
+    "portalLeft": 1
+   }
+  },
+  {
+   "k": "[es-portal-aware enforceFocus] Bootstrap modal: es-select opens and keyboard-selects inside a modal",
+   "ok": true,
+   "info": {
+    "m7": {
+     "opts": 2,
+     "active": "option"
+    },
+    "m8": {
+     "mv": "b",
+     "open": false
+    }
+   }
+  },
+  {
+   "k": "[es-portal-aware enforceFocus]   errors during modal checks",
+   "ok": true,
+   "info": []
+  },
+  {
+   "k": "  with Bootstrap _enforceFocus disabled, keyboard reaches the menu",
+   "ok": true,
+   "info": {
+    "active": "menuitem"
+   }
+  }
+ ],
+ "errs": [
+  "pageerror: Maximum call stack size exceeded.",
+  "pageerror: Maximum call stack size exceeded.",
+  "pageerror: Maximum call stack size exceeded.",
+  "pageerror: Maximum call stack size exceeded.",
+  "pageerror: Maximum call stack size exceeded.",
+  "pageerror: Maximum call stack size exceeded.",
+  "pageerror: Maximum call stack size exceeded.",
+  "pageerror: Maximum call stack size exceeded.",
+  "pageerror: Maximum call stack size exceeded.",
+  "pageerror: Maximum call stack size exceeded.",
+  "pageerror: Maximum call stack size exceeded.",
+  "pageerror: Maximum call stack size exceeded."
+ ]
+}

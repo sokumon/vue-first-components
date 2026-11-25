@@ -1,0 +1,42 @@
+   !! pageerror: Failed to execute 'setAttribute' on 'Element': '0' is not a valid attribute name. @     at fU (http://jq.test/dist/es-ui.iife.js:23:8553) |     at YR (http://jq.test/dist/es-ui.iife.js:23:10683) |     at C (http://jq.test/dist/es-ui.iife.js:19:26731)
+   !! pageerror: Failed to execute 'setAttribute' on 'Element': '0' is not a valid attribute name. @     at fU (http://jq.test/dist/es-ui.iife.js:23:8553) |     at YR (http://jq.test/dist/es-ui.iife.js:23:10683) |     at C (http://jq.test/dist/es-ui.iife.js:19:26731)
+PASS es-dropdown | trigger: nested es-button in default slot renders :: {"x":324,"y":130,"w":80,"h":28}
+PASS es-dropdown | opens on click -> update:open
+PASS es-dropdown | menu positioned under trigger :: {"tr":{"x":324,"y":130,"w":80,"h":28},"mr":{"x":324,"y":162,"w":160,"h":197}}
+PASS es-dropdown | trigger button carries aria-expanded / data-state=open :: true/open
+PASS es-dropdown | group labels rendered
+PASS es-dropdown | per-item named slot (option.slot -> slot="item-danger") inside its row :: Delete forever (0)
+PASS es-dropdown | ArrowDown moves focus into menu :: Edit
+PASS es-dropdown | submenu opens on hover
+PASS es-dropdown | submenu item onClick fires and menu closes
+PASS es-dropdown | switch item toggles through onClick(value) :: email,notify-false
+PASS es-dropdown | Escape closes
+PASS es-dropdown | focus returns to trigger button after Escape :: BUTTON
+PASS es-dropdown | opens from keyboard (Enter)
+PASS es-dropdown | opens from .prop("open", true)
+PASS es-dropdown | item with slot clicked -> onClick
+PASS es-dropdown | slot="trigger" plain button opens dropdown
+PASS es-dropdown | slot="empty" rendered in empty menu
+PASS es-dropdown | empty menu positioned under slot trigger :: {"t2":{"x":324,"y":174,"w":120,"h":26},"m2":{"x":324,"y":204,"w":160,"h":31}}
+FAIL es-dropdown | item-suffix (button JSON attribute) (threw) :: page.click: Timeout 4000ms exceeded.
+PASS es-context-menu | opens on right click -> update:open
+PASS es-context-menu | menu at pointer :: {"a":{"x":24,"y":200,"w":320,"h":26},"cr":{"x":67,"y":221,"w":160,"h":98}}
+PASS es-context-menu | disabled option is disabled
+PASS es-context-menu | keyboard select Copy :: email,notify-false,delete,copy
+PASS es-context-menu | region slot text written by jQuery stays live :: Right click here (4)
+PASS es-context-menu | submenu item
+PASS es-dropdown | created inside a larger template: plain <button> default-slot trigger opens the menu
+PASS es-dropdown | item fires
+   !! pageerror: Cannot read properties of null (reading 'nextSibling') @     at nextSibling (http://jq.test/dist/es-ui.iife.js:23:833) |     at xe (http://jq.test/dist/es-ui.iife.js:19:35183) |     at le (http://jq.test/dist/es-ui.iife.js:19:34830)
+FAIL es-dropdown | desk ops (threw) :: page.click: Timeout 4000ms exceeded.
+PASS es-context-menu | .append() a second region: right click there opens the menu too
+console errors/warnings: 4
+  pageerror: Failed to execute 'setAttribute' on 'Element': '0' is not a valid attribute name.
+  pageerror: Failed to execute 'setAttribute' on 'Element': '0' is not a valid attribute name.
+  console: TypeError: t.entries is not a function or its return value is not iterable
+    at UD (http://jq.test/dist/es-ui.iife.js:52:6381)
+    at Ibe.fn (http://jq.test/dist/es-ui.iife.js:52:14263)
+    at GV (http://jq.test/dist/es-ui.iife.js:10:3583)
+    at get value (http://jq.test/dist/es-ui.iife.js:10:164
+  pageerror: Cannot read properties of null (reading 'nextSibling')
+2 FAILED of 29

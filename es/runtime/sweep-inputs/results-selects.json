@@ -1,0 +1,171 @@
+{
+ "page": "selects.html",
+ "fails": 3,
+ "n": 34,
+ "results": [
+  {
+   "k": "select shows selected label in trigger",
+   "ok": true,
+   "extra": "*\nRed"
+  },
+  {
+   "k": "select opens on click, update:open",
+   "ok": true,
+   "extra": "{\"color\":\"red\",\"selOpen\":true,\"ctlOpen\":false,\"footerHits\":0,\"plain\":null,\"fruit\":null,\"query\":\"\",\"cbOpen\":false,\"tags\":[\"a\"],\"msOpen\":false,\"who\":\"Ada\",\"custom\":null}"
+  },
+  {
+   "k": "select #footer slot shown inside open popover (in es-portal)",
+   "ok": true,
+   "extra": "{\"inListbox\":true,\"inPortal\":true,\"text\":\"Footer for Ada\"}"
+  },
+  {
+   "k": "select #item-prefix slot rendered for every option",
+   "ok": true,
+   "extra": "[\"**\",\"**\",\"**\"]"
+  },
+  {
+   "k": "select disabled option is aria-disabled",
+   "ok": true
+  },
+  {
+   "k": "select keyboard ArrowDown+Enter -> blue, closes, update:open false",
+   "ok": true,
+   "extra": "{\"color\":\"blue\",\"selOpen\":false,\"ctlOpen\":false,\"footerHits\":0,\"plain\":null,\"fruit\":null,\"query\":\"\",\"cbOpen\":false,\"tags\":[\"a\"],\"msOpen\":false,\"who\":\"Ada\",\"custom\":null}"
+  },
+  {
+   "k": "peer select follows via .prop(modelValue) from handler",
+   "ok": true,
+   "extra": "Blue"
+  },
+  {
+   "k": "select footer button (jQuery .on) works inside teleported popover",
+   "ok": true,
+   "extra": "{\"color\":\"blue\",\"selOpen\":true,\"ctlOpen\":false,\"footerHits\":1,\"plain\":null,\"fruit\":null,\"query\":\"\",\"cbOpen\":false,\"tags\":[\"a\"],\"msOpen\":false,\"who\":\"Ada\",\"custom\":null}"
+  },
+  {
+   "k": "after close, footer slot node back inside host (not left in body)",
+   "ok": false,
+   "extra": "connected=false"
+  },
+  {
+   "k": "select string options + model",
+   "ok": true,
+   "extra": "{\"color\":\"blue\",\"selOpen\":false,\"ctlOpen\":false,\"footerHits\":1,\"plain\":\"Two\",\"fruit\":null,\"query\":\"\",\"cbOpen\":false,\"tags\":[\"a\"],\"msOpen\":false,\"who\":\"Ada\",\"custom\":null}"
+  },
+  {
+   "k": "select #empty slot shown when no options (options attr \"[]\" JSON)",
+   "ok": false,
+   "extra": "Nothing here, Ada"
+  },
+  {
+   "k": "controlled .prop(open,true) opens es-select",
+   "ok": true,
+   "extra": "1"
+  },
+  {
+   "k": "Escape on controlled select emits update:open false",
+   "ok": true
+  },
+  {
+   "k": "controlled open: element keeps open=false after update:open (input-like)",
+   "ok": true
+  },
+  {
+   "k": "combobox update:query event",
+   "ok": true,
+   "extra": "{\"color\":\"blue\",\"selOpen\":false,\"ctlOpen\":false,\"footerHits\":1,\"plain\":\"Two\",\"fruit\":null,\"query\":\"blu\",\"cbOpen\":true,\"tags\":[\"a\"],\"msOpen\":false,\"who\":\"Ada\",\"custom\":null}"
+  },
+  {
+   "k": "combobox filters options (option slots fn returns string)",
+   "ok": true,
+   "extra": "[\"BB:Blueberry\"]"
+  },
+  {
+   "k": "combobox #footer slot visible in popover",
+   "ok": true
+  },
+  {
+   "k": "combobox Enter selects highlighted -> blueberry",
+   "ok": true,
+   "extra": "{\"color\":\"blue\",\"selOpen\":false,\"ctlOpen\":false,\"footerHits\":1,\"plain\":\"Two\",\"fruit\":\"blueberry\",\"query\":\"Blueberry\",\"cbOpen\":false,\"tags\":[\"a\"],\"msOpen\":false,\"who\":\"Ada\",\"custom\":null}"
+  },
+  {
+   "k": "combobox #empty slot shown + jQuery-updated query text",
+   "ok": true,
+   "extra": "No fruit for \"zzz\""
+  },
+  {
+   "k": "combobox custom option onClick (function in options) gets query",
+   "ok": true,
+   "extra": "create:cre"
+  },
+  {
+   "k": "combobox trigger=button shows selected label + opens with search",
+   "ok": true,
+   "extra": "Blueberry"
+  },
+  {
+   "k": "combobox button mode select -> apple",
+   "ok": true,
+   "extra": "{\"color\":\"blue\",\"selOpen\":false,\"ctlOpen\":false,\"footerHits\":1,\"plain\":\"Two\",\"fruit\":\"apple\",\"query\":\"Apple\",\"cbOpen\":false,\"tags\":[\"a\"],\"msOpen\":false,\"who\":\"Ada\",\"custom\":\"create:cre\"}"
+  },
+  {
+   "k": "multiselect opens, update:open",
+   "ok": true
+  },
+  {
+   "k": "multiselect toggles add values -> [a,b,c]",
+   "ok": true,
+   "extra": "[\"a\",\"b\",\"c\"]"
+  },
+  {
+   "k": "multiselect #footer slot visible",
+   "ok": true
+  },
+  {
+   "k": "multiselect toggle off -> [b,c]",
+   "ok": true,
+   "extra": "[\"b\",\"c\"]"
+  },
+  {
+   "k": "multiselect Escape closes",
+   "ok": true
+  },
+  {
+   "k": "multiselect #summary slot updated by jQuery",
+   "ok": true,
+   "extra": "2 tags"
+  },
+  {
+   "k": "closed select footer (in <es-slots>) updated by jQuery",
+   "ok": false
+  },
+  {
+   "k": "[caveat] multi-rendered #item-prefix: owner live, others clones",
+   "ok": true,
+   "extra": "[\"*\",\"*\",\"*\"]"
+  },
+  {
+   "k": "jQuery-created es-select opens with its footer slot",
+   "ok": true
+  },
+  {
+   "k": ".remove() while open: host gone, no leaked listbox/teleport/footer",
+   "ok": true,
+   "extra": "{\"before\":{\"body\":4,\"lb\":0,\"portal\":4},\"after\":{\"host\":false,\"body\":4,\"lb\":0,\"portal\":4,\"footer\":false}}"
+  },
+  {
+   "k": "exposed clear() on es-select host",
+   "ok": true
+  },
+  {
+   "k": "el.clear() emits update:modelValue -> model null/empty",
+   "ok": true,
+   "extra": "null"
+  }
+ ],
+ "errs": [
+  "console: TypeError: (r.options || []).map is not a function\n    at Ibe.fn (http://jq.test/dist/es-ui.iife.js:55:3356)\n    at GV (http://jq.test/dist/es-ui.iife.js:10:3583)\n    at get value (http://jq.test/dist/es-ui.iife.js:10:16453)\n    at Ibe.fn (http://jq.test/dist/es-ui.iife.js:55:3736)\n    at GV (http:/",
+  "console: TypeError: Cannot read properties of undefined (reading 'length')\n    at http://jq.test/dist/es-ui.iife.js:55:7321\n    at i (http://jq.test/dist/es-ui.iife.js:17:4961)\n    at oe (http://jq.test/dist/es-ui.iife.js:19:10231)\n    at http://jq.test/dist/es-ui.iife.js:37:45218\n    at i (http://jq.test/di"
+ ]
+}

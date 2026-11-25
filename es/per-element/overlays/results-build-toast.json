@@ -1,0 +1,35 @@
+{
+ "results": [
+  {
+   "k": "standalone es-toast-provider shows toast.error with action",
+   "pass": true,
+   "info": "[\"Failed / Retry\"]"
+  },
+  {
+   "k": "error toast has an icon",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "toast action onClick fires",
+   "pass": true,
+   "info": "retry"
+  },
+  {
+   "k": "standalone es-dialogs renders dialog.danger()",
+   "pass": true,
+   "info": "Delete it?\n\nGone forever\n\nDelete\nCancel"
+  },
+  {
+   "k": "danger confirm runs async onConfirm and closes",
+   "pass": true,
+   "info": "retry,deleted"
+  },
+  {
+   "k": "imperative dialog Escape closes",
+   "pass": true,
+   "info": ""
+  }
+ ],
+ "errs": []
+}

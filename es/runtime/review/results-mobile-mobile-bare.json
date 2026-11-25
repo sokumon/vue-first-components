@@ -1,0 +1,124 @@
+{
+ "name": "mobile-mobile-bare",
+ "fails": 2,
+ "n": 7,
+ "results": [
+  {
+   "k": "loads through Frappe esbuild (frappe-vue shim): ES uses Desk's one Vue, no hand-kept function list",
+   "ok": true,
+   "info": {
+    "sameVue": true,
+    "appVersion": "3.5.43",
+    "fVersion": "3.5.43",
+    "items": 4,
+    "labels": [
+     "Home",
+     "Search",
+     "Notifications",
+     "Profile"
+    ],
+    "icons": 4,
+    "hasMobileNav": true,
+    "defined": true,
+    "active": "Home",
+    "navRect": [
+     843,
+     57,
+     1280
+    ]
+   }
+  },
+  {
+   "k": "mobile_nav.js unchanged (tag renamed): 4 tabs with icons render, Home active, bar shown",
+   "ok": true,
+   "info": {
+    "sameVue": true,
+    "appVersion": "3.5.43",
+    "fVersion": "3.5.43",
+    "items": 4,
+    "labels": [
+     "Home",
+     "Search",
+     "Notifications",
+     "Profile"
+    ],
+    "icons": 4,
+    "hasMobileNav": true,
+    "defined": true,
+    "active": "Home",
+    "navRect": [
+     843,
+     57,
+     1280
+    ]
+   }
+  },
+  {
+   "k": "tap on an item -> Desk router ($(\"body\").on(\"click\",\"a\")) handles it, no full page load",
+   "ok": false,
+   "info": {
+    "rendered": "a /desk/search",
+    "sameDocument": false,
+    "url": "/desk/search"
+   }
+  },
+  {
+   "k": "ISSUE 1 host class is NOT copied onto the inner root (no double styles / double delegated handlers)",
+   "ok": false,
+   "info": {
+    "matches": 2,
+    "innerHasClass": true,
+    "delegatedFires": 2,
+    "innerOutline": "dashed",
+    "hostDisplay": "block"
+   }
+  },
+  {
+   "k": "ISSUE 2 children are live: innerHTML / .html() after connect, rebuild, late appendChild",
+   "ok": true,
+   "info": {
+    "icon1": "star",
+    "icon2": "moon",
+    "items": 4,
+    "items2": 5,
+    "order": [
+     "Home",
+     "Search",
+     "Notifications",
+     "Profile",
+     "Extra"
+    ],
+    "active": "Home"
+   }
+  },
+  {
+   "k": "ISSUE 3 item gets border-box from the scoped preflight; the page's own elements are untouched",
+   "ok": true,
+   "info": {
+    "itemBoxSizing": "border-box",
+    "itemMinH": "56px",
+    "h": 56,
+    "plainBtnBoxSizing": "content-box",
+    "plainBtnWidth": 130,
+    "bodyMargin": "8px",
+    "sheets": [
+     "es-ui.scoped.css",
+     "inline",
+     "inline"
+    ]
+   }
+  },
+  {
+   "k": "INFO download cost for the tab bar",
+   "ok": true,
+   "info": {
+    "jsKB": 3281,
+    "cssKB": 647,
+    "tags": 155
+   }
+  }
+ ],
+ "errs": [
+  "error: Failed to load resource: the server responded with a status of 404 (Not Found)"
+ ]
+}

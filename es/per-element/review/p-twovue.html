@@ -1,0 +1,20 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../../dist/es-wc-spike.css">
+<script src="./vue.global.js"></script>
+<script src="../../dist/es-components.js"></script>
+</head><body class="p-6">
+<div id="app">
+  <p id="state">{{ color }}|{{ opts.length }}|{{ txt }}</p>
+  <es-select id="s1" :options="opts" :model-value="color" @update:model-value="color = $event.detail[0]"></es-select>
+  <es-text-input id="t1" v-model="txt"></es-text-input>
+  <es-dropdown id="dd" :options="menu" :button="{ label: 'Menu' }"></es-dropdown>
+  <button id="push" @click="opts.push({ label: 'Green', value: 'green' }); menu.push({ label: 'Added' })">push</button>
+  <button id="replace" @click="opts = [...opts]">replace</button>
+</div>
+<script>
+window.__vueIsSame = window.Vue;
+const app = Vue.createApp({ data: () => ({ color: 'red', txt: 'a', opts: [{ label: 'Red', value: 'red' }, { label: 'Blue', value: 'blue' }], menu: [{ label: 'One' }] }) });
+app.config.compilerOptions.isCustomElement = (t) => t.startsWith('es-');
+app.mount('#app');
+</script>
+</body></html>

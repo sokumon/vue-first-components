@@ -1,0 +1,19 @@
+PASS tabs strip rendered :: Details,More
+PASS update:activeTab announced on mount :: details
+PASS fields rendered with labels
+PASS reason hidden by dependsOn
+PASS typing writes into host doc (in-place mutation) :: Fix it
+PASS select writes doc.status :: Closed
+FAIL dependsOn re-evaluates after in-form edit
+PASS ui.on.change function in layout object fires :: [1]
+PASS tab click -> v-model:tab + activeTab :: ["more","more"]
+PASS Table field inside FormLayout renders
+PASS Table add row in FormLayout :: [{"item":"","__row_id":"row-1"}]
+FAIL Table row editor drawn inside FormLayout :: []
+FAIL typing in Table cell writes the child row :: [{"item":"","__row_id":"row-1"}]
+PASS keyboard ArrowRight moves tab :: more
+FAIL host nested mutation (doc.subject=) reaches the field :: Fix it
+PASS host replacing doc reaches the field :: Replaced
+PASS select trigger shows Closed (Vue saw in-form edit) :: Status / Closed
+console errors/warnings: 0
+4 FAILED

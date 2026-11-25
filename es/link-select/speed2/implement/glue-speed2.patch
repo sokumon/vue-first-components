@@ -1,0 +1,216 @@
+--- a/B-es-tags/desk/es_link.bundle.js
++++ b/B-es-tags/desk/es_link.bundle.js
+@@ -438,17 +438,69 @@
+ 		ctl._es_opts_key = key;
+ 		host.options = opts;
+ 	}
+-	const v = sel.value;
+-	if (host.modelValue !== v) host.modelValue = sel.selectedIndex < 0 ? null : v;
++	const v = sel.selectedIndex < 0 ? null : sel.value;
++	if (host.modelValue !== v) host.modelValue = v;
+ 	if (host.disabled !== sel.disabled) host.disabled = sel.disabled;
++	if (ctl._es_idle) ctl._es_idle(); // [speed2 G1] the shown option follows the value
+ 	// no ES.flush(): changes render in one batch in the next microtask (a frappe-ui Select render costs
+ 	// several ms because reka renders the closed list's items to collect them; 200 set_input calls in a
+ 	// loop must not pay it 200 times synchronously)
+ }
+ 
++// [speed2 G1] Idle options. reka renders a closed Select's items (5 component instances per option) only to
++// collect them for typeahead; frappe-ui's trigger shows its own selectedOption, computed from `options`.
++// So until the user first reaches the control, the component gets only the selected option: the same
++// trigger at a fraction of the mount and update cost. The full list goes in (rendered at once) on
++// pointerenter, capture-phase pointerdown and focusin, i.e. before reka can open the list or read its items
++// for typeahead, and stays in from then on (collapsing again while reka's list animates out broke its
++// patch). host.options still reads the full list. window.__es_select_full turns it off.
++const idle_mode = () => !window.__es_select_full;
++let select_options_desc = null;
++function idle_options(ctl, host) {
++	if (!idle_mode()) return;
++	const d = (select_options_desc ||= Object.getOwnPropertyDescriptor(customElements.get("es-select").prototype, "options"));
++	const st = { full: [], expanded: false, shown: null };
++	const push = (list) => {
++		st.shown = list;
++		d.set.call(host, list);
++	};
++	const same1 = (a, b) => a.length === b.length && (!a.length || (a[0].value === b[0].value && a[0].label === b[0].label && a[0].disabled === b[0].disabled));
++	const apply = () => {
++		if (st.expanded) return;
++		const v = host.modelValue;
++		const one = st.full.filter((o) => o.value === v).slice(0, 1);
++		if (!st.shown || !same1(one, st.shown)) push(one);
++	};
++	Object.defineProperty(host, "options", {
++		configurable: true,
++		enumerable: true,
++		get: () => st.full,
++		set(v) {
++			st.full = Array.isArray(v) ? v : [];
++			if (st.expanded) push(st.full);
++			else apply();
++		},
++	});
++	const expand = () => {
++		if (st.expanded) return;
++		st.expanded = true;
++		ctl._es_idle = null;
++		push(st.full);
++		ES.flush();
++	};
++	host.addEventListener("pointerenter", expand);
++	host.addEventListener("pointerdown", expand, true);
++	host.addEventListener("focusin", expand, true);
++	host.addEventListener("update:open", (e) => e.detail && expand());
++	ctl._es_idle = apply;
++}
++
+ Select.prototype.make_input = function () {
+ 	legacy_select_make_input.call(this);
+ 	if (!select_uses_es(this) || this._es_host) return;
++	this.es_attach_select();
++};
++Select.prototype.es_attach_select = function () {
+ 	const host = document.createElement("es-select");
+ 	host.setAttribute("class", "w-full es-select-input");
+ 	// options and value before the first render: reka's SelectRoot decides at setup whether its
+@@ -456,11 +508,12 @@
+ 	const opts = select_options(this.input);
+ 	this._es_opts_key = JSON.stringify(opts);
+ 	Object.assign(host, {
+-		options: opts,
+ 		modelValue: this.input.selectedIndex < 0 ? null : this.input.value,
+ 		disabled: this.input.disabled,
+ 		placeholder: __(this.df.placeholder || "") || " ",
+ 	});
++	idle_options(this, host);
++	host.options = opts;
+ 	this.$input.addClass("es-select-native").attr({ tabindex: "-1", "aria-hidden": "true" });
+ 	this.$wrapper.addClass("es-select-control");
+ 	this.$input.after(host);
+@@ -551,13 +604,25 @@
+ const LAZY_KEYS = ["$input", "input", "awesomplete", "$link", "$link_clear", "$link_open", "_es_host"];
+ const lazy = new Set();
+ const lazy_stats = (frappe.ui.form.es_link_lazy = { forced: {}, visible: 0, io: 0, focus: 0, pending: () => lazy.size });
+-const io = new IntersectionObserver((entries) => {
+-	for (const en of entries)
+-		if (en.isIntersecting && en.target._es_ctl) {
+-			lazy_stats.io++;
+-			en.target._es_ctl.es_mount();
+-		}
+-});
++// [speed2] "on screen" means in (or within MARGIN px of) the viewport, not merely laid out: a long form's
++// fields below the fold, and controls built below the viewport, mount as they scroll near it
++const MARGIN = 300;
++const io = new IntersectionObserver(
++	(entries) => {
++		for (const en of entries)
++			if (en.isIntersecting && en.target._es_ctl) {
++				lazy_stats.io++;
++				en.target._es_ctl.es_mount();
++			}
++	},
++	{ rootMargin: MARGIN + "px 0px" }
++);
++const near_viewport = (a) => {
++	if (!a) return false;
++	if (window.__es_lazy_laidout) return a.getClientRects().length > 0; // the previous rule, for A/B
++	const r = a.getBoundingClientRect();
++	return (r.width || r.height) && r.bottom > -MARGIN && r.top < window.innerHeight + MARGIN;
++};
+ let check_queued = false;
+ function queue_check() {
+ 	if (check_queued) return;
+@@ -565,7 +630,7 @@
+ 	// rAF callbacks run before the frame is painted: on-screen fields are drawn in their first frame
+ 	requestAnimationFrame(() => {
+ 		check_queued = false;
+-		const shown = [...lazy].filter((c) => c._es_ph && c._es_ph[0].getClientRects().length);
++		const shown = [...lazy].filter((c) => near_viewport(c.es_lazy_anchor()));
+ 		for (const c of shown) {
+ 			lazy_stats.visible++;
+ 			c.es_mount();
+@@ -612,6 +677,10 @@
+ 	queue_check();
+ };
+ 
++Link.prototype.es_lazy_anchor = function () {
++	return this._es_ph && this._es_ph[0];
++};
++
+ Link.prototype.es_mount = function (why) {
+ 	const $ph = this._es_ph;
+ 	if (!$ph) return;
+@@ -657,3 +726,74 @@
+ 		this._es_quiet = q;
+ 	}
+ };
++
++// ---------------------------------------------------------------- [speed2 G2] lazy Select
++// Before it mounts, a Select is exactly Desk's legacy control: $input/input are the native <select> it
++// always is, so only `_es_host` needs a trap. It mounts like a Link: before the first paint if on screen,
++// when it scrolls or is revealed into view, on focus or pointerdown, or when code reads _es_host.
++const select_lazy_on = () => !window.__es_lazy_off && !window.__es_select_lazy_off;
++const eager_select_make_input = Select.prototype.make_input;
++Select.prototype.make_input = function () {
++	if (!select_uses_es(this) || !select_lazy_on() || this._es_sel_pending || Object.prototype.hasOwnProperty.call(this, "_es_host"))
++		return eager_select_make_input.call(this);
++	legacy_select_make_input.call(this);
++	const me = this;
++	this._es_sel_pending = true;
++	Object.defineProperty(this, "_es_host", {
++		configurable: true,
++		get() {
++			me.es_mount("get _es_host");
++			return me._es_host;
++		},
++		set(v) {
++			me.es_mount("set _es_host");
++			me._es_host = v;
++		},
++	});
++	this.$input.on("focus.es_lazy", () => {
++		lazy_stats.focus++;
++		me.es_mount();
++	});
++	this.$input.on("pointerdown.es_lazy", (e) => {
++		// a press on a pending <select> would open the native list: show the real control instead
++		lazy_stats.focus++;
++		e.preventDefault();
++		me.es_mount();
++	});
++	this.input._es_ctl = this;
++	io.observe(this.input);
++	lazy.add(this);
++	queue_check();
++};
++Select.prototype.es_lazy_anchor = function () {
++	return this._es_sel_pending ? this.input : null;
++};
++Select.prototype.es_mount = function (why) {
++	if (!this._es_sel_pending) return;
++	this._es_sel_pending = false;
++	lazy.delete(this);
++	io.unobserve(this.input);
++	this.$input.off(".es_lazy");
++	if (why) lazy_stats.forced[why] = (lazy_stats.forced[why] || 0) + 1;
++	delete this._es_host;
++	this.es_attach_select();
++	// focus was already on the <select>: hand it to the trigger, as the mounted control's focus handler does
++	if (document.activeElement === this.input) this._es_host.focus();
++};
++const select_set_formatted_input = Select.prototype.set_formatted_input;
++Select.prototype.set_formatted_input = function (value) {
++	// pending: the <select> is the truth and is read at mount
++	if (this._es_sel_pending) return legacy_select_set_formatted_input.call(this, value);
++	return select_set_formatted_input.call(this, value);
++};
++// dialogs: Bootstrap shows the modal (display:block) in _showElement; check then, so visible fields mount
++// before the dialog's first frame instead of one frame later through the IntersectionObserver
++if (Modal && Modal.prototype._showElement && !Modal.prototype._es_show_hooked) {
++	const show = Modal.prototype._showElement;
++	Modal.prototype._es_show_hooked = true;
++	Modal.prototype._showElement = function () {
++		const r = show.apply(this, arguments);
++		if (lazy.size) queue_check();
++		return r;
++	};
++}

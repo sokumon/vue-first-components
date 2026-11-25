@@ -1,0 +1,30 @@
+ok   desk: frappe.Vue is the full runtime  {"vue_bundle_on_page":1,"requires":["vue.bundle.js"],"full":171,"has":[]}
+ok   desk: clear error when vue.bundle.js is missing  "Uncaught Error: Desk's Vue (frappe.Vue, from vue.bundle.js) is not loaded before http://v5.localhost:8000/assets/frappe/dist/js/build_events.bundle.GJZL3WGJ.js?probe=1. A bundle that imports \"vue\" must be loaded with frappe.require(), frappe.assets.load_asset() or include_script(), which load vue.bundle.js first, or after a <script> for vue.bundle.js."
+ok   desk: one Vue copy in esbuild bundles (islands listed apart)  {"scripts":16,"copies":["vue.bundle.MHKP3RF3.js","frappe.flow.chat.island.CUIoawU5.js"]}
+ok   desk: no console errors  []
+ok   form builder: apps run on frappe.Vue  {"vue":true,"apps":[{"name":"FormBuilder","version":"3.5.43","same_inject":true,"same_scope":true,"tracked":true},{"name":"FrappeDesk","version":"3.5.43","same_inject":true,"same_scope":true,"tracked":true}]}
+ok   customize form (form builder): one Vue copy in esbuild bundles (islands listed apart)  {"scripts":15,"copies":["vue.bundle.MHKP3RF3.js","frappe.flow.chat.island.CUIoawU5.js"]}
+ok   customize form (form builder): no console errors  []
+ok   doctype form builder: apps run on frappe.Vue  {"vue":true,"apps":[{"name":"FormBuilder","version":"3.5.43","same_inject":true,"same_scope":true,"tracked":true},{"name":"FrappeDesk","version":"3.5.43","same_inject":true,"same_scope":true,"tracked":true}]}
+ok   doctype form builder: one Vue copy in esbuild bundles (islands listed apart)  {"scripts":15,"copies":["vue.bundle.MHKP3RF3.js","frappe.flow.chat.island.CUIoawU5.js"]}
+ok   doctype form builder: no console errors  []
+ok   print format builder: apps run on frappe.Vue  {"vue":true,"apps":[{"name":"PrintFormatBuilder","version":"3.5.43","same_inject":true,"same_scope":true,"tracked":true},{"name":"FrappeDesk","version":"3.5.43","same_inject":true,"same_scope":true,"tracked":true}]}
+ok   print format builder: one Vue copy in esbuild bundles (islands listed apart)  {"scripts":15,"copies":["vue.bundle.MHKP3RF3.js","frappe.flow.chat.island.CUIoawU5.js"]}
+ok   print format builder: no console errors  []
+ok   workflow builder: apps run on frappe.Vue  {"vue":true,"apps":[{"name":"WorkflowBuilder","version":"3.5.43","same_inject":true,"same_scope":true,"tracked":true},{"name":"FrappeDesk","version":"3.5.43","same_inject":true,"same_scope":true,"tracked":true}]}
+ok   workflow builder: one Vue copy in esbuild bundles (islands listed apart)  {"scripts":15,"copies":["vue.bundle.MHKP3RF3.js","frappe.flow.chat.island.CUIoawU5.js"]}
+FAIL workflow builder: no console errors  ["error: TypeError: Cannot set properties of undefined (setting 'fieldobj')\n    at Oa.make (http://v5.localhost:8000/assets/frappe/dist/js/vue_first8.bundle.ZNJKQH2Z.js:10:17238)\n    at Oa.make (http://v5.localhost:8000/assets/frappe/dist/js/vue_first8.bundle.ZNJKQH2Z.js:12:5078)\n    at Oa.mounted (http://v5"]
+ok   file uploader: apps run on frappe.Vue  {"vue":true,"apps":[{"name":"FrappeDesk","version":"3.5.43","same_inject":true,"same_scope":true,"tracked":true},{"name":"FileUploader","version":"3.5.43","same_inject":true,"same_scope":true,"tracked":true}]}
+ok   file uploader: attach control opened it  true
+ok   attach uploader: apps run on frappe.Vue  {"vue":true,"apps":[{"name":"FrappeDesk","version":"3.5.43","same_inject":true,"same_scope":true,"tracked":true},{"name":"FileUploader","version":"3.5.43","same_inject":true,"same_scope":true,"tracked":true}]}
+ok   file uploader: one Vue copy in esbuild bundles (islands listed apart)  {"scripts":14,"copies":["vue.bundle.MHKP3RF3.js","frappe.flow.chat.island.CUIoawU5.js"]}
+ok   file uploader: no console errors  []
+ok   kanban: board drawn  {"route":["List","ToDo","Kanban","ToDo Kanban"],"cols":3,"loaded":["/assets/frappe/dist/js/vue.bundle.MHKP3RF3.js","/assets/frappe/dist/js/kanban_board.bundle.WMR4QWVD.js"]}
+ok   kanban: one Vue copy in esbuild bundles (islands listed apart)  {"scripts":15,"copies":["vue.bundle.MHKP3RF3.js","frappe.flow.chat.island.CUIoawU5.js"]}
+ok   kanban: no console errors  []
+ok   phone: mobile nav drawn  {"el":true,"visible":true,"items":9,"loaded":["/assets/frappe/dist/js/vue.bundle.MHKP3RF3.js","/assets/frappe/dist/js/mobile_nav.bundle.JFEQO5CS.js"]}
+ok   mobile nav: apps run on frappe.Vue  {"vue":true,"apps":[{"name":"FrappeDesk","version":"3.5.43","same_inject":true,"same_scope":true,"tracked":true},{"name":"MobileNav","version":"3.5.43","same_inject":true,"same_scope":true,"tracked":true},{"name":"MobileNavItem","version":"3.5.43","same_inject":true,"same_scope":true,"tracked":true},{"name":"MobileNavItem","version":"3.5.43","same_inject":true,"same_scope":true,"tracked":true},{"name":"MobileNavItem","version":"3.5.43","same_inject":true,"same_scope":true,"tracked":true},{"name":"MobileNavItem","version":"3.5.43","same_inject":true,"same_scope":true,"tracked":true}]}
+ok   phone (mobile nav): one Vue copy in esbuild bundles (islands listed apart)  {"scripts":17,"copies":["vue.bundle.MHKP3RF3.js","frappe.flow.chat.island.CUIoawU5.js"]}
+ok   phone (mobile nav): no console errors  []
+
+27 pass, 1 fail

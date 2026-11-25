@@ -1,0 +1,52 @@
+PASS es-page-header-base | teleports into the registered es-page-header-target
+PASS es-page-header-base | class attribute lands on the teleported <header> :: flex h-10 items-center bg-surface-gray-2 px-2
+PASS es-page-header-base | anchor <span hidden> stays at declaration site
+PASS es-page-header-base | teleported slot stays live (jQuery handler + text) :: Base header for Grace
+PASS es-page-header-base | clicking header background scrolls its declaration scroll parent to top :: 0
+PASS es-page-header | second header (page-header) also teleported to the same target :: Slot title Grace
+PASS es-page-header-title | default slot overrides title
+PASS es-page-header | jQuery .remove() of the wrapper removes the teleported header :: 2 -> 1
+PASS es-page-header-mobile-title | standalone, title attribute :: Standalone mobile title
+PASS es-page-header-title | standalone slot-only :: Slot only Grace
+PASS es-page-header-back-button | icon-only ghost button, aria-label "Back" + chevron
+PASS es-page-header-base | .append() on host -> joins the teleported header slot
+   !! pageerror: Cannot read properties of null (reading 'nextSibling') @     at nextSibling (http://jq.test/dist/es-ui.iife.js:23:833) |     at xe (http://jq.test/dist/es-ui.iife.js:19:35183) |     at le (http://jq.test/dist/es-ui.iife.js:19:34830)
+FAIL es-page-header-base | .html() on host -> header remounted with new slot, still one header in target :: 0
+FAIL es-page-header-base | .empty() on host -> empty header stays (one), old nodes gone
+   !! pageerror: Cannot read properties of null (reading 'emitsOptions') @     at x0e (http://jq.test/dist/es-ui.iife.js:19:20849) |     at H (http://jq.test/dist/es-ui.iife.js:19:29676) |     at F (http://jq.test/dist/es-ui.iife.js:19:29376)
+FAIL es-page-header-base | .detach() + append elsewhere in same task: header stays in target, anchor moved :: ["pageerror: Cannot read properties of null (reading 'emitsOptions')"]
+   !! pageerror: Cannot read properties of null (reading 'emitsOptions') @     at x0e (http://jq.test/dist/es-ui.iife.js:19:20849) |     at H (http://jq.test/dist/es-ui.iife.js:19:29676) |     at F (http://jq.test/dist/es-ui.iife.js:19:29376)
+PASS es-page-header-base | .remove() takes its header out of the target
+   !! pageerror: Cannot read properties of null (reading 'emitsOptions') @     at x0e (http://jq.test/dist/es-ui.iife.js:19:20849) |     at H (http://jq.test/dist/es-ui.iife.js:19:29676) |     at F (http://jq.test/dist/es-ui.iife.js:19:29376)
+FAIL es-page-header | created inside a larger jQuery template: teleported into the target :: 
+FAIL es-page-header-target | .detach() + re-append the target in same task keeps the header :: []
+   !! pageerror: Cannot read properties of null (reading 'emitsOptions') @     at x0e (http://jq.test/dist/es-ui.iife.js:19:20849) |     at H (http://jq.test/dist/es-ui.iife.js:19:29676) |     at F (http://jq.test/dist/es-ui.iife.js:19:29376)
+FAIL es-page-header-target | .remove() of the target: header falls back to its declaration site (Teleport disabled, component behaviour)
+   !! pageerror: Cannot read properties of null (reading 'emitsOptions') @     at x0e (http://jq.test/dist/es-ui.iife.js:19:20849) |     at H (http://jq.test/dist/es-ui.iife.js:19:29676) |     at F (http://jq.test/dist/es-ui.iife.js:19:29376)
+FAIL es-page-header-target | a new target from a string picks the existing header up :: 
+   !! pageerror: Cannot read properties of null (reading 'emitsOptions') @     at x0e (http://jq.test/dist/es-ui.iife.js:19:20849) |     at H (http://jq.test/dist/es-ui.iife.js:19:29676) |     at F (http://jq.test/dist/es-ui.iife.js:19:29376)
+FAIL es-page-header-target | .clone() of a target: no duplicate headers rendered from the clone :: 0
+   !! pageerror: Cannot read properties of null (reading 'emitsOptions') @     at x0e (http://jq.test/dist/es-ui.iife.js:19:20849) |     at H (http://jq.test/dist/es-ui.iife.js:19:29676) |     at F (http://jq.test/dist/es-ui.iife.js:19:29376)
+FAIL es-page-header-back-button | .clone() + .attr(label) -> aria-label "Go back"
+console errors/warnings: 10
+  pageerror: Cannot read properties of null (reading 'nextSibling')
+  pageerror: Cannot read properties of null (reading 'emitsOptions')
+  pageerror: Cannot read properties of null (reading 'emitsOptions')
+  pageerror: Cannot read properties of null (reading 'emitsOptions')
+  console: TypeError: Cannot read properties of null (reading 'emitsOptions')
+    at x0e (http://jq.test/dist/es-ui.iife.js:19:20849)
+    at H (http://jq.test/dist/es-ui.iife.js:19:29676)
+    at F (http://jq.test/dist/es-ui.iife.js:19:29376)
+    at g (http://jq.test/dist/es-ui.iife.js:19:25635)
+    at se (http
+  pageerror: Cannot read properties of null (reading 'emitsOptions')
+  pageerror: Cannot read properties of null (reading 'emitsOptions')
+  pageerror: Cannot read properties of null (reading 'emitsOptions')
+  pageerror: Cannot read properties of null (reading 'emitsOptions')
+  console: TypeError: Cannot read properties of null (reading 'emitsOptions')
+    at x0e (http://jq.test/dist/es-ui.iife.js:19:20849)
+    at H (http://jq.test/dist/es-ui.iife.js:19:29676)
+    at F (http://jq.test/dist/es-ui.iife.js:19:29376)
+    at g (http://jq.test/dist/es-ui.iife.js:19:25635)
+    at se (http
+9 FAILED of 22

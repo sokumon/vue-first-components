@@ -1,0 +1,47 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../build/es-wc-spike.css">
+<script defer src="../build/es-components.js"></script>
+<script defer src="../build/petite-vue.iife.js"></script>
+</head><body class="p-6">
+<div id="app" v-scope="{
+  color: 'red', selOpen: false, ctlOpen: false, footerHits: 0, plain: null, fruit: null, query: '', cbOpen: false, custom: '', tags: ['a'], msOpen: false, who: 'Ada', showSel2: false,
+  colors: [{label:'Red',value:'red'},{label:'Blue',value:'blue', description:'cool'},{label:'Green',value:'green', disabled:true}],
+  strs: ['One','Two','Three'],
+  fruits: [{group:'Fruit', options:[{label:'Apple',value:'apple'},{label:'Banana',value:'banana'},{label:'Blueberry',value:'blueberry', slots:{ label: (p) => 'BB:' + p.item.label }}]},
+           {group:'Actions', options:[{type:'custom', key:'create', label:'Create new', onClick(ctx){ window.__custom = 'create:' + ctx.query }}]}],
+  tagOpts: [{label:'Alpha',value:'a'},{label:'Beta',value:'b'},{label:'Gamma',value:'c'}],
+  dump() { return JSON.stringify({color:this.color,selOpen:this.selOpen,ctlOpen:this.ctlOpen,footerHits:this.footerHits,plain:this.plain,fruit:this.fruit,query:this.query,cbOpen:this.cbOpen,tags:this.tags,msOpen:this.msOpen}) } }" class="space-y-4 max-w-md">
+  <pre id="state">{{ dump() }}</pre>
+
+  <es-select id="sel" label="Colour" placeholder="Pick" :options="colors" :model-value="color"
+    @update:model-value="color = $event.detail[0]" @update:open="selOpen = $event.detail[0]">
+    <div slot="footer" id="sel-footer"><button id="sel-footer-btn" @click="footerHits++">Footer for {{ who }}</button></div>
+    <span slot="item-prefix" class="sel-ip">*{{ who === 'Ada' ? '' : who }}</span>
+  </es-select>
+  <es-select id="sel-str" placeholder="Pick a number" :options="strs" :model-value="plain" @update:model-value="plain = $event.detail[0]"></es-select>
+  <es-select id="sel-empty" :options="[]" :model-value="null"><span slot="empty" id="sel-empty-slot">Nothing here, {{ who }}</span></es-select>
+  <es-select id="sel-ctl" :options="colors" :open="ctlOpen" :model-value="color" @update:open="ctlOpen = $event.detail[0]" @update:model-value="color = $event.detail[0]"></es-select>
+  <button id="open-ctl" @click="ctlOpen = true">open controlled select</button>
+
+  <es-combobox id="cb" label="Fruit" placeholder="Search fruit" :options="fruits" :model-value="fruit"
+    @update:model-value="fruit = $event.detail[0]" @update:query="query = $event.detail[0]" @update:open="cbOpen = $event.detail[0]">
+    <span slot="empty" id="cb-empty">No fruit for "{{ query }}"</span>
+    <div slot="footer" id="cb-footer">cb footer</div>
+  </es-combobox>
+  <es-combobox id="cb-btn" trigger="button" placeholder="Button combobox" :options="fruits" :model-value="fruit" @update:model-value="fruit = $event.detail[0]"></es-combobox>
+
+  <es-multi-select id="ms" label="Tags" placeholder="Tags" :options="tagOpts" :model-value="tags"
+    @update:model-value="tags = $event.detail[0]" @update:open="msOpen = $event.detail[0]">
+    <div slot="footer" id="ms-footer">ms footer</div>
+  </es-multi-select>
+  <es-multi-select id="ms-sum" :options="tagOpts" :model-value="tags" @update:model-value="tags = $event.detail[0]">
+    <span slot="summary" id="ms-summary">{{ tags.length }} tags</span>
+  </es-multi-select>
+  <button id="who" @click="who = 'Linus'">who</button>
+  <button id="sel2-toggle" @click="showSel2 = !showSel2">toggle sel2</button>
+  <es-select v-if="showSel2" id="sel2" :options="colors" :model-value="color" @update:model-value="color = $event.detail[0]">
+    <div slot="footer" id="sel2-footer">sel2 footer {{ who }}</div>
+  </es-select>
+</div>
+<script>addEventListener('DOMContentLoaded', () => PetiteVue.createApp().mount('#app'))</script>
+</body></html>

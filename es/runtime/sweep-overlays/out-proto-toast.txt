@@ -1,0 +1,10 @@
+PASS es-toast-provider | standalone es-toast-provider: toast.error with action shows once :: ["Failed / Retry"]
+PASS es-toast-provider | error toast has an icon
+PASS es-toast-provider | toast action onClick fires
+PASS es-dialogs | renders dialog.danger() once :: 1
+PASS es-dialogs | async onConfirm runs, closes
+PASS es-dialogs | imperative dialog Escape closes
+PASS es-toast-provider | .remove() of the page's provider: the root toaster takes over (toasts still show) :: 1
+PASS es-dialogs | .remove() of the page's es-dialogs: root Dialogs takes over
+console errors/warnings: 0
+ALL PASS (8)

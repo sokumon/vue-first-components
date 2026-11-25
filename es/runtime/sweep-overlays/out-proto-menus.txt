@@ -1,0 +1,49 @@
+PASS es-dropdown | trigger: es-button in default slot renders :: {"x":324,"y":130,"w":80,"h":28}
+PASS es-dropdown | opens on click -> update:open
+PASS es-dropdown | menu positioned under trigger :: {"tr":{"x":324,"y":130,"w":80,"h":28},"mr":{"x":324,"y":162,"w":160,"h":197}}
+PASS es-dropdown | trigger button carries aria-expanded / data-state=open
+PASS es-dropdown | group labels rendered :: Actions / Edit / Share / Notify / Danger / Delete forever (0)
+PASS es-dropdown | per-item named slot (option.slot -> slot="item-danger") inside its row
+PASS es-dropdown | ArrowDown moves focus into menu :: Edit
+PASS es-dropdown | submenu opens on hover
+PASS es-dropdown | submenu item onClick (fn via .prop) fires, menu closes
+PASS es-dropdown | switch item toggles page state through onClick(value) :: email,notify-false
+PASS es-dropdown | Escape closes
+PASS es-dropdown | focus returns to trigger button after Escape
+PASS es-dropdown | opens from keyboard (Enter)
+PASS es-dropdown | opens from .prop("open", true)
+PASS es-dropdown | item with slot clicked -> onClick
+PASS es-dropdown | slot node text kept live by jQuery (.logn) :: Delete forever (3)
+PASS es-dropdown | slot="trigger" plain button opens dropdown
+PASS es-dropdown | slot="empty" rendered in empty menu
+PASS es-dropdown | empty menu positioned under slot trigger :: {"t2":{"x":324,"y":218,"w":120,"h":26},"m2":{"x":324,"y":248,"w":160,"h":31}}
+PASS es-dropdown | button attribute as JSON (button='{"label":…}') renders the trigger label :: Suffix menu
+PASS es-dropdown | item-suffix: one plain light-DOM node rendered per row (later rows get clones) :: 3 of 3; One / ⌘3 / Two / ⌘3 / Three / ⌘3
+PASS es-dropdown | item-suffix <template slot> stamped per row with scope (data-es-text + es-slot event) :: ["One:One","Two:Two","Three:Three"]
+PASS es-dropdown | .prop("button", {...}) sets the trigger label :: Suffix via prop
+PASS es-context-menu | opens on right click -> update:open
+PASS es-context-menu | menu at pointer :: {"a":{"x":24,"y":244,"w":320,"h":26},"cr":{"x":67,"y":265,"w":160,"h":98}}
+PASS es-context-menu | disabled option is disabled
+PASS es-context-menu | keyboard select Copy :: email,notify-false,delete,copy
+PASS es-context-menu | region slot text kept live by jQuery :: Right click here (4)
+PASS es-context-menu | submenu item :: email,notify-false,delete,copy,deep
+PASS es-dropdown | row dropdown from an HTML string template opens under its row trigger :: {"rr":{"x":387,"y":547,"w":30,"h":28},"mm":{"x":387,"y":579,"w":160,"h":69}}
+PASS es-dropdown | row item onClick sees its closure row
+PASS es-dropdown | row Delete item does $row.remove() from inside its own menu: row gone, menu gone, no error
+PASS es-dropdown | body interactive after removal (pointer-events)
+PASS es-dropdown | .prop("options") while open re-renders the open menu :: Replaced
+PASS es-dropdown | replaced item fires
+PASS es-dropdown | layout shift above the open trigger: menu follows :: {"tr1":{"x":324,"y":246,"w":80,"h":28},"m1":{"x":324,"y":278,"w":160,"h":40}}
+PASS es-dropdown | .detach().appendTo(): moved dropdown opens under its new place :: {"tr2":{"x":324,"y":531,"w":80,"h":28},"m3":{"x":324,"y":563,"w":160,"h":40}}
+PASS es-dropdown | .remove() while open: menu gone, body interactive
+PASS es-dropdown | .clone() + .prop("options"): clone opens its own menu :: Clone item
+PASS es-dropdown | clone item fires
+PASS es-dropdown | .html() with a new slot="trigger": opens
+PASS es-dropdown | .empty().append(trigger): opens again
+PASS es-context-menu | right-click on content jQuery appended into the region opens
+PASS es-context-menu | .html() on host: new region opens the menu
+PASS es-context-menu | .clone(): clone region opens its own menu
+PASS es-context-menu | cloned menu item fires
+PASS es-context-menu | .remove() while open: menu gone, body interactive
+console errors/warnings: 0
+ALL PASS (47)

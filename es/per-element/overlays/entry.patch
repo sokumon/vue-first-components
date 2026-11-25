@@ -1,0 +1,20 @@
+--- ../../src/entry.js	2026-11-23 21:52:11.114310098 +0000
++++ src/entry.js	2026-11-23 22:34:46.285170845 +0000
+@@ -26,3 +26,17 @@
+ }
+ Object.entries({ CheckField, SelectField, RatingField, DateField }).forEach(([n, c]) => register('Fw' + n, c))
+ window.__es = { registered, failed }
++
++// Sweep-only additions: the imperative halves of overlay components, which an
++// IIFE that only registers tags leaves unreachable from the host page.
++import { createApp, h } from 'vue'
++const registerShortcuts = (configs) => {
++  const el = document.createElement('div')
++  const app = createApp({ setup() { FUI.useKeyboardShortcut(configs); return () => null } })
++  app.mount(el)
++  return () => app.unmount()
++}
++window.FUI = { toast: FUI.toast, dialog: FUI.dialog, registerShortcuts }
++// Control mount for differential checks: the same component as a plain Vue app.
++window.FUI.mount = (name, props, el, slots) => createApp({ render: () => h(FUI[name], props, slots) }).mount(el)
++window.FUI.h = h

@@ -1,0 +1,770 @@
+{
+ "label": "legacy",
+ "form-switch-docs": {
+  "J1": {
+   "allocated_to": {
+    "v": "Administrator",
+    "seen": {
+     "m": "in",
+     "t": "Administrator"
+    }
+   },
+   "status": {
+    "v": "Open",
+    "seen": {
+     "m": "in",
+     "t": "Open"
+    }
+   },
+   "priority": {
+    "v": "High",
+    "seen": {
+     "m": "in",
+     "t": "High"
+    }
+   },
+   "reference_type": {
+    "v": "User",
+    "seen": {
+     "m": "in",
+     "t": "User"
+    }
+   },
+   "reference_name": {
+    "v": "Administrator",
+    "seen": {
+     "m": "in",
+     "t": "Administrator"
+    }
+   }
+  },
+  "J2": {
+   "allocated_to": {
+    "v": "Guest",
+    "seen": {
+     "m": "in",
+     "t": "Guest"
+    }
+   },
+   "status": {
+    "v": "Cancelled",
+    "seen": {
+     "m": "in",
+     "t": "Cancelled"
+    }
+   },
+   "priority": {
+    "v": "Low",
+    "seen": {
+     "m": "in",
+     "t": "Low"
+    }
+   },
+   "reference_type": {
+    "v": "Role",
+    "seen": {
+     "m": "in",
+     "t": "Role"
+    }
+   },
+   "reference_name": {
+    "v": "System Manager",
+    "seen": {
+     "m": "in",
+     "t": "System Manager"
+    }
+   }
+  },
+  "J1_again": {
+   "allocated_to": {
+    "v": "Administrator",
+    "seen": {
+     "m": "in",
+     "t": "Administrator"
+    }
+   },
+   "status": {
+    "v": "Open",
+    "seen": {
+     "m": "in",
+     "t": "Open"
+    }
+   },
+   "priority": {
+    "v": "High",
+    "seen": {
+     "m": "in",
+     "t": "High"
+    }
+   },
+   "reference_type": {
+    "v": "User",
+    "seen": {
+     "m": "in",
+     "t": "User"
+    }
+   },
+   "reference_name": {
+    "v": "Administrator",
+    "seen": {
+     "m": "in",
+     "t": "Administrator"
+    }
+   }
+  },
+  "after_reload_doc": {
+   "allocated_to": {
+    "v": "Administrator",
+    "seen": {
+     "m": "in",
+     "t": "Administrator"
+    }
+   },
+   "status": {
+    "v": "Open",
+    "seen": {
+     "m": "in",
+     "t": "Open"
+    }
+   },
+   "priority": {
+    "v": "High",
+    "seen": {
+     "m": "in",
+     "t": "High"
+    }
+   },
+   "reference_type": {
+    "v": "User",
+    "seen": {
+     "m": "in",
+     "t": "User"
+    }
+   },
+   "reference_name": {
+    "v": "Administrator",
+    "seen": {
+     "m": "in",
+     "t": "Administrator"
+    }
+   }
+  }
+ },
+ "switch-doc-with-list-open": {
+  "open_before": 3,
+  "listbox_after": [
+   "Guest",
+   "Create a new User",
+   "Advanced Search"
+  ],
+  "J2": {
+   "allocated_to": {
+    "v": "Guest",
+    "seen": {
+     "m": "in",
+     "t": "Guest"
+    }
+   },
+   "status": {
+    "v": "Cancelled",
+    "seen": {
+     "m": "in",
+     "t": "Cancelled"
+    }
+   },
+   "priority": {
+    "v": "Low",
+    "seen": {
+     "m": "in",
+     "t": "Low"
+    }
+   },
+   "reference_type": {
+    "v": "Role",
+    "seen": {
+     "m": "in",
+     "t": "Role"
+    }
+   },
+   "reference_name": {
+    "v": "System Manager",
+    "seen": {
+     "m": "in",
+     "t": "System Manager"
+    }
+   }
+  },
+  "J1_doc": {
+   "allocated_to": "Administrator",
+   "dirty": false
+  },
+  "J1": {
+   "allocated_to": {
+    "v": "Administrator",
+    "seen": {
+     "m": "in",
+     "t": "Administrator"
+    }
+   },
+   "status": {
+    "v": "Open",
+    "seen": {
+     "m": "in",
+     "t": "Open"
+    }
+   },
+   "priority": {
+    "v": "High",
+    "seen": {
+     "m": "in",
+     "t": "High"
+    }
+   },
+   "reference_type": {
+    "v": "User",
+    "seen": {
+     "m": "in",
+     "t": "User"
+    }
+   },
+   "reference_name": {
+    "v": "Administrator",
+    "seen": {
+     "m": "in",
+     "t": "Administrator"
+    }
+   }
+  }
+ },
+ "read-only-toggle": {
+  "ro": {
+   "allocated_to": {
+    "v": "Administrator",
+    "seen": {
+     "m": "disp",
+     "t": "Administrator",
+     "href": "/desk/user/Administrator"
+    }
+   },
+   "status": {
+    "v": "Open",
+    "seen": {
+     "m": "disp",
+     "t": "Open",
+     "href": null
+    }
+   },
+   "priority": {
+    "v": "High",
+    "seen": {
+     "m": "in",
+     "t": "High"
+    }
+   },
+   "reference_type": {
+    "v": "User",
+    "seen": {
+     "m": "in",
+     "t": "User"
+    }
+   },
+   "reference_name": {
+    "v": "Administrator",
+    "seen": {
+     "m": "disp",
+     "t": "Administrator",
+     "href": "/desk/user/Administrator"
+    }
+   }
+  },
+  "rw": {
+   "allocated_to": {
+    "v": "Administrator",
+    "seen": {
+     "m": "in",
+     "t": "Administrator"
+    }
+   },
+   "status": {
+    "v": "Open",
+    "seen": {
+     "m": "in",
+     "t": "Open"
+    }
+   },
+   "priority": {
+    "v": "High",
+    "seen": {
+     "m": "in",
+     "t": "High"
+    }
+   },
+   "reference_type": {
+    "v": "User",
+    "seen": {
+     "m": "in",
+     "t": "User"
+    }
+   },
+   "reference_name": {
+    "v": "Administrator",
+    "seen": {
+     "m": "in",
+     "t": "Administrator"
+    }
+   }
+  },
+  "toggle_enable_false": {
+   "m": "disp",
+   "t": "High",
+   "href": null
+  },
+  "frm_set_read_only": {
+   "allocated_to": {
+    "v": "Administrator",
+    "seen": {
+     "m": "disp",
+     "t": "Administrator",
+     "href": "/desk/user/Administrator"
+    }
+   },
+   "status": {
+    "v": "Open",
+    "seen": {
+     "m": "disp",
+     "t": "Open",
+     "href": null
+    }
+   },
+   "priority": {
+    "v": "High",
+    "seen": {
+     "m": "disp",
+     "t": "High",
+     "href": null
+    }
+   },
+   "reference_type": {
+    "v": "User",
+    "seen": {
+     "m": "disp",
+     "t": "User",
+     "href": "/desk/doctype/User"
+    }
+   },
+   "reference_name": {
+    "v": "Administrator",
+    "seen": {
+     "m": "disp",
+     "t": "Administrator",
+     "href": "/desk/user/Administrator"
+    }
+   }
+  },
+  "after_reload": {
+   "allocated_to": {
+    "v": "Administrator",
+    "seen": {
+     "m": "in",
+     "t": "Administrator"
+    }
+   },
+   "status": {
+    "v": "Open",
+    "seen": {
+     "m": "in",
+     "t": "Open"
+    }
+   },
+   "priority": {
+    "v": "High",
+    "seen": {
+     "m": "in",
+     "t": "High"
+    }
+   },
+   "reference_type": {
+    "v": "User",
+    "seen": {
+     "m": "in",
+     "t": "User"
+    }
+   },
+   "reference_name": {
+    "v": "Administrator",
+    "seen": {
+     "m": "in",
+     "t": "Administrator"
+    }
+   }
+  }
+ },
+ "fast-typing": {
+  "full-name-then-Tab-at-once": {
+   "v": "Administrator",
+   "input": "Administrator",
+   "model": "Administrator",
+   "searches": 0,
+   "list_open": false
+  },
+  "garbage-then-Tab-at-once": {
+   "v": "zzqq",
+   "input": "zzqq",
+   "model": "Administrator",
+   "searches": 1,
+   "list_open": true
+  },
+  "prefix-Enter-before-debounce": {
+   "v": "Administrator",
+   "input": "Administrator",
+   "model": "Administrator",
+   "searches": 0,
+   "list_open": false
+  },
+  "prefix-Enter-after-results": {
+   "v": "Administrator",
+   "input": "Administrator",
+   "model": "Administrator",
+   "searches": 1,
+   "list_open": false
+  },
+  "short-Enter-before-debounce": {
+   "v": "Gu",
+   "input": "Gu",
+   "model": "Administrator",
+   "searches": 1,
+   "list_open": true
+  },
+  "retype-list": {
+   "rows": [
+    "Administrator",
+    "Create a new User",
+    "Advanced Search"
+   ],
+   "active": "Administrator",
+   "searches": 1,
+   "last_txt": "Adm"
+  },
+  "retype-pick": {
+   "v": "Administrator",
+   "input": "Administrator"
+  }
+ },
+ "app-patterns": {
+  "select_val_trigger": {
+   "doc": "Closed",
+   "seen": {
+    "m": "in",
+    "t": "Closed"
+   }
+  },
+  "select_add_options": {
+   "doc": "Medium",
+   "opts": [
+    "Low",
+    "Medium"
+   ],
+   "seen": {
+    "m": "in",
+    "t": "Medium"
+   }
+  },
+  "select_user_pick": {
+   "before": {
+    "m": "in",
+    "t": "Closed"
+   },
+   "after": {
+    "doc": "Cancelled",
+    "input": "Cancelled",
+    "seen": {
+     "m": "in",
+     "t": "Cancelled"
+    }
+   }
+  },
+  "link_focus_from_code": {
+   "rows": 10,
+   "active_is_input": false
+  },
+  "link_val_trigger_input": {
+   "rows": [
+    "Guest",
+    "Create a new User",
+    "Advanced Search"
+   ],
+   "v": "Guest",
+   "input": "Guest",
+   "doc": "Guest",
+   "list_open": false
+  },
+  "link_placeholder_focus": {
+   "placeholder": "Pick someone",
+   "focus_on_input": true
+  },
+  "toggle_reqd": {
+   "has_error": true,
+   "reqd_label": 1
+  },
+  "awesomplete_list_from_code": {
+   "rows": [
+    "Create a new User",
+    "Advanced Search"
+   ],
+   "isOpened": true,
+   "list_len": 2
+  },
+  "subclass": {
+   "made": true,
+   "rows": [
+    "Filtered by: Name equals \"Guest\".",
+    "Create a new User",
+    "Advanced Search"
+   ],
+   "value": ""
+  },
+  "dynamic_link_switch": {
+   "rows": [
+    "System Manager",
+    "Create a new Role",
+    "Advanced Search"
+   ],
+   "doctype": "Role"
+  },
+  "console_errors": [
+   "pageerror: Cannot create property 'label' on string 'Lima'",
+   "pageerror: Cannot create property 'label' on string 'Kilo One'",
+   "pageerror: Cannot create property 'label' on string 'Kilo Two'",
+   "pageerror: Cannot create property 'label' on string 'Lima'",
+   "pageerror: Cannot create property 'label' on string 'Kilo One'"
+  ]
+ },
+ "grid-fast-and-tab": {
+  "rows": [
+   "Approved",
+   "Create a new Workflow State",
+   "Advanced Search"
+  ],
+  "after_tab": {
+   "state": "Approved",
+   "focus_field": "doc_status"
+  },
+  "static_after_close": "Approved",
+  "row_form": {
+   "state": {
+    "v": "Approved",
+    "seen": {
+     "m": "in",
+     "t": "Approved"
+    }
+   },
+   "doc_status": {
+    "v": "0",
+    "seen": {
+     "m": "in",
+     "t": "0"
+    }
+   },
+   "update_field": {
+    "v": null,
+    "seen": {
+     "m": "in",
+     "t": ""
+    }
+   },
+   "next_action_email_template": {
+    "v": "",
+    "seen": {
+     "m": "in",
+     "t": ""
+    }
+   },
+   "allow_edit": {
+    "v": "",
+    "seen": {
+     "m": "in",
+     "t": ""
+    }
+   }
+  }
+ },
+ "dialog-reshow-and-set_values": {
+  "first": {
+   "values": {
+    "user": "Guest"
+   },
+   "user": {
+    "m": "in",
+    "t": "Guest"
+   }
+  },
+  "reshow": {
+   "values": {
+    "user": "Guest"
+   },
+   "user": {
+    "m": "in",
+    "t": "Guest"
+   },
+   "kind": {
+    "m": "in",
+    "t": ""
+   }
+  },
+  "set": {
+   "values": {
+    "user": "Administrator",
+    "kind": "Beta"
+   },
+   "user": {
+    "m": "in",
+    "t": "Administrator"
+   },
+   "kind": {
+    "m": "in",
+    "t": "Beta"
+   }
+  },
+  "esc1": {
+   "dialog_open": true,
+   "list": 0
+  },
+  "esc2": {
+   "dialog_open": false
+  }
+ },
+ "many-fields-dialog": {
+  "new_show_ms": 105,
+  "incl_paint_ms": 115,
+  "set_values_ms": 1152,
+  "wrong": 0,
+  "seen_wrong": 0,
+  "seen_sample": {
+   "m": "in",
+   "t": "Administrator"
+  }
+ },
+ "many-fields-user-form": {
+  "language": {
+   "v": "",
+   "seen": {
+    "m": "in",
+    "t": ""
+   }
+  }
+ },
+ "erp-si-consistency": {
+  "fresh": {
+   "naming_series": {
+    "v": "ACC-SINV-.YYYY.-",
+    "seen": {
+     "m": "in",
+     "t": "ACC-SINV-.YYYY.-"
+    }
+   },
+   "customer": {
+    "v": "",
+    "seen": {
+     "m": "in",
+     "t": ""
+    }
+   },
+   "tax_category": {
+    "v": "",
+    "seen": {
+     "m": "in",
+     "t": ""
+    }
+   },
+   "taxes_and_charges": {
+    "v": "",
+    "seen": {
+     "m": "in",
+     "t": ""
+    }
+   },
+   "shipping_rule": {
+    "v": "",
+    "seen": {
+     "m": "in",
+     "t": ""
+    }
+   },
+   "incoterm": {
+    "v": "",
+    "seen": {
+     "m": "in",
+     "t": ""
+    }
+   }
+  },
+  "after_customer": {
+   "naming_series": {
+    "v": "ACC-SINV-.YYYY.-",
+    "seen": {
+     "m": "in",
+     "t": "ACC-SINV-.YYYY.-"
+    }
+   },
+   "customer": {
+    "v": "TW Cust Beta",
+    "seen": {
+     "m": "in",
+     "t": "TW Cust Beta"
+    }
+   },
+   "tax_category": {
+    "v": "",
+    "seen": {
+     "m": "in",
+     "t": ""
+    }
+   },
+   "taxes_and_charges": {
+    "v": "",
+    "seen": {
+     "m": "in",
+     "t": ""
+    }
+   },
+   "shipping_rule": {
+    "v": "",
+    "seen": {
+     "m": "in",
+     "t": ""
+    }
+   },
+   "incoterm": {
+    "v": "",
+    "seen": {
+     "m": "in",
+     "t": ""
+    }
+   }
+  },
+  "row": {
+   "item_code": "TW-ITEM-002",
+   "static": "TW-ITEM-002: Three Ways Widget 2",
+   "uom": "Nos"
+  },
+  "row_form": {
+   "item_code": {
+    "v": "TW-ITEM-002",
+    "seen": {
+     "m": "in",
+     "t": "TW-ITEM-002"
+    }
+   },
+   "uom": {
+    "v": "Nos",
+    "seen": {
+     "m": "in",
+     "t": "Nos"
+    }
+   },
+   "warehouse": null,
+   "income_account": null,
+   "cost_center": null
+  }
+ }
+}

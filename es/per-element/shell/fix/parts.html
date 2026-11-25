@@ -1,0 +1,27 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="es-wc-spike.css">
+<script defer src="es-components.js"></script>
+<script defer src="petite-vue.iife.js"></script>
+</head><body class="p-4">
+<!-- Standalone parts: PageHeaderTarget registry + PageHeaderBase / PageHeader outside any shell -->
+<div id="app" v-scope="{ name: 'Ada', show: true, logs: [], log(m) { this.logs.push(m) } }" class="space-y-4">
+  <p id="state">name={{ name }}|show={{ show }}</p>
+  <p id="log">{{ logs.join(',') }}</p>
+  <div id="tgt-wrap" class="border"><es-page-header-target id="tgt"></es-page-header-target></div>
+  <div id="decl" class="h-40 overflow-auto border">
+    <es-page-header-base id="phb" class="flex h-10 items-center bg-surface-gray-2 px-2">
+      <span id="phb-slot">Base header for {{ name }}</span>
+      <es-button id="phb-btn" label="Rename" @click="name = 'Grace'; log('rename')"></es-button>
+    </es-page-header-base>
+    <div v-for="i in 30">Line {{ i }}</div>
+  </div>
+  <div v-if="show" id="vif-wrap">
+    <es-page-header id="ph2"><es-page-header-title id="ph2t"><b id="ph2t-slot">Slot title {{ name }}</b></es-page-header-title></es-page-header>
+  </div>
+  <es-button id="hide" label="Hide header" @click="show = false"></es-button>
+  <es-page-header-mobile-title id="sa-mt" title="Standalone mobile title"></es-page-header-mobile-title>
+  <es-page-header-title id="sa-t">Slot only {{ name }}</es-page-header-title>
+  <es-page-header-back-button id="sa-back"></es-page-header-back-button>
+</div>
+<script>addEventListener('DOMContentLoaded', () => PetiteVue.createApp().mount('#app'))</script>
+</body></html>

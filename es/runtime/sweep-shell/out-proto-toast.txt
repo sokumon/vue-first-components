@@ -1,0 +1,11 @@
+PASS es-toast-provider | standalone provider shows ES.toast.error with action, exactly once :: {"tt":["Failed / Retry"],"toasters":1}
+PASS es-toast-provider | error toast has an icon
+PASS es-toast-provider | toast action onClick fires :: retry
+PASS es-dialogs | standalone es-dialogs renders dialog.danger() exactly once :: 1
+PASS es-dialogs | async onConfirm runs and closes :: retry,deleted
+PASS es-dialogs | imperative dialog Escape closes
+PASS es-toast-provider | .detach() + .append() (same task): toast shown, one toaster :: {"n":1,"e":[]}
+PASS es-toast-provider | after .remove(): ES.toast still shows (one toaster) :: 1
+PASS es-dialogs | after .remove(): ES.dialog still renders once (root Dialogs)
+console errors/warnings: 0
+ALL PASS (9)

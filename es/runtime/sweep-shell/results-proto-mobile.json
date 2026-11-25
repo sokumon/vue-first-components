@@ -1,0 +1,176 @@
+{
+ "page": "mobile.html",
+ "fails": 1,
+ "n": 30,
+ "results": [
+  {
+   "tag": "es-mobile-shell",
+   "k": "fills the viewport (fixed inset-0)",
+   "ok": true,
+   "extra": "{\"x\":0,\"y\":0,\"w\":390,\"h\":800}"
+  },
+  {
+   "tag": "es-mobile-shell",
+   "k": "header on top, scroll region middle, nav at the bottom",
+   "ok": true,
+   "extra": "{\"hdr\":{\"x\":0,\"y\":0,\"w\":390,\"h\":52},\"sc\":{\"x\":0,\"y\":52,\"w\":390,\"h\":689},\"nav\":{\"x\":0,\"y\":741,\"w\":390,\"h\":59}}"
+  },
+  {
+   "tag": "es-page-header-mobile",
+   "k": "teleported into MobileShell header target",
+   "ok": true
+  },
+  {
+   "tag": "es-mobile-nav",
+   "k": "inside the shell (nav slot)",
+   "ok": true
+  },
+  {
+   "tag": "es-mobile-shell",
+   "k": "content default slot inside the scroll region",
+   "ok": true
+  },
+  {
+   "tag": "es-page-header-mobile",
+   "k": "prefix slot: back button in the prefix box",
+   "ok": true
+  },
+  {
+   "tag": "es-page-header-mobile",
+   "k": "suffix slot: action in the suffix box",
+   "ok": true
+  },
+  {
+   "tag": "es-page-header-mobile-title",
+   "k": "inside <h1>, with its own prefix slot",
+   "ok": true
+  },
+  {
+   "tag": "es-page-header-mobile-title",
+   "k": "title from .prop",
+   "ok": true,
+   "extra": "Inbox (home)"
+  },
+  {
+   "tag": "es-page-header-mobile",
+   "k": "title centred and inset past the prefix control",
+   "ok": true,
+   "extra": "{\"tt\":{\"x\":60,\"y\":14,\"w\":270,\"h\":24},\"pre\":{\"x\":12,\"y\":10,\"w\":32,\"h\":32}}"
+  },
+  {
+   "tag": "es-page-header-mobile",
+   "k": "suffix button click -> jQuery handler, title follows",
+   "ok": true,
+   "extra": "Drafts (home)"
+  },
+  {
+   "tag": "es-mobile-nav-item",
+   "k": "equal columns (no host-page CSS needed)",
+   "ok": true,
+   "extra": "4"
+  },
+  {
+   "tag": "es-mobile-nav-item",
+   "k": ":active from .prop",
+   "ok": true
+  },
+  {
+   "tag": "es-mobile-nav-item",
+   "k": "icon rendered",
+   "ok": true
+  },
+  {
+   "tag": "es-mobile-nav-item",
+   "k": "click -> delegated .on(\"click\", item) exactly once, active moves",
+   "ok": true,
+   "extra": "plus,search"
+  },
+  {
+   "tag": "es-mobile-nav-item",
+   "k": "default slot (custom glyph) replaces icon, label kept",
+   "ok": true
+  },
+  {
+   "tag": "es-mobile-nav-item",
+   "k": "href -> <a href>",
+   "ok": true
+  },
+  {
+   "tag": "es-mobile-nav-item",
+   "k": "keyboard Enter activates",
+   "ok": true
+  },
+  {
+   "tag": "es-mobile-shell",
+   "k": "scroll region scrolls, header stays",
+   "ok": true,
+   "extra": "500"
+  },
+  {
+   "tag": "es-mobile-nav",
+   "k": ".append() an item from a string: 5 equal columns",
+   "ok": true,
+   "extra": "5"
+  },
+  {
+   "tag": "es-mobile-nav",
+   "k": "delegated handler fires for the appended item",
+   "ok": true
+  },
+  {
+   "tag": "es-mobile-nav",
+   "k": ".remove() an item: 4 columns again",
+   "ok": true,
+   "extra": "4"
+  },
+  {
+   "tag": "es-mobile-nav",
+   "k": "reorder: .detach() first item + .append() to the same nav (same task): moved last, no error",
+   "ok": true,
+   "extra": "[]"
+  },
+  {
+   "tag": "es-mobile-nav",
+   "k": "moved item still works",
+   "ok": true
+  },
+  {
+   "tag": "es-mobile-nav",
+   "k": ".clone() of an item with .attr changes: 5 columns, clone label",
+   "ok": true,
+   "extra": "Find"
+  },
+  {
+   "tag": "es-page-header-mobile-title",
+   "k": ".html() on host with a named-slot child: prefix replaced, title prop kept",
+   "ok": true,
+   "extra": "Drafts (home)"
+  },
+  {
+   "tag": "es-page-header-mobile",
+   "k": ".append() a second suffix button: both in the suffix box",
+   "ok": true
+  },
+  {
+   "tag": "es-page-header-mobile",
+   "k": ".detach() + .prepend() back into the shell: header still teleported, no error",
+   "ok": true,
+   "extra": "[]"
+  },
+  {
+   "tag": "es-page-header-back-button",
+   "k": "works without vue-router (no throw, navigates)",
+   "ok": false,
+   "extra": "pageerror: Cannot read properties of undefined (reading 'options') url=http://jq.test/sweep-shell/pages/mobile.html"
+  },
+  {
+   "tag": "es-page-header-back-button",
+   "k": "with ES.configure(app => app.use(router)): a new back button navigates to fallback-route",
+   "ok": true,
+   "extra": " url=http://jq.test/sweep-shell/pages/mobile.html#/home"
+  }
+ ],
+ "errs": [
+  "pageerror: Cannot read properties of undefined (reading 'options')"
+ ]
+}

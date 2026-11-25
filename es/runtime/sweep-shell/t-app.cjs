@@ -1,0 +1,87 @@
+// jQuery-driven re-run of wc/sweep/shell/xo/t-app.cjs + t-toast.cjs + Desk-style operations.
+require('./lib.cjs')('app.html', async ({ p, r, txt, st, ev, W, vis, rect, inside, log, safe, errs, errCount }) => {
+  let t = 'es-frappe-ui-provider'
+  await safe(t, 'core', async () => {
+    r(t, 'renders its slot', await vis('#btn-toast') && await inside('#app', '#prov'))
+    r(t, 'slot is not hidden in es-slots', await p.$eval('#app', (e) => !e.closest('es-slots')))
+    const toasters = await ev(() => document.querySelectorAll('[data-sonner-toaster]').length)
+    await p.click('#btn-toast'); await W(500)
+    const toasts = await p.$$eval('[data-sonner-toast]', (es) => es.map((e) => e.innerText.trim().replace(/\n/g, ' / ')))
+    r('ES.toast', 'toast.success shows title + description', toasts.length >= 1 && toasts[0].includes('Saved #1') && toasts[0].includes('desc 1'), toasts)
+    r(t, 'toast rendered once (one Toaster on the page, though the provider and the ES root each render a ToastProvider)', toasts.length === 1, { toasts: toasts.length, toasters: await ev(() => document.querySelectorAll('[data-sonner-toaster]').length), before: toasters })
+    r('ES.toast', '<b> from sanitised HTML', (await p.$eval('[data-sonner-toast] b', (b) => b.innerText).catch(() => '')) === '#1')
+    const tr = await rect('[data-sonner-toast]')
+    r('ES.toast', 'toast sits bottom-right', tr && tr.x > 600 && tr.y > 600, tr)
+    await p.click('#btn-toast-act'); await W(500)
+    await p.click('[data-sonner-toast] button:has-text("Undo")').catch((e) => console.log('  undo', e.message.slice(0, 90))); await W(300)
+    r('ES.toast', 'action onClick fires', (await log()).includes('undo'), await log())
+    await p.click('#btn-confirm'); await W(400)
+    const dl = await p.$$('[role=dialog], [role=alertdialog]')
+    r('ES.dialog', 'dialog.confirm() renders exactly once (provider Dialogs + ES root Dialogs)', dl.length === 1 && (await dl[0].innerText()).includes('Really?'), dl.length)
+    await p.click('[role=dialog] button:has-text("Confirm"), [role=alertdialog] button:has-text("Confirm")').catch((e) => console.log('  confirm', e.message.slice(0, 90))); await W(400)
+    r('ES.dialog', 'onConfirm fires and dialog closes', (await log()).includes('confirmed') && !(await p.$('[role=dialog]')), await log())
+  })
+  t = 'es-keyboard-shortcuts-dialog'
+  await safe(t, 'core', async () => {
+    await p.keyboard.press('Control+s'); await W()
+    r(t, 'useKeyboardShortcut registered from the page (ES.addRoot render fn) handles Mod+S', (await ev(() => window.__saved)) === 1, await ev(() => window.__saved))
+    await p.click('#btn-k'); await W(400)
+    const kd = '[role=dialog]'
+    r(t, 'opens with title (attribute -> prop)', await vis(kd) && (await txt(kd)).includes('Shortcuts here'), await txt(kd))
+    const kt = await txt(kd)
+    r(t, 'lists the registered groups/shortcuts', kt.includes('File') && kt.includes('Save doc') && kt.includes('Nav'), kt.replace(/\n/g, ' | ').slice(0, 200))
+    r(t, 'search shown above threshold (search-threshold="3" -> number)', !!(await p.$(kd + ' input')))
+    await p.fill(kd + ' input', 'open').catch(() => {}); await W()
+    const kt2 = await txt(kd)
+    r(t, 'search filters to "Open doc"', kt2.includes('Open doc') && !kt2.includes('Save doc'), kt2.replace(/\n/g, ' | ').slice(0, 200))
+    await p.keyboard.press('Escape'); await W(400)
+    r(t, 'Escape -> update:open false on host', (await st()).k === false && !(await vis(kd)))
+  })
+  t = 'es-scroll-area'
+  await safe(t, 'core', async () => {
+    const sa = await rect('#sa'), vp = await rect('#sa [data-slot=scroll-area-viewport]')
+    r(t, 'host class h-40 constrains the viewport', vp && vp.h <= 165 && vp.h > 100, { sa, vp })
+    r(t, 'slot rows inside viewport', await inside('#sa-content', '#sa [data-slot=scroll-area-viewport]') && (await p.$$eval('.sa-row', (e) => e.length)) === 40)
+    await p.hover('#sa'); await p.mouse.wheel(0, 300); await W(300)
+    const s1 = await p.$eval('#sa [data-slot=scroll-area-viewport]', (e) => e.scrollTop).catch(() => -1)
+    r(t, 'scrolls on wheel', s1 > 50, s1)
+    const vp2 = await rect('#sa2 [data-slot=scroll-area-viewport]')
+    await p.hover('#sa2'); await p.mouse.wheel(0, 300); await W(400)
+    const s2 = await p.$eval('#sa2 [data-slot=scroll-area-viewport]', (e) => e.scrollTop).catch(() => -1)
+    r(t, 'host CSS convention (host > [data-slot=scroll-area] {height:100%}) also works', vp2 && vp2.h <= 165 && s2 > 50, { vp2, s2 })
+    r(t, 'custom vertical scrollbar shown', !!(await p.$('#sa [data-orientation=vertical]')))
+    r(t, 'viewport-class attribute applied', !!(await p.$('.sa-vp')))
+    r(t, 'exposed viewportElement readable on element', await ev(() => document.getElementById('sa').viewportElement?.tagName || null).then((v) => !!v))
+  })
+
+  // ---------------------------------------------------------------- Desk-style
+  await safe(t, 'desk ops', async () => {
+    await ev(() => $('#sa-content').append('<p class="sa-row" id="sa-last">Row 41</p>')); await W(100)
+    r(t, 'appending inside slot content (jQuery owns it): new row in viewport', await inside('#sa-last', '#sa [data-slot=scroll-area-viewport]'))
+    await ev(() => $('#sa').append('<p id="sa-direct">Direct child</p>')); await W(100)
+    r(t, '.append() on host: joins default slot inside the viewport, scroll kept', await inside('#sa-direct', '#sa [data-slot=scroll-area-viewport]') && (await p.$eval('#sa [data-slot=scroll-area-viewport]', (e) => e.scrollTop)) > 50)
+    await ev(() => $('#sa2').html(Array.from({ length: 60 }, (_, i) => `<p class="h-row">H ${i}</p>`).join(''))); await W(200)
+    r(t, '.html() on host: new rows in a working viewport', (await p.$$eval('#sa2 [data-slot=scroll-area-viewport] .h-row', (e) => e.length)) === 60)
+    const e0 = await errCount()
+    await ev(() => { window.__vp = document.querySelector('#sa [data-slot=scroll-area-viewport]'); const $s = $('#sa').detach(); $('#app').prepend($s) }); await W(200)
+    r(t, '.detach() + .prepend() in same task keeps the mounted viewport (scrollTop resets: native browser behaviour on removal)', await ev(() => window.__vp === document.querySelector('#sa [data-slot=scroll-area-viewport]')) && (await errCount()) === e0, errs.slice(e0))
+    await ev(() => $('#sa').clone().attr('id', 'sa3').appendTo('#app')); await W(200)
+    r(t, '.clone(): one viewport, 41 rows + direct child, no stale scrollbar copies', await ev(() => { const h = document.getElementById('sa3'); return h.querySelectorAll('[data-slot=scroll-area-viewport]').length === 1 && h.querySelectorAll('.sa-row').length === 41 && !!h.querySelector('#sa-direct') }), await ev(() => { const h = document.getElementById('sa3'); return [h.querySelectorAll('[data-slot=scroll-area-viewport]').length, h.querySelectorAll('.sa-row').length] }))
+  })
+  t = 'es-keyboard-shortcuts-dialog'
+  await safe(t, 'desk ops', async () => {
+    await ev(() => $('#kd').remove()); await W(200)
+    await ev(() => $('#app').append('<div class="modal-wrap"><es-keyboard-shortcuts-dialog id="kd2" title="Again"></es-keyboard-shortcuts-dialog></div>')); await W(100)
+    await ev(() => $('#kd2').prop('open', true)); await W(400)
+    r(t, 'removed + recreated from an HTML string: opens, lists shortcuts', await vis('[role=dialog]') && (await txt('[role=dialog]')).includes('Save doc'))
+    await ev(() => $('.modal-wrap').remove()); await W(400)
+    r(t, 'ancestor .remove() while open: dialog gone, body unlocked', !(await p.$('[role=dialog]')) && await ev(() => getComputedStyle(document.body).pointerEvents !== 'none'))
+  })
+  t = 'es-frappe-ui-provider'
+  await safe(t, 'desk ops', async () => {
+    const e0 = await errCount()
+    await ev(() => $('#root').empty()); await W(300)
+    await p.click('body'); await ev(() => ES.toast.success('After provider gone')); await W(500)
+    r(t, 'provider removed: ES.toast still works (root ToastProvider)', (await ev(() => document.querySelectorAll('[data-sonner-toast]').length)) >= 1 && (await errCount()) === e0, errs.slice(e0))
+  })
+})

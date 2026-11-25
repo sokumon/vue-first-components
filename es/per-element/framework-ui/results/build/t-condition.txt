@@ -1,0 +1,16 @@
+PASS label + description props
+PASS #empty slot rendered inside the empty button, bound
+PASS empty click -> v-model gets a blank condition :: {"conjunction":"and","conditions":[{"fieldname":"","operator":"equals","value":""}]}
+PASS field picker lists meta fields (doctype prop) :: Name|Created By|Last Updated By|Tags|Like|Assigned To|Created On|Last Updated On|Status|Priority|Due Date|Allocated To|Description|Hours|Done
+PASS pick field -> condition.fieldname :: {"fieldname":"priority","operator":"equals","value":"Low"}
+FAIL value -> v-model + update:expression (as displayed) :: {"fieldname":"priority","operator":"equals","value":"High"} expr=priority == "Low"
+PASS value -> update:expression (after another petite flush) :: expr=priority == "High"
+  open overlays: 0
+PASS Add Condition dropdown (teleported menu) offers condition + group :: Add Condition|Add Condition Group
+PASS Add Condition appends :: 2
+PASS conjunction switch -> or :: or
+  actions menu: Turn into a Group|Remove
+PASS actions menu Remove :: 1
+PASS readonly builder draws fields prop + value, no add button :: Where Status Equals Open Field Operator Value Status
+console errors/warnings: 0
+1 FAILED

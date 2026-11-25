@@ -1,0 +1,181 @@
+PASS es-button: create in template string renders synchronously :: {"rendered":true,"uid":8,"mark":0,"markVis":false,"visible":true}
+PASS es-button: detach+appendTo same task keeps instance :: {"same":true,"rendered":true}
+PASS es-button: detach, re-append after a frame: remounts fresh, props kept :: {"rendered":true,"newInst":true,"mark":0}
+PASS es-button: clone renders independently, slot copied, original intact, no duplicate ids :: {"rendered":true,"other":true,"cmark":0,"omark":true,"dup":0,"stale":true}
+PASS es-button: .html(x) on host: remounts with x as slot content :: {"rendered":true,"remount":true,"mark2":1,"oldMark":0}
+PASS es-button: .empty() on host: still renders, no slot content :: {"rendered":true,"mark2":0}
+PASS es-button: .text() on host: still renders :: {"rendered":true}
+PASS es-button: .remove() unmounts at once; ancestor .empty() unmounts all :: {"t0":0,"t1":2,"t2":1,"t3":0,"nested":0}
+PASS es-button(slot): create in template string renders synchronously :: {"rendered":true,"uid":8,"mark":1,"markVis":true,"visible":true}
+PASS es-button(slot): slot child rendered :: {"rendered":true,"uid":8,"mark":1,"markVis":true,"visible":true}
+PASS es-button(slot): detach+appendTo same task keeps instance :: {"same":true,"rendered":true}
+PASS es-button(slot): detach, re-append after a frame: remounts fresh, props kept :: {"rendered":true,"newInst":true,"mark":1}
+PASS es-button(slot): clone renders independently, slot copied, original intact, no duplicate ids :: {"rendered":true,"other":true,"cmark":1,"omark":true,"dup":0,"stale":true}
+PASS es-button(slot): .html(x) on host: remounts with x as slot content :: {"rendered":true,"remount":true,"mark2":1,"oldMark":0}
+PASS es-button(slot): .empty() on host: still renders, no slot content :: {"rendered":true,"mark2":0}
+PASS es-button(slot): .text() on host: still renders :: {"rendered":true}
+PASS es-button(slot): .remove() unmounts at once; ancestor .empty() unmounts all :: {"t0":0,"t1":2,"t2":1,"t3":0,"nested":0}
+PASS es-badge: create in template string renders synchronously :: {"rendered":true,"uid":8,"mark":0,"markVis":false,"visible":true}
+PASS es-badge: detach+appendTo same task keeps instance :: {"same":true,"rendered":true}
+PASS es-badge: detach, re-append after a frame: remounts fresh, props kept :: {"rendered":true,"newInst":true,"mark":0}
+PASS es-badge: clone renders independently, slot copied, original intact, no duplicate ids :: {"rendered":true,"other":true,"cmark":0,"omark":true,"dup":0,"stale":true}
+PASS es-badge: .html(x) on host: remounts with x as slot content :: {"rendered":true,"remount":true,"mark2":1,"oldMark":0}
+PASS es-badge: .empty() on host: still renders, no slot content :: {"rendered":true,"mark2":0}
+PASS es-badge: .text() on host: still renders :: {"rendered":true}
+PASS es-badge: .remove() unmounts at once; ancestor .empty() unmounts all :: {"t0":0,"t1":2,"t2":1,"t3":0,"nested":0}
+PASS es-avatar: create in template string renders synchronously :: {"rendered":true,"uid":8,"mark":0,"markVis":false,"visible":true}
+PASS es-avatar: detach+appendTo same task keeps instance :: {"same":true,"rendered":true}
+PASS es-avatar: detach, re-append after a frame: remounts fresh, props kept :: {"rendered":true,"newInst":true,"mark":0}
+PASS es-avatar: clone renders independently, slot copied, original intact, no duplicate ids :: {"rendered":true,"other":true,"cmark":0,"omark":true,"dup":0,"stale":true}
+PASS es-avatar: .html(x) on host: remounts with x as slot content :: {"rendered":true,"remount":true,"mark2":1,"oldMark":0}
+PASS es-avatar: .empty() on host: still renders, no slot content :: {"rendered":true,"mark2":0}
+PASS es-avatar: .text() on host: still renders :: {"rendered":true}
+PASS es-avatar: .remove() unmounts at once; ancestor .empty() unmounts all :: {"t0":0,"t1":2,"t2":1,"t3":0,"nested":0}
+PASS es-checkbox: create in template string renders synchronously :: {"rendered":true,"uid":8,"mark":1,"markVis":true,"visible":true}
+PASS es-checkbox: slot child rendered :: {"rendered":true,"uid":8,"mark":1,"markVis":true,"visible":true}
+PASS es-checkbox: detach+appendTo same task keeps instance :: {"same":true,"rendered":true}
+PASS es-checkbox: detach, re-append after a frame: remounts fresh, props kept :: {"rendered":true,"newInst":true,"model":"false","mark":1}
+PASS es-checkbox: clone renders independently, slot copied, original intact, no duplicate ids :: {"rendered":true,"other":true,"cmark":1,"omark":true,"dup":0,"stale":true}
+PASS es-checkbox: .html(x) on host: remounts with x as slot content :: {"rendered":true,"remount":true,"mark2":1,"oldMark":0,"model":"false"}
+PASS es-checkbox: .empty() on host: still renders, no slot content :: {"rendered":true,"mark2":0}
+PASS es-checkbox: .text() on host: still renders :: {"rendered":true}
+PASS es-checkbox: .remove() unmounts at once; ancestor .empty() unmounts all :: {"t0":0,"t1":2,"t2":1,"t3":0,"nested":0}
+PASS es-switch: create in template string renders synchronously :: {"rendered":true,"uid":8,"mark":1,"markVis":true,"visible":true}
+PASS es-switch: slot child rendered :: {"rendered":true,"uid":8,"mark":1,"markVis":true,"visible":true}
+PASS es-switch: detach+appendTo same task keeps instance :: {"same":true,"rendered":true}
+PASS es-switch: detach, re-append after a frame: remounts fresh, props kept :: {"rendered":true,"newInst":true,"model":"false","mark":1}
+PASS es-switch: clone renders independently, slot copied, original intact, no duplicate ids :: {"rendered":true,"other":true,"cmark":1,"omark":true,"dup":0,"stale":true}
+PASS es-switch: .html(x) on host: remounts with x as slot content :: {"rendered":true,"remount":true,"mark2":1,"oldMark":0,"model":"false"}
+PASS es-switch: .empty() on host: still renders, no slot content :: {"rendered":true,"mark2":0}
+PASS es-switch: .text() on host: still renders :: {"rendered":true}
+PASS es-switch: .remove() unmounts at once; ancestor .empty() unmounts all :: {"t0":0,"t1":2,"t2":1,"t3":0,"nested":0}
+PASS es-text-input: create in template string renders synchronously :: {"rendered":true,"uid":8,"mark":1,"markVis":true,"visible":true}
+PASS es-text-input: slot child rendered :: {"rendered":true,"uid":8,"mark":1,"markVis":true,"visible":true}
+PASS es-text-input: detach+appendTo same task keeps instance :: {"same":true,"rendered":true}
+PASS es-text-input: detach, re-append after a frame: remounts fresh, props kept :: {"rendered":true,"newInst":true,"model":"\"Ada\"","mark":1}
+PASS es-text-input: clone renders independently, slot copied, original intact, no duplicate ids :: {"rendered":true,"other":true,"cmark":1,"omark":true,"dup":0,"stale":true}
+PASS es-text-input: .html(x) on host: remounts with x as slot content :: {"rendered":true,"remount":true,"mark2":1,"oldMark":0,"model":"\"Ada\""}
+PASS es-text-input: .empty() on host: still renders, no slot content :: {"rendered":true,"mark2":0}
+PASS es-text-input: .text() on host: still renders :: {"rendered":true}
+PASS es-text-input: .remove() unmounts at once; ancestor .empty() unmounts all :: {"t0":0,"t1":2,"t2":1,"t3":0,"nested":0}
+PASS es-textarea: create in template string renders synchronously :: {"rendered":true,"uid":8,"mark":1,"markVis":true,"visible":true}
+PASS es-textarea: slot child rendered :: {"rendered":true,"uid":8,"mark":1,"markVis":true,"visible":true}
+PASS es-textarea: detach+appendTo same task keeps instance :: {"same":true,"rendered":true}
+PASS es-textarea: detach, re-append after a frame: remounts fresh, props kept :: {"rendered":true,"newInst":true,"model":"\"Hi\"","mark":1}
+PASS es-textarea: clone renders independently, slot copied, original intact, no duplicate ids :: {"rendered":true,"other":true,"cmark":1,"omark":true,"dup":0,"stale":true}
+PASS es-textarea: .html(x) on host: remounts with x as slot content :: {"rendered":true,"remount":true,"mark2":1,"oldMark":0,"model":"\"Hi\""}
+PASS es-textarea: .empty() on host: still renders, no slot content :: {"rendered":true,"mark2":0}
+PASS es-textarea: .text() on host: still renders :: {"rendered":true}
+PASS es-textarea: .remove() unmounts at once; ancestor .empty() unmounts all :: {"t0":0,"t1":2,"t2":1,"t3":0,"nested":0}
+PASS es-password: create in template string renders synchronously :: {"rendered":true,"uid":8,"mark":1,"markVis":true,"visible":true}
+PASS es-password: slot child rendered :: {"rendered":true,"uid":8,"mark":1,"markVis":true,"visible":true}
+PASS es-password: detach+appendTo same task keeps instance :: {"same":true,"rendered":true}
+PASS es-password: detach, re-append after a frame: remounts fresh, props kept :: {"rendered":true,"newInst":true,"model":"\"secret\"","mark":1}
+PASS es-password: clone renders independently, slot copied, original intact, no duplicate ids :: {"rendered":true,"other":true,"cmark":1,"omark":true,"dup":0,"stale":true}
+PASS es-password: .html(x) on host: remounts with x as slot content :: {"rendered":true,"remount":true,"mark2":1,"oldMark":0,"model":"\"secret\""}
+PASS es-password: .empty() on host: still renders, no slot content :: {"rendered":true,"mark2":0}
+PASS es-password: .text() on host: still renders :: {"rendered":true}
+PASS es-password: .remove() unmounts at once; ancestor .empty() unmounts all :: {"t0":0,"t1":2,"t2":1,"t3":0,"nested":0}
+PASS es-radio-group: create in template string renders synchronously :: {"rendered":true,"uid":8,"mark":2,"markVis":true,"visible":true}
+PASS es-radio-group: slot child rendered :: {"rendered":true,"uid":8,"mark":2,"markVis":true,"visible":true}
+PASS es-radio-group: detach+appendTo same task keeps instance :: {"same":true,"rendered":true}
+PASS es-radio-group: detach, re-append after a frame: remounts fresh, props kept :: {"rendered":true,"newInst":true,"model":"\"a\"","mark":2}
+FAIL es-radio-group: clone renders independently, slot copied, original intact, no duplicate ids :: {"rendered":true,"other":true,"cmark":3,"omark":true,"dup":4,"stale":true}
+PASS es-radio-group: .html(x) on host: remounts with x as slot content :: {"rendered":true,"remount":true,"mark2":2,"oldMark":0,"model":"\"a\""}
+PASS es-radio-group: .empty() on host: still renders, no slot content :: {"rendered":true,"mark2":0}
+PASS es-radio-group: .text() on host: still renders :: {"rendered":true}
+PASS es-radio-group: .remove() unmounts at once; ancestor .empty() unmounts all :: {"t0":0,"t1":2,"t2":1,"t3":0,"nested":0}
+PASS es-rating: create in template string renders synchronously :: {"rendered":true,"uid":8,"mark":0,"markVis":false,"visible":true}
+PASS es-rating: detach+appendTo same task keeps instance :: {"same":true,"rendered":true}
+PASS es-rating: detach, re-append after a frame: remounts fresh, props kept :: {"rendered":true,"newInst":true,"model":"2","mark":0}
+FAIL es-rating: clone renders independently, slot copied, original intact, no duplicate ids :: {"rendered":true,"other":true,"cmark":0,"omark":true,"dup":1,"stale":true}
+FAIL es-rating: exception (later ops skipped) :: page.evaluate: TypeError: Cannot read properties of null (reading 'nextSibling') |     at nextSibling (http://jq.test/dist/es-ui.iife.js:23:833) |     at xe (http://jq.test/dist/es-ui.iife.js:19:35183)
+PASS es-slider: create in template string renders synchronously :: {"rendered":true,"uid":8,"mark":0,"markVis":false,"visible":true}
+PASS es-slider: detach+appendTo same task keeps instance :: {"same":true,"rendered":true}
+PASS es-slider: detach, re-append after a frame: remounts fresh, props kept :: {"rendered":true,"newInst":true,"model":"[30]","mark":0}
+FAIL es-slider: clone renders independently, slot copied, original intact, no duplicate ids :: {"rendered":true,"other":true,"cmark":0,"omark":true,"dup":1,"stale":true}
+FAIL es-slider: exception (later ops skipped) :: page.evaluate: TypeError: Cannot read properties of null (reading 'nextSibling') |     at nextSibling (http://jq.test/dist/es-ui.iife.js:23:833) |     at xe (http://jq.test/dist/es-ui.iife.js:19:35183)
+PASS es-duration: create in template string renders synchronously :: {"rendered":true,"uid":8,"mark":0,"markVis":false,"visible":true}
+PASS es-duration: detach+appendTo same task keeps instance :: {"same":true,"rendered":true}
+PASS es-duration: detach, re-append after a frame: remounts fresh, props kept :: {"rendered":true,"newInst":true,"model":"5400","mark":0}
+FAIL es-duration: clone renders independently, slot copied, original intact, no duplicate ids :: {"rendered":true,"other":true,"cmark":0,"omark":true,"dup":2,"stale":true}
+PASS es-duration: .html(x) on host: remounts with x as slot content :: {"rendered":true,"remount":true,"mark2":1,"oldMark":0,"model":"5400"}
+PASS es-duration: .empty() on host: still renders, no slot content :: {"rendered":true,"mark2":0}
+PASS es-duration: .text() on host: still renders :: {"rendered":true}
+PASS es-duration: .remove() unmounts at once; ancestor .empty() unmounts all :: {"t0":0,"t1":2,"t2":1,"t3":0,"nested":0}
+PASS es-select: create in template string renders synchronously :: {"rendered":true,"uid":8,"mark":1,"markVis":false,"visible":true}
+PASS es-select: detach+appendTo same task keeps instance :: {"same":true,"rendered":true}
+PASS es-select: detach, re-append after a frame: remounts fresh, props kept :: {"rendered":true,"newInst":true,"model":"\"red\"","mark":1}
+PASS es-select: clone renders independently, slot copied, original intact, no duplicate ids :: {"rendered":true,"other":true,"cmark":0,"omark":true,"dup":0,"stale":true}
+FAIL es-select: exception (later ops skipped) :: page.evaluate: TypeError: Cannot read properties of null (reading 'nextSibling') |     at nextSibling (http://jq.test/dist/es-ui.iife.js:23:833) |     at xe (http://jq.test/dist/es-ui.iife.js:19:35183)
+PASS es-combobox: create in template string renders synchronously :: {"rendered":true,"uid":8,"mark":1,"markVis":false,"visible":false}
+PASS es-combobox: detach+appendTo same task keeps instance :: {"same":true,"rendered":true}
+PASS es-combobox: detach, re-append after a frame: remounts fresh, props kept :: {"rendered":true,"newInst":true,"model":"null","mark":1}
+PASS es-combobox: clone renders independently, slot copied, original intact, no duplicate ids :: {"rendered":true,"other":true,"cmark":1,"omark":true,"dup":0,"stale":true}
+FAIL es-combobox: exception (later ops skipped) :: page.evaluate: TypeError: Cannot read properties of null (reading 'nextSibling') |     at nextSibling (http://jq.test/dist/es-ui.iife.js:23:833) |     at xe (http://jq.test/dist/es-ui.iife.js:19:35183)
+PASS es-multi-select: create in template string renders synchronously :: {"rendered":true,"uid":8,"mark":1,"markVis":false,"visible":true}
+PASS es-multi-select: detach+appendTo same task keeps instance :: {"same":true,"rendered":true}
+PASS es-multi-select: detach, re-append after a frame: remounts fresh, props kept :: {"rendered":true,"newInst":true,"model":"[\"red\"]","mark":1}
+PASS es-multi-select: clone renders independently, slot copied, original intact, no duplicate ids :: {"rendered":true,"other":true,"cmark":1,"omark":true,"dup":0,"stale":true}
+FAIL es-multi-select: exception (later ops skipped) :: page.evaluate: TypeError: Cannot read properties of null (reading 'nextSibling') |     at nextSibling (http://jq.test/dist/es-ui.iife.js:23:833) |     at xe (http://jq.test/dist/es-ui.iife.js:19:35183)
+PASS es-date-picker: create in template string renders synchronously :: {"rendered":true,"uid":8,"mark":1,"markVis":true,"visible":true}
+PASS es-date-picker: slot child rendered :: {"rendered":true,"uid":8,"mark":1,"markVis":true,"visible":true}
+PASS es-date-picker: detach+appendTo same task keeps instance :: {"same":true,"rendered":true}
+PASS es-date-picker: detach, re-append after a frame: remounts fresh, props kept :: {"rendered":true,"newInst":true,"model":"\"2024-03-15\"","mark":1}
+PASS es-date-picker: clone renders independently, slot copied, original intact, no duplicate ids :: {"rendered":true,"other":true,"cmark":1,"omark":true,"dup":0,"stale":true}
+FAIL es-date-picker: exception (later ops skipped) :: page.evaluate: TypeError: Cannot read properties of null (reading 'nextSibling') |     at nextSibling (http://jq.test/dist/es-ui.iife.js:23:833) |     at xe (http://jq.test/dist/es-ui.iife.js:19:35183)
+PASS es-date-range-picker: create in template string renders synchronously :: {"rendered":true,"uid":8,"mark":0,"markVis":false,"visible":true}
+PASS es-date-range-picker: detach+appendTo same task keeps instance :: {"same":true,"rendered":true}
+PASS es-date-range-picker: detach, re-append after a frame: remounts fresh, props kept :: {"rendered":true,"newInst":true,"model":"[\"2024-03-01\",\"2024-03-05\"]","mark":0}
+FAIL es-date-range-picker: clone renders independently, slot copied, original intact, no duplicate ids :: {"rendered":true,"other":true,"cmark":0,"omark":true,"dup":1,"stale":true}
+FAIL es-date-range-picker: exception (later ops skipped) :: page.evaluate: TypeError: Cannot read properties of null (reading 'nextSibling') |     at nextSibling (http://jq.test/dist/es-ui.iife.js:23:833) |     at xe (http://jq.test/dist/es-ui.iife.js:19:35183)
+PASS es-date-time-picker: create in template string renders synchronously :: {"rendered":true,"uid":8,"mark":0,"markVis":false,"visible":true}
+PASS es-date-time-picker: detach+appendTo same task keeps instance :: {"same":true,"rendered":true}
+PASS es-date-time-picker: detach, re-append after a frame: remounts fresh, props kept :: {"rendered":true,"newInst":true,"model":"\"2024-03-15 10:30:00\"","mark":0}
+FAIL es-date-time-picker: clone renders independently, slot copied, original intact, no duplicate ids :: {"rendered":true,"other":true,"cmark":0,"omark":true,"dup":1,"stale":true}
+FAIL es-date-time-picker: exception (later ops skipped) :: page.evaluate: TypeError: Cannot read properties of null (reading 'nextSibling') |     at nextSibling (http://jq.test/dist/es-ui.iife.js:23:833) |     at xe (http://jq.test/dist/es-ui.iife.js:19:35183)
+PASS es-time-picker: create in template string renders synchronously :: {"rendered":true,"uid":8,"mark":1,"markVis":true,"visible":true}
+PASS es-time-picker: slot child rendered :: {"rendered":true,"uid":8,"mark":1,"markVis":true,"visible":true}
+PASS es-time-picker: detach+appendTo same task keeps instance :: {"same":true,"rendered":true}
+PASS es-time-picker: detach, re-append after a frame: remounts fresh, props kept :: {"rendered":true,"newInst":true,"model":"\"09:00\"","mark":1}
+PASS es-time-picker: clone renders independently, slot copied, original intact, no duplicate ids :: {"rendered":true,"other":true,"cmark":1,"omark":true,"dup":0,"stale":true}
+FAIL es-time-picker: exception (later ops skipped) :: page.evaluate: TypeError: Cannot read properties of null (reading 'nextSibling') |     at nextSibling (http://jq.test/dist/es-ui.iife.js:23:833) |     at xe (http://jq.test/dist/es-ui.iife.js:19:35183)
+PASS es-file-uploader: create in template string renders synchronously :: {"rendered":true,"uid":8,"mark":1,"markVis":true,"visible":true}
+PASS es-file-uploader: slot child rendered :: {"rendered":true,"uid":8,"mark":1,"markVis":true,"visible":true}
+PASS es-file-uploader: detach+appendTo same task keeps instance :: {"same":true,"rendered":true}
+PASS es-file-uploader: detach, re-append after a frame: remounts fresh, props kept :: {"rendered":true,"newInst":true,"mark":1}
+PASS es-file-uploader: clone renders independently, slot copied, original intact, no duplicate ids :: {"rendered":true,"other":true,"cmark":1,"omark":true,"dup":0,"stale":true}
+PASS es-file-uploader: .html(x) on host: remounts with x as slot content :: {"rendered":true,"remount":true,"mark2":1,"oldMark":0}
+PASS es-file-uploader: .empty() on host: still renders, no slot content :: {"rendered":true,"mark2":0}
+PASS es-file-uploader: .text() on host: still renders :: {"rendered":true}
+PASS es-file-uploader: .remove() unmounts at once; ancestor .empty() unmounts all :: {"t0":0,"t1":2,"t2":1,"t3":0,"nested":0}
+PASS es-form-control: create in template string renders synchronously :: {"rendered":true,"uid":8,"mark":1,"markVis":true,"visible":true}
+PASS es-form-control: slot child rendered :: {"rendered":true,"uid":8,"mark":1,"markVis":true,"visible":true}
+PASS es-form-control: detach+appendTo same task keeps instance :: {"same":true,"rendered":true}
+PASS es-form-control: detach, re-append after a frame: remounts fresh, props kept :: {"rendered":true,"newInst":true,"mark":1}
+PASS es-form-control: clone renders independently, slot copied, original intact, no duplicate ids :: {"rendered":true,"other":true,"cmark":1,"omark":true,"dup":0,"stale":true}
+PASS es-form-control: .html(x) on host: remounts with x as slot content :: {"rendered":true,"remount":true,"mark2":1,"oldMark":0}
+PASS es-form-control: .empty() on host: still renders, no slot content :: {"rendered":true,"mark2":0}
+PASS es-form-control: .text() on host: still renders :: {"rendered":true}
+PASS es-form-control: .remove() unmounts at once; ancestor .empty() unmounts all :: {"t0":0,"t1":2,"t2":1,"t3":0,"nested":0}
+PASS es-fw-check-field: create in template string renders synchronously :: {"rendered":true,"uid":8,"mark":0,"markVis":false,"visible":true}
+PASS es-fw-check-field: detach+appendTo same task keeps instance :: {"same":true,"rendered":true}
+PASS es-fw-check-field: detach, re-append after a frame: remounts fresh, props kept :: {"rendered":true,"newInst":true,"model":"0","mark":0}
+FAIL es-fw-check-field: clone renders independently, slot copied, original intact, no duplicate ids :: {"rendered":true,"other":true,"cmark":0,"omark":true,"dup":2,"stale":true}
+PASS es-fw-check-field: .html(x) on host: remounts with x as slot content :: {"rendered":true,"remount":true,"mark2":1,"oldMark":0,"model":"0"}
+PASS es-fw-check-field: .empty() on host: still renders, no slot content :: {"rendered":true,"mark2":0}
+PASS es-fw-check-field: .text() on host: still renders :: {"rendered":true}
+PASS es-fw-check-field: .remove() unmounts at once; ancestor .empty() unmounts all :: {"t0":0,"t1":2,"t2":1,"t3":0,"nested":0}
+PASS es-dropdown: create in template string renders synchronously :: {"rendered":true,"uid":8,"mark":0,"markVis":false,"visible":true}
+PASS es-dropdown: detach+appendTo same task keeps instance :: {"same":true,"rendered":true}
+PASS es-dropdown: detach, re-append after a frame: remounts fresh, props kept :: {"rendered":true,"newInst":true,"mark":0}
+FAIL es-dropdown: clone renders independently, slot copied, original intact, no duplicate ids :: {"rendered":true,"other":true,"cmark":0,"omark":true,"dup":1,"stale":true}
+FAIL es-dropdown: exception (later ops skipped) :: page.evaluate: TypeError: Cannot read properties of null (reading 'nextSibling') |     at nextSibling (http://jq.test/dist/es-ui.iife.js:23:833) |     at xe (http://jq.test/dist/es-ui.iife.js:19:35183)
+PASS es-dialog: create in template string renders synchronously :: {"rendered":true,"uid":8,"mark":1,"markVis":false,"visible":true}
+PASS es-dialog: detach+appendTo same task keeps instance :: {"same":true,"rendered":true}
+PASS es-dialog: detach, re-append after a frame: remounts fresh, props kept :: {"rendered":true,"newInst":true,"model":"false","mark":1}
+PASS es-dialog: clone renders independently, slot copied, original intact, no duplicate ids :: {"rendered":true,"other":true,"cmark":1,"omark":true,"dup":0,"stale":true}
+FAIL es-dialog: exception (later ops skipped) :: page.evaluate: TypeError: Cannot read properties of null (reading 'nextSibling') |     at nextSibling (http://jq.test/dist/es-ui.iife.js:23:833) |     at xe (http://jq.test/dist/es-ui.iife.js:19:35183)
+FAIL after the last spec: no top-level entries, portal empty :: {"top":1,"portal":0,"portalHtml":"","stage":0}
+console errors/warnings: 0
+20 FAILED of 179

@@ -1,0 +1,11 @@
+PASS es-select mouse pick sets the model and the <select> :: {"doc":"High","sel":"High","shown":"High"}
+PASS es-select keyboard pick (Enter, ArrowDown, Enter) :: {"doc":"Medium","active":"trigger"}
+PASS jQuery add_options / set_df_property options mirror into es-select :: {"after_add_options":["X1","X2"],"after_set_df":["Low","Medium","High"],"shown":"Medium"}
+PASS Link $input.val(x) survives a re-render of the Combobox :: "typed by jquery"
+PASS Link mouse pick :: {"doc":"Guest","input":"Guest"}
+PASS Tab picks the active row (tabSelect) :: "Administrator"
+PASS dialog: es-select mouse pick, Link list over the modal, Escape closes list only, Link mouse pick :: {"k":"three","u":"Administrator","dialog":true,"after_esc":{"list":false,"dialog":true},"act":"frappe@example.com Frappe"}
+PASS detached make_control has its <input> at once and releases it on .remove() :: {"input":true,"tag":"INPUT","during":1,"after":0}
+PASS Table MultiSelect keeps the legacy Awesomplete input :: {"es":false,"awesomplete_ul_in_dom":true}
+PASS no console errors :: []
+0 FAILED of 10

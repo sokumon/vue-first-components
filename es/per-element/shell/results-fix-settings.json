@@ -1,0 +1,145 @@
+{
+ "results": [
+  {
+   "k": "closed: no dialog, panels not rendered",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "open via petite :open",
+   "pass": true,
+   "info": "open=true|tab=profile|digest=false|sounds=true|name=Ada"
+  },
+  {
+   "k": "title slot -> dialog accessible name (aria-labelledby)",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "description slot -> aria-describedby",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "sidebar: tablist with 3 tabs (nav items get TabsRoot context)",
+   "pass": true,
+   "info": "[\"A Profile:active\",\"Notifications 3:inactive\",\"Members:inactive\"]"
+  },
+  {
+   "k": "v-model:tab initial value selects Profile",
+   "pass": true,
+   "info": "A Profile:active"
+  },
+  {
+   "k": "nav-group label prop + label slot",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "nav-item prefix slot (avatar) inside the tab",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "nav-item suffix slot (badge) inside the tab",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "sidebar left of content",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "profile panel: header title/description + actions slot",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "row title/description + control slot (text input)",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "row title becomes <label for> the detected control",
+   "pass": true,
+   "info": "frappe-ui-v-0"
+  },
+  {
+   "k": "control inside dialog -> petite; avatar/title slots reactive",
+   "pass": true,
+   "info": "open=true|tab=profile|digest=false|sounds=true|name=Grace"
+  },
+  {
+   "k": "header action button click",
+   "pass": true,
+   "info": "save"
+  },
+  {
+   "k": "click tab -> update:tab -> petite; notifications panel shown, profile panel hidden/unmounted",
+   "pass": true,
+   "info": "open=true|tab=notifications|digest=false|sounds=true|name=Grace"
+  },
+  {
+   "k": "settings-body scrolls (ScrollArea viewport)",
+   "pass": true,
+   "info": ""
+  },
+  {
+   "k": "clicking the row title (label) toggles the switch -> petite",
+   "pass": true,
+   "info": "open=true|tab=notifications|digest=true|sounds=true|name=Grace"
+  },
+  {
+   "k": "row description slot (with link) + switch v-model",
+   "pass": true,
+   "info": "open=true|tab=notifications|digest=true|sounds=false|name=Grace"
+  },
+  {
+   "k": "ArrowDown moves focus to next tab (manual activation: tab not yet selected)",
+   "pass": true,
+   "info": "Notifications 3 open=true|tab=notifications|digest=true|sounds=false|name=Grace"
+  },
+  {
+   "k": "Enter selects focused tab -> members panel, custom header slot",
+   "pass": true,
+   "info": "open=true|tab=members|digest=true|sounds=false|name=Grace Custom header (3)"
+  },
+  {
+   "k": "Escape closes -> update:open false",
+   "pass": true,
+   "info": "open=false|tab=members|digest=true|sounds=false|name=Grace"
+  },
+  {
+   "k": "Ctrl+Shift+, opens (keyboard-shortcut default) -> update:open",
+   "pass": true,
+   "info": "open=true|tab=members|digest=true|sounds=false|name=Grace"
+  },
+  {
+   "k": "reopened: tabs work again (fresh TabsRoot context), selection kept from v-model:tab",
+   "pass": true,
+   "info": "[\"Profile:inactive\",\"3:inactive\",\"Members:active\"]"
+  },
+  {
+   "k": "reopened: switching tabs still works",
+   "pass": true,
+   "info": "open=true|tab=profile|digest=true|sounds=false|name=Grace"
+  },
+  {
+   "k": "shortcut toggles closed",
+   "pass": true,
+   "info": "open=false|tab=profile|digest=true|sounds=false|name=Grace"
+  },
+  {
+   "k": "tab prop set from outside selects that panel on open",
+   "pass": true,
+   "info": "inactive,active,inactive"
+  },
+  {
+   "k": "closed again; slot hosts parked (no leaked dialog)",
+   "pass": true,
+   "info": "4"
+  }
+ ],
+ "errs": []
+}
